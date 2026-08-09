@@ -1029,9 +1029,42 @@ function formatIntelligenceMetric(value, fallback = "Pending") {
 }
 
 function activeMissionBySourceId(missionState) {
+  const execution = missionExecutionStateBySourceId(missionState);
   const map = new Map();
-  for (const mission of (missionState && missionState.missions) || []) {
-    if (mission.status === "active" && mission.sourceMissionId) map.set(mission.sourceMissionId, mission);
+  for (const [sourceMissionId, state] of execution.entries()) {
+    if (state.active && state.latest && state.latest.status === "active") {
+      map.set(sourceMissionId, state.active);
+    }
+  }
+  return map;
+}
+
+function missionSequence(record) {
+  return Number(record && record.sequenceNumber) || 0;
+}
+
+function missionExecutionStateBySourceId(missionState) {
+  const map = new Map();
+  const missions = ((missionState && missionState.missions) || [])
+    .filter((mission) => mission.sourceMissionId)
+    .slice()
+    .sort((a, b) => missionSequence(b) - missionSequence(a));
+  for (const mission of missions) {
+    const sourceMissionId = mission.sourceMissionId;
+    if (!map.has(sourceMissionId)) {
+      map.set(sourceMissionId, {
+        latest: mission,
+        active: null,
+        completed: null,
+        blocked: null,
+        related: [],
+      });
+    }
+    const state = map.get(sourceMissionId);
+    state.related.push(mission);
+    if (mission.status === "active" && !state.active) state.active = mission;
+    if (mission.status === "completed" && !state.completed) state.completed = mission;
+    if (mission.status === "blocked" && !state.blocked) state.blocked = mission;
   }
   return map;
 }
@@ -1051,7 +1084,8 @@ function missionTargetMarketIds(mission) {
 }
 
 function searchMissionOpportunityState(mission, missionState) {
-  const active = activeMissionBySourceId(missionState).get(mission.id);
+  const execution = missionExecutionStateBySourceId(missionState).get(mission.id) || {};
+  const active = execution.latest && execution.latest.status === "active" ? execution.active : null;
   const related = ((missionState && missionState.missions) || [])
     .filter((record) => record.sourceMissionId === mission.id);
   const addressedMarkets = new Set();
@@ -1071,7 +1105,16 @@ function searchMissionOpportunityState(mission, missionState) {
   const progressText = addressedMarkets.size
     ? `${addressedMarkets.size} market${addressedMarkets.size === 1 ? "" : "s"} addressed${remainingMarkets ? ` · ${remainingMarkets} remain` : ""}`
     : "";
-  return { state, active, addressedMarkets, totalMarkets, remainingMarkets, progressText };
+  return {
+    state,
+    active,
+    latestMission: execution.latest || null,
+    completedMission: execution.completed || null,
+    addressedMarkets,
+    totalMarkets,
+    remainingMarkets,
+    progressText,
+  };
 }
 
 function renderSearchMissionState(mission, token, activeBySource, missionState) {
@@ -1427,6 +1470,110 @@ function firstActionableMission(eos) {
   return null;
 }
 
+function currentMissionById(eos) {
+  const map = new Map();
+  for (const mission of (((eos.portfolioQueues || {}).missionQueue) || [])) {
+    if (mission.id) map.set(mission.id, mission);
+  }
+  for (const market of (((eos.marketProjection || {}).markets) || [])) {
+    for (const mission of market.nextMissions || []) {
+      if (mission.id && !map.has(mission.id)) map.set(mission.id, mission);
+    }
+  }
+  return map;
+}
+
+function cmeComplete(statuses) {
+  return String(statuses && statuses.commercialMarketEvidence || "").toLowerCase() === "complete";
+}
+
+function profileTarget(statuses) {
+  const evidence = statuses && statuses.evidenceBuildingProfiles;
+  const supporting = statuses && statuses.supportingBuildingProfiles;
+  return (Number(evidence && evidence.target) || 0) + (Number(supporting && supporting.target) || 0);
+}
+
+function profileMissing(statuses) {
+  const evidence = statuses && statuses.evidenceBuildingProfiles;
+  const supporting = statuses && statuses.supportingBuildingProfiles;
+  return (Number(evidence && evidence.missing) || 0) + (Number(supporting && supporting.missing) || 0);
+}
+
+function relatedCurrentDistrictMission(eos, mission) {
+  const allMissions = (((eos.portfolioQueues || {}).missionQueue) || [])
+    .filter((item) =>
+      item &&
+      item.source &&
+      item.source.resolverId === "district-building-evidence-resolver-v1" &&
+      item.marketId === mission.marketId
+    );
+  const districtId = String(mission.districtId || "");
+  return allMissions
+    .filter((item) => item.id !== mission.id)
+    .filter((item) => {
+      const itemDistrictId = String(item.districtId || "");
+      return itemDistrictId === districtId || itemDistrictId.startsWith(`${districtId}-`) || districtId.startsWith(`${itemDistrictId}-`);
+    })
+    .filter((item) => cmeComplete(item.componentStatuses) && profileMissing(item.componentStatuses) > 0)
+    .sort((a, b) => profileMissing(b.componentStatuses) - profileMissing(a.componentStatuses))[0] || null;
+}
+
+function currentStrategicReason(mission) {
+  const statuses = mission.componentStatuses || {};
+  if (cmeComplete(statuses) && profileMissing(statuses) > 0) {
+    return `${mission.districtName || mission.title} foundation and Commercial Market Evidence are established. Complete the remaining selected Building Profiles (${profileMissing(statuses)} of ${profileTarget(statuses)}).`;
+  }
+  if (!cmeComplete(statuses) && profileMissing(statuses) > 0) {
+    return `${mission.districtName || mission.title} still needs Commercial Market Evidence and selected Building Profile work.`;
+  }
+  if (!cmeComplete(statuses)) {
+    return `${mission.districtName || mission.title} still needs a Commercial Market Evidence collection.`;
+  }
+  return mission.currentConstraint || "Highest-priority market mission from the current EOS market projection.";
+}
+
+function revalidateStrategicMissionCandidate(candidate, eos, token) {
+  const missionMap = currentMissionById(eos);
+  let mission = missionMap.get(candidate.id) || candidate;
+  if (!mission) return { valid: false, suppress: true };
+  if (mission.status && mission.status.id === "completed") return { valid: false, suppress: true };
+
+  const statuses = mission.componentStatuses || {};
+  const staleMissingCme = /lacks a Commercial Market Evidence collection/i.test(mission.currentConstraint || "") && cmeComplete(statuses);
+  if (/lacks a Commercial Market Evidence collection/i.test(mission.currentConstraint || "") && !cmeComplete(statuses)) {
+    const related = relatedCurrentDistrictMission(eos, mission);
+    if (related) mission = related;
+  }
+
+  const refreshedStatuses = mission.componentStatuses || {};
+  if (cmeComplete(refreshedStatuses) && profileMissing(refreshedStatuses) === 0 && mission.source && mission.source.resolverId === "district-building-evidence-resolver-v1") {
+    return { valid: false, suppress: true };
+  }
+
+  return {
+    valid: true,
+    title: mission.title,
+    reason: staleMissingCme ? currentStrategicReason(mission) : currentStrategicReason(mission),
+    effort: mission.estimatedEffort || "Medium",
+    impact: mission.expectedImpact || "High",
+    actionLabel: "Commence Work",
+    href: mission.executionPacket ? taskUrl(token, mission.id) : `/admin/eos?${tokenParam(token)}&queue=markets`,
+    mission,
+    currentReadinessEvidence: refreshedStatuses,
+  };
+}
+
+function firstFreshStrategicRecommendation(eos, token) {
+  for (const market of activeProjectedMarkets(eos)) {
+    for (const projectedMission of market.nextMissions || []) {
+      const canonicalMission = missionById(eos, projectedMission.id) || projectedMission;
+      const revalidated = revalidateStrategicMissionCandidate(canonicalMission, eos, token);
+      if (revalidated.valid) return { market, ...revalidated };
+    }
+  }
+  return null;
+}
+
 function todayRecommendations(eos, token, missionState) {
   const recommendations = [];
   const queues = eos.portfolioQueues || {};
@@ -1451,9 +1598,10 @@ function todayRecommendations(eos, token, missionState) {
     });
   }
 
-  const searchMission = searchMissions.find((mission) => searchMissionOpportunityState(mission, missionState).state !== "addressed") || searchMissions[0];
+  const searchMission = searchMissions.find((mission) => searchMissionOpportunityState(mission, missionState).state !== "addressed") || null;
   if (searchMission) {
-    const activeMission = activeBySource.get(searchMission.id);
+    const opportunity = searchMissionOpportunityState(searchMission, missionState);
+    const activeMission = opportunity.active || activeBySource.get(searchMission.id);
     const markets = (searchMission.supportingMarkets || []).slice(0, 3).map((market) => market.marketName).join(", ");
     recommendations.push({
       type: "Search Mission",
@@ -1465,6 +1613,7 @@ function todayRecommendations(eos, token, missionState) {
       impact: activeMission ? activeMission.expectedImpact : searchMission.confidence === "high" ? "High" : "Medium",
       actionLabel: activeMission ? "Continue Mission" : "Review Mission",
       href: activeMission ? durableMissionUrl(token, activeMission.id) : searchMissionUrl(token, searchMission.id),
+      currentMissionState: opportunity.state,
     });
   } else {
     const searchLed = googleMarkets.find((market) =>
@@ -1485,17 +1634,18 @@ function todayRecommendations(eos, token, missionState) {
     }
   }
 
-  const missionRecord = firstActionableMission(eos);
+  const missionRecord = firstFreshStrategicRecommendation(eos, token);
   if (missionRecord) {
     const { market, mission } = missionRecord;
     recommendations.push({
       type: "Strategic",
-      title: `${market.label}: ${mission.title}`,
-      reason: mission.currentConstraint || "Highest-priority market mission from the current EOS market projection.",
-      effort: mission.estimatedEffort || "Medium",
-      impact: mission.expectedImpact || "High",
-      actionLabel: "Commence Work",
-      href: mission.executionPacket ? taskUrl(token, mission.id) : `/admin/eos?${tokenParam(token)}&queue=markets`,
+      title: `${market.label}: ${missionRecord.title || mission.title}`,
+      reason: missionRecord.reason,
+      effort: missionRecord.effort,
+      impact: missionRecord.impact,
+      actionLabel: missionRecord.actionLabel,
+      href: missionRecord.href,
+      currentReadinessEvidence: missionRecord.currentReadinessEvidence,
     });
   }
 
