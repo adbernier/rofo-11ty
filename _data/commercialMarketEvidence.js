@@ -2,6 +2,7 @@ module.exports = {
   collections: [
     require("../data/commercial-market-evidence/antioch/antioch-east-18th-industrial"),
     require("../data/commercial-market-evidence/aurora/aurora-i-70-airport-industrial"),
+    require("../data/commercial-market-evidence/denver/denver-tech-center"),
     require("../data/commercial-market-evidence/denver/downtown-denver"),
     require("../data/commercial-market-evidence/fort-wayne/fort-wayne-airport-industrial"),
     require("../data/commercial-market-evidence/indianapolis/indianapolis-airport-logistics"),
