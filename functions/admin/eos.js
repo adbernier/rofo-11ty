@@ -1499,6 +1499,19 @@ function profileMissing(statuses) {
   return (Number(evidence && evidence.missing) || 0) + (Number(supporting && supporting.missing) || 0);
 }
 
+function districtEvidenceComponentStatuses(district) {
+  if (!district) return {};
+  return {
+    commercialMarketEvidence: district.cmeStatus,
+    evidenceRecordCount: district.evidenceRecordCount,
+    evidenceBuildingProfiles: district.evidenceProfileCoverage,
+    supportingBuildingProfiles: district.supportingProfileCoverage,
+    unresolvedBuildingItems: district.unresolvedBuildingItems,
+    validationStatus: district.validationStatus,
+    districtBuildingEvidence: district.districtMissionStatus,
+  };
+}
+
 function isDistrictBuildingEvidenceMission(mission) {
   if (!mission) return false;
   if (mission.source && mission.source.resolverId === "district-building-evidence-resolver-v1") return true;
@@ -1523,6 +1536,22 @@ function relatedCurrentDistrictMission(eos, mission) {
     })
     .filter((item) => cmeComplete(item.componentStatuses) && profileMissing(item.componentStatuses) > 0)
     .sort((a, b) => profileMissing(b.componentStatuses) - profileMissing(a.componentStatuses))[0] || null;
+}
+
+function relatedCompleteDistrictEvidence(eos, mission) {
+  const districts = ((((eos.portfolioResolution || {}).programs || {}).districtBuildingEvidence || {}).districts || [])
+    .filter((district) => district && district.marketId === mission.marketId);
+  const districtId = String(mission.districtId || "");
+  return districts
+    .filter((district) => String(district.districtId || "") !== districtId)
+    .filter((district) => {
+      const itemDistrictId = String(district.districtId || "");
+      return itemDistrictId === districtId || itemDistrictId.startsWith(`${districtId}-`) || districtId.startsWith(`${itemDistrictId}-`);
+    })
+    .filter((district) => {
+      const statuses = districtEvidenceComponentStatuses(district);
+      return cmeComplete(statuses) && profileMissing(statuses) === 0;
+    })[0] || null;
 }
 
 function currentStrategicReason(mission) {
@@ -1550,6 +1579,7 @@ function revalidateStrategicMissionCandidate(candidate, eos, token) {
   if (/lacks a Commercial Market Evidence collection/i.test(mission.currentConstraint || "") && !cmeComplete(statuses)) {
     const related = relatedCurrentDistrictMission(eos, mission);
     if (related) mission = related;
+    else if (relatedCompleteDistrictEvidence(eos, mission)) return { valid: false, suppress: true };
   }
 
   const refreshedStatuses = mission.componentStatuses || {};
