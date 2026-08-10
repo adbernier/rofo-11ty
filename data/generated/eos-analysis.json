@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-09T16:08:20-07:00",
+  "generatedAt": "2026-08-09T16:21:41-07:00",
   "eosVersion": "editorial-operating-system-v2.2.4",
   "sourceSystems": [
     "Publisher",
@@ -13,7 +13,7 @@
   ],
   "commercialKnowledgeIntelligence": {
     "schemaVersion": "eos-commercial-knowledge-intelligence-v1",
-    "generatedAt": "2026-08-09T16:08:20-07:00",
+    "generatedAt": "2026-08-09T16:21:41-07:00",
     "sourceSystems": [
       "Editor-controlled strategic priorities",
       "Google Search Console Search Analytics API",
@@ -186794,7 +186794,7 @@
         "Low": 2
       },
       "deferredCandidates": 55,
-      "latestValidation": "2026-08-09T16:08:20-07:00",
+      "latestValidation": "2026-08-09T16:21:41-07:00",
       "errors": [],
       "warnings": [],
       "source": {
@@ -197457,74 +197457,6 @@
             "eligibleForExecution": true
           },
           {
-            "portfolioId": "portfolio:denver:building-profiles:aurora-i-70-airport-industrial:industrial-flex",
-            "portfolioTitle": "Aurora I-70 / Airport Industrial Industrial Flex Portfolio",
-            "marketId": "denver",
-            "marketName": "Denver",
-            "sourcePublisherMetroId": "denver",
-            "sourcePublisherMetroName": "Denver",
-            "programId": "building_profiles",
-            "campaignId": "denver:building_profiles:completion-campaign",
-            "districtId": "aurora-i-70-airport-industrial",
-            "districtName": "Aurora I-70 / Airport Industrial",
-            "districtPath": "/commercial-real-estate/CO/aurora/aurora-i-70-airport-industrial/",
-            "ecosystem": "industrial_flex",
-            "ecosystemLabel": "Industrial Flex",
-            "workItems": [
-              {
-                "id": "publisher:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-aurora-1300-1390-s-potomac-st",
-                "title": "1300-1390 S Potomac St Building Profile",
-                "buildingName": "1300-1390 S Potomac St",
-                "buildingPath": "/commercial-real-estate/building/CO/aurora/1300-1390-s-potomac-st/",
-                "sourceTaskId": "publisher:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-aurora-1300-1390-s-potomac-st",
-                "reason": "Representative building has not migrated to the canonical Building Brief journey."
-              },
-              {
-                "id": "publisher:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-aurora-17100-17210-e-ohio-dr",
-                "title": "17100-17210 E Ohio Dr Building Profile",
-                "buildingName": "17100-17210 E Ohio Dr",
-                "buildingPath": "/commercial-real-estate/building/CO/aurora/17100-17210-e-ohio-dr/",
-                "sourceTaskId": "publisher:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-aurora-17100-17210-e-ohio-dr",
-                "reason": "Representative building has not migrated to the canonical Building Brief journey."
-              },
-              {
-                "id": "publisher:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-aurora-3250-abilene-st",
-                "title": "3250 Abilene St Building Profile",
-                "buildingName": "3250 Abilene St",
-                "buildingPath": "/commercial-real-estate/building/CO/aurora/3250-abilene-st/",
-                "sourceTaskId": "publisher:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-aurora-3250-abilene-st",
-                "reason": "Representative building has not migrated to the canonical Building Brief journey."
-              }
-            ],
-            "workItemCount": 3,
-            "completedCount": 0,
-            "remainingCount": 3,
-            "missionSize": {
-              "id": "small",
-              "label": "Small",
-              "reviewWindow": "30-60 minutes",
-              "maximumWorkItems": 3
-            },
-            "estimatedReviewability": "Small: 30-60 minutes",
-            "groupingRationale": [
-              "Grouped by operational market, canonical district, ecosystem, source-data path, and Building Brief validation path.",
-              "3 Building Profile work items can be authored or migrated consistently in one reviewable SER."
-            ],
-            "splitRationale": [
-              "No split required; portfolio stays within the configured mission-size upper bound."
-            ],
-            "sourceOverlap": [
-              "_data/buildingPages.js",
-              "_data/commercialBuildingIntelligence.js"
-            ],
-            "validationPath": [
-              "node scripts/qa-building-brief-depth.js",
-              "node scripts/qa-eos.js"
-            ],
-            "confidence": "High",
-            "eligibleForExecution": true
-          },
-          {
             "portfolioId": "portfolio:denver:building-profiles:aurora:medical",
             "portfolioTitle": "Aurora Medical Portfolio",
             "marketId": "denver",
@@ -201548,9 +201480,9 @@
           }
         ],
         "summary": {
-          "portfolios": 48,
-          "executablePortfolios": 48,
-          "hiddenWorkItems": 180,
+          "portfolios": 47,
+          "executablePortfolios": 47,
+          "hiddenWorkItems": 177,
           "ungroupedItems": 85,
           "maximumPortfolioSize": 12,
           "targetPortfolioRange": "8-12 buildings when source and validation paths are coherent; smaller portfolios remain valid when fewer buildings remain."
@@ -201775,103 +201707,6 @@
               "No split required; missing district collection starts as one Standard mission."
             ],
             "confidence": "Medium"
-          },
-          {
-            "evidenceMissionId": "district-building-evidence:denver:aurora-i-70-airport-industrial",
-            "marketId": "denver",
-            "marketName": "Denver",
-            "programId": "commercial_market_evidence",
-            "campaignId": "denver:commercial_market_evidence:completion-campaign",
-            "districtId": "aurora-i-70-airport-industrial",
-            "districtName": "Aurora I-70 / Airport Industrial",
-            "districtPath": "/commercial-real-estate/CO/aurora/aurora-i-70-airport-industrial/",
-            "cmeStatus": "Complete",
-            "collectionId": "aurora-i-70-airport-industrial-commercial-market-evidence",
-            "evidenceRecordCount": 3,
-            "evidenceProfileCoverage": {
-              "completed": 0,
-              "target": 3,
-              "missing": 3,
-              "label": "0 / 3"
-            },
-            "supportingProfileCoverage": {
-              "completed": 0,
-              "target": 0,
-              "missing": 0,
-              "label": "No supporting profile work selected"
-            },
-            "unresolvedBuildingItems": 0,
-            "validationStatus": "Requires validation",
-            "districtMissionStatus": "In Progress",
-            "workItems": [
-              {
-                "id": "district-building-evidence:aurora-i-70-airport-industrial:profile:commercial-real-estate-building-co-aurora-3250-abilene-st",
-                "title": "3250 Abilene St Building Profile",
-                "category": "buildingBriefs",
-                "categoryLabel": "Building Profiles",
-                "reason": "Selected Commercial Market Evidence building lacks adequate Building Profile depth.",
-                "buildingName": "3250 Abilene St",
-                "buildingPath": "/commercial-real-estate/building/CO/aurora/3250-abilene-st/",
-                "evidenceRecordId": "aurora-i70-airport-3250-abilene",
-                "evidenceType": "aurora_industrial_building",
-                "evidenceRole": "large_format_industrial_benchmark",
-                "suggestedModule": {
-                  "id": "publisher",
-                  "label": "Publisher"
-                }
-              },
-              {
-                "id": "district-building-evidence:aurora-i-70-airport-industrial:profile:commercial-real-estate-building-co-aurora-1300-1390-s-potomac-st",
-                "title": "1300-1390 S Potomac St Building Profile",
-                "category": "buildingBriefs",
-                "categoryLabel": "Building Profiles",
-                "reason": "Selected Commercial Market Evidence building lacks adequate Building Profile depth.",
-                "buildingName": "1300-1390 S Potomac St",
-                "buildingPath": "/commercial-real-estate/building/CO/aurora/1300-1390-s-potomac-st/",
-                "evidenceRecordId": "aurora-i70-airport-1300-potomac",
-                "evidenceType": "aurora_industrial_building",
-                "evidenceRole": "service_industrial_benchmark",
-                "suggestedModule": {
-                  "id": "publisher",
-                  "label": "Publisher"
-                }
-              },
-              {
-                "id": "district-building-evidence:aurora-i-70-airport-industrial:profile:commercial-real-estate-building-co-aurora-17100-17210-e-ohio-dr",
-                "title": "17100-17210 E Ohio Dr Building Profile",
-                "category": "buildingBriefs",
-                "categoryLabel": "Building Profiles",
-                "reason": "Selected Commercial Market Evidence building lacks adequate Building Profile depth.",
-                "buildingName": "17100-17210 E Ohio Dr",
-                "buildingPath": "/commercial-real-estate/building/CO/aurora/17100-17210-e-ohio-dr/",
-                "evidenceRecordId": "aurora-i70-airport-17100-ohio",
-                "evidenceType": "aurora_industrial_building",
-                "evidenceRole": "small_mid_format_industrial_benchmark",
-                "suggestedModule": {
-                  "id": "publisher",
-                  "label": "Publisher"
-                }
-              }
-            ],
-            "workItemCount": 4,
-            "deferredWorkItems": [],
-            "missionSize": {
-              "id": "standard",
-              "label": "Standard",
-              "reviewWindow": "60-120 minutes",
-              "maximumWorkItems": 8
-            },
-            "eligibleForExecution": true,
-            "executionReadiness": "Queued",
-            "groupingRationale": [
-              "Commercial Market Evidence and selected Building Profiles share district research context, source paths, and validation flow.",
-              "Existing Commercial Market Evidence collection remains intact; mission focuses on validating the collection and completing selected evidence Building Profiles.",
-              "Evidence records remain hidden Work Items; Building Profile content stays in Commercial Building Intelligence."
-            ],
-            "splitRationale": [
-              "No split required; district building evidence stays within the configured mission-size upper bound."
-            ],
-            "confidence": "High"
           },
           {
             "evidenceMissionId": "district-building-evidence:denver:broomfield",
@@ -203252,6 +203087,54 @@
               "No split required; missing district collection starts as one Standard mission."
             ],
             "confidence": "Medium"
+          },
+          {
+            "evidenceMissionId": "district-building-evidence:denver:aurora-i-70-airport-industrial",
+            "marketId": "denver",
+            "marketName": "Denver",
+            "programId": "commercial_market_evidence",
+            "campaignId": "denver:commercial_market_evidence:completion-campaign",
+            "districtId": "aurora-i-70-airport-industrial",
+            "districtName": "Aurora I-70 / Airport Industrial",
+            "districtPath": "/commercial-real-estate/CO/aurora/aurora-i-70-airport-industrial/",
+            "cmeStatus": "Complete",
+            "collectionId": "aurora-i-70-airport-industrial-commercial-market-evidence",
+            "evidenceRecordCount": 3,
+            "evidenceProfileCoverage": {
+              "completed": 3,
+              "target": 3,
+              "missing": 0,
+              "label": "3 / 3"
+            },
+            "supportingProfileCoverage": {
+              "completed": 0,
+              "target": 0,
+              "missing": 0,
+              "label": "No supporting profile work selected"
+            },
+            "unresolvedBuildingItems": 0,
+            "validationStatus": "Requires validation",
+            "districtMissionStatus": "Complete",
+            "workItems": [],
+            "workItemCount": 0,
+            "deferredWorkItems": [],
+            "missionSize": {
+              "id": "small",
+              "label": "Small",
+              "reviewWindow": "30-60 minutes",
+              "maximumWorkItems": 3
+            },
+            "eligibleForExecution": false,
+            "executionReadiness": "Complete",
+            "groupingRationale": [
+              "Commercial Market Evidence and selected Building Profiles share district research context, source paths, and validation flow.",
+              "Existing Commercial Market Evidence collection remains intact; mission focuses on validating the collection and completing selected evidence Building Profiles.",
+              "Evidence records remain hidden Work Items; Building Profile content stays in Commercial Building Intelligence."
+            ],
+            "splitRationale": [
+              "No split required; district building evidence stays within the configured mission-size upper bound."
+            ],
+            "confidence": "High"
           },
           {
             "evidenceMissionId": "district-building-evidence:denver:downtown-denver",
@@ -210345,11 +210228,11 @@
         ],
         "summary": {
           "districts": 94,
-          "executableDistrictMissions": 87,
-          "completedDistricts": 5,
-          "inProgressDistricts": 11,
+          "executableDistrictMissions": 86,
+          "completedDistricts": 6,
+          "inProgressDistricts": 10,
           "missingCollections": 78,
-          "hiddenWorkItems": 333,
+          "hiddenWorkItems": 329,
           "unresolvedBuildingItems": 0
         }
       }
@@ -210772,7 +210655,6 @@
                 "nextMissionId": "mission:denver:district-building-evidence:aurora",
                 "initiativeIds": [
                   "denver:commercial_market_evidence:aurora",
-                  "denver:commercial_market_evidence:aurora-i-70-airport-industrial",
                   "denver:commercial_market_evidence:northeast-denver-industrial",
                   "denver:commercial_market_evidence:denver-tech-center",
                   "denver:commercial_market_evidence:inverness",
@@ -210792,6 +210674,7 @@
                   "denver:commercial_market_evidence:golden",
                   "denver:commercial_market_evidence:commerce-city",
                   "denver:commercial_market_evidence:lone-tree",
+                  "denver:commercial_market_evidence:aurora-i-70-airport-industrial",
                   "denver:commercial_market_evidence:downtown-denver"
                 ],
                 "missionIds": [
@@ -210799,7 +210682,6 @@
                   "mission:denver:district-building-evidence:denver-tech-center",
                   "mission:denver:district-building-evidence:inverness",
                   "mission:denver:district-building-evidence:northeast-denver-industrial",
-                  "mission:denver:district-building-evidence:aurora-i-70-airport-industrial",
                   "mission:denver:district-building-evidence:broomfield",
                   "mission:denver:district-building-evidence:centennial",
                   "mission:denver:district-building-evidence:rino",
@@ -210817,8 +210699,8 @@
                   "mission:denver:district-building-evidence:commerce-city",
                   "mission:denver:district-building-evidence:lone-tree"
                 ],
-                "missionCount": 21,
-                "workItemCount": 55,
+                "missionCount": 20,
+                "workItemCount": 51,
                 "districtBuildingEvidence": {
                   "districts": [
                     {
@@ -211031,103 +210913,6 @@
                         "No split required; missing district collection starts as one Standard mission."
                       ],
                       "confidence": "Medium"
-                    },
-                    {
-                      "evidenceMissionId": "district-building-evidence:denver:aurora-i-70-airport-industrial",
-                      "marketId": "denver",
-                      "marketName": "Denver",
-                      "programId": "commercial_market_evidence",
-                      "campaignId": "denver:commercial_market_evidence:completion-campaign",
-                      "districtId": "aurora-i-70-airport-industrial",
-                      "districtName": "Aurora I-70 / Airport Industrial",
-                      "districtPath": "/commercial-real-estate/CO/aurora/aurora-i-70-airport-industrial/",
-                      "cmeStatus": "Complete",
-                      "collectionId": "aurora-i-70-airport-industrial-commercial-market-evidence",
-                      "evidenceRecordCount": 3,
-                      "evidenceProfileCoverage": {
-                        "completed": 0,
-                        "target": 3,
-                        "missing": 3,
-                        "label": "0 / 3"
-                      },
-                      "supportingProfileCoverage": {
-                        "completed": 0,
-                        "target": 0,
-                        "missing": 0,
-                        "label": "No supporting profile work selected"
-                      },
-                      "unresolvedBuildingItems": 0,
-                      "validationStatus": "Requires validation",
-                      "districtMissionStatus": "In Progress",
-                      "workItems": [
-                        {
-                          "id": "district-building-evidence:aurora-i-70-airport-industrial:profile:commercial-real-estate-building-co-aurora-3250-abilene-st",
-                          "title": "3250 Abilene St Building Profile",
-                          "category": "buildingBriefs",
-                          "categoryLabel": "Building Profiles",
-                          "reason": "Selected Commercial Market Evidence building lacks adequate Building Profile depth.",
-                          "buildingName": "3250 Abilene St",
-                          "buildingPath": "/commercial-real-estate/building/CO/aurora/3250-abilene-st/",
-                          "evidenceRecordId": "aurora-i70-airport-3250-abilene",
-                          "evidenceType": "aurora_industrial_building",
-                          "evidenceRole": "large_format_industrial_benchmark",
-                          "suggestedModule": {
-                            "id": "publisher",
-                            "label": "Publisher"
-                          }
-                        },
-                        {
-                          "id": "district-building-evidence:aurora-i-70-airport-industrial:profile:commercial-real-estate-building-co-aurora-1300-1390-s-potomac-st",
-                          "title": "1300-1390 S Potomac St Building Profile",
-                          "category": "buildingBriefs",
-                          "categoryLabel": "Building Profiles",
-                          "reason": "Selected Commercial Market Evidence building lacks adequate Building Profile depth.",
-                          "buildingName": "1300-1390 S Potomac St",
-                          "buildingPath": "/commercial-real-estate/building/CO/aurora/1300-1390-s-potomac-st/",
-                          "evidenceRecordId": "aurora-i70-airport-1300-potomac",
-                          "evidenceType": "aurora_industrial_building",
-                          "evidenceRole": "service_industrial_benchmark",
-                          "suggestedModule": {
-                            "id": "publisher",
-                            "label": "Publisher"
-                          }
-                        },
-                        {
-                          "id": "district-building-evidence:aurora-i-70-airport-industrial:profile:commercial-real-estate-building-co-aurora-17100-17210-e-ohio-dr",
-                          "title": "17100-17210 E Ohio Dr Building Profile",
-                          "category": "buildingBriefs",
-                          "categoryLabel": "Building Profiles",
-                          "reason": "Selected Commercial Market Evidence building lacks adequate Building Profile depth.",
-                          "buildingName": "17100-17210 E Ohio Dr",
-                          "buildingPath": "/commercial-real-estate/building/CO/aurora/17100-17210-e-ohio-dr/",
-                          "evidenceRecordId": "aurora-i70-airport-17100-ohio",
-                          "evidenceType": "aurora_industrial_building",
-                          "evidenceRole": "small_mid_format_industrial_benchmark",
-                          "suggestedModule": {
-                            "id": "publisher",
-                            "label": "Publisher"
-                          }
-                        }
-                      ],
-                      "workItemCount": 4,
-                      "deferredWorkItems": [],
-                      "missionSize": {
-                        "id": "standard",
-                        "label": "Standard",
-                        "reviewWindow": "60-120 minutes",
-                        "maximumWorkItems": 8
-                      },
-                      "eligibleForExecution": true,
-                      "executionReadiness": "Queued",
-                      "groupingRationale": [
-                        "Commercial Market Evidence and selected Building Profiles share district research context, source paths, and validation flow.",
-                        "Existing Commercial Market Evidence collection remains intact; mission focuses on validating the collection and completing selected evidence Building Profiles.",
-                        "Evidence records remain hidden Work Items; Building Profile content stays in Commercial Building Intelligence."
-                      ],
-                      "splitRationale": [
-                        "No split required; district building evidence stays within the configured mission-size upper bound."
-                      ],
-                      "confidence": "High"
                     },
                     {
                       "evidenceMissionId": "district-building-evidence:denver:broomfield",
@@ -212510,6 +212295,54 @@
                       "confidence": "Medium"
                     },
                     {
+                      "evidenceMissionId": "district-building-evidence:denver:aurora-i-70-airport-industrial",
+                      "marketId": "denver",
+                      "marketName": "Denver",
+                      "programId": "commercial_market_evidence",
+                      "campaignId": "denver:commercial_market_evidence:completion-campaign",
+                      "districtId": "aurora-i-70-airport-industrial",
+                      "districtName": "Aurora I-70 / Airport Industrial",
+                      "districtPath": "/commercial-real-estate/CO/aurora/aurora-i-70-airport-industrial/",
+                      "cmeStatus": "Complete",
+                      "collectionId": "aurora-i-70-airport-industrial-commercial-market-evidence",
+                      "evidenceRecordCount": 3,
+                      "evidenceProfileCoverage": {
+                        "completed": 3,
+                        "target": 3,
+                        "missing": 0,
+                        "label": "3 / 3"
+                      },
+                      "supportingProfileCoverage": {
+                        "completed": 0,
+                        "target": 0,
+                        "missing": 0,
+                        "label": "No supporting profile work selected"
+                      },
+                      "unresolvedBuildingItems": 0,
+                      "validationStatus": "Requires validation",
+                      "districtMissionStatus": "Complete",
+                      "workItems": [],
+                      "workItemCount": 0,
+                      "deferredWorkItems": [],
+                      "missionSize": {
+                        "id": "small",
+                        "label": "Small",
+                        "reviewWindow": "30-60 minutes",
+                        "maximumWorkItems": 3
+                      },
+                      "eligibleForExecution": false,
+                      "executionReadiness": "Complete",
+                      "groupingRationale": [
+                        "Commercial Market Evidence and selected Building Profiles share district research context, source paths, and validation flow.",
+                        "Existing Commercial Market Evidence collection remains intact; mission focuses on validating the collection and completing selected evidence Building Profiles.",
+                        "Evidence records remain hidden Work Items; Building Profile content stays in Commercial Building Intelligence."
+                      ],
+                      "splitRationale": [
+                        "No split required; district building evidence stays within the configured mission-size upper bound."
+                      ],
+                      "confidence": "High"
+                    },
+                    {
                       "evidenceMissionId": "district-building-evidence:denver:downtown-denver",
                       "marketId": "denver",
                       "marketName": "Denver",
@@ -212558,16 +212391,16 @@
                       "confidence": "High"
                     }
                   ],
-                  "executableDistrictMissionCount": 21,
-                  "completeDistrictCount": 1,
-                  "inProgressDistrictCount": 1,
+                  "executableDistrictMissionCount": 20,
+                  "completeDistrictCount": 2,
+                  "inProgressDistrictCount": 0,
                   "missingDistrictCount": 20,
-                  "hiddenWorkItemCount": 55,
+                  "hiddenWorkItemCount": 51,
                   "unresolvedBuildingItemCount": 0
                 },
                 "workItems": {
                   "hiddenByDefault": true,
-                  "count": 55
+                  "count": 51
                 },
                 "sizingStrategy": "District Building Evidence missions combine Commercial Market Evidence and selected Building Profiles when both share one district workflow. Evidence records and building Work Items stay hidden inside one reviewable SER.",
                 "reviewabilityPrinciple": "Campaigns are not executable. They advance through Missions sized to remain reviewable inside one SER.",
@@ -212698,116 +212531,6 @@
                       "deferredWorkItemIds": [
                         "commercial-market-evidence:aurora:quality-scoring"
                       ]
-                    }
-                  }
-                ]
-              },
-              {
-                "id": "denver:commercial_market_evidence:aurora-i-70-airport-industrial",
-                "districtId": "aurora-i-70-airport-industrial",
-                "marketId": "denver",
-                "marketName": "Denver",
-                "programId": "commercial_market_evidence",
-                "programLabel": "Commercial Market Evidence",
-                "title": "Aurora I-70 / Airport Industrial Building Evidence",
-                "scope": "Aurora I-70 / Airport Industrial",
-                "objective": "Complete selected evidence Building Profiles for the existing Aurora I-70 / Airport Industrial Commercial Market Evidence collection.",
-                "status": "Queued",
-                "currentStage": "In Progress",
-                "progress": {
-                  "unit": "District Building Evidence",
-                  "completed": 0,
-                  "target": 3,
-                  "label": "Profiles 0 / 3",
-                  "statusLabel": "Queued",
-                  "sourceEvidence": [
-                    "Commercial Market Evidence collection registry.",
-                    "Building Profile coverage for selected evidence records."
-                  ]
-                },
-                "currentConstraint": "Aurora I-70 / Airport Industrial Commercial Market Evidence is complete, but selected evidence Building Profiles remain incomplete.",
-                "nextMissionId": "mission:denver:district-building-evidence:aurora-i-70-airport-industrial",
-                "missionRef": "portfolioQueues.missionQueue:mission:denver:district-building-evidence:aurora-i-70-airport-industrial",
-                "executionPacketRef": "portfolioQueues.missionQueue:mission:denver:district-building-evidence:aurora-i-70-airport-industrial",
-                "remainingMilestones": [
-                  "Selected evidence Building Profiles",
-                  "CME validator",
-                  "Building Brief depth QA"
-                ],
-                "confidence": "High",
-                "sourceEvidence": [
-                  "Commercial Market Evidence collection registry.",
-                  "Building Profile coverage for selected evidence records."
-                ],
-                "readOnly": false,
-                "completionEvidence": "aurora-i-70-airport-industrial-commercial-market-evidence",
-                "orderingRank": 5,
-                "orderingRationale": [
-                  "Existing Commercial Market Evidence collection has selected evidence buildings that still need Building Profiles."
-                ],
-                "workItems": {
-                  "hiddenByDefault": true,
-                  "count": 4
-                },
-                "missions": [
-                  {
-                    "id": "mission:denver:district-building-evidence:aurora-i-70-airport-industrial",
-                    "title": "Complete Aurora I-70 / Airport Industrial Building Evidence",
-                    "marketId": "denver",
-                    "marketName": "Denver",
-                    "programId": "commercial_market_evidence",
-                    "programLabel": "Commercial Market Evidence",
-                    "campaignId": "denver:commercial_market_evidence:completion-campaign",
-                    "campaignTitle": "Denver Building Evidence Completion",
-                    "initiativeId": "denver:commercial_market_evidence:aurora-i-70-airport-industrial",
-                    "initiativeTitle": "Aurora I-70 / Airport Industrial Building Evidence",
-                    "portfolioId": "district-building-evidence:denver:aurora-i-70-airport-industrial",
-                    "districtId": "aurora-i-70-airport-industrial",
-                    "districtName": "Aurora I-70 / Airport Industrial",
-                    "objective": "Complete the remaining Aurora I-70 / Airport Industrial selected evidence Building Profiles while preserving the existing Commercial Market Evidence collection.",
-                    "currentConstraint": "Aurora I-70 / Airport Industrial Commercial Market Evidence is complete, but selected evidence Building Profiles remain incomplete.",
-                    "expectedImpact": "Medium",
-                    "estimatedEffort": "Medium",
-                    "missionSize": {
-                      "id": "standard",
-                      "label": "Standard",
-                      "reviewWindow": "60-120 minutes",
-                      "maximumWorkItems": 8
-                    },
-                    "missionClass": "Meaningful Depth Improvement",
-                    "confidence": "High",
-                    "priorityScore": 81,
-                    "executionPacketRef": "portfolioQueues.missionQueue:mission:denver:district-building-evidence:aurora-i-70-airport-industrial",
-                    "executionPacketAvailable": true,
-                    "componentStatuses": {
-                      "commercialMarketEvidence": "Complete",
-                      "evidenceRecordCount": 3,
-                      "evidenceBuildingProfiles": {
-                        "completed": 0,
-                        "target": 3,
-                        "missing": 3,
-                        "label": "0 / 3"
-                      },
-                      "supportingBuildingProfiles": {
-                        "completed": 0,
-                        "target": 0,
-                        "missing": 0,
-                        "label": "No supporting profile work selected"
-                      },
-                      "unresolvedBuildingItems": 0,
-                      "validationStatus": "Requires validation",
-                      "districtBuildingEvidence": "In Progress"
-                    },
-                    "workItems": {
-                      "hiddenByDefault": true,
-                      "count": 4,
-                      "includedOpportunityIds": [
-                        "commercial-market-evidence:aurora-i-70-airport-industrial:validation",
-                        "district-building-evidence:aurora-i-70-airport-industrial:profile:commercial-real-estate-building-co-aurora-3250-abilene-st",
-                        "district-building-evidence:aurora-i-70-airport-industrial:profile:commercial-real-estate-building-co-aurora-1300-1390-s-potomac-st",
-                        "district-building-evidence:aurora-i-70-airport-industrial:profile:commercial-real-estate-building-co-aurora-17100-17210-e-ohio-dr"
-                      ],
-                      "deferredWorkItemIds": []
                     }
                   }
                 ]
@@ -215041,6 +214764,51 @@
                 ]
               },
               {
+                "id": "denver:commercial_market_evidence:aurora-i-70-airport-industrial",
+                "districtId": "aurora-i-70-airport-industrial",
+                "marketId": "denver",
+                "marketName": "Denver",
+                "programId": "commercial_market_evidence",
+                "programLabel": "Commercial Market Evidence",
+                "title": "Aurora I-70 / Airport Industrial Collection",
+                "scope": "Aurora I-70 / Airport Industrial",
+                "objective": "Maintain the completed Aurora I-70 / Airport Industrial Commercial Market Evidence collection.",
+                "status": "Complete",
+                "currentStage": "Complete",
+                "progress": {
+                  "unit": "Collection",
+                  "completed": 1,
+                  "target": 1,
+                  "label": "Complete",
+                  "statusLabel": "Complete",
+                  "sourceEvidence": [
+                    "Commercial Market Evidence collection registry.",
+                    "Building Profile coverage for selected evidence records."
+                  ]
+                },
+                "currentConstraint": "Collection exists.",
+                "nextMissionId": "",
+                "missionRef": "",
+                "executionPacketRef": "",
+                "remainingMilestones": [],
+                "confidence": "High",
+                "sourceEvidence": [
+                  "Commercial Market Evidence collection registry.",
+                  "Building Profile coverage for selected evidence records."
+                ],
+                "readOnly": true,
+                "completionEvidence": "aurora-i-70-airport-industrial-commercial-market-evidence",
+                "orderingRank": null,
+                "orderingRationale": [
+                  "Existing Commercial Market Evidence collection."
+                ],
+                "workItems": {
+                  "hiddenByDefault": true,
+                  "count": 0
+                },
+                "missions": []
+              },
+              {
                 "id": "denver:commercial_market_evidence:downtown-denver",
                 "districtId": "downtown-denver",
                 "marketId": "denver",
@@ -215102,11 +214870,11 @@
             "status": "Strong",
             "progress": {
               "unit": "Profiles",
-              "completed": 9,
+              "completed": 12,
               "target": 45,
-              "label": "9 / 45 Profiles",
+              "label": "12 / 45 Profiles",
               "statusLabel": "Strong",
-              "currentConstraint": "36 representative buildings do not yet have Building Profiles.",
+              "currentConstraint": "33 representative buildings do not yet have Building Profiles.",
               "sourceEvidence": [
                 "Publisher representative building and Building Brief counts."
               ]
@@ -215123,16 +214891,16 @@
                 "status": "Strong",
                 "progress": {
                   "unit": "Profiles",
-                  "completed": 9,
+                  "completed": 12,
                   "target": 45,
-                  "label": "9 / 45 Profiles",
+                  "label": "12 / 45 Profiles",
                   "statusLabel": "Strong",
-                  "currentConstraint": "36 representative buildings do not yet have Building Profiles.",
+                  "currentConstraint": "33 representative buildings do not yet have Building Profiles.",
                   "sourceEvidence": [
                     "Publisher representative building and Building Brief counts."
                   ]
                 },
-                "currentConstraint": "36 representative buildings do not yet have Building Profiles.",
+                "currentConstraint": "33 representative buildings do not yet have Building Profiles.",
                 "nextInitiativeId": "denver:building_profiles:status",
                 "nextMissionId": "",
                 "initiativeIds": [
@@ -215140,13 +214908,13 @@
                 ],
                 "missionIds": [],
                 "missionCount": 0,
-                "workItemCount": 34,
-                "resolvedPortfolioCount": 13,
-                "estimatedMissionsRemaining": "13 resolved missions plus 4 ungrouped items",
+                "workItemCount": 31,
+                "resolvedPortfolioCount": 12,
+                "estimatedMissionsRemaining": "12 resolved missions plus 4 ungrouped items",
                 "ungroupedItemCount": 4,
                 "workItems": {
                   "hiddenByDefault": true,
-                  "count": 34
+                  "count": 31
                 },
                 "sizingStrategy": "Building Profiles use portfolio missions. A Large mission may include up to 12 hidden Building Brief work items when the source files and QA path overlap.",
                 "reviewabilityPrinciple": "Campaigns are not executable. They advance through Missions sized to remain reviewable inside one SER.",
@@ -215157,7 +214925,7 @@
             ],
             "campaignId": "denver:building_profiles:completion-campaign",
             "nextCampaignId": "denver:building_profiles:completion-campaign",
-            "currentConstraint": "36 representative buildings do not yet have Building Profiles.",
+            "currentConstraint": "33 representative buildings do not yet have Building Profiles.",
             "nextInitiativeId": "denver:building_profiles:status",
             "nextMissionId": "",
             "initiatives": [
@@ -215173,19 +214941,19 @@
                 "currentStage": "Strong",
                 "progress": {
                   "unit": "Profiles",
-                  "completed": 9,
+                  "completed": 12,
                   "target": 45,
-                  "label": "9 / 45 Profiles",
+                  "label": "12 / 45 Profiles",
                   "statusLabel": "Strong",
-                  "currentConstraint": "36 representative buildings do not yet have Building Profiles.",
+                  "currentConstraint": "33 representative buildings do not yet have Building Profiles.",
                   "sourceEvidence": [
                     "Publisher representative building and Building Brief counts."
                   ]
                 },
-                "currentConstraint": "36 representative buildings do not yet have Building Profiles.",
+                "currentConstraint": "33 representative buildings do not yet have Building Profiles.",
                 "nextMissionId": "",
                 "remainingMilestones": [
-                  "36 representative buildings do not yet have Building Profiles."
+                  "33 representative buildings do not yet have Building Profiles."
                 ],
                 "confidence": "Medium",
                 "sourceEvidence": [
@@ -238538,7 +238306,6 @@
         "nextMissionId": "mission:denver:district-building-evidence:aurora",
         "initiativeIds": [
           "denver:commercial_market_evidence:aurora",
-          "denver:commercial_market_evidence:aurora-i-70-airport-industrial",
           "denver:commercial_market_evidence:northeast-denver-industrial",
           "denver:commercial_market_evidence:denver-tech-center",
           "denver:commercial_market_evidence:inverness",
@@ -238558,6 +238325,7 @@
           "denver:commercial_market_evidence:golden",
           "denver:commercial_market_evidence:commerce-city",
           "denver:commercial_market_evidence:lone-tree",
+          "denver:commercial_market_evidence:aurora-i-70-airport-industrial",
           "denver:commercial_market_evidence:downtown-denver"
         ],
         "missionIds": [
@@ -238565,7 +238333,6 @@
           "mission:denver:district-building-evidence:denver-tech-center",
           "mission:denver:district-building-evidence:inverness",
           "mission:denver:district-building-evidence:northeast-denver-industrial",
-          "mission:denver:district-building-evidence:aurora-i-70-airport-industrial",
           "mission:denver:district-building-evidence:broomfield",
           "mission:denver:district-building-evidence:centennial",
           "mission:denver:district-building-evidence:rino",
@@ -238583,8 +238350,8 @@
           "mission:denver:district-building-evidence:commerce-city",
           "mission:denver:district-building-evidence:lone-tree"
         ],
-        "missionCount": 21,
-        "workItemCount": 55,
+        "missionCount": 20,
+        "workItemCount": 51,
         "districtBuildingEvidence": {
           "districts": [
             {
@@ -238797,103 +238564,6 @@
                 "No split required; missing district collection starts as one Standard mission."
               ],
               "confidence": "Medium"
-            },
-            {
-              "evidenceMissionId": "district-building-evidence:denver:aurora-i-70-airport-industrial",
-              "marketId": "denver",
-              "marketName": "Denver",
-              "programId": "commercial_market_evidence",
-              "campaignId": "denver:commercial_market_evidence:completion-campaign",
-              "districtId": "aurora-i-70-airport-industrial",
-              "districtName": "Aurora I-70 / Airport Industrial",
-              "districtPath": "/commercial-real-estate/CO/aurora/aurora-i-70-airport-industrial/",
-              "cmeStatus": "Complete",
-              "collectionId": "aurora-i-70-airport-industrial-commercial-market-evidence",
-              "evidenceRecordCount": 3,
-              "evidenceProfileCoverage": {
-                "completed": 0,
-                "target": 3,
-                "missing": 3,
-                "label": "0 / 3"
-              },
-              "supportingProfileCoverage": {
-                "completed": 0,
-                "target": 0,
-                "missing": 0,
-                "label": "No supporting profile work selected"
-              },
-              "unresolvedBuildingItems": 0,
-              "validationStatus": "Requires validation",
-              "districtMissionStatus": "In Progress",
-              "workItems": [
-                {
-                  "id": "district-building-evidence:aurora-i-70-airport-industrial:profile:commercial-real-estate-building-co-aurora-3250-abilene-st",
-                  "title": "3250 Abilene St Building Profile",
-                  "category": "buildingBriefs",
-                  "categoryLabel": "Building Profiles",
-                  "reason": "Selected Commercial Market Evidence building lacks adequate Building Profile depth.",
-                  "buildingName": "3250 Abilene St",
-                  "buildingPath": "/commercial-real-estate/building/CO/aurora/3250-abilene-st/",
-                  "evidenceRecordId": "aurora-i70-airport-3250-abilene",
-                  "evidenceType": "aurora_industrial_building",
-                  "evidenceRole": "large_format_industrial_benchmark",
-                  "suggestedModule": {
-                    "id": "publisher",
-                    "label": "Publisher"
-                  }
-                },
-                {
-                  "id": "district-building-evidence:aurora-i-70-airport-industrial:profile:commercial-real-estate-building-co-aurora-1300-1390-s-potomac-st",
-                  "title": "1300-1390 S Potomac St Building Profile",
-                  "category": "buildingBriefs",
-                  "categoryLabel": "Building Profiles",
-                  "reason": "Selected Commercial Market Evidence building lacks adequate Building Profile depth.",
-                  "buildingName": "1300-1390 S Potomac St",
-                  "buildingPath": "/commercial-real-estate/building/CO/aurora/1300-1390-s-potomac-st/",
-                  "evidenceRecordId": "aurora-i70-airport-1300-potomac",
-                  "evidenceType": "aurora_industrial_building",
-                  "evidenceRole": "service_industrial_benchmark",
-                  "suggestedModule": {
-                    "id": "publisher",
-                    "label": "Publisher"
-                  }
-                },
-                {
-                  "id": "district-building-evidence:aurora-i-70-airport-industrial:profile:commercial-real-estate-building-co-aurora-17100-17210-e-ohio-dr",
-                  "title": "17100-17210 E Ohio Dr Building Profile",
-                  "category": "buildingBriefs",
-                  "categoryLabel": "Building Profiles",
-                  "reason": "Selected Commercial Market Evidence building lacks adequate Building Profile depth.",
-                  "buildingName": "17100-17210 E Ohio Dr",
-                  "buildingPath": "/commercial-real-estate/building/CO/aurora/17100-17210-e-ohio-dr/",
-                  "evidenceRecordId": "aurora-i70-airport-17100-ohio",
-                  "evidenceType": "aurora_industrial_building",
-                  "evidenceRole": "small_mid_format_industrial_benchmark",
-                  "suggestedModule": {
-                    "id": "publisher",
-                    "label": "Publisher"
-                  }
-                }
-              ],
-              "workItemCount": 4,
-              "deferredWorkItems": [],
-              "missionSize": {
-                "id": "standard",
-                "label": "Standard",
-                "reviewWindow": "60-120 minutes",
-                "maximumWorkItems": 8
-              },
-              "eligibleForExecution": true,
-              "executionReadiness": "Queued",
-              "groupingRationale": [
-                "Commercial Market Evidence and selected Building Profiles share district research context, source paths, and validation flow.",
-                "Existing Commercial Market Evidence collection remains intact; mission focuses on validating the collection and completing selected evidence Building Profiles.",
-                "Evidence records remain hidden Work Items; Building Profile content stays in Commercial Building Intelligence."
-              ],
-              "splitRationale": [
-                "No split required; district building evidence stays within the configured mission-size upper bound."
-              ],
-              "confidence": "High"
             },
             {
               "evidenceMissionId": "district-building-evidence:denver:broomfield",
@@ -240276,6 +239946,54 @@
               "confidence": "Medium"
             },
             {
+              "evidenceMissionId": "district-building-evidence:denver:aurora-i-70-airport-industrial",
+              "marketId": "denver",
+              "marketName": "Denver",
+              "programId": "commercial_market_evidence",
+              "campaignId": "denver:commercial_market_evidence:completion-campaign",
+              "districtId": "aurora-i-70-airport-industrial",
+              "districtName": "Aurora I-70 / Airport Industrial",
+              "districtPath": "/commercial-real-estate/CO/aurora/aurora-i-70-airport-industrial/",
+              "cmeStatus": "Complete",
+              "collectionId": "aurora-i-70-airport-industrial-commercial-market-evidence",
+              "evidenceRecordCount": 3,
+              "evidenceProfileCoverage": {
+                "completed": 3,
+                "target": 3,
+                "missing": 0,
+                "label": "3 / 3"
+              },
+              "supportingProfileCoverage": {
+                "completed": 0,
+                "target": 0,
+                "missing": 0,
+                "label": "No supporting profile work selected"
+              },
+              "unresolvedBuildingItems": 0,
+              "validationStatus": "Requires validation",
+              "districtMissionStatus": "Complete",
+              "workItems": [],
+              "workItemCount": 0,
+              "deferredWorkItems": [],
+              "missionSize": {
+                "id": "small",
+                "label": "Small",
+                "reviewWindow": "30-60 minutes",
+                "maximumWorkItems": 3
+              },
+              "eligibleForExecution": false,
+              "executionReadiness": "Complete",
+              "groupingRationale": [
+                "Commercial Market Evidence and selected Building Profiles share district research context, source paths, and validation flow.",
+                "Existing Commercial Market Evidence collection remains intact; mission focuses on validating the collection and completing selected evidence Building Profiles.",
+                "Evidence records remain hidden Work Items; Building Profile content stays in Commercial Building Intelligence."
+              ],
+              "splitRationale": [
+                "No split required; district building evidence stays within the configured mission-size upper bound."
+              ],
+              "confidence": "High"
+            },
+            {
               "evidenceMissionId": "district-building-evidence:denver:downtown-denver",
               "marketId": "denver",
               "marketName": "Denver",
@@ -240324,16 +240042,16 @@
               "confidence": "High"
             }
           ],
-          "executableDistrictMissionCount": 21,
-          "completeDistrictCount": 1,
-          "inProgressDistrictCount": 1,
+          "executableDistrictMissionCount": 20,
+          "completeDistrictCount": 2,
+          "inProgressDistrictCount": 0,
           "missingDistrictCount": 20,
-          "hiddenWorkItemCount": 55,
+          "hiddenWorkItemCount": 51,
           "unresolvedBuildingItemCount": 0
         },
         "workItems": {
           "hiddenByDefault": true,
-          "count": 55
+          "count": 51
         },
         "sizingStrategy": "District Building Evidence missions combine Commercial Market Evidence and selected Building Profiles when both share one district workflow. Evidence records and building Work Items stay hidden inside one reviewable SER.",
         "reviewabilityPrinciple": "Campaigns are not executable. They advance through Missions sized to remain reviewable inside one SER.",
@@ -240343,7 +240061,6 @@
         ],
         "initiatives": [
           "denver:commercial_market_evidence:aurora",
-          "denver:commercial_market_evidence:aurora-i-70-airport-industrial",
           "denver:commercial_market_evidence:northeast-denver-industrial",
           "denver:commercial_market_evidence:denver-tech-center",
           "denver:commercial_market_evidence:inverness",
@@ -240363,6 +240080,7 @@
           "denver:commercial_market_evidence:golden",
           "denver:commercial_market_evidence:commerce-city",
           "denver:commercial_market_evidence:lone-tree",
+          "denver:commercial_market_evidence:aurora-i-70-airport-industrial",
           "denver:commercial_market_evidence:downtown-denver"
         ],
         "missions": [
@@ -240370,7 +240088,6 @@
           "mission:denver:district-building-evidence:denver-tech-center",
           "mission:denver:district-building-evidence:inverness",
           "mission:denver:district-building-evidence:northeast-denver-industrial",
-          "mission:denver:district-building-evidence:aurora-i-70-airport-industrial",
           "mission:denver:district-building-evidence:broomfield",
           "mission:denver:district-building-evidence:centennial",
           "mission:denver:district-building-evidence:rino",
@@ -240400,16 +240117,16 @@
         "status": "Strong",
         "progress": {
           "unit": "Profiles",
-          "completed": 9,
+          "completed": 12,
           "target": 45,
-          "label": "9 / 45 Profiles",
+          "label": "12 / 45 Profiles",
           "statusLabel": "Strong",
-          "currentConstraint": "36 representative buildings do not yet have Building Profiles.",
+          "currentConstraint": "33 representative buildings do not yet have Building Profiles.",
           "sourceEvidence": [
             "Publisher representative building and Building Brief counts."
           ]
         },
-        "currentConstraint": "36 representative buildings do not yet have Building Profiles.",
+        "currentConstraint": "33 representative buildings do not yet have Building Profiles.",
         "nextInitiativeId": "denver:building_profiles:status",
         "nextMissionId": "",
         "initiativeIds": [
@@ -240417,13 +240134,13 @@
         ],
         "missionIds": [],
         "missionCount": 0,
-        "workItemCount": 34,
-        "resolvedPortfolioCount": 13,
-        "estimatedMissionsRemaining": "13 resolved missions plus 4 ungrouped items",
+        "workItemCount": 31,
+        "resolvedPortfolioCount": 12,
+        "estimatedMissionsRemaining": "12 resolved missions plus 4 ungrouped items",
         "ungroupedItemCount": 4,
         "workItems": {
           "hiddenByDefault": true,
-          "count": 34
+          "count": 31
         },
         "sizingStrategy": "Building Profiles use portfolio missions. A Large mission may include up to 12 hidden Building Brief work items when the source files and QA path overlap.",
         "reviewabilityPrinciple": "Campaigns are not executable. They advance through Missions sized to remain reviewable inside one SER.",
@@ -250304,58 +250021,6 @@
         "campaignId": "denver:commercial_market_evidence:completion-campaign"
       },
       {
-        "id": "denver:commercial_market_evidence:aurora-i-70-airport-industrial",
-        "districtId": "aurora-i-70-airport-industrial",
-        "marketId": "denver",
-        "marketName": "Denver",
-        "programId": "commercial_market_evidence",
-        "programLabel": "Commercial Market Evidence",
-        "title": "Aurora I-70 / Airport Industrial Building Evidence",
-        "scope": "Aurora I-70 / Airport Industrial",
-        "objective": "Complete selected evidence Building Profiles for the existing Aurora I-70 / Airport Industrial Commercial Market Evidence collection.",
-        "status": "Queued",
-        "currentStage": "In Progress",
-        "progress": {
-          "unit": "District Building Evidence",
-          "completed": 0,
-          "target": 3,
-          "label": "Profiles 0 / 3",
-          "statusLabel": "Queued",
-          "sourceEvidence": [
-            "Commercial Market Evidence collection registry.",
-            "Building Profile coverage for selected evidence records."
-          ]
-        },
-        "currentConstraint": "Aurora I-70 / Airport Industrial Commercial Market Evidence is complete, but selected evidence Building Profiles remain incomplete.",
-        "nextMissionId": "mission:denver:district-building-evidence:aurora-i-70-airport-industrial",
-        "missionRef": "portfolioQueues.missionQueue:mission:denver:district-building-evidence:aurora-i-70-airport-industrial",
-        "executionPacketRef": "portfolioQueues.missionQueue:mission:denver:district-building-evidence:aurora-i-70-airport-industrial",
-        "remainingMilestones": [
-          "Selected evidence Building Profiles",
-          "CME validator",
-          "Building Brief depth QA"
-        ],
-        "confidence": "High",
-        "sourceEvidence": [
-          "Commercial Market Evidence collection registry.",
-          "Building Profile coverage for selected evidence records."
-        ],
-        "readOnly": false,
-        "completionEvidence": "aurora-i-70-airport-industrial-commercial-market-evidence",
-        "orderingRank": 5,
-        "orderingRationale": [
-          "Existing Commercial Market Evidence collection has selected evidence buildings that still need Building Profiles."
-        ],
-        "workItems": {
-          "hiddenByDefault": true,
-          "count": 4
-        },
-        "missions": [
-          "mission:denver:district-building-evidence:aurora-i-70-airport-industrial"
-        ],
-        "campaignId": "denver:commercial_market_evidence:completion-campaign"
-      },
-      {
         "id": "denver:commercial_market_evidence:northeast-denver-industrial",
         "districtId": "northeast-denver-industrial",
         "marketId": "denver",
@@ -251473,6 +251138,52 @@
         "campaignId": "denver:commercial_market_evidence:completion-campaign"
       },
       {
+        "id": "denver:commercial_market_evidence:aurora-i-70-airport-industrial",
+        "districtId": "aurora-i-70-airport-industrial",
+        "marketId": "denver",
+        "marketName": "Denver",
+        "programId": "commercial_market_evidence",
+        "programLabel": "Commercial Market Evidence",
+        "title": "Aurora I-70 / Airport Industrial Collection",
+        "scope": "Aurora I-70 / Airport Industrial",
+        "objective": "Maintain the completed Aurora I-70 / Airport Industrial Commercial Market Evidence collection.",
+        "status": "Complete",
+        "currentStage": "Complete",
+        "progress": {
+          "unit": "Collection",
+          "completed": 1,
+          "target": 1,
+          "label": "Complete",
+          "statusLabel": "Complete",
+          "sourceEvidence": [
+            "Commercial Market Evidence collection registry.",
+            "Building Profile coverage for selected evidence records."
+          ]
+        },
+        "currentConstraint": "Collection exists.",
+        "nextMissionId": "",
+        "missionRef": "",
+        "executionPacketRef": "",
+        "remainingMilestones": [],
+        "confidence": "High",
+        "sourceEvidence": [
+          "Commercial Market Evidence collection registry.",
+          "Building Profile coverage for selected evidence records."
+        ],
+        "readOnly": true,
+        "completionEvidence": "aurora-i-70-airport-industrial-commercial-market-evidence",
+        "orderingRank": null,
+        "orderingRationale": [
+          "Existing Commercial Market Evidence collection."
+        ],
+        "workItems": {
+          "hiddenByDefault": true,
+          "count": 0
+        },
+        "missions": [],
+        "campaignId": "denver:commercial_market_evidence:completion-campaign"
+      },
+      {
         "id": "denver:commercial_market_evidence:downtown-denver",
         "districtId": "downtown-denver",
         "marketId": "denver",
@@ -251530,19 +251241,19 @@
         "currentStage": "Strong",
         "progress": {
           "unit": "Profiles",
-          "completed": 9,
+          "completed": 12,
           "target": 45,
-          "label": "9 / 45 Profiles",
+          "label": "12 / 45 Profiles",
           "statusLabel": "Strong",
-          "currentConstraint": "36 representative buildings do not yet have Building Profiles.",
+          "currentConstraint": "33 representative buildings do not yet have Building Profiles.",
           "sourceEvidence": [
             "Publisher representative building and Building Brief counts."
           ]
         },
-        "currentConstraint": "36 representative buildings do not yet have Building Profiles.",
+        "currentConstraint": "33 representative buildings do not yet have Building Profiles.",
         "nextMissionId": "",
         "remainingMilestones": [
-          "36 representative buildings do not yet have Building Profiles."
+          "33 representative buildings do not yet have Building Profiles."
         ],
         "confidence": "Medium",
         "sourceEvidence": [
@@ -257596,66 +257307,6 @@
         }
       },
       {
-        "id": "mission:denver:district-building-evidence:aurora-i-70-airport-industrial",
-        "title": "Complete Aurora I-70 / Airport Industrial Building Evidence",
-        "marketId": "denver",
-        "marketName": "Denver",
-        "programId": "commercial_market_evidence",
-        "programLabel": "Commercial Market Evidence",
-        "campaignId": "denver:commercial_market_evidence:completion-campaign",
-        "campaignTitle": "Denver Building Evidence Completion",
-        "initiativeId": "denver:commercial_market_evidence:aurora-i-70-airport-industrial",
-        "initiativeTitle": "Aurora I-70 / Airport Industrial Building Evidence",
-        "portfolioId": "district-building-evidence:denver:aurora-i-70-airport-industrial",
-        "districtId": "aurora-i-70-airport-industrial",
-        "districtName": "Aurora I-70 / Airport Industrial",
-        "objective": "Complete the remaining Aurora I-70 / Airport Industrial selected evidence Building Profiles while preserving the existing Commercial Market Evidence collection.",
-        "currentConstraint": "Aurora I-70 / Airport Industrial Commercial Market Evidence is complete, but selected evidence Building Profiles remain incomplete.",
-        "expectedImpact": "Medium",
-        "estimatedEffort": "Medium",
-        "missionSize": {
-          "id": "standard",
-          "label": "Standard",
-          "reviewWindow": "60-120 minutes",
-          "maximumWorkItems": 8
-        },
-        "missionClass": "Meaningful Depth Improvement",
-        "confidence": "High",
-        "priorityScore": 81,
-        "executionPacketRef": "portfolioQueues.missionQueue:mission:denver:district-building-evidence:aurora-i-70-airport-industrial",
-        "executionPacketAvailable": true,
-        "componentStatuses": {
-          "commercialMarketEvidence": "Complete",
-          "evidenceRecordCount": 3,
-          "evidenceBuildingProfiles": {
-            "completed": 0,
-            "target": 3,
-            "missing": 3,
-            "label": "0 / 3"
-          },
-          "supportingBuildingProfiles": {
-            "completed": 0,
-            "target": 0,
-            "missing": 0,
-            "label": "No supporting profile work selected"
-          },
-          "unresolvedBuildingItems": 0,
-          "validationStatus": "Requires validation",
-          "districtBuildingEvidence": "In Progress"
-        },
-        "workItems": {
-          "hiddenByDefault": true,
-          "count": 4,
-          "includedOpportunityIds": [
-            "commercial-market-evidence:aurora-i-70-airport-industrial:validation",
-            "district-building-evidence:aurora-i-70-airport-industrial:profile:commercial-real-estate-building-co-aurora-3250-abilene-st",
-            "district-building-evidence:aurora-i-70-airport-industrial:profile:commercial-real-estate-building-co-aurora-1300-1390-s-potomac-st",
-            "district-building-evidence:aurora-i-70-airport-industrial:profile:commercial-real-estate-building-co-aurora-17100-17210-e-ohio-dr"
-          ],
-          "deferredWorkItemIds": []
-        }
-      },
-      {
         "id": "mission:denver:district-building-evidence:broomfield",
         "title": "Complete Broomfield Building Evidence",
         "marketId": "denver",
@@ -263015,7 +262666,7 @@
     ],
     "workItems": {
       "hiddenByDefault": true,
-      "count": 362,
+      "count": 359,
       "note": "Work items remain evidence used to form missions and are not the primary Mission Control v2 planning object."
     },
     "summary": {
@@ -263023,7 +262674,7 @@
       "programsPerMarket": 6,
       "campaigns": 60,
       "initiatives": 144,
-      "missions": 95
+      "missions": 94
     },
     "note": "Additive projection for Mission Control v2. Campaigns optimize editorial throughput while preserving Publisher scoring, execution packet compatibility, and hidden Work Items."
   },
@@ -263296,11 +262947,11 @@
     "averageHealth": 73,
     "needsAttention": 0,
     "activeWorkItems": 8,
-    "opportunityInventory": 362,
+    "opportunityInventory": 359,
     "expansionProjects": 4,
     "reviewItems": 0,
     "fieldModeMetros": 6,
-    "openWorkItems": 362,
+    "openWorkItems": 359,
     "humanOnlyWorkItems": 6,
     "autonomousCandidates": 91,
     "topWorkItem": "Seattle Medical Ecosystem Representative Building Foundation"
@@ -264400,9 +264051,9 @@
         "balance": {
           "state": "balanced",
           "label": "Balanced",
-          "dominantEcosystem": "office",
+          "dominantEcosystem": "industrial_flex",
           "representativeBuildingShare": 0.51,
-          "buildingBriefShare": 0.44,
+          "buildingBriefShare": 0.5,
           "warnings": []
         }
       },
@@ -264470,7 +264121,7 @@
           "id": "ready",
           "label": "Ready"
         },
-        "note": "21 of 21 districts have substantive descriptions; 45 representative buildings and 9 Building Briefs are available.",
+        "note": "21 of 21 districts have substantive descriptions; 45 representative buildings and 12 Building Briefs are available.",
         "source": "publisher"
       },
       "internalLinking": {
@@ -264559,7 +264210,7 @@
             "id": "ready",
             "label": "Ready"
           },
-          "note": "21 of 21 districts have substantive descriptions; 45 representative buildings and 9 Building Briefs are available.",
+          "note": "21 of 21 districts have substantive descriptions; 45 representative buildings and 12 Building Briefs are available.",
           "source": "publisher"
         },
         "internalLinks": {
@@ -264588,8 +264239,8 @@
       "counts": {
         "districts": 21,
         "representativeBuildings": 45,
-        "buildingBriefs": 9,
-        "queueItems": 54
+        "buildingBriefs": 12,
+        "queueItems": 51
       },
       "examples": [
         "100 Fillmore Place",
@@ -279025,448 +278676,6 @@
                 "id": "district-building-evidence:soma:profile:commercial-real-estate-building-ca-san-francisco-144-2nd-st",
                 "name": "144 2nd St",
                 "path": "/commercial-real-estate/building/CA/san-francisco/144-2nd-st/"
-              }
-            ]
-          }
-        }
-      },
-      {
-        "id": "mission:denver:district-building-evidence:aurora-i-70-airport-industrial",
-        "title": "Complete Aurora I-70 / Airport Industrial Building Evidence",
-        "marketId": "denver",
-        "marketName": "Denver",
-        "programId": "commercial_market_evidence",
-        "programLabel": "Commercial Market Evidence",
-        "campaignId": "denver:commercial_market_evidence:completion-campaign",
-        "campaignTitle": "Denver Building Evidence Completion",
-        "initiativeId": "denver:commercial_market_evidence:aurora-i-70-airport-industrial",
-        "initiativeTitle": "Aurora I-70 / Airport Industrial Building Evidence",
-        "portfolioId": "district-building-evidence:denver:aurora-i-70-airport-industrial",
-        "metroId": "denver",
-        "metroName": "Denver",
-        "ecosystem": "Building Evidence",
-        "ecosystemId": "",
-        "districtId": "aurora-i-70-airport-industrial",
-        "districtName": "Aurora I-70 / Airport Industrial",
-        "workstream": "District Building Evidence",
-        "includedOpportunityIds": [
-          "commercial-market-evidence:aurora-i-70-airport-industrial:validation",
-          "district-building-evidence:aurora-i-70-airport-industrial:profile:commercial-real-estate-building-co-aurora-3250-abilene-st",
-          "district-building-evidence:aurora-i-70-airport-industrial:profile:commercial-real-estate-building-co-aurora-1300-1390-s-potomac-st",
-          "district-building-evidence:aurora-i-70-airport-industrial:profile:commercial-real-estate-building-co-aurora-17100-17210-e-ohio-dr"
-        ],
-        "includedTasks": [
-          {
-            "id": "commercial-market-evidence:aurora-i-70-airport-industrial:validation",
-            "title": "Aurora I-70 / Airport Industrial Commercial Market Evidence validation",
-            "category": "commercialMarketEvidence",
-            "categoryLabel": "Commercial Market Evidence",
-            "reason": "Existing evidence references must remain accurate while related Building Profiles are completed.",
-            "suggestedModule": {
-              "id": "commercialMarketEvidence",
-              "label": "Commercial Market Evidence"
-            }
-          },
-          {
-            "id": "district-building-evidence:aurora-i-70-airport-industrial:profile:commercial-real-estate-building-co-aurora-3250-abilene-st",
-            "title": "3250 Abilene St Building Profile",
-            "category": "buildingBriefs",
-            "categoryLabel": "Building Profiles",
-            "reason": "Selected Commercial Market Evidence building lacks adequate Building Profile depth.",
-            "buildingName": "3250 Abilene St",
-            "buildingPath": "/commercial-real-estate/building/CO/aurora/3250-abilene-st/",
-            "suggestedModule": {
-              "id": "publisher",
-              "label": "Publisher"
-            }
-          },
-          {
-            "id": "district-building-evidence:aurora-i-70-airport-industrial:profile:commercial-real-estate-building-co-aurora-1300-1390-s-potomac-st",
-            "title": "1300-1390 S Potomac St Building Profile",
-            "category": "buildingBriefs",
-            "categoryLabel": "Building Profiles",
-            "reason": "Selected Commercial Market Evidence building lacks adequate Building Profile depth.",
-            "buildingName": "1300-1390 S Potomac St",
-            "buildingPath": "/commercial-real-estate/building/CO/aurora/1300-1390-s-potomac-st/",
-            "suggestedModule": {
-              "id": "publisher",
-              "label": "Publisher"
-            }
-          },
-          {
-            "id": "district-building-evidence:aurora-i-70-airport-industrial:profile:commercial-real-estate-building-co-aurora-17100-17210-e-ohio-dr",
-            "title": "17100-17210 E Ohio Dr Building Profile",
-            "category": "buildingBriefs",
-            "categoryLabel": "Building Profiles",
-            "reason": "Selected Commercial Market Evidence building lacks adequate Building Profile depth.",
-            "buildingName": "17100-17210 E Ohio Dr",
-            "buildingPath": "/commercial-real-estate/building/CO/aurora/17100-17210-e-ohio-dr/",
-            "suggestedModule": {
-              "id": "publisher",
-              "label": "Publisher"
-            }
-          }
-        ],
-        "deferredTasks": [],
-        "objective": "Complete the remaining Aurora I-70 / Airport Industrial selected evidence Building Profiles while preserving the existing Commercial Market Evidence collection.",
-        "reason": [
-          "Aurora I-70 / Airport Industrial already has a Commercial Market Evidence collection.",
-          "Evidence Building Profiles: 0 / 3.",
-          "Supporting Building Profiles will be selected only when they materially strengthen district explanation.",
-          "3 selected Building Profile work items are included in this bounded Mission."
-        ],
-        "expectedImpact": "Medium",
-        "estimatedEffort": "Medium",
-        "missionSize": {
-          "id": "standard",
-          "label": "Standard",
-          "reviewWindow": "60-120 minutes",
-          "maximumWorkItems": 8
-        },
-        "impactEffortClass": "Medium Impact / Medium Effort / District Building Evidence",
-        "missionClass": "Meaningful Depth Improvement",
-        "currentConstraint": "Aurora I-70 / Airport Industrial Commercial Market Evidence is complete, but selected evidence Building Profiles remain incomplete.",
-        "completionCriteria": [
-          "Commercial Market Evidence and Building Profiles remain separate source systems and measurements.",
-          "Existing Commercial Market Evidence collection is validated and not rewritten unless validation identifies a real issue.",
-          "Selected evidence buildings resolve to adequate canonical Building Profiles or explicit remaining Work Items.",
-          "Building Profiles avoid unsupported leasing, tenant, lab, medical, or infrastructure claims.",
-          "CME validator, Building Brief depth QA, Publisher snapshot, EOS QA, and build pass.",
-          "Publisher scoring, recommendation rankings, public URLs, and Mission Control planning logic remain stable unless measured source coverage legitimately changes."
-        ],
-        "relevantFiles": [
-          "docs/product/rofo-master-plan.md",
-          "docs/editorial-operating-system.md",
-          "docs/mission-control-v2-operating-model.md",
-          "docs/commercial-market-evidence.md",
-          "docs/commercial-market-evidence-financial-district.md",
-          "docs/eos-portfolio-resolver.md",
-          "docs/rofo-publisher.md",
-          "docs/building-page-standard.md",
-          "_data/locationKnowledgeGraph.js",
-          "_data/commercialMarketEvidence.js",
-          "_data/commercialBuildingIntelligence.js",
-          "_data/representativeBuildingIntelligence.js",
-          "data/commercial-market-evidence/denver/aurora-i-70-airport-industrial.js",
-          "scripts/qa-commercial-market-evidence.js",
-          "scripts/qa-building-brief-depth.js",
-          "data/generated/publisher-analysis.json",
-          "data/generated/eos-analysis.json",
-          "/commercial-real-estate/building/CO/aurora/3250-abilene-st/",
-          "/commercial-real-estate/building/CO/aurora/1300-1390-s-potomac-st/",
-          "/commercial-real-estate/building/CO/aurora/17100-17210-e-ohio-dr/"
-        ],
-        "dependencies": [
-          "Commercial Market Evidence architecture",
-          "Financial District canonical collection standard",
-          "Knowledge Graph district identity",
-          "Representative building and Commercial Building Intelligence evidence",
-          "Building Profile editorial standard",
-          "Publisher Building Brief depth analysis"
-        ],
-        "qaCommands": [
-          "node scripts/qa-commercial-market-evidence.js",
-          "node scripts/qa-building-brief-depth.js",
-          "npm run publisher:snapshot",
-          "node scripts/qa-eos.js",
-          "npm run build",
-          "git diff --check"
-        ],
-        "requiredReview": true,
-        "confidence": "High",
-        "priorityScore": 81,
-        "priorityStars": 4,
-        "automationLevel": {
-          "id": "review_required",
-          "label": "Review Required",
-          "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
-        },
-        "lifecycleState": {
-          "id": "ready",
-          "label": "Ready"
-        },
-        "status": "Ready",
-        "queueType": "editorial",
-        "operatingLane": {
-          "id": "editorial",
-          "label": "Editorial",
-          "description": "Commercial judgment, building profiles, handbook guidance, and public editorial depth."
-        },
-        "category": "mission",
-        "categoryLabel": "Mission",
-        "suggestedModule": {
-          "id": "commercialMarketEvidence",
-          "label": "Commercial Market Evidence"
-        },
-        "rationale": [
-          "Commercial Market Evidence and selected Building Profiles share district research context, source paths, and validation flow.",
-          "Existing Commercial Market Evidence collection remains intact; mission focuses on validating the collection and completing selected evidence Building Profiles.",
-          "Evidence records remain hidden Work Items; Building Profile content stays in Commercial Building Intelligence.",
-          "No split required; district building evidence stays within the configured mission-size upper bound."
-        ],
-        "why": [
-          "Commercial Market Evidence and Building Profiles are separate data products but one district research workflow.",
-          "CME collection already exists, so this catch-up Mission focuses on selected evidence Building Profiles and collection validation.",
-          "One district Mission avoids detached Commence Work actions for evidence selection and Building Profile migration."
-        ],
-        "source": {
-          "system": "EOS Portfolio Resolver",
-          "resolverId": "district-building-evidence-resolver-v1",
-          "includedSystems": [
-            "Commercial Market Evidence",
-            "Building Profiles",
-            "Publisher",
-            "Commercial Building Intelligence"
-          ]
-        },
-        "componentStatuses": {
-          "commercialMarketEvidence": "Complete",
-          "evidenceRecordCount": 3,
-          "evidenceBuildingProfiles": {
-            "completed": 0,
-            "target": 3,
-            "missing": 3,
-            "label": "0 / 3"
-          },
-          "supportingBuildingProfiles": {
-            "completed": 0,
-            "target": 0,
-            "missing": 0,
-            "label": "No supporting profile work selected"
-          },
-          "unresolvedBuildingItems": 0,
-          "validationStatus": "Requires validation",
-          "districtBuildingEvidence": "In Progress"
-        },
-        "workItems": {
-          "hiddenByDefault": true,
-          "count": 4,
-          "buildings": [
-            {
-              "id": "district-building-evidence:aurora-i-70-airport-industrial:profile:commercial-real-estate-building-co-aurora-3250-abilene-st",
-              "name": "3250 Abilene St",
-              "path": "/commercial-real-estate/building/CO/aurora/3250-abilene-st/"
-            },
-            {
-              "id": "district-building-evidence:aurora-i-70-airport-industrial:profile:commercial-real-estate-building-co-aurora-1300-1390-s-potomac-st",
-              "name": "1300-1390 S Potomac St",
-              "path": "/commercial-real-estate/building/CO/aurora/1300-1390-s-potomac-st/"
-            },
-            {
-              "id": "district-building-evidence:aurora-i-70-airport-industrial:profile:commercial-real-estate-building-co-aurora-17100-17210-e-ohio-dr",
-              "name": "17100-17210 E Ohio Dr",
-              "path": "/commercial-real-estate/building/CO/aurora/17100-17210-e-ohio-dr/"
-            }
-          ]
-        },
-        "executionPacket": {
-          "objective": "Complete the remaining Aurora I-70 / Airport Industrial selected evidence Building Profiles while preserving the existing Commercial Market Evidence collection.",
-          "reason": [
-            "Aurora I-70 / Airport Industrial already has a Commercial Market Evidence collection.",
-            "Evidence Building Profiles: 0 / 3.",
-            "Supporting Building Profiles will be selected only when they materially strengthen district explanation.",
-            "3 selected Building Profile work items are included in this bounded Mission."
-          ],
-          "currentHealth": "78% Improving",
-          "currentConstraint": "Aurora I-70 / Airport Industrial Commercial Market Evidence is complete, but selected evidence Building Profiles remain incomplete.",
-          "includedTasks": [
-            {
-              "id": "commercial-market-evidence:aurora-i-70-airport-industrial:validation",
-              "title": "Aurora I-70 / Airport Industrial Commercial Market Evidence validation",
-              "category": "commercialMarketEvidence",
-              "categoryLabel": "Commercial Market Evidence",
-              "reason": "Existing evidence references must remain accurate while related Building Profiles are completed.",
-              "suggestedModule": {
-                "id": "commercialMarketEvidence",
-                "label": "Commercial Market Evidence"
-              }
-            },
-            {
-              "id": "district-building-evidence:aurora-i-70-airport-industrial:profile:commercial-real-estate-building-co-aurora-3250-abilene-st",
-              "title": "3250 Abilene St Building Profile",
-              "category": "buildingBriefs",
-              "categoryLabel": "Building Profiles",
-              "reason": "Selected Commercial Market Evidence building lacks adequate Building Profile depth.",
-              "buildingName": "3250 Abilene St",
-              "buildingPath": "/commercial-real-estate/building/CO/aurora/3250-abilene-st/",
-              "suggestedModule": {
-                "id": "publisher",
-                "label": "Publisher"
-              }
-            },
-            {
-              "id": "district-building-evidence:aurora-i-70-airport-industrial:profile:commercial-real-estate-building-co-aurora-1300-1390-s-potomac-st",
-              "title": "1300-1390 S Potomac St Building Profile",
-              "category": "buildingBriefs",
-              "categoryLabel": "Building Profiles",
-              "reason": "Selected Commercial Market Evidence building lacks adequate Building Profile depth.",
-              "buildingName": "1300-1390 S Potomac St",
-              "buildingPath": "/commercial-real-estate/building/CO/aurora/1300-1390-s-potomac-st/",
-              "suggestedModule": {
-                "id": "publisher",
-                "label": "Publisher"
-              }
-            },
-            {
-              "id": "district-building-evidence:aurora-i-70-airport-industrial:profile:commercial-real-estate-building-co-aurora-17100-17210-e-ohio-dr",
-              "title": "17100-17210 E Ohio Dr Building Profile",
-              "category": "buildingBriefs",
-              "categoryLabel": "Building Profiles",
-              "reason": "Selected Commercial Market Evidence building lacks adequate Building Profile depth.",
-              "buildingName": "17100-17210 E Ohio Dr",
-              "buildingPath": "/commercial-real-estate/building/CO/aurora/17100-17210-e-ohio-dr/",
-              "suggestedModule": {
-                "id": "publisher",
-                "label": "Publisher"
-              }
-            }
-          ],
-          "deferredTasks": [],
-          "reasonForBundling": [
-            "Commercial Market Evidence and selected Building Profiles share district research context, source paths, and validation flow.",
-            "Existing Commercial Market Evidence collection remains intact; mission focuses on validating the collection and completing selected evidence Building Profiles.",
-            "Evidence records remain hidden Work Items; Building Profile content stays in Commercial Building Intelligence.",
-            "No split required; district building evidence stays within the configured mission-size upper bound."
-          ],
-          "expectedImpact": "Medium",
-          "estimatedEffort": "Medium",
-          "missionSize": {
-            "id": "standard",
-            "label": "Standard",
-            "reviewWindow": "60-120 minutes",
-            "maximumWorkItems": 8
-          },
-          "missionClass": "Meaningful Depth Improvement",
-          "files": [
-            "docs/product/rofo-master-plan.md",
-            "docs/editorial-operating-system.md",
-            "docs/mission-control-v2-operating-model.md",
-            "docs/commercial-market-evidence.md",
-            "docs/commercial-market-evidence-financial-district.md",
-            "docs/eos-portfolio-resolver.md",
-            "docs/rofo-publisher.md",
-            "docs/building-page-standard.md",
-            "_data/locationKnowledgeGraph.js",
-            "_data/commercialMarketEvidence.js",
-            "_data/commercialBuildingIntelligence.js",
-            "_data/representativeBuildingIntelligence.js",
-            "data/commercial-market-evidence/denver/aurora-i-70-airport-industrial.js",
-            "scripts/qa-commercial-market-evidence.js",
-            "scripts/qa-building-brief-depth.js",
-            "data/generated/publisher-analysis.json",
-            "data/generated/eos-analysis.json",
-            "/commercial-real-estate/building/CO/aurora/3250-abilene-st/",
-            "/commercial-real-estate/building/CO/aurora/1300-1390-s-potomac-st/",
-            "/commercial-real-estate/building/CO/aurora/17100-17210-e-ohio-dr/"
-          ],
-          "dependencies": [
-            "Commercial Market Evidence architecture",
-            "Financial District canonical collection standard",
-            "Knowledge Graph district identity",
-            "Representative building and Commercial Building Intelligence evidence",
-            "Building Profile editorial standard",
-            "Publisher Building Brief depth analysis"
-          ],
-          "acceptanceCriteria": [
-            "Commercial Market Evidence and Building Profiles remain separate source systems and measurements.",
-            "Existing Commercial Market Evidence collection is validated and not rewritten unless validation identifies a real issue.",
-            "Selected evidence buildings resolve to adequate canonical Building Profiles or explicit remaining Work Items.",
-            "Building Profiles avoid unsupported leasing, tenant, lab, medical, or infrastructure claims.",
-            "CME validator, Building Brief depth QA, Publisher snapshot, EOS QA, and build pass.",
-            "Publisher scoring, recommendation rankings, public URLs, and Mission Control planning logic remain stable unless measured source coverage legitimately changes."
-          ],
-          "expectedDeliverables": [
-            "Commercial Market Evidence work completed or validated without unnecessary regeneration",
-            "Selected evidence Building Profiles completed or explicitly deferred",
-            "Commercial Market Evidence validator and Building Brief depth QA pass",
-            "Publisher and EOS snapshots regenerated",
-            "Per-component and per-building outcomes reported in SER v1"
-          ],
-          "qaCommands": [
-            "node scripts/qa-commercial-market-evidence.js",
-            "node scripts/qa-building-brief-depth.js",
-            "npm run publisher:snapshot",
-            "node scripts/qa-eos.js",
-            "npm run build",
-            "git diff --check"
-          ],
-          "requiredReview": true,
-          "automationLevel": {
-            "id": "review_required",
-            "label": "Review Required",
-            "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
-          },
-          "providers": [
-            {
-              "id": "manual",
-              "label": "Manual",
-              "description": "A human uses the execution packet as a checklist and updates EOS externally."
-            },
-            {
-              "id": "codex",
-              "label": "Codex",
-              "description": "A future execution provider can consume the packet and return work for review."
-            }
-          ],
-          "handoff": [
-            {
-              "id": "engineering",
-              "label": "Engineering",
-              "description": "Prepare source files, schema, generated data, or implementation scope."
-            },
-            {
-              "id": "execution",
-              "label": "Execution / Field Mode",
-              "description": "Execute the work manually, through Field Mode, or through a future provider."
-            },
-            {
-              "id": "qa",
-              "label": "QA",
-              "description": "Run deterministic validation and return exceptions to review."
-            },
-            {
-              "id": "publish",
-              "label": "Publish",
-              "description": "Regenerate snapshots/build and publish through the existing deployment workflow."
-            }
-          ],
-          "componentStatuses": {
-            "commercialMarketEvidence": "Complete",
-            "evidenceRecordCount": 3,
-            "evidenceBuildingProfiles": {
-              "completed": 0,
-              "target": 3,
-              "missing": 3,
-              "label": "0 / 3"
-            },
-            "supportingBuildingProfiles": {
-              "completed": 0,
-              "target": 0,
-              "missing": 0,
-              "label": "No supporting profile work selected"
-            },
-            "unresolvedBuildingItems": 0,
-            "validationStatus": "Requires validation",
-            "districtBuildingEvidence": "In Progress"
-          },
-          "workItems": {
-            "hiddenByDefault": true,
-            "count": 4,
-            "buildings": [
-              {
-                "id": "district-building-evidence:aurora-i-70-airport-industrial:profile:commercial-real-estate-building-co-aurora-3250-abilene-st",
-                "name": "3250 Abilene St",
-                "path": "/commercial-real-estate/building/CO/aurora/3250-abilene-st/"
-              },
-              {
-                "id": "district-building-evidence:aurora-i-70-airport-industrial:profile:commercial-real-estate-building-co-aurora-1300-1390-s-potomac-st",
-                "name": "1300-1390 S Potomac St",
-                "path": "/commercial-real-estate/building/CO/aurora/1300-1390-s-potomac-st/"
-              },
-              {
-                "id": "district-building-evidence:aurora-i-70-airport-industrial:profile:commercial-real-estate-building-co-aurora-17100-17210-e-ohio-dr",
-                "name": "17100-17210 E Ohio Dr",
-                "path": "/commercial-real-estate/building/CO/aurora/17100-17210-e-ohio-dr/"
               }
             ]
           }
@@ -312093,126 +311302,6 @@
         }
       },
       {
-        "id": "publisher:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-aurora-1300-1390-s-potomac-st",
-        "metroId": "denver",
-        "metroName": "Denver",
-        "title": "Author a Building Brief for this representative building.",
-        "itemName": "1300-1390 S Potomac St",
-        "priorityScore": 40,
-        "priorityStars": 2,
-        "automationLevel": {
-          "id": "review_required",
-          "label": "Review Required",
-          "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
-        },
-        "estimatedEffort": "90-180 min",
-        "expectedEditorialImpact": "Medium",
-        "dependencies": [],
-        "confidence": "research-required",
-        "lifecycleState": {
-          "id": "ready",
-          "label": "Ready"
-        },
-        "status": "Ready",
-        "queueType": "editorial",
-        "operatingLane": {
-          "id": "editorial",
-          "label": "Editorial",
-          "description": "Commercial judgment, building profiles, handbook guidance, and public editorial depth."
-        },
-        "category": "buildingBriefs",
-        "categoryLabel": "Building Briefs",
-        "suggestedModule": {
-          "id": "publisher",
-          "label": "Publisher"
-        },
-        "why": [
-          "Representative building has not migrated to the canonical Building Brief journey.",
-          "Task type: representative building missing Building Brief",
-          "Publisher severity: medium"
-        ],
-        "source": {
-          "system": "Publisher",
-          "publicUrl": "/commercial-real-estate/building/CO/aurora/1300-1390-s-potomac-st/",
-          "adminUrl": "",
-          "expansionPlan": "Denver Building Brief Migration Sprint"
-        },
-        "executionPacket": {
-          "objective": "Author a Building Brief for this representative building.",
-          "reason": [
-            "Representative building has not migrated to the canonical Building Brief journey.",
-            "Task type: representative building missing Building Brief",
-            "Publisher severity: medium"
-          ],
-          "currentHealth": "78% Improving",
-          "files": [
-            "/commercial-real-estate/building/CO/aurora/1300-1390-s-potomac-st/",
-            "_data/buildingPages.js",
-            "_data/commercialBuildingIntelligence.js",
-            "data/generated/publisher-analysis.json",
-            "data/generated/eos-analysis.json"
-          ],
-          "dependencies": [],
-          "acceptanceCriteria": [
-            "The cited measurable gap is closed or explicitly reclassified.",
-            "Existing Publisher, EOS, and relevant QA checks pass.",
-            "No production recommendation rankings change unless a separate approved sprint requires it.",
-            "Building Brief gating and URLs remain stable."
-          ],
-          "expectedDeliverables": [
-            "Building Brief data updates",
-            "Migration notes or review summary"
-          ],
-          "qaCommands": [
-            "npm run build",
-            "node scripts/qa-eos.js",
-            "node scripts/qa-publisher-expansion-planner.js",
-            "node scripts/qa-building-brief-depth.js",
-            "git diff --check"
-          ],
-          "requiredReview": true,
-          "automationLevel": {
-            "id": "review_required",
-            "label": "Review Required",
-            "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
-          },
-          "providers": [
-            {
-              "id": "manual",
-              "label": "Manual",
-              "description": "A human uses the execution packet as a checklist and updates EOS externally."
-            },
-            {
-              "id": "codex",
-              "label": "Codex",
-              "description": "A future execution provider can consume the packet and return work for review."
-            }
-          ],
-          "handoff": [
-            {
-              "id": "engineering",
-              "label": "Engineering",
-              "description": "Prepare source files, schema, generated data, or implementation scope."
-            },
-            {
-              "id": "execution",
-              "label": "Execution / Field Mode",
-              "description": "Execute the work manually, through Field Mode, or through a future provider."
-            },
-            {
-              "id": "qa",
-              "label": "QA",
-              "description": "Run deterministic validation and return exceptions to review."
-            },
-            {
-              "id": "publish",
-              "label": "Publish",
-              "description": "Regenerate snapshots/build and publish through the existing deployment workflow."
-            }
-          ]
-        }
-      },
-      {
         "id": "publisher:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-centennial-15152-e-fremont-dr",
         "metroId": "denver",
         "metroName": "Denver",
@@ -312693,126 +311782,6 @@
         }
       },
       {
-        "id": "publisher:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-aurora-17100-17210-e-ohio-dr",
-        "metroId": "denver",
-        "metroName": "Denver",
-        "title": "Author a Building Brief for this representative building.",
-        "itemName": "17100-17210 E Ohio Dr",
-        "priorityScore": 40,
-        "priorityStars": 2,
-        "automationLevel": {
-          "id": "review_required",
-          "label": "Review Required",
-          "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
-        },
-        "estimatedEffort": "90-180 min",
-        "expectedEditorialImpact": "Medium",
-        "dependencies": [],
-        "confidence": "research-required",
-        "lifecycleState": {
-          "id": "ready",
-          "label": "Ready"
-        },
-        "status": "Ready",
-        "queueType": "editorial",
-        "operatingLane": {
-          "id": "editorial",
-          "label": "Editorial",
-          "description": "Commercial judgment, building profiles, handbook guidance, and public editorial depth."
-        },
-        "category": "buildingBriefs",
-        "categoryLabel": "Building Briefs",
-        "suggestedModule": {
-          "id": "publisher",
-          "label": "Publisher"
-        },
-        "why": [
-          "Representative building has not migrated to the canonical Building Brief journey.",
-          "Task type: representative building missing Building Brief",
-          "Publisher severity: medium"
-        ],
-        "source": {
-          "system": "Publisher",
-          "publicUrl": "/commercial-real-estate/building/CO/aurora/17100-17210-e-ohio-dr/",
-          "adminUrl": "",
-          "expansionPlan": "Denver Building Brief Migration Sprint"
-        },
-        "executionPacket": {
-          "objective": "Author a Building Brief for this representative building.",
-          "reason": [
-            "Representative building has not migrated to the canonical Building Brief journey.",
-            "Task type: representative building missing Building Brief",
-            "Publisher severity: medium"
-          ],
-          "currentHealth": "78% Improving",
-          "files": [
-            "/commercial-real-estate/building/CO/aurora/17100-17210-e-ohio-dr/",
-            "_data/buildingPages.js",
-            "_data/commercialBuildingIntelligence.js",
-            "data/generated/publisher-analysis.json",
-            "data/generated/eos-analysis.json"
-          ],
-          "dependencies": [],
-          "acceptanceCriteria": [
-            "The cited measurable gap is closed or explicitly reclassified.",
-            "Existing Publisher, EOS, and relevant QA checks pass.",
-            "No production recommendation rankings change unless a separate approved sprint requires it.",
-            "Building Brief gating and URLs remain stable."
-          ],
-          "expectedDeliverables": [
-            "Building Brief data updates",
-            "Migration notes or review summary"
-          ],
-          "qaCommands": [
-            "npm run build",
-            "node scripts/qa-eos.js",
-            "node scripts/qa-publisher-expansion-planner.js",
-            "node scripts/qa-building-brief-depth.js",
-            "git diff --check"
-          ],
-          "requiredReview": true,
-          "automationLevel": {
-            "id": "review_required",
-            "label": "Review Required",
-            "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
-          },
-          "providers": [
-            {
-              "id": "manual",
-              "label": "Manual",
-              "description": "A human uses the execution packet as a checklist and updates EOS externally."
-            },
-            {
-              "id": "codex",
-              "label": "Codex",
-              "description": "A future execution provider can consume the packet and return work for review."
-            }
-          ],
-          "handoff": [
-            {
-              "id": "engineering",
-              "label": "Engineering",
-              "description": "Prepare source files, schema, generated data, or implementation scope."
-            },
-            {
-              "id": "execution",
-              "label": "Execution / Field Mode",
-              "description": "Execute the work manually, through Field Mode, or through a future provider."
-            },
-            {
-              "id": "qa",
-              "label": "QA",
-              "description": "Run deterministic validation and return exceptions to review."
-            },
-            {
-              "id": "publish",
-              "label": "Publish",
-              "description": "Regenerate snapshots/build and publish through the existing deployment workflow."
-            }
-          ]
-        }
-      },
-      {
         "id": "publisher:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-lakewood-200-union-blvd",
         "metroId": "denver",
         "metroName": "Denver",
@@ -313107,126 +312076,6 @@
           "currentHealth": "78% Improving",
           "files": [
             "/commercial-real-estate/building/CO/boulder/2755-canyon-blvd/",
-            "_data/buildingPages.js",
-            "_data/commercialBuildingIntelligence.js",
-            "data/generated/publisher-analysis.json",
-            "data/generated/eos-analysis.json"
-          ],
-          "dependencies": [],
-          "acceptanceCriteria": [
-            "The cited measurable gap is closed or explicitly reclassified.",
-            "Existing Publisher, EOS, and relevant QA checks pass.",
-            "No production recommendation rankings change unless a separate approved sprint requires it.",
-            "Building Brief gating and URLs remain stable."
-          ],
-          "expectedDeliverables": [
-            "Building Brief data updates",
-            "Migration notes or review summary"
-          ],
-          "qaCommands": [
-            "npm run build",
-            "node scripts/qa-eos.js",
-            "node scripts/qa-publisher-expansion-planner.js",
-            "node scripts/qa-building-brief-depth.js",
-            "git diff --check"
-          ],
-          "requiredReview": true,
-          "automationLevel": {
-            "id": "review_required",
-            "label": "Review Required",
-            "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
-          },
-          "providers": [
-            {
-              "id": "manual",
-              "label": "Manual",
-              "description": "A human uses the execution packet as a checklist and updates EOS externally."
-            },
-            {
-              "id": "codex",
-              "label": "Codex",
-              "description": "A future execution provider can consume the packet and return work for review."
-            }
-          ],
-          "handoff": [
-            {
-              "id": "engineering",
-              "label": "Engineering",
-              "description": "Prepare source files, schema, generated data, or implementation scope."
-            },
-            {
-              "id": "execution",
-              "label": "Execution / Field Mode",
-              "description": "Execute the work manually, through Field Mode, or through a future provider."
-            },
-            {
-              "id": "qa",
-              "label": "QA",
-              "description": "Run deterministic validation and return exceptions to review."
-            },
-            {
-              "id": "publish",
-              "label": "Publish",
-              "description": "Regenerate snapshots/build and publish through the existing deployment workflow."
-            }
-          ]
-        }
-      },
-      {
-        "id": "publisher:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-aurora-3250-abilene-st",
-        "metroId": "denver",
-        "metroName": "Denver",
-        "title": "Author a Building Brief for this representative building.",
-        "itemName": "3250 Abilene St",
-        "priorityScore": 40,
-        "priorityStars": 2,
-        "automationLevel": {
-          "id": "review_required",
-          "label": "Review Required",
-          "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
-        },
-        "estimatedEffort": "90-180 min",
-        "expectedEditorialImpact": "Medium",
-        "dependencies": [],
-        "confidence": "research-required",
-        "lifecycleState": {
-          "id": "ready",
-          "label": "Ready"
-        },
-        "status": "Ready",
-        "queueType": "editorial",
-        "operatingLane": {
-          "id": "editorial",
-          "label": "Editorial",
-          "description": "Commercial judgment, building profiles, handbook guidance, and public editorial depth."
-        },
-        "category": "buildingBriefs",
-        "categoryLabel": "Building Briefs",
-        "suggestedModule": {
-          "id": "publisher",
-          "label": "Publisher"
-        },
-        "why": [
-          "Representative building has not migrated to the canonical Building Brief journey.",
-          "Task type: representative building missing Building Brief",
-          "Publisher severity: medium"
-        ],
-        "source": {
-          "system": "Publisher",
-          "publicUrl": "/commercial-real-estate/building/CO/aurora/3250-abilene-st/",
-          "adminUrl": "",
-          "expansionPlan": "Denver Building Brief Migration Sprint"
-        },
-        "executionPacket": {
-          "objective": "Author a Building Brief for this representative building.",
-          "reason": [
-            "Representative building has not migrated to the canonical Building Brief journey.",
-            "Task type: representative building missing Building Brief",
-            "Publisher severity: medium"
-          ],
-          "currentHealth": "78% Improving",
-          "files": [
-            "/commercial-real-estate/building/CO/aurora/3250-abilene-st/",
             "_data/buildingPages.js",
             "_data/commercialBuildingIntelligence.js",
             "data/generated/publisher-analysis.json",
@@ -354231,20 +353080,20 @@
     ],
     "reviewQueue": [],
     "opportunityInventory": {
-      "total": 362,
-      "missions": 95,
+      "total": 359,
+      "missions": 94,
       "resolvedPortfolioMissions": 0,
       "byQueue": {
-        "editorial": 362,
-        "missions": 95,
+        "editorial": 359,
+        "missions": 94,
         "resolvedPortfolioMissions": 0,
         "expansion": 4,
         "fieldMode": 6,
         "review": 0,
-        "programMissions": 87
+        "programMissions": 86
       },
-      "hiddenFromHomepage": 362,
-      "programMissions": 87
+      "hiddenFromHomepage": 359,
+      "programMissions": 86
     }
   },
   "workQueue": [
@@ -356825,126 +355674,6 @@
       }
     },
     {
-      "id": "publisher:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-aurora-1300-1390-s-potomac-st",
-      "metroId": "denver",
-      "metroName": "Denver",
-      "title": "Author a Building Brief for this representative building.",
-      "itemName": "1300-1390 S Potomac St",
-      "priorityScore": 40,
-      "priorityStars": 2,
-      "automationLevel": {
-        "id": "review_required",
-        "label": "Review Required",
-        "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
-      },
-      "estimatedEffort": "90-180 min",
-      "expectedEditorialImpact": "Medium",
-      "dependencies": [],
-      "confidence": "research-required",
-      "lifecycleState": {
-        "id": "ready",
-        "label": "Ready"
-      },
-      "status": "Ready",
-      "queueType": "editorial",
-      "operatingLane": {
-        "id": "editorial",
-        "label": "Editorial",
-        "description": "Commercial judgment, building profiles, handbook guidance, and public editorial depth."
-      },
-      "category": "buildingBriefs",
-      "categoryLabel": "Building Briefs",
-      "suggestedModule": {
-        "id": "publisher",
-        "label": "Publisher"
-      },
-      "why": [
-        "Representative building has not migrated to the canonical Building Brief journey.",
-        "Task type: representative building missing Building Brief",
-        "Publisher severity: medium"
-      ],
-      "source": {
-        "system": "Publisher",
-        "publicUrl": "/commercial-real-estate/building/CO/aurora/1300-1390-s-potomac-st/",
-        "adminUrl": "",
-        "expansionPlan": "Denver Building Brief Migration Sprint"
-      },
-      "executionPacket": {
-        "objective": "Author a Building Brief for this representative building.",
-        "reason": [
-          "Representative building has not migrated to the canonical Building Brief journey.",
-          "Task type: representative building missing Building Brief",
-          "Publisher severity: medium"
-        ],
-        "currentHealth": "78% Improving",
-        "files": [
-          "/commercial-real-estate/building/CO/aurora/1300-1390-s-potomac-st/",
-          "_data/buildingPages.js",
-          "_data/commercialBuildingIntelligence.js",
-          "data/generated/publisher-analysis.json",
-          "data/generated/eos-analysis.json"
-        ],
-        "dependencies": [],
-        "acceptanceCriteria": [
-          "The cited measurable gap is closed or explicitly reclassified.",
-          "Existing Publisher, EOS, and relevant QA checks pass.",
-          "No production recommendation rankings change unless a separate approved sprint requires it.",
-          "Building Brief gating and URLs remain stable."
-        ],
-        "expectedDeliverables": [
-          "Building Brief data updates",
-          "Migration notes or review summary"
-        ],
-        "qaCommands": [
-          "npm run build",
-          "node scripts/qa-eos.js",
-          "node scripts/qa-publisher-expansion-planner.js",
-          "node scripts/qa-building-brief-depth.js",
-          "git diff --check"
-        ],
-        "requiredReview": true,
-        "automationLevel": {
-          "id": "review_required",
-          "label": "Review Required",
-          "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
-        },
-        "providers": [
-          {
-            "id": "manual",
-            "label": "Manual",
-            "description": "A human uses the execution packet as a checklist and updates EOS externally."
-          },
-          {
-            "id": "codex",
-            "label": "Codex",
-            "description": "A future execution provider can consume the packet and return work for review."
-          }
-        ],
-        "handoff": [
-          {
-            "id": "engineering",
-            "label": "Engineering",
-            "description": "Prepare source files, schema, generated data, or implementation scope."
-          },
-          {
-            "id": "execution",
-            "label": "Execution / Field Mode",
-            "description": "Execute the work manually, through Field Mode, or through a future provider."
-          },
-          {
-            "id": "qa",
-            "label": "QA",
-            "description": "Run deterministic validation and return exceptions to review."
-          },
-          {
-            "id": "publish",
-            "label": "Publish",
-            "description": "Regenerate snapshots/build and publish through the existing deployment workflow."
-          }
-        ]
-      }
-    },
-    {
       "id": "publisher:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-centennial-15152-e-fremont-dr",
       "metroId": "denver",
       "metroName": "Denver",
@@ -357425,126 +356154,6 @@
       }
     },
     {
-      "id": "publisher:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-aurora-17100-17210-e-ohio-dr",
-      "metroId": "denver",
-      "metroName": "Denver",
-      "title": "Author a Building Brief for this representative building.",
-      "itemName": "17100-17210 E Ohio Dr",
-      "priorityScore": 40,
-      "priorityStars": 2,
-      "automationLevel": {
-        "id": "review_required",
-        "label": "Review Required",
-        "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
-      },
-      "estimatedEffort": "90-180 min",
-      "expectedEditorialImpact": "Medium",
-      "dependencies": [],
-      "confidence": "research-required",
-      "lifecycleState": {
-        "id": "ready",
-        "label": "Ready"
-      },
-      "status": "Ready",
-      "queueType": "editorial",
-      "operatingLane": {
-        "id": "editorial",
-        "label": "Editorial",
-        "description": "Commercial judgment, building profiles, handbook guidance, and public editorial depth."
-      },
-      "category": "buildingBriefs",
-      "categoryLabel": "Building Briefs",
-      "suggestedModule": {
-        "id": "publisher",
-        "label": "Publisher"
-      },
-      "why": [
-        "Representative building has not migrated to the canonical Building Brief journey.",
-        "Task type: representative building missing Building Brief",
-        "Publisher severity: medium"
-      ],
-      "source": {
-        "system": "Publisher",
-        "publicUrl": "/commercial-real-estate/building/CO/aurora/17100-17210-e-ohio-dr/",
-        "adminUrl": "",
-        "expansionPlan": "Denver Building Brief Migration Sprint"
-      },
-      "executionPacket": {
-        "objective": "Author a Building Brief for this representative building.",
-        "reason": [
-          "Representative building has not migrated to the canonical Building Brief journey.",
-          "Task type: representative building missing Building Brief",
-          "Publisher severity: medium"
-        ],
-        "currentHealth": "78% Improving",
-        "files": [
-          "/commercial-real-estate/building/CO/aurora/17100-17210-e-ohio-dr/",
-          "_data/buildingPages.js",
-          "_data/commercialBuildingIntelligence.js",
-          "data/generated/publisher-analysis.json",
-          "data/generated/eos-analysis.json"
-        ],
-        "dependencies": [],
-        "acceptanceCriteria": [
-          "The cited measurable gap is closed or explicitly reclassified.",
-          "Existing Publisher, EOS, and relevant QA checks pass.",
-          "No production recommendation rankings change unless a separate approved sprint requires it.",
-          "Building Brief gating and URLs remain stable."
-        ],
-        "expectedDeliverables": [
-          "Building Brief data updates",
-          "Migration notes or review summary"
-        ],
-        "qaCommands": [
-          "npm run build",
-          "node scripts/qa-eos.js",
-          "node scripts/qa-publisher-expansion-planner.js",
-          "node scripts/qa-building-brief-depth.js",
-          "git diff --check"
-        ],
-        "requiredReview": true,
-        "automationLevel": {
-          "id": "review_required",
-          "label": "Review Required",
-          "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
-        },
-        "providers": [
-          {
-            "id": "manual",
-            "label": "Manual",
-            "description": "A human uses the execution packet as a checklist and updates EOS externally."
-          },
-          {
-            "id": "codex",
-            "label": "Codex",
-            "description": "A future execution provider can consume the packet and return work for review."
-          }
-        ],
-        "handoff": [
-          {
-            "id": "engineering",
-            "label": "Engineering",
-            "description": "Prepare source files, schema, generated data, or implementation scope."
-          },
-          {
-            "id": "execution",
-            "label": "Execution / Field Mode",
-            "description": "Execute the work manually, through Field Mode, or through a future provider."
-          },
-          {
-            "id": "qa",
-            "label": "QA",
-            "description": "Run deterministic validation and return exceptions to review."
-          },
-          {
-            "id": "publish",
-            "label": "Publish",
-            "description": "Regenerate snapshots/build and publish through the existing deployment workflow."
-          }
-        ]
-      }
-    },
-    {
       "id": "publisher:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-lakewood-200-union-blvd",
       "metroId": "denver",
       "metroName": "Denver",
@@ -357839,126 +356448,6 @@
         "currentHealth": "78% Improving",
         "files": [
           "/commercial-real-estate/building/CO/boulder/2755-canyon-blvd/",
-          "_data/buildingPages.js",
-          "_data/commercialBuildingIntelligence.js",
-          "data/generated/publisher-analysis.json",
-          "data/generated/eos-analysis.json"
-        ],
-        "dependencies": [],
-        "acceptanceCriteria": [
-          "The cited measurable gap is closed or explicitly reclassified.",
-          "Existing Publisher, EOS, and relevant QA checks pass.",
-          "No production recommendation rankings change unless a separate approved sprint requires it.",
-          "Building Brief gating and URLs remain stable."
-        ],
-        "expectedDeliverables": [
-          "Building Brief data updates",
-          "Migration notes or review summary"
-        ],
-        "qaCommands": [
-          "npm run build",
-          "node scripts/qa-eos.js",
-          "node scripts/qa-publisher-expansion-planner.js",
-          "node scripts/qa-building-brief-depth.js",
-          "git diff --check"
-        ],
-        "requiredReview": true,
-        "automationLevel": {
-          "id": "review_required",
-          "label": "Review Required",
-          "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
-        },
-        "providers": [
-          {
-            "id": "manual",
-            "label": "Manual",
-            "description": "A human uses the execution packet as a checklist and updates EOS externally."
-          },
-          {
-            "id": "codex",
-            "label": "Codex",
-            "description": "A future execution provider can consume the packet and return work for review."
-          }
-        ],
-        "handoff": [
-          {
-            "id": "engineering",
-            "label": "Engineering",
-            "description": "Prepare source files, schema, generated data, or implementation scope."
-          },
-          {
-            "id": "execution",
-            "label": "Execution / Field Mode",
-            "description": "Execute the work manually, through Field Mode, or through a future provider."
-          },
-          {
-            "id": "qa",
-            "label": "QA",
-            "description": "Run deterministic validation and return exceptions to review."
-          },
-          {
-            "id": "publish",
-            "label": "Publish",
-            "description": "Regenerate snapshots/build and publish through the existing deployment workflow."
-          }
-        ]
-      }
-    },
-    {
-      "id": "publisher:denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-aurora-3250-abilene-st",
-      "metroId": "denver",
-      "metroName": "Denver",
-      "title": "Author a Building Brief for this representative building.",
-      "itemName": "3250 Abilene St",
-      "priorityScore": 40,
-      "priorityStars": 2,
-      "automationLevel": {
-        "id": "review_required",
-        "label": "Review Required",
-        "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
-      },
-      "estimatedEffort": "90-180 min",
-      "expectedEditorialImpact": "Medium",
-      "dependencies": [],
-      "confidence": "research-required",
-      "lifecycleState": {
-        "id": "ready",
-        "label": "Ready"
-      },
-      "status": "Ready",
-      "queueType": "editorial",
-      "operatingLane": {
-        "id": "editorial",
-        "label": "Editorial",
-        "description": "Commercial judgment, building profiles, handbook guidance, and public editorial depth."
-      },
-      "category": "buildingBriefs",
-      "categoryLabel": "Building Briefs",
-      "suggestedModule": {
-        "id": "publisher",
-        "label": "Publisher"
-      },
-      "why": [
-        "Representative building has not migrated to the canonical Building Brief journey.",
-        "Task type: representative building missing Building Brief",
-        "Publisher severity: medium"
-      ],
-      "source": {
-        "system": "Publisher",
-        "publicUrl": "/commercial-real-estate/building/CO/aurora/3250-abilene-st/",
-        "adminUrl": "",
-        "expansionPlan": "Denver Building Brief Migration Sprint"
-      },
-      "executionPacket": {
-        "objective": "Author a Building Brief for this representative building.",
-        "reason": [
-          "Representative building has not migrated to the canonical Building Brief journey.",
-          "Task type: representative building missing Building Brief",
-          "Publisher severity: medium"
-        ],
-        "currentHealth": "78% Improving",
-        "files": [
-          "/commercial-real-estate/building/CO/aurora/3250-abilene-st/",
           "_data/buildingPages.js",
           "_data/commercialBuildingIntelligence.js",
           "data/generated/publisher-analysis.json",

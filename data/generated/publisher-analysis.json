@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-09T16:08:20-07:00",
-  "sourceCommit": "cd61be42d8420fa566fe1b37d7f919bf8afcc1cd",
+  "generatedAt": "2026-08-09T16:21:41-07:00",
+  "sourceCommit": "5f5ed8ec49fcb9f5e7f9e95d9edfd40c599c43a6",
   "geography": {
     "schemaVersion": "commercial-geography-summary-v1",
     "hierarchy": [
@@ -2094,7 +2094,7 @@
       "Low": 2
     },
     "deferredCandidates": 55,
-    "latestValidation": "2026-08-09T16:08:20-07:00",
+    "latestValidation": "2026-08-09T16:21:41-07:00",
     "errors": [],
     "warnings": [],
     "source": {
@@ -2104,13 +2104,13 @@
     "scoringImpact": "None. Reporting only; Publisher scoring and readiness calculations are unchanged."
   },
   "analysis": {
-    "generatedAt": "2026-08-09T16:08:20-07:00",
+    "generatedAt": "2026-08-09T16:21:41-07:00",
     "rulesVersion": "publisher-rules-v1",
     "overview": {
       "compassReadyCount": 5,
       "averageScore": 92,
       "criticalIssues": 0,
-      "queuedTasks": 332,
+      "queuedTasks": 329,
       "closestToDistributionReady": "Sacramento",
       "largestCriticalGap": "None"
     },
@@ -26547,11 +26547,11 @@
             "label": "Editorial Coverage",
             "score": 90,
             "status": "",
-            "explanation": "21 of 21 districts have substantive descriptions; 45 representative buildings and 9 Building Briefs are available.",
+            "explanation": "21 of 21 districts have substantive descriptions; 45 representative buildings and 12 Building Briefs are available.",
             "completed": {
               "districtsWithDescriptions": 21,
               "representativeBuildings": 45,
-              "buildingBriefs": 9
+              "buildingBriefs": 12
             },
             "targets": {
               "representativeBuildingsPerDistrict": 3,
@@ -26588,7 +26588,7 @@
         "cityPath": "/commercial-real-estate/CO/denver/",
         "districtCount": 21,
         "representativeBuildingCount": 45,
-        "buildingBriefCount": 9,
+        "buildingBriefCount": 12,
         "geographicReadiness": {
           "state": "developed",
           "label": "Developed",
@@ -26836,7 +26836,7 @@
                 "secondaryDistricts": 7,
                 "recommendations": 6,
                 "representativeBuildings": 11,
-                "buildingBriefs": 3,
+                "buildingBriefs": 6,
                 "subtypes": 10,
                 "archetypes": 7,
                 "activities": 6,
@@ -26852,7 +26852,7 @@
               "strategicPriority": 1,
               "evidence": [
                 "6 primary districts and 7 secondary districts.",
-                "11 Representative Buildings and 3 Building Briefs.",
+                "11 Representative Buildings and 6 Building Briefs.",
                 "8 representative roles and 6 operational categories are covered."
               ],
               "targetSubtypes": [
@@ -26884,7 +26884,7 @@
                 "stateLabel": "Developed",
                 "buildingCount": 11,
                 "explicitCount": 11,
-                "inheritedOnlyCount": 3,
+                "inheritedOnlyCount": 0,
                 "reviewRequiredCount": 0,
                 "rolesCovered": [
                   "small_bay_service_environment",
@@ -26898,10 +26898,10 @@
                 ],
                 "subtypesCovered": [
                   "warehouse",
+                  "distribution",
+                  "last_mile_logistics",
                   "flex",
                   "small_bay_industrial",
-                  "last_mile_logistics",
-                  "distribution",
                   "manufacturing",
                   "contractor_service",
                   "light_manufacturing",
@@ -27970,18 +27970,18 @@
           "balance": {
             "state": "balanced",
             "label": "Balanced",
-            "dominantEcosystem": "office",
+            "dominantEcosystem": "industrial_flex",
             "representativeBuildingShare": 0.51,
-            "buildingBriefShare": 0.44,
+            "buildingBriefShare": 0.5,
             "warnings": []
           }
         },
         "ecosystemBalance": {
           "state": "balanced",
           "label": "Balanced",
-          "dominantEcosystem": "office",
+          "dominantEcosystem": "industrial_flex",
           "representativeBuildingShare": 0.51,
-          "buildingBriefShare": 0.44,
+          "buildingBriefShare": 0.5,
           "warnings": []
         },
         "ecosystemCoverage": {
@@ -28209,7 +28209,7 @@
               "secondaryDistrictCount": 7,
               "recommendationNodeCount": 6,
               "representativeBuildingCount": 11,
-              "buildingBriefCount": 3,
+              "buildingBriefCount": 6,
               "status": "Developed",
               "districts": [
                 {
@@ -28285,7 +28285,7 @@
                 "stateLabel": "Developed",
                 "buildingCount": 11,
                 "explicitCount": 11,
-                "inheritedOnlyCount": 3,
+                "inheritedOnlyCount": 0,
                 "reviewRequiredCount": 0,
                 "rolesCovered": {
                   "small_bay_service_environment": 2,
@@ -28299,10 +28299,10 @@
                 },
                 "subtypesCovered": {
                   "warehouse": 10,
+                  "distribution": 8,
+                  "last_mile_logistics": 6,
                   "flex": 11,
                   "small_bay_industrial": 11,
-                  "last_mile_logistics": 6,
-                  "distribution": 7,
                   "manufacturing": 4,
                   "contractor_service": 1,
                   "light_manufacturing": 1,
@@ -29640,69 +29640,12 @@
           "buildingBriefs": {
             "key": "buildingBriefs",
             "label": "Building Briefs",
-            "score": 20,
-            "completed": 9,
+            "score": 27,
+            "completed": 12,
             "total": 45,
-            "missing": 36,
-            "explanation": "9 of 45 representative building records use the canonical Building Brief journey.",
+            "missing": 33,
+            "explanation": "12 of 45 representative building records use the canonical Building Brief journey.",
             "issues": [
-              {
-                "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-aurora-3250-abilene-st",
-                "code": "missing-brief",
-                "metroId": "denver",
-                "metroName": "Denver",
-                "category": "buildingBriefs",
-                "categoryLabel": "Building Briefs",
-                "taskType": "representative building missing Building Brief",
-                "itemName": "3250 Abilene St",
-                "severity": "medium",
-                "priority": 40,
-                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-                "sourceId": "/commercial-real-estate/building/CO/aurora/3250-abilene-st/",
-                "publicUrl": "/commercial-real-estate/building/CO/aurora/3250-abilene-st/",
-                "adminUrl": "",
-                "suggestedNextAction": "Author a Building Brief for this representative building.",
-                "automationCandidate": true,
-                "readinessState": "research-required"
-              },
-              {
-                "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-aurora-1300-1390-s-potomac-st",
-                "code": "missing-brief",
-                "metroId": "denver",
-                "metroName": "Denver",
-                "category": "buildingBriefs",
-                "categoryLabel": "Building Briefs",
-                "taskType": "representative building missing Building Brief",
-                "itemName": "1300-1390 S Potomac St",
-                "severity": "medium",
-                "priority": 40,
-                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-                "sourceId": "/commercial-real-estate/building/CO/aurora/1300-1390-s-potomac-st/",
-                "publicUrl": "/commercial-real-estate/building/CO/aurora/1300-1390-s-potomac-st/",
-                "adminUrl": "",
-                "suggestedNextAction": "Author a Building Brief for this representative building.",
-                "automationCandidate": true,
-                "readinessState": "research-required"
-              },
-              {
-                "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-aurora-17100-17210-e-ohio-dr",
-                "code": "missing-brief",
-                "metroId": "denver",
-                "metroName": "Denver",
-                "category": "buildingBriefs",
-                "categoryLabel": "Building Briefs",
-                "taskType": "representative building missing Building Brief",
-                "itemName": "17100-17210 E Ohio Dr",
-                "severity": "medium",
-                "priority": 40,
-                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-                "sourceId": "/commercial-real-estate/building/CO/aurora/17100-17210-e-ohio-dr/",
-                "publicUrl": "/commercial-real-estate/building/CO/aurora/17100-17210-e-ohio-dr/",
-                "adminUrl": "",
-                "suggestedNextAction": "Author a Building Brief for this representative building.",
-                "automationCandidate": true,
-                "readinessState": "research-required"
-              },
               {
                 "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-1400-sixteenth-street",
                 "code": "missing-brief",
@@ -30384,8 +30327,8 @@
             "key": "editorialQuality",
             "label": "Editorial Quality",
             "score": 100,
-            "completed": 30,
-            "total": 30,
+            "completed": 33,
+            "total": 33,
             "missing": 0,
             "explanation": "Deterministic scan for placeholders, unsupported generated phrasing, and style-guide avoid phrases.",
             "issues": []
@@ -30517,25 +30460,6 @@
             "readinessState": ""
           },
           {
-            "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-aurora-1300-1390-s-potomac-st",
-            "code": "missing-brief",
-            "metroId": "denver",
-            "metroName": "Denver",
-            "category": "buildingBriefs",
-            "categoryLabel": "Building Briefs",
-            "taskType": "representative building missing Building Brief",
-            "itemName": "1300-1390 S Potomac St",
-            "severity": "medium",
-            "priority": 40,
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-            "sourceId": "/commercial-real-estate/building/CO/aurora/1300-1390-s-potomac-st/",
-            "publicUrl": "/commercial-real-estate/building/CO/aurora/1300-1390-s-potomac-st/",
-            "adminUrl": "",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
-            "automationCandidate": true,
-            "readinessState": "research-required"
-          },
-          {
             "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-centennial-15152-e-fremont-dr",
             "code": "missing-brief",
             "metroId": "denver",
@@ -30612,25 +30536,6 @@
             "readinessState": ""
           },
           {
-            "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-aurora-17100-17210-e-ohio-dr",
-            "code": "missing-brief",
-            "metroId": "denver",
-            "metroName": "Denver",
-            "category": "buildingBriefs",
-            "categoryLabel": "Building Briefs",
-            "taskType": "representative building missing Building Brief",
-            "itemName": "17100-17210 E Ohio Dr",
-            "severity": "medium",
-            "priority": 40,
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-            "sourceId": "/commercial-real-estate/building/CO/aurora/17100-17210-e-ohio-dr/",
-            "publicUrl": "/commercial-real-estate/building/CO/aurora/17100-17210-e-ohio-dr/",
-            "adminUrl": "",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
-            "automationCandidate": true,
-            "readinessState": "research-required"
-          },
-          {
             "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-lakewood-200-union-blvd",
             "code": "missing-brief",
             "metroId": "denver",
@@ -30686,25 +30591,6 @@
             "suggestedNextAction": "Author a Building Brief for this representative building.",
             "automationCandidate": true,
             "readinessState": ""
-          },
-          {
-            "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-aurora-3250-abilene-st",
-            "code": "missing-brief",
-            "metroId": "denver",
-            "metroName": "Denver",
-            "category": "buildingBriefs",
-            "categoryLabel": "Building Briefs",
-            "taskType": "representative building missing Building Brief",
-            "itemName": "3250 Abilene St",
-            "severity": "medium",
-            "priority": 40,
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-            "sourceId": "/commercial-real-estate/building/CO/aurora/3250-abilene-st/",
-            "publicUrl": "/commercial-real-estate/building/CO/aurora/3250-abilene-st/",
-            "adminUrl": "",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
-            "automationCandidate": true,
-            "readinessState": "research-required"
           },
           {
             "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-broomfield-335-interlocken-pkwy",
@@ -59657,11 +59543,11 @@
             "label": "Editorial Coverage",
             "score": 90,
             "status": "",
-            "explanation": "21 of 21 districts have substantive descriptions; 45 representative buildings and 9 Building Briefs are available.",
+            "explanation": "21 of 21 districts have substantive descriptions; 45 representative buildings and 12 Building Briefs are available.",
             "completed": {
               "districtsWithDescriptions": 21,
               "representativeBuildings": 45,
-              "buildingBriefs": 9
+              "buildingBriefs": 12
             },
             "targets": {
               "representativeBuildingsPerDistrict": 3,
@@ -59698,7 +59584,7 @@
         "cityPath": "/commercial-real-estate/CO/denver/",
         "districtCount": 21,
         "representativeBuildingCount": 45,
-        "buildingBriefCount": 9,
+        "buildingBriefCount": 12,
         "geographicReadiness": {
           "state": "developed",
           "label": "Developed",
@@ -59946,7 +59832,7 @@
                 "secondaryDistricts": 7,
                 "recommendations": 6,
                 "representativeBuildings": 11,
-                "buildingBriefs": 3,
+                "buildingBriefs": 6,
                 "subtypes": 10,
                 "archetypes": 7,
                 "activities": 6,
@@ -59962,7 +59848,7 @@
               "strategicPriority": 1,
               "evidence": [
                 "6 primary districts and 7 secondary districts.",
-                "11 Representative Buildings and 3 Building Briefs.",
+                "11 Representative Buildings and 6 Building Briefs.",
                 "8 representative roles and 6 operational categories are covered."
               ],
               "targetSubtypes": [
@@ -59994,7 +59880,7 @@
                 "stateLabel": "Developed",
                 "buildingCount": 11,
                 "explicitCount": 11,
-                "inheritedOnlyCount": 3,
+                "inheritedOnlyCount": 0,
                 "reviewRequiredCount": 0,
                 "rolesCovered": [
                   "small_bay_service_environment",
@@ -60008,10 +59894,10 @@
                 ],
                 "subtypesCovered": [
                   "warehouse",
+                  "distribution",
+                  "last_mile_logistics",
                   "flex",
                   "small_bay_industrial",
-                  "last_mile_logistics",
-                  "distribution",
                   "manufacturing",
                   "contractor_service",
                   "light_manufacturing",
@@ -61080,18 +60966,18 @@
           "balance": {
             "state": "balanced",
             "label": "Balanced",
-            "dominantEcosystem": "office",
+            "dominantEcosystem": "industrial_flex",
             "representativeBuildingShare": 0.51,
-            "buildingBriefShare": 0.44,
+            "buildingBriefShare": 0.5,
             "warnings": []
           }
         },
         "ecosystemBalance": {
           "state": "balanced",
           "label": "Balanced",
-          "dominantEcosystem": "office",
+          "dominantEcosystem": "industrial_flex",
           "representativeBuildingShare": 0.51,
-          "buildingBriefShare": 0.44,
+          "buildingBriefShare": 0.5,
           "warnings": []
         },
         "ecosystemCoverage": {
@@ -61319,7 +61205,7 @@
               "secondaryDistrictCount": 7,
               "recommendationNodeCount": 6,
               "representativeBuildingCount": 11,
-              "buildingBriefCount": 3,
+              "buildingBriefCount": 6,
               "status": "Developed",
               "districts": [
                 {
@@ -61395,7 +61281,7 @@
                 "stateLabel": "Developed",
                 "buildingCount": 11,
                 "explicitCount": 11,
-                "inheritedOnlyCount": 3,
+                "inheritedOnlyCount": 0,
                 "reviewRequiredCount": 0,
                 "rolesCovered": {
                   "small_bay_service_environment": 2,
@@ -61409,10 +61295,10 @@
                 },
                 "subtypesCovered": {
                   "warehouse": 10,
+                  "distribution": 8,
+                  "last_mile_logistics": 6,
                   "flex": 11,
                   "small_bay_industrial": 11,
-                  "last_mile_logistics": 6,
-                  "distribution": 7,
                   "manufacturing": 4,
                   "contractor_service": 1,
                   "light_manufacturing": 1,
@@ -62750,69 +62636,12 @@
           "buildingBriefs": {
             "key": "buildingBriefs",
             "label": "Building Briefs",
-            "score": 20,
-            "completed": 9,
+            "score": 27,
+            "completed": 12,
             "total": 45,
-            "missing": 36,
-            "explanation": "9 of 45 representative building records use the canonical Building Brief journey.",
+            "missing": 33,
+            "explanation": "12 of 45 representative building records use the canonical Building Brief journey.",
             "issues": [
-              {
-                "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-aurora-3250-abilene-st",
-                "code": "missing-brief",
-                "metroId": "denver",
-                "metroName": "Denver",
-                "category": "buildingBriefs",
-                "categoryLabel": "Building Briefs",
-                "taskType": "representative building missing Building Brief",
-                "itemName": "3250 Abilene St",
-                "severity": "medium",
-                "priority": 40,
-                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-                "sourceId": "/commercial-real-estate/building/CO/aurora/3250-abilene-st/",
-                "publicUrl": "/commercial-real-estate/building/CO/aurora/3250-abilene-st/",
-                "adminUrl": "",
-                "suggestedNextAction": "Author a Building Brief for this representative building.",
-                "automationCandidate": true,
-                "readinessState": "research-required"
-              },
-              {
-                "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-aurora-1300-1390-s-potomac-st",
-                "code": "missing-brief",
-                "metroId": "denver",
-                "metroName": "Denver",
-                "category": "buildingBriefs",
-                "categoryLabel": "Building Briefs",
-                "taskType": "representative building missing Building Brief",
-                "itemName": "1300-1390 S Potomac St",
-                "severity": "medium",
-                "priority": 40,
-                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-                "sourceId": "/commercial-real-estate/building/CO/aurora/1300-1390-s-potomac-st/",
-                "publicUrl": "/commercial-real-estate/building/CO/aurora/1300-1390-s-potomac-st/",
-                "adminUrl": "",
-                "suggestedNextAction": "Author a Building Brief for this representative building.",
-                "automationCandidate": true,
-                "readinessState": "research-required"
-              },
-              {
-                "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-aurora-17100-17210-e-ohio-dr",
-                "code": "missing-brief",
-                "metroId": "denver",
-                "metroName": "Denver",
-                "category": "buildingBriefs",
-                "categoryLabel": "Building Briefs",
-                "taskType": "representative building missing Building Brief",
-                "itemName": "17100-17210 E Ohio Dr",
-                "severity": "medium",
-                "priority": 40,
-                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-                "sourceId": "/commercial-real-estate/building/CO/aurora/17100-17210-e-ohio-dr/",
-                "publicUrl": "/commercial-real-estate/building/CO/aurora/17100-17210-e-ohio-dr/",
-                "adminUrl": "",
-                "suggestedNextAction": "Author a Building Brief for this representative building.",
-                "automationCandidate": true,
-                "readinessState": "research-required"
-              },
               {
                 "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-1400-sixteenth-street",
                 "code": "missing-brief",
@@ -63494,8 +63323,8 @@
             "key": "editorialQuality",
             "label": "Editorial Quality",
             "score": 100,
-            "completed": 30,
-            "total": 30,
+            "completed": 33,
+            "total": 33,
             "missing": 0,
             "explanation": "Deterministic scan for placeholders, unsupported generated phrasing, and style-guide avoid phrases.",
             "issues": []
@@ -63627,25 +63456,6 @@
             "readinessState": ""
           },
           {
-            "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-aurora-1300-1390-s-potomac-st",
-            "code": "missing-brief",
-            "metroId": "denver",
-            "metroName": "Denver",
-            "category": "buildingBriefs",
-            "categoryLabel": "Building Briefs",
-            "taskType": "representative building missing Building Brief",
-            "itemName": "1300-1390 S Potomac St",
-            "severity": "medium",
-            "priority": 40,
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-            "sourceId": "/commercial-real-estate/building/CO/aurora/1300-1390-s-potomac-st/",
-            "publicUrl": "/commercial-real-estate/building/CO/aurora/1300-1390-s-potomac-st/",
-            "adminUrl": "",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
-            "automationCandidate": true,
-            "readinessState": "research-required"
-          },
-          {
             "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-centennial-15152-e-fremont-dr",
             "code": "missing-brief",
             "metroId": "denver",
@@ -63722,25 +63532,6 @@
             "readinessState": ""
           },
           {
-            "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-aurora-17100-17210-e-ohio-dr",
-            "code": "missing-brief",
-            "metroId": "denver",
-            "metroName": "Denver",
-            "category": "buildingBriefs",
-            "categoryLabel": "Building Briefs",
-            "taskType": "representative building missing Building Brief",
-            "itemName": "17100-17210 E Ohio Dr",
-            "severity": "medium",
-            "priority": 40,
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-            "sourceId": "/commercial-real-estate/building/CO/aurora/17100-17210-e-ohio-dr/",
-            "publicUrl": "/commercial-real-estate/building/CO/aurora/17100-17210-e-ohio-dr/",
-            "adminUrl": "",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
-            "automationCandidate": true,
-            "readinessState": "research-required"
-          },
-          {
             "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-lakewood-200-union-blvd",
             "code": "missing-brief",
             "metroId": "denver",
@@ -63796,25 +63587,6 @@
             "suggestedNextAction": "Author a Building Brief for this representative building.",
             "automationCandidate": true,
             "readinessState": ""
-          },
-          {
-            "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-aurora-3250-abilene-st",
-            "code": "missing-brief",
-            "metroId": "denver",
-            "metroName": "Denver",
-            "category": "buildingBriefs",
-            "categoryLabel": "Building Briefs",
-            "taskType": "representative building missing Building Brief",
-            "itemName": "3250 Abilene St",
-            "severity": "medium",
-            "priority": 40,
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-            "sourceId": "/commercial-real-estate/building/CO/aurora/3250-abilene-st/",
-            "publicUrl": "/commercial-real-estate/building/CO/aurora/3250-abilene-st/",
-            "adminUrl": "",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
-            "automationCandidate": true,
-            "readinessState": "research-required"
           },
           {
             "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-broomfield-335-interlocken-pkwy",
@@ -68490,25 +68262,6 @@
         "readinessState": ""
       },
       {
-        "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-aurora-1300-1390-s-potomac-st",
-        "code": "missing-brief",
-        "metroId": "denver",
-        "metroName": "Denver",
-        "category": "buildingBriefs",
-        "categoryLabel": "Building Briefs",
-        "taskType": "representative building missing Building Brief",
-        "itemName": "1300-1390 S Potomac St",
-        "severity": "medium",
-        "priority": 40,
-        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-        "sourceId": "/commercial-real-estate/building/CO/aurora/1300-1390-s-potomac-st/",
-        "publicUrl": "/commercial-real-estate/building/CO/aurora/1300-1390-s-potomac-st/",
-        "adminUrl": "",
-        "suggestedNextAction": "Author a Building Brief for this representative building.",
-        "automationCandidate": true,
-        "readinessState": "research-required"
-      },
-      {
         "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-centennial-15152-e-fremont-dr",
         "code": "missing-brief",
         "metroId": "denver",
@@ -68585,25 +68338,6 @@
         "readinessState": ""
       },
       {
-        "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-aurora-17100-17210-e-ohio-dr",
-        "code": "missing-brief",
-        "metroId": "denver",
-        "metroName": "Denver",
-        "category": "buildingBriefs",
-        "categoryLabel": "Building Briefs",
-        "taskType": "representative building missing Building Brief",
-        "itemName": "17100-17210 E Ohio Dr",
-        "severity": "medium",
-        "priority": 40,
-        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-        "sourceId": "/commercial-real-estate/building/CO/aurora/17100-17210-e-ohio-dr/",
-        "publicUrl": "/commercial-real-estate/building/CO/aurora/17100-17210-e-ohio-dr/",
-        "adminUrl": "",
-        "suggestedNextAction": "Author a Building Brief for this representative building.",
-        "automationCandidate": true,
-        "readinessState": "research-required"
-      },
-      {
         "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-lakewood-200-union-blvd",
         "code": "missing-brief",
         "metroId": "denver",
@@ -68659,25 +68393,6 @@
         "suggestedNextAction": "Author a Building Brief for this representative building.",
         "automationCandidate": true,
         "readinessState": ""
-      },
-      {
-        "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-aurora-3250-abilene-st",
-        "code": "missing-brief",
-        "metroId": "denver",
-        "metroName": "Denver",
-        "category": "buildingBriefs",
-        "categoryLabel": "Building Briefs",
-        "taskType": "representative building missing Building Brief",
-        "itemName": "3250 Abilene St",
-        "severity": "medium",
-        "priority": 40,
-        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-        "sourceId": "/commercial-real-estate/building/CO/aurora/3250-abilene-st/",
-        "publicUrl": "/commercial-real-estate/building/CO/aurora/3250-abilene-st/",
-        "adminUrl": "",
-        "suggestedNextAction": "Author a Building Brief for this representative building.",
-        "automationCandidate": true,
-        "readinessState": "research-required"
       },
       {
         "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-broomfield-335-interlocken-pkwy",
@@ -74800,25 +74515,6 @@
         "readinessState": ""
       },
       {
-        "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-aurora-1300-1390-s-potomac-st",
-        "code": "missing-brief",
-        "metroId": "denver",
-        "metroName": "Denver",
-        "category": "buildingBriefs",
-        "categoryLabel": "Building Briefs",
-        "taskType": "representative building missing Building Brief",
-        "itemName": "1300-1390 S Potomac St",
-        "severity": "medium",
-        "priority": 40,
-        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-        "sourceId": "/commercial-real-estate/building/CO/aurora/1300-1390-s-potomac-st/",
-        "publicUrl": "/commercial-real-estate/building/CO/aurora/1300-1390-s-potomac-st/",
-        "adminUrl": "",
-        "suggestedNextAction": "Author a Building Brief for this representative building.",
-        "automationCandidate": true,
-        "readinessState": "research-required"
-      },
-      {
         "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-centennial-15152-e-fremont-dr",
         "code": "missing-brief",
         "metroId": "denver",
@@ -74895,25 +74591,6 @@
         "readinessState": ""
       },
       {
-        "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-aurora-17100-17210-e-ohio-dr",
-        "code": "missing-brief",
-        "metroId": "denver",
-        "metroName": "Denver",
-        "category": "buildingBriefs",
-        "categoryLabel": "Building Briefs",
-        "taskType": "representative building missing Building Brief",
-        "itemName": "17100-17210 E Ohio Dr",
-        "severity": "medium",
-        "priority": 40,
-        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-        "sourceId": "/commercial-real-estate/building/CO/aurora/17100-17210-e-ohio-dr/",
-        "publicUrl": "/commercial-real-estate/building/CO/aurora/17100-17210-e-ohio-dr/",
-        "adminUrl": "",
-        "suggestedNextAction": "Author a Building Brief for this representative building.",
-        "automationCandidate": true,
-        "readinessState": "research-required"
-      },
-      {
         "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-lakewood-200-union-blvd",
         "code": "missing-brief",
         "metroId": "denver",
@@ -74969,25 +74646,6 @@
         "suggestedNextAction": "Author a Building Brief for this representative building.",
         "automationCandidate": true,
         "readinessState": ""
-      },
-      {
-        "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-aurora-3250-abilene-st",
-        "code": "missing-brief",
-        "metroId": "denver",
-        "metroName": "Denver",
-        "category": "buildingBriefs",
-        "categoryLabel": "Building Briefs",
-        "taskType": "representative building missing Building Brief",
-        "itemName": "3250 Abilene St",
-        "severity": "medium",
-        "priority": 40,
-        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-        "sourceId": "/commercial-real-estate/building/CO/aurora/3250-abilene-st/",
-        "publicUrl": "/commercial-real-estate/building/CO/aurora/3250-abilene-st/",
-        "adminUrl": "",
-        "suggestedNextAction": "Author a Building Brief for this representative building.",
-        "automationCandidate": true,
-        "readinessState": "research-required"
       },
       {
         "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-broomfield-335-interlocken-pkwy",
@@ -81623,7 +81281,7 @@
         "Low": 2
       },
       "deferredCandidates": 55,
-      "latestValidation": "2026-08-09T16:08:20-07:00",
+      "latestValidation": "2026-08-09T16:21:41-07:00",
       "errors": [],
       "warnings": [],
       "source": {
