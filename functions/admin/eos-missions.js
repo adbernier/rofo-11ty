@@ -22,6 +22,10 @@ create table if not exists eos_missions (
   work_packet_json text not null default '{}',
   baseline_search_snapshot_json text not null default '{}',
   task_status_json text not null default '{}',
+  reporting_token_hash text,
+  reporting_token_issued_at text,
+  reporting_token_last_used_at text,
+  reporting_token_revoked_at text,
   created_at text not null,
   updated_at text not null
 );
@@ -41,6 +45,8 @@ const MISSION_TASK_RESULTS_END = "END_MISSION_TASK_RESULTS_V1";
 const TASK_RESULT_STATUSES = new Set(["pending", "complete", "complete_scoped"]);
 const TASK_RESULT_OUTCOMES = new Set(["delivered", "researchable_later", "blocked", "no_action_needed"]);
 const MAX_EXECUTION_REPORT_LENGTH = 64000;
+const MAX_DIRECT_REPORT_JSON_LENGTH = 32000;
+const REPORTING_TOKEN_BYTES = 32;
 
 function safeJsonParse(value, fallback) {
   try {
@@ -56,6 +62,29 @@ function asArray(value) {
 
 function clean(value) {
   return String(value || "").trim();
+}
+
+function randomToken(bytes = REPORTING_TOKEN_BYTES) {
+  const array = new Uint8Array(bytes);
+  crypto.getRandomValues(array);
+  return [...array].map((byte) => byte.toString(16).padStart(2, "0")).join("");
+}
+
+async function sha256(value) {
+  const data = new TextEncoder().encode(String(value || ""));
+  const hash = await crypto.subtle.digest("SHA-256", data);
+  return [...new Uint8Array(hash)].map((byte) => byte.toString(16).padStart(2, "0")).join("");
+}
+
+function constantTimeEqual(a, b) {
+  const left = clean(a);
+  const right = clean(b);
+  if (!left || !right || left.length !== right.length) return false;
+  let diff = 0;
+  for (let index = 0; index < left.length; index += 1) {
+    diff |= left.charCodeAt(index) ^ right.charCodeAt(index);
+  }
+  return diff === 0;
 }
 
 function unique(values) {
@@ -264,9 +293,24 @@ function parseMissionTaskResultsBlock(rawReport) {
   return parsed;
 }
 
-export function reviewMissionExecutionReport(record, rawReport) {
+export function validateMissionTaskResultsPayload(payload) {
+  if (!payload || typeof payload !== "object" || Array.isArray(payload)) {
+    throw new Error("Execution report body must be a JSON object.");
+  }
+  if (JSON.stringify(payload).length > MAX_DIRECT_REPORT_JSON_LENGTH) {
+    throw new Error("Execution report JSON is too large to process.");
+  }
+  if (payload.schemaVersion !== MISSION_TASK_RESULTS_SCHEMA_VERSION) {
+    throw new Error(`Unsupported execution report schema. Expected ${MISSION_TASK_RESULTS_SCHEMA_VERSION}.`);
+  }
+  if (!Array.isArray(payload.tasks)) throw new Error("Execution report task results must be an array.");
+  if (payload.tasks.length > 50) throw new Error("Execution report contains too many task results.");
+  return payload;
+}
+
+export function reviewMissionTaskResults(record, payload, rawReport = "") {
   if (!record) throw new Error("Mission not found.");
-  const parsed = parseMissionTaskResultsBlock(rawReport);
+  const parsed = validateMissionTaskResultsPayload(payload);
   const providedMissionId = clean(parsed.missionId);
   const providedDisplayId = clean(parsed.missionDisplayId);
   if (!providedMissionId && !providedDisplayId) {
@@ -350,12 +394,20 @@ export function reviewMissionExecutionReport(record, rawReport) {
   };
 }
 
-export async function applyMissionExecutionReport(env, id, rawReport) {
+export function reviewMissionExecutionReport(record, rawReport) {
+  return reviewMissionTaskResults(record, parseMissionTaskResultsBlock(rawReport), rawReport);
+}
+
+async function applyMissionTaskResults(env, id, payload, rawReport = "", options = {}) {
   const db = env.LEADS_DB;
   if (!db) throw new Error("LEADS_DB D1 binding is required for EOS mission persistence.");
   const mission = await getMission(env, id);
   if (!mission) throw new Error("Mission not found.");
-  const review = reviewMissionExecutionReport(mission, rawReport);
+  if (mission.status === "completed") throw new Error("Mission is completed; execution reporting is closed.");
+  const review = reviewMissionTaskResults(mission, payload, rawReport);
+  if (options.rejectUnmatched && review.unmatched.length) {
+    throw new Error("Execution report contains unknown or invalid task results; direct reporting was not applied.");
+  }
   const taskStatus = { ...(mission.taskStatus || {}) };
   const now = new Date().toISOString();
 
@@ -375,15 +427,26 @@ export async function applyMissionExecutionReport(env, id, rawReport) {
   taskStatus.__executionReport = {
     schemaVersion: review.schemaVersion,
     appliedAt: now,
+    transport: options.transport || "manual",
     matched: review.summary.matched,
     unmatched: review.summary.unmatched,
     missing: review.summary.missing,
   };
 
-  await db.prepare("update eos_missions set task_status_json = ?, updated_at = ? where id = ?")
-    .bind(JSON.stringify(taskStatus), now, id)
-    .run();
-  return getMission(env, id);
+  await db.prepare(`
+    update eos_missions
+    set task_status_json = ?,
+        reporting_token_last_used_at = coalesce(?, reporting_token_last_used_at),
+        updated_at = ?
+    where id = ?
+  `).bind(JSON.stringify(taskStatus), options.reportingTokenUsedAt || null, now, id).run();
+  return { mission: await getMission(env, id), review };
+}
+
+export async function applyMissionExecutionReport(env, id, rawReport) {
+  const parsed = parseMissionTaskResultsBlock(rawReport);
+  const result = await applyMissionTaskResults(env, id, parsed, rawReport, { transport: "manual" });
+  return result.mission;
 }
 
 const EVIDENCE_READINESS = {
@@ -703,9 +766,12 @@ export function generateSearchMissionWorkPacket(mission, eos = {}) {
   };
 }
 
-export function codexPacketMarkdown(record) {
+export function codexPacketMarkdown(record, options = {}) {
   const packet = record.workPacket || {};
   const targetMarkets = asArray(packet.targets && packet.targets.markets);
+  const reportingToken = clean(options.reportingToken);
+  const reportingBaseUrl = clean(options.reportingBaseUrl || "https://www.rofo.com").replace(/\/+$/, "");
+  const reportingCommand = `node scripts/report-mission-execution.js --mission-id "${record.id || ""}" --token "${reportingToken || "<MISSION_REPORTING_TOKEN>"}" --results-file "/tmp/mission-results.json"`;
   const lines = [
     `${record.displayId}`,
     record.title,
@@ -744,6 +810,14 @@ export function codexPacketMarkdown(record) {
     "",
     "VALIDATION",
     ...asArray(packet.validation).map((item) => `- ${item}`),
+    "",
+    "MISSION EXECUTION PROTOCOL",
+    reportingToken ? "direct-reporting-v1" : "manual-reporting-fallback",
+    "",
+    "DIRECT EXECUTION REPORTING",
+    reportingToken
+      ? `When all approved work and validation are complete, write the MISSION_TASK_RESULTS_V1 JSON to a temporary local file and run:\n${reportingCommand}\nUse EOS_REPORTING_BASE_URL=${reportingBaseUrl} only if you need to override the endpoint for local or staging validation. Confirm the script reports: Mission execution results accepted. Do not mark the mission complete. Do not continue to another mission.`
+      : "Direct reporting token is not available in this packet view. Use the Manual Execution Report fallback in Mission Control by pasting the MISSION_TASK_RESULTS_V1 block.",
     "",
     "COMPLETION REPORT",
     ...asArray(packet.completionReport).map((item) => `- ${item}`),
@@ -897,6 +971,8 @@ export async function commenceSearchMission(env, eos, sourceMissionId) {
   const evidence = evidenceSnapshot(mission);
   const baseline = baselineSearchSnapshot(mission, eos);
   const gaps = asArray(mission.knowledgeGaps);
+  const reportingToken = randomToken();
+  const reportingTokenHash = await sha256(reportingToken);
 
   for (let attempt = 0; attempt < 5; attempt += 1) {
     const maxRow = await db.prepare("select max(sequence_number) as max_sequence from eos_missions").first();
@@ -908,8 +984,9 @@ export async function commenceSearchMission(env, eos, sourceMissionId) {
           status, started_at, completed_at, confidence, estimated_effort, expected_impact,
           supporting_markets_json, property_types_json, themes_json, evidence_snapshot_json,
           knowledge_gap_snapshot_json, work_packet_json, baseline_search_snapshot_json, task_status_json,
+          reporting_token_hash, reporting_token_issued_at, reporting_token_last_used_at, reporting_token_revoked_at,
           created_at, updated_at
-        ) values (?, ?, ?, ?, ?, ?, ?, ?, 'active', ?, null, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        ) values (?, ?, ?, ?, ?, ?, ?, ?, 'active', ?, null, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, null, null, ?, ?)
       `).bind(
         id,
         sequenceNumber,
@@ -931,10 +1008,12 @@ export async function commenceSearchMission(env, eos, sourceMissionId) {
         JSON.stringify(packet),
         JSON.stringify(baseline),
         JSON.stringify({}),
+        reportingTokenHash,
+        now,
         now,
         now
       ).run();
-      return { mission: await getMission(env, id), created: true };
+      return { mission: await getMission(env, id), created: true, reportingToken };
     } catch (error) {
       const message = String(error && error.message || error);
       const duplicateActive = await getActiveMissionForSource(env, sourceMissionId);
@@ -984,8 +1063,47 @@ export async function markMissionComplete(env, id) {
     throw new Error("Mission scoped work is not ready to close. Complete or reconcile every assigned task first.");
   }
   const now = new Date().toISOString();
-  await db.prepare("update eos_missions set status = 'completed', completed_at = ?, updated_at = ? where id = ?")
-    .bind(now, now, id)
+  await db.prepare("update eos_missions set status = 'completed', completed_at = ?, reporting_token_revoked_at = ?, updated_at = ? where id = ?")
+    .bind(now, now, now, id)
     .run();
   return getMission(env, id);
+}
+
+export async function authorizeMissionReporting(env, missionId, token) {
+  const db = env.LEADS_DB;
+  if (!db) throw new Error("LEADS_DB D1 binding is required for EOS mission persistence.");
+  await ensureMissionTables(db);
+  const row = await db.prepare(`
+    select id, display_id, status, reporting_token_hash, reporting_token_revoked_at
+    from eos_missions
+    where id = ?
+  `).bind(missionId).first();
+  if (!row) throw new Error("Mission not found.");
+  if (row.status === "completed") throw new Error("Mission is completed; execution reporting is closed.");
+  if (row.reporting_token_revoked_at) throw new Error("Mission execution reporting token is revoked.");
+  if (!row.reporting_token_hash) throw new Error("Mission does not have a direct reporting token; use manual report fallback.");
+  if (!clean(token)) throw new Error("Mission reporting token is required.");
+  const submittedHash = await sha256(token);
+  if (!constantTimeEqual(submittedHash, row.reporting_token_hash)) throw new Error("Invalid mission reporting token.");
+  return { missionId: row.id, displayId: row.display_id };
+}
+
+export async function submitMissionExecutionResults(env, missionId, token, payload) {
+  await authorizeMissionReporting(env, missionId, token);
+  const now = new Date().toISOString();
+  const result = await applyMissionTaskResults(env, missionId, validateMissionTaskResultsPayload(payload), "", {
+    transport: "direct-reporting-v1",
+    reportingTokenUsedAt: now,
+    rejectUnmatched: true,
+  });
+  const tasks = asArray((result.mission.workPacket || {}).workToComplete);
+  const completed = tasks.filter((task) => isMissionTaskComplete((result.mission.taskStatus || {})[task.id])).length;
+  return {
+    ok: true,
+    missionId: result.mission.id,
+    displayId: result.mission.displayId,
+    matchedTasks: result.review.summary.matched,
+    remainingTasks: tasks.length - completed,
+    readyToClose: tasks.length > 0 && completed === tasks.length,
+  };
 }

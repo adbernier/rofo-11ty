@@ -2120,7 +2120,7 @@ function renderExecutionReportReview(review, token) {
   `;
 }
 
-function renderDurableMissionPage(record, token, executionReportReview = null) {
+function renderDurableMissionPage(record, token, executionReportReview = null, options = {}) {
   if (!record) {
     return `
       <section class="panel">
@@ -2134,6 +2134,7 @@ function renderDurableMissionPage(record, token, executionReportReview = null) {
   const tasks = ((record.workPacket || {}).workToComplete) || [];
   const baseline = record.baselineSearchSnapshot || {};
   const foundation = (record.workPacket || {}).marketFoundation || {};
+  const executionReportState = (record.taskStatus || {}).__executionReport || null;
   return `
     <section class="panel durable-mission">
       <a class="back-link" href="/admin/eos?${tokenParam(token)}&queue=archive">Back to Mission History</a>
@@ -2152,6 +2153,7 @@ function renderDurableMissionPage(record, token, executionReportReview = null) {
         <span><em>Effort</em>${escapeHtml(record.estimatedEffort || "")}</span>
         <span><em>Impact</em>${escapeHtml(record.expectedImpact || "")}</span>
         <span><em>Progress</em>${escapeHtml(`${progressState.completed} of ${progressState.total} assigned tasks complete`)}</span>
+        ${executionReportState && executionReportState.appliedAt ? `<span><em>Execution report</em>${escapeHtml(formatDate(executionReportState.appliedAt))}</span>` : ""}
       </div>
       ${progressState.researchableLater || progressState.blocked ? `
         <div class="mission-outcome-summary">
@@ -2170,7 +2172,10 @@ function renderDurableMissionPage(record, token, executionReportReview = null) {
         </div>
         <details class="prompt-preview" open>
           <summary>View Work Packet</summary>
-          <textarea class="prompt-preview__text" data-codex-prompt readonly>${escapeHtml(record.codexPacket || codexPacketMarkdown(record))}</textarea>
+          <textarea class="prompt-preview__text" data-codex-prompt readonly>${escapeHtml(codexPacketMarkdown(record, {
+            reportingToken: record.reportingToken || options.reportingToken || "",
+            reportingBaseUrl: options.reportingBaseUrl || "",
+          }))}</textarea>
         </details>
         <p class="copy-status" data-copy-status role="status" aria-live="polite"></p>
       </section>
@@ -2248,8 +2253,8 @@ function renderDurableMissionPage(record, token, executionReportReview = null) {
         <section class="execution-report-reconcile" aria-label="Apply Execution Report">
           <div class="section-heading">
             <div>
-              <h3>Apply Execution Report</h3>
-              <p>Paste the Codex report, review matched task results, then apply. Mission completion remains manual.</p>
+              <h3>Manual Execution Report</h3>
+              <p>Fallback for old packets or failed direct reporting. Paste the Codex report, review matched task results, then apply. Mission completion remains manual.</p>
             </div>
           </div>
           <form method="post" action="/admin/eos?${tokenParam(token)}&mission=${encodeURIComponent(record.id)}">
@@ -2549,12 +2554,12 @@ function missionControlHeaderForRoute({ selectedMetro, selectedTask, selectedQue
   };
 }
 
-function renderPage({ token, eos, selectedMetro, selectedTask, selectedQueue, selectedSearchMission, selectedMarketMission, selectedMission, durableMission, missionState, executionReportReview }) {
+function renderPage({ token, eos, selectedMetro, selectedTask, selectedQueue, selectedSearchMission, selectedMarketMission, selectedMission, durableMission, missionState, executionReportReview, reportingToken, reportingBaseUrl }) {
   const header = missionControlHeaderForRoute({ selectedMetro, selectedTask, selectedQueue, selectedSearchMission, selectedMarketMission, selectedMission });
   const body = selectedTask
     ? renderExecutionPacket(eos, selectedTask, token)
     : selectedMission
-      ? renderDurableMissionPage(durableMission, token, executionReportReview)
+      ? renderDurableMissionPage(durableMission, token, executionReportReview, { reportingToken, reportingBaseUrl })
       : selectedMarketMission
       ? renderMarketMissionReview(eos, selectedMarketMission, token, missionState)
       : selectedSearchMission
@@ -3185,7 +3190,24 @@ export async function onRequestPost({ request, env }) {
     if (action === "commence_search_mission") {
       const sourceMissionId = String(form.get("sourceMissionId") || "");
       const result = await commenceSearchMission(env, eosAnalysis, sourceMissionId);
-      return redirectResponse(`${durableMissionUrl(token, result.mission.id)}&commenced=${result.created ? "1" : "existing"}`);
+      if (!result.created) {
+        return redirectResponse(`${durableMissionUrl(token, result.mission.id)}&commenced=existing`);
+      }
+      const missionState = await listMissions(env);
+      return adminResponse(renderPage({
+        token,
+        eos: eosAnalysis,
+        selectedMetro: "",
+        selectedTask: "",
+        selectedQueue: "",
+        selectedSearchMission: "",
+        selectedMarketMission: "",
+        selectedMission: result.mission.id,
+        durableMission: result.mission,
+        missionState,
+        reportingToken: result.reportingToken,
+        reportingBaseUrl: env.EOS_REPORTING_BASE_URL || new URL(request.url).origin,
+      }));
     }
 
     if (action === "toggle_task") {
