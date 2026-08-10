@@ -731,6 +731,270 @@ const records = [
   }),
 ];
 
+const westBerkeleyComparisonPaths = [
+  districts.moffettPark.path,
+  districts.haywardIndustrial.path,
+  districts.warmSprings.path,
+];
+
+const westBerkeleySelectedBuildings = [
+  {
+    name: "2501 9th St",
+    address: "2501 9th St",
+    buildingType: "Small-bay industrial / flex",
+    primarySpaceType: "industrial",
+    role: "Ninth Street Industrial / Flex Benchmark",
+    roleId: "ninth_street_industrial_flex_benchmark",
+    use: "small-bay industrial and flex",
+    themes: ["Small-bay industrial", "Ninth Street", "Maker operations", "Service industrial"],
+    bestFor: ["industrial/flex users", "maker and operations businesses", "service-industrial teams"],
+    contrast: "larger East Bay warehouse corridors",
+    alternatives: ["2550 9th St", "2560 9th St", "950 Gilman St"],
+  },
+  {
+    name: "2550 9th St",
+    address: "2550 9th St",
+    buildingType: "Flex / service building",
+    primarySpaceType: "flex",
+    role: "Ninth Street Service / Flex Benchmark",
+    roleId: "ninth_street_service_flex_benchmark",
+    use: "flex, service, and small production",
+    themes: ["Flex", "Service commercial", "Small production", "Ninth Street"],
+    bestFor: ["small production businesses", "flex users", "service-commercial operators"],
+    contrast: "office-first Emeryville or Downtown Berkeley choices",
+    alternatives: ["2501 9th St", "2560 9th St", "829 Heinz Ave"],
+  },
+  {
+    name: "2560 9th St",
+    address: "2560 9th St",
+    buildingType: "Technical flex / production-adjacent",
+    primarySpaceType: "flex",
+    role: "Technical Flex Transition Benchmark",
+    roleId: "technical_flex_transition_benchmark",
+    use: "flex, R&D-support, and production-adjacent",
+    themes: ["Technical flex", "R&D support", "Production-adjacent", "Ninth Street"],
+    bestFor: ["flex and R&D-support users", "maker businesses", "production-adjacent companies"],
+    contrast: "more campus-oriented South Bay R&D parks",
+    alternatives: ["2550 9th St", "829 Heinz Ave", "717 Potter St"],
+  },
+  {
+    name: "2600 10th St",
+    address: "2600 10th St",
+    buildingType: "Creative production / adaptive commercial",
+    primarySpaceType: "flex",
+    role: "Creative Production Benchmark",
+    roleId: "creative_production_benchmark",
+    use: "creative production, media, and adaptive commercial",
+    themes: ["Creative production", "Media", "Adaptive commercial", "Maker district"],
+    bestFor: ["creative production users", "media and studio businesses", "adaptive commercial teams"],
+    contrast: "standard warehouse or conventional office environments",
+    alternatives: ["829 Heinz Ave", "918 Parker St", "1608 4th St"],
+  },
+  {
+    name: "2929 7th St",
+    address: "2929 7th St",
+    buildingType: "Waterfront-edge industrial / flex",
+    primarySpaceType: "industrial",
+    role: "Aquatic Park Industrial / Flex Benchmark",
+    roleId: "aquatic_park_industrial_flex_benchmark",
+    use: "west-side industrial and flex",
+    themes: ["Industrial / flex", "Aquatic Park edge", "I-80 access", "West-side Berkeley"],
+    bestFor: ["flex users", "operations-oriented businesses", "west-side industrial users"],
+    contrast: "deeper Ninth Street or Heinz Avenue maker context",
+    alternatives: ["950 Gilman St", "650 University Ave", "2501 9th St"],
+  },
+  {
+    name: "3100 San Pablo Ave",
+    address: "3100 San Pablo Ave",
+    buildingType: "Service-commercial / flex corridor",
+    primarySpaceType: "flex",
+    role: "San Pablo Service-Commercial Benchmark",
+    roleId: "san_pablo_service_commercial_benchmark",
+    use: "service-commercial, showroom, and flex",
+    themes: ["San Pablo corridor", "Service commercial", "Showroom", "Flex"],
+    bestFor: ["service-commercial businesses", "showroom and flex users", "companies comparing Berkeley and Emeryville corridors"],
+    contrast: "deeper industrial West Berkeley blocks",
+    alternatives: ["650 University Ave", "918 Parker St", "1608 4th St"],
+  },
+  {
+    name: "650 University Ave",
+    address: "650 University Ave",
+    buildingType: "University Avenue service / flex",
+    primarySpaceType: "flex",
+    role: "West-Side Berkeley Access Benchmark",
+    roleId: "west_side_berkeley_access_benchmark",
+    use: "west-side service commercial and office/flex",
+    themes: ["University Avenue", "Service commercial", "Office/flex", "West-side access"],
+    bestFor: ["service-commercial users", "office/flex businesses", "teams needing west-side Berkeley access"],
+    contrast: "heavier industrial or downtown Berkeley settings",
+    alternatives: ["3100 San Pablo Ave", "2929 7th St", "Downtown Berkeley"],
+  },
+  {
+    name: "717 Potter St",
+    address: "717 Potter St",
+    buildingType: "Technical production / flex",
+    primarySpaceType: "flex",
+    role: "Potter Street Technical / Flex Benchmark",
+    roleId: "potter_street_technical_flex_benchmark",
+    use: "technical production and R&D-support",
+    themes: ["Technical flex", "Production support", "Potter Street", "Research-adjacent"],
+    bestFor: ["technical production users", "R&D-support teams", "maker businesses"],
+    contrast: "generic office/flex buildings without production context",
+    alternatives: ["829 Heinz Ave", "2560 9th St", "2600 10th St"],
+  },
+  {
+    name: "829 Heinz Ave",
+    address: "829 Heinz Ave",
+    buildingType: "Heinz Avenue maker / flex",
+    primarySpaceType: "flex",
+    role: "Maker and R&D-Support Benchmark",
+    roleId: "maker_and_r_and_d_support_benchmark",
+    use: "maker, R&D-support, and light-industrial",
+    themes: ["Heinz Avenue", "Maker", "Technical flex", "Light industrial"],
+    bestFor: ["R&D-support users", "maker and production teams", "businesses needing Berkeley talent adjacency"],
+    contrast: "larger warehouse corridors or polished office-first districts",
+    alternatives: ["717 Potter St", "2560 9th St", "2600 10th St"],
+  },
+  {
+    name: "918 Parker St",
+    address: "918 Parker St",
+    buildingType: "Parker Street production / flex",
+    primarySpaceType: "flex",
+    role: "Production / Service Flex Benchmark",
+    roleId: "production_service_flex_benchmark",
+    use: "production, flex, and service-commercial",
+    themes: ["Parker Street", "Production", "Service flex", "Maker district"],
+    bestFor: ["production users", "flex and service-commercial businesses", "teams evaluating West Berkeley practical buildings"],
+    contrast: "heavier industrial corridors or customer-facing retail districts",
+    alternatives: ["2600 10th St", "3100 San Pablo Ave", "829 Heinz Ave"],
+  },
+  {
+    name: "950 Gilman St",
+    address: "950 Gilman St",
+    buildingType: "Gilman Street industrial / flex",
+    primarySpaceType: "industrial",
+    role: "Gilman Corridor Industrial / Flex Benchmark",
+    roleId: "gilman_corridor_industrial_flex_benchmark",
+    use: "industrial, flex, and service-commercial",
+    themes: ["Gilman corridor", "Industrial / flex", "I-80 access", "Service commercial"],
+    bestFor: ["industrial and flex users", "maker and production businesses", "teams comparing West Berkeley with Emeryville"],
+    contrast: "larger I-880 warehouse corridors",
+    alternatives: ["2501 9th St", "2929 7th St", "2600 10th St"],
+  },
+];
+
+function westBerkeleyBrief(item) {
+  const nearby = item.alternatives
+    .map((label, index) => {
+      if (label === "Downtown Berkeley") {
+        return {
+          label,
+          url: "/commercial-real-estate/CA/berkeley/downtown-berkeley/",
+          reason: "Compare when BART access, university adjacency, and walkable office or retail context matter more.",
+        };
+      }
+      return {
+        label,
+        url: buildingPath("Berkeley", label),
+        reason: [
+          `Compare when a nearby ${label.split(" ").slice(1).join(" ")} option may better match the required operating layout.`,
+          `Use this alternative when the search needs another West Berkeley reference with a different block, corridor, or access pattern.`,
+          `Review this option when the business wants to test ${item.use} fit against another district example before widening the search.`,
+        ][index % 3],
+      };
+    })
+    .slice(0, 3);
+  const useArticle = /^[aeiou]/i.test(item.use) ? "an" : "a";
+
+  return record({
+    name: item.name,
+    address: item.address,
+    city: "Berkeley",
+    districtKey: "westBerkeley",
+    buildingType: item.buildingType,
+    primarySpaceType: item.primarySpaceType,
+    editorialRole: item.role,
+    editorialReason: `${item.name} represents West Berkeley's ${item.use} building pattern for businesses comparing Berkeley identity with practical operating needs.`,
+    representativeThemes: item.themes,
+    businessFit: item.bestFor,
+    relatedDistrictPaths: westBerkeleyComparisonPaths,
+    nearbyBuildingPaths: nearby.map((entry) => entry.url).filter((url) => url.includes("/building/")),
+    comparisonBuildingPaths: [
+      buildingPath("Berkeley", "1608 4th St"),
+      buildingPath("Hayward", "2340 Industrial Pkwy W"),
+      buildingPath("Fremont", "45101-45169 Industrial Dr"),
+    ],
+    brief: {
+      ecosystemSubtypes: ["small_bay_industrial", "flex", "light_manufacturing"],
+      representativeRole: item.roleId,
+      businessActivities: ["service_dispatch", "equipment_storage", "receiving", "shipping", "light_manufacturing"],
+      businessArchetypes: ["cabinet_shop", "creative_studio", "food_producer", "general_contractor", "light_manufacturer"],
+      operationalCharacteristics: ["grade_level_loading", "small_suite_sizes", "service_vehicle_parking", "office_warehouse_mix", "freeway_access"],
+      fitSummary: `Useful for ${item.use} users comparing West Berkeley against Emeryville, Hayward, Fremont, and other Bay Area industrial/flex options.`,
+      summary: `${item.name} helps explain West Berkeley as ${useArticle} ${item.use} environment. The profile is useful for businesses that need Berkeley identity, I-80 access, maker or service context, and practical building validation without treating the search as a generic office or warehouse decision.`,
+      rofoTake: `${item.name} matters because West Berkeley needs multiple concrete examples to explain its district pattern. This profile gives Rofo a ${item.role.toLowerCase()} for users comparing ${item.contrast} against Berkeley's smaller industrial, maker, and flex fabric.`,
+      snapshot: [
+        { label: "Primary ecosystem", value: "Industrial / flex" },
+        { label: "Business use", value: item.use },
+        { label: "District", value: "West Berkeley" },
+        { label: "Evidence role", value: item.role },
+        { label: "Access context", value: "Berkeley, I-80, Emeryville, and East Bay operating geography" },
+        { label: "Validation focus", value: "Loading, parking, permitted use, utility needs, and actual suite condition" },
+      ],
+      bestFit: [
+        `${item.bestFor[0]} that need a practical West Berkeley location with maker or service-operational context.`,
+        `${item.bestFor[1]} comparing Berkeley identity against Emeryville, Hayward, Fremont, or South Bay flex alternatives.`,
+        `${item.bestFor[2]} that need to validate how office, production, storage, receiving, or customer access fit together.`,
+      ],
+      mayNotFit: [
+        "Users that need large-format logistics, trailer parking, heavy truck courts, or a more warehouse-oriented East Bay corridor.",
+        "Client-facing office teams that need a polished downtown address, dense transit, or formal executive image.",
+        "Specialized technical, food, production, or regulated users that cannot validate infrastructure and permitted use early.",
+      ],
+      buildingExperience: `A tour at ${item.name} should focus on the practical operating questions: office-to-work-area balance, loading or delivery access, parking, utility needs, visitor arrival, and whether West Berkeley's maker and service context helps the business.`,
+      locationContext: `${item.name} sits within West Berkeley's industrial/flex geography, where users compare Ninth Street, Gilman, Heinz, San Pablo, University Avenue, and west-side Berkeley access. It should be evaluated against Emeryville for business-park structure, Hayward for warehouse utility, and Downtown Berkeley when transit and university adjacency matter more.`,
+      advantages: [
+        `Adds ${item.use} evidence to the West Berkeley Building Evidence collection.`,
+        "Connects Berkeley identity with practical industrial/flex, service, maker, or production-adjacent decision-making.",
+        "Creates a concrete comparison point against Emeryville business parks, Hayward industrial space, and South Bay R&D/flex alternatives.",
+      ],
+      tradeoffs: [
+        "The profile does not establish current availability, suite condition, rent, tenant suitability, or final operating fit.",
+        "Loading, parking, power, ventilation, signage, and permitted use vary by building and must be verified directly.",
+        "West Berkeley's mixed industrial character may be less useful for users that need pure warehouse utility or a conventional office environment.",
+      ],
+      operationalProfile: [
+        { label: "Space configuration", summary: "Test how office, production, storage, receiving, and support areas divide within the actual space." },
+        { label: "Access and movement", summary: "Validate I-80 access, deliveries, service vehicles, parking, and visitor arrival against the business workflow." },
+        { label: "Use validation", summary: "Confirm permitted use, utilities, ventilation, noise, loading, and any special operational requirements before shortlisting." },
+      ],
+      environmentExplanation: {
+        whyItExists: "West Berkeley industrial/flex environments exist because maker, service, production, food, creative, and technical users often need modest practical buildings near Berkeley customers, talent, and I-80 access.",
+        whyChooseThisEnvironment: `Choose this environment when Berkeley identity and practical small-building utility matter more than ${item.contrast}.`,
+        representativeValue: `${item.name} gives West Berkeley a ${item.role.toLowerCase()} inside the district evidence set.`,
+      },
+      relatedDistricts: [
+        { districtId: "emeryville-commercial-core", reason: "Compare for more business-park structure and office/life-science support context." },
+        { districtId: "hayward-industrial", reason: "Compare for stronger warehouse, distribution, and I-880 service-industrial utility." },
+      ],
+      validationNotes: [
+        "Confirm permitted use for the specific business activity.",
+        "Verify loading, delivery access, parking allocation, and service-vehicle rules.",
+        "Validate power, ventilation, utility, noise, and any production or food-related requirements.",
+        "Confirm current suite condition, layout, signage, visitor arrival, and buildout responsibility.",
+      ],
+      nearbyAlternatives: nearby,
+      representativeCompanies: ["Maker, service, creative-production, food-production, technical-support, and light-manufacturing businesses are the relevant categories; this does not imply current tenancy."],
+      sourceNotes: [
+        `Existing Rofo representative-building page expansion identifies ${item.name} as a West Berkeley ${item.use} reference.`,
+        "The West Berkeley Knowledge Graph node supports industrial, flex, light-manufacturing, maker, service-dispatch, customer-showroom, and knowledge-work relevance.",
+      ],
+    },
+  });
+}
+
+records.push(...westBerkeleySelectedBuildings.map(westBerkeleyBrief));
+
 module.exports = {
   canonicalBuildings: records,
 };

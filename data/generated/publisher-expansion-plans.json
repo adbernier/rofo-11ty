@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-10T13:26:54-07:00",
+  "generatedAt": "2026-08-10T13:45:49-07:00",
   "rulesVersion": "publisher-rules-v1",
   "plannerVersion": "publisher-expansion-planner-v1",
   "defaultMode": "balanced",
@@ -55,14 +55,14 @@
     {
       "metroId": "san-francisco",
       "metroName": "San Francisco",
-      "generatedAt": "2026-08-10T13:26:54-07:00",
+      "generatedAt": "2026-08-10T13:45:49-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 96,
         "recommendationScore": 97,
         "editorialScore": 91,
         "publishingScore": 100,
-        "buildingScore": 28,
+        "buildingScore": 35,
         "comparisonScore": 100,
         "insightScore": 97,
         "geographicReadiness": "developed",
@@ -90,8 +90,8 @@
           "score": 73
         },
         "buildingBriefs": {
-          "count": 43,
-          "score": 28
+          "count": 54,
+          "score": 35
         },
         "insights": {
           "score": 97,
@@ -319,7 +319,7 @@
             "secondaryDistrictCount": 6,
             "recommendationNodeCount": 9,
             "representativeBuildingCount": 51,
-            "buildingBriefCount": 13,
+            "buildingBriefCount": 24,
             "status": "Developed",
             "districts": [
               {
@@ -413,12 +413,13 @@
               "state": "strong",
               "stateLabel": "Strong",
               "buildingCount": 51,
-              "explicitCount": 6,
-              "inheritedOnlyCount": 45,
-              "reviewRequiredCount": 30,
+              "explicitCount": 17,
+              "inheritedOnlyCount": 34,
+              "reviewRequiredCount": 19,
               "rolesCovered": {
-                "small_bay_service_environment": 34,
-                "flex_business_park": 9,
+                "small_bay_service_environment": 27,
+                "flex_business_park": 15,
+                "contractor_service_cluster": 1,
                 "warehouse_distribution_environment": 1,
                 "research_development_environment": 6,
                 "light_manufacturing_environment": 1
@@ -437,10 +438,11 @@
                 "receiving": 39,
                 "shipping": 39,
                 "light_manufacturing": 48,
-                "customer_showroom": 15,
+                "customer_showroom": 9,
                 "knowledge_work": 25,
-                "product_development": 18,
-                "assembly": 16,
+                "product_development": 24,
+                "assembly": 22,
+                "vehicle_storage": 1,
                 "storage": 31,
                 "distribution": 1,
                 "inventory_management": 1,
@@ -454,15 +456,15 @@
                 "creative_studio": 27,
                 "food_producer": 12,
                 "general_contractor": 51,
-                "light_manufacturer": 25,
+                "light_manufacturer": 36,
                 "electrician": 51,
                 "hvac_company": 48,
                 "plumbing_company": 48,
-                "landscaper": 26,
                 "research_company": 17,
                 "startup": 17,
                 "distributor": 24,
                 "ecommerce_fulfillment_business": 24,
+                "landscaper": 15,
                 "wellness_practice": 1,
                 "professional_office": 1
               },
@@ -472,10 +474,13 @@
                 "service_vehicle_parking": 36,
                 "office_warehouse_mix": 38,
                 "freeway_access": 45,
+                "flexible_suite_sizes": 21,
+                "high_office_percentage": 21,
+                "surface_parking": 16,
+                "outdoor_storage": 1,
+                "contractor_yard": 1,
+                "drive_in_access": 1,
                 "research_compatible": 8,
-                "surface_parking": 10,
-                "flexible_suite_sizes": 15,
-                "high_office_percentage": 15,
                 "dock_high_loading": 1,
                 "truck_court": 1,
                 "high_clearance": 1,
@@ -486,11 +491,11 @@
                 "assembly_compatible": 1
               },
               "operationalCategoriesCovered": {
-                "access_loading": 38,
-                "configuration": 106,
-                "parking_vehicles": 46,
+                "access_loading": 39,
+                "configuration": 118,
+                "parking_vehicles": 52,
                 "location_workforce": 46,
-                "outdoor_special_use": 9,
+                "outdoor_special_use": 11,
                 "infrastructure": 7
               },
               "missingRoles": [],
@@ -509,32 +514,32 @@
                 {
                   "name": "2501 9th St",
                   "path": "/commercial-real-estate/building/CA/berkeley/2501-9th-st/",
-                  "role": "small_bay_service_environment",
-                  "confidence": "review_required"
+                  "role": "flex_business_park",
+                  "confidence": "editorially_supported"
                 },
                 {
                   "name": "2550 9th St",
                   "path": "/commercial-real-estate/building/CA/berkeley/2550-9th-st/",
-                  "role": "small_bay_service_environment",
-                  "confidence": "review_required"
+                  "role": "flex_business_park",
+                  "confidence": "editorially_supported"
                 },
                 {
                   "name": "2560 9th St",
                   "path": "/commercial-real-estate/building/CA/berkeley/2560-9th-st/",
                   "role": "small_bay_service_environment",
-                  "confidence": "review_required"
+                  "confidence": "editorially_supported"
                 },
                 {
                   "name": "2600 10th St",
                   "path": "/commercial-real-estate/building/CA/berkeley/2600-10th-st/",
                   "role": "small_bay_service_environment",
-                  "confidence": "review_required"
+                  "confidence": "editorially_supported"
                 },
                 {
                   "name": "2929 7th St",
                   "path": "/commercial-real-estate/building/CA/berkeley/2929-7th-st/",
-                  "role": "small_bay_service_environment",
-                  "confidence": "review_required"
+                  "role": "flex_business_park",
+                  "confidence": "editorially_supported"
                 }
               ]
             }
@@ -1306,15 +1311,15 @@
               "secondaryDistricts": 6,
               "recommendations": 9,
               "representativeBuildings": 51,
-              "buildingBriefs": 13,
+              "buildingBriefs": 24,
               "subtypes": 8,
               "archetypes": 9,
               "activities": 10,
               "reviewRequiredDistricts": 0,
-              "representativeRoles": 5,
+              "representativeRoles": 6,
               "operationalCategories": 6,
-              "operationalCharacteristics": 17,
-              "reviewRequiredRepresentativeBuildings": 30
+              "operationalCharacteristics": 20,
+              "reviewRequiredRepresentativeBuildings": 19
             },
             "gaps": [],
             "blocking": false,
@@ -1322,8 +1327,8 @@
             "strategicPriority": 1,
             "evidence": [
               "9 primary districts and 6 secondary districts.",
-              "51 Representative Buildings and 13 Building Briefs.",
-              "5 representative roles and 6 operational categories are covered."
+              "51 Representative Buildings and 24 Building Briefs.",
+              "6 representative roles and 6 operational categories are covered."
             ],
             "targetSubtypes": [
               "small_bay_industrial",
@@ -1353,12 +1358,13 @@
               "state": "strong",
               "stateLabel": "Strong",
               "buildingCount": 51,
-              "explicitCount": 6,
-              "inheritedOnlyCount": 45,
-              "reviewRequiredCount": 30,
+              "explicitCount": 17,
+              "inheritedOnlyCount": 34,
+              "reviewRequiredCount": 19,
               "rolesCovered": [
                 "small_bay_service_environment",
                 "flex_business_park",
+                "contractor_service_cluster",
                 "warehouse_distribution_environment",
                 "research_development_environment",
                 "light_manufacturing_environment"
@@ -1381,6 +1387,7 @@
                 "knowledge_work",
                 "product_development",
                 "assembly",
+                "vehicle_storage",
                 "storage",
                 "distribution",
                 "inventory_management",
@@ -1398,11 +1405,11 @@
                 "electrician",
                 "hvac_company",
                 "plumbing_company",
-                "landscaper",
                 "research_company",
                 "startup",
                 "distributor",
                 "ecommerce_fulfillment_business",
+                "landscaper",
                 "wellness_practice",
                 "professional_office"
               ],
@@ -1412,10 +1419,13 @@
                 "service_vehicle_parking",
                 "office_warehouse_mix",
                 "freeway_access",
-                "research_compatible",
-                "surface_parking",
                 "flexible_suite_sizes",
                 "high_office_percentage",
+                "surface_parking",
+                "outdoor_storage",
+                "contractor_yard",
+                "drive_in_access",
+                "research_compatible",
                 "dock_high_loading",
                 "truck_court",
                 "high_clearance",
@@ -1449,32 +1459,32 @@
                 {
                   "name": "2501 9th St",
                   "path": "/commercial-real-estate/building/CA/berkeley/2501-9th-st/",
-                  "role": "small_bay_service_environment",
-                  "confidence": "review_required"
+                  "role": "flex_business_park",
+                  "confidence": "editorially_supported"
                 },
                 {
                   "name": "2550 9th St",
                   "path": "/commercial-real-estate/building/CA/berkeley/2550-9th-st/",
-                  "role": "small_bay_service_environment",
-                  "confidence": "review_required"
+                  "role": "flex_business_park",
+                  "confidence": "editorially_supported"
                 },
                 {
                   "name": "2560 9th St",
                   "path": "/commercial-real-estate/building/CA/berkeley/2560-9th-st/",
                   "role": "small_bay_service_environment",
-                  "confidence": "review_required"
+                  "confidence": "editorially_supported"
                 },
                 {
                   "name": "2600 10th St",
                   "path": "/commercial-real-estate/building/CA/berkeley/2600-10th-st/",
                   "role": "small_bay_service_environment",
-                  "confidence": "review_required"
+                  "confidence": "editorially_supported"
                 },
                 {
                   "name": "2929 7th St",
                   "path": "/commercial-real-estate/building/CA/berkeley/2929-7th-st/",
-                  "role": "small_bay_service_environment",
-                  "confidence": "review_required"
+                  "role": "flex_business_park",
+                  "confidence": "editorially_supported"
                 }
               ]
             },
@@ -2172,8 +2182,8 @@
             "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
             "evidence": [
               "9 primary districts and 6 secondary districts.",
-              "51 Representative Buildings and 13 Building Briefs.",
-              "5 representative roles and 6 operational categories are covered."
+              "51 Representative Buildings and 24 Building Briefs.",
+              "6 representative roles and 6 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
             "completionCriteria": [
@@ -2619,7 +2629,7 @@
           "label": "Balanced",
           "dominantEcosystem": "office",
           "representativeBuildingShare": 0.42,
-          "buildingBriefShare": 0.58,
+          "buildingBriefShare": 0.46,
           "warnings": []
         }
       },
@@ -2628,7 +2638,7 @@
         "label": "Balanced",
         "dominantEcosystem": "office",
         "representativeBuildingShare": 0.42,
-        "buildingBriefShare": 0.58,
+        "buildingBriefShare": 0.46,
         "warnings": []
       },
       "ecosystemGaps": [
@@ -2722,8 +2732,8 @@
           "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
           "evidence": [
             "9 primary districts and 6 secondary districts.",
-            "51 Representative Buildings and 13 Building Briefs.",
-            "5 representative roles and 6 operational categories are covered."
+            "51 Representative Buildings and 24 Building Briefs.",
+            "6 representative roles and 6 operational categories are covered."
           ],
           "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
           "completionCriteria": [
@@ -5477,153 +5487,6 @@
           }
         },
         {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-2501-9th-st",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "2501 9th St",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/2501-9th-st/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/2501-9th-st/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-2550-9th-st",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "2550 9th St",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/2550-9th-st/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/2550-9th-st/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-2560-9th-st",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "2560 9th St",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/2560-9th-st/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/2560-9th-st/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
           "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-hayward-25901-industrial-blvd",
           "metroId": "san-francisco",
           "metroName": "San Francisco",
@@ -5637,55 +5500,6 @@
           "itemName": "25901 Industrial Blvd",
           "sourceId": "/commercial-real-estate/building/CA/hayward/25901-industrial-blvd/",
           "publicUrl": "/commercial-real-estate/building/CA/hayward/25901-industrial-blvd/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-2600-10th-st",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "2600 10th St",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/2600-10th-st/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/2600-10th-st/",
           "adminUrl": "",
           "severity": "medium",
           "description": "Representative building has not migrated to the Building Brief journey.",
@@ -5833,55 +5647,6 @@
           "itemName": "2900 18th St",
           "sourceId": "/commercial-real-estate/building/CA/san-francisco/2900-18th-st/",
           "publicUrl": "/commercial-real-estate/building/CA/san-francisco/2900-18th-st/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-2929-7th-st",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "2929 7th St",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/2929-7th-st/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/2929-7th-st/",
           "adminUrl": "",
           "severity": "medium",
           "description": "Representative building has not migrated to the Building Brief journey.",
@@ -6225,55 +5990,6 @@
           "itemName": "30336 Whipple Rd",
           "sourceId": "/commercial-real-estate/building/CA/union-city/30336-whipple-rd/",
           "publicUrl": "/commercial-real-estate/building/CA/union-city/30336-whipple-rd/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-3100-san-pablo-ave",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "3100 San Pablo Ave",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/3100-san-pablo-ave/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/3100-san-pablo-ave/",
           "adminUrl": "",
           "severity": "medium",
           "description": "Representative building has not migrated to the Building Brief journey.",
@@ -8025,55 +7741,6 @@
           }
         },
         {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-650-university-ave",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "650 University Ave",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/650-university-ave/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/650-university-ave/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
           "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-699-8th-st",
           "metroId": "san-francisco",
           "metroName": "San Francisco",
@@ -8087,55 +7754,6 @@
           "itemName": "699 8th St",
           "sourceId": "/commercial-real-estate/building/CA/san-francisco/699-8th-st/",
           "publicUrl": "/commercial-real-estate/building/CA/san-francisco/699-8th-st/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-717-potter-st",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "717 Potter St",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/717-potter-st/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/717-potter-st/",
           "adminUrl": "",
           "severity": "medium",
           "description": "Representative building has not migrated to the Building Brief journey.",
@@ -8319,55 +7937,6 @@
           }
         },
         {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-829-heinz-ave",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "829 Heinz Ave",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/829-heinz-ave/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/829-heinz-ave/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
           "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-88-spear-st",
           "metroId": "san-francisco",
           "metroName": "San Francisco",
@@ -8515,55 +8084,6 @@
           }
         },
         {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-918-parker-st",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "918 Parker St",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/918-parker-st/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/918-parker-st/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
           "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-924-sansome-st",
           "metroId": "san-francisco",
           "metroName": "San Francisco",
@@ -8626,55 +8146,6 @@
           "itemName": "930 Montgomery St",
           "sourceId": "/commercial-real-estate/building/CA/san-francisco/930-montgomery-st/",
           "publicUrl": "/commercial-real-estate/building/CA/san-francisco/930-montgomery-st/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-950-gilman-st",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "950 Gilman St",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/950-gilman-st/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/950-gilman-st/",
           "adminUrl": "",
           "severity": "medium",
           "description": "Representative building has not migrated to the Building Brief journey.",
@@ -12461,153 +11932,6 @@
           }
         },
         {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-2501-9th-st",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "2501 9th St",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/2501-9th-st/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/2501-9th-st/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-2550-9th-st",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "2550 9th St",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/2550-9th-st/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/2550-9th-st/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-2560-9th-st",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "2560 9th St",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/2560-9th-st/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/2560-9th-st/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
           "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-hayward-25901-industrial-blvd",
           "metroId": "san-francisco",
           "metroName": "San Francisco",
@@ -12621,55 +11945,6 @@
           "itemName": "25901 Industrial Blvd",
           "sourceId": "/commercial-real-estate/building/CA/hayward/25901-industrial-blvd/",
           "publicUrl": "/commercial-real-estate/building/CA/hayward/25901-industrial-blvd/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-2600-10th-st",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "2600 10th St",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/2600-10th-st/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/2600-10th-st/",
           "adminUrl": "",
           "severity": "medium",
           "description": "Representative building has not migrated to the Building Brief journey.",
@@ -12817,55 +12092,6 @@
           "itemName": "2900 18th St",
           "sourceId": "/commercial-real-estate/building/CA/san-francisco/2900-18th-st/",
           "publicUrl": "/commercial-real-estate/building/CA/san-francisco/2900-18th-st/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-2929-7th-st",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "2929 7th St",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/2929-7th-st/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/2929-7th-st/",
           "adminUrl": "",
           "severity": "medium",
           "description": "Representative building has not migrated to the Building Brief journey.",
@@ -13209,55 +12435,6 @@
           "itemName": "30336 Whipple Rd",
           "sourceId": "/commercial-real-estate/building/CA/union-city/30336-whipple-rd/",
           "publicUrl": "/commercial-real-estate/building/CA/union-city/30336-whipple-rd/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-3100-san-pablo-ave",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "3100 San Pablo Ave",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/3100-san-pablo-ave/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/3100-san-pablo-ave/",
           "adminUrl": "",
           "severity": "medium",
           "description": "Representative building has not migrated to the Building Brief journey.",
@@ -15009,55 +14186,6 @@
           }
         },
         {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-650-university-ave",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "650 University Ave",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/650-university-ave/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/650-university-ave/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
           "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-699-8th-st",
           "metroId": "san-francisco",
           "metroName": "San Francisco",
@@ -15071,55 +14199,6 @@
           "itemName": "699 8th St",
           "sourceId": "/commercial-real-estate/building/CA/san-francisco/699-8th-st/",
           "publicUrl": "/commercial-real-estate/building/CA/san-francisco/699-8th-st/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-717-potter-st",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "717 Potter St",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/717-potter-st/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/717-potter-st/",
           "adminUrl": "",
           "severity": "medium",
           "description": "Representative building has not migrated to the Building Brief journey.",
@@ -15303,55 +14382,6 @@
           }
         },
         {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-829-heinz-ave",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "829 Heinz Ave",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/829-heinz-ave/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/829-heinz-ave/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
           "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-88-spear-st",
           "metroId": "san-francisco",
           "metroName": "San Francisco",
@@ -15499,55 +14529,6 @@
           }
         },
         {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-918-parker-st",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "918 Parker St",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/918-parker-st/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/918-parker-st/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
           "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-924-sansome-st",
           "metroId": "san-francisco",
           "metroName": "San Francisco",
@@ -15610,55 +14591,6 @@
           "itemName": "930 Montgomery St",
           "sourceId": "/commercial-real-estate/building/CA/san-francisco/930-montgomery-st/",
           "publicUrl": "/commercial-real-estate/building/CA/san-francisco/930-montgomery-st/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-950-gilman-st",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "950 Gilman St",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/950-gilman-st/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/950-gilman-st/",
           "adminUrl": "",
           "severity": "medium",
           "description": "Representative building has not migrated to the Building Brief journey.",
@@ -17292,7 +16224,7 @@
         "modeLabel": "Balanced Expansion",
         "title": "San Francisco Building Brief Migration Sprint",
         "objective": "Improve San Francisco expansion readiness by completing the highest-value Building Briefs, District Coverage, Representative Buildings work without creating unsupported content.",
-        "rationale": "Selected from 144 deterministic Publisher gaps using balanced expansion weighting.",
+        "rationale": "Selected from 133 deterministic Publisher gaps using balanced expansion weighting.",
         "tasks": [
           {
             "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-1-henry-adams-st",
@@ -17616,7 +16548,7 @@
           "modeLabel": "Balanced Expansion",
           "title": "San Francisco Building Brief Migration Sprint",
           "objective": "Improve San Francisco expansion readiness by completing the highest-value Building Briefs, District Coverage, Representative Buildings work without creating unsupported content.",
-          "rationale": "Selected from 144 deterministic Publisher gaps using balanced expansion weighting.",
+          "rationale": "Selected from 133 deterministic Publisher gaps using balanced expansion weighting.",
           "tasks": [
             {
               "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-1-henry-adams-st",
@@ -17939,7 +16871,7 @@
           "modeLabel": "Recommendation Readiness",
           "title": "San Francisco Recommendation Readiness Sprint",
           "objective": "Improve San Francisco expansion readiness by completing the highest-value Recommendation Readiness, Comparison Graph, District Coverage work without creating unsupported content.",
-          "rationale": "Selected from 144 deterministic Publisher gaps using recommendation readiness weighting.",
+          "rationale": "Selected from 133 deterministic Publisher gaps using recommendation readiness weighting.",
           "tasks": [
             {
               "id": "gap:san-francisco:recommendationReadiness:missing explainability fields:north-san-jose",
@@ -18245,7 +17177,7 @@
           "modeLabel": "Editorial Depth",
           "title": "San Francisco District Editorial Foundation Sprint",
           "objective": "Improve San Francisco expansion readiness by completing the highest-value District Coverage, Building Briefs, Representative Buildings work without creating unsupported content.",
-          "rationale": "Selected from 144 deterministic Publisher gaps using editorial depth weighting.",
+          "rationale": "Selected from 133 deterministic Publisher gaps using editorial depth weighting.",
           "tasks": [
             {
               "id": "gap:san-francisco:districtCoverage:missing decision positioning:north-san-jose",
@@ -18570,7 +17502,7 @@
           "modeLabel": "Building Depth",
           "title": "San Francisco Representative Building Foundation Sprint",
           "objective": "Improve San Francisco expansion readiness by completing the highest-value Representative Buildings, Building Briefs work without creating unsupported content.",
-          "rationale": "Selected from 144 deterministic Publisher gaps using building depth weighting.",
+          "rationale": "Selected from 133 deterministic Publisher gaps using building depth weighting.",
           "tasks": [
             {
               "id": "gap:san-francisco:representativeBuildings:district missing representative buildings:downtown-redwood-city",
@@ -18893,7 +17825,7 @@
     {
       "metroId": "sacramento",
       "metroName": "Sacramento",
-      "generatedAt": "2026-08-10T13:26:54-07:00",
+      "generatedAt": "2026-08-10T13:45:49-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 98,
@@ -27733,7 +26665,7 @@
     {
       "metroId": "san-diego",
       "metroName": "San Diego",
-      "generatedAt": "2026-08-10T13:26:54-07:00",
+      "generatedAt": "2026-08-10T13:45:49-07:00",
       "currentState": {
         "readinessStatus": "Expansion Ready",
         "overallScore": 84,
@@ -37555,7 +36487,7 @@
     {
       "metroId": "orange-county",
       "metroName": "Orange County",
-      "generatedAt": "2026-08-10T13:26:54-07:00",
+      "generatedAt": "2026-08-10T13:45:49-07:00",
       "currentState": {
         "readinessStatus": "Expansion Ready",
         "overallScore": 84,
@@ -46547,7 +45479,7 @@
     {
       "metroId": "denver",
       "metroName": "Denver",
-      "generatedAt": "2026-08-10T13:26:54-07:00",
+      "generatedAt": "2026-08-10T13:45:49-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 97,
@@ -54341,7 +53273,7 @@
     {
       "metroId": "seattle",
       "metroName": "Seattle",
-      "generatedAt": "2026-08-10T13:26:54-07:00",
+      "generatedAt": "2026-08-10T13:45:49-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 94,
@@ -60054,14 +58986,14 @@
     {
       "metroId": "san-francisco",
       "metroName": "San Francisco",
-      "generatedAt": "2026-08-10T13:26:54-07:00",
+      "generatedAt": "2026-08-10T13:45:49-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 96,
         "recommendationScore": 97,
         "editorialScore": 91,
         "publishingScore": 100,
-        "buildingScore": 28,
+        "buildingScore": 35,
         "comparisonScore": 100,
         "insightScore": 97,
         "geographicReadiness": "developed",
@@ -60089,8 +59021,8 @@
           "score": 73
         },
         "buildingBriefs": {
-          "count": 43,
-          "score": 28
+          "count": 54,
+          "score": 35
         },
         "insights": {
           "score": 97,
@@ -60318,7 +59250,7 @@
             "secondaryDistrictCount": 6,
             "recommendationNodeCount": 9,
             "representativeBuildingCount": 51,
-            "buildingBriefCount": 13,
+            "buildingBriefCount": 24,
             "status": "Developed",
             "districts": [
               {
@@ -60412,12 +59344,13 @@
               "state": "strong",
               "stateLabel": "Strong",
               "buildingCount": 51,
-              "explicitCount": 6,
-              "inheritedOnlyCount": 45,
-              "reviewRequiredCount": 30,
+              "explicitCount": 17,
+              "inheritedOnlyCount": 34,
+              "reviewRequiredCount": 19,
               "rolesCovered": {
-                "small_bay_service_environment": 34,
-                "flex_business_park": 9,
+                "small_bay_service_environment": 27,
+                "flex_business_park": 15,
+                "contractor_service_cluster": 1,
                 "warehouse_distribution_environment": 1,
                 "research_development_environment": 6,
                 "light_manufacturing_environment": 1
@@ -60436,10 +59369,11 @@
                 "receiving": 39,
                 "shipping": 39,
                 "light_manufacturing": 48,
-                "customer_showroom": 15,
+                "customer_showroom": 9,
                 "knowledge_work": 25,
-                "product_development": 18,
-                "assembly": 16,
+                "product_development": 24,
+                "assembly": 22,
+                "vehicle_storage": 1,
                 "storage": 31,
                 "distribution": 1,
                 "inventory_management": 1,
@@ -60453,15 +59387,15 @@
                 "creative_studio": 27,
                 "food_producer": 12,
                 "general_contractor": 51,
-                "light_manufacturer": 25,
+                "light_manufacturer": 36,
                 "electrician": 51,
                 "hvac_company": 48,
                 "plumbing_company": 48,
-                "landscaper": 26,
                 "research_company": 17,
                 "startup": 17,
                 "distributor": 24,
                 "ecommerce_fulfillment_business": 24,
+                "landscaper": 15,
                 "wellness_practice": 1,
                 "professional_office": 1
               },
@@ -60471,10 +59405,13 @@
                 "service_vehicle_parking": 36,
                 "office_warehouse_mix": 38,
                 "freeway_access": 45,
+                "flexible_suite_sizes": 21,
+                "high_office_percentage": 21,
+                "surface_parking": 16,
+                "outdoor_storage": 1,
+                "contractor_yard": 1,
+                "drive_in_access": 1,
                 "research_compatible": 8,
-                "surface_parking": 10,
-                "flexible_suite_sizes": 15,
-                "high_office_percentage": 15,
                 "dock_high_loading": 1,
                 "truck_court": 1,
                 "high_clearance": 1,
@@ -60485,11 +59422,11 @@
                 "assembly_compatible": 1
               },
               "operationalCategoriesCovered": {
-                "access_loading": 38,
-                "configuration": 106,
-                "parking_vehicles": 46,
+                "access_loading": 39,
+                "configuration": 118,
+                "parking_vehicles": 52,
                 "location_workforce": 46,
-                "outdoor_special_use": 9,
+                "outdoor_special_use": 11,
                 "infrastructure": 7
               },
               "missingRoles": [],
@@ -60508,32 +59445,32 @@
                 {
                   "name": "2501 9th St",
                   "path": "/commercial-real-estate/building/CA/berkeley/2501-9th-st/",
-                  "role": "small_bay_service_environment",
-                  "confidence": "review_required"
+                  "role": "flex_business_park",
+                  "confidence": "editorially_supported"
                 },
                 {
                   "name": "2550 9th St",
                   "path": "/commercial-real-estate/building/CA/berkeley/2550-9th-st/",
-                  "role": "small_bay_service_environment",
-                  "confidence": "review_required"
+                  "role": "flex_business_park",
+                  "confidence": "editorially_supported"
                 },
                 {
                   "name": "2560 9th St",
                   "path": "/commercial-real-estate/building/CA/berkeley/2560-9th-st/",
                   "role": "small_bay_service_environment",
-                  "confidence": "review_required"
+                  "confidence": "editorially_supported"
                 },
                 {
                   "name": "2600 10th St",
                   "path": "/commercial-real-estate/building/CA/berkeley/2600-10th-st/",
                   "role": "small_bay_service_environment",
-                  "confidence": "review_required"
+                  "confidence": "editorially_supported"
                 },
                 {
                   "name": "2929 7th St",
                   "path": "/commercial-real-estate/building/CA/berkeley/2929-7th-st/",
-                  "role": "small_bay_service_environment",
-                  "confidence": "review_required"
+                  "role": "flex_business_park",
+                  "confidence": "editorially_supported"
                 }
               ]
             }
@@ -61305,15 +60242,15 @@
               "secondaryDistricts": 6,
               "recommendations": 9,
               "representativeBuildings": 51,
-              "buildingBriefs": 13,
+              "buildingBriefs": 24,
               "subtypes": 8,
               "archetypes": 9,
               "activities": 10,
               "reviewRequiredDistricts": 0,
-              "representativeRoles": 5,
+              "representativeRoles": 6,
               "operationalCategories": 6,
-              "operationalCharacteristics": 17,
-              "reviewRequiredRepresentativeBuildings": 30
+              "operationalCharacteristics": 20,
+              "reviewRequiredRepresentativeBuildings": 19
             },
             "gaps": [],
             "blocking": false,
@@ -61321,8 +60258,8 @@
             "strategicPriority": 1,
             "evidence": [
               "9 primary districts and 6 secondary districts.",
-              "51 Representative Buildings and 13 Building Briefs.",
-              "5 representative roles and 6 operational categories are covered."
+              "51 Representative Buildings and 24 Building Briefs.",
+              "6 representative roles and 6 operational categories are covered."
             ],
             "targetSubtypes": [
               "small_bay_industrial",
@@ -61352,12 +60289,13 @@
               "state": "strong",
               "stateLabel": "Strong",
               "buildingCount": 51,
-              "explicitCount": 6,
-              "inheritedOnlyCount": 45,
-              "reviewRequiredCount": 30,
+              "explicitCount": 17,
+              "inheritedOnlyCount": 34,
+              "reviewRequiredCount": 19,
               "rolesCovered": [
                 "small_bay_service_environment",
                 "flex_business_park",
+                "contractor_service_cluster",
                 "warehouse_distribution_environment",
                 "research_development_environment",
                 "light_manufacturing_environment"
@@ -61380,6 +60318,7 @@
                 "knowledge_work",
                 "product_development",
                 "assembly",
+                "vehicle_storage",
                 "storage",
                 "distribution",
                 "inventory_management",
@@ -61397,11 +60336,11 @@
                 "electrician",
                 "hvac_company",
                 "plumbing_company",
-                "landscaper",
                 "research_company",
                 "startup",
                 "distributor",
                 "ecommerce_fulfillment_business",
+                "landscaper",
                 "wellness_practice",
                 "professional_office"
               ],
@@ -61411,10 +60350,13 @@
                 "service_vehicle_parking",
                 "office_warehouse_mix",
                 "freeway_access",
-                "research_compatible",
-                "surface_parking",
                 "flexible_suite_sizes",
                 "high_office_percentage",
+                "surface_parking",
+                "outdoor_storage",
+                "contractor_yard",
+                "drive_in_access",
+                "research_compatible",
                 "dock_high_loading",
                 "truck_court",
                 "high_clearance",
@@ -61448,32 +60390,32 @@
                 {
                   "name": "2501 9th St",
                   "path": "/commercial-real-estate/building/CA/berkeley/2501-9th-st/",
-                  "role": "small_bay_service_environment",
-                  "confidence": "review_required"
+                  "role": "flex_business_park",
+                  "confidence": "editorially_supported"
                 },
                 {
                   "name": "2550 9th St",
                   "path": "/commercial-real-estate/building/CA/berkeley/2550-9th-st/",
-                  "role": "small_bay_service_environment",
-                  "confidence": "review_required"
+                  "role": "flex_business_park",
+                  "confidence": "editorially_supported"
                 },
                 {
                   "name": "2560 9th St",
                   "path": "/commercial-real-estate/building/CA/berkeley/2560-9th-st/",
                   "role": "small_bay_service_environment",
-                  "confidence": "review_required"
+                  "confidence": "editorially_supported"
                 },
                 {
                   "name": "2600 10th St",
                   "path": "/commercial-real-estate/building/CA/berkeley/2600-10th-st/",
                   "role": "small_bay_service_environment",
-                  "confidence": "review_required"
+                  "confidence": "editorially_supported"
                 },
                 {
                   "name": "2929 7th St",
                   "path": "/commercial-real-estate/building/CA/berkeley/2929-7th-st/",
-                  "role": "small_bay_service_environment",
-                  "confidence": "review_required"
+                  "role": "flex_business_park",
+                  "confidence": "editorially_supported"
                 }
               ]
             },
@@ -62171,8 +61113,8 @@
             "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
             "evidence": [
               "9 primary districts and 6 secondary districts.",
-              "51 Representative Buildings and 13 Building Briefs.",
-              "5 representative roles and 6 operational categories are covered."
+              "51 Representative Buildings and 24 Building Briefs.",
+              "6 representative roles and 6 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
             "completionCriteria": [
@@ -62618,7 +61560,7 @@
           "label": "Balanced",
           "dominantEcosystem": "office",
           "representativeBuildingShare": 0.42,
-          "buildingBriefShare": 0.58,
+          "buildingBriefShare": 0.46,
           "warnings": []
         }
       },
@@ -62627,7 +61569,7 @@
         "label": "Balanced",
         "dominantEcosystem": "office",
         "representativeBuildingShare": 0.42,
-        "buildingBriefShare": 0.58,
+        "buildingBriefShare": 0.46,
         "warnings": []
       },
       "ecosystemGaps": [
@@ -62721,8 +61663,8 @@
           "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
           "evidence": [
             "9 primary districts and 6 secondary districts.",
-            "51 Representative Buildings and 13 Building Briefs.",
-            "5 representative roles and 6 operational categories are covered."
+            "51 Representative Buildings and 24 Building Briefs.",
+            "6 representative roles and 6 operational categories are covered."
           ],
           "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
           "completionCriteria": [
@@ -65476,153 +64418,6 @@
           }
         },
         {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-2501-9th-st",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "2501 9th St",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/2501-9th-st/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/2501-9th-st/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-2550-9th-st",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "2550 9th St",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/2550-9th-st/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/2550-9th-st/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-2560-9th-st",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "2560 9th St",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/2560-9th-st/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/2560-9th-st/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
           "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-hayward-25901-industrial-blvd",
           "metroId": "san-francisco",
           "metroName": "San Francisco",
@@ -65636,55 +64431,6 @@
           "itemName": "25901 Industrial Blvd",
           "sourceId": "/commercial-real-estate/building/CA/hayward/25901-industrial-blvd/",
           "publicUrl": "/commercial-real-estate/building/CA/hayward/25901-industrial-blvd/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-2600-10th-st",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "2600 10th St",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/2600-10th-st/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/2600-10th-st/",
           "adminUrl": "",
           "severity": "medium",
           "description": "Representative building has not migrated to the Building Brief journey.",
@@ -65832,55 +64578,6 @@
           "itemName": "2900 18th St",
           "sourceId": "/commercial-real-estate/building/CA/san-francisco/2900-18th-st/",
           "publicUrl": "/commercial-real-estate/building/CA/san-francisco/2900-18th-st/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-2929-7th-st",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "2929 7th St",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/2929-7th-st/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/2929-7th-st/",
           "adminUrl": "",
           "severity": "medium",
           "description": "Representative building has not migrated to the Building Brief journey.",
@@ -66224,55 +64921,6 @@
           "itemName": "30336 Whipple Rd",
           "sourceId": "/commercial-real-estate/building/CA/union-city/30336-whipple-rd/",
           "publicUrl": "/commercial-real-estate/building/CA/union-city/30336-whipple-rd/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-3100-san-pablo-ave",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "3100 San Pablo Ave",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/3100-san-pablo-ave/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/3100-san-pablo-ave/",
           "adminUrl": "",
           "severity": "medium",
           "description": "Representative building has not migrated to the Building Brief journey.",
@@ -68024,55 +66672,6 @@
           }
         },
         {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-650-university-ave",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "650 University Ave",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/650-university-ave/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/650-university-ave/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
           "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-699-8th-st",
           "metroId": "san-francisco",
           "metroName": "San Francisco",
@@ -68086,55 +66685,6 @@
           "itemName": "699 8th St",
           "sourceId": "/commercial-real-estate/building/CA/san-francisco/699-8th-st/",
           "publicUrl": "/commercial-real-estate/building/CA/san-francisco/699-8th-st/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-717-potter-st",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "717 Potter St",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/717-potter-st/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/717-potter-st/",
           "adminUrl": "",
           "severity": "medium",
           "description": "Representative building has not migrated to the Building Brief journey.",
@@ -68318,55 +66868,6 @@
           }
         },
         {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-829-heinz-ave",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "829 Heinz Ave",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/829-heinz-ave/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/829-heinz-ave/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
           "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-88-spear-st",
           "metroId": "san-francisco",
           "metroName": "San Francisco",
@@ -68514,55 +67015,6 @@
           }
         },
         {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-918-parker-st",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "918 Parker St",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/918-parker-st/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/918-parker-st/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
           "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-924-sansome-st",
           "metroId": "san-francisco",
           "metroName": "San Francisco",
@@ -68625,55 +67077,6 @@
           "itemName": "930 Montgomery St",
           "sourceId": "/commercial-real-estate/building/CA/san-francisco/930-montgomery-st/",
           "publicUrl": "/commercial-real-estate/building/CA/san-francisco/930-montgomery-st/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-950-gilman-st",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "950 Gilman St",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/950-gilman-st/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/950-gilman-st/",
           "adminUrl": "",
           "severity": "medium",
           "description": "Representative building has not migrated to the Building Brief journey.",
@@ -72460,153 +70863,6 @@
           }
         },
         {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-2501-9th-st",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "2501 9th St",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/2501-9th-st/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/2501-9th-st/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-2550-9th-st",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "2550 9th St",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/2550-9th-st/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/2550-9th-st/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-2560-9th-st",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "2560 9th St",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/2560-9th-st/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/2560-9th-st/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
           "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-hayward-25901-industrial-blvd",
           "metroId": "san-francisco",
           "metroName": "San Francisco",
@@ -72620,55 +70876,6 @@
           "itemName": "25901 Industrial Blvd",
           "sourceId": "/commercial-real-estate/building/CA/hayward/25901-industrial-blvd/",
           "publicUrl": "/commercial-real-estate/building/CA/hayward/25901-industrial-blvd/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-2600-10th-st",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "2600 10th St",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/2600-10th-st/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/2600-10th-st/",
           "adminUrl": "",
           "severity": "medium",
           "description": "Representative building has not migrated to the Building Brief journey.",
@@ -72816,55 +71023,6 @@
           "itemName": "2900 18th St",
           "sourceId": "/commercial-real-estate/building/CA/san-francisco/2900-18th-st/",
           "publicUrl": "/commercial-real-estate/building/CA/san-francisco/2900-18th-st/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-2929-7th-st",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "2929 7th St",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/2929-7th-st/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/2929-7th-st/",
           "adminUrl": "",
           "severity": "medium",
           "description": "Representative building has not migrated to the Building Brief journey.",
@@ -73208,55 +71366,6 @@
           "itemName": "30336 Whipple Rd",
           "sourceId": "/commercial-real-estate/building/CA/union-city/30336-whipple-rd/",
           "publicUrl": "/commercial-real-estate/building/CA/union-city/30336-whipple-rd/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-3100-san-pablo-ave",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "3100 San Pablo Ave",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/3100-san-pablo-ave/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/3100-san-pablo-ave/",
           "adminUrl": "",
           "severity": "medium",
           "description": "Representative building has not migrated to the Building Brief journey.",
@@ -75008,55 +73117,6 @@
           }
         },
         {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-650-university-ave",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "650 University Ave",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/650-university-ave/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/650-university-ave/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
           "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-699-8th-st",
           "metroId": "san-francisco",
           "metroName": "San Francisco",
@@ -75070,55 +73130,6 @@
           "itemName": "699 8th St",
           "sourceId": "/commercial-real-estate/building/CA/san-francisco/699-8th-st/",
           "publicUrl": "/commercial-real-estate/building/CA/san-francisco/699-8th-st/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-717-potter-st",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "717 Potter St",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/717-potter-st/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/717-potter-st/",
           "adminUrl": "",
           "severity": "medium",
           "description": "Representative building has not migrated to the Building Brief journey.",
@@ -75302,55 +73313,6 @@
           }
         },
         {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-829-heinz-ave",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "829 Heinz Ave",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/829-heinz-ave/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/829-heinz-ave/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
           "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-88-spear-st",
           "metroId": "san-francisco",
           "metroName": "San Francisco",
@@ -75498,55 +73460,6 @@
           }
         },
         {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-918-parker-st",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "918 Parker St",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/918-parker-st/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/918-parker-st/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
           "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-924-sansome-st",
           "metroId": "san-francisco",
           "metroName": "San Francisco",
@@ -75609,55 +73522,6 @@
           "itemName": "930 Montgomery St",
           "sourceId": "/commercial-real-estate/building/CA/san-francisco/930-montgomery-st/",
           "publicUrl": "/commercial-real-estate/building/CA/san-francisco/930-montgomery-st/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-950-gilman-st",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "950 Gilman St",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/950-gilman-st/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/950-gilman-st/",
           "adminUrl": "",
           "severity": "medium",
           "description": "Representative building has not migrated to the Building Brief journey.",
@@ -77291,7 +75155,7 @@
         "modeLabel": "Balanced Expansion",
         "title": "San Francisco Building Brief Migration Sprint",
         "objective": "Improve San Francisco expansion readiness by completing the highest-value Building Briefs, District Coverage, Representative Buildings work without creating unsupported content.",
-        "rationale": "Selected from 144 deterministic Publisher gaps using balanced expansion weighting.",
+        "rationale": "Selected from 133 deterministic Publisher gaps using balanced expansion weighting.",
         "tasks": [
           {
             "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-1-henry-adams-st",
@@ -77615,7 +75479,7 @@
           "modeLabel": "Balanced Expansion",
           "title": "San Francisco Building Brief Migration Sprint",
           "objective": "Improve San Francisco expansion readiness by completing the highest-value Building Briefs, District Coverage, Representative Buildings work without creating unsupported content.",
-          "rationale": "Selected from 144 deterministic Publisher gaps using balanced expansion weighting.",
+          "rationale": "Selected from 133 deterministic Publisher gaps using balanced expansion weighting.",
           "tasks": [
             {
               "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-1-henry-adams-st",
@@ -77938,7 +75802,7 @@
           "modeLabel": "Recommendation Readiness",
           "title": "San Francisco Recommendation Readiness Sprint",
           "objective": "Improve San Francisco expansion readiness by completing the highest-value Recommendation Readiness, Comparison Graph, District Coverage work without creating unsupported content.",
-          "rationale": "Selected from 144 deterministic Publisher gaps using recommendation readiness weighting.",
+          "rationale": "Selected from 133 deterministic Publisher gaps using recommendation readiness weighting.",
           "tasks": [
             {
               "id": "gap:san-francisco:recommendationReadiness:missing explainability fields:north-san-jose",
@@ -78244,7 +76108,7 @@
           "modeLabel": "Editorial Depth",
           "title": "San Francisco District Editorial Foundation Sprint",
           "objective": "Improve San Francisco expansion readiness by completing the highest-value District Coverage, Building Briefs, Representative Buildings work without creating unsupported content.",
-          "rationale": "Selected from 144 deterministic Publisher gaps using editorial depth weighting.",
+          "rationale": "Selected from 133 deterministic Publisher gaps using editorial depth weighting.",
           "tasks": [
             {
               "id": "gap:san-francisco:districtCoverage:missing decision positioning:north-san-jose",
@@ -78569,7 +76433,7 @@
           "modeLabel": "Building Depth",
           "title": "San Francisco Representative Building Foundation Sprint",
           "objective": "Improve San Francisco expansion readiness by completing the highest-value Representative Buildings, Building Briefs work without creating unsupported content.",
-          "rationale": "Selected from 144 deterministic Publisher gaps using building depth weighting.",
+          "rationale": "Selected from 133 deterministic Publisher gaps using building depth weighting.",
           "tasks": [
             {
               "id": "gap:san-francisco:representativeBuildings:district missing representative buildings:downtown-redwood-city",
@@ -78892,7 +76756,7 @@
     {
       "metroId": "sacramento",
       "metroName": "Sacramento",
-      "generatedAt": "2026-08-10T13:26:54-07:00",
+      "generatedAt": "2026-08-10T13:45:49-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 98,
@@ -87732,7 +85596,7 @@
     {
       "metroId": "san-diego",
       "metroName": "San Diego",
-      "generatedAt": "2026-08-10T13:26:54-07:00",
+      "generatedAt": "2026-08-10T13:45:49-07:00",
       "currentState": {
         "readinessStatus": "Expansion Ready",
         "overallScore": 84,
@@ -97554,7 +95418,7 @@
     {
       "metroId": "orange-county",
       "metroName": "Orange County",
-      "generatedAt": "2026-08-10T13:26:54-07:00",
+      "generatedAt": "2026-08-10T13:45:49-07:00",
       "currentState": {
         "readinessStatus": "Expansion Ready",
         "overallScore": 84,
@@ -106546,7 +104410,7 @@
     {
       "metroId": "denver",
       "metroName": "Denver",
-      "generatedAt": "2026-08-10T13:26:54-07:00",
+      "generatedAt": "2026-08-10T13:45:49-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 97,
@@ -114341,8 +112205,8 @@
   "overview": {
     "metroCount": 6,
     "primaryMetroCount": 5,
-    "totalGaps": 314,
-    "totalPriorities": 314,
+    "totalGaps": 303,
+    "totalPriorities": 303,
     "topRecommendedSprint": {
       "metroId": "san-diego",
       "metroName": "San Diego",
