@@ -5409,6 +5409,7 @@ const phoenixMetroDistrictDefinitions = [
   { id: "phx-tolleson", name: "Tolleson", slug: "tolleson", city: "Tolleson", state_abbr: "AZ", path: "/commercial-real-estate/AZ/tolleson/tolleson/", centroid_lat: 33.45, centroid_lng: -112.259, area_type: "industrial_area", approximate_space_types: ["industrial", "flex"], profile: ["warehouse", "distribution", "cold_storage", "food_logistics"], representative_building_paths: [] },
   { id: "phx-goodyear", name: "Goodyear", slug: "goodyear", city: "Goodyear", state_abbr: "AZ", path: "/commercial-real-estate/AZ/goodyear/goodyear/", centroid_lat: 33.435, centroid_lng: -112.358, area_type: "industrial_area", approximate_space_types: ["industrial", "flex", "office"], profile: ["warehouse", "distribution", "fulfillment", "west_valley"], representative_building_paths: [] },
   { id: "phx-avondale", name: "Avondale", slug: "avondale", city: "Avondale", state_abbr: "AZ", path: "/commercial-real-estate/AZ/avondale/avondale/", centroid_lat: 33.435, centroid_lng: -112.349, area_type: "district", approximate_space_types: ["office", "industrial", "retail"], profile: ["west_valley", "local_services", "service_industrial", "retail_support"], representative_building_paths: [] },
+  { id: "phx-tempe-i10-industrial", name: "Tempe I-10 Industrial", slug: "tempe-i-10-industrial", city: "Tempe", state_abbr: "AZ", path: "/commercial-real-estate/AZ/tempe/tempe-i-10-industrial/", centroid_lat: 33.375, centroid_lng: -111.95, area_type: "industrial_area", approximate_space_types: ["industrial", "flex"], profile: ["warehouse", "office_warehouse", "service_industrial", "central_phoenix_metro"], representative_building_paths: ["/commercial-real-estate/building/AZ/tempe/6840-s-harl-ave/"] },
   { id: "phx-mesa-gateway-east-mesa", name: "Mesa Gateway / East Mesa", slug: "mesa-gateway-east-mesa", city: "Mesa", state_abbr: "AZ", path: "/commercial-real-estate/AZ/mesa/mesa-gateway-east-mesa/", centroid_lat: 33.307, centroid_lng: -111.658, area_type: "industrial_area", approximate_space_types: ["industrial", "flex"], profile: ["airport_access", "aerospace", "advanced_manufacturing", "logistics"], representative_building_paths: ["/commercial-real-estate/building/AZ/mesa/8200-e-germann-rd/", "/commercial-real-estate/building/AZ/mesa/1234-s-power-rd/", "/commercial-real-estate/building/AZ/mesa/3707-e-southern-ave/"] },
   { id: "phx-chandler-airpark", name: "Chandler Airpark", slug: "chandler-airpark", city: "Chandler", state_abbr: "AZ", path: "/commercial-real-estate/AZ/chandler/chandler-airpark/", centroid_lat: 33.27, centroid_lng: -111.81, area_type: "industrial_area", approximate_space_types: ["industrial", "flex", "office"], profile: ["aviation_adjacent", "rd_flex", "advanced_manufacturing", "engineering"], representative_building_paths: ["/commercial-real-estate/building/AZ/chandler/2425-s-stearman-dr/", "/commercial-real-estate/building/AZ/chandler/2701-insight-way/", "/commercial-real-estate/building/AZ/chandler/411-n-roosevelt-ave/"] },
   { id: "phx-mesa-falcon-field", name: "Mesa / Falcon Field", slug: "mesa-falcon-field", city: "Mesa", state_abbr: "AZ", path: "/commercial-real-estate/AZ/mesa/mesa-falcon-field/", centroid_lat: 33.46, centroid_lng: -111.728, area_type: "industrial_area", approximate_space_types: ["industrial", "flex"], profile: ["aerospace", "aviation_adjacent", "rd_flex", "industrial_flex"], representative_building_paths: ["/commercial-real-estate/building/AZ/mesa/1234-s-power-rd/", "/commercial-real-estate/building/AZ/mesa/8200-e-germann-rd/", "/commercial-real-estate/building/AZ/mesa/3707-e-southern-ave/"] },
@@ -7145,6 +7146,43 @@ const nycMetroPhase1Pages = nycMetroPhase1DistrictDefinitions.map(nycMetroPhase1
 const nycMetroPhase2Pages = nycMetroPhase2DistrictDefinitions.map(nycMetroPhase2DistrictPageFor);
 const sfEditorialDistrictPages = sfEditorialDistrictDefinitions.map(sfEditorialDistrictPageFor);
 
+const searchLedFoundationPages = [
+  {
+    name: "Indianapolis Airport Logistics",
+    slug: "indianapolis-airport-logistics",
+    city: "Indianapolis",
+    state_abbr: "IN",
+    city_slug: "indianapolis",
+    canonical_neighborhood_path: "/commercial-real-estate/IN/indianapolis/indianapolis-airport-logistics/",
+    centroid_lat: 39.72,
+    centroid_lng: -86.28,
+    radius: "",
+    geometry_quality: "search_led_foundation_v1",
+    approximate_building_count: 3,
+    approximate_space_types: ["industrial", "warehouse", "flex"],
+    approximate_semantic_signals: ["Warehouse", "Distribution", "Airport Logistics", "Service Industrial"],
+    representative_buildings: representativeBuildingsFromPaths([
+      "/commercial-real-estate/building/IN/indianapolis/558-airtech-parkway/",
+      "/commercial-real-estate/building/IN/indianapolis/4557-w-bradbury-ave/",
+      "/commercial-real-estate/building/IN/indianapolis/7601-winton-dr/",
+    ], "in-indianapolis-airport-logistics"),
+    commercial_area_id: "in-indianapolis-airport-logistics",
+    commercial_area_type: "industrial_area",
+    commercial_area_type_label: "industrial area",
+    commercial_profile: ["warehouse", "distribution", "airport_logistics", "service_industrial"],
+    source_confidence: "medium",
+    source_types: ["rofo_building_corpus", "commercial_market_evidence", "editorial_graph_v1"],
+    suppress_nearby_neighborhoods: true,
+    noindex: false,
+    prototype: false,
+    public_review: false,
+    public_phase_1: false,
+    public_phase_2: true,
+    public_search_led_foundation_v1: true,
+    city_nav_priority: 2,
+  },
+];
+
 const allPagesByPath = new Map();
 
 for (const page of existingPages) {
@@ -7229,6 +7267,13 @@ for (const page of seattleMetroPages) {
 }
 
 for (const page of phoenixMetroPages) {
+  allPagesByPath.set(page.canonical_neighborhood_path, {
+    ...allPagesByPath.get(page.canonical_neighborhood_path),
+    ...page,
+  });
+}
+
+for (const page of searchLedFoundationPages) {
   allPagesByPath.set(page.canonical_neighborhood_path, {
     ...allPagesByPath.get(page.canonical_neighborhood_path),
     ...page,

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-09T21:27:19-07:00",
+  "generatedAt": "2026-08-09T21:44:47-07:00",
   "eosVersion": "editorial-operating-system-v2.2.4",
   "sourceSystems": [
     "Publisher",
@@ -13,7 +13,7 @@
   ],
   "commercialKnowledgeIntelligence": {
     "schemaVersion": "eos-commercial-knowledge-intelligence-v1",
-    "generatedAt": "2026-08-09T21:27:19-07:00",
+    "generatedAt": "2026-08-09T21:44:47-07:00",
     "sourceSystems": [
       "Editor-controlled strategic priorities",
       "Google Search Console Search Analytics API",
@@ -15467,7 +15467,7 @@
         "Low": 2
       },
       "deferredCandidates": 55,
-      "latestValidation": "2026-08-09T21:27:19-07:00",
+      "latestValidation": "2026-08-09T21:44:47-07:00",
       "errors": [],
       "warnings": [],
       "source": {
@@ -32937,10 +32937,10 @@
             "collectionId": "indianapolis-airport-logistics-commercial-market-evidence",
             "evidenceRecordCount": 3,
             "evidenceProfileCoverage": {
-              "completed": 0,
+              "completed": 3,
               "target": 3,
-              "missing": 3,
-              "label": "0 / 3"
+              "missing": 0,
+              "label": "3 / 3"
             },
             "supportingProfileCoverage": {
               "completed": 0,
@@ -32950,67 +32950,18 @@
             },
             "unresolvedBuildingItems": 0,
             "validationStatus": "Requires validation",
-            "districtMissionStatus": "In Progress",
-            "workItems": [
-              {
-                "id": "district-building-evidence:indianapolis-airport-logistics:profile:commercial-real-estate-building-in-indianapolis-558-airtech-parkway",
-                "title": "558 Airtech Parkway Building Profile",
-                "category": "buildingBriefs",
-                "categoryLabel": "Building Profiles",
-                "reason": "Selected Commercial Market Evidence building lacks adequate Building Profile depth.",
-                "buildingName": "558 Airtech Parkway",
-                "buildingPath": "/commercial-real-estate/building/IN/indianapolis/558-airtech-parkway/",
-                "evidenceRecordId": "indy-airport-logistics-558-airtech",
-                "evidenceType": "airport_logistics_industrial_building",
-                "evidenceRole": "airport_logistics_benchmark",
-                "suggestedModule": {
-                  "id": "publisher",
-                  "label": "Publisher"
-                }
-              },
-              {
-                "id": "district-building-evidence:indianapolis-airport-logistics:profile:commercial-real-estate-building-in-indianapolis-4557-w-bradbury-ave",
-                "title": "4557 W Bradbury Ave Building Profile",
-                "category": "buildingBriefs",
-                "categoryLabel": "Building Profiles",
-                "reason": "Selected Commercial Market Evidence building lacks adequate Building Profile depth.",
-                "buildingName": "4557 W Bradbury Ave",
-                "buildingPath": "/commercial-real-estate/building/IN/indianapolis/4557-w-bradbury-ave/",
-                "evidenceRecordId": "indy-airport-logistics-4557-bradbury",
-                "evidenceType": "indianapolis_industrial_building",
-                "evidenceRole": "warehouse_industrial_depth",
-                "suggestedModule": {
-                  "id": "publisher",
-                  "label": "Publisher"
-                }
-              },
-              {
-                "id": "district-building-evidence:indianapolis-airport-logistics:profile:commercial-real-estate-building-in-indianapolis-7601-winton-dr",
-                "title": "7601 Winton Dr Building Profile",
-                "category": "buildingBriefs",
-                "categoryLabel": "Building Profiles",
-                "reason": "Selected Commercial Market Evidence building lacks adequate Building Profile depth.",
-                "buildingName": "7601 Winton Dr",
-                "buildingPath": "/commercial-real-estate/building/IN/indianapolis/7601-winton-dr/",
-                "evidenceRecordId": "indy-airport-logistics-7601-winton",
-                "evidenceType": "indianapolis_industrial_building",
-                "evidenceRole": "large_format_warehouse_depth",
-                "suggestedModule": {
-                  "id": "publisher",
-                  "label": "Publisher"
-                }
-              }
-            ],
-            "workItemCount": 4,
+            "districtMissionStatus": "Complete",
+            "workItems": [],
+            "workItemCount": 0,
             "deferredWorkItems": [],
             "missionSize": {
-              "id": "standard",
-              "label": "Standard",
-              "reviewWindow": "60-120 minutes",
-              "maximumWorkItems": 8
+              "id": "small",
+              "label": "Small",
+              "reviewWindow": "30-60 minutes",
+              "maximumWorkItems": 3
             },
             "eligibleForExecution": false,
-            "executionReadiness": "Future operational market",
+            "executionReadiness": "Complete",
             "groupingRationale": [
               "Commercial Market Evidence and selected Building Profiles share district research context, source paths, and validation flow.",
               "Existing Commercial Market Evidence collection remains intact; mission focuses on validating the collection and completing selected evidence Building Profiles.",
@@ -34278,10 +34229,10 @@
             "collectionId": "tempe-i-10-industrial-commercial-market-evidence",
             "evidenceRecordCount": 4,
             "evidenceProfileCoverage": {
-              "completed": 0,
+              "completed": 1,
               "target": 1,
-              "missing": 1,
-              "label": "0 / 1"
+              "missing": 0,
+              "label": "1 / 1"
             },
             "supportingProfileCoverage": {
               "completed": 0,
@@ -34291,26 +34242,9 @@
             },
             "unresolvedBuildingItems": 0,
             "validationStatus": "Requires validation",
-            "districtMissionStatus": "In Progress",
-            "workItems": [
-              {
-                "id": "district-building-evidence:tempe-i-10-industrial:profile:commercial-real-estate-building-az-tempe-6840-s-harl-ave",
-                "title": "6840 S Harl Ave Building Profile",
-                "category": "buildingBriefs",
-                "categoryLabel": "Building Profiles",
-                "reason": "Selected Commercial Market Evidence building lacks adequate Building Profile depth.",
-                "buildingName": "6840 S Harl Ave",
-                "buildingPath": "/commercial-real-estate/building/AZ/tempe/6840-s-harl-ave/",
-                "evidenceRecordId": "tempe-i10-industrial-6840-harl",
-                "evidenceType": "tempe_industrial_building",
-                "evidenceRole": "initial_industrial_building_anchor",
-                "suggestedModule": {
-                  "id": "publisher",
-                  "label": "Publisher"
-                }
-              }
-            ],
-            "workItemCount": 2,
+            "districtMissionStatus": "Complete",
+            "workItems": [],
+            "workItemCount": 0,
             "deferredWorkItems": [],
             "missionSize": {
               "id": "small",
@@ -34319,7 +34253,7 @@
               "maximumWorkItems": 3
             },
             "eligibleForExecution": false,
-            "executionReadiness": "Future operational market",
+            "executionReadiness": "Complete",
             "groupingRationale": [
               "Commercial Market Evidence and selected Building Profiles share district research context, source paths, and validation flow.",
               "Existing Commercial Market Evidence collection remains intact; mission focuses on validating the collection and completing selected evidence Building Profiles.",
@@ -38902,10 +38836,10 @@
         "summary": {
           "districts": 94,
           "executableDistrictMissions": 86,
-          "completedDistricts": 6,
-          "inProgressDistricts": 10,
+          "completedDistricts": 8,
+          "inProgressDistricts": 8,
           "missingCollections": 78,
-          "hiddenWorkItems": 329,
+          "hiddenWorkItems": 323,
           "unresolvedBuildingItems": 0
         }
       }
