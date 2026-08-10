@@ -39,6 +39,7 @@ const MISSION_INDEX_SQL = [
 
 const SEARCH_MISSION_SOURCE = "search_intelligence";
 const MARKET_MISSION_PREFIX = "market-foundation";
+const SEARCH_MISSION_TRANCHE_SIZE = 4;
 export const MISSION_TASK_RESULTS_SCHEMA_VERSION = "mission-task-results-v1";
 const MISSION_TASK_RESULTS_START = "MISSION_TASK_RESULTS_V1";
 const MISSION_TASK_RESULTS_END = "END_MISSION_TASK_RESULTS_V1";
@@ -144,6 +145,86 @@ function parentSearchMissionForMarket(eos, marketId) {
   ) || null;
 }
 
+function marketKey(market) {
+  return clean(market && market.marketId);
+}
+
+function mergeMarketEvidence(existing, next) {
+  const merged = { ...(existing || {}), ...(next || {}) };
+  const existingImpressions = Number(existing && existing.impressions);
+  const nextImpressions = Number(next && next.impressions);
+  if (Number.isFinite(existingImpressions) && Number.isFinite(nextImpressions)) {
+    merged.impressions = Math.max(existingImpressions, nextImpressions);
+  }
+  const existingPosition = Number(existing && existing.averagePosition);
+  const nextPosition = Number(next && next.averagePosition);
+  if (Number.isFinite(existingPosition) && Number.isFinite(nextPosition)) {
+    merged.averagePosition = Math.min(existingPosition, nextPosition);
+  }
+  merged.knowledgeGaps = unique(asArray(existing && existing.knowledgeGaps).concat(asArray(next && next.knowledgeGaps)));
+  return merged;
+}
+
+function searchMissionTopicIds(mission) {
+  const text = `${mission.title || ""} ${mission.type || ""} ${asArray(mission.knowledgeGaps).join(" ")}`.toLowerCase();
+  const ids = [];
+  if (/warehouse|industrial/.test(text)) ids.push("industrial", "warehouse");
+  if (/retail/.test(text)) ids.push("retail");
+  if (/office/.test(text)) ids.push("office");
+  if (/flex/.test(text)) ids.push("flex");
+  if (/medical|healthcare/.test(text)) ids.push("medical");
+  if (/district/.test(text)) ids.push("district-neighborhood");
+  if (/building|representative/.test(text)) ids.push("building-address");
+  return unique(ids);
+}
+
+function expandedSearchMissionSupportingMarkets(mission, eos = {}) {
+  const intelligence = eos.commercialKnowledgeIntelligence || {};
+  const topics = asArray(intelligence.topicIntelligence || intelligence.emergingThemes);
+  const googleMarkets = asArray((intelligence.googleOpportunity || {}).markets);
+  const googleMarketById = new Map(googleMarkets.map((market) => [marketKey(market), market]).filter(([id]) => id));
+  const topicIds = searchMissionTopicIds(mission);
+  const byId = new Map();
+
+  function addMarket(market, sourceRank = 0) {
+    const id = marketKey(market);
+    if (!id) return;
+    const enriched = {
+      ...(googleMarketById.get(id) || {}),
+      ...market,
+      marketId: id,
+      _sourceRank: Math.min(sourceRank, Number(market && market._sourceRank) || sourceRank),
+    };
+    byId.set(id, byId.has(id) ? mergeMarketEvidence(byId.get(id), enriched) : enriched);
+  }
+
+  asArray(mission.supportingMarkets).forEach((market, index) => addMarket(market, index));
+  topics
+    .filter((topic) => topicIds.includes(topic.id))
+    .forEach((topic, topicIndex) => {
+      asArray(topic.strongestMarkets).forEach((market, marketIndex) => {
+        addMarket(market, 100 + (topicIndex * 100) + marketIndex);
+      });
+    });
+
+  return Array.from(byId.values())
+    .filter((market) => {
+      const gaps = asArray(market.knowledgeGaps);
+      const missionGaps = asArray(mission.knowledgeGaps);
+      if (!missionGaps.length || !gaps.length) return true;
+      return missionGaps.some((gap) => gaps.includes(gap));
+    })
+    .sort((a, b) => {
+      const impressions = Number(b.impressions || 0) - Number(a.impressions || 0);
+      if (impressions) return impressions;
+      const aPosition = Number.isFinite(Number(a.averagePosition)) ? Number(a.averagePosition) : 999;
+      const bPosition = Number.isFinite(Number(b.averagePosition)) ? Number(b.averagePosition) : 999;
+      if (aPosition !== bPosition) return aPosition - bPosition;
+      return Number(a._sourceRank || 0) - Number(b._sourceRank || 0);
+    })
+    .map(({ _sourceRank, ...market }) => market);
+}
+
 function primaryMarketPropertyType(market, parentMission = null) {
   const themeIds = new Set(asArray(market.dominantThemes).map((theme) => theme.id));
   const text = `${parentMission ? parentMission.title : ""} ${asArray(market.knowledgeGaps).join(" ")}`.toLowerCase();
@@ -220,6 +301,66 @@ export function createMarketFoundationMission(eos, sourceMissionId) {
       parentMissionTitle: parentMission ? parentMission.title : "",
       marketId: market.marketId,
       actionType: "market_foundation",
+    },
+  };
+}
+
+function missionTargetMarketIds(record) {
+  const packetMarkets = (((record.workPacket || {}).targets || {}).markets) || record.supportingMarkets || [];
+  return asArray(packetMarkets).map((market) => marketKey(market)).filter(Boolean);
+}
+
+function recordParentMissionId(record) {
+  if (!record) return "";
+  const parsed = parseMarketFoundationMissionId(record.sourceMissionId);
+  return parsed ? parsed.parentMissionId : clean(record.sourceMissionId);
+}
+
+function scopedMarketIdsForParent(parentMissionId, missionRecords, statuses) {
+  const allowedStatuses = new Set(statuses);
+  const ids = new Set();
+  asArray(missionRecords)
+    .filter((record) => allowedStatuses.has(record.status))
+    .filter((record) => recordParentMissionId(record) === parentMissionId)
+    .forEach((record) => missionTargetMarketIds(record).forEach((marketId) => ids.add(marketId)));
+  return ids;
+}
+
+export function nextSearchMissionExecutionTranche(mission, eos = {}, missionRecords = [], options = {}) {
+  const maxMarkets = Number(options.maxMarkets || SEARCH_MISSION_TRANCHE_SIZE);
+  const allMarkets = expandedSearchMissionSupportingMarkets(mission, eos);
+  const completedMarketIds = scopedMarketIdsForParent(mission.id, missionRecords, ["completed"]);
+  const unavailableMarketIds = scopedMarketIdsForParent(mission.id, missionRecords, ["active", "completed"]);
+  const remainingMarkets = allMarkets.filter((market) => !completedMarketIds.has(marketKey(market)));
+  const executionMarkets = allMarkets
+    .filter((market) => !unavailableMarketIds.has(marketKey(market)))
+    .slice(0, Math.max(1, maxMarkets));
+
+  return {
+    totalSupportingMarkets: allMarkets.length,
+    addressedMarketIds: Array.from(completedMarketIds),
+    unavailableMarketIds: Array.from(unavailableMarketIds),
+    remainingMarkets,
+    executionMarkets,
+  };
+}
+
+export function prepareSearchMissionForExecution(mission, eos = {}, missionRecords = [], options = {}) {
+  const tranche = nextSearchMissionExecutionTranche(mission, eos, missionRecords, options);
+  if (!tranche.executionMarkets.length) {
+    return null;
+  }
+  return {
+    ...mission,
+    supportingMarkets: tranche.executionMarkets,
+    sourceContext: {
+      ...(mission.sourceContext || {}),
+      parentMissionId: mission.id,
+      parentMissionTitle: mission.title,
+      executionTrancheSize: tranche.executionMarkets.length,
+      totalSupportingMarkets: tranche.totalSupportingMarkets,
+      addressedMarketIds: tranche.addressedMarketIds,
+      remainingMarketIds: tranche.remainingMarkets.map((market) => marketKey(market)).filter(Boolean),
     },
   };
 }
@@ -553,7 +694,7 @@ export function assessMarketFoundation(mission, eos = {}) {
   const propertyTypeId = targetPropertyTypeId(propertyTypes, mission);
   const gaps = asArray(mission.knowledgeGaps);
 
-  const markets = asArray(mission.supportingMarkets).slice(0, 6).map((sourceMarket) => {
+  const markets = asArray(mission.supportingMarkets).slice(0, SEARCH_MISSION_TRANCHE_SIZE).map((sourceMarket) => {
     const market = runtimeMarket(eos, sourceMarket.marketId) || sourceMarket;
     const snapshot = runtimeMarketSnapshot(eos, sourceMarket.marketId);
     const coverage = (market && market.knowledgeCoverage) || {};
@@ -639,7 +780,7 @@ function marketFoundationSummary(assessment) {
 }
 
 export function generateSearchMissionWorkPacket(mission, eos = {}) {
-  const supportingMarkets = asArray(mission.supportingMarkets).slice(0, 6);
+  const supportingMarkets = asArray(mission.supportingMarkets).slice(0, SEARCH_MISSION_TRANCHE_SIZE);
   const gaps = asArray(mission.knowledgeGaps);
   const propertyTypes = missionPropertyTypes(mission);
   const themes = missionThemes(mission);
@@ -957,9 +1098,12 @@ export async function commenceSearchMission(env, eos, sourceMissionId) {
   const existing = await getActiveMissionForSource(env, sourceMissionId);
   if (existing) return { mission: existing, created: false };
 
-  const mission = asArray(((eos.commercialKnowledgeIntelligence || {}).searchMissions)).find((item) => item.id === sourceMissionId)
-    || createMarketFoundationMission(eos, sourceMissionId);
-  if (!mission) throw new Error(`Search Mission not found: ${sourceMissionId}`);
+  const generatedMission = asArray(((eos.commercialKnowledgeIntelligence || {}).searchMissions)).find((item) => item.id === sourceMissionId);
+  const missionRecords = (await listMissions(env, { limit: 500 })).missions || [];
+  const mission = generatedMission
+    ? prepareSearchMissionForExecution(generatedMission, eos, missionRecords)
+    : createMarketFoundationMission(eos, sourceMissionId);
+  if (!mission) throw new Error(`Search Mission has no executable remaining market tranche: ${sourceMissionId}`);
 
   const packet = generateSearchMissionWorkPacket(mission, eos);
   const now = new Date().toISOString();

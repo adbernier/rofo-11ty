@@ -14,6 +14,7 @@ import {
   listMissions,
   marketFoundationMissionId,
   markMissionComplete,
+  prepareSearchMissionForExecution,
   reviewMissionExecutionReport,
   updateMissionTask,
 } from "./eos-missions.js";
@@ -1889,7 +1890,7 @@ function renderMissionProposalReview({ mission, packet, preview, token, missionS
           ${mission.whyNow ? `<p>${escapeHtml(mission.whyNow)}</p>` : ""}
         </article>
         <article>
-          <h3>Supporting Markets</h3>
+          <h3>${mission.sourceContext && mission.sourceContext.executionTrancheSize ? "Next Execution Tranche" : "Supporting Markets"}</h3>
           <ul>${(mission.supportingMarkets || []).map((market) => `<li>${escapeHtml(market.marketName)}${market.state ? `, ${escapeHtml(market.state)}` : ""} · ${escapeHtml(formatIntelligenceMetric(market.impressions, "0"))} impressions · avg position ${escapeHtml(formatIntelligenceMetric(market.averagePosition))}</li>`).join("") || "<li>No supporting markets supplied.</li>"}</ul>
         </article>
       </div>
@@ -1935,13 +1936,23 @@ function renderMissionProposalReview({ mission, packet, preview, token, missionS
 }
 
 function renderSearchMissionReview(eos, missionId, token, missionState) {
-  const mission = searchMissionById(eos, missionId);
-  if (!mission) {
+  const sourceMission = searchMissionById(eos, missionId);
+  if (!sourceMission) {
     return `
       <section class="panel">
         <a class="back-link" href="/admin/eos?${tokenParam(token)}&queue=intelligence">Back to Intelligence</a>
         <h2>Search Mission Not Found</h2>
         <p>The requested Search Mission is not present in the current generated intelligence snapshot.</p>
+      </section>
+    `;
+  }
+  const mission = prepareSearchMissionForExecution(sourceMission, eos, (missionState && missionState.missions) || []);
+  if (!mission) {
+    return `
+      <section class="panel">
+        <a class="back-link" href="/admin/eos?${tokenParam(token)}&queue=intelligence">Back to Intelligence</a>
+        <h2>${escapeHtml(sourceMission.title)}</h2>
+        <p>The parent opportunity is still tracked by Search Intelligence, but there is no executable unaddressed market tranche in the current runtime snapshot.</p>
       </section>
     `;
   }
