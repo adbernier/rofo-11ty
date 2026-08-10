@@ -3,6 +3,7 @@ module.exports = {
     require("../data/commercial-market-evidence/antioch/antioch-east-18th-industrial"),
     require("../data/commercial-market-evidence/aurora/aurora-i-70-airport-industrial"),
     require("../data/commercial-market-evidence/denver/aurora"),
+    require("../data/commercial-market-evidence/denver/broomfield"),
     require("../data/commercial-market-evidence/denver/denver-tech-center"),
     require("../data/commercial-market-evidence/denver/downtown-denver"),
     require("../data/commercial-market-evidence/denver/inverness"),

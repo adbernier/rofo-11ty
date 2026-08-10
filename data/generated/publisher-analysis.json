@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-10T12:59:20-07:00",
-  "sourceCommit": "450a35f0b0b91cd50c89953c8ae3ee3bfc973743",
+  "generatedAt": "2026-08-10T13:26:54-07:00",
+  "sourceCommit": "c0b4d6b7538d0f37d729e15b47d24ba6326311ec",
   "geography": {
     "schemaVersion": "commercial-geography-summary-v1",
     "hierarchy": [
@@ -1850,11 +1850,12 @@
     "service": "Commercial Market Evidence",
     "status": "Validated",
     "validationStatus": "PASS",
-    "collections": 20,
+    "collections": 21,
     "districts": [
       "Antioch East 18th Industrial",
       "Aurora",
       "Aurora I-70 / Airport Industrial",
+      "Broomfield",
       "Denver Tech Center",
       "Design District",
       "Dogpatch",
@@ -1873,7 +1874,7 @@
       "South Beach",
       "Tempe I-10 Industrial"
     ],
-    "evidenceRecords": 124,
+    "evidenceRecords": 127,
     "evidenceTypes": [
       "Adaptive Showroom / Creative Office",
       "Adaptive-Reuse Boutique Office",
@@ -1964,6 +1965,7 @@
       "Residential / Commercial Mixed-Use Anchor",
       "Showroom / Creative Office Anchor",
       "Small-Format Historic Office",
+      "Small-Tenant Office Environment",
       "South Financial District Modernized Office",
       "Startup Creative Mid-Rise Office",
       "Startup-Scale Creative Office",
@@ -2031,6 +2033,7 @@
       "Event and Neighborhood Experience Anchor",
       "Executive Benchmark / Scale Comparison",
       "Financial District Edge Comparison Benchmark",
+      "Flexible Office Entry Benchmark",
       "Formal Professional Office Benchmark",
       "General Office Beyond Lab Benchmark",
       "Healthcare and Clinical Ecosystem Anchor",
@@ -2106,6 +2109,7 @@
       "Transbay District Icon",
       "Transit-Oriented Professional Services Benchmark",
       "UCSF-Adjacency Research Benchmark",
+      "US-36 Professional Office Benchmark",
       "Walkable Downtown Access Benchmark",
       "Warehouse / Industrial Depth",
       "Warehouse / Industrial Market Context",
@@ -2113,11 +2117,11 @@
       "Waterfront Historic Office Benchmark"
     ],
     "confidenceSummary": {
-      "High": 122,
+      "High": 125,
       "Low": 2
     },
-    "deferredCandidates": 59,
-    "latestValidation": "2026-08-10T12:59:20-07:00",
+    "deferredCandidates": 60,
+    "latestValidation": "2026-08-10T13:26:54-07:00",
     "errors": [],
     "warnings": [],
     "source": {
@@ -2127,13 +2131,13 @@
     "scoringImpact": "None. Reporting only; Publisher scoring and readiness calculations are unchanged."
   },
   "analysis": {
-    "generatedAt": "2026-08-10T12:59:20-07:00",
+    "generatedAt": "2026-08-10T13:26:54-07:00",
     "rulesVersion": "publisher-rules-v1",
     "overview": {
       "compassReadyCount": 5,
       "averageScore": 92,
       "criticalIssues": 0,
-      "queuedTasks": 317,
+      "queuedTasks": 314,
       "closestToDistributionReady": "Sacramento",
       "largestCriticalGap": "None"
     },
@@ -26570,11 +26574,11 @@
             "label": "Editorial Coverage",
             "score": 90,
             "status": "",
-            "explanation": "21 of 21 districts have substantive descriptions; 45 representative buildings and 24 Building Briefs are available.",
+            "explanation": "21 of 21 districts have substantive descriptions; 45 representative buildings and 27 Building Briefs are available.",
             "completed": {
               "districtsWithDescriptions": 21,
               "representativeBuildings": 45,
-              "buildingBriefs": 24
+              "buildingBriefs": 27
             },
             "targets": {
               "representativeBuildingsPerDistrict": 3,
@@ -26611,7 +26615,7 @@
         "cityPath": "/commercial-real-estate/CO/denver/",
         "districtCount": 21,
         "representativeBuildingCount": 45,
-        "buildingBriefCount": 24,
+        "buildingBriefCount": 27,
         "geographicReadiness": {
           "state": "developed",
           "label": "Developed",
@@ -26669,7 +26673,7 @@
                 "secondaryDistricts": 9,
                 "recommendations": 9,
                 "representativeBuildings": 23,
-                "buildingBriefs": 11,
+                "buildingBriefs": 14,
                 "subtypes": 9,
                 "archetypes": 10,
                 "activities": 7,
@@ -26685,7 +26689,7 @@
               "strategicPriority": 2,
               "evidence": [
                 "9 primary districts and 9 secondary districts.",
-                "23 Representative Buildings and 11 Building Briefs.",
+                "23 Representative Buildings and 14 Building Briefs.",
                 "8 representative roles and 5 operational categories are covered."
               ],
               "targetSubtypes": [
@@ -26715,7 +26719,7 @@
                 "stateLabel": "Developed",
                 "buildingCount": 23,
                 "explicitCount": 23,
-                "inheritedOnlyCount": 10,
+                "inheritedOnlyCount": 7,
                 "reviewRequiredCount": 0,
                 "rolesCovered": [
                   "downtown_class_a_office",
@@ -27996,7 +28000,7 @@
             "label": "Balanced",
             "dominantEcosystem": "office",
             "representativeBuildingShare": 0.51,
-            "buildingBriefShare": 0.46,
+            "buildingBriefShare": 0.52,
             "warnings": []
           }
         },
@@ -28005,7 +28009,7 @@
           "label": "Balanced",
           "dominantEcosystem": "office",
           "representativeBuildingShare": 0.51,
-          "buildingBriefShare": 0.46,
+          "buildingBriefShare": 0.52,
           "warnings": []
         },
         "ecosystemCoverage": {
@@ -28017,7 +28021,7 @@
               "secondaryDistrictCount": 9,
               "recommendationNodeCount": 9,
               "representativeBuildingCount": 23,
-              "buildingBriefCount": 11,
+              "buildingBriefCount": 14,
               "status": "Developed",
               "districts": [
                 {
@@ -28111,7 +28115,7 @@
                 "stateLabel": "Developed",
                 "buildingCount": 23,
                 "explicitCount": 23,
-                "inheritedOnlyCount": 10,
+                "inheritedOnlyCount": 7,
                 "reviewRequiredCount": 0,
                 "rolesCovered": {
                   "downtown_class_a_office": 1,
@@ -29665,11 +29669,11 @@
           "buildingBriefs": {
             "key": "buildingBriefs",
             "label": "Building Briefs",
-            "score": 53,
-            "completed": 24,
+            "score": 60,
+            "completed": 27,
             "total": 45,
-            "missing": 21,
-            "explanation": "24 of 45 representative building records use the canonical Building Brief journey.",
+            "missing": 18,
+            "explanation": "27 of 45 representative building records use the canonical Building Brief journey.",
             "issues": [
               {
                 "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-1400-sixteenth-street",
@@ -30014,63 +30018,6 @@
                 "readinessState": ""
               },
               {
-                "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-broomfield-335-interlocken-pkwy",
-                "code": "missing-brief",
-                "metroId": "denver",
-                "metroName": "Denver",
-                "category": "buildingBriefs",
-                "categoryLabel": "Building Briefs",
-                "taskType": "representative building missing Building Brief",
-                "itemName": "335 Interlocken Pkwy",
-                "severity": "medium",
-                "priority": 40,
-                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-                "sourceId": "/commercial-real-estate/building/CO/broomfield/335-interlocken-pkwy/",
-                "publicUrl": "/commercial-real-estate/building/CO/broomfield/335-interlocken-pkwy/",
-                "adminUrl": "",
-                "suggestedNextAction": "Author a Building Brief for this representative building.",
-                "automationCandidate": true,
-                "readinessState": ""
-              },
-              {
-                "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-broomfield-8181-arista-place",
-                "code": "missing-brief",
-                "metroId": "denver",
-                "metroName": "Denver",
-                "category": "buildingBriefs",
-                "categoryLabel": "Building Briefs",
-                "taskType": "representative building missing Building Brief",
-                "itemName": "Spaces Arista",
-                "severity": "medium",
-                "priority": 40,
-                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-                "sourceId": "/commercial-real-estate/building/CO/broomfield/8181-arista-place/",
-                "publicUrl": "/commercial-real-estate/building/CO/broomfield/8181-arista-place/",
-                "adminUrl": "",
-                "suggestedNextAction": "Author a Building Brief for this representative building.",
-                "automationCandidate": true,
-                "readinessState": ""
-              },
-              {
-                "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-broomfield-390-interlocken-crescent",
-                "code": "missing-brief",
-                "metroId": "denver",
-                "metroName": "Denver",
-                "category": "buildingBriefs",
-                "categoryLabel": "Building Briefs",
-                "taskType": "representative building missing Building Brief",
-                "itemName": "Interlocken",
-                "severity": "medium",
-                "priority": 40,
-                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-                "sourceId": "/commercial-real-estate/building/CO/broomfield/390-interlocken-crescent/",
-                "publicUrl": "/commercial-real-estate/building/CO/broomfield/390-interlocken-crescent/",
-                "adminUrl": "",
-                "suggestedNextAction": "Author a Building Brief for this representative building.",
-                "automationCandidate": true,
-                "readinessState": ""
-              },
-              {
                 "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-louisville-699-ctc-blvd",
                 "code": "missing-brief",
                 "metroId": "denver",
@@ -30124,8 +30071,8 @@
             "key": "editorialQuality",
             "label": "Editorial Quality",
             "score": 100,
-            "completed": 45,
-            "total": 45,
+            "completed": 48,
+            "total": 48,
             "missing": 0,
             "explanation": "Deterministic scan for placeholders, unsupported generated phrasing, and style-guide avoid phrases.",
             "issues": []
@@ -30314,25 +30261,6 @@
             "readinessState": ""
           },
           {
-            "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-broomfield-335-interlocken-pkwy",
-            "code": "missing-brief",
-            "metroId": "denver",
-            "metroName": "Denver",
-            "category": "buildingBriefs",
-            "categoryLabel": "Building Briefs",
-            "taskType": "representative building missing Building Brief",
-            "itemName": "335 Interlocken Pkwy",
-            "severity": "medium",
-            "priority": 40,
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-            "sourceId": "/commercial-real-estate/building/CO/broomfield/335-interlocken-pkwy/",
-            "publicUrl": "/commercial-real-estate/building/CO/broomfield/335-interlocken-pkwy/",
-            "adminUrl": "",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
-            "automationCandidate": true,
-            "readinessState": ""
-          },
-          {
             "id": "denver:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-co-denver-3401-quebec-street-suite-9000",
             "code": "incomplete-brief",
             "metroId": "denver",
@@ -30485,25 +30413,6 @@
             "readinessState": ""
           },
           {
-            "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-broomfield-390-interlocken-crescent",
-            "code": "missing-brief",
-            "metroId": "denver",
-            "metroName": "Denver",
-            "category": "buildingBriefs",
-            "categoryLabel": "Building Briefs",
-            "taskType": "representative building missing Building Brief",
-            "itemName": "Interlocken",
-            "severity": "medium",
-            "priority": 40,
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-            "sourceId": "/commercial-real-estate/building/CO/broomfield/390-interlocken-crescent/",
-            "publicUrl": "/commercial-real-estate/building/CO/broomfield/390-interlocken-crescent/",
-            "adminUrl": "",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
-            "automationCandidate": true,
-            "readinessState": ""
-          },
-          {
             "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-8354-northfield-blvd",
             "code": "missing-brief",
             "metroId": "denver",
@@ -30517,25 +30426,6 @@
             "reason": "Representative building has not migrated to the canonical Building Brief journey.",
             "sourceId": "/commercial-real-estate/building/CO/denver/8354-northfield-blvd/",
             "publicUrl": "/commercial-real-estate/building/CO/denver/8354-northfield-blvd/",
-            "adminUrl": "",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
-            "automationCandidate": true,
-            "readinessState": ""
-          },
-          {
-            "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-broomfield-8181-arista-place",
-            "code": "missing-brief",
-            "metroId": "denver",
-            "metroName": "Denver",
-            "category": "buildingBriefs",
-            "categoryLabel": "Building Briefs",
-            "taskType": "representative building missing Building Brief",
-            "itemName": "Spaces Arista",
-            "severity": "medium",
-            "priority": 40,
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-            "sourceId": "/commercial-real-estate/building/CO/broomfield/8181-arista-place/",
-            "publicUrl": "/commercial-real-estate/building/CO/broomfield/8181-arista-place/",
             "adminUrl": "",
             "suggestedNextAction": "Author a Building Brief for this representative building.",
             "automationCandidate": true,
@@ -59112,11 +59002,11 @@
             "label": "Editorial Coverage",
             "score": 90,
             "status": "",
-            "explanation": "21 of 21 districts have substantive descriptions; 45 representative buildings and 24 Building Briefs are available.",
+            "explanation": "21 of 21 districts have substantive descriptions; 45 representative buildings and 27 Building Briefs are available.",
             "completed": {
               "districtsWithDescriptions": 21,
               "representativeBuildings": 45,
-              "buildingBriefs": 24
+              "buildingBriefs": 27
             },
             "targets": {
               "representativeBuildingsPerDistrict": 3,
@@ -59153,7 +59043,7 @@
         "cityPath": "/commercial-real-estate/CO/denver/",
         "districtCount": 21,
         "representativeBuildingCount": 45,
-        "buildingBriefCount": 24,
+        "buildingBriefCount": 27,
         "geographicReadiness": {
           "state": "developed",
           "label": "Developed",
@@ -59211,7 +59101,7 @@
                 "secondaryDistricts": 9,
                 "recommendations": 9,
                 "representativeBuildings": 23,
-                "buildingBriefs": 11,
+                "buildingBriefs": 14,
                 "subtypes": 9,
                 "archetypes": 10,
                 "activities": 7,
@@ -59227,7 +59117,7 @@
               "strategicPriority": 2,
               "evidence": [
                 "9 primary districts and 9 secondary districts.",
-                "23 Representative Buildings and 11 Building Briefs.",
+                "23 Representative Buildings and 14 Building Briefs.",
                 "8 representative roles and 5 operational categories are covered."
               ],
               "targetSubtypes": [
@@ -59257,7 +59147,7 @@
                 "stateLabel": "Developed",
                 "buildingCount": 23,
                 "explicitCount": 23,
-                "inheritedOnlyCount": 10,
+                "inheritedOnlyCount": 7,
                 "reviewRequiredCount": 0,
                 "rolesCovered": [
                   "downtown_class_a_office",
@@ -60538,7 +60428,7 @@
             "label": "Balanced",
             "dominantEcosystem": "office",
             "representativeBuildingShare": 0.51,
-            "buildingBriefShare": 0.46,
+            "buildingBriefShare": 0.52,
             "warnings": []
           }
         },
@@ -60547,7 +60437,7 @@
           "label": "Balanced",
           "dominantEcosystem": "office",
           "representativeBuildingShare": 0.51,
-          "buildingBriefShare": 0.46,
+          "buildingBriefShare": 0.52,
           "warnings": []
         },
         "ecosystemCoverage": {
@@ -60559,7 +60449,7 @@
               "secondaryDistrictCount": 9,
               "recommendationNodeCount": 9,
               "representativeBuildingCount": 23,
-              "buildingBriefCount": 11,
+              "buildingBriefCount": 14,
               "status": "Developed",
               "districts": [
                 {
@@ -60653,7 +60543,7 @@
                 "stateLabel": "Developed",
                 "buildingCount": 23,
                 "explicitCount": 23,
-                "inheritedOnlyCount": 10,
+                "inheritedOnlyCount": 7,
                 "reviewRequiredCount": 0,
                 "rolesCovered": {
                   "downtown_class_a_office": 1,
@@ -62207,11 +62097,11 @@
           "buildingBriefs": {
             "key": "buildingBriefs",
             "label": "Building Briefs",
-            "score": 53,
-            "completed": 24,
+            "score": 60,
+            "completed": 27,
             "total": 45,
-            "missing": 21,
-            "explanation": "24 of 45 representative building records use the canonical Building Brief journey.",
+            "missing": 18,
+            "explanation": "27 of 45 representative building records use the canonical Building Brief journey.",
             "issues": [
               {
                 "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-1400-sixteenth-street",
@@ -62556,63 +62446,6 @@
                 "readinessState": ""
               },
               {
-                "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-broomfield-335-interlocken-pkwy",
-                "code": "missing-brief",
-                "metroId": "denver",
-                "metroName": "Denver",
-                "category": "buildingBriefs",
-                "categoryLabel": "Building Briefs",
-                "taskType": "representative building missing Building Brief",
-                "itemName": "335 Interlocken Pkwy",
-                "severity": "medium",
-                "priority": 40,
-                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-                "sourceId": "/commercial-real-estate/building/CO/broomfield/335-interlocken-pkwy/",
-                "publicUrl": "/commercial-real-estate/building/CO/broomfield/335-interlocken-pkwy/",
-                "adminUrl": "",
-                "suggestedNextAction": "Author a Building Brief for this representative building.",
-                "automationCandidate": true,
-                "readinessState": ""
-              },
-              {
-                "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-broomfield-8181-arista-place",
-                "code": "missing-brief",
-                "metroId": "denver",
-                "metroName": "Denver",
-                "category": "buildingBriefs",
-                "categoryLabel": "Building Briefs",
-                "taskType": "representative building missing Building Brief",
-                "itemName": "Spaces Arista",
-                "severity": "medium",
-                "priority": 40,
-                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-                "sourceId": "/commercial-real-estate/building/CO/broomfield/8181-arista-place/",
-                "publicUrl": "/commercial-real-estate/building/CO/broomfield/8181-arista-place/",
-                "adminUrl": "",
-                "suggestedNextAction": "Author a Building Brief for this representative building.",
-                "automationCandidate": true,
-                "readinessState": ""
-              },
-              {
-                "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-broomfield-390-interlocken-crescent",
-                "code": "missing-brief",
-                "metroId": "denver",
-                "metroName": "Denver",
-                "category": "buildingBriefs",
-                "categoryLabel": "Building Briefs",
-                "taskType": "representative building missing Building Brief",
-                "itemName": "Interlocken",
-                "severity": "medium",
-                "priority": 40,
-                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-                "sourceId": "/commercial-real-estate/building/CO/broomfield/390-interlocken-crescent/",
-                "publicUrl": "/commercial-real-estate/building/CO/broomfield/390-interlocken-crescent/",
-                "adminUrl": "",
-                "suggestedNextAction": "Author a Building Brief for this representative building.",
-                "automationCandidate": true,
-                "readinessState": ""
-              },
-              {
                 "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-louisville-699-ctc-blvd",
                 "code": "missing-brief",
                 "metroId": "denver",
@@ -62666,8 +62499,8 @@
             "key": "editorialQuality",
             "label": "Editorial Quality",
             "score": 100,
-            "completed": 45,
-            "total": 45,
+            "completed": 48,
+            "total": 48,
             "missing": 0,
             "explanation": "Deterministic scan for placeholders, unsupported generated phrasing, and style-guide avoid phrases.",
             "issues": []
@@ -62856,25 +62689,6 @@
             "readinessState": ""
           },
           {
-            "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-broomfield-335-interlocken-pkwy",
-            "code": "missing-brief",
-            "metroId": "denver",
-            "metroName": "Denver",
-            "category": "buildingBriefs",
-            "categoryLabel": "Building Briefs",
-            "taskType": "representative building missing Building Brief",
-            "itemName": "335 Interlocken Pkwy",
-            "severity": "medium",
-            "priority": 40,
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-            "sourceId": "/commercial-real-estate/building/CO/broomfield/335-interlocken-pkwy/",
-            "publicUrl": "/commercial-real-estate/building/CO/broomfield/335-interlocken-pkwy/",
-            "adminUrl": "",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
-            "automationCandidate": true,
-            "readinessState": ""
-          },
-          {
             "id": "denver:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-co-denver-3401-quebec-street-suite-9000",
             "code": "incomplete-brief",
             "metroId": "denver",
@@ -63027,25 +62841,6 @@
             "readinessState": ""
           },
           {
-            "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-broomfield-390-interlocken-crescent",
-            "code": "missing-brief",
-            "metroId": "denver",
-            "metroName": "Denver",
-            "category": "buildingBriefs",
-            "categoryLabel": "Building Briefs",
-            "taskType": "representative building missing Building Brief",
-            "itemName": "Interlocken",
-            "severity": "medium",
-            "priority": 40,
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-            "sourceId": "/commercial-real-estate/building/CO/broomfield/390-interlocken-crescent/",
-            "publicUrl": "/commercial-real-estate/building/CO/broomfield/390-interlocken-crescent/",
-            "adminUrl": "",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
-            "automationCandidate": true,
-            "readinessState": ""
-          },
-          {
             "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-8354-northfield-blvd",
             "code": "missing-brief",
             "metroId": "denver",
@@ -63059,25 +62854,6 @@
             "reason": "Representative building has not migrated to the canonical Building Brief journey.",
             "sourceId": "/commercial-real-estate/building/CO/denver/8354-northfield-blvd/",
             "publicUrl": "/commercial-real-estate/building/CO/denver/8354-northfield-blvd/",
-            "adminUrl": "",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
-            "automationCandidate": true,
-            "readinessState": ""
-          },
-          {
-            "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-broomfield-8181-arista-place",
-            "code": "missing-brief",
-            "metroId": "denver",
-            "metroName": "Denver",
-            "category": "buildingBriefs",
-            "categoryLabel": "Building Briefs",
-            "taskType": "representative building missing Building Brief",
-            "itemName": "Spaces Arista",
-            "severity": "medium",
-            "priority": 40,
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-            "sourceId": "/commercial-real-estate/building/CO/broomfield/8181-arista-place/",
-            "publicUrl": "/commercial-real-estate/building/CO/broomfield/8181-arista-place/",
             "adminUrl": "",
             "suggestedNextAction": "Author a Building Brief for this representative building.",
             "automationCandidate": true,
@@ -67434,25 +67210,6 @@
         "readinessState": ""
       },
       {
-        "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-broomfield-335-interlocken-pkwy",
-        "code": "missing-brief",
-        "metroId": "denver",
-        "metroName": "Denver",
-        "category": "buildingBriefs",
-        "categoryLabel": "Building Briefs",
-        "taskType": "representative building missing Building Brief",
-        "itemName": "335 Interlocken Pkwy",
-        "severity": "medium",
-        "priority": 40,
-        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-        "sourceId": "/commercial-real-estate/building/CO/broomfield/335-interlocken-pkwy/",
-        "publicUrl": "/commercial-real-estate/building/CO/broomfield/335-interlocken-pkwy/",
-        "adminUrl": "",
-        "suggestedNextAction": "Author a Building Brief for this representative building.",
-        "automationCandidate": true,
-        "readinessState": ""
-      },
-      {
         "id": "denver:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-co-denver-3401-quebec-street-suite-9000",
         "code": "incomplete-brief",
         "metroId": "denver",
@@ -67605,25 +67362,6 @@
         "readinessState": ""
       },
       {
-        "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-broomfield-390-interlocken-crescent",
-        "code": "missing-brief",
-        "metroId": "denver",
-        "metroName": "Denver",
-        "category": "buildingBriefs",
-        "categoryLabel": "Building Briefs",
-        "taskType": "representative building missing Building Brief",
-        "itemName": "Interlocken",
-        "severity": "medium",
-        "priority": 40,
-        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-        "sourceId": "/commercial-real-estate/building/CO/broomfield/390-interlocken-crescent/",
-        "publicUrl": "/commercial-real-estate/building/CO/broomfield/390-interlocken-crescent/",
-        "adminUrl": "",
-        "suggestedNextAction": "Author a Building Brief for this representative building.",
-        "automationCandidate": true,
-        "readinessState": ""
-      },
-      {
         "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-8354-northfield-blvd",
         "code": "missing-brief",
         "metroId": "denver",
@@ -67637,25 +67375,6 @@
         "reason": "Representative building has not migrated to the canonical Building Brief journey.",
         "sourceId": "/commercial-real-estate/building/CO/denver/8354-northfield-blvd/",
         "publicUrl": "/commercial-real-estate/building/CO/denver/8354-northfield-blvd/",
-        "adminUrl": "",
-        "suggestedNextAction": "Author a Building Brief for this representative building.",
-        "automationCandidate": true,
-        "readinessState": ""
-      },
-      {
-        "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-broomfield-8181-arista-place",
-        "code": "missing-brief",
-        "metroId": "denver",
-        "metroName": "Denver",
-        "category": "buildingBriefs",
-        "categoryLabel": "Building Briefs",
-        "taskType": "representative building missing Building Brief",
-        "itemName": "Spaces Arista",
-        "severity": "medium",
-        "priority": 40,
-        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-        "sourceId": "/commercial-real-estate/building/CO/broomfield/8181-arista-place/",
-        "publicUrl": "/commercial-real-estate/building/CO/broomfield/8181-arista-place/",
         "adminUrl": "",
         "suggestedNextAction": "Author a Building Brief for this representative building.",
         "automationCandidate": true,
@@ -73459,25 +73178,6 @@
         "readinessState": ""
       },
       {
-        "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-broomfield-335-interlocken-pkwy",
-        "code": "missing-brief",
-        "metroId": "denver",
-        "metroName": "Denver",
-        "category": "buildingBriefs",
-        "categoryLabel": "Building Briefs",
-        "taskType": "representative building missing Building Brief",
-        "itemName": "335 Interlocken Pkwy",
-        "severity": "medium",
-        "priority": 40,
-        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-        "sourceId": "/commercial-real-estate/building/CO/broomfield/335-interlocken-pkwy/",
-        "publicUrl": "/commercial-real-estate/building/CO/broomfield/335-interlocken-pkwy/",
-        "adminUrl": "",
-        "suggestedNextAction": "Author a Building Brief for this representative building.",
-        "automationCandidate": true,
-        "readinessState": ""
-      },
-      {
         "id": "denver:buildingBriefs:incomplete Building Brief:commercial-real-estate-building-co-denver-3401-quebec-street-suite-9000",
         "code": "incomplete-brief",
         "metroId": "denver",
@@ -73630,25 +73330,6 @@
         "readinessState": ""
       },
       {
-        "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-broomfield-390-interlocken-crescent",
-        "code": "missing-brief",
-        "metroId": "denver",
-        "metroName": "Denver",
-        "category": "buildingBriefs",
-        "categoryLabel": "Building Briefs",
-        "taskType": "representative building missing Building Brief",
-        "itemName": "Interlocken",
-        "severity": "medium",
-        "priority": 40,
-        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-        "sourceId": "/commercial-real-estate/building/CO/broomfield/390-interlocken-crescent/",
-        "publicUrl": "/commercial-real-estate/building/CO/broomfield/390-interlocken-crescent/",
-        "adminUrl": "",
-        "suggestedNextAction": "Author a Building Brief for this representative building.",
-        "automationCandidate": true,
-        "readinessState": ""
-      },
-      {
         "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-denver-8354-northfield-blvd",
         "code": "missing-brief",
         "metroId": "denver",
@@ -73662,25 +73343,6 @@
         "reason": "Representative building has not migrated to the canonical Building Brief journey.",
         "sourceId": "/commercial-real-estate/building/CO/denver/8354-northfield-blvd/",
         "publicUrl": "/commercial-real-estate/building/CO/denver/8354-northfield-blvd/",
-        "adminUrl": "",
-        "suggestedNextAction": "Author a Building Brief for this representative building.",
-        "automationCandidate": true,
-        "readinessState": ""
-      },
-      {
-        "id": "denver:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-co-broomfield-8181-arista-place",
-        "code": "missing-brief",
-        "metroId": "denver",
-        "metroName": "Denver",
-        "category": "buildingBriefs",
-        "categoryLabel": "Building Briefs",
-        "taskType": "representative building missing Building Brief",
-        "itemName": "Spaces Arista",
-        "severity": "medium",
-        "priority": 40,
-        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-        "sourceId": "/commercial-real-estate/building/CO/broomfield/8181-arista-place/",
-        "publicUrl": "/commercial-real-estate/building/CO/broomfield/8181-arista-place/",
         "adminUrl": "",
         "suggestedNextAction": "Author a Building Brief for this representative building.",
         "automationCandidate": true,
@@ -79696,11 +79358,12 @@
       "service": "Commercial Market Evidence",
       "status": "Validated",
       "validationStatus": "PASS",
-      "collections": 20,
+      "collections": 21,
       "districts": [
         "Antioch East 18th Industrial",
         "Aurora",
         "Aurora I-70 / Airport Industrial",
+        "Broomfield",
         "Denver Tech Center",
         "Design District",
         "Dogpatch",
@@ -79719,7 +79382,7 @@
         "South Beach",
         "Tempe I-10 Industrial"
       ],
-      "evidenceRecords": 124,
+      "evidenceRecords": 127,
       "evidenceTypes": [
         "Adaptive Showroom / Creative Office",
         "Adaptive-Reuse Boutique Office",
@@ -79810,6 +79473,7 @@
         "Residential / Commercial Mixed-Use Anchor",
         "Showroom / Creative Office Anchor",
         "Small-Format Historic Office",
+        "Small-Tenant Office Environment",
         "South Financial District Modernized Office",
         "Startup Creative Mid-Rise Office",
         "Startup-Scale Creative Office",
@@ -79877,6 +79541,7 @@
         "Event and Neighborhood Experience Anchor",
         "Executive Benchmark / Scale Comparison",
         "Financial District Edge Comparison Benchmark",
+        "Flexible Office Entry Benchmark",
         "Formal Professional Office Benchmark",
         "General Office Beyond Lab Benchmark",
         "Healthcare and Clinical Ecosystem Anchor",
@@ -79952,6 +79617,7 @@
         "Transbay District Icon",
         "Transit-Oriented Professional Services Benchmark",
         "UCSF-Adjacency Research Benchmark",
+        "US-36 Professional Office Benchmark",
         "Walkable Downtown Access Benchmark",
         "Warehouse / Industrial Depth",
         "Warehouse / Industrial Market Context",
@@ -79959,11 +79625,11 @@
         "Waterfront Historic Office Benchmark"
       ],
       "confidenceSummary": {
-        "High": 122,
+        "High": 125,
         "Low": 2
       },
-      "deferredCandidates": 59,
-      "latestValidation": "2026-08-10T12:59:20-07:00",
+      "deferredCandidates": 60,
+      "latestValidation": "2026-08-10T13:26:54-07:00",
       "errors": [],
       "warnings": [],
       "source": {
