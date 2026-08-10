@@ -6,6 +6,7 @@ module.exports = {
     require("../data/commercial-market-evidence/denver/denver-tech-center"),
     require("../data/commercial-market-evidence/denver/downtown-denver"),
     require("../data/commercial-market-evidence/denver/inverness"),
+    require("../data/commercial-market-evidence/denver/northeast-denver-industrial"),
     require("../data/commercial-market-evidence/fort-wayne/fort-wayne-airport-industrial"),
     require("../data/commercial-market-evidence/indianapolis/indianapolis-airport-logistics"),
     require("../data/commercial-market-evidence/san-francisco/financial-district"),
