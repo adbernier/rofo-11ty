@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-10T13:45:49-07:00",
+  "generatedAt": "2026-08-10T14:21:37-07:00",
   "rulesVersion": "publisher-rules-v1",
   "plannerVersion": "publisher-expansion-planner-v1",
   "defaultMode": "balanced",
@@ -55,16 +55,16 @@
     {
       "metroId": "san-francisco",
       "metroName": "San Francisco",
-      "generatedAt": "2026-08-10T13:45:49-07:00",
+      "generatedAt": "2026-08-10T14:21:37-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 96,
         "recommendationScore": 97,
         "editorialScore": 91,
         "publishingScore": 100,
-        "buildingScore": 35,
+        "buildingScore": 41,
         "comparisonScore": 100,
-        "insightScore": 97,
+        "insightScore": 98,
         "geographicReadiness": "developed",
         "ecosystemReadiness": "partial",
         "commercialBalance": "balanced"
@@ -90,11 +90,11 @@
           "score": 73
         },
         "buildingBriefs": {
-          "count": 54,
-          "score": 35
+          "count": 64,
+          "score": 41
         },
         "insights": {
-          "score": 97,
+          "score": 98,
           "note": "Publisher v1 uses editorial-quality and related-link signals as a proxy until a dedicated insight inventory is available."
         },
         "handbookLinks": {
@@ -119,8 +119,8 @@
             "districtCount": 7,
             "secondaryDistrictCount": 14,
             "recommendationNodeCount": 7,
-            "representativeBuildingCount": 65,
-            "buildingBriefCount": 25,
+            "representativeBuildingCount": 75,
+            "buildingBriefCount": 35,
             "status": "Developed",
             "districts": [
               {
@@ -199,114 +199,117 @@
               "ecosystemId": "office",
               "state": "strong",
               "stateLabel": "Strong",
-              "buildingCount": 65,
+              "buildingCount": 75,
               "explicitCount": 0,
               "inheritedOnlyCount": 65,
               "reviewRequiredCount": 0,
               "rolesCovered": {
+                "downtown_class_a_office": 6,
+                "professional_office_environment": 7,
+                "government_office_environment": 1,
                 "creative_office_environment": 45,
-                "professional_office_environment": 4,
                 "executive_office_environment": 13,
                 "suburban_office_campus": 1,
                 "transit_oriented_office_environment": 2
               },
               "subtypesCovered": {
-                "downtown_office": 37,
+                "professional_office": 22,
+                "downtown_office": 38,
                 "executive_office": 16,
-                "creative_office": 49,
-                "professional_office": 12
+                "creative_office": 49
               },
               "activityCoverage": {
-                "knowledge_work": 65,
+                "knowledge_work": 75,
+                "client_meetings": 48,
+                "administrative_operations": 29,
+                "walk_in_retail": 13,
+                "walk_in_service": 17,
+                "customer_showroom": 33,
                 "collaboration": 50,
                 "product_development": 46,
-                "client_meetings": 38,
-                "administrative_operations": 19,
-                "customer_showroom": 23,
-                "walk_in_service": 7,
-                "walk_in_retail": 3,
                 "light_manufacturing": 6,
                 "research": 3
               },
               "archetypeCoverage": {
-                "law_firm": 65,
-                "financial_services_firm": 65,
-                "consulting_firm": 65,
-                "professional_office": 65,
-                "accounting_firm": 65,
-                "marketing_agency": 56,
-                "creative_studio": 65,
+                "wellness_practice": 13,
+                "marketing_agency": 66,
+                "professional_office": 75,
+                "law_firm": 75,
+                "accounting_firm": 75,
+                "financial_services_firm": 75,
+                "consulting_firm": 75,
+                "creative_studio": 75,
                 "startup": 62,
-                "wellness_practice": 3,
                 "research_company": 9
               },
               "operationalCharacteristicsCovered": {
+                "professional_image": 29,
+                "transit_access": 8,
+                "large_floorplates": 6,
+                "structured_parking": 6,
+                "private_office_layout": 20,
+                "customer_parking": 7,
+                "urban_core_access": 1,
+                "enhanced_security": 14,
                 "creative_environment": 45,
                 "open_workspace": 45,
                 "flexible_suite_sizes": 45,
                 "walkability": 47,
-                "private_office_layout": 17,
-                "customer_parking": 4,
-                "professional_image": 19,
-                "enhanced_security": 13,
                 "campus_environment": 1,
                 "surface_parking": 1,
-                "suburban_access": 1,
-                "transit_access": 2
+                "suburban_access": 1
               },
               "operationalCategoriesCovered": {
-                "market_presence": 65,
-                "configuration": 107,
-                "location_workforce": 50,
-                "parking_vehicles": 5,
-                "infrastructure": 13
+                "market_presence": 75,
+                "location_workforce": 57,
+                "configuration": 116,
+                "parking_vehicles": 14,
+                "infrastructure": 14
               },
               "missingRoles": [
-                "downtown_class_a_office",
-                "government_office_environment",
                 "small_tenant_office_environment"
               ],
               "missingOperationalCategories": [
                 "access_loading",
                 "outdoor_special_use"
               ],
-              "highestPriorityMissingRole": "downtown_class_a_office",
+              "highestPriorityMissingRole": "small_tenant_office_environment",
               "highestPriorityMissingOperationalCategory": "access_loading",
               "exampleBuildings": [
                 {
-                  "name": "One Bush Plaza / Crown Zellerbach Building",
-                  "path": "/commercial-real-estate/building/CA/san-francisco/1-bush-st/",
-                  "role": "creative_office_environment",
+                  "name": "1936 University Ave",
+                  "path": "/commercial-real-estate/building/CA/berkeley/1936-university-ave/",
+                  "role": "downtown_class_a_office",
                   "confidence": "district_inferred"
                 },
                 {
-                  "name": "One Sansome",
-                  "path": "/commercial-real-estate/building/CA/san-francisco/1-sansome-st/",
-                  "role": "creative_office_environment",
-                  "confidence": "district_inferred"
-                },
-                {
-                  "name": "100 Pine",
-                  "path": "/commercial-real-estate/building/CA/san-francisco/100-pine-st/",
+                  "name": "2030 Addison St",
+                  "path": "/commercial-real-estate/building/CA/berkeley/2030-addison-st/",
                   "role": "professional_office_environment",
                   "confidence": "district_inferred"
                 },
                 {
-                  "name": "1000 Brannan",
-                  "path": "/commercial-real-estate/building/CA/san-francisco/1000-brannan-st/",
-                  "role": "creative_office_environment",
+                  "name": "2040 Bancroft Way",
+                  "path": "/commercial-real-estate/building/CA/berkeley/2040-bancroft-way/",
+                  "role": "downtown_class_a_office",
                   "confidence": "district_inferred"
                 },
                 {
-                  "name": "1000 Sansome",
-                  "path": "/commercial-real-estate/building/CA/san-francisco/1000-sansome-st/",
-                  "role": "creative_office_environment",
+                  "name": "2070 Allston Way",
+                  "path": "/commercial-real-estate/building/CA/berkeley/2070-allston-way/",
+                  "role": "downtown_class_a_office",
                   "confidence": "district_inferred"
                 },
                 {
-                  "name": "101 California",
-                  "path": "/commercial-real-estate/building/CA/san-francisco/101-california-st/",
-                  "role": "executive_office_environment",
+                  "name": "2118 Milvia St",
+                  "path": "/commercial-real-estate/building/CA/berkeley/2118-milvia-st/",
+                  "role": "downtown_class_a_office",
+                  "confidence": "district_inferred"
+                },
+                {
+                  "name": "2130 Center St",
+                  "path": "/commercial-real-estate/building/CA/berkeley/2130-center-st/",
+                  "role": "government_office_environment",
                   "confidence": "district_inferred"
                 }
               ]
@@ -550,7 +553,7 @@
             "districtCount": 7,
             "secondaryDistrictCount": 6,
             "recommendationNodeCount": 7,
-            "representativeBuildingCount": 25,
+            "representativeBuildingCount": 15,
             "buildingBriefCount": 0,
             "status": "Partial",
             "districts": [
@@ -620,43 +623,43 @@
               "ecosystemId": "retail",
               "state": "partial",
               "stateLabel": "Partial",
-              "buildingCount": 25,
+              "buildingCount": 15,
               "explicitCount": 0,
-              "inheritedOnlyCount": 25,
-              "reviewRequiredCount": 16,
+              "inheritedOnlyCount": 15,
+              "reviewRequiredCount": 6,
               "rolesCovered": {
-                "neighborhood_service_retail": 20,
+                "neighborhood_service_retail": 10,
                 "showroom_retail_environment": 5
               },
               "subtypesCovered": {
-                "neighborhood_retail": 20,
+                "neighborhood_retail": 10,
                 "showroom_retail": 5
               },
               "activityCoverage": {
-                "walk_in_service": 25,
-                "walk_in_retail": 20,
-                "customer_showroom": 25,
+                "walk_in_service": 15,
+                "walk_in_retail": 10,
+                "customer_showroom": 15,
                 "collaboration": 5,
                 "knowledge_work": 9
               },
               "archetypeCoverage": {
-                "wellness_practice": 25,
-                "marketing_agency": 25,
-                "food_producer": 25,
-                "training_center": 25,
+                "wellness_practice": 15,
+                "marketing_agency": 15,
+                "food_producer": 15,
+                "training_center": 15,
                 "creative_studio": 9,
                 "professional_office": 9
               },
               "operationalCharacteristicsCovered": {
-                "street_visibility": 25,
-                "walk_in_customer_access": 20,
-                "customer_parking": 20,
+                "street_visibility": 15,
+                "walk_in_customer_access": 10,
+                "customer_parking": 10,
                 "showroom_frontage": 5,
                 "destination_customer_access": 5
               },
               "operationalCategoriesCovered": {
-                "market_presence": 55,
-                "parking_vehicles": 20
+                "market_presence": 35,
+                "parking_vehicles": 10
               },
               "missingRoles": [
                 "destination_retail_environment"
@@ -671,38 +674,38 @@
               "highestPriorityMissingOperationalCategory": "access_loading",
               "exampleBuildings": [
                 {
-                  "name": "1936 University Ave",
-                  "path": "/commercial-real-estate/building/CA/berkeley/1936-university-ave/",
+                  "name": "119 Filbert St",
+                  "path": "/commercial-real-estate/building/CA/oakland/119-filbert-st/",
                   "role": "neighborhood_service_retail",
                   "confidence": "review_required"
                 },
                 {
-                  "name": "2030 Addison St",
-                  "path": "/commercial-real-estate/building/CA/berkeley/2030-addison-st/",
+                  "name": "160 Franklin St",
+                  "path": "/commercial-real-estate/building/CA/oakland/160-franklin-st/",
                   "role": "neighborhood_service_retail",
                   "confidence": "review_required"
                 },
                 {
-                  "name": "2040 Bancroft Way",
-                  "path": "/commercial-real-estate/building/CA/berkeley/2040-bancroft-way/",
+                  "name": "424 3rd St",
+                  "path": "/commercial-real-estate/building/CA/oakland/424-3rd-st/",
                   "role": "neighborhood_service_retail",
                   "confidence": "review_required"
                 },
                 {
-                  "name": "2070 Allston Way",
-                  "path": "/commercial-real-estate/building/CA/berkeley/2070-allston-way/",
+                  "name": "101 Lytton Ave",
+                  "path": "/commercial-real-estate/building/CA/palo-alto/101-lytton-ave/",
                   "role": "neighborhood_service_retail",
                   "confidence": "review_required"
                 },
                 {
-                  "name": "2118 Milvia St",
-                  "path": "/commercial-real-estate/building/CA/berkeley/2118-milvia-st/",
+                  "name": "200 Hamilton Ave",
+                  "path": "/commercial-real-estate/building/CA/palo-alto/200-hamilton-ave/",
                   "role": "neighborhood_service_retail",
                   "confidence": "review_required"
                 },
                 {
-                  "name": "2130 Center St",
-                  "path": "/commercial-real-estate/building/CA/berkeley/2130-center-st/",
+                  "name": "525 University Ave",
+                  "path": "/commercial-real-estate/building/CA/palo-alto/525-university-ave/",
                   "role": "neighborhood_service_retail",
                   "confidence": "review_required"
                 }
@@ -1124,15 +1127,15 @@
               "districts": 7,
               "secondaryDistricts": 14,
               "recommendations": 7,
-              "representativeBuildings": 65,
-              "buildingBriefs": 25,
+              "representativeBuildings": 75,
+              "buildingBriefs": 35,
               "subtypes": 7,
               "archetypes": 10,
               "activities": 7,
               "reviewRequiredDistricts": 0,
-              "representativeRoles": 5,
+              "representativeRoles": 7,
               "operationalCategories": 5,
-              "operationalCharacteristics": 12,
+              "operationalCharacteristics": 15,
               "reviewRequiredRepresentativeBuildings": 0
             },
             "gaps": [],
@@ -1141,8 +1144,8 @@
             "strategicPriority": 2,
             "evidence": [
               "7 primary districts and 14 secondary districts.",
-              "65 Representative Buildings and 25 Building Briefs.",
-              "5 representative roles and 5 operational categories are covered."
+              "75 Representative Buildings and 35 Building Briefs.",
+              "7 representative roles and 5 operational categories are covered."
             ],
             "targetSubtypes": [
               "downtown_office",
@@ -1169,114 +1172,117 @@
               "ecosystemId": "office",
               "state": "strong",
               "stateLabel": "Strong",
-              "buildingCount": 65,
+              "buildingCount": 75,
               "explicitCount": 0,
               "inheritedOnlyCount": 65,
               "reviewRequiredCount": 0,
               "rolesCovered": [
-                "creative_office_environment",
+                "downtown_class_a_office",
                 "professional_office_environment",
+                "government_office_environment",
+                "creative_office_environment",
                 "executive_office_environment",
                 "suburban_office_campus",
                 "transit_oriented_office_environment"
               ],
               "subtypesCovered": [
+                "professional_office",
                 "downtown_office",
                 "executive_office",
-                "creative_office",
-                "professional_office"
+                "creative_office"
               ],
               "activityCoverage": [
                 "knowledge_work",
-                "collaboration",
-                "product_development",
                 "client_meetings",
                 "administrative_operations",
-                "customer_showroom",
-                "walk_in_service",
                 "walk_in_retail",
+                "walk_in_service",
+                "customer_showroom",
+                "collaboration",
+                "product_development",
                 "light_manufacturing",
                 "research"
               ],
               "archetypeCoverage": [
+                "wellness_practice",
+                "marketing_agency",
+                "professional_office",
                 "law_firm",
+                "accounting_firm",
                 "financial_services_firm",
                 "consulting_firm",
-                "professional_office",
-                "accounting_firm",
-                "marketing_agency",
                 "creative_studio",
                 "startup",
-                "wellness_practice",
                 "research_company"
               ],
               "operationalCharacteristicsCovered": [
+                "professional_image",
+                "transit_access",
+                "large_floorplates",
+                "structured_parking",
+                "private_office_layout",
+                "customer_parking",
+                "urban_core_access",
+                "enhanced_security",
                 "creative_environment",
                 "open_workspace",
                 "flexible_suite_sizes",
                 "walkability",
-                "private_office_layout",
-                "customer_parking",
-                "professional_image",
-                "enhanced_security",
                 "campus_environment",
                 "surface_parking",
-                "suburban_access",
-                "transit_access"
+                "suburban_access"
               ],
               "operationalCategoriesCovered": [
                 "market_presence",
-                "configuration",
                 "location_workforce",
+                "configuration",
                 "parking_vehicles",
                 "infrastructure"
               ],
               "missingRoles": [
-                "downtown_class_a_office",
-                "government_office_environment",
                 "small_tenant_office_environment"
               ],
               "missingOperationalCategories": [
                 "access_loading",
                 "outdoor_special_use"
               ],
-              "highestPriorityMissingRole": "downtown_class_a_office",
+              "highestPriorityMissingRole": "small_tenant_office_environment",
               "highestPriorityMissingOperationalCategory": "access_loading",
               "exampleBuildings": [
                 {
-                  "name": "One Bush Plaza / Crown Zellerbach Building",
-                  "path": "/commercial-real-estate/building/CA/san-francisco/1-bush-st/",
-                  "role": "creative_office_environment",
+                  "name": "1936 University Ave",
+                  "path": "/commercial-real-estate/building/CA/berkeley/1936-university-ave/",
+                  "role": "downtown_class_a_office",
                   "confidence": "district_inferred"
                 },
                 {
-                  "name": "One Sansome",
-                  "path": "/commercial-real-estate/building/CA/san-francisco/1-sansome-st/",
-                  "role": "creative_office_environment",
-                  "confidence": "district_inferred"
-                },
-                {
-                  "name": "100 Pine",
-                  "path": "/commercial-real-estate/building/CA/san-francisco/100-pine-st/",
+                  "name": "2030 Addison St",
+                  "path": "/commercial-real-estate/building/CA/berkeley/2030-addison-st/",
                   "role": "professional_office_environment",
                   "confidence": "district_inferred"
                 },
                 {
-                  "name": "1000 Brannan",
-                  "path": "/commercial-real-estate/building/CA/san-francisco/1000-brannan-st/",
-                  "role": "creative_office_environment",
+                  "name": "2040 Bancroft Way",
+                  "path": "/commercial-real-estate/building/CA/berkeley/2040-bancroft-way/",
+                  "role": "downtown_class_a_office",
                   "confidence": "district_inferred"
                 },
                 {
-                  "name": "1000 Sansome",
-                  "path": "/commercial-real-estate/building/CA/san-francisco/1000-sansome-st/",
-                  "role": "creative_office_environment",
+                  "name": "2070 Allston Way",
+                  "path": "/commercial-real-estate/building/CA/berkeley/2070-allston-way/",
+                  "role": "downtown_class_a_office",
                   "confidence": "district_inferred"
                 },
                 {
-                  "name": "101 California",
-                  "path": "/commercial-real-estate/building/CA/san-francisco/101-california-st/",
-                  "role": "executive_office_environment",
+                  "name": "2118 Milvia St",
+                  "path": "/commercial-real-estate/building/CA/berkeley/2118-milvia-st/",
+                  "role": "downtown_class_a_office",
+                  "confidence": "district_inferred"
+                },
+                {
+                  "name": "2130 Center St",
+                  "path": "/commercial-real-estate/building/CA/berkeley/2130-center-st/",
+                  "role": "government_office_environment",
                   "confidence": "district_inferred"
                 }
               ]
@@ -1517,7 +1523,7 @@
               "districts": 7,
               "secondaryDistricts": 6,
               "recommendations": 7,
-              "representativeBuildings": 25,
+              "representativeBuildings": 15,
               "buildingBriefs": 0,
               "subtypes": 4,
               "archetypes": 4,
@@ -1526,7 +1532,7 @@
               "representativeRoles": 2,
               "operationalCategories": 2,
               "operationalCharacteristics": 5,
-              "reviewRequiredRepresentativeBuildings": 16
+              "reviewRequiredRepresentativeBuildings": 6
             },
             "gaps": [
               "Building Brief coverage is missing for this ecosystem."
@@ -1536,7 +1542,7 @@
             "strategicPriority": 5,
             "evidence": [
               "7 primary districts and 6 secondary districts.",
-              "25 Representative Buildings and 0 Building Briefs.",
+              "15 Representative Buildings and 0 Building Briefs.",
               "2 representative roles and 2 operational categories are covered."
             ],
             "targetSubtypes": [
@@ -1562,10 +1568,10 @@
               "ecosystemId": "retail",
               "state": "partial",
               "stateLabel": "Partial",
-              "buildingCount": 25,
+              "buildingCount": 15,
               "explicitCount": 0,
-              "inheritedOnlyCount": 25,
-              "reviewRequiredCount": 16,
+              "inheritedOnlyCount": 15,
+              "reviewRequiredCount": 6,
               "rolesCovered": [
                 "neighborhood_service_retail",
                 "showroom_retail_environment"
@@ -1613,38 +1619,38 @@
               "highestPriorityMissingOperationalCategory": "access_loading",
               "exampleBuildings": [
                 {
-                  "name": "1936 University Ave",
-                  "path": "/commercial-real-estate/building/CA/berkeley/1936-university-ave/",
+                  "name": "119 Filbert St",
+                  "path": "/commercial-real-estate/building/CA/oakland/119-filbert-st/",
                   "role": "neighborhood_service_retail",
                   "confidence": "review_required"
                 },
                 {
-                  "name": "2030 Addison St",
-                  "path": "/commercial-real-estate/building/CA/berkeley/2030-addison-st/",
+                  "name": "160 Franklin St",
+                  "path": "/commercial-real-estate/building/CA/oakland/160-franklin-st/",
                   "role": "neighborhood_service_retail",
                   "confidence": "review_required"
                 },
                 {
-                  "name": "2040 Bancroft Way",
-                  "path": "/commercial-real-estate/building/CA/berkeley/2040-bancroft-way/",
+                  "name": "424 3rd St",
+                  "path": "/commercial-real-estate/building/CA/oakland/424-3rd-st/",
                   "role": "neighborhood_service_retail",
                   "confidence": "review_required"
                 },
                 {
-                  "name": "2070 Allston Way",
-                  "path": "/commercial-real-estate/building/CA/berkeley/2070-allston-way/",
+                  "name": "101 Lytton Ave",
+                  "path": "/commercial-real-estate/building/CA/palo-alto/101-lytton-ave/",
                   "role": "neighborhood_service_retail",
                   "confidence": "review_required"
                 },
                 {
-                  "name": "2118 Milvia St",
-                  "path": "/commercial-real-estate/building/CA/berkeley/2118-milvia-st/",
+                  "name": "200 Hamilton Ave",
+                  "path": "/commercial-real-estate/building/CA/palo-alto/200-hamilton-ave/",
                   "role": "neighborhood_service_retail",
                   "confidence": "review_required"
                 },
                 {
-                  "name": "2130 Center St",
-                  "path": "/commercial-real-estate/building/CA/berkeley/2130-center-st/",
+                  "name": "525 University Ave",
+                  "path": "/commercial-real-estate/building/CA/palo-alto/525-university-ave/",
                   "role": "neighborhood_service_retail",
                   "confidence": "review_required"
                 }
@@ -2130,8 +2136,8 @@
             "rationale": "Representative role coverage is too narrow for this ecosystem.",
             "evidence": [
               "7 primary districts and 14 secondary districts.",
-              "65 Representative Buildings and 25 Building Briefs.",
-              "5 representative roles and 5 operational categories are covered."
+              "75 Representative Buildings and 35 Building Briefs.",
+              "7 representative roles and 5 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
             "completionCriteria": [
@@ -2156,8 +2162,8 @@
             "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
             "evidence": [
               "7 primary districts and 14 secondary districts.",
-              "65 Representative Buildings and 25 Building Briefs.",
-              "5 representative roles and 5 operational categories are covered."
+              "75 Representative Buildings and 35 Building Briefs.",
+              "7 representative roles and 5 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
             "completionCriteria": [
@@ -2208,7 +2214,7 @@
             "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
             "evidence": [
               "7 primary districts and 6 secondary districts.",
-              "25 Representative Buildings and 0 Building Briefs.",
+              "15 Representative Buildings and 0 Building Briefs.",
               "2 representative roles and 2 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem Building Brief Migration",
@@ -2234,7 +2240,7 @@
             "rationale": "Representative role coverage is too narrow for this ecosystem.",
             "evidence": [
               "7 primary districts and 6 secondary districts.",
-              "25 Representative Buildings and 0 Building Briefs.",
+              "15 Representative Buildings and 0 Building Briefs.",
               "2 representative roles and 2 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -2260,7 +2266,7 @@
             "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
             "evidence": [
               "7 primary districts and 6 secondary districts.",
-              "25 Representative Buildings and 0 Building Briefs.",
+              "15 Representative Buildings and 0 Building Briefs.",
               "2 representative roles and 2 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -2628,8 +2634,8 @@
           "state": "balanced",
           "label": "Balanced",
           "dominantEcosystem": "office",
-          "representativeBuildingShare": 0.42,
-          "buildingBriefShare": 0.46,
+          "representativeBuildingShare": 0.48,
+          "buildingBriefShare": 0.55,
           "warnings": []
         }
       },
@@ -2637,8 +2643,8 @@
         "state": "balanced",
         "label": "Balanced",
         "dominantEcosystem": "office",
-        "representativeBuildingShare": 0.42,
-        "buildingBriefShare": 0.46,
+        "representativeBuildingShare": 0.48,
+        "buildingBriefShare": 0.55,
         "warnings": []
       },
       "ecosystemGaps": [
@@ -2655,8 +2661,8 @@
           "rationale": "Representative role coverage is too narrow for this ecosystem.",
           "evidence": [
             "7 primary districts and 14 secondary districts.",
-            "65 Representative Buildings and 25 Building Briefs.",
-            "5 representative roles and 5 operational categories are covered."
+            "75 Representative Buildings and 35 Building Briefs.",
+            "7 representative roles and 5 operational categories are covered."
           ],
           "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
           "completionCriteria": [
@@ -2706,7 +2712,7 @@
           "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
           "evidence": [
             "7 primary districts and 6 secondary districts.",
-            "25 Representative Buildings and 0 Building Briefs.",
+            "15 Representative Buildings and 0 Building Briefs.",
             "2 representative roles and 2 operational categories are covered."
           ],
           "recommendedSprintFamily": "Ecosystem Building Brief Migration",
@@ -2758,8 +2764,8 @@
           "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
           "evidence": [
             "7 primary districts and 14 secondary districts.",
-            "65 Representative Buildings and 25 Building Briefs.",
-            "5 representative roles and 5 operational categories are covered."
+            "75 Representative Buildings and 35 Building Briefs.",
+            "7 representative roles and 5 operational categories are covered."
           ],
           "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
           "completionCriteria": [
@@ -2984,7 +2990,7 @@
           "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
           "evidence": [
             "7 primary districts and 6 secondary districts.",
-            "25 Representative Buildings and 0 Building Briefs.",
+            "15 Representative Buildings and 0 Building Briefs.",
             "2 representative roles and 2 operational categories are covered."
           ],
           "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -3010,7 +3016,7 @@
           "rationale": "Representative role coverage is too narrow for this ecosystem.",
           "evidence": [
             "7 primary districts and 6 secondary districts.",
-            "25 Representative Buildings and 0 Building Briefs.",
+            "15 Representative Buildings and 0 Building Briefs.",
             "2 representative roles and 2 operational categories are covered."
           ],
           "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -3176,15 +3182,15 @@
           "districts": 7,
           "secondaryDistricts": 14,
           "recommendations": 7,
-          "representativeBuildings": 65,
-          "buildingBriefs": 25,
+          "representativeBuildings": 75,
+          "buildingBriefs": 35,
           "subtypes": 7,
           "archetypes": 10,
           "activities": 7,
           "reviewRequiredDistricts": 0,
-          "representativeRoles": 5,
+          "representativeRoles": 7,
           "operationalCategories": 5,
-          "operationalCharacteristics": 12,
+          "operationalCharacteristics": 15,
           "reviewRequiredRepresentativeBuildings": 0
         },
         "gaps": [],
@@ -3210,8 +3216,6 @@
           "administrative_operations"
         ],
         "missingRepresentativeRoles": [
-          "downtown_class_a_office",
-          "government_office_environment",
           "small_tenant_office_environment"
         ],
         "missingOperationalCategories": [
@@ -3219,54 +3223,56 @@
           "outdoor_special_use"
         ],
         "currentRepresentativeRoles": [
-          "creative_office_environment",
+          "downtown_class_a_office",
           "professional_office_environment",
+          "government_office_environment",
+          "creative_office_environment",
           "executive_office_environment",
           "suburban_office_campus",
           "transit_oriented_office_environment"
         ],
         "currentOperationalCategories": [
           "market_presence",
-          "configuration",
           "location_workforce",
+          "configuration",
           "parking_vehicles",
           "infrastructure"
         ],
         "existingRepresentativeBuildings": [
           {
-            "name": "One Bush Plaza / Crown Zellerbach Building",
-            "path": "/commercial-real-estate/building/CA/san-francisco/1-bush-st/",
-            "role": "creative_office_environment",
+            "name": "1936 University Ave",
+            "path": "/commercial-real-estate/building/CA/berkeley/1936-university-ave/",
+            "role": "downtown_class_a_office",
             "confidence": "district_inferred"
           },
           {
-            "name": "One Sansome",
-            "path": "/commercial-real-estate/building/CA/san-francisco/1-sansome-st/",
-            "role": "creative_office_environment",
-            "confidence": "district_inferred"
-          },
-          {
-            "name": "100 Pine",
-            "path": "/commercial-real-estate/building/CA/san-francisco/100-pine-st/",
+            "name": "2030 Addison St",
+            "path": "/commercial-real-estate/building/CA/berkeley/2030-addison-st/",
             "role": "professional_office_environment",
             "confidence": "district_inferred"
           },
           {
-            "name": "1000 Brannan",
-            "path": "/commercial-real-estate/building/CA/san-francisco/1000-brannan-st/",
-            "role": "creative_office_environment",
+            "name": "2040 Bancroft Way",
+            "path": "/commercial-real-estate/building/CA/berkeley/2040-bancroft-way/",
+            "role": "downtown_class_a_office",
             "confidence": "district_inferred"
           },
           {
-            "name": "1000 Sansome",
-            "path": "/commercial-real-estate/building/CA/san-francisco/1000-sansome-st/",
-            "role": "creative_office_environment",
+            "name": "2070 Allston Way",
+            "path": "/commercial-real-estate/building/CA/berkeley/2070-allston-way/",
+            "role": "downtown_class_a_office",
             "confidence": "district_inferred"
           },
           {
-            "name": "101 California",
-            "path": "/commercial-real-estate/building/CA/san-francisco/101-california-st/",
-            "role": "executive_office_environment",
+            "name": "2118 Milvia St",
+            "path": "/commercial-real-estate/building/CA/berkeley/2118-milvia-st/",
+            "role": "downtown_class_a_office",
+            "confidence": "district_inferred"
+          },
+          {
+            "name": "2130 Center St",
+            "path": "/commercial-real-estate/building/CA/berkeley/2130-center-st/",
+            "role": "government_office_environment",
             "confidence": "district_inferred"
           }
         ],
@@ -3327,7 +3333,7 @@
         ],
         "blockingEcosystemReadiness": false,
         "alternativeSprint": null,
-        "codexPrompt": "Implement Publisher ecosystem sprint for San Francisco: San Francisco Office Ecosystem Representative Building Foundation\n\nFramework:\n- Businesses search for places where their operations can succeed, not for property types.\n- Use the Commercial Ecosystem Framework and canonical taxonomy.\n- Do not change recommendation rankings, Search Profile questions, or public page design.\n\nTarget ecosystem: Office (office)\nMetro relevance: Core\nCurrent readiness: Developed\nSprint family: Ecosystem Representative Building Foundation\n\nCurrent layer coverage:\n- districts: developed\n- recommendations: developed\n- representativeBuildings: developed\n- buildingBriefs: developed\n- subtypes: developed\n- archetypes: developed\n- activities: developed\n- editorialReview: developed\n\nKnown gaps:\n\nTarget subtypes:\n- downtown_office, professional_office, creative_office, executive_office, suburban_office\nTarget archetypes:\n- professional_office, law_firm, accounting_firm, financial_services_firm, consulting_firm, marketing_agency\nTarget business activities:\n- knowledge_work, client_meetings, collaboration, administrative_operations\nMissing representative roles:\n- downtown_class_a_office, government_office_environment, small_tenant_office_environment\nMissing operational categories:\n- access_loading, outdoor_special_use\nExisting representative buildings:\n- One Bush Plaza / Crown Zellerbach Building (creative_office_environment); One Sansome (creative_office_environment); 100 Pine (professional_office_environment); 1000 Brannan (creative_office_environment); 1000 Sansome (creative_office_environment); 101 California (executive_office_environment)\nDistrict candidates:\n- SoMa, Financial District, Jackson Square, Stanford Research Park, Showplace Square, South Beach, Emeryville Commercial Core\n\nDependencies:\n- Ecosystem classification\n- District foundation\n- Recommendation foundation\n- Representative Building foundation\n- Building Brief migration after canonical records exist\n\nCompletion criteria:\n- Validated district ecosystem classification\n- Representative Building coverage across the most important subtypes\n- Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus\n- Building Brief migration only after canonical records and district association exist\n- Publisher ecosystem QA passes without hard errors\n- Every target representative role has at least one source-supported building or is explicitly marked research required\n- Target operational categories are represented without asserting unverified property features\n- Representative Building intelligence QA passes\n\nGuardrails:\n- Do not invent districts, buildings, tenants, availability, rents, or unsupported facts.\n- Do not deepen office-only coverage when the target ecosystem is different.\n- Do not treat taxonomy compatibility as proof that a property has a feature.\n- Validate loading, power, parking, yards, lab, food, medical, and permitted-use claims before authoring them as facts.\n- Do not recommend Building Brief migration before canonical representative buildings exist.\n- Regenerate Publisher snapshots and run ecosystem readiness QA.\n\nVerification:\n- npm run publisher:snapshot\n- npm run publisher:report\n- npm run build\n- node scripts/qa-commercial-ecosystem-foundation.js\n- node scripts/qa-publisher-ecosystem-readiness.js\n- node scripts/qa-representative-building-intelligence.js"
+        "codexPrompt": "Implement Publisher ecosystem sprint for San Francisco: San Francisco Office Ecosystem Representative Building Foundation\n\nFramework:\n- Businesses search for places where their operations can succeed, not for property types.\n- Use the Commercial Ecosystem Framework and canonical taxonomy.\n- Do not change recommendation rankings, Search Profile questions, or public page design.\n\nTarget ecosystem: Office (office)\nMetro relevance: Core\nCurrent readiness: Developed\nSprint family: Ecosystem Representative Building Foundation\n\nCurrent layer coverage:\n- districts: developed\n- recommendations: developed\n- representativeBuildings: developed\n- buildingBriefs: developed\n- subtypes: developed\n- archetypes: developed\n- activities: developed\n- editorialReview: developed\n\nKnown gaps:\n\nTarget subtypes:\n- downtown_office, professional_office, creative_office, executive_office, suburban_office\nTarget archetypes:\n- professional_office, law_firm, accounting_firm, financial_services_firm, consulting_firm, marketing_agency\nTarget business activities:\n- knowledge_work, client_meetings, collaboration, administrative_operations\nMissing representative roles:\n- small_tenant_office_environment\nMissing operational categories:\n- access_loading, outdoor_special_use\nExisting representative buildings:\n- 1936 University Ave (downtown_class_a_office); 2030 Addison St (professional_office_environment); 2040 Bancroft Way (downtown_class_a_office); 2070 Allston Way (downtown_class_a_office); 2118 Milvia St (downtown_class_a_office); 2130 Center St (government_office_environment)\nDistrict candidates:\n- SoMa, Financial District, Jackson Square, Stanford Research Park, Showplace Square, South Beach, Emeryville Commercial Core\n\nDependencies:\n- Ecosystem classification\n- District foundation\n- Recommendation foundation\n- Representative Building foundation\n- Building Brief migration after canonical records exist\n\nCompletion criteria:\n- Validated district ecosystem classification\n- Representative Building coverage across the most important subtypes\n- Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus\n- Building Brief migration only after canonical records and district association exist\n- Publisher ecosystem QA passes without hard errors\n- Every target representative role has at least one source-supported building or is explicitly marked research required\n- Target operational categories are represented without asserting unverified property features\n- Representative Building intelligence QA passes\n\nGuardrails:\n- Do not invent districts, buildings, tenants, availability, rents, or unsupported facts.\n- Do not deepen office-only coverage when the target ecosystem is different.\n- Do not treat taxonomy compatibility as proof that a property has a feature.\n- Validate loading, power, parking, yards, lab, food, medical, and permitted-use claims before authoring them as facts.\n- Do not recommend Building Brief migration before canonical representative buildings exist.\n- Regenerate Publisher snapshots and run ecosystem readiness QA.\n\nVerification:\n- npm run publisher:snapshot\n- npm run publisher:report\n- npm run build\n- node scripts/qa-commercial-ecosystem-foundation.js\n- node scripts/qa-publisher-ecosystem-readiness.js\n- node scripts/qa-representative-building-intelligence.js"
       },
       "gaps": [
         {
@@ -4654,55 +4660,6 @@
           }
         },
         {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-1936-university-ave",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "1936 University Ave",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/1936-university-ave/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/1936-university-ave/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
           "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-2-embarcadero-ctr",
           "metroId": "san-francisco",
           "metroName": "San Francisco",
@@ -4948,251 +4905,6 @@
           }
         },
         {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-2030-addison-st",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "2030 Addison St",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/2030-addison-st/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/2030-addison-st/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-2040-bancroft-way",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "2040 Bancroft Way",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/2040-bancroft-way/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/2040-bancroft-way/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-2070-allston-way",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "2070 Allston Way",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/2070-allston-way/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/2070-allston-way/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-2118-milvia-st",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "2118 Milvia St",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/2118-milvia-st/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/2118-milvia-st/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-2130-center-st",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "2130 Center St",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/2130-center-st/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/2130-center-st/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
           "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-hayward-21371-cabot-blvd",
           "metroId": "san-francisco",
           "metroName": "San Francisco",
@@ -5206,202 +4918,6 @@
           "itemName": "21371 Cabot Blvd",
           "sourceId": "/commercial-real-estate/building/CA/hayward/21371-cabot-blvd/",
           "publicUrl": "/commercial-real-estate/building/CA/hayward/21371-cabot-blvd/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-2140-shattuck-ave",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "2140 Shattuck Ave",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/2140-shattuck-ave/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/2140-shattuck-ave/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-2150-shattuck-ave",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "2150 Shattuck Ave",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/2150-shattuck-ave/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/2150-shattuck-ave/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-2168-shattuck-ave",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "2168 Shattuck Ave",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/2168-shattuck-ave/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/2168-shattuck-ave/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-2300-shattuck-ave",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "2300 Shattuck Ave",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/2300-shattuck-ave/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/2300-shattuck-ave/",
           "adminUrl": "",
           "severity": "medium",
           "description": "Representative building has not migrated to the Building Brief journey.",
@@ -11099,55 +10615,6 @@
           }
         },
         {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-1936-university-ave",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "1936 University Ave",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/1936-university-ave/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/1936-university-ave/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
           "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-2-embarcadero-ctr",
           "metroId": "san-francisco",
           "metroName": "San Francisco",
@@ -11393,251 +10860,6 @@
           }
         },
         {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-2030-addison-st",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "2030 Addison St",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/2030-addison-st/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/2030-addison-st/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-2040-bancroft-way",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "2040 Bancroft Way",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/2040-bancroft-way/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/2040-bancroft-way/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-2070-allston-way",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "2070 Allston Way",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/2070-allston-way/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/2070-allston-way/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-2118-milvia-st",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "2118 Milvia St",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/2118-milvia-st/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/2118-milvia-st/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-2130-center-st",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "2130 Center St",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/2130-center-st/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/2130-center-st/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
           "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-hayward-21371-cabot-blvd",
           "metroId": "san-francisco",
           "metroName": "San Francisco",
@@ -11651,202 +10873,6 @@
           "itemName": "21371 Cabot Blvd",
           "sourceId": "/commercial-real-estate/building/CA/hayward/21371-cabot-blvd/",
           "publicUrl": "/commercial-real-estate/building/CA/hayward/21371-cabot-blvd/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-2140-shattuck-ave",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "2140 Shattuck Ave",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/2140-shattuck-ave/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/2140-shattuck-ave/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-2150-shattuck-ave",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "2150 Shattuck Ave",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/2150-shattuck-ave/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/2150-shattuck-ave/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-2168-shattuck-ave",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "2168 Shattuck Ave",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/2168-shattuck-ave/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/2168-shattuck-ave/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-2300-shattuck-ave",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "2300 Shattuck Ave",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/2300-shattuck-ave/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/2300-shattuck-ave/",
           "adminUrl": "",
           "severity": "medium",
           "description": "Representative building has not migrated to the Building Brief journey.",
@@ -16224,7 +15250,7 @@
         "modeLabel": "Balanced Expansion",
         "title": "San Francisco Building Brief Migration Sprint",
         "objective": "Improve San Francisco expansion readiness by completing the highest-value Building Briefs, District Coverage, Representative Buildings work without creating unsupported content.",
-        "rationale": "Selected from 133 deterministic Publisher gaps using balanced expansion weighting.",
+        "rationale": "Selected from 123 deterministic Publisher gaps using balanced expansion weighting.",
         "tasks": [
           {
             "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-1-henry-adams-st",
@@ -16548,7 +15574,7 @@
           "modeLabel": "Balanced Expansion",
           "title": "San Francisco Building Brief Migration Sprint",
           "objective": "Improve San Francisco expansion readiness by completing the highest-value Building Briefs, District Coverage, Representative Buildings work without creating unsupported content.",
-          "rationale": "Selected from 133 deterministic Publisher gaps using balanced expansion weighting.",
+          "rationale": "Selected from 123 deterministic Publisher gaps using balanced expansion weighting.",
           "tasks": [
             {
               "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-1-henry-adams-st",
@@ -16871,7 +15897,7 @@
           "modeLabel": "Recommendation Readiness",
           "title": "San Francisco Recommendation Readiness Sprint",
           "objective": "Improve San Francisco expansion readiness by completing the highest-value Recommendation Readiness, Comparison Graph, District Coverage work without creating unsupported content.",
-          "rationale": "Selected from 133 deterministic Publisher gaps using recommendation readiness weighting.",
+          "rationale": "Selected from 123 deterministic Publisher gaps using recommendation readiness weighting.",
           "tasks": [
             {
               "id": "gap:san-francisco:recommendationReadiness:missing explainability fields:north-san-jose",
@@ -17177,7 +16203,7 @@
           "modeLabel": "Editorial Depth",
           "title": "San Francisco District Editorial Foundation Sprint",
           "objective": "Improve San Francisco expansion readiness by completing the highest-value District Coverage, Building Briefs, Representative Buildings work without creating unsupported content.",
-          "rationale": "Selected from 133 deterministic Publisher gaps using editorial depth weighting.",
+          "rationale": "Selected from 123 deterministic Publisher gaps using editorial depth weighting.",
           "tasks": [
             {
               "id": "gap:san-francisco:districtCoverage:missing decision positioning:north-san-jose",
@@ -17502,7 +16528,7 @@
           "modeLabel": "Building Depth",
           "title": "San Francisco Representative Building Foundation Sprint",
           "objective": "Improve San Francisco expansion readiness by completing the highest-value Representative Buildings, Building Briefs work without creating unsupported content.",
-          "rationale": "Selected from 133 deterministic Publisher gaps using building depth weighting.",
+          "rationale": "Selected from 123 deterministic Publisher gaps using building depth weighting.",
           "tasks": [
             {
               "id": "gap:san-francisco:representativeBuildings:district missing representative buildings:downtown-redwood-city",
@@ -17825,7 +16851,7 @@
     {
       "metroId": "sacramento",
       "metroName": "Sacramento",
-      "generatedAt": "2026-08-10T13:45:49-07:00",
+      "generatedAt": "2026-08-10T14:21:37-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 98,
@@ -26665,7 +25691,7 @@
     {
       "metroId": "san-diego",
       "metroName": "San Diego",
-      "generatedAt": "2026-08-10T13:45:49-07:00",
+      "generatedAt": "2026-08-10T14:21:37-07:00",
       "currentState": {
         "readinessStatus": "Expansion Ready",
         "overallScore": 84,
@@ -36487,7 +35513,7 @@
     {
       "metroId": "orange-county",
       "metroName": "Orange County",
-      "generatedAt": "2026-08-10T13:45:49-07:00",
+      "generatedAt": "2026-08-10T14:21:37-07:00",
       "currentState": {
         "readinessStatus": "Expansion Ready",
         "overallScore": 84,
@@ -45479,7 +44505,7 @@
     {
       "metroId": "denver",
       "metroName": "Denver",
-      "generatedAt": "2026-08-10T13:45:49-07:00",
+      "generatedAt": "2026-08-10T14:21:37-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 97,
@@ -53273,7 +52299,7 @@
     {
       "metroId": "seattle",
       "metroName": "Seattle",
-      "generatedAt": "2026-08-10T13:45:49-07:00",
+      "generatedAt": "2026-08-10T14:21:37-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 94,
@@ -58986,16 +58012,16 @@
     {
       "metroId": "san-francisco",
       "metroName": "San Francisco",
-      "generatedAt": "2026-08-10T13:45:49-07:00",
+      "generatedAt": "2026-08-10T14:21:37-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 96,
         "recommendationScore": 97,
         "editorialScore": 91,
         "publishingScore": 100,
-        "buildingScore": 35,
+        "buildingScore": 41,
         "comparisonScore": 100,
-        "insightScore": 97,
+        "insightScore": 98,
         "geographicReadiness": "developed",
         "ecosystemReadiness": "partial",
         "commercialBalance": "balanced"
@@ -59021,11 +58047,11 @@
           "score": 73
         },
         "buildingBriefs": {
-          "count": 54,
-          "score": 35
+          "count": 64,
+          "score": 41
         },
         "insights": {
-          "score": 97,
+          "score": 98,
           "note": "Publisher v1 uses editorial-quality and related-link signals as a proxy until a dedicated insight inventory is available."
         },
         "handbookLinks": {
@@ -59050,8 +58076,8 @@
             "districtCount": 7,
             "secondaryDistrictCount": 14,
             "recommendationNodeCount": 7,
-            "representativeBuildingCount": 65,
-            "buildingBriefCount": 25,
+            "representativeBuildingCount": 75,
+            "buildingBriefCount": 35,
             "status": "Developed",
             "districts": [
               {
@@ -59130,114 +58156,117 @@
               "ecosystemId": "office",
               "state": "strong",
               "stateLabel": "Strong",
-              "buildingCount": 65,
+              "buildingCount": 75,
               "explicitCount": 0,
               "inheritedOnlyCount": 65,
               "reviewRequiredCount": 0,
               "rolesCovered": {
+                "downtown_class_a_office": 6,
+                "professional_office_environment": 7,
+                "government_office_environment": 1,
                 "creative_office_environment": 45,
-                "professional_office_environment": 4,
                 "executive_office_environment": 13,
                 "suburban_office_campus": 1,
                 "transit_oriented_office_environment": 2
               },
               "subtypesCovered": {
-                "downtown_office": 37,
+                "professional_office": 22,
+                "downtown_office": 38,
                 "executive_office": 16,
-                "creative_office": 49,
-                "professional_office": 12
+                "creative_office": 49
               },
               "activityCoverage": {
-                "knowledge_work": 65,
+                "knowledge_work": 75,
+                "client_meetings": 48,
+                "administrative_operations": 29,
+                "walk_in_retail": 13,
+                "walk_in_service": 17,
+                "customer_showroom": 33,
                 "collaboration": 50,
                 "product_development": 46,
-                "client_meetings": 38,
-                "administrative_operations": 19,
-                "customer_showroom": 23,
-                "walk_in_service": 7,
-                "walk_in_retail": 3,
                 "light_manufacturing": 6,
                 "research": 3
               },
               "archetypeCoverage": {
-                "law_firm": 65,
-                "financial_services_firm": 65,
-                "consulting_firm": 65,
-                "professional_office": 65,
-                "accounting_firm": 65,
-                "marketing_agency": 56,
-                "creative_studio": 65,
+                "wellness_practice": 13,
+                "marketing_agency": 66,
+                "professional_office": 75,
+                "law_firm": 75,
+                "accounting_firm": 75,
+                "financial_services_firm": 75,
+                "consulting_firm": 75,
+                "creative_studio": 75,
                 "startup": 62,
-                "wellness_practice": 3,
                 "research_company": 9
               },
               "operationalCharacteristicsCovered": {
+                "professional_image": 29,
+                "transit_access": 8,
+                "large_floorplates": 6,
+                "structured_parking": 6,
+                "private_office_layout": 20,
+                "customer_parking": 7,
+                "urban_core_access": 1,
+                "enhanced_security": 14,
                 "creative_environment": 45,
                 "open_workspace": 45,
                 "flexible_suite_sizes": 45,
                 "walkability": 47,
-                "private_office_layout": 17,
-                "customer_parking": 4,
-                "professional_image": 19,
-                "enhanced_security": 13,
                 "campus_environment": 1,
                 "surface_parking": 1,
-                "suburban_access": 1,
-                "transit_access": 2
+                "suburban_access": 1
               },
               "operationalCategoriesCovered": {
-                "market_presence": 65,
-                "configuration": 107,
-                "location_workforce": 50,
-                "parking_vehicles": 5,
-                "infrastructure": 13
+                "market_presence": 75,
+                "location_workforce": 57,
+                "configuration": 116,
+                "parking_vehicles": 14,
+                "infrastructure": 14
               },
               "missingRoles": [
-                "downtown_class_a_office",
-                "government_office_environment",
                 "small_tenant_office_environment"
               ],
               "missingOperationalCategories": [
                 "access_loading",
                 "outdoor_special_use"
               ],
-              "highestPriorityMissingRole": "downtown_class_a_office",
+              "highestPriorityMissingRole": "small_tenant_office_environment",
               "highestPriorityMissingOperationalCategory": "access_loading",
               "exampleBuildings": [
                 {
-                  "name": "One Bush Plaza / Crown Zellerbach Building",
-                  "path": "/commercial-real-estate/building/CA/san-francisco/1-bush-st/",
-                  "role": "creative_office_environment",
+                  "name": "1936 University Ave",
+                  "path": "/commercial-real-estate/building/CA/berkeley/1936-university-ave/",
+                  "role": "downtown_class_a_office",
                   "confidence": "district_inferred"
                 },
                 {
-                  "name": "One Sansome",
-                  "path": "/commercial-real-estate/building/CA/san-francisco/1-sansome-st/",
-                  "role": "creative_office_environment",
-                  "confidence": "district_inferred"
-                },
-                {
-                  "name": "100 Pine",
-                  "path": "/commercial-real-estate/building/CA/san-francisco/100-pine-st/",
+                  "name": "2030 Addison St",
+                  "path": "/commercial-real-estate/building/CA/berkeley/2030-addison-st/",
                   "role": "professional_office_environment",
                   "confidence": "district_inferred"
                 },
                 {
-                  "name": "1000 Brannan",
-                  "path": "/commercial-real-estate/building/CA/san-francisco/1000-brannan-st/",
-                  "role": "creative_office_environment",
+                  "name": "2040 Bancroft Way",
+                  "path": "/commercial-real-estate/building/CA/berkeley/2040-bancroft-way/",
+                  "role": "downtown_class_a_office",
                   "confidence": "district_inferred"
                 },
                 {
-                  "name": "1000 Sansome",
-                  "path": "/commercial-real-estate/building/CA/san-francisco/1000-sansome-st/",
-                  "role": "creative_office_environment",
+                  "name": "2070 Allston Way",
+                  "path": "/commercial-real-estate/building/CA/berkeley/2070-allston-way/",
+                  "role": "downtown_class_a_office",
                   "confidence": "district_inferred"
                 },
                 {
-                  "name": "101 California",
-                  "path": "/commercial-real-estate/building/CA/san-francisco/101-california-st/",
-                  "role": "executive_office_environment",
+                  "name": "2118 Milvia St",
+                  "path": "/commercial-real-estate/building/CA/berkeley/2118-milvia-st/",
+                  "role": "downtown_class_a_office",
+                  "confidence": "district_inferred"
+                },
+                {
+                  "name": "2130 Center St",
+                  "path": "/commercial-real-estate/building/CA/berkeley/2130-center-st/",
+                  "role": "government_office_environment",
                   "confidence": "district_inferred"
                 }
               ]
@@ -59481,7 +58510,7 @@
             "districtCount": 7,
             "secondaryDistrictCount": 6,
             "recommendationNodeCount": 7,
-            "representativeBuildingCount": 25,
+            "representativeBuildingCount": 15,
             "buildingBriefCount": 0,
             "status": "Partial",
             "districts": [
@@ -59551,43 +58580,43 @@
               "ecosystemId": "retail",
               "state": "partial",
               "stateLabel": "Partial",
-              "buildingCount": 25,
+              "buildingCount": 15,
               "explicitCount": 0,
-              "inheritedOnlyCount": 25,
-              "reviewRequiredCount": 16,
+              "inheritedOnlyCount": 15,
+              "reviewRequiredCount": 6,
               "rolesCovered": {
-                "neighborhood_service_retail": 20,
+                "neighborhood_service_retail": 10,
                 "showroom_retail_environment": 5
               },
               "subtypesCovered": {
-                "neighborhood_retail": 20,
+                "neighborhood_retail": 10,
                 "showroom_retail": 5
               },
               "activityCoverage": {
-                "walk_in_service": 25,
-                "walk_in_retail": 20,
-                "customer_showroom": 25,
+                "walk_in_service": 15,
+                "walk_in_retail": 10,
+                "customer_showroom": 15,
                 "collaboration": 5,
                 "knowledge_work": 9
               },
               "archetypeCoverage": {
-                "wellness_practice": 25,
-                "marketing_agency": 25,
-                "food_producer": 25,
-                "training_center": 25,
+                "wellness_practice": 15,
+                "marketing_agency": 15,
+                "food_producer": 15,
+                "training_center": 15,
                 "creative_studio": 9,
                 "professional_office": 9
               },
               "operationalCharacteristicsCovered": {
-                "street_visibility": 25,
-                "walk_in_customer_access": 20,
-                "customer_parking": 20,
+                "street_visibility": 15,
+                "walk_in_customer_access": 10,
+                "customer_parking": 10,
                 "showroom_frontage": 5,
                 "destination_customer_access": 5
               },
               "operationalCategoriesCovered": {
-                "market_presence": 55,
-                "parking_vehicles": 20
+                "market_presence": 35,
+                "parking_vehicles": 10
               },
               "missingRoles": [
                 "destination_retail_environment"
@@ -59602,38 +58631,38 @@
               "highestPriorityMissingOperationalCategory": "access_loading",
               "exampleBuildings": [
                 {
-                  "name": "1936 University Ave",
-                  "path": "/commercial-real-estate/building/CA/berkeley/1936-university-ave/",
+                  "name": "119 Filbert St",
+                  "path": "/commercial-real-estate/building/CA/oakland/119-filbert-st/",
                   "role": "neighborhood_service_retail",
                   "confidence": "review_required"
                 },
                 {
-                  "name": "2030 Addison St",
-                  "path": "/commercial-real-estate/building/CA/berkeley/2030-addison-st/",
+                  "name": "160 Franklin St",
+                  "path": "/commercial-real-estate/building/CA/oakland/160-franklin-st/",
                   "role": "neighborhood_service_retail",
                   "confidence": "review_required"
                 },
                 {
-                  "name": "2040 Bancroft Way",
-                  "path": "/commercial-real-estate/building/CA/berkeley/2040-bancroft-way/",
+                  "name": "424 3rd St",
+                  "path": "/commercial-real-estate/building/CA/oakland/424-3rd-st/",
                   "role": "neighborhood_service_retail",
                   "confidence": "review_required"
                 },
                 {
-                  "name": "2070 Allston Way",
-                  "path": "/commercial-real-estate/building/CA/berkeley/2070-allston-way/",
+                  "name": "101 Lytton Ave",
+                  "path": "/commercial-real-estate/building/CA/palo-alto/101-lytton-ave/",
                   "role": "neighborhood_service_retail",
                   "confidence": "review_required"
                 },
                 {
-                  "name": "2118 Milvia St",
-                  "path": "/commercial-real-estate/building/CA/berkeley/2118-milvia-st/",
+                  "name": "200 Hamilton Ave",
+                  "path": "/commercial-real-estate/building/CA/palo-alto/200-hamilton-ave/",
                   "role": "neighborhood_service_retail",
                   "confidence": "review_required"
                 },
                 {
-                  "name": "2130 Center St",
-                  "path": "/commercial-real-estate/building/CA/berkeley/2130-center-st/",
+                  "name": "525 University Ave",
+                  "path": "/commercial-real-estate/building/CA/palo-alto/525-university-ave/",
                   "role": "neighborhood_service_retail",
                   "confidence": "review_required"
                 }
@@ -60055,15 +59084,15 @@
               "districts": 7,
               "secondaryDistricts": 14,
               "recommendations": 7,
-              "representativeBuildings": 65,
-              "buildingBriefs": 25,
+              "representativeBuildings": 75,
+              "buildingBriefs": 35,
               "subtypes": 7,
               "archetypes": 10,
               "activities": 7,
               "reviewRequiredDistricts": 0,
-              "representativeRoles": 5,
+              "representativeRoles": 7,
               "operationalCategories": 5,
-              "operationalCharacteristics": 12,
+              "operationalCharacteristics": 15,
               "reviewRequiredRepresentativeBuildings": 0
             },
             "gaps": [],
@@ -60072,8 +59101,8 @@
             "strategicPriority": 2,
             "evidence": [
               "7 primary districts and 14 secondary districts.",
-              "65 Representative Buildings and 25 Building Briefs.",
-              "5 representative roles and 5 operational categories are covered."
+              "75 Representative Buildings and 35 Building Briefs.",
+              "7 representative roles and 5 operational categories are covered."
             ],
             "targetSubtypes": [
               "downtown_office",
@@ -60100,114 +59129,117 @@
               "ecosystemId": "office",
               "state": "strong",
               "stateLabel": "Strong",
-              "buildingCount": 65,
+              "buildingCount": 75,
               "explicitCount": 0,
               "inheritedOnlyCount": 65,
               "reviewRequiredCount": 0,
               "rolesCovered": [
-                "creative_office_environment",
+                "downtown_class_a_office",
                 "professional_office_environment",
+                "government_office_environment",
+                "creative_office_environment",
                 "executive_office_environment",
                 "suburban_office_campus",
                 "transit_oriented_office_environment"
               ],
               "subtypesCovered": [
+                "professional_office",
                 "downtown_office",
                 "executive_office",
-                "creative_office",
-                "professional_office"
+                "creative_office"
               ],
               "activityCoverage": [
                 "knowledge_work",
-                "collaboration",
-                "product_development",
                 "client_meetings",
                 "administrative_operations",
-                "customer_showroom",
-                "walk_in_service",
                 "walk_in_retail",
+                "walk_in_service",
+                "customer_showroom",
+                "collaboration",
+                "product_development",
                 "light_manufacturing",
                 "research"
               ],
               "archetypeCoverage": [
+                "wellness_practice",
+                "marketing_agency",
+                "professional_office",
                 "law_firm",
+                "accounting_firm",
                 "financial_services_firm",
                 "consulting_firm",
-                "professional_office",
-                "accounting_firm",
-                "marketing_agency",
                 "creative_studio",
                 "startup",
-                "wellness_practice",
                 "research_company"
               ],
               "operationalCharacteristicsCovered": [
+                "professional_image",
+                "transit_access",
+                "large_floorplates",
+                "structured_parking",
+                "private_office_layout",
+                "customer_parking",
+                "urban_core_access",
+                "enhanced_security",
                 "creative_environment",
                 "open_workspace",
                 "flexible_suite_sizes",
                 "walkability",
-                "private_office_layout",
-                "customer_parking",
-                "professional_image",
-                "enhanced_security",
                 "campus_environment",
                 "surface_parking",
-                "suburban_access",
-                "transit_access"
+                "suburban_access"
               ],
               "operationalCategoriesCovered": [
                 "market_presence",
-                "configuration",
                 "location_workforce",
+                "configuration",
                 "parking_vehicles",
                 "infrastructure"
               ],
               "missingRoles": [
-                "downtown_class_a_office",
-                "government_office_environment",
                 "small_tenant_office_environment"
               ],
               "missingOperationalCategories": [
                 "access_loading",
                 "outdoor_special_use"
               ],
-              "highestPriorityMissingRole": "downtown_class_a_office",
+              "highestPriorityMissingRole": "small_tenant_office_environment",
               "highestPriorityMissingOperationalCategory": "access_loading",
               "exampleBuildings": [
                 {
-                  "name": "One Bush Plaza / Crown Zellerbach Building",
-                  "path": "/commercial-real-estate/building/CA/san-francisco/1-bush-st/",
-                  "role": "creative_office_environment",
+                  "name": "1936 University Ave",
+                  "path": "/commercial-real-estate/building/CA/berkeley/1936-university-ave/",
+                  "role": "downtown_class_a_office",
                   "confidence": "district_inferred"
                 },
                 {
-                  "name": "One Sansome",
-                  "path": "/commercial-real-estate/building/CA/san-francisco/1-sansome-st/",
-                  "role": "creative_office_environment",
-                  "confidence": "district_inferred"
-                },
-                {
-                  "name": "100 Pine",
-                  "path": "/commercial-real-estate/building/CA/san-francisco/100-pine-st/",
+                  "name": "2030 Addison St",
+                  "path": "/commercial-real-estate/building/CA/berkeley/2030-addison-st/",
                   "role": "professional_office_environment",
                   "confidence": "district_inferred"
                 },
                 {
-                  "name": "1000 Brannan",
-                  "path": "/commercial-real-estate/building/CA/san-francisco/1000-brannan-st/",
-                  "role": "creative_office_environment",
+                  "name": "2040 Bancroft Way",
+                  "path": "/commercial-real-estate/building/CA/berkeley/2040-bancroft-way/",
+                  "role": "downtown_class_a_office",
                   "confidence": "district_inferred"
                 },
                 {
-                  "name": "1000 Sansome",
-                  "path": "/commercial-real-estate/building/CA/san-francisco/1000-sansome-st/",
-                  "role": "creative_office_environment",
+                  "name": "2070 Allston Way",
+                  "path": "/commercial-real-estate/building/CA/berkeley/2070-allston-way/",
+                  "role": "downtown_class_a_office",
                   "confidence": "district_inferred"
                 },
                 {
-                  "name": "101 California",
-                  "path": "/commercial-real-estate/building/CA/san-francisco/101-california-st/",
-                  "role": "executive_office_environment",
+                  "name": "2118 Milvia St",
+                  "path": "/commercial-real-estate/building/CA/berkeley/2118-milvia-st/",
+                  "role": "downtown_class_a_office",
+                  "confidence": "district_inferred"
+                },
+                {
+                  "name": "2130 Center St",
+                  "path": "/commercial-real-estate/building/CA/berkeley/2130-center-st/",
+                  "role": "government_office_environment",
                   "confidence": "district_inferred"
                 }
               ]
@@ -60448,7 +59480,7 @@
               "districts": 7,
               "secondaryDistricts": 6,
               "recommendations": 7,
-              "representativeBuildings": 25,
+              "representativeBuildings": 15,
               "buildingBriefs": 0,
               "subtypes": 4,
               "archetypes": 4,
@@ -60457,7 +59489,7 @@
               "representativeRoles": 2,
               "operationalCategories": 2,
               "operationalCharacteristics": 5,
-              "reviewRequiredRepresentativeBuildings": 16
+              "reviewRequiredRepresentativeBuildings": 6
             },
             "gaps": [
               "Building Brief coverage is missing for this ecosystem."
@@ -60467,7 +59499,7 @@
             "strategicPriority": 5,
             "evidence": [
               "7 primary districts and 6 secondary districts.",
-              "25 Representative Buildings and 0 Building Briefs.",
+              "15 Representative Buildings and 0 Building Briefs.",
               "2 representative roles and 2 operational categories are covered."
             ],
             "targetSubtypes": [
@@ -60493,10 +59525,10 @@
               "ecosystemId": "retail",
               "state": "partial",
               "stateLabel": "Partial",
-              "buildingCount": 25,
+              "buildingCount": 15,
               "explicitCount": 0,
-              "inheritedOnlyCount": 25,
-              "reviewRequiredCount": 16,
+              "inheritedOnlyCount": 15,
+              "reviewRequiredCount": 6,
               "rolesCovered": [
                 "neighborhood_service_retail",
                 "showroom_retail_environment"
@@ -60544,38 +59576,38 @@
               "highestPriorityMissingOperationalCategory": "access_loading",
               "exampleBuildings": [
                 {
-                  "name": "1936 University Ave",
-                  "path": "/commercial-real-estate/building/CA/berkeley/1936-university-ave/",
+                  "name": "119 Filbert St",
+                  "path": "/commercial-real-estate/building/CA/oakland/119-filbert-st/",
                   "role": "neighborhood_service_retail",
                   "confidence": "review_required"
                 },
                 {
-                  "name": "2030 Addison St",
-                  "path": "/commercial-real-estate/building/CA/berkeley/2030-addison-st/",
+                  "name": "160 Franklin St",
+                  "path": "/commercial-real-estate/building/CA/oakland/160-franklin-st/",
                   "role": "neighborhood_service_retail",
                   "confidence": "review_required"
                 },
                 {
-                  "name": "2040 Bancroft Way",
-                  "path": "/commercial-real-estate/building/CA/berkeley/2040-bancroft-way/",
+                  "name": "424 3rd St",
+                  "path": "/commercial-real-estate/building/CA/oakland/424-3rd-st/",
                   "role": "neighborhood_service_retail",
                   "confidence": "review_required"
                 },
                 {
-                  "name": "2070 Allston Way",
-                  "path": "/commercial-real-estate/building/CA/berkeley/2070-allston-way/",
+                  "name": "101 Lytton Ave",
+                  "path": "/commercial-real-estate/building/CA/palo-alto/101-lytton-ave/",
                   "role": "neighborhood_service_retail",
                   "confidence": "review_required"
                 },
                 {
-                  "name": "2118 Milvia St",
-                  "path": "/commercial-real-estate/building/CA/berkeley/2118-milvia-st/",
+                  "name": "200 Hamilton Ave",
+                  "path": "/commercial-real-estate/building/CA/palo-alto/200-hamilton-ave/",
                   "role": "neighborhood_service_retail",
                   "confidence": "review_required"
                 },
                 {
-                  "name": "2130 Center St",
-                  "path": "/commercial-real-estate/building/CA/berkeley/2130-center-st/",
+                  "name": "525 University Ave",
+                  "path": "/commercial-real-estate/building/CA/palo-alto/525-university-ave/",
                   "role": "neighborhood_service_retail",
                   "confidence": "review_required"
                 }
@@ -61061,8 +60093,8 @@
             "rationale": "Representative role coverage is too narrow for this ecosystem.",
             "evidence": [
               "7 primary districts and 14 secondary districts.",
-              "65 Representative Buildings and 25 Building Briefs.",
-              "5 representative roles and 5 operational categories are covered."
+              "75 Representative Buildings and 35 Building Briefs.",
+              "7 representative roles and 5 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
             "completionCriteria": [
@@ -61087,8 +60119,8 @@
             "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
             "evidence": [
               "7 primary districts and 14 secondary districts.",
-              "65 Representative Buildings and 25 Building Briefs.",
-              "5 representative roles and 5 operational categories are covered."
+              "75 Representative Buildings and 35 Building Briefs.",
+              "7 representative roles and 5 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
             "completionCriteria": [
@@ -61139,7 +60171,7 @@
             "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
             "evidence": [
               "7 primary districts and 6 secondary districts.",
-              "25 Representative Buildings and 0 Building Briefs.",
+              "15 Representative Buildings and 0 Building Briefs.",
               "2 representative roles and 2 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem Building Brief Migration",
@@ -61165,7 +60197,7 @@
             "rationale": "Representative role coverage is too narrow for this ecosystem.",
             "evidence": [
               "7 primary districts and 6 secondary districts.",
-              "25 Representative Buildings and 0 Building Briefs.",
+              "15 Representative Buildings and 0 Building Briefs.",
               "2 representative roles and 2 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -61191,7 +60223,7 @@
             "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
             "evidence": [
               "7 primary districts and 6 secondary districts.",
-              "25 Representative Buildings and 0 Building Briefs.",
+              "15 Representative Buildings and 0 Building Briefs.",
               "2 representative roles and 2 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -61559,8 +60591,8 @@
           "state": "balanced",
           "label": "Balanced",
           "dominantEcosystem": "office",
-          "representativeBuildingShare": 0.42,
-          "buildingBriefShare": 0.46,
+          "representativeBuildingShare": 0.48,
+          "buildingBriefShare": 0.55,
           "warnings": []
         }
       },
@@ -61568,8 +60600,8 @@
         "state": "balanced",
         "label": "Balanced",
         "dominantEcosystem": "office",
-        "representativeBuildingShare": 0.42,
-        "buildingBriefShare": 0.46,
+        "representativeBuildingShare": 0.48,
+        "buildingBriefShare": 0.55,
         "warnings": []
       },
       "ecosystemGaps": [
@@ -61586,8 +60618,8 @@
           "rationale": "Representative role coverage is too narrow for this ecosystem.",
           "evidence": [
             "7 primary districts and 14 secondary districts.",
-            "65 Representative Buildings and 25 Building Briefs.",
-            "5 representative roles and 5 operational categories are covered."
+            "75 Representative Buildings and 35 Building Briefs.",
+            "7 representative roles and 5 operational categories are covered."
           ],
           "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
           "completionCriteria": [
@@ -61637,7 +60669,7 @@
           "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
           "evidence": [
             "7 primary districts and 6 secondary districts.",
-            "25 Representative Buildings and 0 Building Briefs.",
+            "15 Representative Buildings and 0 Building Briefs.",
             "2 representative roles and 2 operational categories are covered."
           ],
           "recommendedSprintFamily": "Ecosystem Building Brief Migration",
@@ -61689,8 +60721,8 @@
           "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
           "evidence": [
             "7 primary districts and 14 secondary districts.",
-            "65 Representative Buildings and 25 Building Briefs.",
-            "5 representative roles and 5 operational categories are covered."
+            "75 Representative Buildings and 35 Building Briefs.",
+            "7 representative roles and 5 operational categories are covered."
           ],
           "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
           "completionCriteria": [
@@ -61915,7 +60947,7 @@
           "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
           "evidence": [
             "7 primary districts and 6 secondary districts.",
-            "25 Representative Buildings and 0 Building Briefs.",
+            "15 Representative Buildings and 0 Building Briefs.",
             "2 representative roles and 2 operational categories are covered."
           ],
           "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -61941,7 +60973,7 @@
           "rationale": "Representative role coverage is too narrow for this ecosystem.",
           "evidence": [
             "7 primary districts and 6 secondary districts.",
-            "25 Representative Buildings and 0 Building Briefs.",
+            "15 Representative Buildings and 0 Building Briefs.",
             "2 representative roles and 2 operational categories are covered."
           ],
           "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -62107,15 +61139,15 @@
           "districts": 7,
           "secondaryDistricts": 14,
           "recommendations": 7,
-          "representativeBuildings": 65,
-          "buildingBriefs": 25,
+          "representativeBuildings": 75,
+          "buildingBriefs": 35,
           "subtypes": 7,
           "archetypes": 10,
           "activities": 7,
           "reviewRequiredDistricts": 0,
-          "representativeRoles": 5,
+          "representativeRoles": 7,
           "operationalCategories": 5,
-          "operationalCharacteristics": 12,
+          "operationalCharacteristics": 15,
           "reviewRequiredRepresentativeBuildings": 0
         },
         "gaps": [],
@@ -62141,8 +61173,6 @@
           "administrative_operations"
         ],
         "missingRepresentativeRoles": [
-          "downtown_class_a_office",
-          "government_office_environment",
           "small_tenant_office_environment"
         ],
         "missingOperationalCategories": [
@@ -62150,54 +61180,56 @@
           "outdoor_special_use"
         ],
         "currentRepresentativeRoles": [
-          "creative_office_environment",
+          "downtown_class_a_office",
           "professional_office_environment",
+          "government_office_environment",
+          "creative_office_environment",
           "executive_office_environment",
           "suburban_office_campus",
           "transit_oriented_office_environment"
         ],
         "currentOperationalCategories": [
           "market_presence",
-          "configuration",
           "location_workforce",
+          "configuration",
           "parking_vehicles",
           "infrastructure"
         ],
         "existingRepresentativeBuildings": [
           {
-            "name": "One Bush Plaza / Crown Zellerbach Building",
-            "path": "/commercial-real-estate/building/CA/san-francisco/1-bush-st/",
-            "role": "creative_office_environment",
+            "name": "1936 University Ave",
+            "path": "/commercial-real-estate/building/CA/berkeley/1936-university-ave/",
+            "role": "downtown_class_a_office",
             "confidence": "district_inferred"
           },
           {
-            "name": "One Sansome",
-            "path": "/commercial-real-estate/building/CA/san-francisco/1-sansome-st/",
-            "role": "creative_office_environment",
-            "confidence": "district_inferred"
-          },
-          {
-            "name": "100 Pine",
-            "path": "/commercial-real-estate/building/CA/san-francisco/100-pine-st/",
+            "name": "2030 Addison St",
+            "path": "/commercial-real-estate/building/CA/berkeley/2030-addison-st/",
             "role": "professional_office_environment",
             "confidence": "district_inferred"
           },
           {
-            "name": "1000 Brannan",
-            "path": "/commercial-real-estate/building/CA/san-francisco/1000-brannan-st/",
-            "role": "creative_office_environment",
+            "name": "2040 Bancroft Way",
+            "path": "/commercial-real-estate/building/CA/berkeley/2040-bancroft-way/",
+            "role": "downtown_class_a_office",
             "confidence": "district_inferred"
           },
           {
-            "name": "1000 Sansome",
-            "path": "/commercial-real-estate/building/CA/san-francisco/1000-sansome-st/",
-            "role": "creative_office_environment",
+            "name": "2070 Allston Way",
+            "path": "/commercial-real-estate/building/CA/berkeley/2070-allston-way/",
+            "role": "downtown_class_a_office",
             "confidence": "district_inferred"
           },
           {
-            "name": "101 California",
-            "path": "/commercial-real-estate/building/CA/san-francisco/101-california-st/",
-            "role": "executive_office_environment",
+            "name": "2118 Milvia St",
+            "path": "/commercial-real-estate/building/CA/berkeley/2118-milvia-st/",
+            "role": "downtown_class_a_office",
+            "confidence": "district_inferred"
+          },
+          {
+            "name": "2130 Center St",
+            "path": "/commercial-real-estate/building/CA/berkeley/2130-center-st/",
+            "role": "government_office_environment",
             "confidence": "district_inferred"
           }
         ],
@@ -62258,7 +61290,7 @@
         ],
         "blockingEcosystemReadiness": false,
         "alternativeSprint": null,
-        "codexPrompt": "Implement Publisher ecosystem sprint for San Francisco: San Francisco Office Ecosystem Representative Building Foundation\n\nFramework:\n- Businesses search for places where their operations can succeed, not for property types.\n- Use the Commercial Ecosystem Framework and canonical taxonomy.\n- Do not change recommendation rankings, Search Profile questions, or public page design.\n\nTarget ecosystem: Office (office)\nMetro relevance: Core\nCurrent readiness: Developed\nSprint family: Ecosystem Representative Building Foundation\n\nCurrent layer coverage:\n- districts: developed\n- recommendations: developed\n- representativeBuildings: developed\n- buildingBriefs: developed\n- subtypes: developed\n- archetypes: developed\n- activities: developed\n- editorialReview: developed\n\nKnown gaps:\n\nTarget subtypes:\n- downtown_office, professional_office, creative_office, executive_office, suburban_office\nTarget archetypes:\n- professional_office, law_firm, accounting_firm, financial_services_firm, consulting_firm, marketing_agency\nTarget business activities:\n- knowledge_work, client_meetings, collaboration, administrative_operations\nMissing representative roles:\n- downtown_class_a_office, government_office_environment, small_tenant_office_environment\nMissing operational categories:\n- access_loading, outdoor_special_use\nExisting representative buildings:\n- One Bush Plaza / Crown Zellerbach Building (creative_office_environment); One Sansome (creative_office_environment); 100 Pine (professional_office_environment); 1000 Brannan (creative_office_environment); 1000 Sansome (creative_office_environment); 101 California (executive_office_environment)\nDistrict candidates:\n- SoMa, Financial District, Jackson Square, Stanford Research Park, Showplace Square, South Beach, Emeryville Commercial Core\n\nDependencies:\n- Ecosystem classification\n- District foundation\n- Recommendation foundation\n- Representative Building foundation\n- Building Brief migration after canonical records exist\n\nCompletion criteria:\n- Validated district ecosystem classification\n- Representative Building coverage across the most important subtypes\n- Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus\n- Building Brief migration only after canonical records and district association exist\n- Publisher ecosystem QA passes without hard errors\n- Every target representative role has at least one source-supported building or is explicitly marked research required\n- Target operational categories are represented without asserting unverified property features\n- Representative Building intelligence QA passes\n\nGuardrails:\n- Do not invent districts, buildings, tenants, availability, rents, or unsupported facts.\n- Do not deepen office-only coverage when the target ecosystem is different.\n- Do not treat taxonomy compatibility as proof that a property has a feature.\n- Validate loading, power, parking, yards, lab, food, medical, and permitted-use claims before authoring them as facts.\n- Do not recommend Building Brief migration before canonical representative buildings exist.\n- Regenerate Publisher snapshots and run ecosystem readiness QA.\n\nVerification:\n- npm run publisher:snapshot\n- npm run publisher:report\n- npm run build\n- node scripts/qa-commercial-ecosystem-foundation.js\n- node scripts/qa-publisher-ecosystem-readiness.js\n- node scripts/qa-representative-building-intelligence.js"
+        "codexPrompt": "Implement Publisher ecosystem sprint for San Francisco: San Francisco Office Ecosystem Representative Building Foundation\n\nFramework:\n- Businesses search for places where their operations can succeed, not for property types.\n- Use the Commercial Ecosystem Framework and canonical taxonomy.\n- Do not change recommendation rankings, Search Profile questions, or public page design.\n\nTarget ecosystem: Office (office)\nMetro relevance: Core\nCurrent readiness: Developed\nSprint family: Ecosystem Representative Building Foundation\n\nCurrent layer coverage:\n- districts: developed\n- recommendations: developed\n- representativeBuildings: developed\n- buildingBriefs: developed\n- subtypes: developed\n- archetypes: developed\n- activities: developed\n- editorialReview: developed\n\nKnown gaps:\n\nTarget subtypes:\n- downtown_office, professional_office, creative_office, executive_office, suburban_office\nTarget archetypes:\n- professional_office, law_firm, accounting_firm, financial_services_firm, consulting_firm, marketing_agency\nTarget business activities:\n- knowledge_work, client_meetings, collaboration, administrative_operations\nMissing representative roles:\n- small_tenant_office_environment\nMissing operational categories:\n- access_loading, outdoor_special_use\nExisting representative buildings:\n- 1936 University Ave (downtown_class_a_office); 2030 Addison St (professional_office_environment); 2040 Bancroft Way (downtown_class_a_office); 2070 Allston Way (downtown_class_a_office); 2118 Milvia St (downtown_class_a_office); 2130 Center St (government_office_environment)\nDistrict candidates:\n- SoMa, Financial District, Jackson Square, Stanford Research Park, Showplace Square, South Beach, Emeryville Commercial Core\n\nDependencies:\n- Ecosystem classification\n- District foundation\n- Recommendation foundation\n- Representative Building foundation\n- Building Brief migration after canonical records exist\n\nCompletion criteria:\n- Validated district ecosystem classification\n- Representative Building coverage across the most important subtypes\n- Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus\n- Building Brief migration only after canonical records and district association exist\n- Publisher ecosystem QA passes without hard errors\n- Every target representative role has at least one source-supported building or is explicitly marked research required\n- Target operational categories are represented without asserting unverified property features\n- Representative Building intelligence QA passes\n\nGuardrails:\n- Do not invent districts, buildings, tenants, availability, rents, or unsupported facts.\n- Do not deepen office-only coverage when the target ecosystem is different.\n- Do not treat taxonomy compatibility as proof that a property has a feature.\n- Validate loading, power, parking, yards, lab, food, medical, and permitted-use claims before authoring them as facts.\n- Do not recommend Building Brief migration before canonical representative buildings exist.\n- Regenerate Publisher snapshots and run ecosystem readiness QA.\n\nVerification:\n- npm run publisher:snapshot\n- npm run publisher:report\n- npm run build\n- node scripts/qa-commercial-ecosystem-foundation.js\n- node scripts/qa-publisher-ecosystem-readiness.js\n- node scripts/qa-representative-building-intelligence.js"
       },
       "gaps": [
         {
@@ -63585,55 +62617,6 @@
           }
         },
         {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-1936-university-ave",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "1936 University Ave",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/1936-university-ave/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/1936-university-ave/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
           "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-2-embarcadero-ctr",
           "metroId": "san-francisco",
           "metroName": "San Francisco",
@@ -63879,251 +62862,6 @@
           }
         },
         {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-2030-addison-st",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "2030 Addison St",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/2030-addison-st/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/2030-addison-st/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-2040-bancroft-way",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "2040 Bancroft Way",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/2040-bancroft-way/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/2040-bancroft-way/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-2070-allston-way",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "2070 Allston Way",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/2070-allston-way/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/2070-allston-way/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-2118-milvia-st",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "2118 Milvia St",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/2118-milvia-st/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/2118-milvia-st/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-2130-center-st",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "2130 Center St",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/2130-center-st/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/2130-center-st/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
           "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-hayward-21371-cabot-blvd",
           "metroId": "san-francisco",
           "metroName": "San Francisco",
@@ -64137,202 +62875,6 @@
           "itemName": "21371 Cabot Blvd",
           "sourceId": "/commercial-real-estate/building/CA/hayward/21371-cabot-blvd/",
           "publicUrl": "/commercial-real-estate/building/CA/hayward/21371-cabot-blvd/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-2140-shattuck-ave",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "2140 Shattuck Ave",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/2140-shattuck-ave/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/2140-shattuck-ave/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-2150-shattuck-ave",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "2150 Shattuck Ave",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/2150-shattuck-ave/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/2150-shattuck-ave/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-2168-shattuck-ave",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "2168 Shattuck Ave",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/2168-shattuck-ave/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/2168-shattuck-ave/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-2300-shattuck-ave",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "2300 Shattuck Ave",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/2300-shattuck-ave/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/2300-shattuck-ave/",
           "adminUrl": "",
           "severity": "medium",
           "description": "Representative building has not migrated to the Building Brief journey.",
@@ -70030,55 +68572,6 @@
           }
         },
         {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-1936-university-ave",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "1936 University Ave",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/1936-university-ave/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/1936-university-ave/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
           "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-2-embarcadero-ctr",
           "metroId": "san-francisco",
           "metroName": "San Francisco",
@@ -70324,251 +68817,6 @@
           }
         },
         {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-2030-addison-st",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "2030 Addison St",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/2030-addison-st/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/2030-addison-st/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-2040-bancroft-way",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "2040 Bancroft Way",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/2040-bancroft-way/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/2040-bancroft-way/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-2070-allston-way",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "2070 Allston Way",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/2070-allston-way/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/2070-allston-way/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-2118-milvia-st",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "2118 Milvia St",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/2118-milvia-st/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/2118-milvia-st/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-2130-center-st",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "2130 Center St",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/2130-center-st/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/2130-center-st/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
           "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-hayward-21371-cabot-blvd",
           "metroId": "san-francisco",
           "metroName": "San Francisco",
@@ -70582,202 +68830,6 @@
           "itemName": "21371 Cabot Blvd",
           "sourceId": "/commercial-real-estate/building/CA/hayward/21371-cabot-blvd/",
           "publicUrl": "/commercial-real-estate/building/CA/hayward/21371-cabot-blvd/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-2140-shattuck-ave",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "2140 Shattuck Ave",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/2140-shattuck-ave/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/2140-shattuck-ave/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-2150-shattuck-ave",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "2150 Shattuck Ave",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/2150-shattuck-ave/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/2150-shattuck-ave/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-2168-shattuck-ave",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "2168 Shattuck Ave",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/2168-shattuck-ave/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/2168-shattuck-ave/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-berkeley-2300-shattuck-ave",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "2300 Shattuck Ave",
-          "sourceId": "/commercial-real-estate/building/CA/berkeley/2300-shattuck-ave/",
-          "publicUrl": "/commercial-real-estate/building/CA/berkeley/2300-shattuck-ave/",
           "adminUrl": "",
           "severity": "medium",
           "description": "Representative building has not migrated to the Building Brief journey.",
@@ -75155,7 +73207,7 @@
         "modeLabel": "Balanced Expansion",
         "title": "San Francisco Building Brief Migration Sprint",
         "objective": "Improve San Francisco expansion readiness by completing the highest-value Building Briefs, District Coverage, Representative Buildings work without creating unsupported content.",
-        "rationale": "Selected from 133 deterministic Publisher gaps using balanced expansion weighting.",
+        "rationale": "Selected from 123 deterministic Publisher gaps using balanced expansion weighting.",
         "tasks": [
           {
             "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-1-henry-adams-st",
@@ -75479,7 +73531,7 @@
           "modeLabel": "Balanced Expansion",
           "title": "San Francisco Building Brief Migration Sprint",
           "objective": "Improve San Francisco expansion readiness by completing the highest-value Building Briefs, District Coverage, Representative Buildings work without creating unsupported content.",
-          "rationale": "Selected from 133 deterministic Publisher gaps using balanced expansion weighting.",
+          "rationale": "Selected from 123 deterministic Publisher gaps using balanced expansion weighting.",
           "tasks": [
             {
               "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-1-henry-adams-st",
@@ -75802,7 +73854,7 @@
           "modeLabel": "Recommendation Readiness",
           "title": "San Francisco Recommendation Readiness Sprint",
           "objective": "Improve San Francisco expansion readiness by completing the highest-value Recommendation Readiness, Comparison Graph, District Coverage work without creating unsupported content.",
-          "rationale": "Selected from 133 deterministic Publisher gaps using recommendation readiness weighting.",
+          "rationale": "Selected from 123 deterministic Publisher gaps using recommendation readiness weighting.",
           "tasks": [
             {
               "id": "gap:san-francisco:recommendationReadiness:missing explainability fields:north-san-jose",
@@ -76108,7 +74160,7 @@
           "modeLabel": "Editorial Depth",
           "title": "San Francisco District Editorial Foundation Sprint",
           "objective": "Improve San Francisco expansion readiness by completing the highest-value District Coverage, Building Briefs, Representative Buildings work without creating unsupported content.",
-          "rationale": "Selected from 133 deterministic Publisher gaps using editorial depth weighting.",
+          "rationale": "Selected from 123 deterministic Publisher gaps using editorial depth weighting.",
           "tasks": [
             {
               "id": "gap:san-francisco:districtCoverage:missing decision positioning:north-san-jose",
@@ -76433,7 +74485,7 @@
           "modeLabel": "Building Depth",
           "title": "San Francisco Representative Building Foundation Sprint",
           "objective": "Improve San Francisco expansion readiness by completing the highest-value Representative Buildings, Building Briefs work without creating unsupported content.",
-          "rationale": "Selected from 133 deterministic Publisher gaps using building depth weighting.",
+          "rationale": "Selected from 123 deterministic Publisher gaps using building depth weighting.",
           "tasks": [
             {
               "id": "gap:san-francisco:representativeBuildings:district missing representative buildings:downtown-redwood-city",
@@ -76756,7 +74808,7 @@
     {
       "metroId": "sacramento",
       "metroName": "Sacramento",
-      "generatedAt": "2026-08-10T13:45:49-07:00",
+      "generatedAt": "2026-08-10T14:21:37-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 98,
@@ -85596,7 +83648,7 @@
     {
       "metroId": "san-diego",
       "metroName": "San Diego",
-      "generatedAt": "2026-08-10T13:45:49-07:00",
+      "generatedAt": "2026-08-10T14:21:37-07:00",
       "currentState": {
         "readinessStatus": "Expansion Ready",
         "overallScore": 84,
@@ -95418,7 +93470,7 @@
     {
       "metroId": "orange-county",
       "metroName": "Orange County",
-      "generatedAt": "2026-08-10T13:45:49-07:00",
+      "generatedAt": "2026-08-10T14:21:37-07:00",
       "currentState": {
         "readinessStatus": "Expansion Ready",
         "overallScore": 84,
@@ -104410,7 +102462,7 @@
     {
       "metroId": "denver",
       "metroName": "Denver",
-      "generatedAt": "2026-08-10T13:45:49-07:00",
+      "generatedAt": "2026-08-10T14:21:37-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 97,
@@ -112205,8 +110257,8 @@
   "overview": {
     "metroCount": 6,
     "primaryMetroCount": 5,
-    "totalGaps": 303,
-    "totalPriorities": 303,
+    "totalGaps": 293,
+    "totalPriorities": 293,
     "topRecommendedSprint": {
       "metroId": "san-diego",
       "metroName": "San Diego",
