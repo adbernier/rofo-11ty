@@ -9,6 +9,7 @@ module.exports = {
     require("../data/commercial-market-evidence/denver/inverness"),
     require("../data/commercial-market-evidence/denver/northeast-denver-industrial"),
     require("../data/commercial-market-evidence/east-bay/downtown-berkeley"),
+    require("../data/commercial-market-evidence/east-bay/emeryville-commercial-core"),
     require("../data/commercial-market-evidence/east-bay/west-berkeley"),
     require("../data/commercial-market-evidence/fort-wayne/fort-wayne-airport-industrial"),
     require("../data/commercial-market-evidence/indianapolis/indianapolis-airport-logistics"),

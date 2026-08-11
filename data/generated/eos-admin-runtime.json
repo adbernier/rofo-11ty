@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-10T14:21:37-07:00",
+  "generatedAt": "2026-08-10T17:49:19-07:00",
   "eosVersion": "editorial-operating-system-v2.2.4",
   "sourceSystems": [
     "Publisher",
@@ -13,7 +13,7 @@
   ],
   "commercialKnowledgeIntelligence": {
     "schemaVersion": "eos-commercial-knowledge-intelligence-v1",
-    "generatedAt": "2026-08-10T14:21:37-07:00",
+    "generatedAt": "2026-08-10T17:49:19-07:00",
     "sourceSystems": [
       "Editor-controlled strategic priorities",
       "Google Search Console Search Analytics API",
@@ -15223,7 +15223,7 @@
       "service": "Commercial Market Evidence",
       "status": "Validated",
       "validationStatus": "PASS",
-      "collections": 23,
+      "collections": 24,
       "districts": [
         "Antioch East 18th Industrial",
         "Aurora",
@@ -15234,6 +15234,7 @@
         "Dogpatch",
         "Downtown Berkeley",
         "Downtown Denver",
+        "Emeryville Commercial Core",
         "Financial District",
         "Fort Wayne Airport Industrial",
         "Indianapolis Airport Logistics",
@@ -15249,7 +15250,7 @@
         "Tempe I-10 Industrial",
         "West Berkeley"
       ],
-      "evidenceRecords": 148,
+      "evidenceRecords": 153,
       "evidenceTypes": [
         "Adaptive Showroom / Creative Office",
         "Adaptive-Reuse Boutique Office",
@@ -15325,6 +15326,7 @@
         "Medical Institutional Anchor",
         "Medical Office Environment",
         "Mid-Rise Production-Adjacent Creative Office",
+        "Mixed Office Cluster",
         "Mixed-Use Amenity Anchor",
         "Mixed-Use Commercial Center",
         "Mixed-Use Historic Neighborhood Anchor",
@@ -15335,6 +15337,8 @@
         "Neighborhood Medical / Service Center",
         "Neighborhood Value Creative Office",
         "Neighborhood-Scale Industrial Conversion",
+        "Office / Flex Transition",
+        "Office Corridor",
         "Office/Lab Waterfront Building",
         "Office/R&D Supply Depth",
         "Outpatient Clinic Environment",
@@ -15345,12 +15349,14 @@
         "Professional Office Building",
         "Professional Office Environment",
         "Professional Services Tower",
+        "R&D-Support Edge",
         "Repositioned Downtown Tower",
         "Repositioned Waterfront-Adjacent Office",
         "Representative Industrial Property Pattern",
         "Representative Industrial Property Prerequisite",
         "Research Lab Environment",
         "Residential / Commercial Mixed-Use Anchor",
+        "Retail / Amenity Commercial Spine",
         "Secondary-Street Office Building",
         "Shattuck Corridor Office Building",
         "Showroom / Creative Office Anchor",
@@ -15404,6 +15410,7 @@
         "Architectural Identity / Legacy Office Benchmark",
         "BART-Oriented Professional Office Benchmark",
         "Bayfront Office Character Benchmark",
+        "Berkeley-Adjacency Context",
         "Brannan Mixed-Use Fabric Benchmark",
         "Brick-and-Timber Character Benchmark",
         "Broadway / North Beach Transition Benchmark",
@@ -15423,12 +15430,14 @@
         "Creative Production Transition",
         "Design / Showplace / SoMa Bridge",
         "Design / SoMa Edge Benchmark",
+        "District Amenity Anchor",
         "District Anchor / Campus Benchmark",
         "District Anchor / Corporate Benchmark",
         "District Anchor / Waterfront Edge",
         "District Icon / North Downtown Edge",
         "District Icon / Production Benchmark",
         "District Icon / Showroom Benchmark",
+        "District Office Anchor",
         "District Origin / Life Science Anchor",
         "Dogpatch / Potrero Operational Edge",
         "Embarcadero Access Professional Services Benchmark",
@@ -15479,6 +15488,7 @@
         "Non-Office Operational Evidence",
         "North Financial District Edge / Comparison Example",
         "North Waterfront / Design Character Benchmark",
+        "Office / Amenity Context",
         "Office/Flex Creative Production Benchmark",
         "Office/Lab Innovation Benchmark",
         "Older Potrero Commercial Character",
@@ -15495,6 +15505,7 @@
         "Practical Professional Office Benchmark",
         "Private Life Science Cluster Benchmark",
         "Production / Service Flex Benchmark",
+        "Production-Adjacent Context",
         "Production-Oriented Industrial Benchmark",
         "Professional Medical Office Benchmark",
         "Regional Access Creative Office Benchmark",
@@ -15534,11 +15545,11 @@
         "West-Side Berkeley Access Benchmark"
       ],
       "confidenceSummary": {
-        "High": 146,
+        "High": 151,
         "Low": 2
       },
-      "deferredCandidates": 62,
-      "latestValidation": "2026-08-10T14:21:37-07:00",
+      "deferredCandidates": 64,
+      "latestValidation": "2026-08-10T17:49:19-07:00",
       "errors": [],
       "warnings": [],
       "source": {
@@ -15558,8 +15569,8 @@
         ],
         "coverageSummary": {
           "knowledgeGraphDistricts": 115,
-          "existingCollections": 23,
-          "missingCollections": 92,
+          "existingCollections": 24,
+          "missingCollections": 91,
           "resolvedDistricts": 115,
           "unresolvedDistricts": 0,
           "ambiguousDistricts": 0,
@@ -15586,8 +15597,8 @@
             "publisherMetroId": "san-francisco",
             "publisherMetroName": "San Francisco",
             "resolvedDistricts": 8,
-            "existingCollections": 3,
-            "missingCollections": 5
+            "existingCollections": 4,
+            "missingCollections": 4
           },
           {
             "marketId": "fort-wayne",
@@ -17420,6 +17431,24 @@
             "collectionId": "west-berkeley-commercial-market-evidence"
           },
           {
+            "districtId": "emeryville-commercial-core",
+            "districtName": "Emeryville Commercial Core",
+            "city": "Emeryville",
+            "state": "CA",
+            "metroId": "east-bay",
+            "metroName": "East Bay",
+            "marketId": "east-bay",
+            "marketName": "East Bay",
+            "regionId": "bay-area",
+            "regionName": "Bay Area",
+            "publisherMetroId": "san-francisco",
+            "publisherMetroName": "San Francisco",
+            "ownershipStatus": "Resolved",
+            "resolutionSource": "explicit district ownership",
+            "path": "/commercial-real-estate/CA/emeryville/emeryville-commercial-core/",
+            "collectionId": "emeryville-commercial-core-commercial-market-evidence"
+          },
+          {
             "districtId": "design-district",
             "districtName": "Design District",
             "city": "San Francisco",
@@ -18257,51 +18286,6 @@
               ]
             },
             "expansionWeight": 1658
-          },
-          {
-            "districtId": "emeryville-commercial-core",
-            "districtName": "Emeryville Commercial Core",
-            "city": "Emeryville",
-            "state": "CA",
-            "metroId": "east-bay",
-            "metroName": "East Bay",
-            "marketId": "east-bay",
-            "marketName": "East Bay",
-            "regionId": "bay-area",
-            "regionName": "Bay Area",
-            "publisherMetroId": "san-francisco",
-            "publisherMetroName": "San Francisco",
-            "ownershipStatus": "Resolved",
-            "resolutionSource": "explicit district ownership",
-            "ownershipCandidates": [
-              {
-                "marketId": "east-bay",
-                "marketName": "East Bay",
-                "source": "explicit district ownership"
-              },
-              {
-                "marketId": "east-bay",
-                "marketName": "East Bay",
-                "source": "canonical public city ownership"
-              }
-            ],
-            "isFallbackAssignment": false,
-            "isExecutable": true,
-            "path": "/commercial-real-estate/CA/emeryville/emeryville-commercial-core/",
-            "signals": {
-              "publisherReadiness": "Distribution Ready",
-              "publisherScore": 96,
-              "districtConfidence": "high",
-              "publicPage": "Yes",
-              "representativeBuildings": 0,
-              "comparisonRelationships": 3,
-              "recommendationSignals": [
-                "space type fit",
-                "best fit",
-                "validation questions"
-              ]
-            },
-            "expansionWeight": 1596
           },
           {
             "districtId": "folsom-commercial-core",
@@ -23080,33 +23064,6 @@
           },
           {
             "rank": 43,
-            "districtId": "emeryville-commercial-core",
-            "districtName": "Emeryville Commercial Core",
-            "city": "Emeryville",
-            "state": "CA",
-            "metroId": "east-bay",
-            "metroName": "East Bay",
-            "marketId": "east-bay",
-            "marketName": "East Bay",
-            "regionId": "bay-area",
-            "regionName": "Bay Area",
-            "publisherMetroId": "san-francisco",
-            "publisherMetroName": "San Francisco",
-            "ownershipStatus": "Resolved",
-            "resolutionSource": "explicit district ownership",
-            "path": "/commercial-real-estate/CA/emeryville/emeryville-commercial-core/",
-            "rationale": [
-              "East Bay is the operational Market Workspace.",
-              "Publisher analysis backing: San Francisco.",
-              "Ownership resolved by explicit district ownership.",
-              "Publisher readiness: Distribution Ready.",
-              "Public district page exists.",
-              "Knowledge Graph confidence: high.",
-              "3 comparison relationships exist."
-            ]
-          },
-          {
-            "rank": 44,
             "districtId": "downtown-palo-alto",
             "districtName": "Downtown Palo Alto",
             "city": "Palo Alto",
@@ -23133,7 +23090,7 @@
             ]
           },
           {
-            "rank": 45,
+            "rank": 44,
             "districtId": "stanford-research-park",
             "districtName": "Stanford Research Park",
             "city": "Palo Alto",
@@ -23160,7 +23117,7 @@
             ]
           },
           {
-            "rank": 46,
+            "rank": 45,
             "districtId": "downtown-redwood-city",
             "districtName": "Downtown Redwood City",
             "city": "Redwood City",
@@ -23187,7 +23144,7 @@
             ]
           },
           {
-            "rank": 47,
+            "rank": 46,
             "districtId": "kent-valley",
             "districtName": "Kent Valley",
             "city": "Kent",
@@ -23215,7 +23172,7 @@
             ]
           },
           {
-            "rank": 48,
+            "rank": 47,
             "districtId": "sodo-industrial",
             "districtName": "SODO Industrial",
             "city": "Seattle",
@@ -23243,7 +23200,7 @@
             ]
           },
           {
-            "rank": 49,
+            "rank": 48,
             "districtId": "north-bayshore",
             "districtName": "North Bayshore",
             "city": "Mountain View",
@@ -23270,7 +23227,7 @@
             ]
           },
           {
-            "rank": 50,
+            "rank": 49,
             "districtId": "university-research-park",
             "districtName": "University Research Park",
             "city": "Irvine",
@@ -23298,7 +23255,7 @@
             ]
           },
           {
-            "rank": 51,
+            "rank": 50,
             "districtId": "south-oc-medical-professional",
             "districtName": "South OC Medical & Professional",
             "city": "Mission Viejo",
@@ -23326,7 +23283,7 @@
             ]
           },
           {
-            "rank": 52,
+            "rank": 51,
             "districtId": "warm-springs-innovation-district",
             "districtName": "Warm Springs Innovation District",
             "city": "Fremont",
@@ -23353,7 +23310,7 @@
             ]
           },
           {
-            "rank": 53,
+            "rank": 52,
             "districtId": "hayward-industrial",
             "districtName": "Hayward Industrial",
             "city": "Hayward",
@@ -23380,7 +23337,7 @@
             ]
           },
           {
-            "rank": 54,
+            "rank": 53,
             "districtId": "jack-london-square",
             "districtName": "Jack London Square",
             "city": "Oakland",
@@ -23407,7 +23364,7 @@
             ]
           },
           {
-            "rank": 55,
+            "rank": 54,
             "districtId": "union-city-industrial",
             "districtName": "Union City Industrial",
             "city": "Union City",
@@ -23434,7 +23391,7 @@
             ]
           },
           {
-            "rank": 56,
+            "rank": 55,
             "districtId": "north-san-jose",
             "districtName": "North San Jose",
             "city": "San Jose",
@@ -23461,7 +23418,7 @@
             ]
           },
           {
-            "rank": 57,
+            "rank": 56,
             "districtId": "moffett-park",
             "districtName": "Moffett Park",
             "city": "Sunnyvale",
@@ -23488,7 +23445,7 @@
             ]
           },
           {
-            "rank": 58,
+            "rank": 57,
             "districtId": "georgetown-industrial",
             "districtName": "Georgetown Industrial",
             "city": "Seattle",
@@ -23515,7 +23472,7 @@
             ]
           },
           {
-            "rank": 59,
+            "rank": 58,
             "districtId": "eastside-tech-office-corridor",
             "districtName": "Eastside Tech Office Corridor",
             "city": "Redmond",
@@ -23543,7 +23500,7 @@
             ]
           },
           {
-            "rank": 60,
+            "rank": 59,
             "districtId": "belltown-waterfront-office",
             "districtName": "Belltown / Waterfront Creative Office",
             "city": "Seattle",
@@ -23571,7 +23528,7 @@
             ]
           },
           {
-            "rank": 61,
+            "rank": 60,
             "districtId": "pioneer-square-waterfront-office",
             "districtName": "Pioneer Square / Waterfront Office",
             "city": "Seattle",
@@ -23599,7 +23556,7 @@
             ]
           },
           {
-            "rank": 62,
+            "rank": 61,
             "districtId": "oceanside-industrial",
             "districtName": "Oceanside Industrial",
             "city": "Oceanside",
@@ -23627,7 +23584,7 @@
             ]
           },
           {
-            "rank": 63,
+            "rank": 62,
             "districtId": "golden",
             "districtName": "Golden",
             "city": "Golden",
@@ -23654,7 +23611,7 @@
             ]
           },
           {
-            "rank": 64,
+            "rank": 63,
             "districtId": "ballard-interbay-industrial",
             "districtName": "Ballard / Interbay Industrial",
             "city": "Seattle",
@@ -23682,7 +23639,7 @@
             ]
           },
           {
-            "rank": 65,
+            "rank": 64,
             "districtId": "first-hill-medical",
             "districtName": "First Hill Medical District",
             "city": "Seattle",
@@ -23709,7 +23666,7 @@
             ]
           },
           {
-            "rank": 66,
+            "rank": 65,
             "districtId": "downtown-san-mateo",
             "districtName": "Downtown San Mateo",
             "city": "San Mateo",
@@ -23736,7 +23693,7 @@
             ]
           },
           {
-            "rank": 67,
+            "rank": 66,
             "districtId": "lake-forest-business-park",
             "districtName": "Lake Forest Business Park",
             "city": "Lake Forest",
@@ -23764,7 +23721,7 @@
             ]
           },
           {
-            "rank": 68,
+            "rank": 67,
             "districtId": "fullerton",
             "districtName": "Fullerton",
             "city": "Fullerton",
@@ -23791,7 +23748,7 @@
             ]
           },
           {
-            "rank": 69,
+            "rank": 68,
             "districtId": "tustin-legacy",
             "districtName": "Tustin Legacy",
             "city": "Tustin",
@@ -23818,7 +23775,7 @@
             ]
           },
           {
-            "rank": 70,
+            "rank": 69,
             "districtId": "commerce-city",
             "districtName": "Commerce City",
             "city": "Commerce City",
@@ -23845,7 +23802,7 @@
             ]
           },
           {
-            "rank": 71,
+            "rank": 70,
             "districtId": "lone-tree",
             "districtName": "Lone Tree",
             "city": "Lone Tree",
@@ -29928,7 +29885,7 @@
             },
             "eligibleForExecution": true,
             "executionReadiness": "Queued",
-            "orderingRank": 70,
+            "orderingRank": 69,
             "orderingRationale": [
               "Denver is the operational Market Workspace.",
               "Publisher analysis backing: Denver.",
@@ -29986,7 +29943,7 @@
             },
             "eligibleForExecution": true,
             "executionReadiness": "Queued",
-            "orderingRank": 63,
+            "orderingRank": 62,
             "orderingRationale": [
               "Denver is the operational Market Workspace.",
               "Publisher analysis backing: Denver.",
@@ -30162,7 +30119,7 @@
             },
             "eligibleForExecution": true,
             "executionReadiness": "Queued",
-            "orderingRank": 71,
+            "orderingRank": 70,
             "orderingRationale": [
               "Denver is the operational Market Workspace.",
               "Publisher analysis backing: Denver.",
@@ -30824,7 +30781,7 @@
             },
             "eligibleForExecution": true,
             "executionReadiness": "Queued",
-            "orderingRank": 53,
+            "orderingRank": 52,
             "orderingRationale": [
               "East Bay is the operational Market Workspace.",
               "Publisher analysis backing: San Francisco.",
@@ -30974,7 +30931,7 @@
             },
             "eligibleForExecution": true,
             "executionReadiness": "Queued",
-            "orderingRank": 55,
+            "orderingRank": 54,
             "orderingRationale": [
               "East Bay is the operational Market Workspace.",
               "Publisher analysis backing: San Francisco.",
@@ -31098,7 +31055,7 @@
             },
             "eligibleForExecution": true,
             "executionReadiness": "Queued",
-            "orderingRank": 52,
+            "orderingRank": 51,
             "orderingRationale": [
               "East Bay is the operational Market Workspace.",
               "Publisher analysis backing: San Francisco.",
@@ -31196,7 +31153,7 @@
             },
             "eligibleForExecution": true,
             "executionReadiness": "Queued",
-            "orderingRank": 54,
+            "orderingRank": 53,
             "orderingRationale": [
               "East Bay is the operational Market Workspace.",
               "Publisher analysis backing: San Francisco.",
@@ -31205,64 +31162,6 @@
               "Public district page exists.",
               "Knowledge Graph confidence: high.",
               "2 comparison relationships exist."
-            ],
-            "groupingRationale": [
-              "Commercial Market Evidence collection and required Building Profiles should be created from one district research pass.",
-              "Representative evidence selection, source-data collection, profile references, and validation remain hidden Work Items inside one Mission.",
-              "Publisher scoring and recommendation behavior remain unchanged."
-            ],
-            "splitRationale": [
-              "No split required; missing district collection starts as one Standard mission."
-            ],
-            "confidence": "Medium"
-          },
-          {
-            "evidenceMissionId": "district-building-evidence:east-bay:emeryville-commercial-core",
-            "marketId": "east-bay",
-            "marketName": "East Bay",
-            "programId": "commercial_market_evidence",
-            "campaignId": "east-bay:commercial_market_evidence:completion-campaign",
-            "districtId": "emeryville-commercial-core",
-            "districtName": "Emeryville Commercial Core",
-            "districtPath": "/commercial-real-estate/CA/emeryville/emeryville-commercial-core/",
-            "cmeStatus": "Missing",
-            "collectionId": "",
-            "evidenceRecordCount": 0,
-            "evidenceProfileCoverage": {
-              "completed": 0,
-              "target": 0,
-              "missing": 0,
-              "label": "Collection missing"
-            },
-            "supportingProfileCoverage": {
-              "completed": 0,
-              "target": 0,
-              "missing": 0,
-              "label": "To be selected during collection work"
-            },
-            "unresolvedBuildingItems": 0,
-            "validationStatus": "Requires validation",
-            "districtMissionStatus": "Missing",
-            "workItems": [],
-            "workItemCount": 1,
-            "deferredWorkItems": [],
-            "missionSize": {
-              "id": "standard",
-              "label": "Standard",
-              "reviewWindow": "60-120 minutes",
-              "maximumWorkItems": 8
-            },
-            "eligibleForExecution": true,
-            "executionReadiness": "Queued",
-            "orderingRank": 43,
-            "orderingRationale": [
-              "East Bay is the operational Market Workspace.",
-              "Publisher analysis backing: San Francisco.",
-              "Ownership resolved by explicit district ownership.",
-              "Publisher readiness: Distribution Ready.",
-              "Public district page exists.",
-              "Knowledge Graph confidence: high.",
-              "3 comparison relationships exist."
             ],
             "groupingRationale": [
               "Commercial Market Evidence collection and required Building Profiles should be created from one district research pass.",
@@ -31339,6 +31238,54 @@
               "target": 10,
               "missing": 0,
               "label": "10 / 10"
+            },
+            "supportingProfileCoverage": {
+              "completed": 0,
+              "target": 0,
+              "missing": 0,
+              "label": "No supporting profile work selected"
+            },
+            "unresolvedBuildingItems": 0,
+            "validationStatus": "Requires validation",
+            "districtMissionStatus": "Complete",
+            "workItems": [],
+            "workItemCount": 0,
+            "deferredWorkItems": [],
+            "missionSize": {
+              "id": "small",
+              "label": "Small",
+              "reviewWindow": "30-60 minutes",
+              "maximumWorkItems": 3
+            },
+            "eligibleForExecution": false,
+            "executionReadiness": "Complete",
+            "groupingRationale": [
+              "Commercial Market Evidence and selected Building Profiles share district research context, source paths, and validation flow.",
+              "Existing Commercial Market Evidence collection remains intact; mission focuses on validating the collection and completing selected evidence Building Profiles.",
+              "Evidence records remain hidden Work Items; Building Profile content stays in Commercial Building Intelligence."
+            ],
+            "splitRationale": [
+              "No split required; district building evidence stays within the configured mission-size upper bound."
+            ],
+            "confidence": "High"
+          },
+          {
+            "evidenceMissionId": "district-building-evidence:east-bay:emeryville-commercial-core",
+            "marketId": "east-bay",
+            "marketName": "East Bay",
+            "programId": "commercial_market_evidence",
+            "campaignId": "east-bay:commercial_market_evidence:completion-campaign",
+            "districtId": "emeryville-commercial-core",
+            "districtName": "Emeryville Commercial Core",
+            "districtPath": "/commercial-real-estate/CA/emeryville/emeryville-commercial-core/",
+            "cmeStatus": "Complete",
+            "collectionId": "emeryville-commercial-core-commercial-market-evidence",
+            "evidenceRecordCount": 5,
+            "evidenceProfileCoverage": {
+              "completed": 0,
+              "target": 0,
+              "missing": 0,
+              "label": "0 / 0"
             },
             "supportingProfileCoverage": {
               "completed": 0,
@@ -32191,7 +32138,7 @@
             },
             "eligibleForExecution": true,
             "executionReadiness": "Queued",
-            "orderingRank": 51,
+            "orderingRank": 50,
             "orderingRationale": [
               "Orange County is the operational Market Workspace.",
               "Publisher analysis backing: Orange County.",
@@ -32290,7 +32237,7 @@
             },
             "eligibleForExecution": true,
             "executionReadiness": "Queued",
-            "orderingRank": 50,
+            "orderingRank": 49,
             "orderingRationale": [
               "Orange County is the operational Market Workspace.",
               "Publisher analysis backing: Orange County.",
@@ -32349,7 +32296,7 @@
             },
             "eligibleForExecution": true,
             "executionReadiness": "Queued",
-            "orderingRank": 68,
+            "orderingRank": 67,
             "orderingRationale": [
               "Orange County is the operational Market Workspace.",
               "Publisher analysis backing: Orange County.",
@@ -32407,7 +32354,7 @@
             },
             "eligibleForExecution": true,
             "executionReadiness": "Queued",
-            "orderingRank": 67,
+            "orderingRank": 66,
             "orderingRationale": [
               "Orange County is the operational Market Workspace.",
               "Publisher analysis backing: Orange County.",
@@ -32466,7 +32413,7 @@
             },
             "eligibleForExecution": true,
             "executionReadiness": "Queued",
-            "orderingRank": 69,
+            "orderingRank": 68,
             "orderingRationale": [
               "Orange County is the operational Market Workspace.",
               "Publisher analysis backing: Orange County.",
@@ -32564,7 +32511,7 @@
             },
             "eligibleForExecution": true,
             "executionReadiness": "Queued",
-            "orderingRank": 44,
+            "orderingRank": 43,
             "orderingRationale": [
               "Peninsula is the operational Market Workspace.",
               "Publisher analysis backing: San Francisco.",
@@ -32622,7 +32569,7 @@
             },
             "eligibleForExecution": true,
             "executionReadiness": "Queued",
-            "orderingRank": 46,
+            "orderingRank": 45,
             "orderingRationale": [
               "Peninsula is the operational Market Workspace.",
               "Publisher analysis backing: San Francisco.",
@@ -32680,7 +32627,7 @@
             },
             "eligibleForExecution": true,
             "executionReadiness": "Queued",
-            "orderingRank": 66,
+            "orderingRank": 65,
             "orderingRationale": [
               "Peninsula is the operational Market Workspace.",
               "Publisher analysis backing: San Francisco.",
@@ -32738,7 +32685,7 @@
             },
             "eligibleForExecution": true,
             "executionReadiness": "Queued",
-            "orderingRank": 45,
+            "orderingRank": 44,
             "orderingRationale": [
               "Peninsula is the operational Market Workspace.",
               "Publisher analysis backing: San Francisco.",
@@ -34945,7 +34892,7 @@
             },
             "eligibleForExecution": true,
             "executionReadiness": "Queued",
-            "orderingRank": 62,
+            "orderingRank": 61,
             "orderingRationale": [
               "San Diego is the operational Market Workspace.",
               "Publisher analysis backing: San Diego.",
@@ -36650,7 +36597,7 @@
             },
             "eligibleForExecution": true,
             "executionReadiness": "Queued",
-            "orderingRank": 64,
+            "orderingRank": 63,
             "orderingRationale": [
               "Seattle is the operational Market Workspace.",
               "Publisher analysis backing: Seattle.",
@@ -36768,7 +36715,7 @@
             },
             "eligibleForExecution": true,
             "executionReadiness": "Queued",
-            "orderingRank": 60,
+            "orderingRank": 59,
             "orderingRationale": [
               "Seattle is the operational Market Workspace.",
               "Publisher analysis backing: Seattle.",
@@ -36886,7 +36833,7 @@
             },
             "eligibleForExecution": true,
             "executionReadiness": "Queued",
-            "orderingRank": 59,
+            "orderingRank": 58,
             "orderingRationale": [
               "Seattle is the operational Market Workspace.",
               "Publisher analysis backing: Seattle.",
@@ -36945,7 +36892,7 @@
             },
             "eligibleForExecution": true,
             "executionReadiness": "Queued",
-            "orderingRank": 65,
+            "orderingRank": 64,
             "orderingRationale": [
               "Seattle is the operational Market Workspace.",
               "Publisher analysis backing: Seattle.",
@@ -37003,7 +36950,7 @@
             },
             "eligibleForExecution": true,
             "executionReadiness": "Queued",
-            "orderingRank": 58,
+            "orderingRank": 57,
             "orderingRationale": [
               "Seattle is the operational Market Workspace.",
               "Publisher analysis backing: Seattle.",
@@ -37061,7 +37008,7 @@
             },
             "eligibleForExecution": true,
             "executionReadiness": "Queued",
-            "orderingRank": 47,
+            "orderingRank": 46,
             "orderingRationale": [
               "Seattle is the operational Market Workspace.",
               "Publisher analysis backing: Seattle.",
@@ -37120,7 +37067,7 @@
             },
             "eligibleForExecution": true,
             "executionReadiness": "Queued",
-            "orderingRank": 61,
+            "orderingRank": 60,
             "orderingRationale": [
               "Seattle is the operational Market Workspace.",
               "Publisher analysis backing: Seattle.",
@@ -37179,7 +37126,7 @@
             },
             "eligibleForExecution": true,
             "executionReadiness": "Queued",
-            "orderingRank": 48,
+            "orderingRank": 47,
             "orderingRationale": [
               "Seattle is the operational Market Workspace.",
               "Publisher analysis backing: Seattle.",
@@ -37238,7 +37185,7 @@
             },
             "eligibleForExecution": true,
             "executionReadiness": "Queued",
-            "orderingRank": 57,
+            "orderingRank": 56,
             "orderingRationale": [
               "South Bay is the operational Market Workspace.",
               "Publisher analysis backing: San Francisco.",
@@ -37296,7 +37243,7 @@
             },
             "eligibleForExecution": true,
             "executionReadiness": "Queued",
-            "orderingRank": 49,
+            "orderingRank": 48,
             "orderingRationale": [
               "South Bay is the operational Market Workspace.",
               "Publisher analysis backing: San Francisco.",
@@ -37354,7 +37301,7 @@
             },
             "eligibleForExecution": true,
             "executionReadiness": "Queued",
-            "orderingRank": 56,
+            "orderingRank": 55,
             "orderingRationale": [
               "South Bay is the operational Market Workspace.",
               "Publisher analysis backing: San Francisco.",
@@ -37377,11 +37324,11 @@
         ],
         "summary": {
           "districts": 94,
-          "executableDistrictMissions": 79,
-          "completedDistricts": 15,
+          "executableDistrictMissions": 78,
+          "completedDistricts": 16,
           "inProgressDistricts": 8,
-          "missingCollections": 71,
-          "hiddenWorkItems": 280,
+          "missingCollections": 70,
+          "hiddenWorkItems": 279,
           "unresolvedBuildingItems": 0
         }
       }
@@ -38379,7 +38326,7 @@
                       },
                       "eligibleForExecution": true,
                       "executionReadiness": "Queued",
-                      "orderingRank": 70,
+                      "orderingRank": 69,
                       "orderingRationale": [
                         "Denver is the operational Market Workspace.",
                         "Publisher analysis backing: Denver.",
@@ -38437,7 +38384,7 @@
                       },
                       "eligibleForExecution": true,
                       "executionReadiness": "Queued",
-                      "orderingRank": 63,
+                      "orderingRank": 62,
                       "orderingRationale": [
                         "Denver is the operational Market Workspace.",
                         "Publisher analysis backing: Denver.",
@@ -38613,7 +38560,7 @@
                       },
                       "eligibleForExecution": true,
                       "executionReadiness": "Queued",
-                      "orderingRank": 71,
+                      "orderingRank": 70,
                       "orderingRationale": [
                         "Denver is the operational Market Workspace.",
                         "Publisher analysis backing: Denver.",
@@ -39971,19 +39918,19 @@
             "status": "Partial",
             "progress": {
               "unit": "Collections",
-              "completed": 3,
+              "completed": 4,
               "target": 8,
-              "label": "3 / 8 Collections",
+              "label": "4 / 8 Collections",
               "statusLabel": "Partial",
-              "currentConstraint": "5 district collections remain unbuilt.",
+              "currentConstraint": "4 district collections remain unbuilt.",
               "sourceEvidence": [
                 "Commercial Market Evidence collection registry.",
                 "Commercial Location Knowledge Graph district nodes."
               ]
             },
-            "currentConstraint": "Emeryville Commercial Core lacks a Commercial Market Evidence collection and selected evidence Building Profiles.",
-            "nextMissionId": "mission:east-bay:district-building-evidence:emeryville-commercial-core",
-            "nextInitiativeId": "east-bay:commercial_market_evidence:emeryville-commercial-core",
+            "currentConstraint": "Hayward Industrial lacks a Commercial Market Evidence collection and selected evidence Building Profiles.",
+            "nextMissionId": "mission:east-bay:district-building-evidence:hayward-industrial",
+            "nextInitiativeId": "east-bay:commercial_market_evidence:hayward-industrial",
             "campaigns": [
               {
                 "id": "east-bay:commercial_market_evidence:completion-campaign",
@@ -39991,19 +39938,19 @@
                 "status": "Partial",
                 "progress": {
                   "unit": "Collections",
-                  "completed": 3,
+                  "completed": 4,
                   "target": 8,
-                  "label": "3 / 8 Collections",
+                  "label": "4 / 8 Collections",
                   "statusLabel": "Partial",
-                  "currentConstraint": "5 district collections remain unbuilt.",
+                  "currentConstraint": "4 district collections remain unbuilt.",
                   "sourceEvidence": [
                     "Commercial Market Evidence collection registry.",
                     "Commercial Location Knowledge Graph district nodes."
                   ]
                 },
-                "currentConstraint": "Emeryville Commercial Core lacks a Commercial Market Evidence collection and selected evidence Building Profiles.",
-                "missionCount": 5,
-                "workItemCount": 27,
+                "currentConstraint": "Hayward Industrial lacks a Commercial Market Evidence collection and selected evidence Building Profiles.",
+                "missionCount": 4,
+                "workItemCount": 26,
                 "districtBuildingEvidence": {
                   "districts": [
                     {
@@ -40136,7 +40083,7 @@
                       },
                       "eligibleForExecution": true,
                       "executionReadiness": "Queued",
-                      "orderingRank": 53,
+                      "orderingRank": 52,
                       "orderingRationale": [
                         "East Bay is the operational Market Workspace.",
                         "Publisher analysis backing: San Francisco.",
@@ -40286,7 +40233,7 @@
                       },
                       "eligibleForExecution": true,
                       "executionReadiness": "Queued",
-                      "orderingRank": 55,
+                      "orderingRank": 54,
                       "orderingRationale": [
                         "East Bay is the operational Market Workspace.",
                         "Publisher analysis backing: San Francisco.",
@@ -40410,7 +40357,7 @@
                       },
                       "eligibleForExecution": true,
                       "executionReadiness": "Queued",
-                      "orderingRank": 52,
+                      "orderingRank": 51,
                       "orderingRationale": [
                         "East Bay is the operational Market Workspace.",
                         "Publisher analysis backing: San Francisco.",
@@ -40508,7 +40455,7 @@
                       },
                       "eligibleForExecution": true,
                       "executionReadiness": "Queued",
-                      "orderingRank": 54,
+                      "orderingRank": 53,
                       "orderingRationale": [
                         "East Bay is the operational Market Workspace.",
                         "Publisher analysis backing: San Francisco.",
@@ -40517,64 +40464,6 @@
                         "Public district page exists.",
                         "Knowledge Graph confidence: high.",
                         "2 comparison relationships exist."
-                      ],
-                      "groupingRationale": [
-                        "Commercial Market Evidence collection and required Building Profiles should be created from one district research pass.",
-                        "Representative evidence selection, source-data collection, profile references, and validation remain hidden Work Items inside one Mission.",
-                        "Publisher scoring and recommendation behavior remain unchanged."
-                      ],
-                      "splitRationale": [
-                        "No split required; missing district collection starts as one Standard mission."
-                      ],
-                      "confidence": "Medium"
-                    },
-                    {
-                      "evidenceMissionId": "district-building-evidence:east-bay:emeryville-commercial-core",
-                      "marketId": "east-bay",
-                      "marketName": "East Bay",
-                      "programId": "commercial_market_evidence",
-                      "campaignId": "east-bay:commercial_market_evidence:completion-campaign",
-                      "districtId": "emeryville-commercial-core",
-                      "districtName": "Emeryville Commercial Core",
-                      "districtPath": "/commercial-real-estate/CA/emeryville/emeryville-commercial-core/",
-                      "cmeStatus": "Missing",
-                      "collectionId": "",
-                      "evidenceRecordCount": 0,
-                      "evidenceProfileCoverage": {
-                        "completed": 0,
-                        "target": 0,
-                        "missing": 0,
-                        "label": "Collection missing"
-                      },
-                      "supportingProfileCoverage": {
-                        "completed": 0,
-                        "target": 0,
-                        "missing": 0,
-                        "label": "To be selected during collection work"
-                      },
-                      "unresolvedBuildingItems": 0,
-                      "validationStatus": "Requires validation",
-                      "districtMissionStatus": "Missing",
-                      "workItems": [],
-                      "workItemCount": 1,
-                      "deferredWorkItems": [],
-                      "missionSize": {
-                        "id": "standard",
-                        "label": "Standard",
-                        "reviewWindow": "60-120 minutes",
-                        "maximumWorkItems": 8
-                      },
-                      "eligibleForExecution": true,
-                      "executionReadiness": "Queued",
-                      "orderingRank": 43,
-                      "orderingRationale": [
-                        "East Bay is the operational Market Workspace.",
-                        "Publisher analysis backing: San Francisco.",
-                        "Ownership resolved by explicit district ownership.",
-                        "Publisher readiness: Distribution Ready.",
-                        "Public district page exists.",
-                        "Knowledge Graph confidence: high.",
-                        "3 comparison relationships exist."
                       ],
                       "groupingRationale": [
                         "Commercial Market Evidence collection and required Building Profiles should be created from one district research pass.",
@@ -40683,6 +40572,54 @@
                       "confidence": "High"
                     },
                     {
+                      "evidenceMissionId": "district-building-evidence:east-bay:emeryville-commercial-core",
+                      "marketId": "east-bay",
+                      "marketName": "East Bay",
+                      "programId": "commercial_market_evidence",
+                      "campaignId": "east-bay:commercial_market_evidence:completion-campaign",
+                      "districtId": "emeryville-commercial-core",
+                      "districtName": "Emeryville Commercial Core",
+                      "districtPath": "/commercial-real-estate/CA/emeryville/emeryville-commercial-core/",
+                      "cmeStatus": "Complete",
+                      "collectionId": "emeryville-commercial-core-commercial-market-evidence",
+                      "evidenceRecordCount": 5,
+                      "evidenceProfileCoverage": {
+                        "completed": 0,
+                        "target": 0,
+                        "missing": 0,
+                        "label": "0 / 0"
+                      },
+                      "supportingProfileCoverage": {
+                        "completed": 0,
+                        "target": 0,
+                        "missing": 0,
+                        "label": "No supporting profile work selected"
+                      },
+                      "unresolvedBuildingItems": 0,
+                      "validationStatus": "Requires validation",
+                      "districtMissionStatus": "Complete",
+                      "workItems": [],
+                      "workItemCount": 0,
+                      "deferredWorkItems": [],
+                      "missionSize": {
+                        "id": "small",
+                        "label": "Small",
+                        "reviewWindow": "30-60 minutes",
+                        "maximumWorkItems": 3
+                      },
+                      "eligibleForExecution": false,
+                      "executionReadiness": "Complete",
+                      "groupingRationale": [
+                        "Commercial Market Evidence and selected Building Profiles share district research context, source paths, and validation flow.",
+                        "Existing Commercial Market Evidence collection remains intact; mission focuses on validating the collection and completing selected evidence Building Profiles.",
+                        "Evidence records remain hidden Work Items; Building Profile content stays in Commercial Building Intelligence."
+                      ],
+                      "splitRationale": [
+                        "No split required; district building evidence stays within the configured mission-size upper bound."
+                      ],
+                      "confidence": "High"
+                    },
+                    {
                       "evidenceMissionId": "district-building-evidence:east-bay:west-berkeley",
                       "marketId": "east-bay",
                       "marketName": "East Bay",
@@ -40731,11 +40668,11 @@
                       "confidence": "High"
                     }
                   ],
-                  "executableDistrictMissionCount": 5,
-                  "completeDistrictCount": 3,
+                  "executableDistrictMissionCount": 4,
+                  "completeDistrictCount": 4,
                   "inProgressDistrictCount": 0,
-                  "missingDistrictCount": 5,
-                  "hiddenWorkItemCount": 27,
+                  "missingDistrictCount": 4,
+                  "hiddenWorkItemCount": 26,
                   "unresolvedBuildingItemCount": 0
                 },
                 "sizingStrategy": "District Building Evidence missions combine Commercial Market Evidence and selected Building Profiles when both share one district workflow. Evidence records and building Work Items stay hidden inside one reviewable SER."
@@ -40743,19 +40680,19 @@
             ],
             "initiatives": [
               {
-                "id": "east-bay:commercial_market_evidence:emeryville-commercial-core",
-                "title": "Emeryville Commercial Core Building Evidence",
+                "id": "east-bay:commercial_market_evidence:hayward-industrial",
+                "title": "Hayward Industrial Building Evidence",
                 "status": "Next",
                 "currentStage": "Next",
-                "currentConstraint": "Emeryville Commercial Core lacks a Commercial Market Evidence collection and selected evidence Building Profiles.",
-                "objective": "Create the Emeryville Commercial Core Commercial Market Evidence collection and required selected Building Profiles.",
-                "nextMissionId": "mission:east-bay:district-building-evidence:emeryville-commercial-core",
+                "currentConstraint": "Hayward Industrial lacks a Commercial Market Evidence collection and selected evidence Building Profiles.",
+                "objective": "Create the Hayward Industrial Commercial Market Evidence collection and required selected Building Profiles.",
+                "nextMissionId": "mission:east-bay:district-building-evidence:hayward-industrial",
                 "missions": [
                   {
-                    "id": "mission:east-bay:district-building-evidence:emeryville-commercial-core",
-                    "title": "Complete Emeryville Commercial Core Building Evidence",
+                    "id": "mission:east-bay:district-building-evidence:hayward-industrial",
+                    "title": "Complete Hayward Industrial Building Evidence",
                     "programLabel": "Commercial Market Evidence",
-                    "currentConstraint": "Emeryville Commercial Core lacks a Commercial Market Evidence collection and selected evidence Building Profiles.",
+                    "currentConstraint": "Hayward Industrial lacks a Commercial Market Evidence collection and selected evidence Building Profiles.",
                     "expectedImpact": "High",
                     "estimatedEffort": "Medium",
                     "missionSize": {
@@ -40766,7 +40703,7 @@
                     },
                     "missionClass": "Foundation",
                     "workItems": {
-                      "count": 1
+                      "count": 8
                     },
                     "componentStatuses": {
                       "commercialMarketEvidence": "Missing",
@@ -40779,9 +40716,9 @@
                       },
                       "supportingBuildingProfiles": {
                         "completed": 0,
-                        "target": 0,
-                        "missing": 0,
-                        "label": "To be selected during collection work"
+                        "target": 7,
+                        "missing": 7,
+                        "label": "0 / 7"
                       },
                       "unresolvedBuildingItems": 0,
                       "validationStatus": "Requires validation",
@@ -40830,54 +40767,6 @@
                         "target": 5,
                         "missing": 5,
                         "label": "0 / 5"
-                      },
-                      "unresolvedBuildingItems": 0,
-                      "validationStatus": "Requires validation",
-                      "districtBuildingEvidence": "Missing"
-                    }
-                  }
-                ]
-              },
-              {
-                "id": "east-bay:commercial_market_evidence:hayward-industrial",
-                "title": "Hayward Industrial Building Evidence",
-                "status": "Queued",
-                "currentStage": "Queued",
-                "currentConstraint": "Hayward Industrial lacks a Commercial Market Evidence collection and selected evidence Building Profiles.",
-                "objective": "Create the Hayward Industrial Commercial Market Evidence collection and required selected Building Profiles.",
-                "nextMissionId": "mission:east-bay:district-building-evidence:hayward-industrial",
-                "missions": [
-                  {
-                    "id": "mission:east-bay:district-building-evidence:hayward-industrial",
-                    "title": "Complete Hayward Industrial Building Evidence",
-                    "programLabel": "Commercial Market Evidence",
-                    "currentConstraint": "Hayward Industrial lacks a Commercial Market Evidence collection and selected evidence Building Profiles.",
-                    "expectedImpact": "High",
-                    "estimatedEffort": "Medium",
-                    "missionSize": {
-                      "id": "standard",
-                      "label": "Standard",
-                      "reviewWindow": "60-120 minutes",
-                      "maximumWorkItems": 8
-                    },
-                    "missionClass": "Foundation",
-                    "workItems": {
-                      "count": 8
-                    },
-                    "componentStatuses": {
-                      "commercialMarketEvidence": "Missing",
-                      "evidenceRecordCount": 0,
-                      "evidenceBuildingProfiles": {
-                        "completed": 0,
-                        "target": 0,
-                        "missing": 0,
-                        "label": "Collection missing"
-                      },
-                      "supportingBuildingProfiles": {
-                        "completed": 0,
-                        "target": 7,
-                        "missing": 7,
-                        "label": "0 / 7"
                       },
                       "unresolvedBuildingItems": 0,
                       "validationStatus": "Requires validation",
@@ -40999,6 +40888,16 @@
                 "currentStage": "Complete",
                 "currentConstraint": "Collection exists.",
                 "objective": "Maintain the completed Downtown Berkeley Commercial Market Evidence collection.",
+                "nextMissionId": "",
+                "missions": []
+              },
+              {
+                "id": "east-bay:commercial_market_evidence:emeryville-commercial-core",
+                "title": "Emeryville Commercial Core Collection",
+                "status": "Complete",
+                "currentStage": "Complete",
+                "currentConstraint": "Collection exists.",
+                "objective": "Maintain the completed Emeryville Commercial Core Commercial Market Evidence collection.",
                 "nextMissionId": "",
                 "missions": []
               },
@@ -41229,43 +41128,6 @@
         ],
         "nextMissions": [
           {
-            "id": "mission:east-bay:district-building-evidence:emeryville-commercial-core",
-            "title": "Complete Emeryville Commercial Core Building Evidence",
-            "programLabel": "Commercial Market Evidence",
-            "currentConstraint": "Emeryville Commercial Core lacks a Commercial Market Evidence collection and selected evidence Building Profiles.",
-            "expectedImpact": "High",
-            "estimatedEffort": "Medium",
-            "missionSize": {
-              "id": "standard",
-              "label": "Standard",
-              "reviewWindow": "60-120 minutes",
-              "maximumWorkItems": 8
-            },
-            "missionClass": "Foundation",
-            "workItems": {
-              "count": 1
-            },
-            "componentStatuses": {
-              "commercialMarketEvidence": "Missing",
-              "evidenceRecordCount": 0,
-              "evidenceBuildingProfiles": {
-                "completed": 0,
-                "target": 0,
-                "missing": 0,
-                "label": "Collection missing"
-              },
-              "supportingBuildingProfiles": {
-                "completed": 0,
-                "target": 0,
-                "missing": 0,
-                "label": "To be selected during collection work"
-              },
-              "unresolvedBuildingItems": 0,
-              "validationStatus": "Requires validation",
-              "districtBuildingEvidence": "Missing"
-            }
-          },
-          {
             "id": "mission:east-bay:district-building-evidence:hayward-industrial",
             "title": "Complete Hayward Industrial Building Evidence",
             "programLabel": "Commercial Market Evidence",
@@ -41333,6 +41195,43 @@
                 "target": 5,
                 "missing": 5,
                 "label": "0 / 5"
+              },
+              "unresolvedBuildingItems": 0,
+              "validationStatus": "Requires validation",
+              "districtBuildingEvidence": "Missing"
+            }
+          },
+          {
+            "id": "mission:east-bay:district-building-evidence:union-city-industrial",
+            "title": "Complete Union City Industrial Building Evidence",
+            "programLabel": "Commercial Market Evidence",
+            "currentConstraint": "Union City Industrial lacks a Commercial Market Evidence collection and selected evidence Building Profiles.",
+            "expectedImpact": "High",
+            "estimatedEffort": "Medium",
+            "missionSize": {
+              "id": "standard",
+              "label": "Standard",
+              "reviewWindow": "60-120 minutes",
+              "maximumWorkItems": 8
+            },
+            "missionClass": "Foundation",
+            "workItems": {
+              "count": 8
+            },
+            "componentStatuses": {
+              "commercialMarketEvidence": "Missing",
+              "evidenceRecordCount": 0,
+              "evidenceBuildingProfiles": {
+                "completed": 0,
+                "target": 0,
+                "missing": 0,
+                "label": "Collection missing"
+              },
+              "supportingBuildingProfiles": {
+                "completed": 0,
+                "target": 7,
+                "missing": 7,
+                "label": "0 / 7"
               },
               "unresolvedBuildingItems": 0,
               "validationStatus": "Requires validation",
@@ -42586,7 +42485,7 @@
                       },
                       "eligibleForExecution": true,
                       "executionReadiness": "Queued",
-                      "orderingRank": 51,
+                      "orderingRank": 50,
                       "orderingRationale": [
                         "Orange County is the operational Market Workspace.",
                         "Publisher analysis backing: Orange County.",
@@ -42685,7 +42584,7 @@
                       },
                       "eligibleForExecution": true,
                       "executionReadiness": "Queued",
-                      "orderingRank": 50,
+                      "orderingRank": 49,
                       "orderingRationale": [
                         "Orange County is the operational Market Workspace.",
                         "Publisher analysis backing: Orange County.",
@@ -42744,7 +42643,7 @@
                       },
                       "eligibleForExecution": true,
                       "executionReadiness": "Queued",
-                      "orderingRank": 68,
+                      "orderingRank": 67,
                       "orderingRationale": [
                         "Orange County is the operational Market Workspace.",
                         "Publisher analysis backing: Orange County.",
@@ -42802,7 +42701,7 @@
                       },
                       "eligibleForExecution": true,
                       "executionReadiness": "Queued",
-                      "orderingRank": 67,
+                      "orderingRank": 66,
                       "orderingRationale": [
                         "Orange County is the operational Market Workspace.",
                         "Publisher analysis backing: Orange County.",
@@ -42861,7 +42760,7 @@
                       },
                       "eligibleForExecution": true,
                       "executionReadiness": "Queued",
-                      "orderingRank": 69,
+                      "orderingRank": 68,
                       "orderingRationale": [
                         "Orange County is the operational Market Workspace.",
                         "Publisher analysis backing: Orange County.",
@@ -43802,7 +43701,7 @@
                       },
                       "eligibleForExecution": true,
                       "executionReadiness": "Queued",
-                      "orderingRank": 44,
+                      "orderingRank": 43,
                       "orderingRationale": [
                         "Peninsula is the operational Market Workspace.",
                         "Publisher analysis backing: San Francisco.",
@@ -43860,7 +43759,7 @@
                       },
                       "eligibleForExecution": true,
                       "executionReadiness": "Queued",
-                      "orderingRank": 46,
+                      "orderingRank": 45,
                       "orderingRationale": [
                         "Peninsula is the operational Market Workspace.",
                         "Publisher analysis backing: San Francisco.",
@@ -43918,7 +43817,7 @@
                       },
                       "eligibleForExecution": true,
                       "executionReadiness": "Queued",
-                      "orderingRank": 66,
+                      "orderingRank": 65,
                       "orderingRationale": [
                         "Peninsula is the operational Market Workspace.",
                         "Publisher analysis backing: San Francisco.",
@@ -43976,7 +43875,7 @@
                       },
                       "eligibleForExecution": true,
                       "executionReadiness": "Queued",
-                      "orderingRank": 45,
+                      "orderingRank": 44,
                       "orderingRationale": [
                         "Peninsula is the operational Market Workspace.",
                         "Publisher analysis backing: San Francisco.",
@@ -47732,7 +47631,7 @@
                       },
                       "eligibleForExecution": true,
                       "executionReadiness": "Queued",
-                      "orderingRank": 62,
+                      "orderingRank": 61,
                       "orderingRationale": [
                         "San Diego is the operational Market Workspace.",
                         "Publisher analysis backing: San Diego.",
@@ -51160,7 +51059,7 @@
                       },
                       "eligibleForExecution": true,
                       "executionReadiness": "Queued",
-                      "orderingRank": 64,
+                      "orderingRank": 63,
                       "orderingRationale": [
                         "Seattle is the operational Market Workspace.",
                         "Publisher analysis backing: Seattle.",
@@ -51278,7 +51177,7 @@
                       },
                       "eligibleForExecution": true,
                       "executionReadiness": "Queued",
-                      "orderingRank": 60,
+                      "orderingRank": 59,
                       "orderingRationale": [
                         "Seattle is the operational Market Workspace.",
                         "Publisher analysis backing: Seattle.",
@@ -51396,7 +51295,7 @@
                       },
                       "eligibleForExecution": true,
                       "executionReadiness": "Queued",
-                      "orderingRank": 59,
+                      "orderingRank": 58,
                       "orderingRationale": [
                         "Seattle is the operational Market Workspace.",
                         "Publisher analysis backing: Seattle.",
@@ -51455,7 +51354,7 @@
                       },
                       "eligibleForExecution": true,
                       "executionReadiness": "Queued",
-                      "orderingRank": 65,
+                      "orderingRank": 64,
                       "orderingRationale": [
                         "Seattle is the operational Market Workspace.",
                         "Publisher analysis backing: Seattle.",
@@ -51513,7 +51412,7 @@
                       },
                       "eligibleForExecution": true,
                       "executionReadiness": "Queued",
-                      "orderingRank": 58,
+                      "orderingRank": 57,
                       "orderingRationale": [
                         "Seattle is the operational Market Workspace.",
                         "Publisher analysis backing: Seattle.",
@@ -51571,7 +51470,7 @@
                       },
                       "eligibleForExecution": true,
                       "executionReadiness": "Queued",
-                      "orderingRank": 47,
+                      "orderingRank": 46,
                       "orderingRationale": [
                         "Seattle is the operational Market Workspace.",
                         "Publisher analysis backing: Seattle.",
@@ -51630,7 +51529,7 @@
                       },
                       "eligibleForExecution": true,
                       "executionReadiness": "Queued",
-                      "orderingRank": 61,
+                      "orderingRank": 60,
                       "orderingRationale": [
                         "Seattle is the operational Market Workspace.",
                         "Publisher analysis backing: Seattle.",
@@ -51689,7 +51588,7 @@
                       },
                       "eligibleForExecution": true,
                       "executionReadiness": "Queued",
-                      "orderingRank": 48,
+                      "orderingRank": 47,
                       "orderingRationale": [
                         "Seattle is the operational Market Workspace.",
                         "Publisher analysis backing: Seattle.",
@@ -52591,7 +52490,7 @@
                       },
                       "eligibleForExecution": true,
                       "executionReadiness": "Queued",
-                      "orderingRank": 57,
+                      "orderingRank": 56,
                       "orderingRationale": [
                         "South Bay is the operational Market Workspace.",
                         "Publisher analysis backing: San Francisco.",
@@ -52649,7 +52548,7 @@
                       },
                       "eligibleForExecution": true,
                       "executionReadiness": "Queued",
-                      "orderingRank": 49,
+                      "orderingRank": 48,
                       "orderingRationale": [
                         "South Bay is the operational Market Workspace.",
                         "Publisher analysis backing: San Francisco.",
@@ -52707,7 +52606,7 @@
                       },
                       "eligibleForExecution": true,
                       "executionReadiness": "Queued",
-                      "orderingRank": 56,
+                      "orderingRank": 55,
                       "orderingRationale": [
                         "South Bay is the operational Market Workspace.",
                         "Publisher analysis backing: San Francisco.",
@@ -54000,7 +53899,7 @@
               },
               "eligibleForExecution": true,
               "executionReadiness": "Queued",
-              "orderingRank": 70,
+              "orderingRank": 69,
               "orderingRationale": [
                 "Denver is the operational Market Workspace.",
                 "Publisher analysis backing: Denver.",
@@ -54058,7 +53957,7 @@
               },
               "eligibleForExecution": true,
               "executionReadiness": "Queued",
-              "orderingRank": 63,
+              "orderingRank": 62,
               "orderingRationale": [
                 "Denver is the operational Market Workspace.",
                 "Publisher analysis backing: Denver.",
@@ -54234,7 +54133,7 @@
               },
               "eligibleForExecution": true,
               "executionReadiness": "Queued",
-              "orderingRank": 71,
+              "orderingRank": 70,
               "orderingRationale": [
                 "Denver is the operational Market Workspace.",
                 "Publisher analysis backing: Denver.",
@@ -55061,38 +54960,37 @@
         "status": "Partial",
         "progress": {
           "unit": "Collections",
-          "completed": 3,
+          "completed": 4,
           "target": 8,
-          "label": "3 / 8 Collections",
+          "label": "4 / 8 Collections",
           "statusLabel": "Partial",
-          "currentConstraint": "5 district collections remain unbuilt.",
+          "currentConstraint": "4 district collections remain unbuilt.",
           "sourceEvidence": [
             "Commercial Market Evidence collection registry.",
             "Commercial Location Knowledge Graph district nodes."
           ]
         },
-        "currentConstraint": "Emeryville Commercial Core lacks a Commercial Market Evidence collection and selected evidence Building Profiles.",
-        "nextInitiativeId": "east-bay:commercial_market_evidence:emeryville-commercial-core",
-        "nextMissionId": "mission:east-bay:district-building-evidence:emeryville-commercial-core",
+        "currentConstraint": "Hayward Industrial lacks a Commercial Market Evidence collection and selected evidence Building Profiles.",
+        "nextInitiativeId": "east-bay:commercial_market_evidence:hayward-industrial",
+        "nextMissionId": "mission:east-bay:district-building-evidence:hayward-industrial",
         "initiativeIds": [
-          "east-bay:commercial_market_evidence:emeryville-commercial-core",
-          "east-bay:commercial_market_evidence:warm-springs-innovation-district",
           "east-bay:commercial_market_evidence:hayward-industrial",
+          "east-bay:commercial_market_evidence:warm-springs-innovation-district",
           "east-bay:commercial_market_evidence:jack-london-square",
           "east-bay:commercial_market_evidence:union-city-industrial",
           "east-bay:commercial_market_evidence:antioch-east-18th-industrial",
           "east-bay:commercial_market_evidence:downtown-berkeley",
+          "east-bay:commercial_market_evidence:emeryville-commercial-core",
           "east-bay:commercial_market_evidence:west-berkeley"
         ],
         "missionIds": [
-          "mission:east-bay:district-building-evidence:emeryville-commercial-core",
           "mission:east-bay:district-building-evidence:hayward-industrial",
           "mission:east-bay:district-building-evidence:warm-springs-innovation-district",
           "mission:east-bay:district-building-evidence:union-city-industrial",
           "mission:east-bay:district-building-evidence:jack-london-square"
         ],
-        "missionCount": 5,
-        "workItemCount": 27,
+        "missionCount": 4,
+        "workItemCount": 26,
         "districtBuildingEvidence": {
           "districts": [
             {
@@ -55225,7 +55123,7 @@
               },
               "eligibleForExecution": true,
               "executionReadiness": "Queued",
-              "orderingRank": 53,
+              "orderingRank": 52,
               "orderingRationale": [
                 "East Bay is the operational Market Workspace.",
                 "Publisher analysis backing: San Francisco.",
@@ -55375,7 +55273,7 @@
               },
               "eligibleForExecution": true,
               "executionReadiness": "Queued",
-              "orderingRank": 55,
+              "orderingRank": 54,
               "orderingRationale": [
                 "East Bay is the operational Market Workspace.",
                 "Publisher analysis backing: San Francisco.",
@@ -55499,7 +55397,7 @@
               },
               "eligibleForExecution": true,
               "executionReadiness": "Queued",
-              "orderingRank": 52,
+              "orderingRank": 51,
               "orderingRationale": [
                 "East Bay is the operational Market Workspace.",
                 "Publisher analysis backing: San Francisco.",
@@ -55597,7 +55495,7 @@
               },
               "eligibleForExecution": true,
               "executionReadiness": "Queued",
-              "orderingRank": 54,
+              "orderingRank": 53,
               "orderingRationale": [
                 "East Bay is the operational Market Workspace.",
                 "Publisher analysis backing: San Francisco.",
@@ -55606,64 +55504,6 @@
                 "Public district page exists.",
                 "Knowledge Graph confidence: high.",
                 "2 comparison relationships exist."
-              ],
-              "groupingRationale": [
-                "Commercial Market Evidence collection and required Building Profiles should be created from one district research pass.",
-                "Representative evidence selection, source-data collection, profile references, and validation remain hidden Work Items inside one Mission.",
-                "Publisher scoring and recommendation behavior remain unchanged."
-              ],
-              "splitRationale": [
-                "No split required; missing district collection starts as one Standard mission."
-              ],
-              "confidence": "Medium"
-            },
-            {
-              "evidenceMissionId": "district-building-evidence:east-bay:emeryville-commercial-core",
-              "marketId": "east-bay",
-              "marketName": "East Bay",
-              "programId": "commercial_market_evidence",
-              "campaignId": "east-bay:commercial_market_evidence:completion-campaign",
-              "districtId": "emeryville-commercial-core",
-              "districtName": "Emeryville Commercial Core",
-              "districtPath": "/commercial-real-estate/CA/emeryville/emeryville-commercial-core/",
-              "cmeStatus": "Missing",
-              "collectionId": "",
-              "evidenceRecordCount": 0,
-              "evidenceProfileCoverage": {
-                "completed": 0,
-                "target": 0,
-                "missing": 0,
-                "label": "Collection missing"
-              },
-              "supportingProfileCoverage": {
-                "completed": 0,
-                "target": 0,
-                "missing": 0,
-                "label": "To be selected during collection work"
-              },
-              "unresolvedBuildingItems": 0,
-              "validationStatus": "Requires validation",
-              "districtMissionStatus": "Missing",
-              "workItems": [],
-              "workItemCount": 1,
-              "deferredWorkItems": [],
-              "missionSize": {
-                "id": "standard",
-                "label": "Standard",
-                "reviewWindow": "60-120 minutes",
-                "maximumWorkItems": 8
-              },
-              "eligibleForExecution": true,
-              "executionReadiness": "Queued",
-              "orderingRank": 43,
-              "orderingRationale": [
-                "East Bay is the operational Market Workspace.",
-                "Publisher analysis backing: San Francisco.",
-                "Ownership resolved by explicit district ownership.",
-                "Publisher readiness: Distribution Ready.",
-                "Public district page exists.",
-                "Knowledge Graph confidence: high.",
-                "3 comparison relationships exist."
               ],
               "groupingRationale": [
                 "Commercial Market Evidence collection and required Building Profiles should be created from one district research pass.",
@@ -55772,6 +55612,54 @@
               "confidence": "High"
             },
             {
+              "evidenceMissionId": "district-building-evidence:east-bay:emeryville-commercial-core",
+              "marketId": "east-bay",
+              "marketName": "East Bay",
+              "programId": "commercial_market_evidence",
+              "campaignId": "east-bay:commercial_market_evidence:completion-campaign",
+              "districtId": "emeryville-commercial-core",
+              "districtName": "Emeryville Commercial Core",
+              "districtPath": "/commercial-real-estate/CA/emeryville/emeryville-commercial-core/",
+              "cmeStatus": "Complete",
+              "collectionId": "emeryville-commercial-core-commercial-market-evidence",
+              "evidenceRecordCount": 5,
+              "evidenceProfileCoverage": {
+                "completed": 0,
+                "target": 0,
+                "missing": 0,
+                "label": "0 / 0"
+              },
+              "supportingProfileCoverage": {
+                "completed": 0,
+                "target": 0,
+                "missing": 0,
+                "label": "No supporting profile work selected"
+              },
+              "unresolvedBuildingItems": 0,
+              "validationStatus": "Requires validation",
+              "districtMissionStatus": "Complete",
+              "workItems": [],
+              "workItemCount": 0,
+              "deferredWorkItems": [],
+              "missionSize": {
+                "id": "small",
+                "label": "Small",
+                "reviewWindow": "30-60 minutes",
+                "maximumWorkItems": 3
+              },
+              "eligibleForExecution": false,
+              "executionReadiness": "Complete",
+              "groupingRationale": [
+                "Commercial Market Evidence and selected Building Profiles share district research context, source paths, and validation flow.",
+                "Existing Commercial Market Evidence collection remains intact; mission focuses on validating the collection and completing selected evidence Building Profiles.",
+                "Evidence records remain hidden Work Items; Building Profile content stays in Commercial Building Intelligence."
+              ],
+              "splitRationale": [
+                "No split required; district building evidence stays within the configured mission-size upper bound."
+              ],
+              "confidence": "High"
+            },
+            {
               "evidenceMissionId": "district-building-evidence:east-bay:west-berkeley",
               "marketId": "east-bay",
               "marketName": "East Bay",
@@ -55820,16 +55708,16 @@
               "confidence": "High"
             }
           ],
-          "executableDistrictMissionCount": 5,
-          "completeDistrictCount": 3,
+          "executableDistrictMissionCount": 4,
+          "completeDistrictCount": 4,
           "inProgressDistrictCount": 0,
-          "missingDistrictCount": 5,
-          "hiddenWorkItemCount": 27,
+          "missingDistrictCount": 4,
+          "hiddenWorkItemCount": 26,
           "unresolvedBuildingItemCount": 0
         },
         "workItems": {
           "hiddenByDefault": true,
-          "count": 27
+          "count": 26
         },
         "sizingStrategy": "District Building Evidence missions combine Commercial Market Evidence and selected Building Profiles when both share one district workflow. Evidence records and building Work Items stay hidden inside one reviewable SER.",
         "reviewabilityPrinciple": "Campaigns are not executable. They advance through Missions sized to remain reviewable inside one SER.",
@@ -55838,17 +55726,16 @@
           "Commercial Location Knowledge Graph district nodes."
         ],
         "initiatives": [
-          "east-bay:commercial_market_evidence:emeryville-commercial-core",
-          "east-bay:commercial_market_evidence:warm-springs-innovation-district",
           "east-bay:commercial_market_evidence:hayward-industrial",
+          "east-bay:commercial_market_evidence:warm-springs-innovation-district",
           "east-bay:commercial_market_evidence:jack-london-square",
           "east-bay:commercial_market_evidence:union-city-industrial",
           "east-bay:commercial_market_evidence:antioch-east-18th-industrial",
           "east-bay:commercial_market_evidence:downtown-berkeley",
+          "east-bay:commercial_market_evidence:emeryville-commercial-core",
           "east-bay:commercial_market_evidence:west-berkeley"
         ],
         "missions": [
-          "mission:east-bay:district-building-evidence:emeryville-commercial-core",
           "mission:east-bay:district-building-evidence:hayward-industrial",
           "mission:east-bay:district-building-evidence:warm-springs-innovation-district",
           "mission:east-bay:district-building-evidence:union-city-industrial",
@@ -57094,7 +56981,7 @@
               },
               "eligibleForExecution": true,
               "executionReadiness": "Queued",
-              "orderingRank": 51,
+              "orderingRank": 50,
               "orderingRationale": [
                 "Orange County is the operational Market Workspace.",
                 "Publisher analysis backing: Orange County.",
@@ -57193,7 +57080,7 @@
               },
               "eligibleForExecution": true,
               "executionReadiness": "Queued",
-              "orderingRank": 50,
+              "orderingRank": 49,
               "orderingRationale": [
                 "Orange County is the operational Market Workspace.",
                 "Publisher analysis backing: Orange County.",
@@ -57252,7 +57139,7 @@
               },
               "eligibleForExecution": true,
               "executionReadiness": "Queued",
-              "orderingRank": 68,
+              "orderingRank": 67,
               "orderingRationale": [
                 "Orange County is the operational Market Workspace.",
                 "Publisher analysis backing: Orange County.",
@@ -57310,7 +57197,7 @@
               },
               "eligibleForExecution": true,
               "executionReadiness": "Queued",
-              "orderingRank": 67,
+              "orderingRank": 66,
               "orderingRationale": [
                 "Orange County is the operational Market Workspace.",
                 "Publisher analysis backing: Orange County.",
@@ -57369,7 +57256,7 @@
               },
               "eligibleForExecution": true,
               "executionReadiness": "Queued",
-              "orderingRank": 69,
+              "orderingRank": 68,
               "orderingRationale": [
                 "Orange County is the operational Market Workspace.",
                 "Publisher analysis backing: Orange County.",
@@ -57774,7 +57661,7 @@
               },
               "eligibleForExecution": true,
               "executionReadiness": "Queued",
-              "orderingRank": 44,
+              "orderingRank": 43,
               "orderingRationale": [
                 "Peninsula is the operational Market Workspace.",
                 "Publisher analysis backing: San Francisco.",
@@ -57832,7 +57719,7 @@
               },
               "eligibleForExecution": true,
               "executionReadiness": "Queued",
-              "orderingRank": 46,
+              "orderingRank": 45,
               "orderingRationale": [
                 "Peninsula is the operational Market Workspace.",
                 "Publisher analysis backing: San Francisco.",
@@ -57890,7 +57777,7 @@
               },
               "eligibleForExecution": true,
               "executionReadiness": "Queued",
-              "orderingRank": 66,
+              "orderingRank": 65,
               "orderingRationale": [
                 "Peninsula is the operational Market Workspace.",
                 "Publisher analysis backing: San Francisco.",
@@ -57948,7 +57835,7 @@
               },
               "eligibleForExecution": true,
               "executionReadiness": "Queued",
-              "orderingRank": 45,
+              "orderingRank": 44,
               "orderingRationale": [
                 "Peninsula is the operational Market Workspace.",
                 "Publisher analysis backing: San Francisco.",
@@ -60757,7 +60644,7 @@
               },
               "eligibleForExecution": true,
               "executionReadiness": "Queued",
-              "orderingRank": 62,
+              "orderingRank": 61,
               "orderingRationale": [
                 "San Diego is the operational Market Workspace.",
                 "Publisher analysis backing: San Diego.",
@@ -63108,7 +62995,7 @@
               },
               "eligibleForExecution": true,
               "executionReadiness": "Queued",
-              "orderingRank": 64,
+              "orderingRank": 63,
               "orderingRationale": [
                 "Seattle is the operational Market Workspace.",
                 "Publisher analysis backing: Seattle.",
@@ -63226,7 +63113,7 @@
               },
               "eligibleForExecution": true,
               "executionReadiness": "Queued",
-              "orderingRank": 60,
+              "orderingRank": 59,
               "orderingRationale": [
                 "Seattle is the operational Market Workspace.",
                 "Publisher analysis backing: Seattle.",
@@ -63344,7 +63231,7 @@
               },
               "eligibleForExecution": true,
               "executionReadiness": "Queued",
-              "orderingRank": 59,
+              "orderingRank": 58,
               "orderingRationale": [
                 "Seattle is the operational Market Workspace.",
                 "Publisher analysis backing: Seattle.",
@@ -63403,7 +63290,7 @@
               },
               "eligibleForExecution": true,
               "executionReadiness": "Queued",
-              "orderingRank": 65,
+              "orderingRank": 64,
               "orderingRationale": [
                 "Seattle is the operational Market Workspace.",
                 "Publisher analysis backing: Seattle.",
@@ -63461,7 +63348,7 @@
               },
               "eligibleForExecution": true,
               "executionReadiness": "Queued",
-              "orderingRank": 58,
+              "orderingRank": 57,
               "orderingRationale": [
                 "Seattle is the operational Market Workspace.",
                 "Publisher analysis backing: Seattle.",
@@ -63519,7 +63406,7 @@
               },
               "eligibleForExecution": true,
               "executionReadiness": "Queued",
-              "orderingRank": 47,
+              "orderingRank": 46,
               "orderingRationale": [
                 "Seattle is the operational Market Workspace.",
                 "Publisher analysis backing: Seattle.",
@@ -63578,7 +63465,7 @@
               },
               "eligibleForExecution": true,
               "executionReadiness": "Queued",
-              "orderingRank": 61,
+              "orderingRank": 60,
               "orderingRationale": [
                 "Seattle is the operational Market Workspace.",
                 "Publisher analysis backing: Seattle.",
@@ -63637,7 +63524,7 @@
               },
               "eligibleForExecution": true,
               "executionReadiness": "Queued",
-              "orderingRank": 48,
+              "orderingRank": 47,
               "orderingRationale": [
                 "Seattle is the operational Market Workspace.",
                 "Publisher analysis backing: Seattle.",
@@ -64001,7 +63888,7 @@
               },
               "eligibleForExecution": true,
               "executionReadiness": "Queued",
-              "orderingRank": 57,
+              "orderingRank": 56,
               "orderingRationale": [
                 "South Bay is the operational Market Workspace.",
                 "Publisher analysis backing: San Francisco.",
@@ -64059,7 +63946,7 @@
               },
               "eligibleForExecution": true,
               "executionReadiness": "Queued",
-              "orderingRank": 49,
+              "orderingRank": 48,
               "orderingRationale": [
                 "South Bay is the operational Market Workspace.",
                 "Publisher analysis backing: San Francisco.",
@@ -64117,7 +64004,7 @@
               },
               "eligibleForExecution": true,
               "executionReadiness": "Queued",
-              "orderingRank": 56,
+              "orderingRank": 55,
               "orderingRationale": [
                 "South Bay is the operational Market Workspace.",
                 "Publisher analysis backing: San Francisco.",
@@ -65128,7 +65015,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": false,
-        "orderingRank": 63,
+        "orderingRank": 62,
         "orderingRationale": [
           "Denver is the operational Market Workspace.",
           "Publisher analysis backing: Denver.",
@@ -65186,7 +65073,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": false,
-        "orderingRank": 70,
+        "orderingRank": 69,
         "orderingRationale": [
           "Denver is the operational Market Workspace.",
           "Publisher analysis backing: Denver.",
@@ -65244,7 +65131,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": false,
-        "orderingRank": 71,
+        "orderingRank": 70,
         "orderingRationale": [
           "Denver is the operational Market Workspace.",
           "Publisher analysis backing: Denver.",
@@ -65762,15 +65649,15 @@
         "campaignId": "east-bay:publisher:completion-campaign"
       },
       {
-        "id": "east-bay:commercial_market_evidence:emeryville-commercial-core",
-        "districtId": "emeryville-commercial-core",
+        "id": "east-bay:commercial_market_evidence:hayward-industrial",
+        "districtId": "hayward-industrial",
         "marketId": "east-bay",
         "marketName": "East Bay",
         "programId": "commercial_market_evidence",
         "programLabel": "Commercial Market Evidence",
-        "title": "Emeryville Commercial Core Building Evidence",
-        "scope": "Emeryville Commercial Core",
-        "objective": "Create the Emeryville Commercial Core Commercial Market Evidence collection and required selected Building Profiles.",
+        "title": "Hayward Industrial Building Evidence",
+        "scope": "Hayward Industrial",
+        "objective": "Create the Hayward Industrial Commercial Market Evidence collection and required selected Building Profiles.",
         "status": "Next",
         "currentStage": "Next",
         "progress": {
@@ -65783,11 +65670,11 @@
             "Commercial Market Evidence expansion ordering."
           ]
         },
-        "currentConstraint": "Emeryville Commercial Core lacks a Commercial Market Evidence collection and selected evidence Building Profiles.",
-        "nextMissionId": "mission:east-bay:district-building-evidence:emeryville-commercial-core",
-        "missionRef": "portfolioQueues.missionQueue:mission:east-bay:district-building-evidence:emeryville-commercial-core",
-        "executionPacketRef": "portfolioQueues.missionQueue:mission:east-bay:district-building-evidence:emeryville-commercial-core",
-        "workItemCount": 1,
+        "currentConstraint": "Hayward Industrial lacks a Commercial Market Evidence collection and selected evidence Building Profiles.",
+        "nextMissionId": "mission:east-bay:district-building-evidence:hayward-industrial",
+        "missionRef": "portfolioQueues.missionQueue:mission:east-bay:district-building-evidence:hayward-industrial",
+        "executionPacketRef": "portfolioQueues.missionQueue:mission:east-bay:district-building-evidence:hayward-industrial",
+        "workItemCount": 8,
         "remainingMilestones": [
           "Source-supported evidence selection",
           "District narrative",
@@ -65800,7 +65687,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": false,
-        "orderingRank": 43,
+        "orderingRank": 52,
         "orderingRationale": [
           "East Bay is the operational Market Workspace.",
           "Publisher analysis backing: San Francisco.",
@@ -65808,14 +65695,14 @@
           "Publisher readiness: Distribution Ready.",
           "Public district page exists.",
           "Knowledge Graph confidence: high.",
-          "3 comparison relationships exist."
+          "2 comparison relationships exist."
         ],
         "workItems": {
           "hiddenByDefault": true,
-          "count": 1
+          "count": 8
         },
         "missions": [
-          "mission:east-bay:district-building-evidence:emeryville-commercial-core"
+          "mission:east-bay:district-building-evidence:hayward-industrial"
         ],
         "campaignId": "east-bay:commercial_market_evidence:completion-campaign"
       },
@@ -65858,7 +65745,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": false,
-        "orderingRank": 52,
+        "orderingRank": 51,
         "orderingRationale": [
           "East Bay is the operational Market Workspace.",
           "Publisher analysis backing: San Francisco.",
@@ -65874,64 +65761,6 @@
         },
         "missions": [
           "mission:east-bay:district-building-evidence:warm-springs-innovation-district"
-        ],
-        "campaignId": "east-bay:commercial_market_evidence:completion-campaign"
-      },
-      {
-        "id": "east-bay:commercial_market_evidence:hayward-industrial",
-        "districtId": "hayward-industrial",
-        "marketId": "east-bay",
-        "marketName": "East Bay",
-        "programId": "commercial_market_evidence",
-        "programLabel": "Commercial Market Evidence",
-        "title": "Hayward Industrial Building Evidence",
-        "scope": "Hayward Industrial",
-        "objective": "Create the Hayward Industrial Commercial Market Evidence collection and required selected Building Profiles.",
-        "status": "Queued",
-        "currentStage": "Queued",
-        "progress": {
-          "unit": "Collection",
-          "completed": 0,
-          "target": 1,
-          "label": "Queued",
-          "statusLabel": "Queued",
-          "sourceEvidence": [
-            "Commercial Market Evidence expansion ordering."
-          ]
-        },
-        "currentConstraint": "Hayward Industrial lacks a Commercial Market Evidence collection and selected evidence Building Profiles.",
-        "nextMissionId": "mission:east-bay:district-building-evidence:hayward-industrial",
-        "missionRef": "portfolioQueues.missionQueue:mission:east-bay:district-building-evidence:hayward-industrial",
-        "executionPacketRef": "portfolioQueues.missionQueue:mission:east-bay:district-building-evidence:hayward-industrial",
-        "workItemCount": 8,
-        "remainingMilestones": [
-          "Source-supported evidence selection",
-          "District narrative",
-          "Selected Building Profiles",
-          "Validator pass"
-        ],
-        "confidence": "Medium",
-        "sourceEvidence": [
-          "Commercial Location Knowledge Graph district node.",
-          "Commercial Market Evidence expansion ordering."
-        ],
-        "readOnly": false,
-        "orderingRank": 53,
-        "orderingRationale": [
-          "East Bay is the operational Market Workspace.",
-          "Publisher analysis backing: San Francisco.",
-          "Ownership resolved by explicit district ownership.",
-          "Publisher readiness: Distribution Ready.",
-          "Public district page exists.",
-          "Knowledge Graph confidence: high.",
-          "2 comparison relationships exist."
-        ],
-        "workItems": {
-          "hiddenByDefault": true,
-          "count": 8
-        },
-        "missions": [
-          "mission:east-bay:district-building-evidence:hayward-industrial"
         ],
         "campaignId": "east-bay:commercial_market_evidence:completion-campaign"
       },
@@ -65974,7 +65803,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": false,
-        "orderingRank": 54,
+        "orderingRank": 53,
         "orderingRationale": [
           "East Bay is the operational Market Workspace.",
           "Publisher analysis backing: San Francisco.",
@@ -66032,7 +65861,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": false,
-        "orderingRank": 55,
+        "orderingRank": 54,
         "orderingRationale": [
           "East Bay is the operational Market Workspace.",
           "Publisher analysis backing: San Francisco.",
@@ -66132,6 +65961,52 @@
         ],
         "readOnly": true,
         "completionEvidence": "downtown-berkeley-commercial-market-evidence",
+        "orderingRank": null,
+        "orderingRationale": [
+          "Existing Commercial Market Evidence collection."
+        ],
+        "workItems": {
+          "hiddenByDefault": true,
+          "count": 0
+        },
+        "missions": [],
+        "campaignId": "east-bay:commercial_market_evidence:completion-campaign"
+      },
+      {
+        "id": "east-bay:commercial_market_evidence:emeryville-commercial-core",
+        "districtId": "emeryville-commercial-core",
+        "marketId": "east-bay",
+        "marketName": "East Bay",
+        "programId": "commercial_market_evidence",
+        "programLabel": "Commercial Market Evidence",
+        "title": "Emeryville Commercial Core Collection",
+        "scope": "Emeryville Commercial Core",
+        "objective": "Maintain the completed Emeryville Commercial Core Commercial Market Evidence collection.",
+        "status": "Complete",
+        "currentStage": "Complete",
+        "progress": {
+          "unit": "Collection",
+          "completed": 1,
+          "target": 1,
+          "label": "Complete",
+          "statusLabel": "Complete",
+          "sourceEvidence": [
+            "Commercial Market Evidence collection registry.",
+            "Building Profile coverage for selected evidence records."
+          ]
+        },
+        "currentConstraint": "Collection exists.",
+        "nextMissionId": "",
+        "missionRef": "",
+        "executionPacketRef": "",
+        "remainingMilestones": [],
+        "confidence": "High",
+        "sourceEvidence": [
+          "Commercial Market Evidence collection registry.",
+          "Building Profile coverage for selected evidence records."
+        ],
+        "readOnly": true,
+        "completionEvidence": "emeryville-commercial-core-commercial-market-evidence",
         "orderingRank": null,
         "orderingRationale": [
           "Existing Commercial Market Evidence collection."
@@ -66947,7 +66822,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": false,
-        "orderingRank": 50,
+        "orderingRank": 49,
         "orderingRationale": [
           "Orange County is the operational Market Workspace.",
           "Publisher analysis backing: Orange County.",
@@ -67006,7 +66881,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": false,
-        "orderingRank": 51,
+        "orderingRank": 50,
         "orderingRationale": [
           "Orange County is the operational Market Workspace.",
           "Publisher analysis backing: Orange County.",
@@ -67065,7 +66940,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": false,
-        "orderingRank": 67,
+        "orderingRank": 66,
         "orderingRationale": [
           "Orange County is the operational Market Workspace.",
           "Publisher analysis backing: Orange County.",
@@ -67124,7 +66999,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": false,
-        "orderingRank": 68,
+        "orderingRank": 67,
         "orderingRationale": [
           "Orange County is the operational Market Workspace.",
           "Publisher analysis backing: Orange County.",
@@ -67182,7 +67057,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": false,
-        "orderingRank": 69,
+        "orderingRank": 68,
         "orderingRationale": [
           "Orange County is the operational Market Workspace.",
           "Publisher analysis backing: Orange County.",
@@ -67416,7 +67291,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": false,
-        "orderingRank": 44,
+        "orderingRank": 43,
         "orderingRationale": [
           "Peninsula is the operational Market Workspace.",
           "Publisher analysis backing: San Francisco.",
@@ -67474,7 +67349,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": false,
-        "orderingRank": 45,
+        "orderingRank": 44,
         "orderingRationale": [
           "Peninsula is the operational Market Workspace.",
           "Publisher analysis backing: San Francisco.",
@@ -67532,7 +67407,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": false,
-        "orderingRank": 46,
+        "orderingRank": 45,
         "orderingRationale": [
           "Peninsula is the operational Market Workspace.",
           "Publisher analysis backing: San Francisco.",
@@ -67590,7 +67465,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": false,
-        "orderingRank": 66,
+        "orderingRank": 65,
         "orderingRationale": [
           "Peninsula is the operational Market Workspace.",
           "Publisher analysis backing: San Francisco.",
@@ -69390,7 +69265,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": false,
-        "orderingRank": 62,
+        "orderingRank": 61,
         "orderingRationale": [
           "San Diego is the operational Market Workspace.",
           "Publisher analysis backing: San Diego.",
@@ -70425,7 +70300,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": false,
-        "orderingRank": 47,
+        "orderingRank": 46,
         "orderingRationale": [
           "Seattle is the operational Market Workspace.",
           "Publisher analysis backing: Seattle.",
@@ -70484,7 +70359,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": false,
-        "orderingRank": 48,
+        "orderingRank": 47,
         "orderingRationale": [
           "Seattle is the operational Market Workspace.",
           "Publisher analysis backing: Seattle.",
@@ -70543,7 +70418,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": false,
-        "orderingRank": 58,
+        "orderingRank": 57,
         "orderingRationale": [
           "Seattle is the operational Market Workspace.",
           "Publisher analysis backing: Seattle.",
@@ -70601,7 +70476,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": false,
-        "orderingRank": 59,
+        "orderingRank": 58,
         "orderingRationale": [
           "Seattle is the operational Market Workspace.",
           "Publisher analysis backing: Seattle.",
@@ -70660,7 +70535,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": false,
-        "orderingRank": 60,
+        "orderingRank": 59,
         "orderingRationale": [
           "Seattle is the operational Market Workspace.",
           "Publisher analysis backing: Seattle.",
@@ -70719,7 +70594,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": false,
-        "orderingRank": 61,
+        "orderingRank": 60,
         "orderingRationale": [
           "Seattle is the operational Market Workspace.",
           "Publisher analysis backing: Seattle.",
@@ -70778,7 +70653,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": false,
-        "orderingRank": 64,
+        "orderingRank": 63,
         "orderingRationale": [
           "Seattle is the operational Market Workspace.",
           "Publisher analysis backing: Seattle.",
@@ -70837,7 +70712,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": false,
-        "orderingRank": 65,
+        "orderingRank": 64,
         "orderingRationale": [
           "Seattle is the operational Market Workspace.",
           "Publisher analysis backing: Seattle.",
@@ -71071,7 +70946,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": false,
-        "orderingRank": 49,
+        "orderingRank": 48,
         "orderingRationale": [
           "South Bay is the operational Market Workspace.",
           "Publisher analysis backing: San Francisco.",
@@ -71129,7 +71004,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": false,
-        "orderingRank": 56,
+        "orderingRank": 55,
         "orderingRationale": [
           "South Bay is the operational Market Workspace.",
           "Publisher analysis backing: San Francisco.",
@@ -71187,7 +71062,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": false,
-        "orderingRank": 57,
+        "orderingRank": 56,
         "orderingRationale": [
           "South Bay is the operational Market Workspace.",
           "Publisher analysis backing: San Francisco.",
@@ -72140,7 +72015,7 @@
         },
         "missionClass": "Foundation",
         "confidence": "Medium",
-        "priorityScore": 24,
+        "priorityScore": 25,
         "executionPacketRef": "portfolioQueues.missionQueue:mission:denver:district-building-evidence:golden",
         "executionPacketAvailable": true,
         "componentStatuses": {
@@ -72199,7 +72074,7 @@
         },
         "missionClass": "Foundation",
         "confidence": "Medium",
-        "priorityScore": 17,
+        "priorityScore": 18,
         "executionPacketRef": "portfolioQueues.missionQueue:mission:denver:district-building-evidence:commerce-city",
         "executionPacketAvailable": true,
         "componentStatuses": {
@@ -72258,7 +72133,7 @@
         },
         "missionClass": "Foundation",
         "confidence": "Medium",
-        "priorityScore": 16,
+        "priorityScore": 17,
         "executionPacketRef": "portfolioQueues.missionQueue:mission:denver:district-building-evidence:lone-tree",
         "executionPacketAvailable": true,
         "componentStatuses": {
@@ -72292,65 +72167,6 @@
         }
       },
       {
-        "id": "mission:east-bay:district-building-evidence:emeryville-commercial-core",
-        "title": "Complete Emeryville Commercial Core Building Evidence",
-        "marketId": "east-bay",
-        "marketName": "East Bay",
-        "programId": "commercial_market_evidence",
-        "programLabel": "Commercial Market Evidence",
-        "campaignId": "east-bay:commercial_market_evidence:completion-campaign",
-        "campaignTitle": "East Bay Building Evidence Completion",
-        "initiativeId": "east-bay:commercial_market_evidence:emeryville-commercial-core",
-        "initiativeTitle": "Emeryville Commercial Core Building Evidence",
-        "portfolioId": "district-building-evidence:east-bay:emeryville-commercial-core",
-        "districtId": "emeryville-commercial-core",
-        "districtName": "Emeryville Commercial Core",
-        "objective": "Create the Emeryville Commercial Core Commercial Market Evidence collection and complete the required selected Building Profiles in one district Mission.",
-        "currentConstraint": "Emeryville Commercial Core lacks a Commercial Market Evidence collection and selected evidence Building Profiles.",
-        "expectedImpact": "High",
-        "estimatedEffort": "Medium",
-        "missionSize": {
-          "id": "standard",
-          "label": "Standard",
-          "reviewWindow": "60-120 minutes",
-          "maximumWorkItems": 8
-        },
-        "missionClass": "Foundation",
-        "confidence": "Medium",
-        "priorityScore": 44,
-        "executionPacketRef": "portfolioQueues.missionQueue:mission:east-bay:district-building-evidence:emeryville-commercial-core",
-        "executionPacketAvailable": true,
-        "componentStatuses": {
-          "commercialMarketEvidence": "Missing",
-          "evidenceRecordCount": 0,
-          "evidenceBuildingProfiles": {
-            "completed": 0,
-            "target": 0,
-            "missing": 0,
-            "label": "Collection missing"
-          },
-          "supportingBuildingProfiles": {
-            "completed": 0,
-            "target": 0,
-            "missing": 0,
-            "label": "To be selected during collection work"
-          },
-          "unresolvedBuildingItems": 0,
-          "validationStatus": "Requires validation",
-          "districtBuildingEvidence": "Missing"
-        },
-        "workItems": {
-          "hiddenByDefault": true,
-          "count": 1,
-          "includedOpportunityIds": [
-            "commercial-market-evidence:emeryville-commercial-core:collection"
-          ],
-          "deferredWorkItemIds": [
-            "commercial-market-evidence:emeryville-commercial-core:quality-scoring"
-          ]
-        }
-      },
-      {
         "id": "mission:east-bay:district-building-evidence:hayward-industrial",
         "title": "Complete Hayward Industrial Building Evidence",
         "marketId": "east-bay",
@@ -72376,7 +72192,7 @@
         },
         "missionClass": "Foundation",
         "confidence": "Medium",
-        "priorityScore": 41,
+        "priorityScore": 42,
         "executionPacketRef": "portfolioQueues.missionQueue:mission:east-bay:district-building-evidence:hayward-industrial",
         "executionPacketAvailable": true,
         "componentStatuses": {
@@ -72442,7 +72258,7 @@
         },
         "missionClass": "Foundation",
         "confidence": "Medium",
-        "priorityScore": 40,
+        "priorityScore": 41,
         "executionPacketRef": "portfolioQueues.missionQueue:mission:east-bay:district-building-evidence:warm-springs-innovation-district",
         "executionPacketAvailable": true,
         "componentStatuses": {
@@ -72506,7 +72322,7 @@
         },
         "missionClass": "Foundation",
         "confidence": "Medium",
-        "priorityScore": 39,
+        "priorityScore": 40,
         "executionPacketRef": "portfolioQueues.missionQueue:mission:east-bay:district-building-evidence:union-city-industrial",
         "executionPacketAvailable": true,
         "componentStatuses": {
@@ -72572,7 +72388,7 @@
         },
         "missionClass": "Foundation",
         "confidence": "Medium",
-        "priorityScore": 36,
+        "priorityScore": 37,
         "executionPacketRef": "portfolioQueues.missionQueue:mission:east-bay:district-building-evidence:jack-london-square",
         "executionPacketAvailable": true,
         "componentStatuses": {
@@ -73039,7 +72855,7 @@
         },
         "missionClass": "Foundation",
         "confidence": "Medium",
-        "priorityScore": 40,
+        "priorityScore": 41,
         "executionPacketRef": "portfolioQueues.missionQueue:mission:orange-county:district-building-evidence:south-oc-medical-professional",
         "executionPacketAvailable": true,
         "componentStatuses": {
@@ -73102,7 +72918,7 @@
         },
         "missionClass": "Foundation",
         "confidence": "Medium",
-        "priorityScore": 40,
+        "priorityScore": 41,
         "executionPacketRef": "portfolioQueues.missionQueue:mission:orange-county:district-building-evidence:university-research-park",
         "executionPacketAvailable": true,
         "componentStatuses": {
@@ -73164,7 +72980,7 @@
         },
         "missionClass": "Foundation",
         "confidence": "Medium",
-        "priorityScore": 20,
+        "priorityScore": 21,
         "executionPacketRef": "portfolioQueues.missionQueue:mission:orange-county:district-building-evidence:lake-forest-business-park",
         "executionPacketAvailable": true,
         "componentStatuses": {
@@ -73223,7 +73039,7 @@
         },
         "missionClass": "Foundation",
         "confidence": "Medium",
-        "priorityScore": 19,
+        "priorityScore": 20,
         "executionPacketRef": "portfolioQueues.missionQueue:mission:orange-county:district-building-evidence:fullerton",
         "executionPacketAvailable": true,
         "componentStatuses": {
@@ -73282,7 +73098,7 @@
         },
         "missionClass": "Foundation",
         "confidence": "Medium",
-        "priorityScore": 18,
+        "priorityScore": 19,
         "executionPacketRef": "portfolioQueues.missionQueue:mission:orange-county:district-building-evidence:tustin-legacy",
         "executionPacketAvailable": true,
         "componentStatuses": {
@@ -73341,7 +73157,7 @@
         },
         "missionClass": "Foundation",
         "confidence": "Medium",
-        "priorityScore": 46,
+        "priorityScore": 47,
         "executionPacketRef": "portfolioQueues.missionQueue:mission:peninsula:district-building-evidence:downtown-palo-alto",
         "executionPacketAvailable": true,
         "componentStatuses": {
@@ -73403,7 +73219,7 @@
         },
         "missionClass": "Foundation",
         "confidence": "Medium",
-        "priorityScore": 42,
+        "priorityScore": 43,
         "executionPacketRef": "portfolioQueues.missionQueue:mission:peninsula:district-building-evidence:stanford-research-park",
         "executionPacketAvailable": true,
         "componentStatuses": {
@@ -73462,7 +73278,7 @@
         },
         "missionClass": "Foundation",
         "confidence": "Medium",
-        "priorityScore": 41,
+        "priorityScore": 42,
         "executionPacketRef": "portfolioQueues.missionQueue:mission:peninsula:district-building-evidence:downtown-redwood-city",
         "executionPacketAvailable": true,
         "componentStatuses": {
@@ -73521,7 +73337,7 @@
         },
         "missionClass": "Foundation",
         "confidence": "Medium",
-        "priorityScore": 21,
+        "priorityScore": 22,
         "executionPacketRef": "portfolioQueues.missionQueue:mission:peninsula:district-building-evidence:downtown-san-mateo",
         "executionPacketAvailable": true,
         "componentStatuses": {
@@ -75137,7 +74953,7 @@
         },
         "missionClass": "Foundation",
         "confidence": "Medium",
-        "priorityScore": 28,
+        "priorityScore": 29,
         "executionPacketRef": "portfolioQueues.missionQueue:mission:san-diego:district-building-evidence:oceanside-industrial",
         "executionPacketAvailable": true,
         "componentStatuses": {
@@ -75923,7 +75739,7 @@
         },
         "missionClass": "Foundation",
         "confidence": "Medium",
-        "priorityScore": 40,
+        "priorityScore": 41,
         "executionPacketRef": "portfolioQueues.missionQueue:mission:seattle:district-building-evidence:kent-valley",
         "executionPacketAvailable": true,
         "componentStatuses": {
@@ -75982,7 +75798,7 @@
         },
         "missionClass": "Foundation",
         "confidence": "Medium",
-        "priorityScore": 39,
+        "priorityScore": 40,
         "executionPacketRef": "portfolioQueues.missionQueue:mission:seattle:district-building-evidence:sodo-industrial",
         "executionPacketAvailable": true,
         "componentStatuses": {
@@ -76041,7 +75857,7 @@
         },
         "missionClass": "Foundation",
         "confidence": "Medium",
-        "priorityScore": 29,
+        "priorityScore": 30,
         "executionPacketRef": "portfolioQueues.missionQueue:mission:seattle:district-building-evidence:georgetown-industrial",
         "executionPacketAvailable": true,
         "componentStatuses": {
@@ -76100,7 +75916,7 @@
         },
         "missionClass": "Foundation",
         "confidence": "Medium",
-        "priorityScore": 28,
+        "priorityScore": 29,
         "executionPacketRef": "portfolioQueues.missionQueue:mission:seattle:district-building-evidence:eastside-tech-office-corridor",
         "executionPacketAvailable": true,
         "componentStatuses": {
@@ -76159,7 +75975,7 @@
         },
         "missionClass": "Foundation",
         "confidence": "Medium",
-        "priorityScore": 27,
+        "priorityScore": 28,
         "executionPacketRef": "portfolioQueues.missionQueue:mission:seattle:district-building-evidence:belltown-waterfront-office",
         "executionPacketAvailable": true,
         "componentStatuses": {
@@ -76218,7 +76034,7 @@
         },
         "missionClass": "Foundation",
         "confidence": "Medium",
-        "priorityScore": 26,
+        "priorityScore": 27,
         "executionPacketRef": "portfolioQueues.missionQueue:mission:seattle:district-building-evidence:pioneer-square-waterfront-office",
         "executionPacketAvailable": true,
         "componentStatuses": {
@@ -76277,7 +76093,7 @@
         },
         "missionClass": "Foundation",
         "confidence": "Medium",
-        "priorityScore": 23,
+        "priorityScore": 24,
         "executionPacketRef": "portfolioQueues.missionQueue:mission:seattle:district-building-evidence:ballard-interbay-industrial",
         "executionPacketAvailable": true,
         "componentStatuses": {
@@ -76336,7 +76152,7 @@
         },
         "missionClass": "Foundation",
         "confidence": "Medium",
-        "priorityScore": 22,
+        "priorityScore": 23,
         "executionPacketRef": "portfolioQueues.missionQueue:mission:seattle:district-building-evidence:first-hill-medical",
         "executionPacketAvailable": true,
         "componentStatuses": {
@@ -76395,7 +76211,7 @@
         },
         "missionClass": "Foundation",
         "confidence": "Medium",
-        "priorityScore": 38,
+        "priorityScore": 39,
         "executionPacketRef": "portfolioQueues.missionQueue:mission:south-bay:district-building-evidence:north-bayshore",
         "executionPacketAvailable": true,
         "componentStatuses": {
@@ -76454,7 +76270,7 @@
         },
         "missionClass": "Foundation",
         "confidence": "Medium",
-        "priorityScore": 31,
+        "priorityScore": 32,
         "executionPacketRef": "portfolioQueues.missionQueue:mission:south-bay:district-building-evidence:north-san-jose",
         "executionPacketAvailable": true,
         "componentStatuses": {
@@ -76513,7 +76329,7 @@
         },
         "missionClass": "Foundation",
         "confidence": "Medium",
-        "priorityScore": 30,
+        "priorityScore": 31,
         "executionPacketRef": "portfolioQueues.missionQueue:mission:south-bay:district-building-evidence:moffett-park",
         "executionPacketAvailable": true,
         "componentStatuses": {
@@ -76557,7 +76373,7 @@
       "programsPerMarket": 6,
       "campaigns": 60,
       "initiatives": 144,
-      "missions": 87
+      "missions": 86
     },
     "note": "Additive projection for Mission Control v2. Campaigns optimize editorial throughput while preserving Publisher scoring, execution packet compatibility, and hidden Work Items."
   },
@@ -99870,273 +99686,6 @@
         }
       },
       {
-        "id": "mission:sacramento:district-building-evidence:east-sacramento-alhambra-corridor",
-        "title": "Complete East Sacramento / Alhambra Corridor Building Evidence",
-        "marketId": "sacramento",
-        "marketName": "Sacramento",
-        "programId": "commercial_market_evidence",
-        "programLabel": "Commercial Market Evidence",
-        "campaignId": "sacramento:commercial_market_evidence:completion-campaign",
-        "campaignTitle": "Sacramento Building Evidence Completion",
-        "initiativeId": "sacramento:commercial_market_evidence:east-sacramento-alhambra-corridor",
-        "initiativeTitle": "East Sacramento / Alhambra Corridor Building Evidence",
-        "portfolioId": "district-building-evidence:sacramento:east-sacramento-alhambra-corridor",
-        "metroId": "sacramento",
-        "metroName": "Sacramento",
-        "ecosystem": "Building Evidence",
-        "ecosystemId": "",
-        "districtId": "east-sacramento-alhambra-corridor",
-        "districtName": "East Sacramento / Alhambra Corridor",
-        "expectedImpact": "High",
-        "estimatedEffort": "Medium",
-        "missionSize": {
-          "id": "standard",
-          "label": "Standard",
-          "reviewWindow": "60-120 minutes",
-          "maximumWorkItems": 8
-        },
-        "impactEffortClass": "High Impact / Medium Effort / District Building Evidence",
-        "missionClass": "Foundation",
-        "currentConstraint": "East Sacramento / Alhambra Corridor lacks a Commercial Market Evidence collection and selected evidence Building Profiles.",
-        "dependencies": [
-          "Commercial Market Evidence architecture",
-          "Financial District canonical collection standard",
-          "Knowledge Graph district identity",
-          "Representative building and Commercial Building Intelligence evidence",
-          "Building Profile editorial standard",
-          "Publisher Building Brief depth analysis"
-        ],
-        "qaCommands": [
-          "node scripts/qa-commercial-market-evidence.js",
-          "node scripts/qa-building-brief-depth.js",
-          "npm run publisher:snapshot",
-          "node scripts/qa-eos.js",
-          "npm run build",
-          "git diff --check"
-        ],
-        "requiredReview": true,
-        "confidence": "Medium",
-        "priorityScore": 47,
-        "priorityStars": 3,
-        "automationLevel": {
-          "id": "review_required",
-          "label": "Review Required",
-          "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
-        },
-        "lifecycleState": {
-          "id": "ready",
-          "label": "Ready"
-        },
-        "status": "Ready",
-        "queueType": "editorial",
-        "operatingLane": {
-          "id": "editorial",
-          "label": "Editorial",
-          "description": "Commercial judgment, building profiles, handbook guidance, and public editorial depth."
-        },
-        "category": "mission",
-        "categoryLabel": "Mission",
-        "suggestedModule": {
-          "id": "commercialMarketEvidence",
-          "label": "Commercial Market Evidence"
-        },
-        "why": [
-          "Commercial Market Evidence and Building Profiles are separate data products but one district research workflow.",
-          "CME collection and required selected Building Profiles should be created in one execution packet.",
-          "One district Mission avoids detached Commence Work actions for evidence selection and Building Profile migration."
-        ],
-        "includedTasks": [
-          {
-            "id": "commercial-market-evidence:east-sacramento-alhambra-corridor:collection",
-            "title": "East Sacramento / Alhambra Corridor Commercial Market Evidence collection",
-            "reason": "District is missing a Commercial Market Evidence collection."
-          }
-        ],
-        "deferredTasks": [
-          {
-            "id": "commercial-market-evidence:east-sacramento-alhambra-corridor:quality-scoring",
-            "title": "Publisher quality scoring for Commercial Market Evidence",
-            "reason": "Quality scoring remains deferred; Publisher continues reporting CME and Building Profiles separately."
-          }
-        ],
-        "componentStatuses": {
-          "commercialMarketEvidence": "Missing",
-          "evidenceRecordCount": 0,
-          "evidenceBuildingProfiles": {
-            "completed": 0,
-            "target": 0,
-            "missing": 0,
-            "label": "Collection missing"
-          },
-          "supportingBuildingProfiles": {
-            "completed": 0,
-            "target": 0,
-            "missing": 0,
-            "label": "To be selected during collection work"
-          },
-          "unresolvedBuildingItems": 0,
-          "validationStatus": "Requires validation",
-          "districtBuildingEvidence": "Missing"
-        },
-        "workItems": {
-          "count": 1,
-          "buildings": []
-        },
-        "executionPacket": {
-          "objective": "Create the East Sacramento / Alhambra Corridor Commercial Market Evidence collection and complete the required selected Building Profiles in one district Mission.",
-          "reason": [
-            "East Sacramento / Alhambra Corridor is missing a Commercial Market Evidence collection.",
-            "Evidence Building Profiles: Collection missing.",
-            "Supporting Building Profiles will be selected only when they materially strengthen district explanation.",
-            "0 selected Building Profile work items are included in this bounded Mission."
-          ],
-          "currentHealth": "74% Improving",
-          "currentConstraint": "East Sacramento / Alhambra Corridor lacks a Commercial Market Evidence collection and selected evidence Building Profiles.",
-          "includedTasks": [
-            {
-              "id": "commercial-market-evidence:east-sacramento-alhambra-corridor:collection",
-              "title": "East Sacramento / Alhambra Corridor Commercial Market Evidence collection",
-              "reason": "District is missing a Commercial Market Evidence collection."
-            }
-          ],
-          "deferredTasks": [
-            {
-              "id": "commercial-market-evidence:east-sacramento-alhambra-corridor:quality-scoring",
-              "title": "Publisher quality scoring for Commercial Market Evidence",
-              "reason": "Quality scoring remains deferred; Publisher continues reporting CME and Building Profiles separately."
-            }
-          ],
-          "reasonForBundling": [
-            "Commercial Market Evidence collection and required Building Profiles should be created from one district research pass.",
-            "Representative evidence selection, source-data collection, profile references, and validation remain hidden Work Items inside one Mission.",
-            "Publisher scoring and recommendation behavior remain unchanged.",
-            "No split required; missing district collection starts as one Standard mission."
-          ],
-          "expectedImpact": "High",
-          "estimatedEffort": "Medium",
-          "missionSize": {
-            "id": "standard",
-            "label": "Standard",
-            "reviewWindow": "60-120 minutes",
-            "maximumWorkItems": 8
-          },
-          "missionClass": "Foundation",
-          "files": [
-            "docs/product/rofo-master-plan.md",
-            "docs/editorial-operating-system.md",
-            "docs/mission-control-v2-operating-model.md",
-            "docs/commercial-market-evidence.md",
-            "docs/commercial-market-evidence-financial-district.md",
-            "docs/eos-portfolio-resolver.md",
-            "docs/rofo-publisher.md",
-            "docs/building-page-standard.md",
-            "_data/locationKnowledgeGraph.js",
-            "_data/commercialMarketEvidence.js",
-            "_data/commercialBuildingIntelligence.js",
-            "_data/representativeBuildingIntelligence.js",
-            "data/commercial-market-evidence/sacramento/east-sacramento-alhambra-corridor.js",
-            "scripts/qa-commercial-market-evidence.js",
-            "scripts/qa-building-brief-depth.js",
-            "data/generated/publisher-analysis.json",
-            "data/generated/eos-analysis.json"
-          ],
-          "dependencies": [
-            "Commercial Market Evidence architecture",
-            "Financial District canonical collection standard",
-            "Knowledge Graph district identity",
-            "Representative building and Commercial Building Intelligence evidence",
-            "Building Profile editorial standard",
-            "Publisher Building Brief depth analysis"
-          ],
-          "acceptanceCriteria": [
-            "Commercial Market Evidence and Building Profiles remain separate source systems and measurements.",
-            "A new district Commercial Market Evidence source collection exists in the canonical data path.",
-            "Selected evidence buildings resolve to adequate canonical Building Profiles or explicit remaining Work Items.",
-            "Building Profiles avoid unsupported leasing, tenant, lab, medical, or infrastructure claims.",
-            "CME validator, Building Brief depth QA, Publisher snapshot, EOS QA, and build pass.",
-            "Publisher scoring, recommendation rankings, public URLs, and Mission Control planning logic remain stable unless measured source coverage legitimately changes."
-          ],
-          "expectedDeliverables": [
-            "Commercial Market Evidence work completed or validated without unnecessary regeneration",
-            "Selected evidence Building Profiles completed or explicitly deferred",
-            "Commercial Market Evidence validator and Building Brief depth QA pass",
-            "Publisher and EOS snapshots regenerated",
-            "Per-component and per-building outcomes reported in SER v1"
-          ],
-          "qaCommands": [
-            "node scripts/qa-commercial-market-evidence.js",
-            "node scripts/qa-building-brief-depth.js",
-            "npm run publisher:snapshot",
-            "node scripts/qa-eos.js",
-            "npm run build",
-            "git diff --check"
-          ],
-          "requiredReview": true,
-          "automationLevel": {
-            "id": "review_required",
-            "label": "Review Required",
-            "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
-          },
-          "providers": [
-            {
-              "id": "manual",
-              "label": "Manual",
-              "description": "A human uses the execution packet as a checklist and updates EOS externally."
-            },
-            {
-              "id": "codex",
-              "label": "Codex",
-              "description": "A future execution provider can consume the packet and return work for review."
-            }
-          ],
-          "handoff": [
-            {
-              "id": "engineering",
-              "label": "Engineering",
-              "description": "Prepare source files, schema, generated data, or implementation scope."
-            },
-            {
-              "id": "execution",
-              "label": "Execution / Field Mode",
-              "description": "Execute the work manually, through Field Mode, or through a future provider."
-            },
-            {
-              "id": "qa",
-              "label": "QA",
-              "description": "Run deterministic validation and return exceptions to review."
-            },
-            {
-              "id": "publish",
-              "label": "Publish",
-              "description": "Regenerate snapshots/build and publish through the existing deployment workflow."
-            }
-          ],
-          "componentStatuses": {
-            "commercialMarketEvidence": "Missing",
-            "evidenceRecordCount": 0,
-            "evidenceBuildingProfiles": {
-              "completed": 0,
-              "target": 0,
-              "missing": 0,
-              "label": "Collection missing"
-            },
-            "supportingBuildingProfiles": {
-              "completed": 0,
-              "target": 0,
-              "missing": 0,
-              "label": "To be selected during collection work"
-            },
-            "unresolvedBuildingItems": 0,
-            "validationStatus": "Requires validation",
-            "districtBuildingEvidence": "Missing"
-          },
-          "workItems": {
-            "count": 1,
-            "buildings": []
-          }
-        }
-      },
-      {
         "id": "mission:peninsula:district-building-evidence:downtown-palo-alto",
         "title": "Complete Downtown Palo Alto Building Evidence",
         "marketId": "peninsula",
@@ -100183,7 +99732,7 @@
         ],
         "requiredReview": true,
         "confidence": "Medium",
-        "priorityScore": 46,
+        "priorityScore": 47,
         "priorityStars": 3,
         "automationLevel": {
           "id": "review_required",
@@ -100463,6 +100012,273 @@
         }
       },
       {
+        "id": "mission:sacramento:district-building-evidence:east-sacramento-alhambra-corridor",
+        "title": "Complete East Sacramento / Alhambra Corridor Building Evidence",
+        "marketId": "sacramento",
+        "marketName": "Sacramento",
+        "programId": "commercial_market_evidence",
+        "programLabel": "Commercial Market Evidence",
+        "campaignId": "sacramento:commercial_market_evidence:completion-campaign",
+        "campaignTitle": "Sacramento Building Evidence Completion",
+        "initiativeId": "sacramento:commercial_market_evidence:east-sacramento-alhambra-corridor",
+        "initiativeTitle": "East Sacramento / Alhambra Corridor Building Evidence",
+        "portfolioId": "district-building-evidence:sacramento:east-sacramento-alhambra-corridor",
+        "metroId": "sacramento",
+        "metroName": "Sacramento",
+        "ecosystem": "Building Evidence",
+        "ecosystemId": "",
+        "districtId": "east-sacramento-alhambra-corridor",
+        "districtName": "East Sacramento / Alhambra Corridor",
+        "expectedImpact": "High",
+        "estimatedEffort": "Medium",
+        "missionSize": {
+          "id": "standard",
+          "label": "Standard",
+          "reviewWindow": "60-120 minutes",
+          "maximumWorkItems": 8
+        },
+        "impactEffortClass": "High Impact / Medium Effort / District Building Evidence",
+        "missionClass": "Foundation",
+        "currentConstraint": "East Sacramento / Alhambra Corridor lacks a Commercial Market Evidence collection and selected evidence Building Profiles.",
+        "dependencies": [
+          "Commercial Market Evidence architecture",
+          "Financial District canonical collection standard",
+          "Knowledge Graph district identity",
+          "Representative building and Commercial Building Intelligence evidence",
+          "Building Profile editorial standard",
+          "Publisher Building Brief depth analysis"
+        ],
+        "qaCommands": [
+          "node scripts/qa-commercial-market-evidence.js",
+          "node scripts/qa-building-brief-depth.js",
+          "npm run publisher:snapshot",
+          "node scripts/qa-eos.js",
+          "npm run build",
+          "git diff --check"
+        ],
+        "requiredReview": true,
+        "confidence": "Medium",
+        "priorityScore": 47,
+        "priorityStars": 3,
+        "automationLevel": {
+          "id": "review_required",
+          "label": "Review Required",
+          "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
+        },
+        "lifecycleState": {
+          "id": "ready",
+          "label": "Ready"
+        },
+        "status": "Ready",
+        "queueType": "editorial",
+        "operatingLane": {
+          "id": "editorial",
+          "label": "Editorial",
+          "description": "Commercial judgment, building profiles, handbook guidance, and public editorial depth."
+        },
+        "category": "mission",
+        "categoryLabel": "Mission",
+        "suggestedModule": {
+          "id": "commercialMarketEvidence",
+          "label": "Commercial Market Evidence"
+        },
+        "why": [
+          "Commercial Market Evidence and Building Profiles are separate data products but one district research workflow.",
+          "CME collection and required selected Building Profiles should be created in one execution packet.",
+          "One district Mission avoids detached Commence Work actions for evidence selection and Building Profile migration."
+        ],
+        "includedTasks": [
+          {
+            "id": "commercial-market-evidence:east-sacramento-alhambra-corridor:collection",
+            "title": "East Sacramento / Alhambra Corridor Commercial Market Evidence collection",
+            "reason": "District is missing a Commercial Market Evidence collection."
+          }
+        ],
+        "deferredTasks": [
+          {
+            "id": "commercial-market-evidence:east-sacramento-alhambra-corridor:quality-scoring",
+            "title": "Publisher quality scoring for Commercial Market Evidence",
+            "reason": "Quality scoring remains deferred; Publisher continues reporting CME and Building Profiles separately."
+          }
+        ],
+        "componentStatuses": {
+          "commercialMarketEvidence": "Missing",
+          "evidenceRecordCount": 0,
+          "evidenceBuildingProfiles": {
+            "completed": 0,
+            "target": 0,
+            "missing": 0,
+            "label": "Collection missing"
+          },
+          "supportingBuildingProfiles": {
+            "completed": 0,
+            "target": 0,
+            "missing": 0,
+            "label": "To be selected during collection work"
+          },
+          "unresolvedBuildingItems": 0,
+          "validationStatus": "Requires validation",
+          "districtBuildingEvidence": "Missing"
+        },
+        "workItems": {
+          "count": 1,
+          "buildings": []
+        },
+        "executionPacket": {
+          "objective": "Create the East Sacramento / Alhambra Corridor Commercial Market Evidence collection and complete the required selected Building Profiles in one district Mission.",
+          "reason": [
+            "East Sacramento / Alhambra Corridor is missing a Commercial Market Evidence collection.",
+            "Evidence Building Profiles: Collection missing.",
+            "Supporting Building Profiles will be selected only when they materially strengthen district explanation.",
+            "0 selected Building Profile work items are included in this bounded Mission."
+          ],
+          "currentHealth": "74% Improving",
+          "currentConstraint": "East Sacramento / Alhambra Corridor lacks a Commercial Market Evidence collection and selected evidence Building Profiles.",
+          "includedTasks": [
+            {
+              "id": "commercial-market-evidence:east-sacramento-alhambra-corridor:collection",
+              "title": "East Sacramento / Alhambra Corridor Commercial Market Evidence collection",
+              "reason": "District is missing a Commercial Market Evidence collection."
+            }
+          ],
+          "deferredTasks": [
+            {
+              "id": "commercial-market-evidence:east-sacramento-alhambra-corridor:quality-scoring",
+              "title": "Publisher quality scoring for Commercial Market Evidence",
+              "reason": "Quality scoring remains deferred; Publisher continues reporting CME and Building Profiles separately."
+            }
+          ],
+          "reasonForBundling": [
+            "Commercial Market Evidence collection and required Building Profiles should be created from one district research pass.",
+            "Representative evidence selection, source-data collection, profile references, and validation remain hidden Work Items inside one Mission.",
+            "Publisher scoring and recommendation behavior remain unchanged.",
+            "No split required; missing district collection starts as one Standard mission."
+          ],
+          "expectedImpact": "High",
+          "estimatedEffort": "Medium",
+          "missionSize": {
+            "id": "standard",
+            "label": "Standard",
+            "reviewWindow": "60-120 minutes",
+            "maximumWorkItems": 8
+          },
+          "missionClass": "Foundation",
+          "files": [
+            "docs/product/rofo-master-plan.md",
+            "docs/editorial-operating-system.md",
+            "docs/mission-control-v2-operating-model.md",
+            "docs/commercial-market-evidence.md",
+            "docs/commercial-market-evidence-financial-district.md",
+            "docs/eos-portfolio-resolver.md",
+            "docs/rofo-publisher.md",
+            "docs/building-page-standard.md",
+            "_data/locationKnowledgeGraph.js",
+            "_data/commercialMarketEvidence.js",
+            "_data/commercialBuildingIntelligence.js",
+            "_data/representativeBuildingIntelligence.js",
+            "data/commercial-market-evidence/sacramento/east-sacramento-alhambra-corridor.js",
+            "scripts/qa-commercial-market-evidence.js",
+            "scripts/qa-building-brief-depth.js",
+            "data/generated/publisher-analysis.json",
+            "data/generated/eos-analysis.json"
+          ],
+          "dependencies": [
+            "Commercial Market Evidence architecture",
+            "Financial District canonical collection standard",
+            "Knowledge Graph district identity",
+            "Representative building and Commercial Building Intelligence evidence",
+            "Building Profile editorial standard",
+            "Publisher Building Brief depth analysis"
+          ],
+          "acceptanceCriteria": [
+            "Commercial Market Evidence and Building Profiles remain separate source systems and measurements.",
+            "A new district Commercial Market Evidence source collection exists in the canonical data path.",
+            "Selected evidence buildings resolve to adequate canonical Building Profiles or explicit remaining Work Items.",
+            "Building Profiles avoid unsupported leasing, tenant, lab, medical, or infrastructure claims.",
+            "CME validator, Building Brief depth QA, Publisher snapshot, EOS QA, and build pass.",
+            "Publisher scoring, recommendation rankings, public URLs, and Mission Control planning logic remain stable unless measured source coverage legitimately changes."
+          ],
+          "expectedDeliverables": [
+            "Commercial Market Evidence work completed or validated without unnecessary regeneration",
+            "Selected evidence Building Profiles completed or explicitly deferred",
+            "Commercial Market Evidence validator and Building Brief depth QA pass",
+            "Publisher and EOS snapshots regenerated",
+            "Per-component and per-building outcomes reported in SER v1"
+          ],
+          "qaCommands": [
+            "node scripts/qa-commercial-market-evidence.js",
+            "node scripts/qa-building-brief-depth.js",
+            "npm run publisher:snapshot",
+            "node scripts/qa-eos.js",
+            "npm run build",
+            "git diff --check"
+          ],
+          "requiredReview": true,
+          "automationLevel": {
+            "id": "review_required",
+            "label": "Review Required",
+            "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
+          },
+          "providers": [
+            {
+              "id": "manual",
+              "label": "Manual",
+              "description": "A human uses the execution packet as a checklist and updates EOS externally."
+            },
+            {
+              "id": "codex",
+              "label": "Codex",
+              "description": "A future execution provider can consume the packet and return work for review."
+            }
+          ],
+          "handoff": [
+            {
+              "id": "engineering",
+              "label": "Engineering",
+              "description": "Prepare source files, schema, generated data, or implementation scope."
+            },
+            {
+              "id": "execution",
+              "label": "Execution / Field Mode",
+              "description": "Execute the work manually, through Field Mode, or through a future provider."
+            },
+            {
+              "id": "qa",
+              "label": "QA",
+              "description": "Run deterministic validation and return exceptions to review."
+            },
+            {
+              "id": "publish",
+              "label": "Publish",
+              "description": "Regenerate snapshots/build and publish through the existing deployment workflow."
+            }
+          ],
+          "componentStatuses": {
+            "commercialMarketEvidence": "Missing",
+            "evidenceRecordCount": 0,
+            "evidenceBuildingProfiles": {
+              "completed": 0,
+              "target": 0,
+              "missing": 0,
+              "label": "Collection missing"
+            },
+            "supportingBuildingProfiles": {
+              "completed": 0,
+              "target": 0,
+              "missing": 0,
+              "label": "To be selected during collection work"
+            },
+            "unresolvedBuildingItems": 0,
+            "validationStatus": "Requires validation",
+            "districtBuildingEvidence": "Missing"
+          },
+          "workItems": {
+            "count": 1,
+            "buildings": []
+          }
+        }
+      },
+      {
         "id": "mission:denver:district-building-evidence:westminster",
         "title": "Complete Westminster Building Evidence",
         "marketId": "denver",
@@ -100730,273 +100546,6 @@
         }
       },
       {
-        "id": "mission:east-bay:district-building-evidence:emeryville-commercial-core",
-        "title": "Complete Emeryville Commercial Core Building Evidence",
-        "marketId": "east-bay",
-        "marketName": "East Bay",
-        "programId": "commercial_market_evidence",
-        "programLabel": "Commercial Market Evidence",
-        "campaignId": "east-bay:commercial_market_evidence:completion-campaign",
-        "campaignTitle": "East Bay Building Evidence Completion",
-        "initiativeId": "east-bay:commercial_market_evidence:emeryville-commercial-core",
-        "initiativeTitle": "Emeryville Commercial Core Building Evidence",
-        "portfolioId": "district-building-evidence:east-bay:emeryville-commercial-core",
-        "metroId": "east-bay",
-        "metroName": "East Bay",
-        "ecosystem": "Building Evidence",
-        "ecosystemId": "",
-        "districtId": "emeryville-commercial-core",
-        "districtName": "Emeryville Commercial Core",
-        "expectedImpact": "High",
-        "estimatedEffort": "Medium",
-        "missionSize": {
-          "id": "standard",
-          "label": "Standard",
-          "reviewWindow": "60-120 minutes",
-          "maximumWorkItems": 8
-        },
-        "impactEffortClass": "High Impact / Medium Effort / District Building Evidence",
-        "missionClass": "Foundation",
-        "currentConstraint": "Emeryville Commercial Core lacks a Commercial Market Evidence collection and selected evidence Building Profiles.",
-        "dependencies": [
-          "Commercial Market Evidence architecture",
-          "Financial District canonical collection standard",
-          "Knowledge Graph district identity",
-          "Representative building and Commercial Building Intelligence evidence",
-          "Building Profile editorial standard",
-          "Publisher Building Brief depth analysis"
-        ],
-        "qaCommands": [
-          "node scripts/qa-commercial-market-evidence.js",
-          "node scripts/qa-building-brief-depth.js",
-          "npm run publisher:snapshot",
-          "node scripts/qa-eos.js",
-          "npm run build",
-          "git diff --check"
-        ],
-        "requiredReview": true,
-        "confidence": "Medium",
-        "priorityScore": 44,
-        "priorityStars": 2,
-        "automationLevel": {
-          "id": "review_required",
-          "label": "Review Required",
-          "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
-        },
-        "lifecycleState": {
-          "id": "ready",
-          "label": "Ready"
-        },
-        "status": "Ready",
-        "queueType": "editorial",
-        "operatingLane": {
-          "id": "editorial",
-          "label": "Editorial",
-          "description": "Commercial judgment, building profiles, handbook guidance, and public editorial depth."
-        },
-        "category": "mission",
-        "categoryLabel": "Mission",
-        "suggestedModule": {
-          "id": "commercialMarketEvidence",
-          "label": "Commercial Market Evidence"
-        },
-        "why": [
-          "Commercial Market Evidence and Building Profiles are separate data products but one district research workflow.",
-          "CME collection and required selected Building Profiles should be created in one execution packet.",
-          "One district Mission avoids detached Commence Work actions for evidence selection and Building Profile migration."
-        ],
-        "includedTasks": [
-          {
-            "id": "commercial-market-evidence:emeryville-commercial-core:collection",
-            "title": "Emeryville Commercial Core Commercial Market Evidence collection",
-            "reason": "District is missing a Commercial Market Evidence collection."
-          }
-        ],
-        "deferredTasks": [
-          {
-            "id": "commercial-market-evidence:emeryville-commercial-core:quality-scoring",
-            "title": "Publisher quality scoring for Commercial Market Evidence",
-            "reason": "Quality scoring remains deferred; Publisher continues reporting CME and Building Profiles separately."
-          }
-        ],
-        "componentStatuses": {
-          "commercialMarketEvidence": "Missing",
-          "evidenceRecordCount": 0,
-          "evidenceBuildingProfiles": {
-            "completed": 0,
-            "target": 0,
-            "missing": 0,
-            "label": "Collection missing"
-          },
-          "supportingBuildingProfiles": {
-            "completed": 0,
-            "target": 0,
-            "missing": 0,
-            "label": "To be selected during collection work"
-          },
-          "unresolvedBuildingItems": 0,
-          "validationStatus": "Requires validation",
-          "districtBuildingEvidence": "Missing"
-        },
-        "workItems": {
-          "count": 1,
-          "buildings": []
-        },
-        "executionPacket": {
-          "objective": "Create the Emeryville Commercial Core Commercial Market Evidence collection and complete the required selected Building Profiles in one district Mission.",
-          "reason": [
-            "Emeryville Commercial Core is missing a Commercial Market Evidence collection.",
-            "Evidence Building Profiles: Collection missing.",
-            "Supporting Building Profiles will be selected only when they materially strengthen district explanation.",
-            "0 selected Building Profile work items are included in this bounded Mission."
-          ],
-          "currentHealth": "0% Planning",
-          "currentConstraint": "Emeryville Commercial Core lacks a Commercial Market Evidence collection and selected evidence Building Profiles.",
-          "includedTasks": [
-            {
-              "id": "commercial-market-evidence:emeryville-commercial-core:collection",
-              "title": "Emeryville Commercial Core Commercial Market Evidence collection",
-              "reason": "District is missing a Commercial Market Evidence collection."
-            }
-          ],
-          "deferredTasks": [
-            {
-              "id": "commercial-market-evidence:emeryville-commercial-core:quality-scoring",
-              "title": "Publisher quality scoring for Commercial Market Evidence",
-              "reason": "Quality scoring remains deferred; Publisher continues reporting CME and Building Profiles separately."
-            }
-          ],
-          "reasonForBundling": [
-            "Commercial Market Evidence collection and required Building Profiles should be created from one district research pass.",
-            "Representative evidence selection, source-data collection, profile references, and validation remain hidden Work Items inside one Mission.",
-            "Publisher scoring and recommendation behavior remain unchanged.",
-            "No split required; missing district collection starts as one Standard mission."
-          ],
-          "expectedImpact": "High",
-          "estimatedEffort": "Medium",
-          "missionSize": {
-            "id": "standard",
-            "label": "Standard",
-            "reviewWindow": "60-120 minutes",
-            "maximumWorkItems": 8
-          },
-          "missionClass": "Foundation",
-          "files": [
-            "docs/product/rofo-master-plan.md",
-            "docs/editorial-operating-system.md",
-            "docs/mission-control-v2-operating-model.md",
-            "docs/commercial-market-evidence.md",
-            "docs/commercial-market-evidence-financial-district.md",
-            "docs/eos-portfolio-resolver.md",
-            "docs/rofo-publisher.md",
-            "docs/building-page-standard.md",
-            "_data/locationKnowledgeGraph.js",
-            "_data/commercialMarketEvidence.js",
-            "_data/commercialBuildingIntelligence.js",
-            "_data/representativeBuildingIntelligence.js",
-            "data/commercial-market-evidence/east-bay/emeryville-commercial-core.js",
-            "scripts/qa-commercial-market-evidence.js",
-            "scripts/qa-building-brief-depth.js",
-            "data/generated/publisher-analysis.json",
-            "data/generated/eos-analysis.json"
-          ],
-          "dependencies": [
-            "Commercial Market Evidence architecture",
-            "Financial District canonical collection standard",
-            "Knowledge Graph district identity",
-            "Representative building and Commercial Building Intelligence evidence",
-            "Building Profile editorial standard",
-            "Publisher Building Brief depth analysis"
-          ],
-          "acceptanceCriteria": [
-            "Commercial Market Evidence and Building Profiles remain separate source systems and measurements.",
-            "A new district Commercial Market Evidence source collection exists in the canonical data path.",
-            "Selected evidence buildings resolve to adequate canonical Building Profiles or explicit remaining Work Items.",
-            "Building Profiles avoid unsupported leasing, tenant, lab, medical, or infrastructure claims.",
-            "CME validator, Building Brief depth QA, Publisher snapshot, EOS QA, and build pass.",
-            "Publisher scoring, recommendation rankings, public URLs, and Mission Control planning logic remain stable unless measured source coverage legitimately changes."
-          ],
-          "expectedDeliverables": [
-            "Commercial Market Evidence work completed or validated without unnecessary regeneration",
-            "Selected evidence Building Profiles completed or explicitly deferred",
-            "Commercial Market Evidence validator and Building Brief depth QA pass",
-            "Publisher and EOS snapshots regenerated",
-            "Per-component and per-building outcomes reported in SER v1"
-          ],
-          "qaCommands": [
-            "node scripts/qa-commercial-market-evidence.js",
-            "node scripts/qa-building-brief-depth.js",
-            "npm run publisher:snapshot",
-            "node scripts/qa-eos.js",
-            "npm run build",
-            "git diff --check"
-          ],
-          "requiredReview": true,
-          "automationLevel": {
-            "id": "review_required",
-            "label": "Review Required",
-            "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
-          },
-          "providers": [
-            {
-              "id": "manual",
-              "label": "Manual",
-              "description": "A human uses the execution packet as a checklist and updates EOS externally."
-            },
-            {
-              "id": "codex",
-              "label": "Codex",
-              "description": "A future execution provider can consume the packet and return work for review."
-            }
-          ],
-          "handoff": [
-            {
-              "id": "engineering",
-              "label": "Engineering",
-              "description": "Prepare source files, schema, generated data, or implementation scope."
-            },
-            {
-              "id": "execution",
-              "label": "Execution / Field Mode",
-              "description": "Execute the work manually, through Field Mode, or through a future provider."
-            },
-            {
-              "id": "qa",
-              "label": "QA",
-              "description": "Run deterministic validation and return exceptions to review."
-            },
-            {
-              "id": "publish",
-              "label": "Publish",
-              "description": "Regenerate snapshots/build and publish through the existing deployment workflow."
-            }
-          ],
-          "componentStatuses": {
-            "commercialMarketEvidence": "Missing",
-            "evidenceRecordCount": 0,
-            "evidenceBuildingProfiles": {
-              "completed": 0,
-              "target": 0,
-              "missing": 0,
-              "label": "Collection missing"
-            },
-            "supportingBuildingProfiles": {
-              "completed": 0,
-              "target": 0,
-              "missing": 0,
-              "label": "To be selected during collection work"
-            },
-            "unresolvedBuildingItems": 0,
-            "validationStatus": "Requires validation",
-            "districtBuildingEvidence": "Missing"
-          },
-          "workItems": {
-            "count": 1,
-            "buildings": []
-          }
-        }
-      },
-      {
         "id": "mission:peninsula:district-building-evidence:stanford-research-park",
         "title": "Complete Stanford Research Park Building Evidence",
         "marketId": "peninsula",
@@ -101043,7 +100592,7 @@
         ],
         "requiredReview": true,
         "confidence": "Medium",
-        "priorityScore": 42,
+        "priorityScore": 43,
         "priorityStars": 2,
         "automationLevel": {
           "id": "review_required",
@@ -101310,7 +100859,7 @@
         ],
         "requiredReview": true,
         "confidence": "Medium",
-        "priorityScore": 41,
+        "priorityScore": 42,
         "priorityStars": 2,
         "automationLevel": {
           "id": "review_required",
@@ -101712,7 +101261,7 @@
         ],
         "requiredReview": true,
         "confidence": "Medium",
-        "priorityScore": 41,
+        "priorityScore": 42,
         "priorityStars": 2,
         "automationLevel": {
           "id": "review_required",
@@ -101979,7 +101528,7 @@
         ],
         "requiredReview": true,
         "confidence": "Medium",
-        "priorityScore": 40,
+        "priorityScore": 41,
         "priorityStars": 2,
         "automationLevel": {
           "id": "review_required",
@@ -102343,7 +101892,7 @@
         ],
         "requiredReview": true,
         "confidence": "Medium",
-        "priorityScore": 40,
+        "priorityScore": 41,
         "priorityStars": 2,
         "automationLevel": {
           "id": "review_required",
@@ -102688,7 +102237,7 @@
         ],
         "requiredReview": true,
         "confidence": "Medium",
-        "priorityScore": 40,
+        "priorityScore": 41,
         "priorityStars": 2,
         "automationLevel": {
           "id": "review_required",
@@ -103014,7 +102563,7 @@
         ],
         "requiredReview": true,
         "confidence": "Medium",
-        "priorityScore": 40,
+        "priorityScore": 41,
         "priorityStars": 2,
         "automationLevel": {
           "id": "review_required",
@@ -103281,7 +102830,7 @@
         ],
         "requiredReview": true,
         "confidence": "Medium",
-        "priorityScore": 39,
+        "priorityScore": 40,
         "priorityStars": 2,
         "automationLevel": {
           "id": "review_required",
@@ -103683,7 +103232,7 @@
         ],
         "requiredReview": true,
         "confidence": "Medium",
-        "priorityScore": 39,
+        "priorityScore": 40,
         "priorityStars": 2,
         "automationLevel": {
           "id": "review_required",
@@ -103950,7 +103499,7 @@
         ],
         "requiredReview": true,
         "confidence": "Medium",
-        "priorityScore": 38,
+        "priorityScore": 39,
         "priorityStars": 2,
         "automationLevel": {
           "id": "review_required",
@@ -104217,7 +103766,7 @@
         ],
         "requiredReview": true,
         "confidence": "Medium",
-        "priorityScore": 36,
+        "priorityScore": 37,
         "priorityStars": 2,
         "automationLevel": {
           "id": "review_required",
@@ -104543,7 +104092,7 @@
         ],
         "requiredReview": true,
         "confidence": "Medium",
-        "priorityScore": 31,
+        "priorityScore": 32,
         "priorityStars": 2,
         "automationLevel": {
           "id": "review_required",
@@ -104810,7 +104359,7 @@
         ],
         "requiredReview": true,
         "confidence": "Medium",
-        "priorityScore": 30,
+        "priorityScore": 31,
         "priorityStars": 2,
         "automationLevel": {
           "id": "review_required",
@@ -105077,7 +104626,7 @@
         ],
         "requiredReview": true,
         "confidence": "Medium",
-        "priorityScore": 29,
+        "priorityScore": 30,
         "priorityStars": 2,
         "automationLevel": {
           "id": "review_required",
@@ -105344,7 +104893,7 @@
         ],
         "requiredReview": true,
         "confidence": "Medium",
-        "priorityScore": 28,
+        "priorityScore": 29,
         "priorityStars": 2,
         "automationLevel": {
           "id": "review_required",
@@ -105670,7 +105219,7 @@
         ],
         "requiredReview": true,
         "confidence": "Medium",
-        "priorityScore": 28,
+        "priorityScore": 29,
         "priorityStars": 2,
         "automationLevel": {
           "id": "review_required",
@@ -105937,7 +105486,7 @@
         ],
         "requiredReview": true,
         "confidence": "Medium",
-        "priorityScore": 27,
+        "priorityScore": 28,
         "priorityStars": 2,
         "automationLevel": {
           "id": "review_required",
@@ -106204,7 +105753,7 @@
         ],
         "requiredReview": true,
         "confidence": "Medium",
-        "priorityScore": 26,
+        "priorityScore": 27,
         "priorityStars": 2,
         "automationLevel": {
           "id": "review_required",
@@ -106471,7 +106020,7 @@
         ],
         "requiredReview": true,
         "confidence": "Medium",
-        "priorityScore": 24,
+        "priorityScore": 25,
         "priorityStars": 2,
         "automationLevel": {
           "id": "review_required",
@@ -106738,8 +106287,8 @@
         ],
         "requiredReview": true,
         "confidence": "Medium",
-        "priorityScore": 23,
-        "priorityStars": 1,
+        "priorityScore": 24,
+        "priorityStars": 2,
         "automationLevel": {
           "id": "review_required",
           "label": "Review Required",
@@ -107005,7 +106554,7 @@
         ],
         "requiredReview": true,
         "confidence": "Medium",
-        "priorityScore": 22,
+        "priorityScore": 23,
         "priorityStars": 1,
         "automationLevel": {
           "id": "review_required",
@@ -107272,7 +106821,7 @@
         ],
         "requiredReview": true,
         "confidence": "Medium",
-        "priorityScore": 21,
+        "priorityScore": 22,
         "priorityStars": 1,
         "automationLevel": {
           "id": "review_required",
@@ -107539,7 +107088,7 @@
         ],
         "requiredReview": true,
         "confidence": "Medium",
-        "priorityScore": 20,
+        "priorityScore": 21,
         "priorityStars": 1,
         "automationLevel": {
           "id": "review_required",
@@ -107806,7 +107355,7 @@
         ],
         "requiredReview": true,
         "confidence": "Medium",
-        "priorityScore": 19,
+        "priorityScore": 20,
         "priorityStars": 1,
         "automationLevel": {
           "id": "review_required",
@@ -108073,7 +107622,7 @@
         ],
         "requiredReview": true,
         "confidence": "Medium",
-        "priorityScore": 18,
+        "priorityScore": 19,
         "priorityStars": 1,
         "automationLevel": {
           "id": "review_required",
@@ -108340,7 +107889,7 @@
         ],
         "requiredReview": true,
         "confidence": "Medium",
-        "priorityScore": 17,
+        "priorityScore": 18,
         "priorityStars": 1,
         "automationLevel": {
           "id": "review_required",
@@ -108607,7 +108156,7 @@
         ],
         "requiredReview": true,
         "confidence": "Medium",
-        "priorityScore": 16,
+        "priorityScore": 17,
         "priorityStars": 1,
         "automationLevel": {
           "id": "review_required",
@@ -121231,23 +120780,23 @@
     "reviewQueue": [],
     "opportunityInventory": {
       "total": 323,
-      "missions": 87,
+      "missions": 86,
       "resolvedPortfolioMissions": 0,
       "byQueue": {
         "editorial": 323,
-        "missions": 87,
+        "missions": 86,
         "resolvedPortfolioMissions": 0,
         "expansion": 4,
         "fieldMode": 6,
         "review": 0,
-        "programMissions": 79
+        "programMissions": 78
       },
       "hiddenFromHomepage": 323,
-      "programMissions": 79
+      "programMissions": 78
     },
     "queueCounts": {
       "editorialQueue": 323,
-      "missionQueue": 87,
+      "missionQueue": 86,
       "expansionQueue": 4,
       "fieldModeQueue": 6,
       "reviewQueue": 0
