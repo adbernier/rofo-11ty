@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-11T13:44:53-07:00",
-  "sourceCommit": "60456e0dc631cf053fe8dd43dfa7f1a6a41dc820",
+  "generatedAt": "2026-08-11T14:36:39-07:00",
+  "sourceCommit": "2cbf0a2d2ca6f6bb9f94539075150e6918cfa675",
   "geography": {
     "schemaVersion": "commercial-geography-summary-v1",
     "hierarchy": [
@@ -2223,7 +2223,7 @@
       "Low": 2
     },
     "deferredCandidates": 69,
-    "latestValidation": "2026-08-11T13:44:53-07:00",
+    "latestValidation": "2026-08-11T14:36:39-07:00",
     "errors": [],
     "warnings": [],
     "source": {
@@ -2233,13 +2233,13 @@
     "scoringImpact": "None. Reporting only; Publisher scoring and readiness calculations are unchanged."
   },
   "analysis": {
-    "generatedAt": "2026-08-11T13:44:53-07:00",
+    "generatedAt": "2026-08-11T14:36:39-07:00",
     "rulesVersion": "publisher-rules-v1",
     "overview": {
       "compassReadyCount": 5,
       "averageScore": 89,
       "criticalIssues": 0,
-      "queuedTasks": 277,
+      "queuedTasks": 279,
       "closestToDistributionReady": "Sacramento",
       "largestCriticalGap": "None"
     },
@@ -2279,12 +2279,12 @@
           "editorialCoverage": {
             "key": "editorialCoverage",
             "label": "Editorial Coverage",
-            "score": 91,
+            "score": 92,
             "status": "",
-            "explanation": "24 of 24 districts have substantive descriptions; 155 representative buildings and 86 Building Briefs are available.",
+            "explanation": "24 of 24 districts have substantive descriptions; 157 representative buildings and 86 Building Briefs are available.",
             "completed": {
               "districtsWithDescriptions": 24,
-              "representativeBuildings": 155,
+              "representativeBuildings": 157,
               "buildingBriefs": 86
             },
             "targets": {
@@ -2304,11 +2304,11 @@
             "completed": {
               "cityPage": 1,
               "districtPages": 24,
-              "internalLinks": 265
+              "internalLinks": 267
             },
             "targets": {
               "districtPages": 24,
-              "internalLinks": 265
+              "internalLinks": 267
             },
             "blockers": [],
             "topOpportunity": "Maintain public route integrity."
@@ -2321,7 +2321,7 @@
         "score": 96,
         "cityPath": "/commercial-real-estate/CA/san-francisco/",
         "districtCount": 24,
-        "representativeBuildingCount": 155,
+        "representativeBuildingCount": 157,
         "buildingBriefCount": 86,
         "geographicReadiness": {
           "state": "developed",
@@ -2380,7 +2380,7 @@
                 "districts": 7,
                 "secondaryDistricts": 14,
                 "recommendations": 7,
-                "representativeBuildings": 78,
+                "representativeBuildings": 80,
                 "buildingBriefs": 38,
                 "subtypes": 7,
                 "archetypes": 10,
@@ -2397,7 +2397,7 @@
               "strategicPriority": 2,
               "evidence": [
                 "7 primary districts and 14 secondary districts.",
-                "78 Representative Buildings and 38 Building Briefs.",
+                "80 Representative Buildings and 38 Building Briefs.",
                 "7 representative roles and 5 operational categories are covered."
               ],
               "targetSubtypes": [
@@ -2425,20 +2425,22 @@
                 "ecosystemId": "office",
                 "state": "strong",
                 "stateLabel": "Strong",
-                "buildingCount": 78,
-                "explicitCount": 0,
+                "buildingCount": 80,
+                "explicitCount": 4,
                 "inheritedOnlyCount": 65,
                 "reviewRequiredCount": 0,
                 "rolesCovered": [
+                  "suburban_office_campus",
+                  "transit_oriented_office_environment",
                   "downtown_class_a_office",
                   "professional_office_environment",
                   "government_office_environment",
                   "creative_office_environment",
-                  "executive_office_environment",
-                  "suburban_office_campus",
-                  "transit_oriented_office_environment"
+                  "executive_office_environment"
                 ],
                 "subtypesCovered": [
+                  "suburban_office",
+                  "office_campus",
                   "professional_office",
                   "downtown_office",
                   "creative_office",
@@ -2446,32 +2448,37 @@
                 ],
                 "activityCoverage": [
                   "knowledge_work",
-                  "client_meetings",
+                  "collaboration",
                   "administrative_operations",
+                  "client_meetings",
                   "walk_in_retail",
                   "walk_in_service",
                   "customer_showroom",
-                  "collaboration",
                   "product_development",
                   "light_manufacturing",
                   "research"
                 ],
                 "archetypeCoverage": [
-                  "wellness_practice",
-                  "marketing_agency",
                   "professional_office",
+                  "consulting_firm",
+                  "startup",
                   "law_firm",
                   "accounting_firm",
                   "financial_services_firm",
-                  "consulting_firm",
+                  "marketing_agency",
                   "creative_studio",
-                  "startup",
+                  "nonprofit_office",
+                  "wellness_practice",
                   "research_company"
                 ],
                 "operationalCharacteristicsCovered": [
+                  "campus_environment",
+                  "surface_parking",
+                  "suburban_access",
+                  "large_floorplates",
                   "professional_image",
                   "transit_access",
-                  "large_floorplates",
+                  "walkability",
                   "structured_parking",
                   "private_office_layout",
                   "customer_parking",
@@ -2479,17 +2486,13 @@
                   "enhanced_security",
                   "creative_environment",
                   "open_workspace",
-                  "flexible_suite_sizes",
-                  "walkability",
-                  "campus_environment",
-                  "surface_parking",
-                  "suburban_access"
+                  "flexible_suite_sizes"
                 ],
                 "operationalCategoriesCovered": [
                   "market_presence",
+                  "parking_vehicles",
                   "location_workforce",
                   "configuration",
-                  "parking_vehicles",
                   "infrastructure"
                 ],
                 "missingRoles": [
@@ -2503,6 +2506,30 @@
                 "highestPriorityMissingOperationalCategory": "access_loading",
                 "exampleBuildings": [
                   {
+                    "name": "2200 Powell St",
+                    "path": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
+                    "role": "suburban_office_campus",
+                    "confidence": "editorially_supported"
+                  },
+                  {
+                    "name": "2100 Powell St",
+                    "path": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
+                    "role": "suburban_office_campus",
+                    "confidence": "editorially_supported"
+                  },
+                  {
+                    "name": "2140 Shattuck Ave",
+                    "path": "/commercial-real-estate/building/CA/berkeley/2140-shattuck-ave/",
+                    "role": "transit_oriented_office_environment",
+                    "confidence": "editorially_supported"
+                  },
+                  {
+                    "name": "2150 Shattuck Ave",
+                    "path": "/commercial-real-estate/building/CA/berkeley/2150-shattuck-ave/",
+                    "role": "transit_oriented_office_environment",
+                    "confidence": "editorially_supported"
+                  },
+                  {
                     "name": "1936 University Ave",
                     "path": "/commercial-real-estate/building/CA/berkeley/1936-university-ave/",
                     "role": "downtown_class_a_office",
@@ -2512,30 +2539,6 @@
                     "name": "2030 Addison St",
                     "path": "/commercial-real-estate/building/CA/berkeley/2030-addison-st/",
                     "role": "professional_office_environment",
-                    "confidence": "district_inferred"
-                  },
-                  {
-                    "name": "2040 Bancroft Way",
-                    "path": "/commercial-real-estate/building/CA/berkeley/2040-bancroft-way/",
-                    "role": "downtown_class_a_office",
-                    "confidence": "district_inferred"
-                  },
-                  {
-                    "name": "2070 Allston Way",
-                    "path": "/commercial-real-estate/building/CA/berkeley/2070-allston-way/",
-                    "role": "downtown_class_a_office",
-                    "confidence": "district_inferred"
-                  },
-                  {
-                    "name": "2118 Milvia St",
-                    "path": "/commercial-real-estate/building/CA/berkeley/2118-milvia-st/",
-                    "role": "downtown_class_a_office",
-                    "confidence": "district_inferred"
-                  },
-                  {
-                    "name": "2130 Center St",
-                    "path": "/commercial-real-estate/building/CA/berkeley/2130-center-st/",
-                    "role": "government_office_environment",
                     "confidence": "district_inferred"
                   }
                 ]
@@ -3817,7 +3820,7 @@
             "state": "balanced",
             "label": "Balanced",
             "dominantEcosystem": "industrial_flex",
-            "representativeBuildingShare": 0.5,
+            "representativeBuildingShare": 0.51,
             "buildingBriefShare": 0.5,
             "warnings": []
           }
@@ -3826,7 +3829,7 @@
           "state": "balanced",
           "label": "Balanced",
           "dominantEcosystem": "industrial_flex",
-          "representativeBuildingShare": 0.5,
+          "representativeBuildingShare": 0.51,
           "buildingBriefShare": 0.5,
           "warnings": []
         },
@@ -3838,7 +3841,7 @@
               "districtCount": 7,
               "secondaryDistrictCount": 14,
               "recommendationNodeCount": 7,
-              "representativeBuildingCount": 78,
+              "representativeBuildingCount": 80,
               "buildingBriefCount": 38,
               "status": "Developed",
               "districts": [
@@ -3918,71 +3921,74 @@
                 "ecosystemId": "office",
                 "state": "strong",
                 "stateLabel": "Strong",
-                "buildingCount": 78,
-                "explicitCount": 0,
+                "buildingCount": 80,
+                "explicitCount": 4,
                 "inheritedOnlyCount": 65,
                 "reviewRequiredCount": 0,
                 "rolesCovered": {
-                  "downtown_class_a_office": 6,
-                  "professional_office_environment": 9,
+                  "suburban_office_campus": 3,
+                  "transit_oriented_office_environment": 4,
+                  "downtown_class_a_office": 5,
+                  "professional_office_environment": 8,
                   "government_office_environment": 1,
                   "creative_office_environment": 46,
-                  "executive_office_environment": 13,
-                  "suburban_office_campus": 1,
-                  "transit_oriented_office_environment": 2
+                  "executive_office_environment": 13
                 },
                 "subtypesCovered": {
-                  "professional_office": 25,
-                  "downtown_office": 38,
+                  "suburban_office": 2,
+                  "office_campus": 2,
+                  "professional_office": 27,
+                  "downtown_office": 40,
                   "creative_office": 50,
                   "executive_office": 16
                 },
                 "activityCoverage": {
-                  "knowledge_work": 78,
-                  "client_meetings": 50,
-                  "administrative_operations": 31,
+                  "knowledge_work": 80,
+                  "collaboration": 53,
+                  "administrative_operations": 33,
+                  "client_meetings": 52,
                   "walk_in_retail": 16,
                   "walk_in_service": 20,
                   "customer_showroom": 36,
-                  "collaboration": 51,
                   "product_development": 47,
                   "light_manufacturing": 6,
                   "research": 3
                 },
                 "archetypeCoverage": {
-                  "wellness_practice": 16,
-                  "marketing_agency": 69,
-                  "professional_office": 78,
-                  "law_firm": 78,
-                  "accounting_firm": 78,
-                  "financial_services_firm": 78,
-                  "consulting_firm": 78,
+                  "professional_office": 80,
+                  "consulting_firm": 80,
+                  "startup": 64,
+                  "law_firm": 80,
+                  "accounting_firm": 80,
+                  "financial_services_firm": 80,
+                  "marketing_agency": 71,
                   "creative_studio": 78,
-                  "startup": 62,
+                  "nonprofit_office": 2,
+                  "wellness_practice": 16,
                   "research_company": 9
                 },
                 "operationalCharacteristicsCovered": {
-                  "professional_image": 31,
-                  "transit_access": 8,
+                  "campus_environment": 3,
+                  "surface_parking": 3,
+                  "suburban_access": 3,
                   "large_floorplates": 6,
-                  "structured_parking": 6,
-                  "private_office_layout": 22,
-                  "customer_parking": 9,
+                  "professional_image": 33,
+                  "transit_access": 9,
+                  "walkability": 50,
+                  "structured_parking": 7,
+                  "private_office_layout": 21,
+                  "customer_parking": 8,
                   "urban_core_access": 1,
                   "enhanced_security": 14,
                   "creative_environment": 46,
                   "open_workspace": 46,
-                  "flexible_suite_sizes": 46,
-                  "walkability": 48,
-                  "campus_environment": 1,
-                  "surface_parking": 1,
-                  "suburban_access": 1
+                  "flexible_suite_sizes": 46
                 },
                 "operationalCategoriesCovered": {
-                  "market_presence": 78,
-                  "location_workforce": 58,
-                  "configuration": 120,
-                  "parking_vehicles": 16,
+                  "market_presence": 82,
+                  "parking_vehicles": 18,
+                  "location_workforce": 63,
+                  "configuration": 119,
                   "infrastructure": 14
                 },
                 "missingRoles": [
@@ -3996,6 +4002,30 @@
                 "highestPriorityMissingOperationalCategory": "access_loading",
                 "exampleBuildings": [
                   {
+                    "name": "2200 Powell St",
+                    "path": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
+                    "role": "suburban_office_campus",
+                    "confidence": "editorially_supported"
+                  },
+                  {
+                    "name": "2100 Powell St",
+                    "path": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
+                    "role": "suburban_office_campus",
+                    "confidence": "editorially_supported"
+                  },
+                  {
+                    "name": "2140 Shattuck Ave",
+                    "path": "/commercial-real-estate/building/CA/berkeley/2140-shattuck-ave/",
+                    "role": "transit_oriented_office_environment",
+                    "confidence": "editorially_supported"
+                  },
+                  {
+                    "name": "2150 Shattuck Ave",
+                    "path": "/commercial-real-estate/building/CA/berkeley/2150-shattuck-ave/",
+                    "role": "transit_oriented_office_environment",
+                    "confidence": "editorially_supported"
+                  },
+                  {
                     "name": "1936 University Ave",
                     "path": "/commercial-real-estate/building/CA/berkeley/1936-university-ave/",
                     "role": "downtown_class_a_office",
@@ -4005,30 +4035,6 @@
                     "name": "2030 Addison St",
                     "path": "/commercial-real-estate/building/CA/berkeley/2030-addison-st/",
                     "role": "professional_office_environment",
-                    "confidence": "district_inferred"
-                  },
-                  {
-                    "name": "2040 Bancroft Way",
-                    "path": "/commercial-real-estate/building/CA/berkeley/2040-bancroft-way/",
-                    "role": "downtown_class_a_office",
-                    "confidence": "district_inferred"
-                  },
-                  {
-                    "name": "2070 Allston Way",
-                    "path": "/commercial-real-estate/building/CA/berkeley/2070-allston-way/",
-                    "role": "downtown_class_a_office",
-                    "confidence": "district_inferred"
-                  },
-                  {
-                    "name": "2118 Milvia St",
-                    "path": "/commercial-real-estate/building/CA/berkeley/2118-milvia-st/",
-                    "role": "downtown_class_a_office",
-                    "confidence": "district_inferred"
-                  },
-                  {
-                    "name": "2130 Center St",
-                    "path": "/commercial-real-estate/building/CA/berkeley/2130-center-st/",
-                    "role": "government_office_environment",
                     "confidence": "district_inferred"
                   }
                 ]
@@ -5711,11 +5717,11 @@
           "representativeBuildings": {
             "key": "representativeBuildings",
             "label": "Representative Buildings",
-            "score": 73,
-            "completed": 35,
+            "score": 75,
+            "completed": 36,
             "total": 48,
-            "missing": 13,
-            "explanation": "155 representative building relationships; v1 target is 3 per covered district.",
+            "missing": 12,
+            "explanation": "157 representative building relationships; v1 target is 3 per covered district.",
             "issues": [
               {
                 "id": "san-francisco:representativeBuildings:district missing representative buildings:stanford-research-park",
@@ -5811,25 +5817,6 @@
                 "suggestedNextAction": "Curate representative buildings that explain this district.",
                 "automationCandidate": true,
                 "readinessState": ""
-              },
-              {
-                "id": "san-francisco:representativeBuildings:district missing representative buildings:emeryville-commercial-core",
-                "code": "district-no-reps",
-                "metroId": "san-francisco",
-                "metroName": "San Francisco",
-                "category": "representativeBuildings",
-                "categoryLabel": "Representative Buildings",
-                "taskType": "district missing representative buildings",
-                "itemName": "Emeryville Commercial Core",
-                "severity": "medium",
-                "priority": 40,
-                "reason": "District has no representative building examples.",
-                "sourceId": "emeryville-commercial-core",
-                "publicUrl": "/commercial-real-estate/CA/emeryville/emeryville-commercial-core/",
-                "adminUrl": "",
-                "suggestedNextAction": "Curate representative buildings that explain this district.",
-                "automationCandidate": true,
-                "readinessState": ""
               }
             ]
           },
@@ -5838,10 +5825,48 @@
             "label": "Building Briefs",
             "score": 55,
             "completed": 86,
-            "total": 155,
-            "missing": 69,
-            "explanation": "86 of 155 representative building records use the canonical Building Brief journey.",
+            "total": 157,
+            "missing": 71,
+            "explanation": "86 of 157 representative building records use the canonical Building Brief journey.",
             "issues": [
+              {
+                "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st",
+                "code": "missing-brief",
+                "metroId": "san-francisco",
+                "metroName": "San Francisco",
+                "category": "buildingBriefs",
+                "categoryLabel": "Building Briefs",
+                "taskType": "representative building missing Building Brief",
+                "itemName": "2200 Powell St",
+                "severity": "medium",
+                "priority": 40,
+                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+                "sourceId": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
+                "publicUrl": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
+                "adminUrl": "",
+                "suggestedNextAction": "Author a Building Brief for this representative building.",
+                "automationCandidate": true,
+                "readinessState": "representative-foundation"
+              },
+              {
+                "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
+                "code": "missing-brief",
+                "metroId": "san-francisco",
+                "metroName": "San Francisco",
+                "category": "buildingBriefs",
+                "categoryLabel": "Building Briefs",
+                "taskType": "representative building missing Building Brief",
+                "itemName": "2100 Powell St",
+                "severity": "medium",
+                "priority": 40,
+                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+                "sourceId": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
+                "publicUrl": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
+                "adminUrl": "",
+                "suggestedNextAction": "Author a Building Brief for this representative building.",
+                "automationCandidate": true,
+                "readinessState": "representative-foundation"
+              },
               {
                 "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-palo-alto-101-lytton-ave",
                 "code": "missing-brief",
@@ -7257,8 +7282,8 @@
             "key": "internalLinking",
             "label": "Internal Linking",
             "score": 100,
-            "completed": 265,
-            "total": 265,
+            "completed": 267,
+            "total": 267,
             "missing": 0,
             "explanation": "Checks public city, district, building, and comparison references that Publisher can resolve from generated data.",
             "issues": []
@@ -7834,6 +7859,44 @@
             "suggestedNextAction": "Author a Building Brief for this representative building.",
             "automationCandidate": true,
             "readinessState": ""
+          },
+          {
+            "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
+            "code": "missing-brief",
+            "metroId": "san-francisco",
+            "metroName": "San Francisco",
+            "category": "buildingBriefs",
+            "categoryLabel": "Building Briefs",
+            "taskType": "representative building missing Building Brief",
+            "itemName": "2100 Powell St",
+            "severity": "medium",
+            "priority": 40,
+            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+            "sourceId": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
+            "publicUrl": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
+            "adminUrl": "",
+            "suggestedNextAction": "Author a Building Brief for this representative building.",
+            "automationCandidate": true,
+            "readinessState": "representative-foundation"
+          },
+          {
+            "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st",
+            "code": "missing-brief",
+            "metroId": "san-francisco",
+            "metroName": "San Francisco",
+            "category": "buildingBriefs",
+            "categoryLabel": "Building Briefs",
+            "taskType": "representative building missing Building Brief",
+            "itemName": "2200 Powell St",
+            "severity": "medium",
+            "priority": 40,
+            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+            "sourceId": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
+            "publicUrl": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
+            "adminUrl": "",
+            "suggestedNextAction": "Author a Building Brief for this representative building.",
+            "automationCandidate": true,
+            "readinessState": "representative-foundation"
           },
           {
             "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-2400-16th-st",
@@ -8653,25 +8716,6 @@
             "readinessState": ""
           },
           {
-            "id": "san-francisco:representativeBuildings:district missing representative buildings:emeryville-commercial-core",
-            "code": "district-no-reps",
-            "metroId": "san-francisco",
-            "metroName": "San Francisco",
-            "category": "representativeBuildings",
-            "categoryLabel": "Representative Buildings",
-            "taskType": "district missing representative buildings",
-            "itemName": "Emeryville Commercial Core",
-            "severity": "medium",
-            "priority": 40,
-            "reason": "District has no representative building examples.",
-            "sourceId": "emeryville-commercial-core",
-            "publicUrl": "/commercial-real-estate/CA/emeryville/emeryville-commercial-core/",
-            "adminUrl": "",
-            "suggestedNextAction": "Curate representative buildings that explain this district.",
-            "automationCandidate": true,
-            "readinessState": ""
-          },
-          {
             "id": "san-francisco:representativeBuildings:district missing representative buildings:north-bayshore",
             "code": "district-no-reps",
             "metroId": "san-francisco",
@@ -9241,12 +9285,12 @@
           "editorialCoverage": {
             "key": "editorialCoverage",
             "label": "Editorial Coverage",
-            "score": 93,
+            "score": 94,
             "status": "",
-            "explanation": "8 of 8 districts have substantive descriptions; 48 representative buildings and 48 Building Briefs are available.",
+            "explanation": "8 of 8 districts have substantive descriptions; 50 representative buildings and 48 Building Briefs are available.",
             "completed": {
               "districtsWithDescriptions": 8,
-              "representativeBuildings": 48,
+              "representativeBuildings": 50,
               "buildingBriefs": 48
             },
             "targets": {
@@ -9266,11 +9310,11 @@
             "completed": {
               "cityPage": 1,
               "districtPages": 8,
-              "internalLinks": 92
+              "internalLinks": 94
             },
             "targets": {
               "districtPages": 8,
-              "internalLinks": 92
+              "internalLinks": 94
             },
             "blockers": [
               {
@@ -9311,7 +9355,7 @@
         "score": 74,
         "cityPath": "/commercial-real-estate/CA/oakland/",
         "districtCount": 8,
-        "representativeBuildingCount": 48,
+        "representativeBuildingCount": 50,
         "buildingBriefCount": 48,
         "geographicReadiness": {
           "state": "strong",
@@ -9375,15 +9419,15 @@
                 "districts": 1,
                 "secondaryDistricts": 3,
                 "recommendations": 1,
-                "representativeBuildings": 13,
+                "representativeBuildings": 15,
                 "buildingBriefs": 13,
                 "subtypes": 2,
                 "archetypes": 5,
                 "activities": 4,
                 "reviewRequiredDistricts": 0,
-                "representativeRoles": 4,
+                "representativeRoles": 6,
                 "operationalCategories": 5,
-                "operationalCharacteristics": 12,
+                "operationalCharacteristics": 15,
                 "reviewRequiredRepresentativeBuildings": 0
               },
               "gaps": [],
@@ -9392,8 +9436,8 @@
               "strategicPriority": 2,
               "evidence": [
                 "1 primary districts and 3 secondary districts.",
-                "13 Representative Buildings and 13 Building Briefs.",
-                "4 representative roles and 5 operational categories are covered."
+                "15 Representative Buildings and 13 Building Briefs.",
+                "6 representative roles and 5 operational categories are covered."
               ],
               "targetSubtypes": [
                 "downtown_office",
@@ -9420,45 +9464,55 @@
                 "ecosystemId": "office",
                 "state": "strong",
                 "stateLabel": "Strong",
-                "buildingCount": 13,
-                "explicitCount": 0,
+                "buildingCount": 15,
+                "explicitCount": 4,
                 "inheritedOnlyCount": 0,
                 "reviewRequiredCount": 0,
                 "rolesCovered": [
+                  "suburban_office_campus",
+                  "transit_oriented_office_environment",
                   "downtown_class_a_office",
                   "professional_office_environment",
                   "government_office_environment",
                   "creative_office_environment"
                 ],
                 "subtypesCovered": [
+                  "suburban_office",
+                  "office_campus",
                   "professional_office",
                   "downtown_office",
                   "creative_office"
                 ],
                 "activityCoverage": [
                   "knowledge_work",
-                  "client_meetings",
+                  "collaboration",
                   "administrative_operations",
+                  "client_meetings",
                   "walk_in_retail",
                   "walk_in_service",
                   "customer_showroom",
-                  "collaboration",
                   "product_development"
                 ],
                 "archetypeCoverage": [
-                  "wellness_practice",
-                  "marketing_agency",
                   "professional_office",
+                  "consulting_firm",
+                  "startup",
                   "law_firm",
                   "accounting_firm",
                   "financial_services_firm",
-                  "consulting_firm",
-                  "creative_studio"
+                  "marketing_agency",
+                  "creative_studio",
+                  "nonprofit_office",
+                  "wellness_practice"
                 ],
                 "operationalCharacteristicsCovered": [
+                  "campus_environment",
+                  "surface_parking",
+                  "suburban_access",
+                  "large_floorplates",
                   "professional_image",
                   "transit_access",
-                  "large_floorplates",
+                  "walkability",
                   "structured_parking",
                   "private_office_layout",
                   "customer_parking",
@@ -9466,24 +9520,44 @@
                   "enhanced_security",
                   "creative_environment",
                   "open_workspace",
-                  "flexible_suite_sizes",
-                  "walkability"
+                  "flexible_suite_sizes"
                 ],
                 "operationalCategoriesCovered": [
                   "market_presence",
+                  "parking_vehicles",
                   "location_workforce",
                   "configuration",
-                  "parking_vehicles",
                   "infrastructure"
                 ],
-                "missingRoles": [
-                  "suburban_office_campus",
-                  "transit_oriented_office_environment"
-                ],
+                "missingRoles": [],
                 "missingOperationalCategories": [],
-                "highestPriorityMissingRole": "suburban_office_campus",
+                "highestPriorityMissingRole": "",
                 "highestPriorityMissingOperationalCategory": "",
                 "exampleBuildings": [
+                  {
+                    "name": "2200 Powell St",
+                    "path": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
+                    "role": "suburban_office_campus",
+                    "confidence": "editorially_supported"
+                  },
+                  {
+                    "name": "2100 Powell St",
+                    "path": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
+                    "role": "suburban_office_campus",
+                    "confidence": "editorially_supported"
+                  },
+                  {
+                    "name": "2140 Shattuck Ave",
+                    "path": "/commercial-real-estate/building/CA/berkeley/2140-shattuck-ave/",
+                    "role": "transit_oriented_office_environment",
+                    "confidence": "editorially_supported"
+                  },
+                  {
+                    "name": "2150 Shattuck Ave",
+                    "path": "/commercial-real-estate/building/CA/berkeley/2150-shattuck-ave/",
+                    "role": "transit_oriented_office_environment",
+                    "confidence": "editorially_supported"
+                  },
                   {
                     "name": "1936 University Ave",
                     "path": "/commercial-real-estate/building/CA/berkeley/1936-university-ave/",
@@ -9494,30 +9568,6 @@
                     "name": "2030 Addison St",
                     "path": "/commercial-real-estate/building/CA/berkeley/2030-addison-st/",
                     "role": "professional_office_environment",
-                    "confidence": "district_inferred"
-                  },
-                  {
-                    "name": "2040 Bancroft Way",
-                    "path": "/commercial-real-estate/building/CA/berkeley/2040-bancroft-way/",
-                    "role": "downtown_class_a_office",
-                    "confidence": "district_inferred"
-                  },
-                  {
-                    "name": "2070 Allston Way",
-                    "path": "/commercial-real-estate/building/CA/berkeley/2070-allston-way/",
-                    "role": "downtown_class_a_office",
-                    "confidence": "district_inferred"
-                  },
-                  {
-                    "name": "2118 Milvia St",
-                    "path": "/commercial-real-estate/building/CA/berkeley/2118-milvia-st/",
-                    "role": "downtown_class_a_office",
-                    "confidence": "district_inferred"
-                  },
-                  {
-                    "name": "2130 Center St",
-                    "path": "/commercial-real-estate/building/CA/berkeley/2130-center-st/",
-                    "role": "government_office_environment",
                     "confidence": "district_inferred"
                   }
                 ]
@@ -10233,32 +10283,6 @@
           ],
           "gaps": [
             {
-              "id": "ecosystem:office:representative_role_thin",
-              "code": "representative_role_thin",
-              "label": "Representative Role Thin",
-              "severity": "medium",
-              "layer": "representativeBuildingIntelligence",
-              "ecosystemId": "office",
-              "ecosystemLabel": "Office",
-              "relevance": "core",
-              "readinessState": "partial",
-              "rationale": "Representative role coverage is too narrow for this ecosystem.",
-              "evidence": [
-                "1 primary districts and 3 secondary districts.",
-                "13 Representative Buildings and 13 Building Briefs.",
-                "4 representative roles and 5 operational categories are covered."
-              ],
-              "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
               "id": "ecosystem:retail:ecosystem_thin",
               "code": "ecosystem_thin",
               "label": "Ecosystem Thin",
@@ -10813,7 +10837,7 @@
             "state": "industrial_flex_representative_building_concentrated",
             "label": "Industrial Flex Representative Building Concentrated",
             "dominantEcosystem": "industrial_flex",
-            "representativeBuildingShare": 0.73,
+            "representativeBuildingShare": 0.7,
             "buildingBriefShare": 0.73,
             "warnings": [
               "Representative Building coverage is concentrated in Industrial & Flex."
@@ -10824,7 +10848,7 @@
           "state": "industrial_flex_representative_building_concentrated",
           "label": "Industrial Flex Representative Building Concentrated",
           "dominantEcosystem": "industrial_flex",
-          "representativeBuildingShare": 0.73,
+          "representativeBuildingShare": 0.7,
           "buildingBriefShare": 0.73,
           "warnings": [
             "Representative Building coverage is concentrated in Industrial & Flex."
@@ -10838,7 +10862,7 @@
               "districtCount": 1,
               "secondaryDistrictCount": 3,
               "recommendationNodeCount": 1,
-              "representativeBuildingCount": 13,
+              "representativeBuildingCount": 15,
               "buildingBriefCount": 13,
               "status": "Developed",
               "districts": [
@@ -10876,70 +10900,100 @@
                 "ecosystemId": "office",
                 "state": "strong",
                 "stateLabel": "Strong",
-                "buildingCount": 13,
-                "explicitCount": 0,
+                "buildingCount": 15,
+                "explicitCount": 4,
                 "inheritedOnlyCount": 0,
                 "reviewRequiredCount": 0,
                 "rolesCovered": {
-                  "downtown_class_a_office": 6,
-                  "professional_office_environment": 5,
+                  "suburban_office_campus": 2,
+                  "transit_oriented_office_environment": 2,
+                  "downtown_class_a_office": 5,
+                  "professional_office_environment": 4,
                   "government_office_environment": 1,
                   "creative_office_environment": 1
                 },
                 "subtypesCovered": {
-                  "professional_office": 13,
-                  "downtown_office": 1,
+                  "suburban_office": 2,
+                  "office_campus": 2,
+                  "professional_office": 15,
+                  "downtown_office": 3,
                   "creative_office": 1
                 },
                 "activityCoverage": {
-                  "knowledge_work": 13,
-                  "client_meetings": 12,
-                  "administrative_operations": 12,
+                  "knowledge_work": 15,
+                  "collaboration": 3,
+                  "administrative_operations": 14,
+                  "client_meetings": 14,
                   "walk_in_retail": 13,
                   "walk_in_service": 13,
                   "customer_showroom": 13,
-                  "collaboration": 1,
                   "product_development": 1
                 },
                 "archetypeCoverage": {
-                  "wellness_practice": 13,
-                  "marketing_agency": 13,
-                  "professional_office": 13,
-                  "law_firm": 13,
-                  "accounting_firm": 13,
-                  "financial_services_firm": 13,
-                  "consulting_firm": 13,
-                  "creative_studio": 13
+                  "professional_office": 15,
+                  "consulting_firm": 15,
+                  "startup": 2,
+                  "law_firm": 15,
+                  "accounting_firm": 15,
+                  "financial_services_firm": 15,
+                  "marketing_agency": 15,
+                  "creative_studio": 13,
+                  "nonprofit_office": 2,
+                  "wellness_practice": 13
                 },
                 "operationalCharacteristicsCovered": {
-                  "professional_image": 12,
-                  "transit_access": 6,
+                  "campus_environment": 2,
+                  "surface_parking": 2,
+                  "suburban_access": 2,
                   "large_floorplates": 6,
-                  "structured_parking": 6,
-                  "private_office_layout": 5,
-                  "customer_parking": 5,
+                  "professional_image": 14,
+                  "transit_access": 7,
+                  "walkability": 3,
+                  "structured_parking": 7,
+                  "private_office_layout": 4,
+                  "customer_parking": 4,
                   "urban_core_access": 1,
                   "enhanced_security": 1,
                   "creative_environment": 1,
                   "open_workspace": 1,
-                  "flexible_suite_sizes": 1,
-                  "walkability": 1
+                  "flexible_suite_sizes": 1
                 },
                 "operationalCategoriesCovered": {
-                  "market_presence": 13,
-                  "location_workforce": 8,
-                  "configuration": 13,
-                  "parking_vehicles": 11,
+                  "market_presence": 17,
+                  "parking_vehicles": 13,
+                  "location_workforce": 13,
+                  "configuration": 12,
                   "infrastructure": 1
                 },
-                "missingRoles": [
-                  "suburban_office_campus",
-                  "transit_oriented_office_environment"
-                ],
+                "missingRoles": [],
                 "missingOperationalCategories": [],
-                "highestPriorityMissingRole": "suburban_office_campus",
+                "highestPriorityMissingRole": "",
                 "highestPriorityMissingOperationalCategory": "",
                 "exampleBuildings": [
+                  {
+                    "name": "2200 Powell St",
+                    "path": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
+                    "role": "suburban_office_campus",
+                    "confidence": "editorially_supported"
+                  },
+                  {
+                    "name": "2100 Powell St",
+                    "path": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
+                    "role": "suburban_office_campus",
+                    "confidence": "editorially_supported"
+                  },
+                  {
+                    "name": "2140 Shattuck Ave",
+                    "path": "/commercial-real-estate/building/CA/berkeley/2140-shattuck-ave/",
+                    "role": "transit_oriented_office_environment",
+                    "confidence": "editorially_supported"
+                  },
+                  {
+                    "name": "2150 Shattuck Ave",
+                    "path": "/commercial-real-estate/building/CA/berkeley/2150-shattuck-ave/",
+                    "role": "transit_oriented_office_environment",
+                    "confidence": "editorially_supported"
+                  },
                   {
                     "name": "1936 University Ave",
                     "path": "/commercial-real-estate/building/CA/berkeley/1936-university-ave/",
@@ -10950,30 +11004,6 @@
                     "name": "2030 Addison St",
                     "path": "/commercial-real-estate/building/CA/berkeley/2030-addison-st/",
                     "role": "professional_office_environment",
-                    "confidence": "district_inferred"
-                  },
-                  {
-                    "name": "2040 Bancroft Way",
-                    "path": "/commercial-real-estate/building/CA/berkeley/2040-bancroft-way/",
-                    "role": "downtown_class_a_office",
-                    "confidence": "district_inferred"
-                  },
-                  {
-                    "name": "2070 Allston Way",
-                    "path": "/commercial-real-estate/building/CA/berkeley/2070-allston-way/",
-                    "role": "downtown_class_a_office",
-                    "confidence": "district_inferred"
-                  },
-                  {
-                    "name": "2118 Milvia St",
-                    "path": "/commercial-real-estate/building/CA/berkeley/2118-milvia-st/",
-                    "role": "downtown_class_a_office",
-                    "confidence": "district_inferred"
-                  },
-                  {
-                    "name": "2130 Center St",
-                    "path": "/commercial-real-estate/building/CA/berkeley/2130-center-st/",
-                    "role": "government_office_environment",
                     "confidence": "district_inferred"
                   }
                 ]
@@ -11544,32 +11574,6 @@
           }
         },
         "ecosystemGaps": [
-          {
-            "id": "ecosystem:office:representative_role_thin",
-            "code": "representative_role_thin",
-            "label": "Representative Role Thin",
-            "severity": "medium",
-            "layer": "representativeBuildingIntelligence",
-            "ecosystemId": "office",
-            "ecosystemLabel": "Office",
-            "relevance": "core",
-            "readinessState": "partial",
-            "rationale": "Representative role coverage is too narrow for this ecosystem.",
-            "evidence": [
-              "1 primary districts and 3 secondary districts.",
-              "13 Representative Buildings and 13 Building Briefs.",
-              "4 representative roles and 5 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
           {
             "id": "ecosystem:life_science:ecosystem_missing",
             "code": "ecosystem_missing",
@@ -12142,12 +12146,12 @@
           }
         },
         "recommendedEcosystemSprint": {
-          "title": "East Bay Office Ecosystem Representative Building Foundation",
-          "ecosystemId": "office",
-          "ecosystemLabel": "Office",
-          "sprintFamily": "Ecosystem Representative Building Foundation",
-          "rationale": "Representative role coverage is too narrow for this ecosystem.",
-          "gapCode": "representative_role_thin",
+          "title": "East Bay Life Science Ecosystem District Foundation",
+          "ecosystemId": "life_science",
+          "ecosystemLabel": "Life Science",
+          "sprintFamily": "Ecosystem District Foundation",
+          "rationale": "Relevant ecosystem has no meaningful district coverage.",
+          "gapCode": "ecosystem_missing",
           "completionCriteria": [
             "Validated district ecosystem classification",
             "Representative Building coverage across the most important subtypes",
@@ -12258,11 +12262,11 @@
           "representativeBuildings": {
             "key": "representativeBuildings",
             "label": "Representative Buildings",
-            "score": 75,
-            "completed": 12,
+            "score": 81,
+            "completed": 13,
             "total": 16,
-            "missing": 4,
-            "explanation": "48 representative building relationships; v1 target is 3 per covered district.",
+            "missing": 3,
+            "explanation": "50 representative building relationships; v1 target is 3 per covered district.",
             "issues": [
               {
                 "id": "east-bay:representativeBuildings:district missing representative buildings:antioch-east-18th-industrial",
@@ -12282,37 +12286,57 @@
                 "suggestedNextAction": "Curate representative buildings that explain this district.",
                 "automationCandidate": true,
                 "readinessState": ""
-              },
-              {
-                "id": "east-bay:representativeBuildings:district missing representative buildings:emeryville-commercial-core",
-                "code": "district-no-reps",
-                "metroId": "east-bay",
-                "metroName": "East Bay",
-                "category": "representativeBuildings",
-                "categoryLabel": "Representative Buildings",
-                "taskType": "district missing representative buildings",
-                "itemName": "Emeryville Commercial Core",
-                "severity": "medium",
-                "priority": 40,
-                "reason": "District has no representative building examples.",
-                "sourceId": "emeryville-commercial-core",
-                "publicUrl": "/commercial-real-estate/CA/emeryville/emeryville-commercial-core/",
-                "adminUrl": "",
-                "suggestedNextAction": "Curate representative buildings that explain this district.",
-                "automationCandidate": true,
-                "readinessState": ""
               }
             ]
           },
           "buildingBriefs": {
             "key": "buildingBriefs",
             "label": "Building Briefs",
-            "score": 100,
+            "score": 96,
             "completed": 48,
-            "total": 48,
-            "missing": 0,
-            "explanation": "48 of 48 representative building records use the canonical Building Brief journey.",
-            "issues": []
+            "total": 50,
+            "missing": 2,
+            "explanation": "48 of 50 representative building records use the canonical Building Brief journey.",
+            "issues": [
+              {
+                "id": "east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st",
+                "code": "missing-brief",
+                "metroId": "east-bay",
+                "metroName": "East Bay",
+                "category": "buildingBriefs",
+                "categoryLabel": "Building Briefs",
+                "taskType": "representative building missing Building Brief",
+                "itemName": "2200 Powell St",
+                "severity": "medium",
+                "priority": 40,
+                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+                "sourceId": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
+                "publicUrl": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
+                "adminUrl": "",
+                "suggestedNextAction": "Author a Building Brief for this representative building.",
+                "automationCandidate": true,
+                "readinessState": "representative-foundation"
+              },
+              {
+                "id": "east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
+                "code": "missing-brief",
+                "metroId": "east-bay",
+                "metroName": "East Bay",
+                "category": "buildingBriefs",
+                "categoryLabel": "Building Briefs",
+                "taskType": "representative building missing Building Brief",
+                "itemName": "2100 Powell St",
+                "severity": "medium",
+                "priority": 40,
+                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+                "sourceId": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
+                "publicUrl": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
+                "adminUrl": "",
+                "suggestedNextAction": "Author a Building Brief for this representative building.",
+                "automationCandidate": true,
+                "readinessState": "representative-foundation"
+              }
+            ]
           },
           "recommendationReadiness": {
             "key": "recommendationReadiness",
@@ -12358,8 +12382,8 @@
             "key": "internalLinking",
             "label": "Internal Linking",
             "score": 100,
-            "completed": 92,
-            "total": 92,
+            "completed": 94,
+            "total": 94,
             "missing": 0,
             "explanation": "Checks public city, district, building, and comparison references that Publisher can resolve from generated data.",
             "issues": []
@@ -12405,6 +12429,44 @@
             "readinessState": ""
           },
           {
+            "id": "east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
+            "code": "missing-brief",
+            "metroId": "east-bay",
+            "metroName": "East Bay",
+            "category": "buildingBriefs",
+            "categoryLabel": "Building Briefs",
+            "taskType": "representative building missing Building Brief",
+            "itemName": "2100 Powell St",
+            "severity": "medium",
+            "priority": 40,
+            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+            "sourceId": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
+            "publicUrl": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
+            "adminUrl": "",
+            "suggestedNextAction": "Author a Building Brief for this representative building.",
+            "automationCandidate": true,
+            "readinessState": "representative-foundation"
+          },
+          {
+            "id": "east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st",
+            "code": "missing-brief",
+            "metroId": "east-bay",
+            "metroName": "East Bay",
+            "category": "buildingBriefs",
+            "categoryLabel": "Building Briefs",
+            "taskType": "representative building missing Building Brief",
+            "itemName": "2200 Powell St",
+            "severity": "medium",
+            "priority": 40,
+            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+            "sourceId": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
+            "publicUrl": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
+            "adminUrl": "",
+            "suggestedNextAction": "Author a Building Brief for this representative building.",
+            "automationCandidate": true,
+            "readinessState": "representative-foundation"
+          },
+          {
             "id": "east-bay:representativeBuildings:district missing representative buildings:antioch-east-18th-industrial",
             "code": "district-no-reps",
             "metroId": "east-bay",
@@ -12418,25 +12480,6 @@
             "reason": "District has no representative building examples.",
             "sourceId": "antioch-east-18th-industrial",
             "publicUrl": "/commercial-real-estate/CA/antioch/antioch-east-18th-industrial/",
-            "adminUrl": "",
-            "suggestedNextAction": "Curate representative buildings that explain this district.",
-            "automationCandidate": true,
-            "readinessState": ""
-          },
-          {
-            "id": "east-bay:representativeBuildings:district missing representative buildings:emeryville-commercial-core",
-            "code": "district-no-reps",
-            "metroId": "east-bay",
-            "metroName": "East Bay",
-            "category": "representativeBuildings",
-            "categoryLabel": "Representative Buildings",
-            "taskType": "district missing representative buildings",
-            "itemName": "Emeryville Commercial Core",
-            "severity": "medium",
-            "priority": 40,
-            "reason": "District has no representative building examples.",
-            "sourceId": "emeryville-commercial-core",
-            "publicUrl": "/commercial-real-estate/CA/emeryville/emeryville-commercial-core/",
             "adminUrl": "",
             "suggestedNextAction": "Curate representative buildings that explain this district.",
             "automationCandidate": true,
@@ -36193,12 +36236,12 @@
           "editorialCoverage": {
             "key": "editorialCoverage",
             "label": "Editorial Coverage",
-            "score": 91,
+            "score": 92,
             "status": "",
-            "explanation": "24 of 24 districts have substantive descriptions; 155 representative buildings and 86 Building Briefs are available.",
+            "explanation": "24 of 24 districts have substantive descriptions; 157 representative buildings and 86 Building Briefs are available.",
             "completed": {
               "districtsWithDescriptions": 24,
-              "representativeBuildings": 155,
+              "representativeBuildings": 157,
               "buildingBriefs": 86
             },
             "targets": {
@@ -36218,11 +36261,11 @@
             "completed": {
               "cityPage": 1,
               "districtPages": 24,
-              "internalLinks": 265
+              "internalLinks": 267
             },
             "targets": {
               "districtPages": 24,
-              "internalLinks": 265
+              "internalLinks": 267
             },
             "blockers": [],
             "topOpportunity": "Maintain public route integrity."
@@ -36235,7 +36278,7 @@
         "score": 96,
         "cityPath": "/commercial-real-estate/CA/san-francisco/",
         "districtCount": 24,
-        "representativeBuildingCount": 155,
+        "representativeBuildingCount": 157,
         "buildingBriefCount": 86,
         "geographicReadiness": {
           "state": "developed",
@@ -36294,7 +36337,7 @@
                 "districts": 7,
                 "secondaryDistricts": 14,
                 "recommendations": 7,
-                "representativeBuildings": 78,
+                "representativeBuildings": 80,
                 "buildingBriefs": 38,
                 "subtypes": 7,
                 "archetypes": 10,
@@ -36311,7 +36354,7 @@
               "strategicPriority": 2,
               "evidence": [
                 "7 primary districts and 14 secondary districts.",
-                "78 Representative Buildings and 38 Building Briefs.",
+                "80 Representative Buildings and 38 Building Briefs.",
                 "7 representative roles and 5 operational categories are covered."
               ],
               "targetSubtypes": [
@@ -36339,20 +36382,22 @@
                 "ecosystemId": "office",
                 "state": "strong",
                 "stateLabel": "Strong",
-                "buildingCount": 78,
-                "explicitCount": 0,
+                "buildingCount": 80,
+                "explicitCount": 4,
                 "inheritedOnlyCount": 65,
                 "reviewRequiredCount": 0,
                 "rolesCovered": [
+                  "suburban_office_campus",
+                  "transit_oriented_office_environment",
                   "downtown_class_a_office",
                   "professional_office_environment",
                   "government_office_environment",
                   "creative_office_environment",
-                  "executive_office_environment",
-                  "suburban_office_campus",
-                  "transit_oriented_office_environment"
+                  "executive_office_environment"
                 ],
                 "subtypesCovered": [
+                  "suburban_office",
+                  "office_campus",
                   "professional_office",
                   "downtown_office",
                   "creative_office",
@@ -36360,32 +36405,37 @@
                 ],
                 "activityCoverage": [
                   "knowledge_work",
-                  "client_meetings",
+                  "collaboration",
                   "administrative_operations",
+                  "client_meetings",
                   "walk_in_retail",
                   "walk_in_service",
                   "customer_showroom",
-                  "collaboration",
                   "product_development",
                   "light_manufacturing",
                   "research"
                 ],
                 "archetypeCoverage": [
-                  "wellness_practice",
-                  "marketing_agency",
                   "professional_office",
+                  "consulting_firm",
+                  "startup",
                   "law_firm",
                   "accounting_firm",
                   "financial_services_firm",
-                  "consulting_firm",
+                  "marketing_agency",
                   "creative_studio",
-                  "startup",
+                  "nonprofit_office",
+                  "wellness_practice",
                   "research_company"
                 ],
                 "operationalCharacteristicsCovered": [
+                  "campus_environment",
+                  "surface_parking",
+                  "suburban_access",
+                  "large_floorplates",
                   "professional_image",
                   "transit_access",
-                  "large_floorplates",
+                  "walkability",
                   "structured_parking",
                   "private_office_layout",
                   "customer_parking",
@@ -36393,17 +36443,13 @@
                   "enhanced_security",
                   "creative_environment",
                   "open_workspace",
-                  "flexible_suite_sizes",
-                  "walkability",
-                  "campus_environment",
-                  "surface_parking",
-                  "suburban_access"
+                  "flexible_suite_sizes"
                 ],
                 "operationalCategoriesCovered": [
                   "market_presence",
+                  "parking_vehicles",
                   "location_workforce",
                   "configuration",
-                  "parking_vehicles",
                   "infrastructure"
                 ],
                 "missingRoles": [
@@ -36417,6 +36463,30 @@
                 "highestPriorityMissingOperationalCategory": "access_loading",
                 "exampleBuildings": [
                   {
+                    "name": "2200 Powell St",
+                    "path": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
+                    "role": "suburban_office_campus",
+                    "confidence": "editorially_supported"
+                  },
+                  {
+                    "name": "2100 Powell St",
+                    "path": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
+                    "role": "suburban_office_campus",
+                    "confidence": "editorially_supported"
+                  },
+                  {
+                    "name": "2140 Shattuck Ave",
+                    "path": "/commercial-real-estate/building/CA/berkeley/2140-shattuck-ave/",
+                    "role": "transit_oriented_office_environment",
+                    "confidence": "editorially_supported"
+                  },
+                  {
+                    "name": "2150 Shattuck Ave",
+                    "path": "/commercial-real-estate/building/CA/berkeley/2150-shattuck-ave/",
+                    "role": "transit_oriented_office_environment",
+                    "confidence": "editorially_supported"
+                  },
+                  {
                     "name": "1936 University Ave",
                     "path": "/commercial-real-estate/building/CA/berkeley/1936-university-ave/",
                     "role": "downtown_class_a_office",
@@ -36426,30 +36496,6 @@
                     "name": "2030 Addison St",
                     "path": "/commercial-real-estate/building/CA/berkeley/2030-addison-st/",
                     "role": "professional_office_environment",
-                    "confidence": "district_inferred"
-                  },
-                  {
-                    "name": "2040 Bancroft Way",
-                    "path": "/commercial-real-estate/building/CA/berkeley/2040-bancroft-way/",
-                    "role": "downtown_class_a_office",
-                    "confidence": "district_inferred"
-                  },
-                  {
-                    "name": "2070 Allston Way",
-                    "path": "/commercial-real-estate/building/CA/berkeley/2070-allston-way/",
-                    "role": "downtown_class_a_office",
-                    "confidence": "district_inferred"
-                  },
-                  {
-                    "name": "2118 Milvia St",
-                    "path": "/commercial-real-estate/building/CA/berkeley/2118-milvia-st/",
-                    "role": "downtown_class_a_office",
-                    "confidence": "district_inferred"
-                  },
-                  {
-                    "name": "2130 Center St",
-                    "path": "/commercial-real-estate/building/CA/berkeley/2130-center-st/",
-                    "role": "government_office_environment",
                     "confidence": "district_inferred"
                   }
                 ]
@@ -37731,7 +37777,7 @@
             "state": "balanced",
             "label": "Balanced",
             "dominantEcosystem": "industrial_flex",
-            "representativeBuildingShare": 0.5,
+            "representativeBuildingShare": 0.51,
             "buildingBriefShare": 0.5,
             "warnings": []
           }
@@ -37740,7 +37786,7 @@
           "state": "balanced",
           "label": "Balanced",
           "dominantEcosystem": "industrial_flex",
-          "representativeBuildingShare": 0.5,
+          "representativeBuildingShare": 0.51,
           "buildingBriefShare": 0.5,
           "warnings": []
         },
@@ -37752,7 +37798,7 @@
               "districtCount": 7,
               "secondaryDistrictCount": 14,
               "recommendationNodeCount": 7,
-              "representativeBuildingCount": 78,
+              "representativeBuildingCount": 80,
               "buildingBriefCount": 38,
               "status": "Developed",
               "districts": [
@@ -37832,71 +37878,74 @@
                 "ecosystemId": "office",
                 "state": "strong",
                 "stateLabel": "Strong",
-                "buildingCount": 78,
-                "explicitCount": 0,
+                "buildingCount": 80,
+                "explicitCount": 4,
                 "inheritedOnlyCount": 65,
                 "reviewRequiredCount": 0,
                 "rolesCovered": {
-                  "downtown_class_a_office": 6,
-                  "professional_office_environment": 9,
+                  "suburban_office_campus": 3,
+                  "transit_oriented_office_environment": 4,
+                  "downtown_class_a_office": 5,
+                  "professional_office_environment": 8,
                   "government_office_environment": 1,
                   "creative_office_environment": 46,
-                  "executive_office_environment": 13,
-                  "suburban_office_campus": 1,
-                  "transit_oriented_office_environment": 2
+                  "executive_office_environment": 13
                 },
                 "subtypesCovered": {
-                  "professional_office": 25,
-                  "downtown_office": 38,
+                  "suburban_office": 2,
+                  "office_campus": 2,
+                  "professional_office": 27,
+                  "downtown_office": 40,
                   "creative_office": 50,
                   "executive_office": 16
                 },
                 "activityCoverage": {
-                  "knowledge_work": 78,
-                  "client_meetings": 50,
-                  "administrative_operations": 31,
+                  "knowledge_work": 80,
+                  "collaboration": 53,
+                  "administrative_operations": 33,
+                  "client_meetings": 52,
                   "walk_in_retail": 16,
                   "walk_in_service": 20,
                   "customer_showroom": 36,
-                  "collaboration": 51,
                   "product_development": 47,
                   "light_manufacturing": 6,
                   "research": 3
                 },
                 "archetypeCoverage": {
-                  "wellness_practice": 16,
-                  "marketing_agency": 69,
-                  "professional_office": 78,
-                  "law_firm": 78,
-                  "accounting_firm": 78,
-                  "financial_services_firm": 78,
-                  "consulting_firm": 78,
+                  "professional_office": 80,
+                  "consulting_firm": 80,
+                  "startup": 64,
+                  "law_firm": 80,
+                  "accounting_firm": 80,
+                  "financial_services_firm": 80,
+                  "marketing_agency": 71,
                   "creative_studio": 78,
-                  "startup": 62,
+                  "nonprofit_office": 2,
+                  "wellness_practice": 16,
                   "research_company": 9
                 },
                 "operationalCharacteristicsCovered": {
-                  "professional_image": 31,
-                  "transit_access": 8,
+                  "campus_environment": 3,
+                  "surface_parking": 3,
+                  "suburban_access": 3,
                   "large_floorplates": 6,
-                  "structured_parking": 6,
-                  "private_office_layout": 22,
-                  "customer_parking": 9,
+                  "professional_image": 33,
+                  "transit_access": 9,
+                  "walkability": 50,
+                  "structured_parking": 7,
+                  "private_office_layout": 21,
+                  "customer_parking": 8,
                   "urban_core_access": 1,
                   "enhanced_security": 14,
                   "creative_environment": 46,
                   "open_workspace": 46,
-                  "flexible_suite_sizes": 46,
-                  "walkability": 48,
-                  "campus_environment": 1,
-                  "surface_parking": 1,
-                  "suburban_access": 1
+                  "flexible_suite_sizes": 46
                 },
                 "operationalCategoriesCovered": {
-                  "market_presence": 78,
-                  "location_workforce": 58,
-                  "configuration": 120,
-                  "parking_vehicles": 16,
+                  "market_presence": 82,
+                  "parking_vehicles": 18,
+                  "location_workforce": 63,
+                  "configuration": 119,
                   "infrastructure": 14
                 },
                 "missingRoles": [
@@ -37910,6 +37959,30 @@
                 "highestPriorityMissingOperationalCategory": "access_loading",
                 "exampleBuildings": [
                   {
+                    "name": "2200 Powell St",
+                    "path": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
+                    "role": "suburban_office_campus",
+                    "confidence": "editorially_supported"
+                  },
+                  {
+                    "name": "2100 Powell St",
+                    "path": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
+                    "role": "suburban_office_campus",
+                    "confidence": "editorially_supported"
+                  },
+                  {
+                    "name": "2140 Shattuck Ave",
+                    "path": "/commercial-real-estate/building/CA/berkeley/2140-shattuck-ave/",
+                    "role": "transit_oriented_office_environment",
+                    "confidence": "editorially_supported"
+                  },
+                  {
+                    "name": "2150 Shattuck Ave",
+                    "path": "/commercial-real-estate/building/CA/berkeley/2150-shattuck-ave/",
+                    "role": "transit_oriented_office_environment",
+                    "confidence": "editorially_supported"
+                  },
+                  {
                     "name": "1936 University Ave",
                     "path": "/commercial-real-estate/building/CA/berkeley/1936-university-ave/",
                     "role": "downtown_class_a_office",
@@ -37919,30 +37992,6 @@
                     "name": "2030 Addison St",
                     "path": "/commercial-real-estate/building/CA/berkeley/2030-addison-st/",
                     "role": "professional_office_environment",
-                    "confidence": "district_inferred"
-                  },
-                  {
-                    "name": "2040 Bancroft Way",
-                    "path": "/commercial-real-estate/building/CA/berkeley/2040-bancroft-way/",
-                    "role": "downtown_class_a_office",
-                    "confidence": "district_inferred"
-                  },
-                  {
-                    "name": "2070 Allston Way",
-                    "path": "/commercial-real-estate/building/CA/berkeley/2070-allston-way/",
-                    "role": "downtown_class_a_office",
-                    "confidence": "district_inferred"
-                  },
-                  {
-                    "name": "2118 Milvia St",
-                    "path": "/commercial-real-estate/building/CA/berkeley/2118-milvia-st/",
-                    "role": "downtown_class_a_office",
-                    "confidence": "district_inferred"
-                  },
-                  {
-                    "name": "2130 Center St",
-                    "path": "/commercial-real-estate/building/CA/berkeley/2130-center-st/",
-                    "role": "government_office_environment",
                     "confidence": "district_inferred"
                   }
                 ]
@@ -39625,11 +39674,11 @@
           "representativeBuildings": {
             "key": "representativeBuildings",
             "label": "Representative Buildings",
-            "score": 73,
-            "completed": 35,
+            "score": 75,
+            "completed": 36,
             "total": 48,
-            "missing": 13,
-            "explanation": "155 representative building relationships; v1 target is 3 per covered district.",
+            "missing": 12,
+            "explanation": "157 representative building relationships; v1 target is 3 per covered district.",
             "issues": [
               {
                 "id": "san-francisco:representativeBuildings:district missing representative buildings:stanford-research-park",
@@ -39725,25 +39774,6 @@
                 "suggestedNextAction": "Curate representative buildings that explain this district.",
                 "automationCandidate": true,
                 "readinessState": ""
-              },
-              {
-                "id": "san-francisco:representativeBuildings:district missing representative buildings:emeryville-commercial-core",
-                "code": "district-no-reps",
-                "metroId": "san-francisco",
-                "metroName": "San Francisco",
-                "category": "representativeBuildings",
-                "categoryLabel": "Representative Buildings",
-                "taskType": "district missing representative buildings",
-                "itemName": "Emeryville Commercial Core",
-                "severity": "medium",
-                "priority": 40,
-                "reason": "District has no representative building examples.",
-                "sourceId": "emeryville-commercial-core",
-                "publicUrl": "/commercial-real-estate/CA/emeryville/emeryville-commercial-core/",
-                "adminUrl": "",
-                "suggestedNextAction": "Curate representative buildings that explain this district.",
-                "automationCandidate": true,
-                "readinessState": ""
               }
             ]
           },
@@ -39752,10 +39782,48 @@
             "label": "Building Briefs",
             "score": 55,
             "completed": 86,
-            "total": 155,
-            "missing": 69,
-            "explanation": "86 of 155 representative building records use the canonical Building Brief journey.",
+            "total": 157,
+            "missing": 71,
+            "explanation": "86 of 157 representative building records use the canonical Building Brief journey.",
             "issues": [
+              {
+                "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st",
+                "code": "missing-brief",
+                "metroId": "san-francisco",
+                "metroName": "San Francisco",
+                "category": "buildingBriefs",
+                "categoryLabel": "Building Briefs",
+                "taskType": "representative building missing Building Brief",
+                "itemName": "2200 Powell St",
+                "severity": "medium",
+                "priority": 40,
+                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+                "sourceId": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
+                "publicUrl": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
+                "adminUrl": "",
+                "suggestedNextAction": "Author a Building Brief for this representative building.",
+                "automationCandidate": true,
+                "readinessState": "representative-foundation"
+              },
+              {
+                "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
+                "code": "missing-brief",
+                "metroId": "san-francisco",
+                "metroName": "San Francisco",
+                "category": "buildingBriefs",
+                "categoryLabel": "Building Briefs",
+                "taskType": "representative building missing Building Brief",
+                "itemName": "2100 Powell St",
+                "severity": "medium",
+                "priority": 40,
+                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+                "sourceId": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
+                "publicUrl": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
+                "adminUrl": "",
+                "suggestedNextAction": "Author a Building Brief for this representative building.",
+                "automationCandidate": true,
+                "readinessState": "representative-foundation"
+              },
               {
                 "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-palo-alto-101-lytton-ave",
                 "code": "missing-brief",
@@ -41171,8 +41239,8 @@
             "key": "internalLinking",
             "label": "Internal Linking",
             "score": 100,
-            "completed": 265,
-            "total": 265,
+            "completed": 267,
+            "total": 267,
             "missing": 0,
             "explanation": "Checks public city, district, building, and comparison references that Publisher can resolve from generated data.",
             "issues": []
@@ -41748,6 +41816,44 @@
             "suggestedNextAction": "Author a Building Brief for this representative building.",
             "automationCandidate": true,
             "readinessState": ""
+          },
+          {
+            "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
+            "code": "missing-brief",
+            "metroId": "san-francisco",
+            "metroName": "San Francisco",
+            "category": "buildingBriefs",
+            "categoryLabel": "Building Briefs",
+            "taskType": "representative building missing Building Brief",
+            "itemName": "2100 Powell St",
+            "severity": "medium",
+            "priority": 40,
+            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+            "sourceId": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
+            "publicUrl": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
+            "adminUrl": "",
+            "suggestedNextAction": "Author a Building Brief for this representative building.",
+            "automationCandidate": true,
+            "readinessState": "representative-foundation"
+          },
+          {
+            "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st",
+            "code": "missing-brief",
+            "metroId": "san-francisco",
+            "metroName": "San Francisco",
+            "category": "buildingBriefs",
+            "categoryLabel": "Building Briefs",
+            "taskType": "representative building missing Building Brief",
+            "itemName": "2200 Powell St",
+            "severity": "medium",
+            "priority": 40,
+            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+            "sourceId": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
+            "publicUrl": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
+            "adminUrl": "",
+            "suggestedNextAction": "Author a Building Brief for this representative building.",
+            "automationCandidate": true,
+            "readinessState": "representative-foundation"
           },
           {
             "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-2400-16th-st",
@@ -42567,25 +42673,6 @@
             "readinessState": ""
           },
           {
-            "id": "san-francisco:representativeBuildings:district missing representative buildings:emeryville-commercial-core",
-            "code": "district-no-reps",
-            "metroId": "san-francisco",
-            "metroName": "San Francisco",
-            "category": "representativeBuildings",
-            "categoryLabel": "Representative Buildings",
-            "taskType": "district missing representative buildings",
-            "itemName": "Emeryville Commercial Core",
-            "severity": "medium",
-            "priority": 40,
-            "reason": "District has no representative building examples.",
-            "sourceId": "emeryville-commercial-core",
-            "publicUrl": "/commercial-real-estate/CA/emeryville/emeryville-commercial-core/",
-            "adminUrl": "",
-            "suggestedNextAction": "Curate representative buildings that explain this district.",
-            "automationCandidate": true,
-            "readinessState": ""
-          },
-          {
             "id": "san-francisco:representativeBuildings:district missing representative buildings:north-bayshore",
             "code": "district-no-reps",
             "metroId": "san-francisco",
@@ -43155,12 +43242,12 @@
           "editorialCoverage": {
             "key": "editorialCoverage",
             "label": "Editorial Coverage",
-            "score": 93,
+            "score": 94,
             "status": "",
-            "explanation": "8 of 8 districts have substantive descriptions; 48 representative buildings and 48 Building Briefs are available.",
+            "explanation": "8 of 8 districts have substantive descriptions; 50 representative buildings and 48 Building Briefs are available.",
             "completed": {
               "districtsWithDescriptions": 8,
-              "representativeBuildings": 48,
+              "representativeBuildings": 50,
               "buildingBriefs": 48
             },
             "targets": {
@@ -43180,11 +43267,11 @@
             "completed": {
               "cityPage": 1,
               "districtPages": 8,
-              "internalLinks": 92
+              "internalLinks": 94
             },
             "targets": {
               "districtPages": 8,
-              "internalLinks": 92
+              "internalLinks": 94
             },
             "blockers": [
               {
@@ -43225,7 +43312,7 @@
         "score": 74,
         "cityPath": "/commercial-real-estate/CA/oakland/",
         "districtCount": 8,
-        "representativeBuildingCount": 48,
+        "representativeBuildingCount": 50,
         "buildingBriefCount": 48,
         "geographicReadiness": {
           "state": "strong",
@@ -43289,15 +43376,15 @@
                 "districts": 1,
                 "secondaryDistricts": 3,
                 "recommendations": 1,
-                "representativeBuildings": 13,
+                "representativeBuildings": 15,
                 "buildingBriefs": 13,
                 "subtypes": 2,
                 "archetypes": 5,
                 "activities": 4,
                 "reviewRequiredDistricts": 0,
-                "representativeRoles": 4,
+                "representativeRoles": 6,
                 "operationalCategories": 5,
-                "operationalCharacteristics": 12,
+                "operationalCharacteristics": 15,
                 "reviewRequiredRepresentativeBuildings": 0
               },
               "gaps": [],
@@ -43306,8 +43393,8 @@
               "strategicPriority": 2,
               "evidence": [
                 "1 primary districts and 3 secondary districts.",
-                "13 Representative Buildings and 13 Building Briefs.",
-                "4 representative roles and 5 operational categories are covered."
+                "15 Representative Buildings and 13 Building Briefs.",
+                "6 representative roles and 5 operational categories are covered."
               ],
               "targetSubtypes": [
                 "downtown_office",
@@ -43334,45 +43421,55 @@
                 "ecosystemId": "office",
                 "state": "strong",
                 "stateLabel": "Strong",
-                "buildingCount": 13,
-                "explicitCount": 0,
+                "buildingCount": 15,
+                "explicitCount": 4,
                 "inheritedOnlyCount": 0,
                 "reviewRequiredCount": 0,
                 "rolesCovered": [
+                  "suburban_office_campus",
+                  "transit_oriented_office_environment",
                   "downtown_class_a_office",
                   "professional_office_environment",
                   "government_office_environment",
                   "creative_office_environment"
                 ],
                 "subtypesCovered": [
+                  "suburban_office",
+                  "office_campus",
                   "professional_office",
                   "downtown_office",
                   "creative_office"
                 ],
                 "activityCoverage": [
                   "knowledge_work",
-                  "client_meetings",
+                  "collaboration",
                   "administrative_operations",
+                  "client_meetings",
                   "walk_in_retail",
                   "walk_in_service",
                   "customer_showroom",
-                  "collaboration",
                   "product_development"
                 ],
                 "archetypeCoverage": [
-                  "wellness_practice",
-                  "marketing_agency",
                   "professional_office",
+                  "consulting_firm",
+                  "startup",
                   "law_firm",
                   "accounting_firm",
                   "financial_services_firm",
-                  "consulting_firm",
-                  "creative_studio"
+                  "marketing_agency",
+                  "creative_studio",
+                  "nonprofit_office",
+                  "wellness_practice"
                 ],
                 "operationalCharacteristicsCovered": [
+                  "campus_environment",
+                  "surface_parking",
+                  "suburban_access",
+                  "large_floorplates",
                   "professional_image",
                   "transit_access",
-                  "large_floorplates",
+                  "walkability",
                   "structured_parking",
                   "private_office_layout",
                   "customer_parking",
@@ -43380,24 +43477,44 @@
                   "enhanced_security",
                   "creative_environment",
                   "open_workspace",
-                  "flexible_suite_sizes",
-                  "walkability"
+                  "flexible_suite_sizes"
                 ],
                 "operationalCategoriesCovered": [
                   "market_presence",
+                  "parking_vehicles",
                   "location_workforce",
                   "configuration",
-                  "parking_vehicles",
                   "infrastructure"
                 ],
-                "missingRoles": [
-                  "suburban_office_campus",
-                  "transit_oriented_office_environment"
-                ],
+                "missingRoles": [],
                 "missingOperationalCategories": [],
-                "highestPriorityMissingRole": "suburban_office_campus",
+                "highestPriorityMissingRole": "",
                 "highestPriorityMissingOperationalCategory": "",
                 "exampleBuildings": [
+                  {
+                    "name": "2200 Powell St",
+                    "path": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
+                    "role": "suburban_office_campus",
+                    "confidence": "editorially_supported"
+                  },
+                  {
+                    "name": "2100 Powell St",
+                    "path": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
+                    "role": "suburban_office_campus",
+                    "confidence": "editorially_supported"
+                  },
+                  {
+                    "name": "2140 Shattuck Ave",
+                    "path": "/commercial-real-estate/building/CA/berkeley/2140-shattuck-ave/",
+                    "role": "transit_oriented_office_environment",
+                    "confidence": "editorially_supported"
+                  },
+                  {
+                    "name": "2150 Shattuck Ave",
+                    "path": "/commercial-real-estate/building/CA/berkeley/2150-shattuck-ave/",
+                    "role": "transit_oriented_office_environment",
+                    "confidence": "editorially_supported"
+                  },
                   {
                     "name": "1936 University Ave",
                     "path": "/commercial-real-estate/building/CA/berkeley/1936-university-ave/",
@@ -43408,30 +43525,6 @@
                     "name": "2030 Addison St",
                     "path": "/commercial-real-estate/building/CA/berkeley/2030-addison-st/",
                     "role": "professional_office_environment",
-                    "confidence": "district_inferred"
-                  },
-                  {
-                    "name": "2040 Bancroft Way",
-                    "path": "/commercial-real-estate/building/CA/berkeley/2040-bancroft-way/",
-                    "role": "downtown_class_a_office",
-                    "confidence": "district_inferred"
-                  },
-                  {
-                    "name": "2070 Allston Way",
-                    "path": "/commercial-real-estate/building/CA/berkeley/2070-allston-way/",
-                    "role": "downtown_class_a_office",
-                    "confidence": "district_inferred"
-                  },
-                  {
-                    "name": "2118 Milvia St",
-                    "path": "/commercial-real-estate/building/CA/berkeley/2118-milvia-st/",
-                    "role": "downtown_class_a_office",
-                    "confidence": "district_inferred"
-                  },
-                  {
-                    "name": "2130 Center St",
-                    "path": "/commercial-real-estate/building/CA/berkeley/2130-center-st/",
-                    "role": "government_office_environment",
                     "confidence": "district_inferred"
                   }
                 ]
@@ -44147,32 +44240,6 @@
           ],
           "gaps": [
             {
-              "id": "ecosystem:office:representative_role_thin",
-              "code": "representative_role_thin",
-              "label": "Representative Role Thin",
-              "severity": "medium",
-              "layer": "representativeBuildingIntelligence",
-              "ecosystemId": "office",
-              "ecosystemLabel": "Office",
-              "relevance": "core",
-              "readinessState": "partial",
-              "rationale": "Representative role coverage is too narrow for this ecosystem.",
-              "evidence": [
-                "1 primary districts and 3 secondary districts.",
-                "13 Representative Buildings and 13 Building Briefs.",
-                "4 representative roles and 5 operational categories are covered."
-              ],
-              "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
               "id": "ecosystem:retail:ecosystem_thin",
               "code": "ecosystem_thin",
               "label": "Ecosystem Thin",
@@ -44727,7 +44794,7 @@
             "state": "industrial_flex_representative_building_concentrated",
             "label": "Industrial Flex Representative Building Concentrated",
             "dominantEcosystem": "industrial_flex",
-            "representativeBuildingShare": 0.73,
+            "representativeBuildingShare": 0.7,
             "buildingBriefShare": 0.73,
             "warnings": [
               "Representative Building coverage is concentrated in Industrial & Flex."
@@ -44738,7 +44805,7 @@
           "state": "industrial_flex_representative_building_concentrated",
           "label": "Industrial Flex Representative Building Concentrated",
           "dominantEcosystem": "industrial_flex",
-          "representativeBuildingShare": 0.73,
+          "representativeBuildingShare": 0.7,
           "buildingBriefShare": 0.73,
           "warnings": [
             "Representative Building coverage is concentrated in Industrial & Flex."
@@ -44752,7 +44819,7 @@
               "districtCount": 1,
               "secondaryDistrictCount": 3,
               "recommendationNodeCount": 1,
-              "representativeBuildingCount": 13,
+              "representativeBuildingCount": 15,
               "buildingBriefCount": 13,
               "status": "Developed",
               "districts": [
@@ -44790,70 +44857,100 @@
                 "ecosystemId": "office",
                 "state": "strong",
                 "stateLabel": "Strong",
-                "buildingCount": 13,
-                "explicitCount": 0,
+                "buildingCount": 15,
+                "explicitCount": 4,
                 "inheritedOnlyCount": 0,
                 "reviewRequiredCount": 0,
                 "rolesCovered": {
-                  "downtown_class_a_office": 6,
-                  "professional_office_environment": 5,
+                  "suburban_office_campus": 2,
+                  "transit_oriented_office_environment": 2,
+                  "downtown_class_a_office": 5,
+                  "professional_office_environment": 4,
                   "government_office_environment": 1,
                   "creative_office_environment": 1
                 },
                 "subtypesCovered": {
-                  "professional_office": 13,
-                  "downtown_office": 1,
+                  "suburban_office": 2,
+                  "office_campus": 2,
+                  "professional_office": 15,
+                  "downtown_office": 3,
                   "creative_office": 1
                 },
                 "activityCoverage": {
-                  "knowledge_work": 13,
-                  "client_meetings": 12,
-                  "administrative_operations": 12,
+                  "knowledge_work": 15,
+                  "collaboration": 3,
+                  "administrative_operations": 14,
+                  "client_meetings": 14,
                   "walk_in_retail": 13,
                   "walk_in_service": 13,
                   "customer_showroom": 13,
-                  "collaboration": 1,
                   "product_development": 1
                 },
                 "archetypeCoverage": {
-                  "wellness_practice": 13,
-                  "marketing_agency": 13,
-                  "professional_office": 13,
-                  "law_firm": 13,
-                  "accounting_firm": 13,
-                  "financial_services_firm": 13,
-                  "consulting_firm": 13,
-                  "creative_studio": 13
+                  "professional_office": 15,
+                  "consulting_firm": 15,
+                  "startup": 2,
+                  "law_firm": 15,
+                  "accounting_firm": 15,
+                  "financial_services_firm": 15,
+                  "marketing_agency": 15,
+                  "creative_studio": 13,
+                  "nonprofit_office": 2,
+                  "wellness_practice": 13
                 },
                 "operationalCharacteristicsCovered": {
-                  "professional_image": 12,
-                  "transit_access": 6,
+                  "campus_environment": 2,
+                  "surface_parking": 2,
+                  "suburban_access": 2,
                   "large_floorplates": 6,
-                  "structured_parking": 6,
-                  "private_office_layout": 5,
-                  "customer_parking": 5,
+                  "professional_image": 14,
+                  "transit_access": 7,
+                  "walkability": 3,
+                  "structured_parking": 7,
+                  "private_office_layout": 4,
+                  "customer_parking": 4,
                   "urban_core_access": 1,
                   "enhanced_security": 1,
                   "creative_environment": 1,
                   "open_workspace": 1,
-                  "flexible_suite_sizes": 1,
-                  "walkability": 1
+                  "flexible_suite_sizes": 1
                 },
                 "operationalCategoriesCovered": {
-                  "market_presence": 13,
-                  "location_workforce": 8,
-                  "configuration": 13,
-                  "parking_vehicles": 11,
+                  "market_presence": 17,
+                  "parking_vehicles": 13,
+                  "location_workforce": 13,
+                  "configuration": 12,
                   "infrastructure": 1
                 },
-                "missingRoles": [
-                  "suburban_office_campus",
-                  "transit_oriented_office_environment"
-                ],
+                "missingRoles": [],
                 "missingOperationalCategories": [],
-                "highestPriorityMissingRole": "suburban_office_campus",
+                "highestPriorityMissingRole": "",
                 "highestPriorityMissingOperationalCategory": "",
                 "exampleBuildings": [
+                  {
+                    "name": "2200 Powell St",
+                    "path": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
+                    "role": "suburban_office_campus",
+                    "confidence": "editorially_supported"
+                  },
+                  {
+                    "name": "2100 Powell St",
+                    "path": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
+                    "role": "suburban_office_campus",
+                    "confidence": "editorially_supported"
+                  },
+                  {
+                    "name": "2140 Shattuck Ave",
+                    "path": "/commercial-real-estate/building/CA/berkeley/2140-shattuck-ave/",
+                    "role": "transit_oriented_office_environment",
+                    "confidence": "editorially_supported"
+                  },
+                  {
+                    "name": "2150 Shattuck Ave",
+                    "path": "/commercial-real-estate/building/CA/berkeley/2150-shattuck-ave/",
+                    "role": "transit_oriented_office_environment",
+                    "confidence": "editorially_supported"
+                  },
                   {
                     "name": "1936 University Ave",
                     "path": "/commercial-real-estate/building/CA/berkeley/1936-university-ave/",
@@ -44864,30 +44961,6 @@
                     "name": "2030 Addison St",
                     "path": "/commercial-real-estate/building/CA/berkeley/2030-addison-st/",
                     "role": "professional_office_environment",
-                    "confidence": "district_inferred"
-                  },
-                  {
-                    "name": "2040 Bancroft Way",
-                    "path": "/commercial-real-estate/building/CA/berkeley/2040-bancroft-way/",
-                    "role": "downtown_class_a_office",
-                    "confidence": "district_inferred"
-                  },
-                  {
-                    "name": "2070 Allston Way",
-                    "path": "/commercial-real-estate/building/CA/berkeley/2070-allston-way/",
-                    "role": "downtown_class_a_office",
-                    "confidence": "district_inferred"
-                  },
-                  {
-                    "name": "2118 Milvia St",
-                    "path": "/commercial-real-estate/building/CA/berkeley/2118-milvia-st/",
-                    "role": "downtown_class_a_office",
-                    "confidence": "district_inferred"
-                  },
-                  {
-                    "name": "2130 Center St",
-                    "path": "/commercial-real-estate/building/CA/berkeley/2130-center-st/",
-                    "role": "government_office_environment",
                     "confidence": "district_inferred"
                   }
                 ]
@@ -45458,32 +45531,6 @@
           }
         },
         "ecosystemGaps": [
-          {
-            "id": "ecosystem:office:representative_role_thin",
-            "code": "representative_role_thin",
-            "label": "Representative Role Thin",
-            "severity": "medium",
-            "layer": "representativeBuildingIntelligence",
-            "ecosystemId": "office",
-            "ecosystemLabel": "Office",
-            "relevance": "core",
-            "readinessState": "partial",
-            "rationale": "Representative role coverage is too narrow for this ecosystem.",
-            "evidence": [
-              "1 primary districts and 3 secondary districts.",
-              "13 Representative Buildings and 13 Building Briefs.",
-              "4 representative roles and 5 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
           {
             "id": "ecosystem:life_science:ecosystem_missing",
             "code": "ecosystem_missing",
@@ -46056,12 +46103,12 @@
           }
         },
         "recommendedEcosystemSprint": {
-          "title": "East Bay Office Ecosystem Representative Building Foundation",
-          "ecosystemId": "office",
-          "ecosystemLabel": "Office",
-          "sprintFamily": "Ecosystem Representative Building Foundation",
-          "rationale": "Representative role coverage is too narrow for this ecosystem.",
-          "gapCode": "representative_role_thin",
+          "title": "East Bay Life Science Ecosystem District Foundation",
+          "ecosystemId": "life_science",
+          "ecosystemLabel": "Life Science",
+          "sprintFamily": "Ecosystem District Foundation",
+          "rationale": "Relevant ecosystem has no meaningful district coverage.",
+          "gapCode": "ecosystem_missing",
           "completionCriteria": [
             "Validated district ecosystem classification",
             "Representative Building coverage across the most important subtypes",
@@ -46172,11 +46219,11 @@
           "representativeBuildings": {
             "key": "representativeBuildings",
             "label": "Representative Buildings",
-            "score": 75,
-            "completed": 12,
+            "score": 81,
+            "completed": 13,
             "total": 16,
-            "missing": 4,
-            "explanation": "48 representative building relationships; v1 target is 3 per covered district.",
+            "missing": 3,
+            "explanation": "50 representative building relationships; v1 target is 3 per covered district.",
             "issues": [
               {
                 "id": "east-bay:representativeBuildings:district missing representative buildings:antioch-east-18th-industrial",
@@ -46196,37 +46243,57 @@
                 "suggestedNextAction": "Curate representative buildings that explain this district.",
                 "automationCandidate": true,
                 "readinessState": ""
-              },
-              {
-                "id": "east-bay:representativeBuildings:district missing representative buildings:emeryville-commercial-core",
-                "code": "district-no-reps",
-                "metroId": "east-bay",
-                "metroName": "East Bay",
-                "category": "representativeBuildings",
-                "categoryLabel": "Representative Buildings",
-                "taskType": "district missing representative buildings",
-                "itemName": "Emeryville Commercial Core",
-                "severity": "medium",
-                "priority": 40,
-                "reason": "District has no representative building examples.",
-                "sourceId": "emeryville-commercial-core",
-                "publicUrl": "/commercial-real-estate/CA/emeryville/emeryville-commercial-core/",
-                "adminUrl": "",
-                "suggestedNextAction": "Curate representative buildings that explain this district.",
-                "automationCandidate": true,
-                "readinessState": ""
               }
             ]
           },
           "buildingBriefs": {
             "key": "buildingBriefs",
             "label": "Building Briefs",
-            "score": 100,
+            "score": 96,
             "completed": 48,
-            "total": 48,
-            "missing": 0,
-            "explanation": "48 of 48 representative building records use the canonical Building Brief journey.",
-            "issues": []
+            "total": 50,
+            "missing": 2,
+            "explanation": "48 of 50 representative building records use the canonical Building Brief journey.",
+            "issues": [
+              {
+                "id": "east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st",
+                "code": "missing-brief",
+                "metroId": "east-bay",
+                "metroName": "East Bay",
+                "category": "buildingBriefs",
+                "categoryLabel": "Building Briefs",
+                "taskType": "representative building missing Building Brief",
+                "itemName": "2200 Powell St",
+                "severity": "medium",
+                "priority": 40,
+                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+                "sourceId": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
+                "publicUrl": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
+                "adminUrl": "",
+                "suggestedNextAction": "Author a Building Brief for this representative building.",
+                "automationCandidate": true,
+                "readinessState": "representative-foundation"
+              },
+              {
+                "id": "east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
+                "code": "missing-brief",
+                "metroId": "east-bay",
+                "metroName": "East Bay",
+                "category": "buildingBriefs",
+                "categoryLabel": "Building Briefs",
+                "taskType": "representative building missing Building Brief",
+                "itemName": "2100 Powell St",
+                "severity": "medium",
+                "priority": 40,
+                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+                "sourceId": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
+                "publicUrl": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
+                "adminUrl": "",
+                "suggestedNextAction": "Author a Building Brief for this representative building.",
+                "automationCandidate": true,
+                "readinessState": "representative-foundation"
+              }
+            ]
           },
           "recommendationReadiness": {
             "key": "recommendationReadiness",
@@ -46272,8 +46339,8 @@
             "key": "internalLinking",
             "label": "Internal Linking",
             "score": 100,
-            "completed": 92,
-            "total": 92,
+            "completed": 94,
+            "total": 94,
             "missing": 0,
             "explanation": "Checks public city, district, building, and comparison references that Publisher can resolve from generated data.",
             "issues": []
@@ -46319,6 +46386,44 @@
             "readinessState": ""
           },
           {
+            "id": "east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
+            "code": "missing-brief",
+            "metroId": "east-bay",
+            "metroName": "East Bay",
+            "category": "buildingBriefs",
+            "categoryLabel": "Building Briefs",
+            "taskType": "representative building missing Building Brief",
+            "itemName": "2100 Powell St",
+            "severity": "medium",
+            "priority": 40,
+            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+            "sourceId": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
+            "publicUrl": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
+            "adminUrl": "",
+            "suggestedNextAction": "Author a Building Brief for this representative building.",
+            "automationCandidate": true,
+            "readinessState": "representative-foundation"
+          },
+          {
+            "id": "east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st",
+            "code": "missing-brief",
+            "metroId": "east-bay",
+            "metroName": "East Bay",
+            "category": "buildingBriefs",
+            "categoryLabel": "Building Briefs",
+            "taskType": "representative building missing Building Brief",
+            "itemName": "2200 Powell St",
+            "severity": "medium",
+            "priority": 40,
+            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+            "sourceId": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
+            "publicUrl": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
+            "adminUrl": "",
+            "suggestedNextAction": "Author a Building Brief for this representative building.",
+            "automationCandidate": true,
+            "readinessState": "representative-foundation"
+          },
+          {
             "id": "east-bay:representativeBuildings:district missing representative buildings:antioch-east-18th-industrial",
             "code": "district-no-reps",
             "metroId": "east-bay",
@@ -46332,25 +46437,6 @@
             "reason": "District has no representative building examples.",
             "sourceId": "antioch-east-18th-industrial",
             "publicUrl": "/commercial-real-estate/CA/antioch/antioch-east-18th-industrial/",
-            "adminUrl": "",
-            "suggestedNextAction": "Curate representative buildings that explain this district.",
-            "automationCandidate": true,
-            "readinessState": ""
-          },
-          {
-            "id": "east-bay:representativeBuildings:district missing representative buildings:emeryville-commercial-core",
-            "code": "district-no-reps",
-            "metroId": "east-bay",
-            "metroName": "East Bay",
-            "category": "representativeBuildings",
-            "categoryLabel": "Representative Buildings",
-            "taskType": "district missing representative buildings",
-            "itemName": "Emeryville Commercial Core",
-            "severity": "medium",
-            "priority": 40,
-            "reason": "District has no representative building examples.",
-            "sourceId": "emeryville-commercial-core",
-            "publicUrl": "/commercial-real-estate/CA/emeryville/emeryville-commercial-core/",
             "adminUrl": "",
             "suggestedNextAction": "Curate representative buildings that explain this district.",
             "automationCandidate": true,
@@ -70607,6 +70693,44 @@
         "readinessState": ""
       },
       {
+        "id": "east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
+        "code": "missing-brief",
+        "metroId": "east-bay",
+        "metroName": "East Bay",
+        "category": "buildingBriefs",
+        "categoryLabel": "Building Briefs",
+        "taskType": "representative building missing Building Brief",
+        "itemName": "2100 Powell St",
+        "severity": "medium",
+        "priority": 40,
+        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+        "sourceId": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
+        "publicUrl": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
+        "adminUrl": "",
+        "suggestedNextAction": "Author a Building Brief for this representative building.",
+        "automationCandidate": true,
+        "readinessState": "representative-foundation"
+      },
+      {
+        "id": "east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st",
+        "code": "missing-brief",
+        "metroId": "east-bay",
+        "metroName": "East Bay",
+        "category": "buildingBriefs",
+        "categoryLabel": "Building Briefs",
+        "taskType": "representative building missing Building Brief",
+        "itemName": "2200 Powell St",
+        "severity": "medium",
+        "priority": 40,
+        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+        "sourceId": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
+        "publicUrl": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
+        "adminUrl": "",
+        "suggestedNextAction": "Author a Building Brief for this representative building.",
+        "automationCandidate": true,
+        "readinessState": "representative-foundation"
+      },
+      {
         "id": "east-bay:representativeBuildings:district missing representative buildings:antioch-east-18th-industrial",
         "code": "district-no-reps",
         "metroId": "east-bay",
@@ -70620,25 +70744,6 @@
         "reason": "District has no representative building examples.",
         "sourceId": "antioch-east-18th-industrial",
         "publicUrl": "/commercial-real-estate/CA/antioch/antioch-east-18th-industrial/",
-        "adminUrl": "",
-        "suggestedNextAction": "Curate representative buildings that explain this district.",
-        "automationCandidate": true,
-        "readinessState": ""
-      },
-      {
-        "id": "east-bay:representativeBuildings:district missing representative buildings:emeryville-commercial-core",
-        "code": "district-no-reps",
-        "metroId": "east-bay",
-        "metroName": "East Bay",
-        "category": "representativeBuildings",
-        "categoryLabel": "Representative Buildings",
-        "taskType": "district missing representative buildings",
-        "itemName": "Emeryville Commercial Core",
-        "severity": "medium",
-        "priority": 40,
-        "reason": "District has no representative building examples.",
-        "sourceId": "emeryville-commercial-core",
-        "publicUrl": "/commercial-real-estate/CA/emeryville/emeryville-commercial-core/",
         "adminUrl": "",
         "suggestedNextAction": "Curate representative buildings that explain this district.",
         "automationCandidate": true,
@@ -73286,6 +73391,44 @@
         "readinessState": ""
       },
       {
+        "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
+        "code": "missing-brief",
+        "metroId": "san-francisco",
+        "metroName": "San Francisco",
+        "category": "buildingBriefs",
+        "categoryLabel": "Building Briefs",
+        "taskType": "representative building missing Building Brief",
+        "itemName": "2100 Powell St",
+        "severity": "medium",
+        "priority": 40,
+        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+        "sourceId": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
+        "publicUrl": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
+        "adminUrl": "",
+        "suggestedNextAction": "Author a Building Brief for this representative building.",
+        "automationCandidate": true,
+        "readinessState": "representative-foundation"
+      },
+      {
+        "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st",
+        "code": "missing-brief",
+        "metroId": "san-francisco",
+        "metroName": "San Francisco",
+        "category": "buildingBriefs",
+        "categoryLabel": "Building Briefs",
+        "taskType": "representative building missing Building Brief",
+        "itemName": "2200 Powell St",
+        "severity": "medium",
+        "priority": 40,
+        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+        "sourceId": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
+        "publicUrl": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
+        "adminUrl": "",
+        "suggestedNextAction": "Author a Building Brief for this representative building.",
+        "automationCandidate": true,
+        "readinessState": "representative-foundation"
+      },
+      {
         "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-2400-16th-st",
         "code": "missing-brief",
         "metroId": "san-francisco",
@@ -74097,25 +74240,6 @@
         "reason": "District has no representative building examples.",
         "sourceId": "downtown-san-mateo",
         "publicUrl": "/commercial-real-estate/CA/san-mateo/downtown-san-mateo/",
-        "adminUrl": "",
-        "suggestedNextAction": "Curate representative buildings that explain this district.",
-        "automationCandidate": true,
-        "readinessState": ""
-      },
-      {
-        "id": "san-francisco:representativeBuildings:district missing representative buildings:emeryville-commercial-core",
-        "code": "district-no-reps",
-        "metroId": "san-francisco",
-        "metroName": "San Francisco",
-        "category": "representativeBuildings",
-        "categoryLabel": "Representative Buildings",
-        "taskType": "district missing representative buildings",
-        "itemName": "Emeryville Commercial Core",
-        "severity": "medium",
-        "priority": 40,
-        "reason": "District has no representative building examples.",
-        "sourceId": "emeryville-commercial-core",
-        "publicUrl": "/commercial-real-estate/CA/emeryville/emeryville-commercial-core/",
         "adminUrl": "",
         "suggestedNextAction": "Curate representative buildings that explain this district.",
         "automationCandidate": true,
@@ -75872,6 +75996,44 @@
         "readinessState": ""
       },
       {
+        "id": "east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
+        "code": "missing-brief",
+        "metroId": "east-bay",
+        "metroName": "East Bay",
+        "category": "buildingBriefs",
+        "categoryLabel": "Building Briefs",
+        "taskType": "representative building missing Building Brief",
+        "itemName": "2100 Powell St",
+        "severity": "medium",
+        "priority": 40,
+        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+        "sourceId": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
+        "publicUrl": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
+        "adminUrl": "",
+        "suggestedNextAction": "Author a Building Brief for this representative building.",
+        "automationCandidate": true,
+        "readinessState": "representative-foundation"
+      },
+      {
+        "id": "east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st",
+        "code": "missing-brief",
+        "metroId": "east-bay",
+        "metroName": "East Bay",
+        "category": "buildingBriefs",
+        "categoryLabel": "Building Briefs",
+        "taskType": "representative building missing Building Brief",
+        "itemName": "2200 Powell St",
+        "severity": "medium",
+        "priority": 40,
+        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+        "sourceId": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
+        "publicUrl": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
+        "adminUrl": "",
+        "suggestedNextAction": "Author a Building Brief for this representative building.",
+        "automationCandidate": true,
+        "readinessState": "representative-foundation"
+      },
+      {
         "id": "east-bay:representativeBuildings:district missing representative buildings:antioch-east-18th-industrial",
         "code": "district-no-reps",
         "metroId": "east-bay",
@@ -75885,25 +76047,6 @@
         "reason": "District has no representative building examples.",
         "sourceId": "antioch-east-18th-industrial",
         "publicUrl": "/commercial-real-estate/CA/antioch/antioch-east-18th-industrial/",
-        "adminUrl": "",
-        "suggestedNextAction": "Curate representative buildings that explain this district.",
-        "automationCandidate": true,
-        "readinessState": ""
-      },
-      {
-        "id": "east-bay:representativeBuildings:district missing representative buildings:emeryville-commercial-core",
-        "code": "district-no-reps",
-        "metroId": "east-bay",
-        "metroName": "East Bay",
-        "category": "representativeBuildings",
-        "categoryLabel": "Representative Buildings",
-        "taskType": "district missing representative buildings",
-        "itemName": "Emeryville Commercial Core",
-        "severity": "medium",
-        "priority": 40,
-        "reason": "District has no representative building examples.",
-        "sourceId": "emeryville-commercial-core",
-        "publicUrl": "/commercial-real-estate/CA/emeryville/emeryville-commercial-core/",
         "adminUrl": "",
         "suggestedNextAction": "Curate representative buildings that explain this district.",
         "automationCandidate": true,
@@ -78551,6 +78694,44 @@
         "readinessState": ""
       },
       {
+        "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
+        "code": "missing-brief",
+        "metroId": "san-francisco",
+        "metroName": "San Francisco",
+        "category": "buildingBriefs",
+        "categoryLabel": "Building Briefs",
+        "taskType": "representative building missing Building Brief",
+        "itemName": "2100 Powell St",
+        "severity": "medium",
+        "priority": 40,
+        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+        "sourceId": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
+        "publicUrl": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
+        "adminUrl": "",
+        "suggestedNextAction": "Author a Building Brief for this representative building.",
+        "automationCandidate": true,
+        "readinessState": "representative-foundation"
+      },
+      {
+        "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st",
+        "code": "missing-brief",
+        "metroId": "san-francisco",
+        "metroName": "San Francisco",
+        "category": "buildingBriefs",
+        "categoryLabel": "Building Briefs",
+        "taskType": "representative building missing Building Brief",
+        "itemName": "2200 Powell St",
+        "severity": "medium",
+        "priority": 40,
+        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+        "sourceId": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
+        "publicUrl": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
+        "adminUrl": "",
+        "suggestedNextAction": "Author a Building Brief for this representative building.",
+        "automationCandidate": true,
+        "readinessState": "representative-foundation"
+      },
+      {
         "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-2400-16th-st",
         "code": "missing-brief",
         "metroId": "san-francisco",
@@ -79362,25 +79543,6 @@
         "reason": "District has no representative building examples.",
         "sourceId": "downtown-san-mateo",
         "publicUrl": "/commercial-real-estate/CA/san-mateo/downtown-san-mateo/",
-        "adminUrl": "",
-        "suggestedNextAction": "Curate representative buildings that explain this district.",
-        "automationCandidate": true,
-        "readinessState": ""
-      },
-      {
-        "id": "san-francisco:representativeBuildings:district missing representative buildings:emeryville-commercial-core",
-        "code": "district-no-reps",
-        "metroId": "san-francisco",
-        "metroName": "San Francisco",
-        "category": "representativeBuildings",
-        "categoryLabel": "Representative Buildings",
-        "taskType": "district missing representative buildings",
-        "itemName": "Emeryville Commercial Core",
-        "severity": "medium",
-        "priority": 40,
-        "reason": "District has no representative building examples.",
-        "sourceId": "emeryville-commercial-core",
-        "publicUrl": "/commercial-real-estate/CA/emeryville/emeryville-commercial-core/",
         "adminUrl": "",
         "suggestedNextAction": "Curate representative buildings that explain this district.",
         "automationCandidate": true,
@@ -81399,7 +81561,7 @@
         "Low": 2
       },
       "deferredCandidates": 69,
-      "latestValidation": "2026-08-11T13:44:53-07:00",
+      "latestValidation": "2026-08-11T14:36:39-07:00",
       "errors": [],
       "warnings": [],
       "source": {
