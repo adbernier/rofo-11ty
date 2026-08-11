@@ -1428,6 +1428,15 @@ Object.entries(industrialQuestionPrompts).forEach(([slug, questionsToValidate]) 
       { slug: "downtown-berkeley", label: "Downtown Berkeley", reason: "More transit-oriented and university-adjacent downtown setting.", relationshipType: "better_transit" },
       { slug: "jack-london-square", label: "Jack London Square", reason: "More waterfront and downtown Oakland customer/client context.", relationshipType: "more_creative" },
     ] },
+    commercialEcosystem: {
+      primary: "office",
+      secondary: ["industrial_flex", "life_science"],
+      subtypes: ["suburban_office", "office_campus", "professional_office", "flex", "research_development", "life_science_office", "innovation_campus"],
+      activities: ["knowledge_work", "collaboration", "administrative_operations", "research", "product_development"],
+      archetypes: ["professional_office", "consulting_firm", "startup", "research_company", "biotech_company"],
+      confidence: "high",
+      reviewNotes: ["Life Science is a secondary district expression based on existing Emeryville office, R&D-support, and life-science-support evidence; specialized lab suitability remains building-specific."],
+    },
   },
   {
     slug: "downtown-berkeley",
@@ -1522,6 +1531,15 @@ Object.entries(industrialQuestionPrompts).forEach(([slug, questionsToValidate]) 
       { slug: "downtown-berkeley", label: "Downtown Berkeley", reason: "More transit-oriented university downtown setting.", relationshipType: "better_transit" },
       { slug: "jack-london-square", label: "Jack London Square", reason: "More waterfront creative office and Oakland access.", relationshipType: "more_creative" },
     ] },
+    commercialEcosystem: {
+      primary: "industrial_flex",
+      secondary: ["office", "life_science"],
+      subtypes: ["small_bay_industrial", "flex", "research_development", "creative_office", "life_science_office"],
+      activities: ["light_manufacturing", "product_development", "research", "collaboration", "knowledge_work"],
+      archetypes: ["research_company", "startup", "creative_studio", "light_manufacturer"],
+      confidence: "high",
+      reviewNotes: ["Life Science is secondary and research-adjacent; West Berkeley should not imply lab, wet-lab, tenant, or technical infrastructure suitability without property-level validation."],
+    },
   },
   {
     slug: "jack-london-square",

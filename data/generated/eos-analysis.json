@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-11T14:36:39-07:00",
+  "generatedAt": "2026-08-11T15:18:07-07:00",
   "eosVersion": "editorial-operating-system-v2.2.4",
   "sourceSystems": [
     "Publisher",
@@ -13,7 +13,7 @@
   ],
   "commercialKnowledgeIntelligence": {
     "schemaVersion": "eos-commercial-knowledge-intelligence-v1",
-    "generatedAt": "2026-08-11T14:36:39-07:00",
+    "generatedAt": "2026-08-11T15:18:07-07:00",
     "sourceSystems": [
       "Editor-controlled strategic priorities",
       "Google Search Console Search Analytics API",
@@ -186923,7 +186923,7 @@
         "Low": 2
       },
       "deferredCandidates": 69,
-      "latestValidation": "2026-08-11T14:36:39-07:00",
+      "latestValidation": "2026-08-11T15:18:07-07:00",
       "errors": [],
       "warnings": [],
       "source": {
@@ -212527,21 +212527,21 @@
           "label": "Needs Attention"
         },
         "overallEditorialHealth": {
-          "score": 57,
+          "score": 58,
           "state": {
             "id": "needs_attention",
             "label": "Needs Attention"
           },
           "label": "Needs Attention",
           "rationale": [
-            "Commercial Ecosystem Coverage: Industrial & Flex coverage is strong or developed. Office is Partial; Retail is Thin; Life Science is Missing. Representative Building coverage is concentrated in Industrial & Flex.",
+            "Commercial Ecosystem Coverage: Industrial & Flex coverage is strong or developed. Office is Partial; Retail is Thin; Life Science is Partial. Representative Building coverage is concentrated in Industrial & Flex.",
             "Photography Coverage: Runtime Field Mode photo counts are not connected to EOS yet; v1 treats photo coverage as a human planning signal.",
             "Recommendation Coverage: Authoritative Recommendation QA is not independently scoped or verified for this market yet."
           ]
         },
         "knowledgeReadiness": {
-          "label": "Partial",
-          "score": 67,
+          "label": "Developed",
+          "score": 69,
           "interpretation": "EOS interpretation from Publisher, Compass, Knowledge Graph, Building Profile, and QA signals.",
           "sourceSignals": [
             "districtCoverage",
@@ -212580,7 +212580,7 @@
               "target": null,
               "label": "74% Publisher Confidence",
               "statusLabel": "Editorially Developed",
-              "currentConstraint": "Commercial Ecosystem Coverage: Industrial & Flex coverage is strong or developed. Office is Partial; Retail is Thin; Life Science is Missing. Representative Building coverage is concentrated in Industrial & Flex.",
+              "currentConstraint": "Commercial Ecosystem Coverage: Industrial & Flex coverage is strong or developed. Office is Partial; Retail is Thin; Life Science is Partial. Representative Building coverage is concentrated in Industrial & Flex.",
               "sourceEvidence": [
                 "Publisher score.",
                 "Publisher readiness status.",
@@ -212603,23 +212603,23 @@
                   "target": null,
                   "label": "74% Publisher Confidence",
                   "statusLabel": "Editorially Developed",
-                  "currentConstraint": "Commercial Ecosystem Coverage: Industrial & Flex coverage is strong or developed. Office is Partial; Retail is Thin; Life Science is Missing. Representative Building coverage is concentrated in Industrial & Flex.",
+                  "currentConstraint": "Commercial Ecosystem Coverage: Industrial & Flex coverage is strong or developed. Office is Partial; Retail is Thin; Life Science is Partial. Representative Building coverage is concentrated in Industrial & Flex.",
                   "sourceEvidence": [
                     "Publisher score.",
                     "Publisher readiness status.",
                     "EOS health signals."
                   ]
                 },
-                "currentConstraint": "Relevant ecosystem has no meaningful district coverage.",
+                "currentConstraint": "Subtype breadth is too narrow for the ecosystem's relevance.",
                 "nextInitiativeId": "east-bay:publisher:life-science-readiness",
-                "nextMissionId": "mission:east-bay:east-bay-life-science-ecosystem-district-foundation",
+                "nextMissionId": "mission:east-bay:east-bay-life-science-ecosystem-subtype-expansion",
                 "initiativeIds": [
                   "east-bay:publisher:life-science-readiness",
                   "east-bay:publisher:recommendation-readiness",
                   "east-bay:publisher:comparison-graph"
                 ],
                 "missionIds": [
-                  "mission:east-bay:east-bay-life-science-ecosystem-district-foundation",
+                  "mission:east-bay:east-bay-life-science-ecosystem-subtype-expansion",
                   "mission:east-bay:add-or-update-recommendation-qa-documentation-for-this-metro",
                   "mission:east-bay:add-meaningful-comparewith-relationships-to-nearby-or-decision-adjacent-districts"
                 ],
@@ -212640,9 +212640,9 @@
             ],
             "campaignId": "east-bay:publisher:completion-campaign",
             "nextCampaignId": "east-bay:publisher:completion-campaign",
-            "currentConstraint": "Relevant ecosystem has no meaningful district coverage.",
+            "currentConstraint": "Subtype breadth is too narrow for the ecosystem's relevance.",
             "nextInitiativeId": "east-bay:publisher:life-science-readiness",
-            "nextMissionId": "mission:east-bay:east-bay-life-science-ecosystem-district-foundation",
+            "nextMissionId": "mission:east-bay:east-bay-life-science-ecosystem-subtype-expansion",
             "initiatives": [
               {
                 "id": "east-bay:publisher:life-science-readiness",
@@ -212652,7 +212652,7 @@
                 "programLabel": "Publisher",
                 "title": "East Bay Life Science Readiness",
                 "scope": "Life Science",
-                "objective": "East Bay Life Science Ecosystem District Foundation",
+                "objective": "East Bay Life Science Ecosystem Subtype Expansion",
                 "status": "Next",
                 "currentStage": "Next",
                 "progress": {
@@ -212665,10 +212665,10 @@
                     "EOS mission queue."
                   ]
                 },
-                "currentConstraint": "Relevant ecosystem has no meaningful district coverage.",
-                "nextMissionId": "mission:east-bay:east-bay-life-science-ecosystem-district-foundation",
+                "currentConstraint": "Subtype breadth is too narrow for the ecosystem's relevance.",
+                "nextMissionId": "mission:east-bay:east-bay-life-science-ecosystem-subtype-expansion",
                 "remainingMilestones": [
-                  "Relevant ecosystem has no meaningful district coverage."
+                  "Subtype breadth is too narrow for the ecosystem's relevance."
                 ],
                 "confidence": "Medium",
                 "sourceEvidence": [
@@ -212678,8 +212678,8 @@
                 "readOnly": false,
                 "missions": [
                   {
-                    "id": "mission:east-bay:east-bay-life-science-ecosystem-district-foundation",
-                    "title": "East Bay Life Science Ecosystem District Foundation",
+                    "id": "mission:east-bay:east-bay-life-science-ecosystem-subtype-expansion",
+                    "title": "East Bay Life Science Ecosystem Subtype Expansion",
                     "marketId": "east-bay",
                     "marketName": "East Bay",
                     "programId": "publisher",
@@ -212691,8 +212691,8 @@
                     "portfolioId": "",
                     "districtId": "",
                     "districtName": "",
-                    "objective": "East Bay Life Science Ecosystem District Foundation",
-                    "currentConstraint": "Relevant ecosystem has no meaningful district coverage.",
+                    "objective": "East Bay Life Science Ecosystem Subtype Expansion",
+                    "currentConstraint": "Subtype breadth is too narrow for the ecosystem's relevance.",
                     "expectedImpact": "High",
                     "estimatedEffort": "Small",
                     "missionSize": {
@@ -212701,10 +212701,10 @@
                       "reviewWindow": "30-60 minutes",
                       "maximumWorkItems": 3
                     },
-                    "missionClass": "Readiness Blocker",
+                    "missionClass": "Foundation",
                     "confidence": "Medium",
                     "priorityScore": 100,
-                    "executionPacketRef": "portfolioQueues.missionQueue:mission:east-bay:east-bay-life-science-ecosystem-district-foundation",
+                    "executionPacketRef": "portfolioQueues.missionQueue:mission:east-bay:east-bay-life-science-ecosystem-subtype-expansion",
                     "executionPacketAvailable": true,
                     "componentStatuses": null,
                     "workItems": {
@@ -214238,8 +214238,8 @@
         ],
         "nextMissions": [
           {
-            "id": "mission:east-bay:east-bay-life-science-ecosystem-district-foundation",
-            "title": "East Bay Life Science Ecosystem District Foundation",
+            "id": "mission:east-bay:east-bay-life-science-ecosystem-subtype-expansion",
+            "title": "East Bay Life Science Ecosystem Subtype Expansion",
             "marketId": "east-bay",
             "marketName": "East Bay",
             "programId": "publisher",
@@ -214251,8 +214251,8 @@
             "portfolioId": "",
             "districtId": "",
             "districtName": "",
-            "objective": "East Bay Life Science Ecosystem District Foundation",
-            "currentConstraint": "Relevant ecosystem has no meaningful district coverage.",
+            "objective": "East Bay Life Science Ecosystem Subtype Expansion",
+            "currentConstraint": "Subtype breadth is too narrow for the ecosystem's relevance.",
             "expectedImpact": "High",
             "estimatedEffort": "Small",
             "missionSize": {
@@ -214261,10 +214261,10 @@
               "reviewWindow": "30-60 minutes",
               "maximumWorkItems": 3
             },
-            "missionClass": "Readiness Blocker",
+            "missionClass": "Foundation",
             "confidence": "Medium",
             "priorityScore": 100,
-            "executionPacketRef": "portfolioQueues.missionQueue:mission:east-bay:east-bay-life-science-ecosystem-district-foundation",
+            "executionPacketRef": "portfolioQueues.missionQueue:mission:east-bay:east-bay-life-science-ecosystem-subtype-expansion",
             "executionPacketAvailable": true,
             "componentStatuses": null,
             "workItems": {
@@ -236139,23 +236139,23 @@
           "target": null,
           "label": "74% Publisher Confidence",
           "statusLabel": "Editorially Developed",
-          "currentConstraint": "Commercial Ecosystem Coverage: Industrial & Flex coverage is strong or developed. Office is Partial; Retail is Thin; Life Science is Missing. Representative Building coverage is concentrated in Industrial & Flex.",
+          "currentConstraint": "Commercial Ecosystem Coverage: Industrial & Flex coverage is strong or developed. Office is Partial; Retail is Thin; Life Science is Partial. Representative Building coverage is concentrated in Industrial & Flex.",
           "sourceEvidence": [
             "Publisher score.",
             "Publisher readiness status.",
             "EOS health signals."
           ]
         },
-        "currentConstraint": "Relevant ecosystem has no meaningful district coverage.",
+        "currentConstraint": "Subtype breadth is too narrow for the ecosystem's relevance.",
         "nextInitiativeId": "east-bay:publisher:life-science-readiness",
-        "nextMissionId": "mission:east-bay:east-bay-life-science-ecosystem-district-foundation",
+        "nextMissionId": "mission:east-bay:east-bay-life-science-ecosystem-subtype-expansion",
         "initiativeIds": [
           "east-bay:publisher:life-science-readiness",
           "east-bay:publisher:recommendation-readiness",
           "east-bay:publisher:comparison-graph"
         ],
         "missionIds": [
-          "mission:east-bay:east-bay-life-science-ecosystem-district-foundation",
+          "mission:east-bay:east-bay-life-science-ecosystem-subtype-expansion",
           "mission:east-bay:add-or-update-recommendation-qa-documentation-for-this-metro",
           "mission:east-bay:add-meaningful-comparewith-relationships-to-nearby-or-decision-adjacent-districts"
         ],
@@ -236178,7 +236178,7 @@
           "east-bay:publisher:comparison-graph"
         ],
         "missions": [
-          "mission:east-bay:east-bay-life-science-ecosystem-district-foundation",
+          "mission:east-bay:east-bay-life-science-ecosystem-subtype-expansion",
           "mission:east-bay:add-or-update-recommendation-qa-documentation-for-this-metro",
           "mission:east-bay:add-meaningful-comparewith-relationships-to-nearby-or-decision-adjacent-districts"
         ]
@@ -246543,7 +246543,7 @@
         "programLabel": "Publisher",
         "title": "East Bay Life Science Readiness",
         "scope": "Life Science",
-        "objective": "East Bay Life Science Ecosystem District Foundation",
+        "objective": "East Bay Life Science Ecosystem Subtype Expansion",
         "status": "Next",
         "currentStage": "Next",
         "progress": {
@@ -246556,10 +246556,10 @@
             "EOS mission queue."
           ]
         },
-        "currentConstraint": "Relevant ecosystem has no meaningful district coverage.",
-        "nextMissionId": "mission:east-bay:east-bay-life-science-ecosystem-district-foundation",
+        "currentConstraint": "Subtype breadth is too narrow for the ecosystem's relevance.",
+        "nextMissionId": "mission:east-bay:east-bay-life-science-ecosystem-subtype-expansion",
         "remainingMilestones": [
-          "Relevant ecosystem has no meaningful district coverage."
+          "Subtype breadth is too narrow for the ecosystem's relevance."
         ],
         "confidence": "Medium",
         "sourceEvidence": [
@@ -246568,7 +246568,7 @@
         ],
         "readOnly": false,
         "missions": [
-          "mission:east-bay:east-bay-life-science-ecosystem-district-foundation"
+          "mission:east-bay:east-bay-life-science-ecosystem-subtype-expansion"
         ],
         "campaignId": "east-bay:publisher:completion-campaign"
       },
@@ -253123,8 +253123,8 @@
         }
       },
       {
-        "id": "mission:east-bay:east-bay-life-science-ecosystem-district-foundation",
-        "title": "East Bay Life Science Ecosystem District Foundation",
+        "id": "mission:east-bay:east-bay-life-science-ecosystem-subtype-expansion",
+        "title": "East Bay Life Science Ecosystem Subtype Expansion",
         "marketId": "east-bay",
         "marketName": "East Bay",
         "programId": "publisher",
@@ -253136,8 +253136,8 @@
         "portfolioId": "",
         "districtId": "",
         "districtName": "",
-        "objective": "East Bay Life Science Ecosystem District Foundation",
-        "currentConstraint": "Relevant ecosystem has no meaningful district coverage.",
+        "objective": "East Bay Life Science Ecosystem Subtype Expansion",
+        "currentConstraint": "Subtype breadth is too narrow for the ecosystem's relevance.",
         "expectedImpact": "High",
         "estimatedEffort": "Small",
         "missionSize": {
@@ -253146,10 +253146,10 @@
           "reviewWindow": "30-60 minutes",
           "maximumWorkItems": 3
         },
-        "missionClass": "Readiness Blocker",
+        "missionClass": "Foundation",
         "confidence": "Medium",
         "priorityScore": 100,
-        "executionPacketRef": "portfolioQueues.missionQueue:mission:east-bay:east-bay-life-science-ecosystem-district-foundation",
+        "executionPacketRef": "portfolioQueues.missionQueue:mission:east-bay:east-bay-life-science-ecosystem-subtype-expansion",
         "executionPacketAvailable": true,
         "componentStatuses": null,
         "workItems": {
@@ -257542,7 +257542,7 @@
     "openWorkItems": 310,
     "humanOnlyWorkItems": 7,
     "autonomousCandidates": 94,
-    "topWorkItem": "East Bay Life Science Ecosystem District Foundation"
+    "topWorkItem": "East Bay Life Science Ecosystem Subtype Expansion"
   },
   "metros": [
     {
@@ -257811,14 +257811,14 @@
         "label": "Needs Attention"
       },
       "overallEditorialHealth": {
-        "score": 57,
+        "score": 58,
         "state": {
           "id": "needs_attention",
           "label": "Needs Attention"
         },
         "label": "Needs Attention",
         "rationale": [
-          "Commercial Ecosystem Coverage: Industrial & Flex coverage is strong or developed. Office is Partial; Retail is Thin; Life Science is Missing. Representative Building coverage is concentrated in Industrial & Flex.",
+          "Commercial Ecosystem Coverage: Industrial & Flex coverage is strong or developed. Office is Partial; Retail is Thin; Life Science is Partial. Representative Building coverage is concentrated in Industrial & Flex.",
           "Photography Coverage: Runtime Field Mode photo counts are not connected to EOS yet; v1 treats photo coverage as a human planning signal.",
           "Recommendation Coverage: Authoritative Recommendation QA is not independently scoped or verified for this market yet."
         ]
@@ -257844,7 +257844,7 @@
         "source": "publisher"
       },
       "commercialEcosystemCoverage": {
-        "score": 28,
+        "score": 37,
         "state": "partial",
         "label": "Partial",
         "relevantEcosystems": [
@@ -257857,8 +257857,7 @@
           "special_purpose"
         ],
         "blockingEcosystems": [
-          "retail",
-          "life_science"
+          "retail"
         ],
         "balance": {
           "state": "industrial_flex_representative_building_concentrated",
@@ -257872,8 +257871,8 @@
         }
       },
       "knowledgeReadiness": {
-        "label": "Partial",
-        "score": 67,
+        "label": "Developed",
+        "score": 69,
         "interpretation": "EOS interpretation from Publisher, Compass, Knowledge Graph, Building Profile, and QA signals.",
         "sourceSignals": [
           "districtCoverage",
@@ -257986,12 +257985,12 @@
         "commercialEcosystem": {
           "id": "commercialEcosystem",
           "label": "Commercial Ecosystem Coverage",
-          "score": 28,
+          "score": 37,
           "state": {
             "id": "planning",
             "label": "Planning"
           },
-          "note": "Industrial & Flex coverage is strong or developed. Office is Partial; Retail is Thin; Life Science is Missing. Representative Building coverage is concentrated in Industrial & Flex.",
+          "note": "Industrial & Flex coverage is strong or developed. Office is Partial; Retail is Thin; Life Science is Partial. Representative Building coverage is concentrated in Industrial & Flex.",
           "source": "publisher"
         },
         "photography": {
@@ -258059,7 +258058,7 @@
       "examples": [
         "Antioch East 18th Industrial",
         "East Bay Building Brief Migration Sprint",
-        "East Bay Life Science Ecosystem District Foundation"
+        "East Bay Life Science Ecosystem Subtype Expansion"
       ],
       "source": {
         "publisherStatus": "Editorially Developed",
@@ -259820,8 +259819,8 @@
   "portfolioQueues": {
     "todaysRecommendedWork": [
       {
-        "id": "mission:east-bay:east-bay-life-science-ecosystem-district-foundation",
-        "title": "East Bay Life Science Ecosystem District Foundation",
+        "id": "mission:east-bay:east-bay-life-science-ecosystem-subtype-expansion",
+        "title": "East Bay Life Science Ecosystem Subtype Expansion",
         "marketId": "east-bay",
         "marketName": "East Bay",
         "programId": "publisher",
@@ -259841,10 +259840,10 @@
         "includedTasks": [
           {
             "id": "ecosystem:east-bay:life_science",
-            "title": "East Bay Life Science Ecosystem District Foundation",
+            "title": "East Bay Life Science Ecosystem Subtype Expansion",
             "category": "commercialEcosystem",
             "categoryLabel": "Commercial Ecosystem",
-            "reason": "Relevant ecosystem has no meaningful district coverage.",
+            "reason": "Subtype breadth is too narrow for the ecosystem's relevance.",
             "suggestedModule": {
               "id": "publisher",
               "label": "Publisher"
@@ -259871,10 +259870,10 @@
             }
           }
         ],
-        "objective": "East Bay Life Science Ecosystem District Foundation",
+        "objective": "East Bay Life Science Ecosystem Subtype Expansion",
         "reason": [
           "1 related opportunity share metro, source, and validation paths.",
-          "Relevant ecosystem has no meaningful district coverage.",
+          "Subtype breadth is too narrow for the ecosystem's relevance.",
           "Ecosystem readiness: Partial",
           "Commercial balance: Industrial Flex Representative Building Concentrated"
         ],
@@ -259887,8 +259886,8 @@
           "maximumWorkItems": 3
         },
         "impactEffortClass": "High Impact / Small Effort",
-        "missionClass": "Readiness Blocker",
-        "currentConstraint": "Relevant ecosystem has no meaningful district coverage.",
+        "missionClass": "Foundation",
+        "currentConstraint": "Subtype breadth is too narrow for the ecosystem's relevance.",
         "completionCriteria": [
           "The cited measurable gap is closed or explicitly reclassified.",
           "Existing Publisher, EOS, and relevant QA checks pass.",
@@ -259946,7 +259945,7 @@
           "Deferred work is explicit so unrelated scope does not leak into the mission."
         ],
         "why": [
-          "Current constraint: Relevant ecosystem has no meaningful district coverage.",
+          "Current constraint: Subtype breadth is too narrow for the ecosystem's relevance.",
           "Expected impact is high based on readiness, foundation, or multi-gap evidence.",
           "Small mission size keeps the packet inside a 30-60 minutes review window."
         ],
@@ -259957,22 +259956,22 @@
           ]
         },
         "executionPacket": {
-          "objective": "East Bay Life Science Ecosystem District Foundation",
+          "objective": "East Bay Life Science Ecosystem Subtype Expansion",
           "reason": [
             "1 related opportunity share metro, source, and validation paths.",
-            "Relevant ecosystem has no meaningful district coverage.",
+            "Subtype breadth is too narrow for the ecosystem's relevance.",
             "Ecosystem readiness: Partial",
             "Commercial balance: Industrial Flex Representative Building Concentrated"
           ],
-          "currentHealth": "57% Needs Attention",
-          "currentConstraint": "Relevant ecosystem has no meaningful district coverage.",
+          "currentHealth": "58% Needs Attention",
+          "currentConstraint": "Subtype breadth is too narrow for the ecosystem's relevance.",
           "includedTasks": [
             {
               "id": "ecosystem:east-bay:life_science",
-              "title": "East Bay Life Science Ecosystem District Foundation",
+              "title": "East Bay Life Science Ecosystem Subtype Expansion",
               "category": "commercialEcosystem",
               "categoryLabel": "Commercial Ecosystem",
-              "reason": "Relevant ecosystem has no meaningful district coverage.",
+              "reason": "Subtype breadth is too narrow for the ecosystem's relevance.",
               "suggestedModule": {
                 "id": "publisher",
                 "label": "Publisher"
@@ -260012,7 +260011,7 @@
             "reviewWindow": "30-60 minutes",
             "maximumWorkItems": 3
           },
-          "missionClass": "Readiness Blocker",
+          "missionClass": "Foundation",
           "files": [
             "_data/commercialEcosystemTaxonomy.js",
             "_data/locationKnowledgeGraph.js",
@@ -260217,7 +260216,7 @@
             "Task type: missing recommendation QA status",
             "Publisher severity: high"
           ],
-          "currentHealth": "57% Needs Attention",
+          "currentHealth": "58% Needs Attention",
           "currentConstraint": "Authoritative recommendation QA status was not found.",
           "includedTasks": [
             {
@@ -262715,8 +262714,8 @@
     ],
     "missionQueue": [
       {
-        "id": "mission:east-bay:east-bay-life-science-ecosystem-district-foundation",
-        "title": "East Bay Life Science Ecosystem District Foundation",
+        "id": "mission:east-bay:east-bay-life-science-ecosystem-subtype-expansion",
+        "title": "East Bay Life Science Ecosystem Subtype Expansion",
         "marketId": "east-bay",
         "marketName": "East Bay",
         "programId": "publisher",
@@ -262736,10 +262735,10 @@
         "includedTasks": [
           {
             "id": "ecosystem:east-bay:life_science",
-            "title": "East Bay Life Science Ecosystem District Foundation",
+            "title": "East Bay Life Science Ecosystem Subtype Expansion",
             "category": "commercialEcosystem",
             "categoryLabel": "Commercial Ecosystem",
-            "reason": "Relevant ecosystem has no meaningful district coverage.",
+            "reason": "Subtype breadth is too narrow for the ecosystem's relevance.",
             "suggestedModule": {
               "id": "publisher",
               "label": "Publisher"
@@ -262766,10 +262765,10 @@
             }
           }
         ],
-        "objective": "East Bay Life Science Ecosystem District Foundation",
+        "objective": "East Bay Life Science Ecosystem Subtype Expansion",
         "reason": [
           "1 related opportunity share metro, source, and validation paths.",
-          "Relevant ecosystem has no meaningful district coverage.",
+          "Subtype breadth is too narrow for the ecosystem's relevance.",
           "Ecosystem readiness: Partial",
           "Commercial balance: Industrial Flex Representative Building Concentrated"
         ],
@@ -262782,8 +262781,8 @@
           "maximumWorkItems": 3
         },
         "impactEffortClass": "High Impact / Small Effort",
-        "missionClass": "Readiness Blocker",
-        "currentConstraint": "Relevant ecosystem has no meaningful district coverage.",
+        "missionClass": "Foundation",
+        "currentConstraint": "Subtype breadth is too narrow for the ecosystem's relevance.",
         "completionCriteria": [
           "The cited measurable gap is closed or explicitly reclassified.",
           "Existing Publisher, EOS, and relevant QA checks pass.",
@@ -262841,7 +262840,7 @@
           "Deferred work is explicit so unrelated scope does not leak into the mission."
         ],
         "why": [
-          "Current constraint: Relevant ecosystem has no meaningful district coverage.",
+          "Current constraint: Subtype breadth is too narrow for the ecosystem's relevance.",
           "Expected impact is high based on readiness, foundation, or multi-gap evidence.",
           "Small mission size keeps the packet inside a 30-60 minutes review window."
         ],
@@ -262852,22 +262851,22 @@
           ]
         },
         "executionPacket": {
-          "objective": "East Bay Life Science Ecosystem District Foundation",
+          "objective": "East Bay Life Science Ecosystem Subtype Expansion",
           "reason": [
             "1 related opportunity share metro, source, and validation paths.",
-            "Relevant ecosystem has no meaningful district coverage.",
+            "Subtype breadth is too narrow for the ecosystem's relevance.",
             "Ecosystem readiness: Partial",
             "Commercial balance: Industrial Flex Representative Building Concentrated"
           ],
-          "currentHealth": "57% Needs Attention",
-          "currentConstraint": "Relevant ecosystem has no meaningful district coverage.",
+          "currentHealth": "58% Needs Attention",
+          "currentConstraint": "Subtype breadth is too narrow for the ecosystem's relevance.",
           "includedTasks": [
             {
               "id": "ecosystem:east-bay:life_science",
-              "title": "East Bay Life Science Ecosystem District Foundation",
+              "title": "East Bay Life Science Ecosystem Subtype Expansion",
               "category": "commercialEcosystem",
               "categoryLabel": "Commercial Ecosystem",
-              "reason": "Relevant ecosystem has no meaningful district coverage.",
+              "reason": "Subtype breadth is too narrow for the ecosystem's relevance.",
               "suggestedModule": {
                 "id": "publisher",
                 "label": "Publisher"
@@ -262907,7 +262906,7 @@
             "reviewWindow": "30-60 minutes",
             "maximumWorkItems": 3
           },
-          "missionClass": "Readiness Blocker",
+          "missionClass": "Foundation",
           "files": [
             "_data/commercialEcosystemTaxonomy.js",
             "_data/locationKnowledgeGraph.js",
@@ -263112,7 +263111,7 @@
             "Task type: missing recommendation QA status",
             "Publisher severity: high"
           ],
-          "currentHealth": "57% Needs Attention",
+          "currentHealth": "58% Needs Attention",
           "currentConstraint": "Authoritative recommendation QA status was not found.",
           "includedTasks": [
             {
@@ -266266,7 +266265,7 @@
             "Task type: orphan district comparison",
             "Publisher severity: high"
           ],
-          "currentHealth": "57% Needs Attention",
+          "currentHealth": "58% Needs Attention",
           "currentConstraint": "District has no comparison relationships.",
           "includedTasks": [
             {
@@ -274829,7 +274828,7 @@
             "Supporting Building Profiles: 0 / 2.",
             "2 selected Building Profile work items are included in this bounded Mission."
           ],
-          "currentHealth": "57% Needs Attention",
+          "currentHealth": "58% Needs Attention",
           "currentConstraint": "Emeryville Commercial Core Commercial Market Evidence is complete, but selected evidence Building Profiles remain incomplete.",
           "includedTasks": [
             {
@@ -298915,7 +298914,7 @@
         "id": "ecosystem:east-bay:life_science",
         "metroId": "east-bay",
         "metroName": "East Bay",
-        "title": "East Bay Life Science Ecosystem District Foundation",
+        "title": "East Bay Life Science Ecosystem Subtype Expansion",
         "itemName": "Life Science",
         "priorityScore": 78,
         "priorityStars": 4,
@@ -298946,14 +298945,14 @@
         "categoryLabel": "Commercial Ecosystem",
         "ecosystemId": "life_science",
         "ecosystemLabel": "Life Science",
-        "sprintFamily": "Ecosystem District Foundation",
-        "gapCode": "ecosystem_missing",
+        "sprintFamily": "Ecosystem Subtype Expansion",
+        "gapCode": "ecosystem_subtype_gap",
         "suggestedModule": {
           "id": "publisher",
           "label": "Publisher"
         },
         "why": [
-          "Relevant ecosystem has no meaningful district coverage.",
+          "Subtype breadth is too narrow for the ecosystem's relevance.",
           "Ecosystem readiness: Partial",
           "Commercial balance: Industrial Flex Representative Building Concentrated"
         ],
@@ -298963,13 +298962,13 @@
           "adminUrl": ""
         },
         "executionPacket": {
-          "objective": "East Bay Life Science Ecosystem District Foundation",
+          "objective": "East Bay Life Science Ecosystem Subtype Expansion",
           "reason": [
-            "Relevant ecosystem has no meaningful district coverage.",
+            "Subtype breadth is too narrow for the ecosystem's relevance.",
             "Ecosystem readiness: Partial",
             "Commercial balance: Industrial Flex Representative Building Concentrated"
           ],
-          "currentHealth": "57% Needs Attention",
+          "currentHealth": "58% Needs Attention",
           "files": [
             "_data/commercialEcosystemTaxonomy.js",
             "_data/locationKnowledgeGraph.js",
@@ -299743,7 +299742,7 @@
             "Task type: orphan district comparison",
             "Publisher severity: high"
           ],
-          "currentHealth": "57% Needs Attention",
+          "currentHealth": "58% Needs Attention",
           "files": [
             "/commercial-real-estate/CA/antioch/antioch-east-18th-industrial/",
             "_data/locationKnowledgeGraph.js",
@@ -299863,7 +299862,7 @@
             "Task type: missing recommendation QA status",
             "Publisher severity: high"
           ],
-          "currentHealth": "57% Needs Attention",
+          "currentHealth": "58% Needs Attention",
           "files": [
             "_data/recommendationQaStatus.js",
             "scripts/run-recommendation-qa.js",
@@ -303453,7 +303452,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "57% Needs Attention",
+          "currentHealth": "58% Needs Attention",
           "files": [
             "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
             "_data/buildingPages.js",
@@ -303573,7 +303572,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "57% Needs Attention",
+          "currentHealth": "58% Needs Attention",
           "files": [
             "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
             "_data/buildingPages.js",
@@ -303693,7 +303692,7 @@
             "Task type: district missing representative buildings",
             "Publisher severity: medium"
           ],
-          "currentHealth": "57% Needs Attention",
+          "currentHealth": "58% Needs Attention",
           "files": [
             "/commercial-real-estate/CA/antioch/antioch-east-18th-industrial/",
             "_data/recommendationRepresentativeBuildings.js",
@@ -328831,7 +328830,7 @@
             "Task type: one-way comparison",
             "Publisher severity: low"
           ],
-          "currentHealth": "57% Needs Attention",
+          "currentHealth": "58% Needs Attention",
           "files": [
             "/commercial-real-estate/CA/hayward/hayward-industrial/",
             "_data/locationKnowledgeGraph.js",
@@ -328951,7 +328950,7 @@
             "Task type: one-way comparison",
             "Publisher severity: low"
           ],
-          "currentHealth": "57% Needs Attention",
+          "currentHealth": "58% Needs Attention",
           "files": [
             "/commercial-real-estate/CA/fremont/warm-springs-innovation-district/",
             "_data/locationKnowledgeGraph.js",
@@ -336889,7 +336888,7 @@
           "Field Mode requires a human to capture Rofo-owned photos.",
           "A real city, district, or building photo improves public editorial trust without changing recommendations."
         ],
-        "currentHealth": "57% Needs Attention",
+        "currentHealth": "58% Needs Attention",
         "files": [
           "/commercial-real-estate/CA/oakland/",
           "functions/admin/field-photos.js",
@@ -337553,7 +337552,7 @@
       "id": "ecosystem:east-bay:life_science",
       "metroId": "east-bay",
       "metroName": "East Bay",
-      "title": "East Bay Life Science Ecosystem District Foundation",
+      "title": "East Bay Life Science Ecosystem Subtype Expansion",
       "itemName": "Life Science",
       "priorityScore": 78,
       "priorityStars": 4,
@@ -337584,14 +337583,14 @@
       "categoryLabel": "Commercial Ecosystem",
       "ecosystemId": "life_science",
       "ecosystemLabel": "Life Science",
-      "sprintFamily": "Ecosystem District Foundation",
-      "gapCode": "ecosystem_missing",
+      "sprintFamily": "Ecosystem Subtype Expansion",
+      "gapCode": "ecosystem_subtype_gap",
       "suggestedModule": {
         "id": "publisher",
         "label": "Publisher"
       },
       "why": [
-        "Relevant ecosystem has no meaningful district coverage.",
+        "Subtype breadth is too narrow for the ecosystem's relevance.",
         "Ecosystem readiness: Partial",
         "Commercial balance: Industrial Flex Representative Building Concentrated"
       ],
@@ -337601,13 +337600,13 @@
         "adminUrl": ""
       },
       "executionPacket": {
-        "objective": "East Bay Life Science Ecosystem District Foundation",
+        "objective": "East Bay Life Science Ecosystem Subtype Expansion",
         "reason": [
-          "Relevant ecosystem has no meaningful district coverage.",
+          "Subtype breadth is too narrow for the ecosystem's relevance.",
           "Ecosystem readiness: Partial",
           "Commercial balance: Industrial Flex Representative Building Concentrated"
         ],
-        "currentHealth": "57% Needs Attention",
+        "currentHealth": "58% Needs Attention",
         "files": [
           "_data/commercialEcosystemTaxonomy.js",
           "_data/locationKnowledgeGraph.js",
@@ -338381,7 +338380,7 @@
           "Task type: orphan district comparison",
           "Publisher severity: high"
         ],
-        "currentHealth": "57% Needs Attention",
+        "currentHealth": "58% Needs Attention",
         "files": [
           "/commercial-real-estate/CA/antioch/antioch-east-18th-industrial/",
           "_data/locationKnowledgeGraph.js",
@@ -338501,7 +338500,7 @@
           "Task type: missing recommendation QA status",
           "Publisher severity: high"
         ],
-        "currentHealth": "57% Needs Attention",
+        "currentHealth": "58% Needs Attention",
         "files": [
           "_data/recommendationQaStatus.js",
           "scripts/run-recommendation-qa.js",
@@ -342091,7 +342090,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "57% Needs Attention",
+        "currentHealth": "58% Needs Attention",
         "files": [
           "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
           "_data/buildingPages.js",
@@ -342211,7 +342210,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "57% Needs Attention",
+        "currentHealth": "58% Needs Attention",
         "files": [
           "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
           "_data/buildingPages.js",
@@ -342331,7 +342330,7 @@
           "Task type: district missing representative buildings",
           "Publisher severity: medium"
         ],
-        "currentHealth": "57% Needs Attention",
+        "currentHealth": "58% Needs Attention",
         "files": [
           "/commercial-real-estate/CA/antioch/antioch-east-18th-industrial/",
           "_data/recommendationRepresentativeBuildings.js",
@@ -367469,7 +367468,7 @@
           "Task type: one-way comparison",
           "Publisher severity: low"
         ],
-        "currentHealth": "57% Needs Attention",
+        "currentHealth": "58% Needs Attention",
         "files": [
           "/commercial-real-estate/CA/hayward/hayward-industrial/",
           "_data/locationKnowledgeGraph.js",
@@ -367589,7 +367588,7 @@
           "Task type: one-way comparison",
           "Publisher severity: low"
         ],
-        "currentHealth": "57% Needs Attention",
+        "currentHealth": "58% Needs Attention",
         "files": [
           "/commercial-real-estate/CA/fremont/warm-springs-innovation-district/",
           "_data/locationKnowledgeGraph.js",

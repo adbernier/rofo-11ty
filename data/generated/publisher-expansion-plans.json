@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-11T14:36:39-07:00",
+  "generatedAt": "2026-08-11T15:18:07-07:00",
   "rulesVersion": "publisher-rules-v1",
   "plannerVersion": "publisher-expansion-planner-v1",
   "defaultMode": "balanced",
@@ -55,7 +55,7 @@
     {
       "metroId": "san-francisco",
       "metroName": "San Francisco",
-      "generatedAt": "2026-08-11T14:36:39-07:00",
+      "generatedAt": "2026-08-11T15:18:07-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 96,
@@ -164,34 +164,35 @@
               "downtown_office": 3,
               "executive_office": 1,
               "professional_office": 2,
-              "office_campus": 1,
-              "research_development": 2,
-              "flex": 1
+              "office_campus": 2,
+              "research_development": 3,
+              "suburban_office": 1,
+              "flex": 1,
+              "life_science_office": 1,
+              "innovation_campus": 1
             },
             "archetypes": {
               "startup": 5,
               "creative_studio": 3,
               "marketing_agency": 2,
-              "law_firm": 2,
+              "law_firm": 1,
               "financial_services_firm": 1,
               "consulting_firm": 3,
               "professional_office": 3,
-              "research_company": 2,
-              "biotech_company": 1,
-              "accounting_firm": 1
+              "research_company": 3,
+              "biotech_company": 2
             },
             "activities": {
               "knowledge_work": 7,
               "collaboration": 5,
-              "product_development": 3,
+              "product_development": 4,
               "customer_showroom": 2,
-              "client_meetings": 4,
+              "client_meetings": 3,
               "administrative_operations": 2,
-              "research": 1
+              "research": 2
             },
             "reviewRequiredDistricts": [],
             "notableSubtypeGaps": [
-              "suburban_office",
               "coworking",
               "government_office"
             ],
@@ -224,26 +225,27 @@
                 "knowledge_work": 80,
                 "collaboration": 53,
                 "administrative_operations": 33,
-                "client_meetings": 52,
+                "research": 5,
+                "product_development": 49,
+                "client_meetings": 50,
                 "walk_in_retail": 16,
                 "walk_in_service": 20,
                 "customer_showroom": 36,
-                "product_development": 47,
-                "light_manufacturing": 6,
-                "research": 3
+                "light_manufacturing": 6
               },
               "archetypeCoverage": {
                 "professional_office": 80,
                 "consulting_firm": 80,
                 "startup": 64,
+                "research_company": 11,
+                "biotech_company": 2,
                 "law_firm": 80,
                 "accounting_firm": 80,
                 "financial_services_firm": 80,
-                "marketing_agency": 71,
-                "creative_studio": 78,
                 "nonprofit_office": 2,
                 "wellness_practice": 16,
-                "research_company": 9
+                "marketing_agency": 69,
+                "creative_studio": 76
               },
               "operationalCharacteristicsCovered": {
                 "campus_environment": 3,
@@ -375,44 +377,42 @@
               }
             ],
             "subtypes": {
-              "research_development": 5,
+              "research_development": 6,
               "flex": 7,
               "professional_office": 2,
               "small_bay_industrial": 5,
               "warehouse": 2,
               "manufacturing": 1,
-              "creative_office": 1,
-              "light_manufacturing": 1
+              "creative_office": 2,
+              "life_science_office": 1
             },
             "archetypes": {
-              "research_company": 3,
-              "light_manufacturer": 6,
-              "startup": 3,
+              "research_company": 4,
+              "light_manufacturer": 7,
+              "startup": 4,
               "general_contractor": 5,
-              "cabinet_shop": 6,
+              "cabinet_shop": 5,
               "distributor": 5,
               "ecommerce_fulfillment_business": 5,
-              "creative_studio": 3,
-              "food_producer": 1
+              "creative_studio": 3
             },
             "activities": {
-              "product_development": 3,
-              "research": 2,
+              "product_development": 4,
+              "research": 3,
               "light_manufacturing": 9,
               "knowledge_work": 3,
               "receiving": 5,
               "shipping": 5,
               "storage": 5,
-              "service_dispatch": 6,
-              "collaboration": 2,
-              "customer_showroom": 1
+              "service_dispatch": 5,
+              "collaboration": 3
             },
             "reviewRequiredDistricts": [],
             "notableSubtypeGaps": [
               "distribution",
+              "light_manufacturing",
               "contractor_service",
-              "contractor_yard",
-              "showroom_flex"
+              "contractor_yard"
             ],
             "representativeBuildingIntelligence": {
               "ecosystemId": "industrial_flex",
@@ -435,7 +435,7 @@
                 "small_bay_industrial": 40,
                 "flex": 45,
                 "light_manufacturing": 21,
-                "research_development": 18,
+                "research_development": 30,
                 "warehouse": 16,
                 "distribution": 6,
                 "contractor_service": 4,
@@ -448,16 +448,16 @@
                 "receiving": 39,
                 "shipping": 39,
                 "light_manufacturing": 46,
-                "customer_showroom": 10,
-                "knowledge_work": 30,
-                "product_development": 32,
+                "product_development": 38,
+                "research": 14,
+                "collaboration": 19,
+                "knowledge_work": 24,
                 "assembly": 31,
                 "vehicle_storage": 3,
                 "storage": 31,
                 "distribution": 8,
                 "inventory_management": 6,
-                "collaboration": 14,
-                "research": 8,
+                "customer_showroom": 4,
                 "walk_in_retail": 1,
                 "walk_in_service": 1
               },
@@ -467,13 +467,13 @@
                 "food_producer": 12,
                 "general_contractor": 51,
                 "light_manufacturer": 36,
+                "research_company": 34,
+                "startup": 34,
                 "electrician": 51,
-                "hvac_company": 43,
-                "plumbing_company": 42,
-                "research_company": 22,
-                "startup": 22,
                 "distributor": 24,
                 "ecommerce_fulfillment_business": 24,
+                "hvac_company": 31,
+                "plumbing_company": 30,
                 "logistics_provider": 1,
                 "landscaper": 15,
                 "wellness_practice": 1,
@@ -562,7 +562,7 @@
             "id": "retail",
             "label": "Retail",
             "districtCount": 7,
-            "secondaryDistrictCount": 6,
+            "secondaryDistrictCount": 5,
             "recommendationNodeCount": 7,
             "representativeBuildingCount": 12,
             "buildingBriefCount": 0,
@@ -779,7 +779,7 @@
             "id": "life_science",
             "label": "Life Science",
             "districtCount": 1,
-            "secondaryDistrictCount": 3,
+            "secondaryDistrictCount": 5,
             "recommendationNodeCount": 1,
             "representativeBuildingCount": 14,
             "buildingBriefCount": 5,
@@ -1003,55 +1003,53 @@
           }
         },
         "subtypeCoverage": {
-          "creative_office": 7,
+          "creative_office": 8,
           "downtown_office": 3,
           "executive_office": 1,
           "professional_office": 9,
-          "office_campus": 1,
-          "research_development": 7,
+          "office_campus": 2,
+          "research_development": 9,
+          "suburban_office": 1,
           "flex": 8,
+          "life_science_office": 3,
+          "innovation_campus": 2,
           "small_bay_industrial": 5,
           "warehouse": 2,
           "manufacturing": 1,
-          "light_manufacturing": 1,
           "neighborhood_retail": 6,
-          "showroom_retail": 1,
-          "life_science_office": 1,
-          "innovation_campus": 1
+          "showroom_retail": 1
         },
         "activityCoverage": {
           "knowledge_work": 13,
-          "collaboration": 9,
-          "product_development": 7,
-          "customer_showroom": 10,
-          "client_meetings": 4,
+          "collaboration": 10,
+          "product_development": 9,
+          "customer_showroom": 9,
+          "client_meetings": 3,
           "administrative_operations": 2,
-          "research": 4,
+          "research": 6,
           "light_manufacturing": 9,
           "receiving": 5,
           "shipping": 5,
           "storage": 5,
-          "service_dispatch": 6,
+          "service_dispatch": 5,
           "walk_in_retail": 6,
           "walk_in_service": 7
         },
         "archetypeCoverage": {
-          "startup": 9,
+          "startup": 10,
           "creative_studio": 8,
           "marketing_agency": 8,
-          "law_firm": 2,
+          "law_firm": 1,
           "financial_services_firm": 1,
           "consulting_firm": 3,
           "professional_office": 5,
-          "research_company": 6,
-          "biotech_company": 2,
-          "accounting_firm": 1,
-          "light_manufacturer": 6,
+          "research_company": 8,
+          "biotech_company": 3,
+          "light_manufacturer": 7,
           "general_contractor": 5,
-          "cabinet_shop": 6,
+          "cabinet_shop": 5,
           "distributor": 5,
           "ecommerce_fulfillment_business": 5,
-          "food_producer": 1,
           "wellness_practice": 6
         },
         "missingPrimaryEcosystemDistricts": [],
@@ -1140,8 +1138,8 @@
               "recommendations": 7,
               "representativeBuildings": 80,
               "buildingBriefs": 38,
-              "subtypes": 7,
-              "archetypes": 10,
+              "subtypes": 10,
+              "archetypes": 9,
               "activities": 7,
               "reviewRequiredDistricts": 0,
               "representativeRoles": 7,
@@ -1208,26 +1206,27 @@
                 "knowledge_work",
                 "collaboration",
                 "administrative_operations",
+                "research",
+                "product_development",
                 "client_meetings",
                 "walk_in_retail",
                 "walk_in_service",
                 "customer_showroom",
-                "product_development",
-                "light_manufacturing",
-                "research"
+                "light_manufacturing"
               ],
               "archetypeCoverage": [
                 "professional_office",
                 "consulting_firm",
                 "startup",
+                "research_company",
+                "biotech_company",
                 "law_firm",
                 "accounting_firm",
                 "financial_services_firm",
-                "marketing_agency",
-                "creative_studio",
                 "nonprofit_office",
                 "wellness_practice",
-                "research_company"
+                "marketing_agency",
+                "creative_studio"
               ],
               "operationalCharacteristicsCovered": [
                 "campus_environment",
@@ -1333,8 +1332,8 @@
               "representativeBuildings": 51,
               "buildingBriefs": 43,
               "subtypes": 8,
-              "archetypes": 9,
-              "activities": 10,
+              "archetypes": 8,
+              "activities": 9,
               "reviewRequiredDistricts": 0,
               "representativeRoles": 7,
               "operationalCategories": 6,
@@ -1407,16 +1406,16 @@
                 "receiving",
                 "shipping",
                 "light_manufacturing",
-                "customer_showroom",
-                "knowledge_work",
                 "product_development",
+                "research",
+                "collaboration",
+                "knowledge_work",
                 "assembly",
                 "vehicle_storage",
                 "storage",
                 "distribution",
                 "inventory_management",
-                "collaboration",
-                "research",
+                "customer_showroom",
                 "walk_in_retail",
                 "walk_in_service"
               ],
@@ -1426,13 +1425,13 @@
                 "food_producer",
                 "general_contractor",
                 "light_manufacturer",
-                "electrician",
-                "hvac_company",
-                "plumbing_company",
                 "research_company",
                 "startup",
+                "electrician",
                 "distributor",
                 "ecommerce_fulfillment_business",
+                "hvac_company",
+                "plumbing_company",
                 "logistics_provider",
                 "landscaper",
                 "wellness_practice",
@@ -1543,7 +1542,7 @@
             },
             "counts": {
               "districts": 7,
-              "secondaryDistricts": 6,
+              "secondaryDistricts": 5,
               "recommendations": 7,
               "representativeBuildings": 12,
               "buildingBriefs": 0,
@@ -1563,7 +1562,7 @@
             "blockingCodes": [],
             "strategicPriority": 5,
             "evidence": [
-              "7 primary districts and 6 secondary districts.",
+              "7 primary districts and 5 secondary districts.",
               "12 Representative Buildings and 0 Building Briefs.",
               "2 representative roles and 2 operational categories are covered."
             ],
@@ -1808,7 +1807,7 @@
             },
             "counts": {
               "districts": 1,
-              "secondaryDistricts": 3,
+              "secondaryDistricts": 5,
               "recommendations": 1,
               "representativeBuildings": 14,
               "buildingBriefs": 5,
@@ -1826,7 +1825,7 @@
             "blockingCodes": [],
             "strategicPriority": 4,
             "evidence": [
-              "1 primary districts and 3 secondary districts.",
+              "1 primary districts and 5 secondary districts.",
               "14 Representative Buildings and 5 Building Briefs.",
               "3 representative roles and 5 operational categories are covered."
             ],
@@ -2157,7 +2156,7 @@
             "readinessState": "partial",
             "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
             "evidence": [
-              "7 primary districts and 6 secondary districts.",
+              "7 primary districts and 5 secondary districts.",
               "12 Representative Buildings and 0 Building Briefs.",
               "2 representative roles and 2 operational categories are covered."
             ],
@@ -2183,7 +2182,7 @@
             "readinessState": "partial",
             "rationale": "Representative role coverage is too narrow for this ecosystem.",
             "evidence": [
-              "7 primary districts and 6 secondary districts.",
+              "7 primary districts and 5 secondary districts.",
               "12 Representative Buildings and 0 Building Briefs.",
               "2 representative roles and 2 operational categories are covered."
             ],
@@ -2209,7 +2208,7 @@
             "readinessState": "partial",
             "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
             "evidence": [
-              "7 primary districts and 6 secondary districts.",
+              "7 primary districts and 5 secondary districts.",
               "12 Representative Buildings and 0 Building Briefs.",
               "2 representative roles and 2 operational categories are covered."
             ],
@@ -2629,7 +2628,7 @@
           "readinessState": "partial",
           "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
           "evidence": [
-            "7 primary districts and 6 secondary districts.",
+            "7 primary districts and 5 secondary districts.",
             "12 Representative Buildings and 0 Building Briefs.",
             "2 representative roles and 2 operational categories are covered."
           ],
@@ -2855,7 +2854,7 @@
           "readinessState": "partial",
           "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
           "evidence": [
-            "7 primary districts and 6 secondary districts.",
+            "7 primary districts and 5 secondary districts.",
             "12 Representative Buildings and 0 Building Briefs.",
             "2 representative roles and 2 operational categories are covered."
           ],
@@ -2881,7 +2880,7 @@
           "readinessState": "partial",
           "rationale": "Representative role coverage is too narrow for this ecosystem.",
           "evidence": [
-            "7 primary districts and 6 secondary districts.",
+            "7 primary districts and 5 secondary districts.",
             "12 Representative Buildings and 0 Building Briefs.",
             "2 representative roles and 2 operational categories are covered."
           ],
@@ -14587,7 +14586,7 @@
     {
       "metroId": "east-bay",
       "metroName": "East Bay",
-      "generatedAt": "2026-08-11T14:36:39-07:00",
+      "generatedAt": "2026-08-11T15:18:07-07:00",
       "currentState": {
         "readinessStatus": "Editorially Developed",
         "overallScore": 74,
@@ -14636,9 +14635,9 @@
         "ecosystems": {
           "count": 7,
           "developed": 2,
-          "partial": 0,
+          "partial": 1,
           "thin": 1,
-          "missing": 4,
+          "missing": 3,
           "reviewRequired": 0,
           "note": "Ecosystem coverage is reported for planning context and does not change Publisher readiness scoring in v1."
         }
@@ -14662,28 +14661,34 @@
               }
             ],
             "subtypes": {
+              "suburban_office": 1,
+              "office_campus": 1,
               "professional_office": 1,
-              "flex": 1
+              "flex": 1,
+              "research_development": 1,
+              "life_science_office": 1,
+              "innovation_campus": 1
             },
             "archetypes": {
               "professional_office": 1,
-              "law_firm": 1,
-              "accounting_firm": 1,
               "consulting_firm": 1,
-              "startup": 1
+              "startup": 1,
+              "research_company": 1,
+              "biotech_company": 1
             },
             "activities": {
               "knowledge_work": 1,
-              "client_meetings": 1,
               "collaboration": 1,
-              "administrative_operations": 1
+              "administrative_operations": 1,
+              "research": 1,
+              "product_development": 1
             },
             "reviewRequiredDistricts": [],
             "notableSubtypeGaps": [
               "downtown_office",
               "creative_office",
               "executive_office",
-              "suburban_office"
+              "coworking"
             ],
             "representativeBuildingIntelligence": {
               "ecosystemId": "office",
@@ -14712,23 +14717,26 @@
                 "knowledge_work": 15,
                 "collaboration": 3,
                 "administrative_operations": 14,
-                "client_meetings": 14,
+                "research": 2,
+                "product_development": 3,
+                "client_meetings": 12,
                 "walk_in_retail": 13,
                 "walk_in_service": 13,
-                "customer_showroom": 13,
-                "product_development": 1
+                "customer_showroom": 13
               },
               "archetypeCoverage": {
                 "professional_office": 15,
                 "consulting_firm": 15,
                 "startup": 2,
+                "research_company": 2,
+                "biotech_company": 2,
                 "law_firm": 15,
                 "accounting_firm": 15,
                 "financial_services_firm": 15,
-                "marketing_agency": 15,
-                "creative_studio": 13,
                 "nonprofit_office": 2,
-                "wellness_practice": 13
+                "wellness_practice": 13,
+                "marketing_agency": 13,
+                "creative_studio": 11
               },
               "operationalCharacteristicsCovered": {
                 "campus_environment": 2,
@@ -14839,35 +14847,39 @@
               "warehouse": 3,
               "flex": 4,
               "manufacturing": 1,
-              "research_development": 1,
+              "research_development": 2,
               "contractor_service": 1,
-              "light_manufacturing": 1
+              "creative_office": 1,
+              "life_science_office": 1
             },
             "archetypes": {
               "general_contractor": 4,
-              "cabinet_shop": 4,
-              "light_manufacturer": 3,
+              "cabinet_shop": 3,
+              "light_manufacturer": 4,
               "distributor": 4,
               "ecommerce_fulfillment_business": 4,
               "building_services_company": 1,
-              "creative_studio": 1,
-              "food_producer": 1
+              "research_company": 1,
+              "startup": 1,
+              "creative_studio": 1
             },
             "activities": {
               "receiving": 4,
               "shipping": 4,
               "storage": 4,
-              "service_dispatch": 5,
+              "service_dispatch": 4,
               "light_manufacturing": 4,
-              "customer_showroom": 1,
+              "product_development": 1,
+              "research": 1,
+              "collaboration": 1,
               "knowledge_work": 1
             },
             "reviewRequiredDistricts": [],
             "notableSubtypeGaps": [
               "distribution",
+              "light_manufacturing",
               "contractor_yard",
-              "showroom_flex",
-              "last_mile_logistics"
+              "showroom_flex"
             ],
             "representativeBuildingIntelligence": {
               "ecosystemId": "industrial_flex",
@@ -14889,7 +14901,7 @@
                 "small_bay_industrial": 35,
                 "flex": 31,
                 "light_manufacturing": 21,
-                "research_development": 7,
+                "research_development": 19,
                 "warehouse": 16,
                 "distribution": 6,
                 "contractor_service": 4,
@@ -14902,14 +14914,16 @@
                 "receiving": 35,
                 "shipping": 35,
                 "light_manufacturing": 33,
-                "customer_showroom": 7,
-                "knowledge_work": 19,
-                "product_development": 16,
+                "product_development": 22,
+                "research": 6,
+                "collaboration": 5,
+                "knowledge_work": 13,
                 "assembly": 18,
                 "vehicle_storage": 3,
                 "storage": 23,
                 "distribution": 8,
-                "inventory_management": 6
+                "inventory_management": 6,
+                "customer_showroom": 1
               },
               "archetypeCoverage": {
                 "cabinet_shop": 35,
@@ -14917,13 +14931,13 @@
                 "food_producer": 12,
                 "general_contractor": 35,
                 "light_manufacturer": 35,
+                "research_company": 19,
+                "startup": 19,
                 "electrician": 35,
-                "hvac_company": 28,
-                "plumbing_company": 27,
-                "research_company": 7,
-                "startup": 7,
                 "distributor": 23,
                 "ecommerce_fulfillment_business": 23,
+                "hvac_company": 16,
+                "plumbing_company": 15,
                 "logistics_provider": 1
               },
               "operationalCharacteristicsCovered": {
@@ -15008,7 +15022,7 @@
             "id": "retail",
             "label": "Retail",
             "districtCount": 2,
-            "secondaryDistrictCount": 1,
+            "secondaryDistrictCount": 0,
             "recommendationNodeCount": 2,
             "representativeBuildingCount": 0,
             "buildingBriefCount": 0,
@@ -15128,11 +15142,11 @@
             "id": "life_science",
             "label": "Life Science",
             "districtCount": 0,
-            "secondaryDistrictCount": 0,
+            "secondaryDistrictCount": 2,
             "recommendationNodeCount": 0,
             "representativeBuildingCount": 0,
             "buildingBriefCount": 0,
-            "status": "Missing",
+            "status": "Partial",
             "districts": [],
             "subtypes": {},
             "archetypes": {},
@@ -15273,44 +15287,48 @@
           }
         },
         "subtypeCoverage": {
+          "suburban_office": 1,
+          "office_campus": 1,
           "professional_office": 3,
           "flex": 5,
+          "research_development": 3,
+          "life_science_office": 2,
+          "innovation_campus": 1,
           "small_bay_industrial": 5,
           "warehouse": 3,
           "manufacturing": 1,
-          "research_development": 1,
           "contractor_service": 1,
-          "light_manufacturing": 1,
+          "creative_office": 1,
           "neighborhood_retail": 2
         },
         "activityCoverage": {
           "knowledge_work": 2,
-          "client_meetings": 1,
-          "collaboration": 1,
+          "collaboration": 2,
           "administrative_operations": 1,
+          "research": 2,
+          "product_development": 2,
           "receiving": 4,
           "shipping": 4,
           "storage": 4,
-          "service_dispatch": 5,
+          "service_dispatch": 4,
           "light_manufacturing": 4,
-          "customer_showroom": 3,
           "walk_in_retail": 2,
-          "walk_in_service": 2
+          "walk_in_service": 2,
+          "customer_showroom": 2
         },
         "archetypeCoverage": {
           "professional_office": 1,
-          "law_firm": 1,
-          "accounting_firm": 1,
           "consulting_firm": 1,
-          "startup": 1,
+          "startup": 2,
+          "research_company": 2,
+          "biotech_company": 1,
           "general_contractor": 4,
-          "cabinet_shop": 4,
-          "light_manufacturer": 3,
+          "cabinet_shop": 3,
+          "light_manufacturer": 4,
           "distributor": 4,
           "ecommerce_fulfillment_business": 4,
           "building_services_company": 1,
           "creative_studio": 1,
-          "food_producer": 1,
           "wellness_practice": 2,
           "marketing_agency": 2
         },
@@ -15327,13 +15345,6 @@
           {
             "id": "medical",
             "label": "Medical",
-            "status": "Missing",
-            "districtCount": 0,
-            "representativeBuildingCount": 0
-          },
-          {
-            "id": "life_science",
-            "label": "Life Science",
             "status": "Missing",
             "districtCount": 0,
             "representativeBuildingCount": 0
@@ -15356,9 +15367,9 @@
         "summary": {
           "ecosystemCount": 7,
           "developedCount": 2,
-          "partialCount": 0,
+          "partialCount": 1,
           "thinCount": 1,
-          "missingCount": 4,
+          "missingCount": 3,
           "reviewRequiredDistrictCount": 0
         }
       },
@@ -15385,7 +15396,7 @@
         "label": "Partial",
         "rationale": [
           "Industrial & Flex coverage is strong or developed.",
-          "Office is Partial; Retail is Thin; Life Science is Missing.",
+          "Office is Partial; Retail is Thin; Life Science is Partial.",
           "Representative Building coverage is concentrated in Industrial & Flex."
         ],
         "passed": false,
@@ -15399,8 +15410,7 @@
           "special_purpose"
         ],
         "blockingEcosystems": [
-          "retail",
-          "life_science"
+          "retail"
         ],
         "evaluations": [
           {
@@ -15415,7 +15425,7 @@
               "recommendations": "partial",
               "representativeBuildings": "developed",
               "buildingBriefs": "developed",
-              "subtypes": "strong",
+              "subtypes": "developed",
               "archetypes": "strong",
               "activities": "strong",
               "editorialReview": "developed"
@@ -15426,9 +15436,9 @@
               "recommendations": 1,
               "representativeBuildings": 15,
               "buildingBriefs": 13,
-              "subtypes": 2,
+              "subtypes": 7,
               "archetypes": 5,
-              "activities": 4,
+              "activities": 5,
               "reviewRequiredDistricts": 0,
               "representativeRoles": 6,
               "operationalCategories": 5,
@@ -15492,23 +15502,26 @@
                 "knowledge_work",
                 "collaboration",
                 "administrative_operations",
+                "research",
+                "product_development",
                 "client_meetings",
                 "walk_in_retail",
                 "walk_in_service",
-                "customer_showroom",
-                "product_development"
+                "customer_showroom"
               ],
               "archetypeCoverage": [
                 "professional_office",
                 "consulting_firm",
                 "startup",
+                "research_company",
+                "biotech_company",
                 "law_firm",
                 "accounting_firm",
                 "financial_services_firm",
-                "marketing_agency",
-                "creative_studio",
                 "nonprofit_office",
-                "wellness_practice"
+                "wellness_practice",
+                "marketing_agency",
+                "creative_studio"
               ],
               "operationalCharacteristicsCovered": [
                 "campus_environment",
@@ -15608,9 +15621,9 @@
               "recommendations": 5,
               "representativeBuildings": 35,
               "buildingBriefs": 35,
-              "subtypes": 7,
-              "archetypes": 8,
-              "activities": 7,
+              "subtypes": 8,
+              "archetypes": 9,
+              "activities": 9,
               "reviewRequiredDistricts": 0,
               "representativeRoles": 6,
               "operationalCategories": 6,
@@ -15682,14 +15695,16 @@
                 "receiving",
                 "shipping",
                 "light_manufacturing",
-                "customer_showroom",
-                "knowledge_work",
                 "product_development",
+                "research",
+                "collaboration",
+                "knowledge_work",
                 "assembly",
                 "vehicle_storage",
                 "storage",
                 "distribution",
-                "inventory_management"
+                "inventory_management",
+                "customer_showroom"
               ],
               "archetypeCoverage": [
                 "cabinet_shop",
@@ -15697,13 +15712,13 @@
                 "food_producer",
                 "general_contractor",
                 "light_manufacturer",
-                "electrician",
-                "hvac_company",
-                "plumbing_company",
                 "research_company",
                 "startup",
+                "electrician",
                 "distributor",
                 "ecommerce_fulfillment_business",
+                "hvac_company",
+                "plumbing_company",
                 "logistics_provider"
               ],
               "operationalCharacteristicsCovered": [
@@ -15810,7 +15825,7 @@
             },
             "counts": {
               "districts": 2,
-              "secondaryDistricts": 1,
+              "secondaryDistricts": 0,
               "recommendations": 2,
               "representativeBuildings": 0,
               "buildingBriefs": 0,
@@ -15830,7 +15845,7 @@
             "blockingCodes": [],
             "strategicPriority": 5,
             "evidence": [
-              "2 primary districts and 1 secondary districts.",
+              "2 primary districts and 0 secondary districts.",
               "0 Representative Buildings and 0 Building Briefs."
             ],
             "targetSubtypes": [
@@ -15994,8 +16009,8 @@
             "label": "Life Science",
             "relevance": "important",
             "relevanceLabel": "Important",
-            "readinessState": "missing",
-            "readinessLabel": "Missing",
+            "readinessState": "partial",
+            "readinessLabel": "Partial",
             "layers": {
               "districts": "missing",
               "recommendations": "missing",
@@ -16008,7 +16023,7 @@
             },
             "counts": {
               "districts": 0,
-              "secondaryDistricts": 0,
+              "secondaryDistricts": 2,
               "recommendations": 0,
               "representativeBuildings": 0,
               "buildingBriefs": 0,
@@ -16022,7 +16037,7 @@
               "reviewRequiredRepresentativeBuildings": 0
             },
             "gaps": [
-              "No district coverage for this relevant ecosystem.",
+              "Ecosystem appears only as a secondary district expression.",
               "Subtype breadth is thin.",
               "Business archetype coverage is thin.",
               "Business activity coverage is thin."
@@ -16031,7 +16046,7 @@
             "blockingCodes": [],
             "strategicPriority": 4,
             "evidence": [
-              "0 primary districts and 0 secondary districts.",
+              "0 primary districts and 2 secondary districts.",
               "0 Representative Buildings and 0 Building Briefs."
             ],
             "targetSubtypes": [
@@ -16299,7 +16314,7 @@
             "readinessState": "thin",
             "rationale": "Relevant ecosystem has district coverage but lacks enough representative-building or layer depth.",
             "evidence": [
-              "2 primary districts and 1 secondary districts.",
+              "2 primary districts and 0 secondary districts.",
               "0 Representative Buildings and 0 Building Briefs."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -16324,7 +16339,7 @@
             "readinessState": "thin",
             "rationale": "District foundation exists, but Representative Buildings are missing.",
             "evidence": [
-              "2 primary districts and 1 secondary districts.",
+              "2 primary districts and 0 secondary districts.",
               "0 Representative Buildings and 0 Building Briefs."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -16349,7 +16364,7 @@
             "readinessState": "thin",
             "rationale": "Representative role coverage is too narrow for this ecosystem.",
             "evidence": [
-              "2 primary districts and 1 secondary districts.",
+              "2 primary districts and 0 secondary districts.",
               "0 Representative Buildings and 0 Building Briefs."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -16488,31 +16503,6 @@
             "blocksEcosystemReadiness": false
           },
           {
-            "id": "ecosystem:life_science:ecosystem_missing",
-            "code": "ecosystem_missing",
-            "label": "Ecosystem Missing",
-            "severity": "medium",
-            "layer": "districts",
-            "ecosystemId": "life_science",
-            "ecosystemLabel": "Life Science",
-            "relevance": "important",
-            "readinessState": "missing",
-            "rationale": "Relevant ecosystem has no meaningful district coverage.",
-            "evidence": [
-              "0 primary districts and 0 secondary districts.",
-              "0 Representative Buildings and 0 Building Briefs."
-            ],
-            "recommendedSprintFamily": "Ecosystem District Foundation",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
             "id": "ecosystem:life_science:ecosystem_subtype_gap",
             "code": "ecosystem_subtype_gap",
             "label": "Ecosystem Subtype Gap",
@@ -16521,10 +16511,10 @@
             "ecosystemId": "life_science",
             "ecosystemLabel": "Life Science",
             "relevance": "important",
-            "readinessState": "missing",
+            "readinessState": "partial",
             "rationale": "Subtype breadth is too narrow for the ecosystem's relevance.",
             "evidence": [
-              "0 primary districts and 0 secondary districts.",
+              "0 primary districts and 2 secondary districts.",
               "0 Representative Buildings and 0 Building Briefs."
             ],
             "recommendedSprintFamily": "Ecosystem Subtype Expansion",
@@ -16546,10 +16536,10 @@
             "ecosystemId": "life_science",
             "ecosystemLabel": "Life Science",
             "relevance": "important",
-            "readinessState": "missing",
+            "readinessState": "partial",
             "rationale": "Business archetype coverage is too narrow.",
             "evidence": [
-              "0 primary districts and 0 secondary districts.",
+              "0 primary districts and 2 secondary districts.",
               "0 Representative Buildings and 0 Building Briefs."
             ],
             "recommendedSprintFamily": "Archetype Coverage Expansion",
@@ -16571,10 +16561,10 @@
             "ecosystemId": "life_science",
             "ecosystemLabel": "Life Science",
             "relevance": "important",
-            "readinessState": "missing",
+            "readinessState": "partial",
             "rationale": "Business activity coverage is too narrow.",
             "evidence": [
-              "0 primary districts and 0 secondary districts.",
+              "0 primary districts and 2 secondary districts.",
               "0 Representative Buildings and 0 Building Briefs."
             ],
             "recommendedSprintFamily": "Business Activity Coverage Review",
@@ -16596,13 +16586,38 @@
             "ecosystemId": "life_science",
             "ecosystemLabel": "Life Science",
             "relevance": "important",
-            "readinessState": "missing",
+            "readinessState": "partial",
             "rationale": "Representative role coverage is too narrow for this ecosystem.",
             "evidence": [
-              "0 primary districts and 0 secondary districts.",
+              "0 primary districts and 2 secondary districts.",
               "0 Representative Buildings and 0 Building Briefs."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
+            "completionCriteria": [
+              "Validated district ecosystem classification",
+              "Representative Building coverage across the most important subtypes",
+              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
+              "Building Brief migration only after canonical records and district association exist",
+              "Publisher ecosystem QA passes without hard errors"
+            ],
+            "blocksEcosystemReadiness": false
+          },
+          {
+            "id": "ecosystem:life_science:ecosystem_secondary_only",
+            "code": "ecosystem_secondary_only",
+            "label": "Ecosystem Secondary Only",
+            "severity": "low",
+            "layer": "districts",
+            "ecosystemId": "life_science",
+            "ecosystemLabel": "Life Science",
+            "relevance": "important",
+            "readinessState": "partial",
+            "rationale": "Ecosystem appears only as secondary context.",
+            "evidence": [
+              "0 primary districts and 2 secondary districts.",
+              "0 Representative Buildings and 0 Building Briefs."
+            ],
+            "recommendedSprintFamily": "Ecosystem District Foundation",
             "completionCriteria": [
               "Validated district ecosystem classification",
               "Representative Building coverage across the most important subtypes",
@@ -16861,31 +16876,6 @@
       },
       "ecosystemGaps": [
         {
-          "id": "ecosystem:life_science:ecosystem_missing",
-          "code": "ecosystem_missing",
-          "label": "Ecosystem Missing",
-          "severity": "medium",
-          "layer": "districts",
-          "ecosystemId": "life_science",
-          "ecosystemLabel": "Life Science",
-          "relevance": "important",
-          "readinessState": "missing",
-          "rationale": "Relevant ecosystem has no meaningful district coverage.",
-          "evidence": [
-            "0 primary districts and 0 secondary districts.",
-            "0 Representative Buildings and 0 Building Briefs."
-          ],
-          "recommendedSprintFamily": "Ecosystem District Foundation",
-          "completionCriteria": [
-            "Validated district ecosystem classification",
-            "Representative Building coverage across the most important subtypes",
-            "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-            "Building Brief migration only after canonical records and district association exist",
-            "Publisher ecosystem QA passes without hard errors"
-          ],
-          "blocksEcosystemReadiness": false
-        },
-        {
           "id": "ecosystem:life_science:ecosystem_subtype_gap",
           "code": "ecosystem_subtype_gap",
           "label": "Ecosystem Subtype Gap",
@@ -16894,10 +16884,10 @@
           "ecosystemId": "life_science",
           "ecosystemLabel": "Life Science",
           "relevance": "important",
-          "readinessState": "missing",
+          "readinessState": "partial",
           "rationale": "Subtype breadth is too narrow for the ecosystem's relevance.",
           "evidence": [
-            "0 primary districts and 0 secondary districts.",
+            "0 primary districts and 2 secondary districts.",
             "0 Representative Buildings and 0 Building Briefs."
           ],
           "recommendedSprintFamily": "Ecosystem Subtype Expansion",
@@ -16922,7 +16912,7 @@
           "readinessState": "thin",
           "rationale": "District foundation exists, but Representative Buildings are missing.",
           "evidence": [
-            "2 primary districts and 1 secondary districts.",
+            "2 primary districts and 0 secondary districts.",
             "0 Representative Buildings and 0 Building Briefs."
           ],
           "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -16947,7 +16937,7 @@
           "readinessState": "thin",
           "rationale": "Relevant ecosystem has district coverage but lacks enough representative-building or layer depth.",
           "evidence": [
-            "2 primary districts and 1 secondary districts.",
+            "2 primary districts and 0 secondary districts.",
             "0 Representative Buildings and 0 Building Briefs."
           ],
           "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -17119,10 +17109,10 @@
           "ecosystemId": "life_science",
           "ecosystemLabel": "Life Science",
           "relevance": "important",
-          "readinessState": "missing",
+          "readinessState": "partial",
           "rationale": "Business activity coverage is too narrow.",
           "evidence": [
-            "0 primary districts and 0 secondary districts.",
+            "0 primary districts and 2 secondary districts.",
             "0 Representative Buildings and 0 Building Briefs."
           ],
           "recommendedSprintFamily": "Business Activity Coverage Review",
@@ -17144,13 +17134,38 @@
           "ecosystemId": "life_science",
           "ecosystemLabel": "Life Science",
           "relevance": "important",
-          "readinessState": "missing",
+          "readinessState": "partial",
           "rationale": "Business archetype coverage is too narrow.",
           "evidence": [
-            "0 primary districts and 0 secondary districts.",
+            "0 primary districts and 2 secondary districts.",
             "0 Representative Buildings and 0 Building Briefs."
           ],
           "recommendedSprintFamily": "Archetype Coverage Expansion",
+          "completionCriteria": [
+            "Validated district ecosystem classification",
+            "Representative Building coverage across the most important subtypes",
+            "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
+            "Building Brief migration only after canonical records and district association exist",
+            "Publisher ecosystem QA passes without hard errors"
+          ],
+          "blocksEcosystemReadiness": false
+        },
+        {
+          "id": "ecosystem:life_science:ecosystem_secondary_only",
+          "code": "ecosystem_secondary_only",
+          "label": "Ecosystem Secondary Only",
+          "severity": "low",
+          "layer": "districts",
+          "ecosystemId": "life_science",
+          "ecosystemLabel": "Life Science",
+          "relevance": "important",
+          "readinessState": "partial",
+          "rationale": "Ecosystem appears only as secondary context.",
+          "evidence": [
+            "0 primary districts and 2 secondary districts.",
+            "0 Representative Buildings and 0 Building Briefs."
+          ],
+          "recommendedSprintFamily": "Ecosystem District Foundation",
           "completionCriteria": [
             "Validated district ecosystem classification",
             "Representative Building coverage across the most important subtypes",
@@ -17169,10 +17184,10 @@
           "ecosystemId": "life_science",
           "ecosystemLabel": "Life Science",
           "relevance": "important",
-          "readinessState": "missing",
+          "readinessState": "partial",
           "rationale": "Representative role coverage is too narrow for this ecosystem.",
           "evidence": [
-            "0 primary districts and 0 secondary districts.",
+            "0 primary districts and 2 secondary districts.",
             "0 Representative Buildings and 0 Building Briefs."
           ],
           "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -17197,7 +17212,7 @@
           "readinessState": "thin",
           "rationale": "Representative role coverage is too narrow for this ecosystem.",
           "evidence": [
-            "2 primary districts and 1 secondary districts.",
+            "2 primary districts and 0 secondary districts.",
             "0 Representative Buildings and 0 Building Briefs."
           ],
           "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -17412,17 +17427,17 @@
         }
       ],
       "recommendedEcosystemSprint": {
-        "title": "East Bay Life Science Ecosystem District Foundation",
-        "objective": "Improve East Bay commercial balance by advancing Life Science from Missing toward stronger ecosystem readiness.",
+        "title": "East Bay Life Science Ecosystem Subtype Expansion",
+        "objective": "Improve East Bay commercial balance by advancing Life Science from Partial toward stronger ecosystem readiness.",
         "ecosystemId": "life_science",
         "ecosystemLabel": "Life Science",
         "relevance": "important",
         "relevanceLabel": "Important",
-        "readinessState": "missing",
-        "readinessLabel": "Missing",
-        "sprintFamily": "Ecosystem District Foundation",
-        "rationale": "Life Science is Important for East Bay and is currently Missing. Relevant ecosystem has no meaningful district coverage.",
-        "gapCode": "ecosystem_missing",
+        "readinessState": "partial",
+        "readinessLabel": "Partial",
+        "sprintFamily": "Ecosystem Subtype Expansion",
+        "rationale": "Life Science is Important for East Bay and is currently Partial. Subtype breadth is too narrow for the ecosystem's relevance.",
+        "gapCode": "ecosystem_subtype_gap",
         "priorityScore": 75,
         "layers": {
           "districts": "missing",
@@ -17436,7 +17451,7 @@
         },
         "counts": {
           "districts": 0,
-          "secondaryDistricts": 0,
+          "secondaryDistricts": 2,
           "recommendations": 0,
           "representativeBuildings": 0,
           "buildingBriefs": 0,
@@ -17450,7 +17465,7 @@
           "reviewRequiredRepresentativeBuildings": 0
         },
         "gaps": [
-          "No district coverage for this relevant ecosystem.",
+          "Ecosystem appears only as a secondary district expression.",
           "Subtype breadth is thin.",
           "Business archetype coverage is thin.",
           "Business activity coverage is thin."
@@ -17512,7 +17527,7 @@
           "title": "East Bay Office Building Brief Migration",
           "whyNotFirst": "Office work remains useful, but the target ecosystem has a higher strategic gap based on current readiness."
         },
-        "codexPrompt": "Implement Publisher ecosystem sprint for East Bay: East Bay Life Science Ecosystem District Foundation\n\nFramework:\n- Businesses search for places where their operations can succeed, not for property types.\n- Use the Commercial Ecosystem Framework and canonical taxonomy.\n- Do not change recommendation rankings, Search Profile questions, or public page design.\n\nTarget ecosystem: Life Science (life_science)\nMetro relevance: Important\nCurrent readiness: Missing\nSprint family: Ecosystem District Foundation\n\nCurrent layer coverage:\n- districts: missing\n- recommendations: missing\n- representativeBuildings: missing\n- buildingBriefs: missing\n- subtypes: missing\n- archetypes: missing\n- activities: missing\n- editorialReview: developed\n\nKnown gaps:\n- No district coverage for this relevant ecosystem.\n- Subtype breadth is thin.\n- Business archetype coverage is thin.\n- Business activity coverage is thin.\n\nTarget subtypes:\n- research_lab, wet_lab, life_science_office, biotech_research, innovation_campus\nTarget archetypes:\n- research_company, biotech_company, startup\nTarget business activities:\n- research, product_development, collaboration, administrative_operations\nMissing representative roles:\n- research_lab_environment, life_science_campus, biotech_research_environment\nMissing operational categories:\n- configuration, infrastructure, market_presence, location_workforce, outdoor_special_use\nExisting representative buildings:\n- none\nDistrict candidates:\n- review required\n\nDependencies:\n- Ecosystem classification\n- District foundation\n- Recommendation foundation\n- Representative Building foundation\n- Building Brief migration after canonical records exist\n\nCompletion criteria:\n- Validated district ecosystem classification\n- Representative Building coverage across the most important subtypes\n- Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus\n- Building Brief migration only after canonical records and district association exist\n- Publisher ecosystem QA passes without hard errors\n- Every target representative role has at least one source-supported building or is explicitly marked research required\n- Target operational categories are represented without asserting unverified property features\n- Representative Building intelligence QA passes\n\nGuardrails:\n- Do not invent districts, buildings, tenants, availability, rents, or unsupported facts.\n- Do not deepen office-only coverage when the target ecosystem is different.\n- Do not treat taxonomy compatibility as proof that a property has a feature.\n- Validate loading, power, parking, yards, lab, food, medical, and permitted-use claims before authoring them as facts.\n- Do not recommend Building Brief migration before canonical representative buildings exist.\n- Regenerate Publisher snapshots and run ecosystem readiness QA.\n\nVerification:\n- npm run publisher:snapshot\n- npm run publisher:report\n- npm run build\n- node scripts/qa-commercial-ecosystem-foundation.js\n- node scripts/qa-publisher-ecosystem-readiness.js\n- node scripts/qa-representative-building-intelligence.js"
+        "codexPrompt": "Implement Publisher ecosystem sprint for East Bay: East Bay Life Science Ecosystem Subtype Expansion\n\nFramework:\n- Businesses search for places where their operations can succeed, not for property types.\n- Use the Commercial Ecosystem Framework and canonical taxonomy.\n- Do not change recommendation rankings, Search Profile questions, or public page design.\n\nTarget ecosystem: Life Science (life_science)\nMetro relevance: Important\nCurrent readiness: Partial\nSprint family: Ecosystem Subtype Expansion\n\nCurrent layer coverage:\n- districts: missing\n- recommendations: missing\n- representativeBuildings: missing\n- buildingBriefs: missing\n- subtypes: missing\n- archetypes: missing\n- activities: missing\n- editorialReview: developed\n\nKnown gaps:\n- Ecosystem appears only as a secondary district expression.\n- Subtype breadth is thin.\n- Business archetype coverage is thin.\n- Business activity coverage is thin.\n\nTarget subtypes:\n- research_lab, wet_lab, life_science_office, biotech_research, innovation_campus\nTarget archetypes:\n- research_company, biotech_company, startup\nTarget business activities:\n- research, product_development, collaboration, administrative_operations\nMissing representative roles:\n- research_lab_environment, life_science_campus, biotech_research_environment\nMissing operational categories:\n- configuration, infrastructure, market_presence, location_workforce, outdoor_special_use\nExisting representative buildings:\n- none\nDistrict candidates:\n- review required\n\nDependencies:\n- Ecosystem classification\n- District foundation\n- Recommendation foundation\n- Representative Building foundation\n- Building Brief migration after canonical records exist\n\nCompletion criteria:\n- Validated district ecosystem classification\n- Representative Building coverage across the most important subtypes\n- Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus\n- Building Brief migration only after canonical records and district association exist\n- Publisher ecosystem QA passes without hard errors\n- Every target representative role has at least one source-supported building or is explicitly marked research required\n- Target operational categories are represented without asserting unverified property features\n- Representative Building intelligence QA passes\n\nGuardrails:\n- Do not invent districts, buildings, tenants, availability, rents, or unsupported facts.\n- Do not deepen office-only coverage when the target ecosystem is different.\n- Do not treat taxonomy compatibility as proof that a property has a feature.\n- Validate loading, power, parking, yards, lab, food, medical, and permitted-use claims before authoring them as facts.\n- Do not recommend Building Brief migration before canonical representative buildings exist.\n- Regenerate Publisher snapshots and run ecosystem readiness QA.\n\nVerification:\n- npm run publisher:snapshot\n- npm run publisher:report\n- npm run build\n- node scripts/qa-commercial-ecosystem-foundation.js\n- node scripts/qa-publisher-ecosystem-readiness.js\n- node scripts/qa-representative-building-intelligence.js"
       },
       "gaps": [
         {
@@ -18954,7 +18969,7 @@
     {
       "metroId": "sacramento",
       "metroName": "Sacramento",
-      "generatedAt": "2026-08-11T14:36:39-07:00",
+      "generatedAt": "2026-08-11T15:18:07-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 98,
@@ -27742,7 +27757,7 @@
     {
       "metroId": "san-diego",
       "metroName": "San Diego",
-      "generatedAt": "2026-08-11T14:36:39-07:00",
+      "generatedAt": "2026-08-11T15:18:07-07:00",
       "currentState": {
         "readinessStatus": "Expansion Ready",
         "overallScore": 84,
@@ -37564,7 +37579,7 @@
     {
       "metroId": "orange-county",
       "metroName": "Orange County",
-      "generatedAt": "2026-08-11T14:36:39-07:00",
+      "generatedAt": "2026-08-11T15:18:07-07:00",
       "currentState": {
         "readinessStatus": "Expansion Ready",
         "overallScore": 84,
@@ -46556,7 +46571,7 @@
     {
       "metroId": "denver",
       "metroName": "Denver",
-      "generatedAt": "2026-08-11T14:36:39-07:00",
+      "generatedAt": "2026-08-11T15:18:07-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 97,
@@ -54350,7 +54365,7 @@
     {
       "metroId": "seattle",
       "metroName": "Seattle",
-      "generatedAt": "2026-08-11T14:36:39-07:00",
+      "generatedAt": "2026-08-11T15:18:07-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 94,
@@ -60063,7 +60078,7 @@
     {
       "metroId": "san-francisco",
       "metroName": "San Francisco",
-      "generatedAt": "2026-08-11T14:36:39-07:00",
+      "generatedAt": "2026-08-11T15:18:07-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 96,
@@ -60172,34 +60187,35 @@
               "downtown_office": 3,
               "executive_office": 1,
               "professional_office": 2,
-              "office_campus": 1,
-              "research_development": 2,
-              "flex": 1
+              "office_campus": 2,
+              "research_development": 3,
+              "suburban_office": 1,
+              "flex": 1,
+              "life_science_office": 1,
+              "innovation_campus": 1
             },
             "archetypes": {
               "startup": 5,
               "creative_studio": 3,
               "marketing_agency": 2,
-              "law_firm": 2,
+              "law_firm": 1,
               "financial_services_firm": 1,
               "consulting_firm": 3,
               "professional_office": 3,
-              "research_company": 2,
-              "biotech_company": 1,
-              "accounting_firm": 1
+              "research_company": 3,
+              "biotech_company": 2
             },
             "activities": {
               "knowledge_work": 7,
               "collaboration": 5,
-              "product_development": 3,
+              "product_development": 4,
               "customer_showroom": 2,
-              "client_meetings": 4,
+              "client_meetings": 3,
               "administrative_operations": 2,
-              "research": 1
+              "research": 2
             },
             "reviewRequiredDistricts": [],
             "notableSubtypeGaps": [
-              "suburban_office",
               "coworking",
               "government_office"
             ],
@@ -60232,26 +60248,27 @@
                 "knowledge_work": 80,
                 "collaboration": 53,
                 "administrative_operations": 33,
-                "client_meetings": 52,
+                "research": 5,
+                "product_development": 49,
+                "client_meetings": 50,
                 "walk_in_retail": 16,
                 "walk_in_service": 20,
                 "customer_showroom": 36,
-                "product_development": 47,
-                "light_manufacturing": 6,
-                "research": 3
+                "light_manufacturing": 6
               },
               "archetypeCoverage": {
                 "professional_office": 80,
                 "consulting_firm": 80,
                 "startup": 64,
+                "research_company": 11,
+                "biotech_company": 2,
                 "law_firm": 80,
                 "accounting_firm": 80,
                 "financial_services_firm": 80,
-                "marketing_agency": 71,
-                "creative_studio": 78,
                 "nonprofit_office": 2,
                 "wellness_practice": 16,
-                "research_company": 9
+                "marketing_agency": 69,
+                "creative_studio": 76
               },
               "operationalCharacteristicsCovered": {
                 "campus_environment": 3,
@@ -60383,44 +60400,42 @@
               }
             ],
             "subtypes": {
-              "research_development": 5,
+              "research_development": 6,
               "flex": 7,
               "professional_office": 2,
               "small_bay_industrial": 5,
               "warehouse": 2,
               "manufacturing": 1,
-              "creative_office": 1,
-              "light_manufacturing": 1
+              "creative_office": 2,
+              "life_science_office": 1
             },
             "archetypes": {
-              "research_company": 3,
-              "light_manufacturer": 6,
-              "startup": 3,
+              "research_company": 4,
+              "light_manufacturer": 7,
+              "startup": 4,
               "general_contractor": 5,
-              "cabinet_shop": 6,
+              "cabinet_shop": 5,
               "distributor": 5,
               "ecommerce_fulfillment_business": 5,
-              "creative_studio": 3,
-              "food_producer": 1
+              "creative_studio": 3
             },
             "activities": {
-              "product_development": 3,
-              "research": 2,
+              "product_development": 4,
+              "research": 3,
               "light_manufacturing": 9,
               "knowledge_work": 3,
               "receiving": 5,
               "shipping": 5,
               "storage": 5,
-              "service_dispatch": 6,
-              "collaboration": 2,
-              "customer_showroom": 1
+              "service_dispatch": 5,
+              "collaboration": 3
             },
             "reviewRequiredDistricts": [],
             "notableSubtypeGaps": [
               "distribution",
+              "light_manufacturing",
               "contractor_service",
-              "contractor_yard",
-              "showroom_flex"
+              "contractor_yard"
             ],
             "representativeBuildingIntelligence": {
               "ecosystemId": "industrial_flex",
@@ -60443,7 +60458,7 @@
                 "small_bay_industrial": 40,
                 "flex": 45,
                 "light_manufacturing": 21,
-                "research_development": 18,
+                "research_development": 30,
                 "warehouse": 16,
                 "distribution": 6,
                 "contractor_service": 4,
@@ -60456,16 +60471,16 @@
                 "receiving": 39,
                 "shipping": 39,
                 "light_manufacturing": 46,
-                "customer_showroom": 10,
-                "knowledge_work": 30,
-                "product_development": 32,
+                "product_development": 38,
+                "research": 14,
+                "collaboration": 19,
+                "knowledge_work": 24,
                 "assembly": 31,
                 "vehicle_storage": 3,
                 "storage": 31,
                 "distribution": 8,
                 "inventory_management": 6,
-                "collaboration": 14,
-                "research": 8,
+                "customer_showroom": 4,
                 "walk_in_retail": 1,
                 "walk_in_service": 1
               },
@@ -60475,13 +60490,13 @@
                 "food_producer": 12,
                 "general_contractor": 51,
                 "light_manufacturer": 36,
+                "research_company": 34,
+                "startup": 34,
                 "electrician": 51,
-                "hvac_company": 43,
-                "plumbing_company": 42,
-                "research_company": 22,
-                "startup": 22,
                 "distributor": 24,
                 "ecommerce_fulfillment_business": 24,
+                "hvac_company": 31,
+                "plumbing_company": 30,
                 "logistics_provider": 1,
                 "landscaper": 15,
                 "wellness_practice": 1,
@@ -60570,7 +60585,7 @@
             "id": "retail",
             "label": "Retail",
             "districtCount": 7,
-            "secondaryDistrictCount": 6,
+            "secondaryDistrictCount": 5,
             "recommendationNodeCount": 7,
             "representativeBuildingCount": 12,
             "buildingBriefCount": 0,
@@ -60787,7 +60802,7 @@
             "id": "life_science",
             "label": "Life Science",
             "districtCount": 1,
-            "secondaryDistrictCount": 3,
+            "secondaryDistrictCount": 5,
             "recommendationNodeCount": 1,
             "representativeBuildingCount": 14,
             "buildingBriefCount": 5,
@@ -61011,55 +61026,53 @@
           }
         },
         "subtypeCoverage": {
-          "creative_office": 7,
+          "creative_office": 8,
           "downtown_office": 3,
           "executive_office": 1,
           "professional_office": 9,
-          "office_campus": 1,
-          "research_development": 7,
+          "office_campus": 2,
+          "research_development": 9,
+          "suburban_office": 1,
           "flex": 8,
+          "life_science_office": 3,
+          "innovation_campus": 2,
           "small_bay_industrial": 5,
           "warehouse": 2,
           "manufacturing": 1,
-          "light_manufacturing": 1,
           "neighborhood_retail": 6,
-          "showroom_retail": 1,
-          "life_science_office": 1,
-          "innovation_campus": 1
+          "showroom_retail": 1
         },
         "activityCoverage": {
           "knowledge_work": 13,
-          "collaboration": 9,
-          "product_development": 7,
-          "customer_showroom": 10,
-          "client_meetings": 4,
+          "collaboration": 10,
+          "product_development": 9,
+          "customer_showroom": 9,
+          "client_meetings": 3,
           "administrative_operations": 2,
-          "research": 4,
+          "research": 6,
           "light_manufacturing": 9,
           "receiving": 5,
           "shipping": 5,
           "storage": 5,
-          "service_dispatch": 6,
+          "service_dispatch": 5,
           "walk_in_retail": 6,
           "walk_in_service": 7
         },
         "archetypeCoverage": {
-          "startup": 9,
+          "startup": 10,
           "creative_studio": 8,
           "marketing_agency": 8,
-          "law_firm": 2,
+          "law_firm": 1,
           "financial_services_firm": 1,
           "consulting_firm": 3,
           "professional_office": 5,
-          "research_company": 6,
-          "biotech_company": 2,
-          "accounting_firm": 1,
-          "light_manufacturer": 6,
+          "research_company": 8,
+          "biotech_company": 3,
+          "light_manufacturer": 7,
           "general_contractor": 5,
-          "cabinet_shop": 6,
+          "cabinet_shop": 5,
           "distributor": 5,
           "ecommerce_fulfillment_business": 5,
-          "food_producer": 1,
           "wellness_practice": 6
         },
         "missingPrimaryEcosystemDistricts": [],
@@ -61148,8 +61161,8 @@
               "recommendations": 7,
               "representativeBuildings": 80,
               "buildingBriefs": 38,
-              "subtypes": 7,
-              "archetypes": 10,
+              "subtypes": 10,
+              "archetypes": 9,
               "activities": 7,
               "reviewRequiredDistricts": 0,
               "representativeRoles": 7,
@@ -61216,26 +61229,27 @@
                 "knowledge_work",
                 "collaboration",
                 "administrative_operations",
+                "research",
+                "product_development",
                 "client_meetings",
                 "walk_in_retail",
                 "walk_in_service",
                 "customer_showroom",
-                "product_development",
-                "light_manufacturing",
-                "research"
+                "light_manufacturing"
               ],
               "archetypeCoverage": [
                 "professional_office",
                 "consulting_firm",
                 "startup",
+                "research_company",
+                "biotech_company",
                 "law_firm",
                 "accounting_firm",
                 "financial_services_firm",
-                "marketing_agency",
-                "creative_studio",
                 "nonprofit_office",
                 "wellness_practice",
-                "research_company"
+                "marketing_agency",
+                "creative_studio"
               ],
               "operationalCharacteristicsCovered": [
                 "campus_environment",
@@ -61341,8 +61355,8 @@
               "representativeBuildings": 51,
               "buildingBriefs": 43,
               "subtypes": 8,
-              "archetypes": 9,
-              "activities": 10,
+              "archetypes": 8,
+              "activities": 9,
               "reviewRequiredDistricts": 0,
               "representativeRoles": 7,
               "operationalCategories": 6,
@@ -61415,16 +61429,16 @@
                 "receiving",
                 "shipping",
                 "light_manufacturing",
-                "customer_showroom",
-                "knowledge_work",
                 "product_development",
+                "research",
+                "collaboration",
+                "knowledge_work",
                 "assembly",
                 "vehicle_storage",
                 "storage",
                 "distribution",
                 "inventory_management",
-                "collaboration",
-                "research",
+                "customer_showroom",
                 "walk_in_retail",
                 "walk_in_service"
               ],
@@ -61434,13 +61448,13 @@
                 "food_producer",
                 "general_contractor",
                 "light_manufacturer",
-                "electrician",
-                "hvac_company",
-                "plumbing_company",
                 "research_company",
                 "startup",
+                "electrician",
                 "distributor",
                 "ecommerce_fulfillment_business",
+                "hvac_company",
+                "plumbing_company",
                 "logistics_provider",
                 "landscaper",
                 "wellness_practice",
@@ -61551,7 +61565,7 @@
             },
             "counts": {
               "districts": 7,
-              "secondaryDistricts": 6,
+              "secondaryDistricts": 5,
               "recommendations": 7,
               "representativeBuildings": 12,
               "buildingBriefs": 0,
@@ -61571,7 +61585,7 @@
             "blockingCodes": [],
             "strategicPriority": 5,
             "evidence": [
-              "7 primary districts and 6 secondary districts.",
+              "7 primary districts and 5 secondary districts.",
               "12 Representative Buildings and 0 Building Briefs.",
               "2 representative roles and 2 operational categories are covered."
             ],
@@ -61816,7 +61830,7 @@
             },
             "counts": {
               "districts": 1,
-              "secondaryDistricts": 3,
+              "secondaryDistricts": 5,
               "recommendations": 1,
               "representativeBuildings": 14,
               "buildingBriefs": 5,
@@ -61834,7 +61848,7 @@
             "blockingCodes": [],
             "strategicPriority": 4,
             "evidence": [
-              "1 primary districts and 3 secondary districts.",
+              "1 primary districts and 5 secondary districts.",
               "14 Representative Buildings and 5 Building Briefs.",
               "3 representative roles and 5 operational categories are covered."
             ],
@@ -62165,7 +62179,7 @@
             "readinessState": "partial",
             "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
             "evidence": [
-              "7 primary districts and 6 secondary districts.",
+              "7 primary districts and 5 secondary districts.",
               "12 Representative Buildings and 0 Building Briefs.",
               "2 representative roles and 2 operational categories are covered."
             ],
@@ -62191,7 +62205,7 @@
             "readinessState": "partial",
             "rationale": "Representative role coverage is too narrow for this ecosystem.",
             "evidence": [
-              "7 primary districts and 6 secondary districts.",
+              "7 primary districts and 5 secondary districts.",
               "12 Representative Buildings and 0 Building Briefs.",
               "2 representative roles and 2 operational categories are covered."
             ],
@@ -62217,7 +62231,7 @@
             "readinessState": "partial",
             "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
             "evidence": [
-              "7 primary districts and 6 secondary districts.",
+              "7 primary districts and 5 secondary districts.",
               "12 Representative Buildings and 0 Building Briefs.",
               "2 representative roles and 2 operational categories are covered."
             ],
@@ -62637,7 +62651,7 @@
           "readinessState": "partial",
           "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
           "evidence": [
-            "7 primary districts and 6 secondary districts.",
+            "7 primary districts and 5 secondary districts.",
             "12 Representative Buildings and 0 Building Briefs.",
             "2 representative roles and 2 operational categories are covered."
           ],
@@ -62863,7 +62877,7 @@
           "readinessState": "partial",
           "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
           "evidence": [
-            "7 primary districts and 6 secondary districts.",
+            "7 primary districts and 5 secondary districts.",
             "12 Representative Buildings and 0 Building Briefs.",
             "2 representative roles and 2 operational categories are covered."
           ],
@@ -62889,7 +62903,7 @@
           "readinessState": "partial",
           "rationale": "Representative role coverage is too narrow for this ecosystem.",
           "evidence": [
-            "7 primary districts and 6 secondary districts.",
+            "7 primary districts and 5 secondary districts.",
             "12 Representative Buildings and 0 Building Briefs.",
             "2 representative roles and 2 operational categories are covered."
           ],
@@ -74595,7 +74609,7 @@
     {
       "metroId": "east-bay",
       "metroName": "East Bay",
-      "generatedAt": "2026-08-11T14:36:39-07:00",
+      "generatedAt": "2026-08-11T15:18:07-07:00",
       "currentState": {
         "readinessStatus": "Editorially Developed",
         "overallScore": 74,
@@ -74644,9 +74658,9 @@
         "ecosystems": {
           "count": 7,
           "developed": 2,
-          "partial": 0,
+          "partial": 1,
           "thin": 1,
-          "missing": 4,
+          "missing": 3,
           "reviewRequired": 0,
           "note": "Ecosystem coverage is reported for planning context and does not change Publisher readiness scoring in v1."
         }
@@ -74670,28 +74684,34 @@
               }
             ],
             "subtypes": {
+              "suburban_office": 1,
+              "office_campus": 1,
               "professional_office": 1,
-              "flex": 1
+              "flex": 1,
+              "research_development": 1,
+              "life_science_office": 1,
+              "innovation_campus": 1
             },
             "archetypes": {
               "professional_office": 1,
-              "law_firm": 1,
-              "accounting_firm": 1,
               "consulting_firm": 1,
-              "startup": 1
+              "startup": 1,
+              "research_company": 1,
+              "biotech_company": 1
             },
             "activities": {
               "knowledge_work": 1,
-              "client_meetings": 1,
               "collaboration": 1,
-              "administrative_operations": 1
+              "administrative_operations": 1,
+              "research": 1,
+              "product_development": 1
             },
             "reviewRequiredDistricts": [],
             "notableSubtypeGaps": [
               "downtown_office",
               "creative_office",
               "executive_office",
-              "suburban_office"
+              "coworking"
             ],
             "representativeBuildingIntelligence": {
               "ecosystemId": "office",
@@ -74720,23 +74740,26 @@
                 "knowledge_work": 15,
                 "collaboration": 3,
                 "administrative_operations": 14,
-                "client_meetings": 14,
+                "research": 2,
+                "product_development": 3,
+                "client_meetings": 12,
                 "walk_in_retail": 13,
                 "walk_in_service": 13,
-                "customer_showroom": 13,
-                "product_development": 1
+                "customer_showroom": 13
               },
               "archetypeCoverage": {
                 "professional_office": 15,
                 "consulting_firm": 15,
                 "startup": 2,
+                "research_company": 2,
+                "biotech_company": 2,
                 "law_firm": 15,
                 "accounting_firm": 15,
                 "financial_services_firm": 15,
-                "marketing_agency": 15,
-                "creative_studio": 13,
                 "nonprofit_office": 2,
-                "wellness_practice": 13
+                "wellness_practice": 13,
+                "marketing_agency": 13,
+                "creative_studio": 11
               },
               "operationalCharacteristicsCovered": {
                 "campus_environment": 2,
@@ -74847,35 +74870,39 @@
               "warehouse": 3,
               "flex": 4,
               "manufacturing": 1,
-              "research_development": 1,
+              "research_development": 2,
               "contractor_service": 1,
-              "light_manufacturing": 1
+              "creative_office": 1,
+              "life_science_office": 1
             },
             "archetypes": {
               "general_contractor": 4,
-              "cabinet_shop": 4,
-              "light_manufacturer": 3,
+              "cabinet_shop": 3,
+              "light_manufacturer": 4,
               "distributor": 4,
               "ecommerce_fulfillment_business": 4,
               "building_services_company": 1,
-              "creative_studio": 1,
-              "food_producer": 1
+              "research_company": 1,
+              "startup": 1,
+              "creative_studio": 1
             },
             "activities": {
               "receiving": 4,
               "shipping": 4,
               "storage": 4,
-              "service_dispatch": 5,
+              "service_dispatch": 4,
               "light_manufacturing": 4,
-              "customer_showroom": 1,
+              "product_development": 1,
+              "research": 1,
+              "collaboration": 1,
               "knowledge_work": 1
             },
             "reviewRequiredDistricts": [],
             "notableSubtypeGaps": [
               "distribution",
+              "light_manufacturing",
               "contractor_yard",
-              "showroom_flex",
-              "last_mile_logistics"
+              "showroom_flex"
             ],
             "representativeBuildingIntelligence": {
               "ecosystemId": "industrial_flex",
@@ -74897,7 +74924,7 @@
                 "small_bay_industrial": 35,
                 "flex": 31,
                 "light_manufacturing": 21,
-                "research_development": 7,
+                "research_development": 19,
                 "warehouse": 16,
                 "distribution": 6,
                 "contractor_service": 4,
@@ -74910,14 +74937,16 @@
                 "receiving": 35,
                 "shipping": 35,
                 "light_manufacturing": 33,
-                "customer_showroom": 7,
-                "knowledge_work": 19,
-                "product_development": 16,
+                "product_development": 22,
+                "research": 6,
+                "collaboration": 5,
+                "knowledge_work": 13,
                 "assembly": 18,
                 "vehicle_storage": 3,
                 "storage": 23,
                 "distribution": 8,
-                "inventory_management": 6
+                "inventory_management": 6,
+                "customer_showroom": 1
               },
               "archetypeCoverage": {
                 "cabinet_shop": 35,
@@ -74925,13 +74954,13 @@
                 "food_producer": 12,
                 "general_contractor": 35,
                 "light_manufacturer": 35,
+                "research_company": 19,
+                "startup": 19,
                 "electrician": 35,
-                "hvac_company": 28,
-                "plumbing_company": 27,
-                "research_company": 7,
-                "startup": 7,
                 "distributor": 23,
                 "ecommerce_fulfillment_business": 23,
+                "hvac_company": 16,
+                "plumbing_company": 15,
                 "logistics_provider": 1
               },
               "operationalCharacteristicsCovered": {
@@ -75016,7 +75045,7 @@
             "id": "retail",
             "label": "Retail",
             "districtCount": 2,
-            "secondaryDistrictCount": 1,
+            "secondaryDistrictCount": 0,
             "recommendationNodeCount": 2,
             "representativeBuildingCount": 0,
             "buildingBriefCount": 0,
@@ -75136,11 +75165,11 @@
             "id": "life_science",
             "label": "Life Science",
             "districtCount": 0,
-            "secondaryDistrictCount": 0,
+            "secondaryDistrictCount": 2,
             "recommendationNodeCount": 0,
             "representativeBuildingCount": 0,
             "buildingBriefCount": 0,
-            "status": "Missing",
+            "status": "Partial",
             "districts": [],
             "subtypes": {},
             "archetypes": {},
@@ -75281,44 +75310,48 @@
           }
         },
         "subtypeCoverage": {
+          "suburban_office": 1,
+          "office_campus": 1,
           "professional_office": 3,
           "flex": 5,
+          "research_development": 3,
+          "life_science_office": 2,
+          "innovation_campus": 1,
           "small_bay_industrial": 5,
           "warehouse": 3,
           "manufacturing": 1,
-          "research_development": 1,
           "contractor_service": 1,
-          "light_manufacturing": 1,
+          "creative_office": 1,
           "neighborhood_retail": 2
         },
         "activityCoverage": {
           "knowledge_work": 2,
-          "client_meetings": 1,
-          "collaboration": 1,
+          "collaboration": 2,
           "administrative_operations": 1,
+          "research": 2,
+          "product_development": 2,
           "receiving": 4,
           "shipping": 4,
           "storage": 4,
-          "service_dispatch": 5,
+          "service_dispatch": 4,
           "light_manufacturing": 4,
-          "customer_showroom": 3,
           "walk_in_retail": 2,
-          "walk_in_service": 2
+          "walk_in_service": 2,
+          "customer_showroom": 2
         },
         "archetypeCoverage": {
           "professional_office": 1,
-          "law_firm": 1,
-          "accounting_firm": 1,
           "consulting_firm": 1,
-          "startup": 1,
+          "startup": 2,
+          "research_company": 2,
+          "biotech_company": 1,
           "general_contractor": 4,
-          "cabinet_shop": 4,
-          "light_manufacturer": 3,
+          "cabinet_shop": 3,
+          "light_manufacturer": 4,
           "distributor": 4,
           "ecommerce_fulfillment_business": 4,
           "building_services_company": 1,
           "creative_studio": 1,
-          "food_producer": 1,
           "wellness_practice": 2,
           "marketing_agency": 2
         },
@@ -75335,13 +75368,6 @@
           {
             "id": "medical",
             "label": "Medical",
-            "status": "Missing",
-            "districtCount": 0,
-            "representativeBuildingCount": 0
-          },
-          {
-            "id": "life_science",
-            "label": "Life Science",
             "status": "Missing",
             "districtCount": 0,
             "representativeBuildingCount": 0
@@ -75364,9 +75390,9 @@
         "summary": {
           "ecosystemCount": 7,
           "developedCount": 2,
-          "partialCount": 0,
+          "partialCount": 1,
           "thinCount": 1,
-          "missingCount": 4,
+          "missingCount": 3,
           "reviewRequiredDistrictCount": 0
         }
       },
@@ -75393,7 +75419,7 @@
         "label": "Partial",
         "rationale": [
           "Industrial & Flex coverage is strong or developed.",
-          "Office is Partial; Retail is Thin; Life Science is Missing.",
+          "Office is Partial; Retail is Thin; Life Science is Partial.",
           "Representative Building coverage is concentrated in Industrial & Flex."
         ],
         "passed": false,
@@ -75407,8 +75433,7 @@
           "special_purpose"
         ],
         "blockingEcosystems": [
-          "retail",
-          "life_science"
+          "retail"
         ],
         "evaluations": [
           {
@@ -75423,7 +75448,7 @@
               "recommendations": "partial",
               "representativeBuildings": "developed",
               "buildingBriefs": "developed",
-              "subtypes": "strong",
+              "subtypes": "developed",
               "archetypes": "strong",
               "activities": "strong",
               "editorialReview": "developed"
@@ -75434,9 +75459,9 @@
               "recommendations": 1,
               "representativeBuildings": 15,
               "buildingBriefs": 13,
-              "subtypes": 2,
+              "subtypes": 7,
               "archetypes": 5,
-              "activities": 4,
+              "activities": 5,
               "reviewRequiredDistricts": 0,
               "representativeRoles": 6,
               "operationalCategories": 5,
@@ -75500,23 +75525,26 @@
                 "knowledge_work",
                 "collaboration",
                 "administrative_operations",
+                "research",
+                "product_development",
                 "client_meetings",
                 "walk_in_retail",
                 "walk_in_service",
-                "customer_showroom",
-                "product_development"
+                "customer_showroom"
               ],
               "archetypeCoverage": [
                 "professional_office",
                 "consulting_firm",
                 "startup",
+                "research_company",
+                "biotech_company",
                 "law_firm",
                 "accounting_firm",
                 "financial_services_firm",
-                "marketing_agency",
-                "creative_studio",
                 "nonprofit_office",
-                "wellness_practice"
+                "wellness_practice",
+                "marketing_agency",
+                "creative_studio"
               ],
               "operationalCharacteristicsCovered": [
                 "campus_environment",
@@ -75616,9 +75644,9 @@
               "recommendations": 5,
               "representativeBuildings": 35,
               "buildingBriefs": 35,
-              "subtypes": 7,
-              "archetypes": 8,
-              "activities": 7,
+              "subtypes": 8,
+              "archetypes": 9,
+              "activities": 9,
               "reviewRequiredDistricts": 0,
               "representativeRoles": 6,
               "operationalCategories": 6,
@@ -75690,14 +75718,16 @@
                 "receiving",
                 "shipping",
                 "light_manufacturing",
-                "customer_showroom",
-                "knowledge_work",
                 "product_development",
+                "research",
+                "collaboration",
+                "knowledge_work",
                 "assembly",
                 "vehicle_storage",
                 "storage",
                 "distribution",
-                "inventory_management"
+                "inventory_management",
+                "customer_showroom"
               ],
               "archetypeCoverage": [
                 "cabinet_shop",
@@ -75705,13 +75735,13 @@
                 "food_producer",
                 "general_contractor",
                 "light_manufacturer",
-                "electrician",
-                "hvac_company",
-                "plumbing_company",
                 "research_company",
                 "startup",
+                "electrician",
                 "distributor",
                 "ecommerce_fulfillment_business",
+                "hvac_company",
+                "plumbing_company",
                 "logistics_provider"
               ],
               "operationalCharacteristicsCovered": [
@@ -75818,7 +75848,7 @@
             },
             "counts": {
               "districts": 2,
-              "secondaryDistricts": 1,
+              "secondaryDistricts": 0,
               "recommendations": 2,
               "representativeBuildings": 0,
               "buildingBriefs": 0,
@@ -75838,7 +75868,7 @@
             "blockingCodes": [],
             "strategicPriority": 5,
             "evidence": [
-              "2 primary districts and 1 secondary districts.",
+              "2 primary districts and 0 secondary districts.",
               "0 Representative Buildings and 0 Building Briefs."
             ],
             "targetSubtypes": [
@@ -76002,8 +76032,8 @@
             "label": "Life Science",
             "relevance": "important",
             "relevanceLabel": "Important",
-            "readinessState": "missing",
-            "readinessLabel": "Missing",
+            "readinessState": "partial",
+            "readinessLabel": "Partial",
             "layers": {
               "districts": "missing",
               "recommendations": "missing",
@@ -76016,7 +76046,7 @@
             },
             "counts": {
               "districts": 0,
-              "secondaryDistricts": 0,
+              "secondaryDistricts": 2,
               "recommendations": 0,
               "representativeBuildings": 0,
               "buildingBriefs": 0,
@@ -76030,7 +76060,7 @@
               "reviewRequiredRepresentativeBuildings": 0
             },
             "gaps": [
-              "No district coverage for this relevant ecosystem.",
+              "Ecosystem appears only as a secondary district expression.",
               "Subtype breadth is thin.",
               "Business archetype coverage is thin.",
               "Business activity coverage is thin."
@@ -76039,7 +76069,7 @@
             "blockingCodes": [],
             "strategicPriority": 4,
             "evidence": [
-              "0 primary districts and 0 secondary districts.",
+              "0 primary districts and 2 secondary districts.",
               "0 Representative Buildings and 0 Building Briefs."
             ],
             "targetSubtypes": [
@@ -76307,7 +76337,7 @@
             "readinessState": "thin",
             "rationale": "Relevant ecosystem has district coverage but lacks enough representative-building or layer depth.",
             "evidence": [
-              "2 primary districts and 1 secondary districts.",
+              "2 primary districts and 0 secondary districts.",
               "0 Representative Buildings and 0 Building Briefs."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -76332,7 +76362,7 @@
             "readinessState": "thin",
             "rationale": "District foundation exists, but Representative Buildings are missing.",
             "evidence": [
-              "2 primary districts and 1 secondary districts.",
+              "2 primary districts and 0 secondary districts.",
               "0 Representative Buildings and 0 Building Briefs."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -76357,7 +76387,7 @@
             "readinessState": "thin",
             "rationale": "Representative role coverage is too narrow for this ecosystem.",
             "evidence": [
-              "2 primary districts and 1 secondary districts.",
+              "2 primary districts and 0 secondary districts.",
               "0 Representative Buildings and 0 Building Briefs."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -76496,31 +76526,6 @@
             "blocksEcosystemReadiness": false
           },
           {
-            "id": "ecosystem:life_science:ecosystem_missing",
-            "code": "ecosystem_missing",
-            "label": "Ecosystem Missing",
-            "severity": "medium",
-            "layer": "districts",
-            "ecosystemId": "life_science",
-            "ecosystemLabel": "Life Science",
-            "relevance": "important",
-            "readinessState": "missing",
-            "rationale": "Relevant ecosystem has no meaningful district coverage.",
-            "evidence": [
-              "0 primary districts and 0 secondary districts.",
-              "0 Representative Buildings and 0 Building Briefs."
-            ],
-            "recommendedSprintFamily": "Ecosystem District Foundation",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
             "id": "ecosystem:life_science:ecosystem_subtype_gap",
             "code": "ecosystem_subtype_gap",
             "label": "Ecosystem Subtype Gap",
@@ -76529,10 +76534,10 @@
             "ecosystemId": "life_science",
             "ecosystemLabel": "Life Science",
             "relevance": "important",
-            "readinessState": "missing",
+            "readinessState": "partial",
             "rationale": "Subtype breadth is too narrow for the ecosystem's relevance.",
             "evidence": [
-              "0 primary districts and 0 secondary districts.",
+              "0 primary districts and 2 secondary districts.",
               "0 Representative Buildings and 0 Building Briefs."
             ],
             "recommendedSprintFamily": "Ecosystem Subtype Expansion",
@@ -76554,10 +76559,10 @@
             "ecosystemId": "life_science",
             "ecosystemLabel": "Life Science",
             "relevance": "important",
-            "readinessState": "missing",
+            "readinessState": "partial",
             "rationale": "Business archetype coverage is too narrow.",
             "evidence": [
-              "0 primary districts and 0 secondary districts.",
+              "0 primary districts and 2 secondary districts.",
               "0 Representative Buildings and 0 Building Briefs."
             ],
             "recommendedSprintFamily": "Archetype Coverage Expansion",
@@ -76579,10 +76584,10 @@
             "ecosystemId": "life_science",
             "ecosystemLabel": "Life Science",
             "relevance": "important",
-            "readinessState": "missing",
+            "readinessState": "partial",
             "rationale": "Business activity coverage is too narrow.",
             "evidence": [
-              "0 primary districts and 0 secondary districts.",
+              "0 primary districts and 2 secondary districts.",
               "0 Representative Buildings and 0 Building Briefs."
             ],
             "recommendedSprintFamily": "Business Activity Coverage Review",
@@ -76604,13 +76609,38 @@
             "ecosystemId": "life_science",
             "ecosystemLabel": "Life Science",
             "relevance": "important",
-            "readinessState": "missing",
+            "readinessState": "partial",
             "rationale": "Representative role coverage is too narrow for this ecosystem.",
             "evidence": [
-              "0 primary districts and 0 secondary districts.",
+              "0 primary districts and 2 secondary districts.",
               "0 Representative Buildings and 0 Building Briefs."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
+            "completionCriteria": [
+              "Validated district ecosystem classification",
+              "Representative Building coverage across the most important subtypes",
+              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
+              "Building Brief migration only after canonical records and district association exist",
+              "Publisher ecosystem QA passes without hard errors"
+            ],
+            "blocksEcosystemReadiness": false
+          },
+          {
+            "id": "ecosystem:life_science:ecosystem_secondary_only",
+            "code": "ecosystem_secondary_only",
+            "label": "Ecosystem Secondary Only",
+            "severity": "low",
+            "layer": "districts",
+            "ecosystemId": "life_science",
+            "ecosystemLabel": "Life Science",
+            "relevance": "important",
+            "readinessState": "partial",
+            "rationale": "Ecosystem appears only as secondary context.",
+            "evidence": [
+              "0 primary districts and 2 secondary districts.",
+              "0 Representative Buildings and 0 Building Briefs."
+            ],
+            "recommendedSprintFamily": "Ecosystem District Foundation",
             "completionCriteria": [
               "Validated district ecosystem classification",
               "Representative Building coverage across the most important subtypes",
@@ -76869,31 +76899,6 @@
       },
       "ecosystemGaps": [
         {
-          "id": "ecosystem:life_science:ecosystem_missing",
-          "code": "ecosystem_missing",
-          "label": "Ecosystem Missing",
-          "severity": "medium",
-          "layer": "districts",
-          "ecosystemId": "life_science",
-          "ecosystemLabel": "Life Science",
-          "relevance": "important",
-          "readinessState": "missing",
-          "rationale": "Relevant ecosystem has no meaningful district coverage.",
-          "evidence": [
-            "0 primary districts and 0 secondary districts.",
-            "0 Representative Buildings and 0 Building Briefs."
-          ],
-          "recommendedSprintFamily": "Ecosystem District Foundation",
-          "completionCriteria": [
-            "Validated district ecosystem classification",
-            "Representative Building coverage across the most important subtypes",
-            "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-            "Building Brief migration only after canonical records and district association exist",
-            "Publisher ecosystem QA passes without hard errors"
-          ],
-          "blocksEcosystemReadiness": false
-        },
-        {
           "id": "ecosystem:life_science:ecosystem_subtype_gap",
           "code": "ecosystem_subtype_gap",
           "label": "Ecosystem Subtype Gap",
@@ -76902,10 +76907,10 @@
           "ecosystemId": "life_science",
           "ecosystemLabel": "Life Science",
           "relevance": "important",
-          "readinessState": "missing",
+          "readinessState": "partial",
           "rationale": "Subtype breadth is too narrow for the ecosystem's relevance.",
           "evidence": [
-            "0 primary districts and 0 secondary districts.",
+            "0 primary districts and 2 secondary districts.",
             "0 Representative Buildings and 0 Building Briefs."
           ],
           "recommendedSprintFamily": "Ecosystem Subtype Expansion",
@@ -76930,7 +76935,7 @@
           "readinessState": "thin",
           "rationale": "District foundation exists, but Representative Buildings are missing.",
           "evidence": [
-            "2 primary districts and 1 secondary districts.",
+            "2 primary districts and 0 secondary districts.",
             "0 Representative Buildings and 0 Building Briefs."
           ],
           "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -76955,7 +76960,7 @@
           "readinessState": "thin",
           "rationale": "Relevant ecosystem has district coverage but lacks enough representative-building or layer depth.",
           "evidence": [
-            "2 primary districts and 1 secondary districts.",
+            "2 primary districts and 0 secondary districts.",
             "0 Representative Buildings and 0 Building Briefs."
           ],
           "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -77127,10 +77132,10 @@
           "ecosystemId": "life_science",
           "ecosystemLabel": "Life Science",
           "relevance": "important",
-          "readinessState": "missing",
+          "readinessState": "partial",
           "rationale": "Business activity coverage is too narrow.",
           "evidence": [
-            "0 primary districts and 0 secondary districts.",
+            "0 primary districts and 2 secondary districts.",
             "0 Representative Buildings and 0 Building Briefs."
           ],
           "recommendedSprintFamily": "Business Activity Coverage Review",
@@ -77152,13 +77157,38 @@
           "ecosystemId": "life_science",
           "ecosystemLabel": "Life Science",
           "relevance": "important",
-          "readinessState": "missing",
+          "readinessState": "partial",
           "rationale": "Business archetype coverage is too narrow.",
           "evidence": [
-            "0 primary districts and 0 secondary districts.",
+            "0 primary districts and 2 secondary districts.",
             "0 Representative Buildings and 0 Building Briefs."
           ],
           "recommendedSprintFamily": "Archetype Coverage Expansion",
+          "completionCriteria": [
+            "Validated district ecosystem classification",
+            "Representative Building coverage across the most important subtypes",
+            "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
+            "Building Brief migration only after canonical records and district association exist",
+            "Publisher ecosystem QA passes without hard errors"
+          ],
+          "blocksEcosystemReadiness": false
+        },
+        {
+          "id": "ecosystem:life_science:ecosystem_secondary_only",
+          "code": "ecosystem_secondary_only",
+          "label": "Ecosystem Secondary Only",
+          "severity": "low",
+          "layer": "districts",
+          "ecosystemId": "life_science",
+          "ecosystemLabel": "Life Science",
+          "relevance": "important",
+          "readinessState": "partial",
+          "rationale": "Ecosystem appears only as secondary context.",
+          "evidence": [
+            "0 primary districts and 2 secondary districts.",
+            "0 Representative Buildings and 0 Building Briefs."
+          ],
+          "recommendedSprintFamily": "Ecosystem District Foundation",
           "completionCriteria": [
             "Validated district ecosystem classification",
             "Representative Building coverage across the most important subtypes",
@@ -77177,10 +77207,10 @@
           "ecosystemId": "life_science",
           "ecosystemLabel": "Life Science",
           "relevance": "important",
-          "readinessState": "missing",
+          "readinessState": "partial",
           "rationale": "Representative role coverage is too narrow for this ecosystem.",
           "evidence": [
-            "0 primary districts and 0 secondary districts.",
+            "0 primary districts and 2 secondary districts.",
             "0 Representative Buildings and 0 Building Briefs."
           ],
           "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -77205,7 +77235,7 @@
           "readinessState": "thin",
           "rationale": "Representative role coverage is too narrow for this ecosystem.",
           "evidence": [
-            "2 primary districts and 1 secondary districts.",
+            "2 primary districts and 0 secondary districts.",
             "0 Representative Buildings and 0 Building Briefs."
           ],
           "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -77420,17 +77450,17 @@
         }
       ],
       "recommendedEcosystemSprint": {
-        "title": "East Bay Life Science Ecosystem District Foundation",
-        "objective": "Improve East Bay commercial balance by advancing Life Science from Missing toward stronger ecosystem readiness.",
+        "title": "East Bay Life Science Ecosystem Subtype Expansion",
+        "objective": "Improve East Bay commercial balance by advancing Life Science from Partial toward stronger ecosystem readiness.",
         "ecosystemId": "life_science",
         "ecosystemLabel": "Life Science",
         "relevance": "important",
         "relevanceLabel": "Important",
-        "readinessState": "missing",
-        "readinessLabel": "Missing",
-        "sprintFamily": "Ecosystem District Foundation",
-        "rationale": "Life Science is Important for East Bay and is currently Missing. Relevant ecosystem has no meaningful district coverage.",
-        "gapCode": "ecosystem_missing",
+        "readinessState": "partial",
+        "readinessLabel": "Partial",
+        "sprintFamily": "Ecosystem Subtype Expansion",
+        "rationale": "Life Science is Important for East Bay and is currently Partial. Subtype breadth is too narrow for the ecosystem's relevance.",
+        "gapCode": "ecosystem_subtype_gap",
         "priorityScore": 75,
         "layers": {
           "districts": "missing",
@@ -77444,7 +77474,7 @@
         },
         "counts": {
           "districts": 0,
-          "secondaryDistricts": 0,
+          "secondaryDistricts": 2,
           "recommendations": 0,
           "representativeBuildings": 0,
           "buildingBriefs": 0,
@@ -77458,7 +77488,7 @@
           "reviewRequiredRepresentativeBuildings": 0
         },
         "gaps": [
-          "No district coverage for this relevant ecosystem.",
+          "Ecosystem appears only as a secondary district expression.",
           "Subtype breadth is thin.",
           "Business archetype coverage is thin.",
           "Business activity coverage is thin."
@@ -77520,7 +77550,7 @@
           "title": "East Bay Office Building Brief Migration",
           "whyNotFirst": "Office work remains useful, but the target ecosystem has a higher strategic gap based on current readiness."
         },
-        "codexPrompt": "Implement Publisher ecosystem sprint for East Bay: East Bay Life Science Ecosystem District Foundation\n\nFramework:\n- Businesses search for places where their operations can succeed, not for property types.\n- Use the Commercial Ecosystem Framework and canonical taxonomy.\n- Do not change recommendation rankings, Search Profile questions, or public page design.\n\nTarget ecosystem: Life Science (life_science)\nMetro relevance: Important\nCurrent readiness: Missing\nSprint family: Ecosystem District Foundation\n\nCurrent layer coverage:\n- districts: missing\n- recommendations: missing\n- representativeBuildings: missing\n- buildingBriefs: missing\n- subtypes: missing\n- archetypes: missing\n- activities: missing\n- editorialReview: developed\n\nKnown gaps:\n- No district coverage for this relevant ecosystem.\n- Subtype breadth is thin.\n- Business archetype coverage is thin.\n- Business activity coverage is thin.\n\nTarget subtypes:\n- research_lab, wet_lab, life_science_office, biotech_research, innovation_campus\nTarget archetypes:\n- research_company, biotech_company, startup\nTarget business activities:\n- research, product_development, collaboration, administrative_operations\nMissing representative roles:\n- research_lab_environment, life_science_campus, biotech_research_environment\nMissing operational categories:\n- configuration, infrastructure, market_presence, location_workforce, outdoor_special_use\nExisting representative buildings:\n- none\nDistrict candidates:\n- review required\n\nDependencies:\n- Ecosystem classification\n- District foundation\n- Recommendation foundation\n- Representative Building foundation\n- Building Brief migration after canonical records exist\n\nCompletion criteria:\n- Validated district ecosystem classification\n- Representative Building coverage across the most important subtypes\n- Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus\n- Building Brief migration only after canonical records and district association exist\n- Publisher ecosystem QA passes without hard errors\n- Every target representative role has at least one source-supported building or is explicitly marked research required\n- Target operational categories are represented without asserting unverified property features\n- Representative Building intelligence QA passes\n\nGuardrails:\n- Do not invent districts, buildings, tenants, availability, rents, or unsupported facts.\n- Do not deepen office-only coverage when the target ecosystem is different.\n- Do not treat taxonomy compatibility as proof that a property has a feature.\n- Validate loading, power, parking, yards, lab, food, medical, and permitted-use claims before authoring them as facts.\n- Do not recommend Building Brief migration before canonical representative buildings exist.\n- Regenerate Publisher snapshots and run ecosystem readiness QA.\n\nVerification:\n- npm run publisher:snapshot\n- npm run publisher:report\n- npm run build\n- node scripts/qa-commercial-ecosystem-foundation.js\n- node scripts/qa-publisher-ecosystem-readiness.js\n- node scripts/qa-representative-building-intelligence.js"
+        "codexPrompt": "Implement Publisher ecosystem sprint for East Bay: East Bay Life Science Ecosystem Subtype Expansion\n\nFramework:\n- Businesses search for places where their operations can succeed, not for property types.\n- Use the Commercial Ecosystem Framework and canonical taxonomy.\n- Do not change recommendation rankings, Search Profile questions, or public page design.\n\nTarget ecosystem: Life Science (life_science)\nMetro relevance: Important\nCurrent readiness: Partial\nSprint family: Ecosystem Subtype Expansion\n\nCurrent layer coverage:\n- districts: missing\n- recommendations: missing\n- representativeBuildings: missing\n- buildingBriefs: missing\n- subtypes: missing\n- archetypes: missing\n- activities: missing\n- editorialReview: developed\n\nKnown gaps:\n- Ecosystem appears only as a secondary district expression.\n- Subtype breadth is thin.\n- Business archetype coverage is thin.\n- Business activity coverage is thin.\n\nTarget subtypes:\n- research_lab, wet_lab, life_science_office, biotech_research, innovation_campus\nTarget archetypes:\n- research_company, biotech_company, startup\nTarget business activities:\n- research, product_development, collaboration, administrative_operations\nMissing representative roles:\n- research_lab_environment, life_science_campus, biotech_research_environment\nMissing operational categories:\n- configuration, infrastructure, market_presence, location_workforce, outdoor_special_use\nExisting representative buildings:\n- none\nDistrict candidates:\n- review required\n\nDependencies:\n- Ecosystem classification\n- District foundation\n- Recommendation foundation\n- Representative Building foundation\n- Building Brief migration after canonical records exist\n\nCompletion criteria:\n- Validated district ecosystem classification\n- Representative Building coverage across the most important subtypes\n- Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus\n- Building Brief migration only after canonical records and district association exist\n- Publisher ecosystem QA passes without hard errors\n- Every target representative role has at least one source-supported building or is explicitly marked research required\n- Target operational categories are represented without asserting unverified property features\n- Representative Building intelligence QA passes\n\nGuardrails:\n- Do not invent districts, buildings, tenants, availability, rents, or unsupported facts.\n- Do not deepen office-only coverage when the target ecosystem is different.\n- Do not treat taxonomy compatibility as proof that a property has a feature.\n- Validate loading, power, parking, yards, lab, food, medical, and permitted-use claims before authoring them as facts.\n- Do not recommend Building Brief migration before canonical representative buildings exist.\n- Regenerate Publisher snapshots and run ecosystem readiness QA.\n\nVerification:\n- npm run publisher:snapshot\n- npm run publisher:report\n- npm run build\n- node scripts/qa-commercial-ecosystem-foundation.js\n- node scripts/qa-publisher-ecosystem-readiness.js\n- node scripts/qa-representative-building-intelligence.js"
       },
       "gaps": [
         {
@@ -78962,7 +78992,7 @@
     {
       "metroId": "sacramento",
       "metroName": "Sacramento",
-      "generatedAt": "2026-08-11T14:36:39-07:00",
+      "generatedAt": "2026-08-11T15:18:07-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 98,
@@ -87750,7 +87780,7 @@
     {
       "metroId": "san-diego",
       "metroName": "San Diego",
-      "generatedAt": "2026-08-11T14:36:39-07:00",
+      "generatedAt": "2026-08-11T15:18:07-07:00",
       "currentState": {
         "readinessStatus": "Expansion Ready",
         "overallScore": 84,
@@ -97572,7 +97602,7 @@
     {
       "metroId": "orange-county",
       "metroName": "Orange County",
-      "generatedAt": "2026-08-11T14:36:39-07:00",
+      "generatedAt": "2026-08-11T15:18:07-07:00",
       "currentState": {
         "readinessStatus": "Expansion Ready",
         "overallScore": 84,
@@ -106564,7 +106594,7 @@
     {
       "metroId": "denver",
       "metroName": "Denver",
-      "generatedAt": "2026-08-11T14:36:39-07:00",
+      "generatedAt": "2026-08-11T15:18:07-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 97,
