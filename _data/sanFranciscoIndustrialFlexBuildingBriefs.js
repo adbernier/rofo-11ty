@@ -1451,6 +1451,196 @@ function unionCityBrief(item) {
 
 records.push(...unionCitySelectedBuildings.map(unionCityBrief));
 
+const warmSpringsSelectedBuildings = [
+  {
+    name: "47697 Westinghouse Dr",
+    address: "47697 Westinghouse Dr",
+    use: "business-center flex and technology operations",
+    role: "Westinghouse Flex Operations Benchmark",
+    roleId: "flex_business_park",
+    subtypes: ["flex", "research_development", "small_bay_industrial"],
+    activities: ["knowledge_work", "product_development", "service_dispatch", "receiving"],
+    archetypes: ["research_company", "startup", "light_manufacturer", "general_contractor"],
+    characteristics: ["office_warehouse_mix", "research_compatible", "surface_parking", "freeway_access"],
+    access: "Westinghouse Drive, Warm Springs Boulevard, Kato Road, and I-880",
+    contrast: "pure warehouse corridors or more conventional office districts",
+    bestFor: ["Technology operations teams", "Office/flex users", "R&D support businesses"],
+    nearby: [
+      { label: "46723 Lakeview Blvd", url: buildingPath("Fremont", "46723 Lakeview Blvd"), reason: "Compare for an existing Warm Springs flex-business-park benchmark with similar office and operational balance." },
+      { label: "45101-45169 Industrial Dr", url: buildingPath("Fremont", "45101-45169 Industrial Dr"), reason: "Compare when the search needs stronger advanced-manufacturing and industrial utility." },
+      { label: "48603 Warm Springs Blvd", url: buildingPath("Fremont", "48603 Warm Springs Blvd"), reason: "Compare for Warm Springs Boulevard corridor access and South Fremont industrial/flex context." },
+    ],
+  },
+  {
+    name: "48603 Warm Springs Blvd",
+    address: "48603 Warm Springs Blvd",
+    use: "Warm Springs Boulevard industrial/flex",
+    role: "Warm Springs Boulevard Corridor Benchmark",
+    roleId: "flex_business_park",
+    subtypes: ["flex", "small_bay_industrial", "light_manufacturing"],
+    activities: ["product_development", "assembly", "receiving", "shipping", "service_dispatch"],
+    archetypes: ["research_company", "light_manufacturer", "startup", "distributor"],
+    characteristics: ["office_warehouse_mix", "freeway_access", "surface_parking", "flexible_suite_sizes"],
+    access: "Warm Springs Boulevard, Kato Road, Milmont Drive, and the Warm Springs BART area",
+    contrast: "Kato Road-only or Union City-only industrial searches",
+    bestFor: ["R&D/flex users", "Light manufacturers", "Technical operations teams"],
+    nearby: [
+      { label: "48860 Milmont Dr", url: buildingPath("Fremont", "48860 Milmont Dr"), reason: "Compare for Milmont Drive manufacturing/flex context near the Fremont and Milpitas edge." },
+      { label: "48834 Kato Rd", url: buildingPath("Fremont", "48834 Kato Rd"), reason: "Compare when Kato Road hardware or production adjacency matters more." },
+      { label: "47697 Westinghouse Dr", url: buildingPath("Fremont", "47697 Westinghouse Dr"), reason: "Compare for another Warm Springs flex option with business-center operating context." },
+    ],
+  },
+  {
+    name: "48810-48818 Kato Rd",
+    address: "48810-48818 Kato Rd",
+    use: "Kato Road advanced manufacturing and flex",
+    role: "Kato Road Cluster Depth",
+    roleId: "light_manufacturing_environment",
+    subtypes: ["light_manufacturing", "flex", "research_development"],
+    activities: ["product_development", "assembly", "light_manufacturing", "receiving", "shipping"],
+    archetypes: ["light_manufacturer", "research_company", "startup", "distributor"],
+    characteristics: ["office_warehouse_mix", "research_compatible", "freeway_access", "grade_level_loading"],
+    access: "Kato Road, Milmont Drive, Warm Springs Boulevard, and I-880",
+    contrast: "general service-industrial or commodity warehouse locations",
+    bestFor: ["Hardware companies", "Advanced manufacturing users", "R&D support teams"],
+    nearby: [
+      { label: "48834 Kato Rd", url: buildingPath("Fremont", "48834 Kato Rd"), reason: "Compare for another Kato Road hardware and manufacturing-support benchmark." },
+      { label: "48860 Milmont Dr", url: buildingPath("Fremont", "48860 Milmont Dr"), reason: "Compare when Milmont Drive and Fremont/Milpitas edge access may matter more." },
+      { label: "45101-45169 Industrial Dr", url: buildingPath("Fremont", "45101-45169 Industrial Dr"), reason: "Compare against the existing advanced-manufacturing flex benchmark in Warm Springs." },
+    ],
+  },
+  {
+    name: "48834 Kato Rd",
+    address: "48834 Kato Rd",
+    use: "hardware and manufacturing-support industrial/flex",
+    role: "Hardware Manufacturing Benchmark",
+    roleId: "light_manufacturing_environment",
+    subtypes: ["light_manufacturing", "flex", "research_development"],
+    activities: ["product_development", "assembly", "light_manufacturing", "receiving", "shipping"],
+    archetypes: ["light_manufacturer", "research_company", "startup", "distributor"],
+    characteristics: ["office_warehouse_mix", "research_compatible", "freeway_access", "grade_level_loading"],
+    access: "Kato Road, Milmont Drive, Warm Springs Boulevard, and I-880",
+    contrast: "office-only flex parks or lower-technical warehouse corridors",
+    bestFor: ["Hardware teams", "Light manufacturers", "Technical production teams"],
+    nearby: [
+      { label: "48810-48818 Kato Rd", url: buildingPath("Fremont", "48810-48818 Kato Rd"), reason: "Compare for nearby Kato Road cluster depth and similar technical-operations questions." },
+      { label: "48860 Milmont Dr", url: buildingPath("Fremont", "48860 Milmont Dr"), reason: "Compare for Milmont Drive manufacturing/flex context near the Fremont and Milpitas edge." },
+      { label: "46723 Lakeview Blvd", url: buildingPath("Fremont", "46723 Lakeview Blvd"), reason: "Compare when the requirement leans toward office/flex support rather than heavier production utility." },
+    ],
+  },
+  {
+    name: "48860 Milmont Dr",
+    address: "48860 Milmont Dr",
+    use: "Milmont Drive manufacturing and R&D/flex",
+    role: "Milmont Drive Manufacturing Benchmark",
+    roleId: "light_manufacturing_environment",
+    subtypes: ["light_manufacturing", "flex", "research_development"],
+    activities: ["product_development", "assembly", "light_manufacturing", "receiving", "shipping"],
+    archetypes: ["light_manufacturer", "research_company", "startup", "distributor"],
+    characteristics: ["office_warehouse_mix", "research_compatible", "freeway_access", "surface_parking"],
+    access: "Milmont Drive, Kato Road, Warm Springs Boulevard, I-880, and the Fremont/Milpitas edge",
+    contrast: "central Union City or Hayward industrial searches",
+    bestFor: ["Manufacturing users", "R&D/flex tenants", "Technology operations teams"],
+    nearby: [
+      { label: "48603 Warm Springs Blvd", url: buildingPath("Fremont", "48603 Warm Springs Blvd"), reason: "Compare for Warm Springs Boulevard corridor context and BART-area proximity." },
+      { label: "48834 Kato Rd", url: buildingPath("Fremont", "48834 Kato Rd"), reason: "Compare for Kato Road hardware and manufacturing-support fit." },
+      { label: "1195 Borregas Ave", url: buildingPath("Sunnyvale", "1195 Borregas Ave"), reason: "Compare when South Bay R&D/flex identity matters more than Fremont manufacturing adjacency." },
+    ],
+  },
+];
+
+function warmSpringsBrief(item) {
+  const useArticle = /^[aeiou]/i.test(item.use) ? "an" : "a";
+
+  return record({
+    name: item.name,
+    address: item.address,
+    city: "Fremont",
+    districtKey: "warmSprings",
+    buildingType: `${item.role} building`,
+    primarySpaceType: item.subtypes.includes("flex") && !item.subtypes.includes("light_manufacturing") ? "flex" : "industrial",
+    editorialRole: item.role,
+    editorialReason: `Represents Warm Springs Innovation District's ${item.use} pattern for companies that need Fremont manufacturing adjacency, I-880 access, and property-level operating validation.`,
+    representativeThemes: ["Warm Springs Innovation District", "Fremont", item.role, item.use],
+    businessFit: item.bestFor,
+    relatedDistrictPaths: [districts.unionCityIndustrial.path, districts.haywardIndustrial.path, districts.moffettPark.path],
+    nearbyBuildingPaths: item.nearby.map((entry) => entry.url).filter((url) => url.includes("/building/")),
+    comparisonBuildingPaths: [
+      buildingPath("Fremont", "45101-45169 Industrial Dr"),
+      buildingPath("Fremont", "46723 Lakeview Blvd"),
+      buildingPath("Union City", "1550 Pacific St"),
+    ],
+    brief: {
+      ecosystemSubtypes: item.subtypes,
+      representativeRole: item.roleId,
+      businessActivities: item.activities,
+      businessArchetypes: item.archetypes,
+      operationalCharacteristics: item.characteristics,
+      fitSummary: `Useful for ${item.use} users comparing Warm Springs with Union City, Hayward, Moffett Park, and other industrial/flex options.`,
+      summary: `${item.name} helps explain Warm Springs Innovation District as ${useArticle} ${item.use} environment. It is useful for businesses that need Fremont technology-manufacturing context, I-880 access, and a clear validation checklist before treating any space as operationally ready.`,
+      rofoTake: `${item.name} matters because Warm Springs needs concrete examples across advanced manufacturing, R&D/flex, technical operations, and production-support settings. This profile gives Rofo a ${item.role.toLowerCase()} for users comparing Fremont utility against ${item.contrast}.`,
+      snapshot: [
+        { label: "Primary ecosystem", value: "Industrial / flex" },
+        { label: "Business use", value: item.use },
+        { label: "District", value: "Warm Springs Innovation District" },
+        { label: "Evidence role", value: item.role },
+        { label: "Access context", value: item.access },
+        { label: "Validation focus", value: "Power, loading, permitted use, office/warehouse mix, parking, and suite condition" },
+      ],
+      bestFit: [
+        `${item.bestFor[0]} that need a practical Warm Springs location with Fremont and I-880 access.`,
+        `${item.bestFor[1]} comparing Warm Springs with Union City, Hayward, Moffett Park, or North San Jose.`,
+        `${item.bestFor[2]} that need to validate how office, technical, production, storage, or delivery support fit together.`,
+      ],
+      mayNotFit: [
+        "Commodity warehouse users that do not benefit from Warm Springs' manufacturing or R&D/flex context.",
+        "Businesses whose operational requirements cannot be validated early for power, loading, parking, ventilation, or permitted use.",
+        "Customer-facing users that depend primarily on walkability, storefront visibility, or retail-style visitor traffic.",
+      ],
+      buildingExperience: `A tour at ${item.name} should focus on technical infrastructure, office-to-operational layout, loading or delivery access, parking, power, ventilation, and whether Warm Springs' Fremont location supports the workflow.`,
+      locationContext: `${item.name} sits within Warm Springs Innovation District's South Fremont industrial/flex geography, where users compare Kato Road, Milmont Drive, Warm Springs Boulevard, I-880, Union City, Hayward, and South Bay R&D/flex alternatives. It should be evaluated against Union City for general warehouse utility, Hayward for central East Bay service-industrial reach, and Moffett Park when R&D business-park identity matters more.`,
+      advantages: [
+        `Adds ${item.use} evidence to the Warm Springs Innovation District Building Evidence collection.`,
+        "Connects Fremont manufacturing adjacency with practical office, flex, production, or technical-operations decision-making.",
+        "Creates a concrete comparison point against Union City, Hayward, Moffett Park, and other Bay Area industrial/flex alternatives.",
+      ],
+      tradeoffs: [
+        "The profile does not establish current availability, suite condition, rent, tenant suitability, or final operating fit.",
+        "Power, loading, parking, ventilation, clear height, signage, and permitted use vary by building and must be verified directly.",
+        "Warm Springs' innovation-industrial context may be less useful for users that only need low-complexity storage or local service dispatch.",
+      ],
+      operationalProfile: [
+        { label: "Technical infrastructure", summary: "Validate power, communications, ventilation, loading, and any production or R&D-support requirements before assuming technical fit." },
+        { label: "Space configuration", summary: "Test how office, engineering, assembly, storage, receiving, and support areas divide within the actual space." },
+        { label: "Access and workforce", summary: "Evaluate I-880, Fremont, Milpitas, Union City, and South Bay access against employee, supplier, and customer geography." },
+      ],
+      environmentExplanation: {
+        whyItExists: "Warm Springs industrial/flex environments exist because hardware, manufacturing, technical operations, and R&D-support users often need production utility, office support, and Silicon Valley-adjacent supplier access in one operating geography.",
+        whyChooseThisEnvironment: `Choose this environment when Fremont manufacturing adjacency and technical operating utility matter more than ${item.contrast}.`,
+        representativeValue: `${item.name} gives Warm Springs Innovation District a ${item.role.toLowerCase()} inside the district evidence set.`,
+      },
+      relatedDistricts: [
+        { districtId: "union-city-industrial", reason: "Compare for more general Tri-City warehouse and light-manufacturing utility." },
+        { districtId: "moffett-park", reason: "Compare for a more South Bay R&D and business-park flex setting." },
+      ],
+      validationNotes: [
+        "Confirm permitted use for the specific business activity.",
+        "Verify loading, delivery access, truck circulation, parking allocation, and service-vehicle rules.",
+        "Validate power, ventilation, utility, clear height, and any production or technical requirements.",
+        "Confirm current suite condition, office-to-operational split, signage, visitor arrival, and buildout responsibility.",
+      ],
+      nearbyAlternatives: item.nearby,
+      representativeCompanies: ["Hardware, advanced manufacturing, R&D support, technical operations, light-production, and flex users are the relevant categories; this does not imply current tenancy."],
+      sourceNotes: [
+        `Existing Rofo representative-building page expansion identifies ${item.name} as a Warm Springs Innovation District ${item.role.toLowerCase()}.`,
+        "The Warm Springs Knowledge Graph node supports advanced manufacturing, R&D/flex, highway access, power, Silicon Valley adjacency, and Fremont industrial relevance.",
+      ],
+    },
+  });
+}
+
+records.push(...warmSpringsSelectedBuildings.map(warmSpringsBrief));
+
 module.exports = {
   canonicalBuildings: records,
 };
