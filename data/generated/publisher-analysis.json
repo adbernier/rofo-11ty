@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-10T18:30:06-07:00",
-  "sourceCommit": "cee54820636cefb09500ceb31182bc5cd43a42c2",
+  "generatedAt": "2026-08-10T20:11:53-07:00",
+  "sourceCommit": "992dcf56a0ad6a7240a56b083943fb78014b42fb",
   "geography": {
     "schemaVersion": "commercial-geography-summary-v1",
     "hierarchy": [
@@ -2176,7 +2176,7 @@
       "Low": 2
     },
     "deferredCandidates": 64,
-    "latestValidation": "2026-08-10T18:30:06-07:00",
+    "latestValidation": "2026-08-10T20:11:53-07:00",
     "errors": [],
     "warnings": [],
     "source": {
@@ -2186,7 +2186,7 @@
     "scoringImpact": "None. Reporting only; Publisher scoring and readiness calculations are unchanged."
   },
   "analysis": {
-    "generatedAt": "2026-08-10T18:30:06-07:00",
+    "generatedAt": "2026-08-10T20:11:53-07:00",
     "rulesVersion": "publisher-rules-v1",
     "overview": {
       "compassReadyCount": 5,
@@ -3329,84 +3329,6 @@
             }
           ],
           "gaps": [
-            {
-              "id": "ecosystem:office:representative_role_thin",
-              "code": "representative_role_thin",
-              "label": "Representative Role Thin",
-              "severity": "medium",
-              "layer": "representativeBuildingIntelligence",
-              "ecosystemId": "office",
-              "ecosystemLabel": "Office",
-              "relevance": "core",
-              "readinessState": "developed",
-              "rationale": "Representative role coverage is too narrow for this ecosystem.",
-              "evidence": [
-                "7 primary districts and 14 secondary districts.",
-                "75 Representative Buildings and 35 Building Briefs.",
-                "7 representative roles and 5 operational categories are covered."
-              ],
-              "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
-              "id": "ecosystem:office:operational_category_gap",
-              "code": "operational_category_gap",
-              "label": "Operational Category Gap",
-              "severity": "low",
-              "layer": "representativeBuildingIntelligence",
-              "ecosystemId": "office",
-              "ecosystemLabel": "Office",
-              "relevance": "core",
-              "readinessState": "developed",
-              "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
-              "evidence": [
-                "7 primary districts and 14 secondary districts.",
-                "75 Representative Buildings and 35 Building Briefs.",
-                "7 representative roles and 5 operational categories are covered."
-              ],
-              "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
-              "id": "ecosystem:industrial_flex:operational_category_gap",
-              "code": "operational_category_gap",
-              "label": "Operational Category Gap",
-              "severity": "low",
-              "layer": "representativeBuildingIntelligence",
-              "ecosystemId": "industrial_flex",
-              "ecosystemLabel": "Industrial & Flex",
-              "relevance": "core",
-              "readinessState": "developed",
-              "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
-              "evidence": [
-                "9 primary districts and 6 secondary districts.",
-                "51 Representative Buildings and 24 Building Briefs.",
-                "6 representative roles and 6 operational categories are covered."
-              ],
-              "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
             {
               "id": "ecosystem:retail:ecosystem_building_brief_gap",
               "code": "ecosystem_building_brief_gap",
@@ -4814,32 +4736,6 @@
         },
         "ecosystemGaps": [
           {
-            "id": "ecosystem:office:representative_role_thin",
-            "code": "representative_role_thin",
-            "label": "Representative Role Thin",
-            "severity": "medium",
-            "layer": "representativeBuildingIntelligence",
-            "ecosystemId": "office",
-            "ecosystemLabel": "Office",
-            "relevance": "core",
-            "readinessState": "developed",
-            "rationale": "Representative role coverage is too narrow for this ecosystem.",
-            "evidence": [
-              "7 primary districts and 14 secondary districts.",
-              "75 Representative Buildings and 35 Building Briefs.",
-              "7 representative roles and 5 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
             "id": "ecosystem:medical:ecosystem_subtype_gap",
             "code": "ecosystem_subtype_gap",
             "label": "Ecosystem Subtype Gap",
@@ -4881,58 +4777,6 @@
               "2 representative roles and 2 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem Building Brief Migration",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:industrial_flex:operational_category_gap",
-            "code": "operational_category_gap",
-            "label": "Operational Category Gap",
-            "severity": "low",
-            "layer": "representativeBuildingIntelligence",
-            "ecosystemId": "industrial_flex",
-            "ecosystemLabel": "Industrial & Flex",
-            "relevance": "core",
-            "readinessState": "developed",
-            "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
-            "evidence": [
-              "9 primary districts and 6 secondary districts.",
-              "51 Representative Buildings and 24 Building Briefs.",
-              "6 representative roles and 6 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:office:operational_category_gap",
-            "code": "operational_category_gap",
-            "label": "Operational Category Gap",
-            "severity": "low",
-            "layer": "representativeBuildingIntelligence",
-            "ecosystemId": "office",
-            "ecosystemLabel": "Office",
-            "relevance": "core",
-            "readinessState": "developed",
-            "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
-            "evidence": [
-              "7 primary districts and 14 secondary districts.",
-              "75 Representative Buildings and 35 Building Briefs.",
-              "7 representative roles and 5 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
             "completionCriteria": [
               "Validated district ecosystem classification",
               "Representative Building coverage across the most important subtypes",
@@ -5335,12 +5179,12 @@
           }
         },
         "recommendedEcosystemSprint": {
-          "title": "San Francisco Office Ecosystem Representative Building Foundation",
-          "ecosystemId": "office",
-          "ecosystemLabel": "Office",
-          "sprintFamily": "Ecosystem Representative Building Foundation",
-          "rationale": "Representative role coverage is too narrow for this ecosystem.",
-          "gapCode": "representative_role_thin",
+          "title": "San Francisco Medical Ecosystem Subtype Expansion",
+          "ecosystemId": "medical",
+          "ecosystemLabel": "Medical",
+          "sprintFamily": "Ecosystem Subtype Expansion",
+          "rationale": "Subtype breadth is too narrow for the ecosystem's relevance.",
+          "gapCode": "ecosystem_subtype_gap",
           "completionCriteria": [
             "Validated district ecosystem classification",
             "Representative Building coverage across the most important subtypes",
@@ -11208,32 +11052,6 @@
               "blocksEcosystemReadiness": false
             },
             {
-              "id": "ecosystem:industrial_flex:representative_role_thin",
-              "code": "representative_role_thin",
-              "label": "Representative Role Thin",
-              "severity": "medium",
-              "layer": "representativeBuildingIntelligence",
-              "ecosystemId": "industrial_flex",
-              "ecosystemLabel": "Industrial & Flex",
-              "relevance": "core",
-              "readinessState": "developed",
-              "rationale": "Representative role coverage is too narrow for this ecosystem.",
-              "evidence": [
-                "5 primary districts and 1 secondary districts.",
-                "35 Representative Buildings and 16 Building Briefs.",
-                "5 representative roles and 6 operational categories are covered."
-              ],
-              "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
               "id": "ecosystem:retail:ecosystem_building_brief_gap",
               "code": "ecosystem_building_brief_gap",
               "label": "Ecosystem Building Brief Gap",
@@ -11777,32 +11595,6 @@
                 "0 Representative Buildings and 0 Building Briefs."
               ],
               "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
-              "id": "ecosystem:industrial_flex:ecosystem_concentration",
-              "code": "ecosystem_concentration",
-              "label": "Ecosystem Concentration",
-              "severity": "medium",
-              "layer": "balance",
-              "ecosystemId": "industrial_flex",
-              "ecosystemLabel": "Industrial & Flex",
-              "relevance": "core",
-              "readinessState": "developed",
-              "rationale": "Representative Building coverage is concentrated in Industrial & Flex.",
-              "evidence": [
-                "5 primary districts and 1 secondary districts.",
-                "35 Representative Buildings and 16 Building Briefs.",
-                "5 representative roles and 6 operational categories are covered."
-              ],
-              "recommendedSprintFamily": "Ecosystem Balance Sprint",
               "completionCriteria": [
                 "Validated district ecosystem classification",
                 "Representative Building coverage across the most important subtypes",
@@ -12561,58 +12353,6 @@
         },
         "ecosystemGaps": [
           {
-            "id": "ecosystem:industrial_flex:ecosystem_concentration",
-            "code": "ecosystem_concentration",
-            "label": "Ecosystem Concentration",
-            "severity": "medium",
-            "layer": "balance",
-            "ecosystemId": "industrial_flex",
-            "ecosystemLabel": "Industrial & Flex",
-            "relevance": "core",
-            "readinessState": "developed",
-            "rationale": "Representative Building coverage is concentrated in Industrial & Flex.",
-            "evidence": [
-              "5 primary districts and 1 secondary districts.",
-              "35 Representative Buildings and 16 Building Briefs.",
-              "5 representative roles and 6 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem Balance Sprint",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:industrial_flex:representative_role_thin",
-            "code": "representative_role_thin",
-            "label": "Representative Role Thin",
-            "severity": "medium",
-            "layer": "representativeBuildingIntelligence",
-            "ecosystemId": "industrial_flex",
-            "ecosystemLabel": "Industrial & Flex",
-            "relevance": "core",
-            "readinessState": "developed",
-            "rationale": "Representative role coverage is too narrow for this ecosystem.",
-            "evidence": [
-              "5 primary districts and 1 secondary districts.",
-              "35 Representative Buildings and 16 Building Briefs.",
-              "5 representative roles and 6 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
             "id": "ecosystem:office:representative_role_thin",
             "code": "representative_role_thin",
             "label": "Representative Role Thin",
@@ -13211,12 +12951,12 @@
           }
         },
         "recommendedEcosystemSprint": {
-          "title": "East Bay Industrial & Flex Ecosystem Balance Sprint",
-          "ecosystemId": "industrial_flex",
-          "ecosystemLabel": "Industrial & Flex",
-          "sprintFamily": "Ecosystem Balance Sprint",
-          "rationale": "Representative Building coverage is concentrated in Industrial & Flex.",
-          "gapCode": "ecosystem_concentration",
+          "title": "East Bay Office Ecosystem Representative Building Foundation",
+          "ecosystemId": "office",
+          "ecosystemLabel": "Office",
+          "sprintFamily": "Ecosystem Representative Building Foundation",
+          "rationale": "Representative role coverage is too narrow for this ecosystem.",
+          "gapCode": "representative_role_thin",
           "completionCriteria": [
             "Validated district ecosystem classification",
             "Representative Building coverage across the most important subtypes",
@@ -15586,32 +15326,6 @@
               "blocksEcosystemReadiness": false
             },
             {
-              "id": "ecosystem:industrial_flex:representative_role_thin",
-              "code": "representative_role_thin",
-              "label": "Representative Role Thin",
-              "severity": "medium",
-              "layer": "representativeBuildingIntelligence",
-              "ecosystemId": "industrial_flex",
-              "ecosystemLabel": "Industrial & Flex",
-              "relevance": "core",
-              "readinessState": "strong",
-              "rationale": "Representative role coverage is too narrow for this ecosystem.",
-              "evidence": [
-                "5 primary districts and 3 secondary districts.",
-                "16 Representative Buildings and 8 Building Briefs.",
-                "8 representative roles and 7 operational categories are covered."
-              ],
-              "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
               "id": "ecosystem:retail:ecosystem_subtype_gap",
               "code": "ecosystem_subtype_gap",
               "label": "Ecosystem Subtype Gap",
@@ -16191,9 +15905,9 @@
               "blocksEcosystemReadiness": false
             },
             {
-              "id": "ecosystem:industrial_flex:ecosystem_concentration",
-              "code": "ecosystem_concentration",
-              "label": "Ecosystem Concentration",
+              "id": "ecosystem:industrial_flex:ecosystem_building_brief_concentration",
+              "code": "ecosystem_building_brief_concentration",
+              "label": "Ecosystem Building Brief Concentration",
               "severity": "medium",
               "layer": "balance",
               "ecosystemId": "industrial_flex",
@@ -17100,32 +16814,6 @@
             "ecosystemLabel": "Industrial & Flex",
             "relevance": "core",
             "readinessState": "strong",
-            "rationale": "Industrial & Flex Building Brief depth may mask gaps in Office, Retail, Medical.",
-            "evidence": [
-              "5 primary districts and 3 secondary districts.",
-              "16 Representative Buildings and 8 Building Briefs.",
-              "8 representative roles and 7 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem Balance Sprint",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:industrial_flex:ecosystem_concentration",
-            "code": "ecosystem_concentration",
-            "label": "Ecosystem Concentration",
-            "severity": "medium",
-            "layer": "balance",
-            "ecosystemId": "industrial_flex",
-            "ecosystemLabel": "Industrial & Flex",
-            "relevance": "core",
-            "readinessState": "strong",
             "rationale": "Building Brief coverage is concentrated in Industrial & Flex.",
             "evidence": [
               "5 primary districts and 3 secondary districts.",
@@ -17143,22 +16831,22 @@
             "blocksEcosystemReadiness": false
           },
           {
-            "id": "ecosystem:industrial_flex:representative_role_thin",
-            "code": "representative_role_thin",
-            "label": "Representative Role Thin",
+            "id": "ecosystem:industrial_flex:ecosystem_building_brief_concentration",
+            "code": "ecosystem_building_brief_concentration",
+            "label": "Ecosystem Building Brief Concentration",
             "severity": "medium",
-            "layer": "representativeBuildingIntelligence",
+            "layer": "balance",
             "ecosystemId": "industrial_flex",
             "ecosystemLabel": "Industrial & Flex",
             "relevance": "core",
             "readinessState": "strong",
-            "rationale": "Representative role coverage is too narrow for this ecosystem.",
+            "rationale": "Industrial & Flex Building Brief depth may mask gaps in Office, Retail, Medical.",
             "evidence": [
               "5 primary districts and 3 secondary districts.",
               "16 Representative Buildings and 8 Building Briefs.",
               "8 representative roles and 7 operational categories are covered."
             ],
-            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
+            "recommendedSprintFamily": "Ecosystem Balance Sprint",
             "completionCriteria": [
               "Validated district ecosystem classification",
               "Representative Building coverage across the most important subtypes",
@@ -17845,7 +17533,7 @@
           "ecosystemId": "industrial_flex",
           "ecosystemLabel": "Industrial & Flex",
           "sprintFamily": "Ecosystem Balance Sprint",
-          "rationale": "Industrial & Flex Building Brief depth may mask gaps in Office, Retail, Medical.",
+          "rationale": "Building Brief coverage is concentrated in Industrial & Flex.",
           "gapCode": "ecosystem_building_brief_concentration",
           "completionCriteria": [
             "Validated district ecosystem classification",
@@ -39249,84 +38937,6 @@
           ],
           "gaps": [
             {
-              "id": "ecosystem:office:representative_role_thin",
-              "code": "representative_role_thin",
-              "label": "Representative Role Thin",
-              "severity": "medium",
-              "layer": "representativeBuildingIntelligence",
-              "ecosystemId": "office",
-              "ecosystemLabel": "Office",
-              "relevance": "core",
-              "readinessState": "developed",
-              "rationale": "Representative role coverage is too narrow for this ecosystem.",
-              "evidence": [
-                "7 primary districts and 14 secondary districts.",
-                "75 Representative Buildings and 35 Building Briefs.",
-                "7 representative roles and 5 operational categories are covered."
-              ],
-              "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
-              "id": "ecosystem:office:operational_category_gap",
-              "code": "operational_category_gap",
-              "label": "Operational Category Gap",
-              "severity": "low",
-              "layer": "representativeBuildingIntelligence",
-              "ecosystemId": "office",
-              "ecosystemLabel": "Office",
-              "relevance": "core",
-              "readinessState": "developed",
-              "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
-              "evidence": [
-                "7 primary districts and 14 secondary districts.",
-                "75 Representative Buildings and 35 Building Briefs.",
-                "7 representative roles and 5 operational categories are covered."
-              ],
-              "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
-              "id": "ecosystem:industrial_flex:operational_category_gap",
-              "code": "operational_category_gap",
-              "label": "Operational Category Gap",
-              "severity": "low",
-              "layer": "representativeBuildingIntelligence",
-              "ecosystemId": "industrial_flex",
-              "ecosystemLabel": "Industrial & Flex",
-              "relevance": "core",
-              "readinessState": "developed",
-              "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
-              "evidence": [
-                "9 primary districts and 6 secondary districts.",
-                "51 Representative Buildings and 24 Building Briefs.",
-                "6 representative roles and 6 operational categories are covered."
-              ],
-              "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
               "id": "ecosystem:retail:ecosystem_building_brief_gap",
               "code": "ecosystem_building_brief_gap",
               "label": "Ecosystem Building Brief Gap",
@@ -40733,32 +40343,6 @@
         },
         "ecosystemGaps": [
           {
-            "id": "ecosystem:office:representative_role_thin",
-            "code": "representative_role_thin",
-            "label": "Representative Role Thin",
-            "severity": "medium",
-            "layer": "representativeBuildingIntelligence",
-            "ecosystemId": "office",
-            "ecosystemLabel": "Office",
-            "relevance": "core",
-            "readinessState": "developed",
-            "rationale": "Representative role coverage is too narrow for this ecosystem.",
-            "evidence": [
-              "7 primary districts and 14 secondary districts.",
-              "75 Representative Buildings and 35 Building Briefs.",
-              "7 representative roles and 5 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
             "id": "ecosystem:medical:ecosystem_subtype_gap",
             "code": "ecosystem_subtype_gap",
             "label": "Ecosystem Subtype Gap",
@@ -40800,58 +40384,6 @@
               "2 representative roles and 2 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem Building Brief Migration",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:industrial_flex:operational_category_gap",
-            "code": "operational_category_gap",
-            "label": "Operational Category Gap",
-            "severity": "low",
-            "layer": "representativeBuildingIntelligence",
-            "ecosystemId": "industrial_flex",
-            "ecosystemLabel": "Industrial & Flex",
-            "relevance": "core",
-            "readinessState": "developed",
-            "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
-            "evidence": [
-              "9 primary districts and 6 secondary districts.",
-              "51 Representative Buildings and 24 Building Briefs.",
-              "6 representative roles and 6 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:office:operational_category_gap",
-            "code": "operational_category_gap",
-            "label": "Operational Category Gap",
-            "severity": "low",
-            "layer": "representativeBuildingIntelligence",
-            "ecosystemId": "office",
-            "ecosystemLabel": "Office",
-            "relevance": "core",
-            "readinessState": "developed",
-            "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
-            "evidence": [
-              "7 primary districts and 14 secondary districts.",
-              "75 Representative Buildings and 35 Building Briefs.",
-              "7 representative roles and 5 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
             "completionCriteria": [
               "Validated district ecosystem classification",
               "Representative Building coverage across the most important subtypes",
@@ -41254,12 +40786,12 @@
           }
         },
         "recommendedEcosystemSprint": {
-          "title": "San Francisco Office Ecosystem Representative Building Foundation",
-          "ecosystemId": "office",
-          "ecosystemLabel": "Office",
-          "sprintFamily": "Ecosystem Representative Building Foundation",
-          "rationale": "Representative role coverage is too narrow for this ecosystem.",
-          "gapCode": "representative_role_thin",
+          "title": "San Francisco Medical Ecosystem Subtype Expansion",
+          "ecosystemId": "medical",
+          "ecosystemLabel": "Medical",
+          "sprintFamily": "Ecosystem Subtype Expansion",
+          "rationale": "Subtype breadth is too narrow for the ecosystem's relevance.",
+          "gapCode": "ecosystem_subtype_gap",
           "completionCriteria": [
             "Validated district ecosystem classification",
             "Representative Building coverage across the most important subtypes",
@@ -47127,32 +46659,6 @@
               "blocksEcosystemReadiness": false
             },
             {
-              "id": "ecosystem:industrial_flex:representative_role_thin",
-              "code": "representative_role_thin",
-              "label": "Representative Role Thin",
-              "severity": "medium",
-              "layer": "representativeBuildingIntelligence",
-              "ecosystemId": "industrial_flex",
-              "ecosystemLabel": "Industrial & Flex",
-              "relevance": "core",
-              "readinessState": "developed",
-              "rationale": "Representative role coverage is too narrow for this ecosystem.",
-              "evidence": [
-                "5 primary districts and 1 secondary districts.",
-                "35 Representative Buildings and 16 Building Briefs.",
-                "5 representative roles and 6 operational categories are covered."
-              ],
-              "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
               "id": "ecosystem:retail:ecosystem_building_brief_gap",
               "code": "ecosystem_building_brief_gap",
               "label": "Ecosystem Building Brief Gap",
@@ -47696,32 +47202,6 @@
                 "0 Representative Buildings and 0 Building Briefs."
               ],
               "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
-              "id": "ecosystem:industrial_flex:ecosystem_concentration",
-              "code": "ecosystem_concentration",
-              "label": "Ecosystem Concentration",
-              "severity": "medium",
-              "layer": "balance",
-              "ecosystemId": "industrial_flex",
-              "ecosystemLabel": "Industrial & Flex",
-              "relevance": "core",
-              "readinessState": "developed",
-              "rationale": "Representative Building coverage is concentrated in Industrial & Flex.",
-              "evidence": [
-                "5 primary districts and 1 secondary districts.",
-                "35 Representative Buildings and 16 Building Briefs.",
-                "5 representative roles and 6 operational categories are covered."
-              ],
-              "recommendedSprintFamily": "Ecosystem Balance Sprint",
               "completionCriteria": [
                 "Validated district ecosystem classification",
                 "Representative Building coverage across the most important subtypes",
@@ -48480,58 +47960,6 @@
         },
         "ecosystemGaps": [
           {
-            "id": "ecosystem:industrial_flex:ecosystem_concentration",
-            "code": "ecosystem_concentration",
-            "label": "Ecosystem Concentration",
-            "severity": "medium",
-            "layer": "balance",
-            "ecosystemId": "industrial_flex",
-            "ecosystemLabel": "Industrial & Flex",
-            "relevance": "core",
-            "readinessState": "developed",
-            "rationale": "Representative Building coverage is concentrated in Industrial & Flex.",
-            "evidence": [
-              "5 primary districts and 1 secondary districts.",
-              "35 Representative Buildings and 16 Building Briefs.",
-              "5 representative roles and 6 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem Balance Sprint",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:industrial_flex:representative_role_thin",
-            "code": "representative_role_thin",
-            "label": "Representative Role Thin",
-            "severity": "medium",
-            "layer": "representativeBuildingIntelligence",
-            "ecosystemId": "industrial_flex",
-            "ecosystemLabel": "Industrial & Flex",
-            "relevance": "core",
-            "readinessState": "developed",
-            "rationale": "Representative role coverage is too narrow for this ecosystem.",
-            "evidence": [
-              "5 primary districts and 1 secondary districts.",
-              "35 Representative Buildings and 16 Building Briefs.",
-              "5 representative roles and 6 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
             "id": "ecosystem:office:representative_role_thin",
             "code": "representative_role_thin",
             "label": "Representative Role Thin",
@@ -49130,12 +48558,12 @@
           }
         },
         "recommendedEcosystemSprint": {
-          "title": "East Bay Industrial & Flex Ecosystem Balance Sprint",
-          "ecosystemId": "industrial_flex",
-          "ecosystemLabel": "Industrial & Flex",
-          "sprintFamily": "Ecosystem Balance Sprint",
-          "rationale": "Representative Building coverage is concentrated in Industrial & Flex.",
-          "gapCode": "ecosystem_concentration",
+          "title": "East Bay Office Ecosystem Representative Building Foundation",
+          "ecosystemId": "office",
+          "ecosystemLabel": "Office",
+          "sprintFamily": "Ecosystem Representative Building Foundation",
+          "rationale": "Representative role coverage is too narrow for this ecosystem.",
+          "gapCode": "representative_role_thin",
           "completionCriteria": [
             "Validated district ecosystem classification",
             "Representative Building coverage across the most important subtypes",
@@ -51505,32 +50933,6 @@
               "blocksEcosystemReadiness": false
             },
             {
-              "id": "ecosystem:industrial_flex:representative_role_thin",
-              "code": "representative_role_thin",
-              "label": "Representative Role Thin",
-              "severity": "medium",
-              "layer": "representativeBuildingIntelligence",
-              "ecosystemId": "industrial_flex",
-              "ecosystemLabel": "Industrial & Flex",
-              "relevance": "core",
-              "readinessState": "strong",
-              "rationale": "Representative role coverage is too narrow for this ecosystem.",
-              "evidence": [
-                "5 primary districts and 3 secondary districts.",
-                "16 Representative Buildings and 8 Building Briefs.",
-                "8 representative roles and 7 operational categories are covered."
-              ],
-              "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
               "id": "ecosystem:retail:ecosystem_subtype_gap",
               "code": "ecosystem_subtype_gap",
               "label": "Ecosystem Subtype Gap",
@@ -52110,9 +51512,9 @@
               "blocksEcosystemReadiness": false
             },
             {
-              "id": "ecosystem:industrial_flex:ecosystem_concentration",
-              "code": "ecosystem_concentration",
-              "label": "Ecosystem Concentration",
+              "id": "ecosystem:industrial_flex:ecosystem_building_brief_concentration",
+              "code": "ecosystem_building_brief_concentration",
+              "label": "Ecosystem Building Brief Concentration",
               "severity": "medium",
               "layer": "balance",
               "ecosystemId": "industrial_flex",
@@ -53019,32 +52421,6 @@
             "ecosystemLabel": "Industrial & Flex",
             "relevance": "core",
             "readinessState": "strong",
-            "rationale": "Industrial & Flex Building Brief depth may mask gaps in Office, Retail, Medical.",
-            "evidence": [
-              "5 primary districts and 3 secondary districts.",
-              "16 Representative Buildings and 8 Building Briefs.",
-              "8 representative roles and 7 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem Balance Sprint",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:industrial_flex:ecosystem_concentration",
-            "code": "ecosystem_concentration",
-            "label": "Ecosystem Concentration",
-            "severity": "medium",
-            "layer": "balance",
-            "ecosystemId": "industrial_flex",
-            "ecosystemLabel": "Industrial & Flex",
-            "relevance": "core",
-            "readinessState": "strong",
             "rationale": "Building Brief coverage is concentrated in Industrial & Flex.",
             "evidence": [
               "5 primary districts and 3 secondary districts.",
@@ -53062,22 +52438,22 @@
             "blocksEcosystemReadiness": false
           },
           {
-            "id": "ecosystem:industrial_flex:representative_role_thin",
-            "code": "representative_role_thin",
-            "label": "Representative Role Thin",
+            "id": "ecosystem:industrial_flex:ecosystem_building_brief_concentration",
+            "code": "ecosystem_building_brief_concentration",
+            "label": "Ecosystem Building Brief Concentration",
             "severity": "medium",
-            "layer": "representativeBuildingIntelligence",
+            "layer": "balance",
             "ecosystemId": "industrial_flex",
             "ecosystemLabel": "Industrial & Flex",
             "relevance": "core",
             "readinessState": "strong",
-            "rationale": "Representative role coverage is too narrow for this ecosystem.",
+            "rationale": "Industrial & Flex Building Brief depth may mask gaps in Office, Retail, Medical.",
             "evidence": [
               "5 primary districts and 3 secondary districts.",
               "16 Representative Buildings and 8 Building Briefs.",
               "8 representative roles and 7 operational categories are covered."
             ],
-            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
+            "recommendedSprintFamily": "Ecosystem Balance Sprint",
             "completionCriteria": [
               "Validated district ecosystem classification",
               "Representative Building coverage across the most important subtypes",
@@ -53764,7 +53140,7 @@
           "ecosystemId": "industrial_flex",
           "ecosystemLabel": "Industrial & Flex",
           "sprintFamily": "Ecosystem Balance Sprint",
-          "rationale": "Industrial & Flex Building Brief depth may mask gaps in Office, Retail, Medical.",
+          "rationale": "Building Brief coverage is concentrated in Industrial & Flex.",
           "gapCode": "ecosystem_building_brief_concentration",
           "completionCriteria": [
             "Validated district ecosystem classification",
@@ -86987,7 +86363,7 @@
         "Low": 2
       },
       "deferredCandidates": 64,
-      "latestValidation": "2026-08-10T18:30:06-07:00",
+      "latestValidation": "2026-08-10T20:11:53-07:00",
       "errors": [],
       "warnings": [],
       "source": {

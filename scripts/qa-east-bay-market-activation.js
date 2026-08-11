@@ -47,6 +47,12 @@ if (eastBayPublisher) {
   assert(eastBayPublisher.buildingBriefCount >= 26, `East Bay should count existing Building Profiles, got ${eastBayPublisher.buildingBriefCount}.`);
   assert(eastBayPublisher.overallScore > 0, `East Bay Publisher score should be independently calculated above 0, got ${eastBayPublisher.overallScore}.`);
   assert(eastBayPublisher.compassStatus === "pending-verification", `East Bay Recommendation QA should remain pending, got ${eastBayPublisher.compassStatus}.`);
+  const industrial = ((eastBayPublisher.ecosystemReadiness || {}).evaluations || []).find((item) => item.ecosystemId === "industrial_flex");
+  assert(industrial && industrial.readinessState === "developed", `East Bay Industrial & Flex should remain developed, got ${industrial && industrial.readinessState}.`);
+  assert(eastBayPublisher.ecosystemBalance && eastBayPublisher.ecosystemBalance.state === "industrial_flex_representative_building_concentrated", `East Bay should still report Industrial & Flex concentration context, got ${eastBayPublisher.ecosystemBalance && eastBayPublisher.ecosystemBalance.state}.`);
+  assert(!((eastBayPublisher.ecosystemGaps || []).some((gap) => gap.ecosystemId === "industrial_flex" && gap.code === "ecosystem_concentration")), "East Bay Industrial & Flex concentration should not generate an executable ecosystem sprint when Industrial & Flex is already developed.");
+  assert(!((eastBayPublisher.ecosystemGaps || []).some((gap) => gap.ecosystemId === "industrial_flex" && gap.code === "representative_role_thin")), "East Bay developed Industrial & Flex should not remain open solely for optional missing role breadth.");
+  assert(eastBayPublisher.recommendedEcosystemSprint && eastBayPublisher.recommendedEcosystemSprint.ecosystemId !== "industrial_flex", "East Bay recommended ecosystem sprint should move to an underdeveloped ecosystem, not additional Industrial & Flex work.");
 }
 
 if (eastBayEos) {
@@ -95,6 +101,12 @@ const haywardMission = (((eos.marketProjection || {}).missions) || []).find((mis
   mission.districtId === "hayward-industrial"
 );
 assert(Boolean(haywardMission), "Hayward Industrial should remain a valid future East Bay evidence mission.");
+
+const industrialBalanceMission = (((eos.marketProjection || {}).missions) || []).find((mission) =>
+  mission.marketId === "east-bay" &&
+  /industrial.*flex.*balance/i.test(`${mission.title || ""} ${mission.currentConstraint || ""}`)
+);
+assert(!industrialBalanceMission, "East Bay should not generate an Industrial & Flex balance mission after the ecosystem is developed.");
 
 const sanFrancisco = publisherMetro("san-francisco");
 const denver = publisherMetro("denver");
