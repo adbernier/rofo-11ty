@@ -11,6 +11,7 @@ module.exports = {
     require("../data/commercial-market-evidence/east-bay/downtown-berkeley"),
     require("../data/commercial-market-evidence/east-bay/emeryville-commercial-core"),
     require("../data/commercial-market-evidence/east-bay/hayward-industrial"),
+    require("../data/commercial-market-evidence/east-bay/jack-london-square"),
     require("../data/commercial-market-evidence/east-bay/union-city-industrial"),
     require("../data/commercial-market-evidence/east-bay/warm-springs-innovation-district"),
     require("../data/commercial-market-evidence/east-bay/west-berkeley"),

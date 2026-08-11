@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-11T13:19:25-07:00",
-  "sourceCommit": "76a99953c487af415a8214518bd2c91a51dbbb26",
+  "generatedAt": "2026-08-11T13:44:53-07:00",
+  "sourceCommit": "60456e0dc631cf053fe8dd43dfa7f1a6a41dc820",
   "geography": {
     "schemaVersion": "commercial-geography-summary-v1",
     "hierarchy": [
@@ -1850,7 +1850,7 @@
     "service": "Commercial Market Evidence",
     "status": "Validated",
     "validationStatus": "PASS",
-    "collections": 27,
+    "collections": 28,
     "districts": [
       "Antioch East 18th Industrial",
       "Aurora",
@@ -1867,6 +1867,7 @@
       "Hayward Industrial",
       "Indianapolis Airport Logistics",
       "Inverness",
+      "Jack London Square",
       "Jackson Square",
       "Mission Bay",
       "Mission District",
@@ -1880,8 +1881,9 @@
       "Warm Springs Innovation District",
       "West Berkeley"
     ],
-    "evidenceRecords": 172,
+    "evidenceRecords": 175,
     "evidenceTypes": [
+      "Adaptive Commercial Building",
       "Adaptive Showroom / Creative Office",
       "Adaptive-Reuse Boutique Office",
       "Airport Logistics Industrial Building",
@@ -2038,7 +2040,9 @@
       "Warm Springs Business-Center Flex",
       "Waterfront Industrial Adaptive Reuse",
       "Waterfront Modern Office",
+      "Waterfront Service-Commercial Edge",
       "Waterfront Technology Ballpark Campus",
+      "Waterfront-Adjacent Commercial Building",
       "Waterfront-Edge Industrial / Flex",
       "Waterfront-Edge Innovation Office",
       "West SoMa Creative Technology Office",
@@ -2125,6 +2129,7 @@
       "Life Science Ecosystem Depth Benchmark",
       "Lower-Rise Neighborhood Anchor",
       "Lower-Rise Showplace Office Depth",
+      "Lower-Scale Service-Commercial Reference",
       "Maker and Education Anchor",
       "Maker and R&D-Support Benchmark",
       "Mid-Market Creative Demand",
@@ -2203,8 +2208,10 @@
       "Warehouse / Industrial Depth",
       "Warehouse / Industrial Market Context",
       "Warehouse Showroom Pattern",
+      "Warehouse-Adjacent Adaptive Commercial Reference",
       "Warm Springs Boulevard Corridor Benchmark",
       "Waterfront Historic Office Benchmark",
+      "Waterfront-Adjacent Commercial Reference",
       "West-Side Berkeley Access Benchmark",
       "Western Avenue Operating Benchmark",
       "Westinghouse Flex Operations Benchmark",
@@ -2212,11 +2219,11 @@
       "Whipple Road Warehouse Benchmark"
     ],
     "confidenceSummary": {
-      "High": 170,
+      "High": 173,
       "Low": 2
     },
-    "deferredCandidates": 67,
-    "latestValidation": "2026-08-11T13:19:25-07:00",
+    "deferredCandidates": 69,
+    "latestValidation": "2026-08-11T13:44:53-07:00",
     "errors": [],
     "warnings": [],
     "source": {
@@ -2226,13 +2233,13 @@
     "scoringImpact": "None. Reporting only; Publisher scoring and readiness calculations are unchanged."
   },
   "analysis": {
-    "generatedAt": "2026-08-11T13:19:25-07:00",
+    "generatedAt": "2026-08-11T13:44:53-07:00",
     "rulesVersion": "publisher-rules-v1",
     "overview": {
       "compassReadyCount": 5,
       "averageScore": 89,
       "criticalIssues": 0,
-      "queuedTasks": 283,
+      "queuedTasks": 277,
       "closestToDistributionReady": "Sacramento",
       "largestCriticalGap": "None"
     },
@@ -2274,11 +2281,11 @@
             "label": "Editorial Coverage",
             "score": 91,
             "status": "",
-            "explanation": "24 of 24 districts have substantive descriptions; 155 representative buildings and 83 Building Briefs are available.",
+            "explanation": "24 of 24 districts have substantive descriptions; 155 representative buildings and 86 Building Briefs are available.",
             "completed": {
               "districtsWithDescriptions": 24,
               "representativeBuildings": 155,
-              "buildingBriefs": 83
+              "buildingBriefs": 86
             },
             "targets": {
               "representativeBuildingsPerDistrict": 3,
@@ -2315,7 +2322,7 @@
         "cityPath": "/commercial-real-estate/CA/san-francisco/",
         "districtCount": 24,
         "representativeBuildingCount": 155,
-        "buildingBriefCount": 83,
+        "buildingBriefCount": 86,
         "geographicReadiness": {
           "state": "developed",
           "label": "Developed",
@@ -2373,8 +2380,8 @@
                 "districts": 7,
                 "secondaryDistricts": 14,
                 "recommendations": 7,
-                "representativeBuildings": 75,
-                "buildingBriefs": 35,
+                "representativeBuildings": 78,
+                "buildingBriefs": 38,
                 "subtypes": 7,
                 "archetypes": 10,
                 "activities": 7,
@@ -2390,7 +2397,7 @@
               "strategicPriority": 2,
               "evidence": [
                 "7 primary districts and 14 secondary districts.",
-                "75 Representative Buildings and 35 Building Briefs.",
+                "78 Representative Buildings and 38 Building Briefs.",
                 "7 representative roles and 5 operational categories are covered."
               ],
               "targetSubtypes": [
@@ -2418,7 +2425,7 @@
                 "ecosystemId": "office",
                 "state": "strong",
                 "stateLabel": "Strong",
-                "buildingCount": 75,
+                "buildingCount": 78,
                 "explicitCount": 0,
                 "inheritedOnlyCount": 65,
                 "reviewRequiredCount": 0,
@@ -2434,8 +2441,8 @@
                 "subtypesCovered": [
                   "professional_office",
                   "downtown_office",
-                  "executive_office",
-                  "creative_office"
+                  "creative_office",
+                  "executive_office"
                 ],
                 "activityCoverage": [
                   "knowledge_work",
@@ -2777,7 +2784,7 @@
                 "districts": 7,
                 "secondaryDistricts": 6,
                 "recommendations": 7,
-                "representativeBuildings": 15,
+                "representativeBuildings": 12,
                 "buildingBriefs": 0,
                 "subtypes": 4,
                 "archetypes": 4,
@@ -2786,7 +2793,7 @@
                 "representativeRoles": 2,
                 "operationalCategories": 2,
                 "operationalCharacteristics": 5,
-                "reviewRequiredRepresentativeBuildings": 6
+                "reviewRequiredRepresentativeBuildings": 3
               },
               "gaps": [
                 "Building Brief coverage is missing for this ecosystem."
@@ -2796,7 +2803,7 @@
               "strategicPriority": 5,
               "evidence": [
                 "7 primary districts and 6 secondary districts.",
-                "15 Representative Buildings and 0 Building Briefs.",
+                "12 Representative Buildings and 0 Building Briefs.",
                 "2 representative roles and 2 operational categories are covered."
               ],
               "targetSubtypes": [
@@ -2822,10 +2829,10 @@
                 "ecosystemId": "retail",
                 "state": "partial",
                 "stateLabel": "Partial",
-                "buildingCount": 15,
+                "buildingCount": 12,
                 "explicitCount": 0,
-                "inheritedOnlyCount": 15,
-                "reviewRequiredCount": 6,
+                "inheritedOnlyCount": 12,
+                "reviewRequiredCount": 3,
                 "rolesCovered": [
                   "neighborhood_service_retail",
                   "showroom_retail_environment"
@@ -2873,24 +2880,6 @@
                 "highestPriorityMissingOperationalCategory": "access_loading",
                 "exampleBuildings": [
                   {
-                    "name": "119 Filbert St",
-                    "path": "/commercial-real-estate/building/CA/oakland/119-filbert-st/",
-                    "role": "neighborhood_service_retail",
-                    "confidence": "review_required"
-                  },
-                  {
-                    "name": "160 Franklin St",
-                    "path": "/commercial-real-estate/building/CA/oakland/160-franklin-st/",
-                    "role": "neighborhood_service_retail",
-                    "confidence": "review_required"
-                  },
-                  {
-                    "name": "424 3rd St",
-                    "path": "/commercial-real-estate/building/CA/oakland/424-3rd-st/",
-                    "role": "neighborhood_service_retail",
-                    "confidence": "review_required"
-                  },
-                  {
                     "name": "101 Lytton Ave",
                     "path": "/commercial-real-estate/building/CA/palo-alto/101-lytton-ave/",
                     "role": "neighborhood_service_retail",
@@ -2907,6 +2896,24 @@
                     "path": "/commercial-real-estate/building/CA/palo-alto/525-university-ave/",
                     "role": "neighborhood_service_retail",
                     "confidence": "review_required"
+                  },
+                  {
+                    "name": "One Henry Adams",
+                    "path": "/commercial-real-estate/building/CA/san-francisco/1-henry-adams-st/",
+                    "role": "showroom_retail_environment",
+                    "confidence": "district_inferred"
+                  },
+                  {
+                    "name": "San Francisco Design Center - Galleria",
+                    "path": "/commercial-real-estate/building/CA/san-francisco/101-henry-adams-st/",
+                    "role": "showroom_retail_environment",
+                    "confidence": "district_inferred"
+                  },
+                  {
+                    "name": "San Francisco Armory",
+                    "path": "/commercial-real-estate/building/CA/san-francisco/1800-mission-st/",
+                    "role": "neighborhood_service_retail",
+                    "confidence": "district_inferred"
                   }
                 ]
               },
@@ -3390,7 +3397,7 @@
               "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
               "evidence": [
                 "7 primary districts and 6 secondary districts.",
-                "15 Representative Buildings and 0 Building Briefs.",
+                "12 Representative Buildings and 0 Building Briefs.",
                 "2 representative roles and 2 operational categories are covered."
               ],
               "recommendedSprintFamily": "Ecosystem Building Brief Migration",
@@ -3416,7 +3423,7 @@
               "rationale": "Representative role coverage is too narrow for this ecosystem.",
               "evidence": [
                 "7 primary districts and 6 secondary districts.",
-                "15 Representative Buildings and 0 Building Briefs.",
+                "12 Representative Buildings and 0 Building Briefs.",
                 "2 representative roles and 2 operational categories are covered."
               ],
               "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -3442,7 +3449,7 @@
               "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
               "evidence": [
                 "7 primary districts and 6 secondary districts.",
-                "15 Representative Buildings and 0 Building Briefs.",
+                "12 Representative Buildings and 0 Building Briefs.",
                 "2 representative roles and 2 operational categories are covered."
               ],
               "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -3810,8 +3817,8 @@
             "state": "balanced",
             "label": "Balanced",
             "dominantEcosystem": "industrial_flex",
-            "representativeBuildingShare": 0.48,
-            "buildingBriefShare": 0.52,
+            "representativeBuildingShare": 0.5,
+            "buildingBriefShare": 0.5,
             "warnings": []
           }
         },
@@ -3819,8 +3826,8 @@
           "state": "balanced",
           "label": "Balanced",
           "dominantEcosystem": "industrial_flex",
-          "representativeBuildingShare": 0.48,
-          "buildingBriefShare": 0.52,
+          "representativeBuildingShare": 0.5,
+          "buildingBriefShare": 0.5,
           "warnings": []
         },
         "ecosystemCoverage": {
@@ -3831,8 +3838,8 @@
               "districtCount": 7,
               "secondaryDistrictCount": 14,
               "recommendationNodeCount": 7,
-              "representativeBuildingCount": 75,
-              "buildingBriefCount": 35,
+              "representativeBuildingCount": 78,
+              "buildingBriefCount": 38,
               "status": "Developed",
               "districts": [
                 {
@@ -3911,71 +3918,71 @@
                 "ecosystemId": "office",
                 "state": "strong",
                 "stateLabel": "Strong",
-                "buildingCount": 75,
+                "buildingCount": 78,
                 "explicitCount": 0,
                 "inheritedOnlyCount": 65,
                 "reviewRequiredCount": 0,
                 "rolesCovered": {
                   "downtown_class_a_office": 6,
-                  "professional_office_environment": 7,
+                  "professional_office_environment": 9,
                   "government_office_environment": 1,
-                  "creative_office_environment": 45,
+                  "creative_office_environment": 46,
                   "executive_office_environment": 13,
                   "suburban_office_campus": 1,
                   "transit_oriented_office_environment": 2
                 },
                 "subtypesCovered": {
-                  "professional_office": 22,
+                  "professional_office": 25,
                   "downtown_office": 38,
-                  "executive_office": 16,
-                  "creative_office": 49
+                  "creative_office": 50,
+                  "executive_office": 16
                 },
                 "activityCoverage": {
-                  "knowledge_work": 75,
-                  "client_meetings": 48,
-                  "administrative_operations": 29,
-                  "walk_in_retail": 13,
-                  "walk_in_service": 17,
-                  "customer_showroom": 33,
-                  "collaboration": 50,
-                  "product_development": 46,
+                  "knowledge_work": 78,
+                  "client_meetings": 50,
+                  "administrative_operations": 31,
+                  "walk_in_retail": 16,
+                  "walk_in_service": 20,
+                  "customer_showroom": 36,
+                  "collaboration": 51,
+                  "product_development": 47,
                   "light_manufacturing": 6,
                   "research": 3
                 },
                 "archetypeCoverage": {
-                  "wellness_practice": 13,
-                  "marketing_agency": 66,
-                  "professional_office": 75,
-                  "law_firm": 75,
-                  "accounting_firm": 75,
-                  "financial_services_firm": 75,
-                  "consulting_firm": 75,
-                  "creative_studio": 75,
+                  "wellness_practice": 16,
+                  "marketing_agency": 69,
+                  "professional_office": 78,
+                  "law_firm": 78,
+                  "accounting_firm": 78,
+                  "financial_services_firm": 78,
+                  "consulting_firm": 78,
+                  "creative_studio": 78,
                   "startup": 62,
                   "research_company": 9
                 },
                 "operationalCharacteristicsCovered": {
-                  "professional_image": 29,
+                  "professional_image": 31,
                   "transit_access": 8,
                   "large_floorplates": 6,
                   "structured_parking": 6,
-                  "private_office_layout": 20,
-                  "customer_parking": 7,
+                  "private_office_layout": 22,
+                  "customer_parking": 9,
                   "urban_core_access": 1,
                   "enhanced_security": 14,
-                  "creative_environment": 45,
-                  "open_workspace": 45,
-                  "flexible_suite_sizes": 45,
-                  "walkability": 47,
+                  "creative_environment": 46,
+                  "open_workspace": 46,
+                  "flexible_suite_sizes": 46,
+                  "walkability": 48,
                   "campus_environment": 1,
                   "surface_parking": 1,
                   "suburban_access": 1
                 },
                 "operationalCategoriesCovered": {
-                  "market_presence": 75,
-                  "location_workforce": 57,
-                  "configuration": 116,
-                  "parking_vehicles": 14,
+                  "market_presence": 78,
+                  "location_workforce": 58,
+                  "configuration": 120,
+                  "parking_vehicles": 16,
                   "infrastructure": 14
                 },
                 "missingRoles": [
@@ -4273,7 +4280,7 @@
               "districtCount": 7,
               "secondaryDistrictCount": 6,
               "recommendationNodeCount": 7,
-              "representativeBuildingCount": 15,
+              "representativeBuildingCount": 12,
               "buildingBriefCount": 0,
               "status": "Partial",
               "districts": [
@@ -4343,43 +4350,43 @@
                 "ecosystemId": "retail",
                 "state": "partial",
                 "stateLabel": "Partial",
-                "buildingCount": 15,
+                "buildingCount": 12,
                 "explicitCount": 0,
-                "inheritedOnlyCount": 15,
-                "reviewRequiredCount": 6,
+                "inheritedOnlyCount": 12,
+                "reviewRequiredCount": 3,
                 "rolesCovered": {
-                  "neighborhood_service_retail": 10,
+                  "neighborhood_service_retail": 7,
                   "showroom_retail_environment": 5
                 },
                 "subtypesCovered": {
-                  "neighborhood_retail": 10,
+                  "neighborhood_retail": 7,
                   "showroom_retail": 5
                 },
                 "activityCoverage": {
-                  "walk_in_service": 15,
-                  "walk_in_retail": 10,
-                  "customer_showroom": 15,
+                  "walk_in_service": 12,
+                  "walk_in_retail": 7,
+                  "customer_showroom": 12,
                   "collaboration": 5,
                   "knowledge_work": 9
                 },
                 "archetypeCoverage": {
-                  "wellness_practice": 15,
-                  "marketing_agency": 15,
-                  "food_producer": 15,
-                  "training_center": 15,
+                  "wellness_practice": 12,
+                  "marketing_agency": 12,
+                  "food_producer": 12,
+                  "training_center": 12,
                   "creative_studio": 9,
                   "professional_office": 9
                 },
                 "operationalCharacteristicsCovered": {
-                  "street_visibility": 15,
-                  "walk_in_customer_access": 10,
-                  "customer_parking": 10,
+                  "street_visibility": 12,
+                  "walk_in_customer_access": 7,
+                  "customer_parking": 7,
                   "showroom_frontage": 5,
                   "destination_customer_access": 5
                 },
                 "operationalCategoriesCovered": {
-                  "market_presence": 35,
-                  "parking_vehicles": 10
+                  "market_presence": 29,
+                  "parking_vehicles": 7
                 },
                 "missingRoles": [
                   "destination_retail_environment"
@@ -4393,24 +4400,6 @@
                 "highestPriorityMissingRole": "destination_retail_environment",
                 "highestPriorityMissingOperationalCategory": "access_loading",
                 "exampleBuildings": [
-                  {
-                    "name": "119 Filbert St",
-                    "path": "/commercial-real-estate/building/CA/oakland/119-filbert-st/",
-                    "role": "neighborhood_service_retail",
-                    "confidence": "review_required"
-                  },
-                  {
-                    "name": "160 Franklin St",
-                    "path": "/commercial-real-estate/building/CA/oakland/160-franklin-st/",
-                    "role": "neighborhood_service_retail",
-                    "confidence": "review_required"
-                  },
-                  {
-                    "name": "424 3rd St",
-                    "path": "/commercial-real-estate/building/CA/oakland/424-3rd-st/",
-                    "role": "neighborhood_service_retail",
-                    "confidence": "review_required"
-                  },
                   {
                     "name": "101 Lytton Ave",
                     "path": "/commercial-real-estate/building/CA/palo-alto/101-lytton-ave/",
@@ -4428,6 +4417,24 @@
                     "path": "/commercial-real-estate/building/CA/palo-alto/525-university-ave/",
                     "role": "neighborhood_service_retail",
                     "confidence": "review_required"
+                  },
+                  {
+                    "name": "One Henry Adams",
+                    "path": "/commercial-real-estate/building/CA/san-francisco/1-henry-adams-st/",
+                    "role": "showroom_retail_environment",
+                    "confidence": "district_inferred"
+                  },
+                  {
+                    "name": "San Francisco Design Center - Galleria",
+                    "path": "/commercial-real-estate/building/CA/san-francisco/101-henry-adams-st/",
+                    "role": "showroom_retail_environment",
+                    "confidence": "district_inferred"
+                  },
+                  {
+                    "name": "San Francisco Armory",
+                    "path": "/commercial-real-estate/building/CA/san-francisco/1800-mission-st/",
+                    "role": "neighborhood_service_retail",
+                    "confidence": "district_inferred"
                   }
                 ]
               }
@@ -4829,7 +4836,7 @@
             "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
             "evidence": [
               "7 primary districts and 6 secondary districts.",
-              "15 Representative Buildings and 0 Building Briefs.",
+              "12 Representative Buildings and 0 Building Briefs.",
               "2 representative roles and 2 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem Building Brief Migration",
@@ -5055,7 +5062,7 @@
             "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
             "evidence": [
               "7 primary districts and 6 secondary districts.",
-              "15 Representative Buildings and 0 Building Briefs.",
+              "12 Representative Buildings and 0 Building Briefs.",
               "2 representative roles and 2 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -5081,7 +5088,7 @@
             "rationale": "Representative role coverage is too narrow for this ecosystem.",
             "evidence": [
               "7 primary districts and 6 secondary districts.",
-              "15 Representative Buildings and 0 Building Briefs.",
+              "12 Representative Buildings and 0 Building Briefs.",
               "2 representative roles and 2 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -5829,69 +5836,12 @@
           "buildingBriefs": {
             "key": "buildingBriefs",
             "label": "Building Briefs",
-            "score": 54,
-            "completed": 83,
+            "score": 55,
+            "completed": 86,
             "total": 155,
-            "missing": 72,
-            "explanation": "83 of 155 representative building records use the canonical Building Brief journey.",
+            "missing": 69,
+            "explanation": "86 of 155 representative building records use the canonical Building Brief journey.",
             "issues": [
-              {
-                "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-oakland-119-filbert-st",
-                "code": "missing-brief",
-                "metroId": "san-francisco",
-                "metroName": "San Francisco",
-                "category": "buildingBriefs",
-                "categoryLabel": "Building Briefs",
-                "taskType": "representative building missing Building Brief",
-                "itemName": "119 Filbert St",
-                "severity": "medium",
-                "priority": 40,
-                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-                "sourceId": "/commercial-real-estate/building/CA/oakland/119-filbert-st/",
-                "publicUrl": "/commercial-real-estate/building/CA/oakland/119-filbert-st/",
-                "adminUrl": "",
-                "suggestedNextAction": "Author a Building Brief for this representative building.",
-                "automationCandidate": true,
-                "readinessState": ""
-              },
-              {
-                "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-oakland-160-franklin-st",
-                "code": "missing-brief",
-                "metroId": "san-francisco",
-                "metroName": "San Francisco",
-                "category": "buildingBriefs",
-                "categoryLabel": "Building Briefs",
-                "taskType": "representative building missing Building Brief",
-                "itemName": "160 Franklin St",
-                "severity": "medium",
-                "priority": 40,
-                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-                "sourceId": "/commercial-real-estate/building/CA/oakland/160-franklin-st/",
-                "publicUrl": "/commercial-real-estate/building/CA/oakland/160-franklin-st/",
-                "adminUrl": "",
-                "suggestedNextAction": "Author a Building Brief for this representative building.",
-                "automationCandidate": true,
-                "readinessState": ""
-              },
-              {
-                "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-oakland-424-3rd-st",
-                "code": "missing-brief",
-                "metroId": "san-francisco",
-                "metroName": "San Francisco",
-                "category": "buildingBriefs",
-                "categoryLabel": "Building Briefs",
-                "taskType": "representative building missing Building Brief",
-                "itemName": "424 3rd St",
-                "severity": "medium",
-                "priority": 40,
-                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-                "sourceId": "/commercial-real-estate/building/CA/oakland/424-3rd-st/",
-                "publicUrl": "/commercial-real-estate/building/CA/oakland/424-3rd-st/",
-                "adminUrl": "",
-                "suggestedNextAction": "Author a Building Brief for this representative building.",
-                "automationCandidate": true,
-                "readinessState": ""
-              },
               {
                 "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-palo-alto-101-lytton-ave",
                 "code": "missing-brief",
@@ -7258,8 +7208,8 @@
             "key": "editorialQuality",
             "label": "Editorial Quality",
             "score": 98,
-            "completed": 105,
-            "total": 107,
+            "completed": 108,
+            "total": 110,
             "missing": 2,
             "explanation": "Deterministic scan for placeholders, unsupported generated phrasing, and style-guide avoid phrases.",
             "issues": [
@@ -7468,25 +7418,6 @@
             "readinessState": ""
           },
           {
-            "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-oakland-119-filbert-st",
-            "code": "missing-brief",
-            "metroId": "san-francisco",
-            "metroName": "San Francisco",
-            "category": "buildingBriefs",
-            "categoryLabel": "Building Briefs",
-            "taskType": "representative building missing Building Brief",
-            "itemName": "119 Filbert St",
-            "severity": "medium",
-            "priority": 40,
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-            "sourceId": "/commercial-real-estate/building/CA/oakland/119-filbert-st/",
-            "publicUrl": "/commercial-real-estate/building/CA/oakland/119-filbert-st/",
-            "adminUrl": "",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
-            "automationCandidate": true,
-            "readinessState": ""
-          },
-          {
             "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-121-spear-st",
             "code": "missing-brief",
             "metroId": "san-francisco",
@@ -7633,25 +7564,6 @@
             "reason": "Representative building has not migrated to the canonical Building Brief journey.",
             "sourceId": "/commercial-real-estate/building/CA/san-francisco/151-union-st/",
             "publicUrl": "/commercial-real-estate/building/CA/san-francisco/151-union-st/",
-            "adminUrl": "",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
-            "automationCandidate": true,
-            "readinessState": ""
-          },
-          {
-            "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-oakland-160-franklin-st",
-            "code": "missing-brief",
-            "metroId": "san-francisco",
-            "metroName": "San Francisco",
-            "category": "buildingBriefs",
-            "categoryLabel": "Building Briefs",
-            "taskType": "representative building missing Building Brief",
-            "itemName": "160 Franklin St",
-            "severity": "medium",
-            "priority": 40,
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-            "sourceId": "/commercial-real-estate/building/CA/oakland/160-franklin-st/",
-            "publicUrl": "/commercial-real-estate/building/CA/oakland/160-franklin-st/",
             "adminUrl": "",
             "suggestedNextAction": "Author a Building Brief for this representative building.",
             "automationCandidate": true,
@@ -8184,25 +8096,6 @@
             "reason": "Representative building has not migrated to the canonical Building Brief journey.",
             "sourceId": "/commercial-real-estate/building/CA/san-francisco/414-brannan-st/",
             "publicUrl": "/commercial-real-estate/building/CA/san-francisco/414-brannan-st/",
-            "adminUrl": "",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
-            "automationCandidate": true,
-            "readinessState": ""
-          },
-          {
-            "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-oakland-424-3rd-st",
-            "code": "missing-brief",
-            "metroId": "san-francisco",
-            "metroName": "San Francisco",
-            "category": "buildingBriefs",
-            "categoryLabel": "Building Briefs",
-            "taskType": "representative building missing Building Brief",
-            "itemName": "424 3rd St",
-            "severity": "medium",
-            "priority": 40,
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-            "sourceId": "/commercial-real-estate/building/CA/oakland/424-3rd-st/",
-            "publicUrl": "/commercial-real-estate/building/CA/oakland/424-3rd-st/",
             "adminUrl": "",
             "suggestedNextAction": "Author a Building Brief for this representative building.",
             "automationCandidate": true,
@@ -9350,11 +9243,11 @@
             "label": "Editorial Coverage",
             "score": 93,
             "status": "",
-            "explanation": "8 of 8 districts have substantive descriptions; 48 representative buildings and 45 Building Briefs are available.",
+            "explanation": "8 of 8 districts have substantive descriptions; 48 representative buildings and 48 Building Briefs are available.",
             "completed": {
               "districtsWithDescriptions": 8,
               "representativeBuildings": 48,
-              "buildingBriefs": 45
+              "buildingBriefs": 48
             },
             "targets": {
               "representativeBuildingsPerDistrict": 3,
@@ -9419,7 +9312,7 @@
         "cityPath": "/commercial-real-estate/CA/oakland/",
         "districtCount": 8,
         "representativeBuildingCount": 48,
-        "buildingBriefCount": 45,
+        "buildingBriefCount": 48,
         "geographicReadiness": {
           "state": "strong",
           "label": "Strong",
@@ -9443,7 +9336,7 @@
           "label": "Partial",
           "rationale": [
             "Industrial & Flex coverage is strong or developed.",
-            "Office is Partial; Retail is Partial; Life Science is Missing.",
+            "Office is Partial; Retail is Thin; Life Science is Missing.",
             "Representative Building coverage is concentrated in Industrial & Flex."
           ],
           "passed": false,
@@ -9457,6 +9350,7 @@
             "special_purpose"
           ],
           "blockingEcosystems": [
+            "retail",
             "life_science"
           ],
           "evaluations": [
@@ -9481,15 +9375,15 @@
                 "districts": 1,
                 "secondaryDistricts": 3,
                 "recommendations": 1,
-                "representativeBuildings": 10,
-                "buildingBriefs": 10,
+                "representativeBuildings": 13,
+                "buildingBriefs": 13,
                 "subtypes": 2,
                 "archetypes": 5,
                 "activities": 4,
                 "reviewRequiredDistricts": 0,
-                "representativeRoles": 3,
+                "representativeRoles": 4,
                 "operationalCategories": 5,
-                "operationalCharacteristics": 8,
+                "operationalCharacteristics": 12,
                 "reviewRequiredRepresentativeBuildings": 0
               },
               "gaps": [],
@@ -9498,8 +9392,8 @@
               "strategicPriority": 2,
               "evidence": [
                 "1 primary districts and 3 secondary districts.",
-                "10 Representative Buildings and 10 Building Briefs.",
-                "3 representative roles and 5 operational categories are covered."
+                "13 Representative Buildings and 13 Building Briefs.",
+                "4 representative roles and 5 operational categories are covered."
               ],
               "targetSubtypes": [
                 "downtown_office",
@@ -9524,20 +9418,22 @@
               ],
               "representativeBuildingIntelligence": {
                 "ecosystemId": "office",
-                "state": "partial",
-                "stateLabel": "Partial",
-                "buildingCount": 10,
+                "state": "strong",
+                "stateLabel": "Strong",
+                "buildingCount": 13,
                 "explicitCount": 0,
                 "inheritedOnlyCount": 0,
                 "reviewRequiredCount": 0,
                 "rolesCovered": [
                   "downtown_class_a_office",
                   "professional_office_environment",
-                  "government_office_environment"
+                  "government_office_environment",
+                  "creative_office_environment"
                 ],
                 "subtypesCovered": [
                   "professional_office",
-                  "downtown_office"
+                  "downtown_office",
+                  "creative_office"
                 ],
                 "activityCoverage": [
                   "knowledge_work",
@@ -9545,7 +9441,9 @@
                   "administrative_operations",
                   "walk_in_retail",
                   "walk_in_service",
-                  "customer_showroom"
+                  "customer_showroom",
+                  "collaboration",
+                  "product_development"
                 ],
                 "archetypeCoverage": [
                   "wellness_practice",
@@ -9565,7 +9463,11 @@
                   "private_office_layout",
                   "customer_parking",
                   "urban_core_access",
-                  "enhanced_security"
+                  "enhanced_security",
+                  "creative_environment",
+                  "open_workspace",
+                  "flexible_suite_sizes",
+                  "walkability"
                 ],
                 "operationalCategoriesCovered": [
                   "market_presence",
@@ -9839,12 +9741,12 @@
               "label": "Retail",
               "relevance": "important",
               "relevanceLabel": "Important",
-              "readinessState": "partial",
-              "readinessLabel": "Partial",
+              "readinessState": "thin",
+              "readinessLabel": "Thin",
               "layers": {
                 "districts": "developed",
                 "recommendations": "developed",
-                "representativeBuildings": "strong",
+                "representativeBuildings": "missing",
                 "buildingBriefs": "missing",
                 "subtypes": "developed",
                 "archetypes": "partial",
@@ -9855,28 +9757,26 @@
                 "districts": 2,
                 "secondaryDistricts": 1,
                 "recommendations": 2,
-                "representativeBuildings": 3,
+                "representativeBuildings": 0,
                 "buildingBriefs": 0,
                 "subtypes": 2,
                 "archetypes": 2,
                 "activities": 3,
                 "reviewRequiredDistricts": 0,
-                "representativeRoles": 1,
-                "operationalCategories": 2,
-                "operationalCharacteristics": 3,
-                "reviewRequiredRepresentativeBuildings": 3
+                "representativeRoles": 0,
+                "operationalCategories": 0,
+                "operationalCharacteristics": 0,
+                "reviewRequiredRepresentativeBuildings": 0
               },
               "gaps": [
-                "Building Brief coverage is missing for this ecosystem.",
-                "Representative Building intelligence requires editorial review."
+                "Representative Building coverage is missing for this ecosystem."
               ],
               "blocking": false,
               "blockingCodes": [],
               "strategicPriority": 5,
               "evidence": [
                 "2 primary districts and 1 secondary districts.",
-                "3 Representative Buildings and 0 Building Briefs.",
-                "1 representative roles and 2 operational categories are covered."
+                "0 Representative Buildings and 0 Building Briefs."
               ],
               "targetSubtypes": [
                 "neighborhood_retail",
@@ -9899,64 +9799,29 @@
               ],
               "representativeBuildingIntelligence": {
                 "ecosystemId": "retail",
-                "state": "review_required",
-                "stateLabel": "Review Required",
-                "buildingCount": 3,
+                "state": "missing",
+                "stateLabel": "Missing",
+                "buildingCount": 0,
                 "explicitCount": 0,
-                "inheritedOnlyCount": 3,
-                "reviewRequiredCount": 3,
-                "rolesCovered": [
+                "inheritedOnlyCount": 0,
+                "reviewRequiredCount": 0,
+                "rolesCovered": [],
+                "subtypesCovered": [],
+                "activityCoverage": [],
+                "archetypeCoverage": [],
+                "operationalCharacteristicsCovered": [],
+                "operationalCategoriesCovered": [],
+                "missingRoles": [
                   "neighborhood_service_retail"
                 ],
-                "subtypesCovered": [
-                  "neighborhood_retail"
-                ],
-                "activityCoverage": [
-                  "walk_in_service",
-                  "walk_in_retail",
-                  "customer_showroom"
-                ],
-                "archetypeCoverage": [
-                  "wellness_practice",
-                  "marketing_agency",
-                  "food_producer",
-                  "training_center"
-                ],
-                "operationalCharacteristicsCovered": [
-                  "street_visibility",
-                  "walk_in_customer_access",
-                  "customer_parking"
-                ],
-                "operationalCategoriesCovered": [
+                "missingOperationalCategories": [
                   "market_presence",
+                  "configuration",
                   "parking_vehicles"
                 ],
-                "missingRoles": [],
-                "missingOperationalCategories": [
-                  "configuration"
-                ],
-                "highestPriorityMissingRole": "",
-                "highestPriorityMissingOperationalCategory": "configuration",
-                "exampleBuildings": [
-                  {
-                    "name": "119 Filbert St",
-                    "path": "/commercial-real-estate/building/CA/oakland/119-filbert-st/",
-                    "role": "neighborhood_service_retail",
-                    "confidence": "review_required"
-                  },
-                  {
-                    "name": "160 Franklin St",
-                    "path": "/commercial-real-estate/building/CA/oakland/160-franklin-st/",
-                    "role": "neighborhood_service_retail",
-                    "confidence": "review_required"
-                  },
-                  {
-                    "name": "424 3rd St",
-                    "path": "/commercial-real-estate/building/CA/oakland/424-3rd-st/",
-                    "role": "neighborhood_service_retail",
-                    "confidence": "review_required"
-                  }
-                ]
+                "highestPriorityMissingRole": "neighborhood_service_retail",
+                "highestPriorityMissingOperationalCategory": "market_presence",
+                "exampleBuildings": []
               },
               "completionCriteria": [
                 "Validated district ecosystem classification",
@@ -10380,8 +10245,8 @@
               "rationale": "Representative role coverage is too narrow for this ecosystem.",
               "evidence": [
                 "1 primary districts and 3 secondary districts.",
-                "10 Representative Buildings and 10 Building Briefs.",
-                "3 representative roles and 5 operational categories are covered."
+                "13 Representative Buildings and 13 Building Briefs.",
+                "4 representative roles and 5 operational categories are covered."
               ],
               "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
               "completionCriteria": [
@@ -10394,22 +10259,21 @@
               "blocksEcosystemReadiness": false
             },
             {
-              "id": "ecosystem:retail:ecosystem_building_brief_gap",
-              "code": "ecosystem_building_brief_gap",
-              "label": "Ecosystem Building Brief Gap",
+              "id": "ecosystem:retail:ecosystem_thin",
+              "code": "ecosystem_thin",
+              "label": "Ecosystem Thin",
               "severity": "medium",
-              "layer": "buildingBriefs",
+              "layer": "representativeBuildings",
               "ecosystemId": "retail",
               "ecosystemLabel": "Retail",
               "relevance": "important",
-              "readinessState": "partial",
-              "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
+              "readinessState": "thin",
+              "rationale": "Relevant ecosystem has district coverage but lacks enough representative-building or layer depth.",
               "evidence": [
                 "2 primary districts and 1 secondary districts.",
-                "3 Representative Buildings and 0 Building Briefs.",
-                "1 representative roles and 2 operational categories are covered."
+                "0 Representative Buildings and 0 Building Briefs."
               ],
-              "recommendedSprintFamily": "Ecosystem Building Brief Migration",
+              "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
               "completionCriteria": [
                 "Validated district ecosystem classification",
                 "Representative Building coverage across the most important subtypes",
@@ -10420,22 +10284,21 @@
               "blocksEcosystemReadiness": false
             },
             {
-              "id": "ecosystem:retail:representative_building_review_required",
-              "code": "representative_building_review_required",
-              "label": "Representative Building Review Required",
+              "id": "ecosystem:retail:ecosystem_representative_building_gap",
+              "code": "ecosystem_representative_building_gap",
+              "label": "Ecosystem Representative Building Gap",
               "severity": "medium",
-              "layer": "representativeBuildingIntelligence",
+              "layer": "representativeBuildings",
               "ecosystemId": "retail",
               "ecosystemLabel": "Retail",
               "relevance": "important",
-              "readinessState": "partial",
-              "rationale": "Representative Building intelligence exists but requires editorial review.",
+              "readinessState": "thin",
+              "rationale": "District foundation exists, but Representative Buildings are missing.",
               "evidence": [
                 "2 primary districts and 1 secondary districts.",
-                "3 Representative Buildings and 0 Building Briefs.",
-                "1 representative roles and 2 operational categories are covered."
+                "0 Representative Buildings and 0 Building Briefs."
               ],
-              "recommendedSprintFamily": "Representative Building Intelligence Review",
+              "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
               "completionCriteria": [
                 "Validated district ecosystem classification",
                 "Representative Building coverage across the most important subtypes",
@@ -10446,20 +10309,19 @@
               "blocksEcosystemReadiness": false
             },
             {
-              "id": "ecosystem:retail:operational_category_gap",
-              "code": "operational_category_gap",
-              "label": "Operational Category Gap",
+              "id": "ecosystem:retail:representative_role_thin",
+              "code": "representative_role_thin",
+              "label": "Representative Role Thin",
               "severity": "low",
               "layer": "representativeBuildingIntelligence",
               "ecosystemId": "retail",
               "ecosystemLabel": "Retail",
               "relevance": "important",
-              "readinessState": "partial",
-              "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
+              "readinessState": "thin",
+              "rationale": "Representative role coverage is too narrow for this ecosystem.",
               "evidence": [
                 "2 primary districts and 1 secondary districts.",
-                "3 Representative Buildings and 0 Building Briefs.",
-                "1 representative roles and 2 operational categories are covered."
+                "0 Representative Buildings and 0 Building Briefs."
               ],
               "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
               "completionCriteria": [
@@ -10945,83 +10807,27 @@
                 "Publisher ecosystem QA passes without hard errors"
               ],
               "blocksEcosystemReadiness": false
-            },
-            {
-              "id": "ecosystem:industrial_flex:ecosystem_building_brief_concentration",
-              "code": "ecosystem_building_brief_concentration",
-              "label": "Ecosystem Building Brief Concentration",
-              "severity": "medium",
-              "layer": "balance",
-              "ecosystemId": "industrial_flex",
-              "ecosystemLabel": "Industrial & Flex",
-              "relevance": "core",
-              "readinessState": "developed",
-              "rationale": "Building Brief coverage is concentrated in Industrial & Flex.",
-              "evidence": [
-                "5 primary districts and 1 secondary districts.",
-                "35 Representative Buildings and 35 Building Briefs.",
-                "6 representative roles and 6 operational categories are covered."
-              ],
-              "recommendedSprintFamily": "Ecosystem Balance Sprint",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
-              "id": "ecosystem:industrial_flex:ecosystem_building_brief_concentration",
-              "code": "ecosystem_building_brief_concentration",
-              "label": "Ecosystem Building Brief Concentration",
-              "severity": "medium",
-              "layer": "balance",
-              "ecosystemId": "industrial_flex",
-              "ecosystemLabel": "Industrial & Flex",
-              "relevance": "core",
-              "readinessState": "developed",
-              "rationale": "Industrial & Flex Building Brief depth may mask gaps in Office, Retail, Life Science.",
-              "evidence": [
-                "5 primary districts and 1 secondary districts.",
-                "35 Representative Buildings and 35 Building Briefs.",
-                "6 representative roles and 6 operational categories are covered."
-              ],
-              "recommendedSprintFamily": "Ecosystem Balance Sprint",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
             }
           ],
           "balance": {
-            "state": "industrial_flex_brief_concentrated",
-            "label": "Industrial Flex Brief Concentrated",
+            "state": "industrial_flex_representative_building_concentrated",
+            "label": "Industrial Flex Representative Building Concentrated",
             "dominantEcosystem": "industrial_flex",
             "representativeBuildingShare": 0.73,
-            "buildingBriefShare": 0.78,
+            "buildingBriefShare": 0.73,
             "warnings": [
-              "Representative Building coverage is concentrated in Industrial & Flex.",
-              "Building Brief coverage is concentrated in Industrial & Flex.",
-              "Industrial & Flex Building Brief depth may mask gaps in Office, Retail, Life Science."
+              "Representative Building coverage is concentrated in Industrial & Flex."
             ]
           }
         },
         "ecosystemBalance": {
-          "state": "industrial_flex_brief_concentrated",
-          "label": "Industrial Flex Brief Concentrated",
+          "state": "industrial_flex_representative_building_concentrated",
+          "label": "Industrial Flex Representative Building Concentrated",
           "dominantEcosystem": "industrial_flex",
           "representativeBuildingShare": 0.73,
-          "buildingBriefShare": 0.78,
+          "buildingBriefShare": 0.73,
           "warnings": [
-            "Representative Building coverage is concentrated in Industrial & Flex.",
-            "Building Brief coverage is concentrated in Industrial & Flex.",
-            "Industrial & Flex Building Brief depth may mask gaps in Office, Retail, Life Science."
+            "Representative Building coverage is concentrated in Industrial & Flex."
           ]
         },
         "ecosystemCoverage": {
@@ -11032,8 +10838,8 @@
               "districtCount": 1,
               "secondaryDistrictCount": 3,
               "recommendationNodeCount": 1,
-              "representativeBuildingCount": 10,
-              "buildingBriefCount": 10,
+              "representativeBuildingCount": 13,
+              "buildingBriefCount": 13,
               "status": "Developed",
               "districts": [
                 {
@@ -11068,54 +10874,62 @@
               ],
               "representativeBuildingIntelligence": {
                 "ecosystemId": "office",
-                "state": "partial",
-                "stateLabel": "Partial",
-                "buildingCount": 10,
+                "state": "strong",
+                "stateLabel": "Strong",
+                "buildingCount": 13,
                 "explicitCount": 0,
                 "inheritedOnlyCount": 0,
                 "reviewRequiredCount": 0,
                 "rolesCovered": {
                   "downtown_class_a_office": 6,
-                  "professional_office_environment": 3,
-                  "government_office_environment": 1
+                  "professional_office_environment": 5,
+                  "government_office_environment": 1,
+                  "creative_office_environment": 1
                 },
                 "subtypesCovered": {
-                  "professional_office": 10,
-                  "downtown_office": 1
+                  "professional_office": 13,
+                  "downtown_office": 1,
+                  "creative_office": 1
                 },
                 "activityCoverage": {
-                  "knowledge_work": 10,
-                  "client_meetings": 10,
-                  "administrative_operations": 10,
-                  "walk_in_retail": 10,
-                  "walk_in_service": 10,
-                  "customer_showroom": 10
+                  "knowledge_work": 13,
+                  "client_meetings": 12,
+                  "administrative_operations": 12,
+                  "walk_in_retail": 13,
+                  "walk_in_service": 13,
+                  "customer_showroom": 13,
+                  "collaboration": 1,
+                  "product_development": 1
                 },
                 "archetypeCoverage": {
-                  "wellness_practice": 10,
-                  "marketing_agency": 10,
-                  "professional_office": 10,
-                  "law_firm": 10,
-                  "accounting_firm": 10,
-                  "financial_services_firm": 10,
-                  "consulting_firm": 10,
-                  "creative_studio": 10
+                  "wellness_practice": 13,
+                  "marketing_agency": 13,
+                  "professional_office": 13,
+                  "law_firm": 13,
+                  "accounting_firm": 13,
+                  "financial_services_firm": 13,
+                  "consulting_firm": 13,
+                  "creative_studio": 13
                 },
                 "operationalCharacteristicsCovered": {
-                  "professional_image": 10,
+                  "professional_image": 12,
                   "transit_access": 6,
                   "large_floorplates": 6,
                   "structured_parking": 6,
-                  "private_office_layout": 3,
-                  "customer_parking": 3,
+                  "private_office_layout": 5,
+                  "customer_parking": 5,
                   "urban_core_access": 1,
-                  "enhanced_security": 1
+                  "enhanced_security": 1,
+                  "creative_environment": 1,
+                  "open_workspace": 1,
+                  "flexible_suite_sizes": 1,
+                  "walkability": 1
                 },
                 "operationalCategoriesCovered": {
-                  "market_presence": 10,
-                  "location_workforce": 7,
-                  "configuration": 9,
-                  "parking_vehicles": 9,
+                  "market_presence": 13,
+                  "location_workforce": 8,
+                  "configuration": 13,
+                  "parking_vehicles": 11,
                   "infrastructure": 1
                 },
                 "missingRoles": [
@@ -11377,9 +11191,9 @@
               "districtCount": 2,
               "secondaryDistrictCount": 1,
               "recommendationNodeCount": 2,
-              "representativeBuildingCount": 3,
+              "representativeBuildingCount": 0,
               "buildingBriefCount": 0,
-              "status": "Partial",
+              "status": "Thin",
               "districts": [
                 {
                   "slug": "downtown-berkeley",
@@ -11414,64 +11228,29 @@
               ],
               "representativeBuildingIntelligence": {
                 "ecosystemId": "retail",
-                "state": "review_required",
-                "stateLabel": "Review Required",
-                "buildingCount": 3,
+                "state": "missing",
+                "stateLabel": "Missing",
+                "buildingCount": 0,
                 "explicitCount": 0,
-                "inheritedOnlyCount": 3,
-                "reviewRequiredCount": 3,
-                "rolesCovered": {
-                  "neighborhood_service_retail": 3
-                },
-                "subtypesCovered": {
-                  "neighborhood_retail": 3
-                },
-                "activityCoverage": {
-                  "walk_in_service": 3,
-                  "walk_in_retail": 3,
-                  "customer_showroom": 3
-                },
-                "archetypeCoverage": {
-                  "wellness_practice": 3,
-                  "marketing_agency": 3,
-                  "food_producer": 3,
-                  "training_center": 3
-                },
-                "operationalCharacteristicsCovered": {
-                  "street_visibility": 3,
-                  "walk_in_customer_access": 3,
-                  "customer_parking": 3
-                },
-                "operationalCategoriesCovered": {
-                  "market_presence": 6,
-                  "parking_vehicles": 3
-                },
-                "missingRoles": [],
-                "missingOperationalCategories": [
-                  "configuration"
+                "inheritedOnlyCount": 0,
+                "reviewRequiredCount": 0,
+                "rolesCovered": {},
+                "subtypesCovered": {},
+                "activityCoverage": {},
+                "archetypeCoverage": {},
+                "operationalCharacteristicsCovered": {},
+                "operationalCategoriesCovered": {},
+                "missingRoles": [
+                  "neighborhood_service_retail"
                 ],
-                "highestPriorityMissingRole": "",
-                "highestPriorityMissingOperationalCategory": "configuration",
-                "exampleBuildings": [
-                  {
-                    "name": "119 Filbert St",
-                    "path": "/commercial-real-estate/building/CA/oakland/119-filbert-st/",
-                    "role": "neighborhood_service_retail",
-                    "confidence": "review_required"
-                  },
-                  {
-                    "name": "160 Franklin St",
-                    "path": "/commercial-real-estate/building/CA/oakland/160-franklin-st/",
-                    "role": "neighborhood_service_retail",
-                    "confidence": "review_required"
-                  },
-                  {
-                    "name": "424 3rd St",
-                    "path": "/commercial-real-estate/building/CA/oakland/424-3rd-st/",
-                    "role": "neighborhood_service_retail",
-                    "confidence": "review_required"
-                  }
-                ]
+                "missingOperationalCategories": [
+                  "market_presence",
+                  "configuration",
+                  "parking_vehicles"
+                ],
+                "highestPriorityMissingRole": "neighborhood_service_retail",
+                "highestPriorityMissingOperationalCategory": "market_presence",
+                "exampleBuildings": []
               }
             },
             "medical": {
@@ -11720,6 +11499,13 @@
           "reviewRequiredDistricts": [],
           "underrepresentedEcosystems": [
             {
+              "id": "retail",
+              "label": "Retail",
+              "status": "Thin",
+              "districtCount": 2,
+              "representativeBuildingCount": 0
+            },
+            {
               "id": "medical",
               "label": "Medical",
               "status": "Missing",
@@ -11751,65 +11537,13 @@
           "summary": {
             "ecosystemCount": 7,
             "developedCount": 2,
-            "partialCount": 1,
-            "thinCount": 0,
+            "partialCount": 0,
+            "thinCount": 1,
             "missingCount": 4,
             "reviewRequiredDistrictCount": 0
           }
         },
         "ecosystemGaps": [
-          {
-            "id": "ecosystem:industrial_flex:ecosystem_building_brief_concentration",
-            "code": "ecosystem_building_brief_concentration",
-            "label": "Ecosystem Building Brief Concentration",
-            "severity": "medium",
-            "layer": "balance",
-            "ecosystemId": "industrial_flex",
-            "ecosystemLabel": "Industrial & Flex",
-            "relevance": "core",
-            "readinessState": "developed",
-            "rationale": "Building Brief coverage is concentrated in Industrial & Flex.",
-            "evidence": [
-              "5 primary districts and 1 secondary districts.",
-              "35 Representative Buildings and 35 Building Briefs.",
-              "6 representative roles and 6 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem Balance Sprint",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:industrial_flex:ecosystem_building_brief_concentration",
-            "code": "ecosystem_building_brief_concentration",
-            "label": "Ecosystem Building Brief Concentration",
-            "severity": "medium",
-            "layer": "balance",
-            "ecosystemId": "industrial_flex",
-            "ecosystemLabel": "Industrial & Flex",
-            "relevance": "core",
-            "readinessState": "developed",
-            "rationale": "Industrial & Flex Building Brief depth may mask gaps in Office, Retail, Life Science.",
-            "evidence": [
-              "5 primary districts and 1 secondary districts.",
-              "35 Representative Buildings and 35 Building Briefs.",
-              "6 representative roles and 6 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem Balance Sprint",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
           {
             "id": "ecosystem:office:representative_role_thin",
             "code": "representative_role_thin",
@@ -11823,8 +11557,8 @@
             "rationale": "Representative role coverage is too narrow for this ecosystem.",
             "evidence": [
               "1 primary districts and 3 secondary districts.",
-              "10 Representative Buildings and 10 Building Briefs.",
-              "3 representative roles and 5 operational categories are covered."
+              "13 Representative Buildings and 13 Building Briefs.",
+              "4 representative roles and 5 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
             "completionCriteria": [
@@ -11887,22 +11621,21 @@
             "blocksEcosystemReadiness": false
           },
           {
-            "id": "ecosystem:retail:ecosystem_building_brief_gap",
-            "code": "ecosystem_building_brief_gap",
-            "label": "Ecosystem Building Brief Gap",
+            "id": "ecosystem:retail:ecosystem_representative_building_gap",
+            "code": "ecosystem_representative_building_gap",
+            "label": "Ecosystem Representative Building Gap",
             "severity": "medium",
-            "layer": "buildingBriefs",
+            "layer": "representativeBuildings",
             "ecosystemId": "retail",
             "ecosystemLabel": "Retail",
             "relevance": "important",
-            "readinessState": "partial",
-            "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
+            "readinessState": "thin",
+            "rationale": "District foundation exists, but Representative Buildings are missing.",
             "evidence": [
               "2 primary districts and 1 secondary districts.",
-              "3 Representative Buildings and 0 Building Briefs.",
-              "1 representative roles and 2 operational categories are covered."
+              "0 Representative Buildings and 0 Building Briefs."
             ],
-            "recommendedSprintFamily": "Ecosystem Building Brief Migration",
+            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
             "completionCriteria": [
               "Validated district ecosystem classification",
               "Representative Building coverage across the most important subtypes",
@@ -11913,22 +11646,21 @@
             "blocksEcosystemReadiness": false
           },
           {
-            "id": "ecosystem:retail:representative_building_review_required",
-            "code": "representative_building_review_required",
-            "label": "Representative Building Review Required",
+            "id": "ecosystem:retail:ecosystem_thin",
+            "code": "ecosystem_thin",
+            "label": "Ecosystem Thin",
             "severity": "medium",
-            "layer": "representativeBuildingIntelligence",
+            "layer": "representativeBuildings",
             "ecosystemId": "retail",
             "ecosystemLabel": "Retail",
             "relevance": "important",
-            "readinessState": "partial",
-            "rationale": "Representative Building intelligence exists but requires editorial review.",
+            "readinessState": "thin",
+            "rationale": "Relevant ecosystem has district coverage but lacks enough representative-building or layer depth.",
             "evidence": [
               "2 primary districts and 1 secondary districts.",
-              "3 Representative Buildings and 0 Building Briefs.",
-              "1 representative roles and 2 operational categories are covered."
+              "0 Representative Buildings and 0 Building Briefs."
             ],
-            "recommendedSprintFamily": "Representative Building Intelligence Review",
+            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
             "completionCriteria": [
               "Validated district ecosystem classification",
               "Representative Building coverage across the most important subtypes",
@@ -12164,20 +11896,19 @@
             "blocksEcosystemReadiness": false
           },
           {
-            "id": "ecosystem:retail:operational_category_gap",
-            "code": "operational_category_gap",
-            "label": "Operational Category Gap",
+            "id": "ecosystem:retail:representative_role_thin",
+            "code": "representative_role_thin",
+            "label": "Representative Role Thin",
             "severity": "low",
             "layer": "representativeBuildingIntelligence",
             "ecosystemId": "retail",
             "ecosystemLabel": "Retail",
             "relevance": "important",
-            "readinessState": "partial",
-            "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
+            "readinessState": "thin",
+            "rationale": "Representative role coverage is too narrow for this ecosystem.",
             "evidence": [
               "2 primary districts and 1 secondary districts.",
-              "3 Representative Buildings and 0 Building Briefs.",
-              "1 representative roles and 2 operational categories are covered."
+              "0 Representative Buildings and 0 Building Briefs."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
             "completionCriteria": [
@@ -12391,6 +12122,7 @@
           }
         ],
         "blockingEcosystems": [
+          "retail",
           "life_science"
         ],
         "readinessGates": {
@@ -12404,17 +12136,18 @@
             "state": "partial",
             "label": "Partial",
             "blockingEcosystems": [
+              "retail",
               "life_science"
             ]
           }
         },
         "recommendedEcosystemSprint": {
-          "title": "East Bay Industrial & Flex Ecosystem Balance Sprint",
-          "ecosystemId": "industrial_flex",
-          "ecosystemLabel": "Industrial & Flex",
-          "sprintFamily": "Ecosystem Balance Sprint",
-          "rationale": "Building Brief coverage is concentrated in Industrial & Flex.",
-          "gapCode": "ecosystem_building_brief_concentration",
+          "title": "East Bay Office Ecosystem Representative Building Foundation",
+          "ecosystemId": "office",
+          "ecosystemLabel": "Office",
+          "sprintFamily": "Ecosystem Representative Building Foundation",
+          "rationale": "Representative role coverage is too narrow for this ecosystem.",
+          "gapCode": "representative_role_thin",
           "completionCriteria": [
             "Validated district ecosystem classification",
             "Representative Building coverage across the most important subtypes",
@@ -12574,70 +12307,12 @@
           "buildingBriefs": {
             "key": "buildingBriefs",
             "label": "Building Briefs",
-            "score": 94,
-            "completed": 45,
+            "score": 100,
+            "completed": 48,
             "total": 48,
-            "missing": 3,
-            "explanation": "45 of 48 representative building records use the canonical Building Brief journey.",
-            "issues": [
-              {
-                "id": "east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-oakland-119-filbert-st",
-                "code": "missing-brief",
-                "metroId": "east-bay",
-                "metroName": "East Bay",
-                "category": "buildingBriefs",
-                "categoryLabel": "Building Briefs",
-                "taskType": "representative building missing Building Brief",
-                "itemName": "119 Filbert St",
-                "severity": "medium",
-                "priority": 40,
-                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-                "sourceId": "/commercial-real-estate/building/CA/oakland/119-filbert-st/",
-                "publicUrl": "/commercial-real-estate/building/CA/oakland/119-filbert-st/",
-                "adminUrl": "",
-                "suggestedNextAction": "Author a Building Brief for this representative building.",
-                "automationCandidate": true,
-                "readinessState": ""
-              },
-              {
-                "id": "east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-oakland-160-franklin-st",
-                "code": "missing-brief",
-                "metroId": "east-bay",
-                "metroName": "East Bay",
-                "category": "buildingBriefs",
-                "categoryLabel": "Building Briefs",
-                "taskType": "representative building missing Building Brief",
-                "itemName": "160 Franklin St",
-                "severity": "medium",
-                "priority": 40,
-                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-                "sourceId": "/commercial-real-estate/building/CA/oakland/160-franklin-st/",
-                "publicUrl": "/commercial-real-estate/building/CA/oakland/160-franklin-st/",
-                "adminUrl": "",
-                "suggestedNextAction": "Author a Building Brief for this representative building.",
-                "automationCandidate": true,
-                "readinessState": ""
-              },
-              {
-                "id": "east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-oakland-424-3rd-st",
-                "code": "missing-brief",
-                "metroId": "east-bay",
-                "metroName": "East Bay",
-                "category": "buildingBriefs",
-                "categoryLabel": "Building Briefs",
-                "taskType": "representative building missing Building Brief",
-                "itemName": "424 3rd St",
-                "severity": "medium",
-                "priority": 40,
-                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-                "sourceId": "/commercial-real-estate/building/CA/oakland/424-3rd-st/",
-                "publicUrl": "/commercial-real-estate/building/CA/oakland/424-3rd-st/",
-                "adminUrl": "",
-                "suggestedNextAction": "Author a Building Brief for this representative building.",
-                "automationCandidate": true,
-                "readinessState": ""
-              }
-            ]
+            "missing": 0,
+            "explanation": "48 of 48 representative building records use the canonical Building Brief journey.",
+            "issues": []
           },
           "recommendationReadiness": {
             "key": "recommendationReadiness",
@@ -12673,8 +12348,8 @@
             "key": "editorialQuality",
             "label": "Editorial Quality",
             "score": 100,
-            "completed": 53,
-            "total": 53,
+            "completed": 56,
+            "total": 56,
             "missing": 0,
             "explanation": "Deterministic scan for placeholders, unsupported generated phrasing, and style-guide avoid phrases.",
             "issues": []
@@ -12727,63 +12402,6 @@
             "adminUrl": "",
             "suggestedNextAction": "Add or update recommendation QA documentation for this metro.",
             "automationCandidate": false,
-            "readinessState": ""
-          },
-          {
-            "id": "east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-oakland-119-filbert-st",
-            "code": "missing-brief",
-            "metroId": "east-bay",
-            "metroName": "East Bay",
-            "category": "buildingBriefs",
-            "categoryLabel": "Building Briefs",
-            "taskType": "representative building missing Building Brief",
-            "itemName": "119 Filbert St",
-            "severity": "medium",
-            "priority": 40,
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-            "sourceId": "/commercial-real-estate/building/CA/oakland/119-filbert-st/",
-            "publicUrl": "/commercial-real-estate/building/CA/oakland/119-filbert-st/",
-            "adminUrl": "",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
-            "automationCandidate": true,
-            "readinessState": ""
-          },
-          {
-            "id": "east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-oakland-160-franklin-st",
-            "code": "missing-brief",
-            "metroId": "east-bay",
-            "metroName": "East Bay",
-            "category": "buildingBriefs",
-            "categoryLabel": "Building Briefs",
-            "taskType": "representative building missing Building Brief",
-            "itemName": "160 Franklin St",
-            "severity": "medium",
-            "priority": 40,
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-            "sourceId": "/commercial-real-estate/building/CA/oakland/160-franklin-st/",
-            "publicUrl": "/commercial-real-estate/building/CA/oakland/160-franklin-st/",
-            "adminUrl": "",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
-            "automationCandidate": true,
-            "readinessState": ""
-          },
-          {
-            "id": "east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-oakland-424-3rd-st",
-            "code": "missing-brief",
-            "metroId": "east-bay",
-            "metroName": "East Bay",
-            "category": "buildingBriefs",
-            "categoryLabel": "Building Briefs",
-            "taskType": "representative building missing Building Brief",
-            "itemName": "424 3rd St",
-            "severity": "medium",
-            "priority": 40,
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-            "sourceId": "/commercial-real-estate/building/CA/oakland/424-3rd-st/",
-            "publicUrl": "/commercial-real-estate/building/CA/oakland/424-3rd-st/",
-            "adminUrl": "",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
-            "automationCandidate": true,
             "readinessState": ""
           },
           {
@@ -36577,11 +36195,11 @@
             "label": "Editorial Coverage",
             "score": 91,
             "status": "",
-            "explanation": "24 of 24 districts have substantive descriptions; 155 representative buildings and 83 Building Briefs are available.",
+            "explanation": "24 of 24 districts have substantive descriptions; 155 representative buildings and 86 Building Briefs are available.",
             "completed": {
               "districtsWithDescriptions": 24,
               "representativeBuildings": 155,
-              "buildingBriefs": 83
+              "buildingBriefs": 86
             },
             "targets": {
               "representativeBuildingsPerDistrict": 3,
@@ -36618,7 +36236,7 @@
         "cityPath": "/commercial-real-estate/CA/san-francisco/",
         "districtCount": 24,
         "representativeBuildingCount": 155,
-        "buildingBriefCount": 83,
+        "buildingBriefCount": 86,
         "geographicReadiness": {
           "state": "developed",
           "label": "Developed",
@@ -36676,8 +36294,8 @@
                 "districts": 7,
                 "secondaryDistricts": 14,
                 "recommendations": 7,
-                "representativeBuildings": 75,
-                "buildingBriefs": 35,
+                "representativeBuildings": 78,
+                "buildingBriefs": 38,
                 "subtypes": 7,
                 "archetypes": 10,
                 "activities": 7,
@@ -36693,7 +36311,7 @@
               "strategicPriority": 2,
               "evidence": [
                 "7 primary districts and 14 secondary districts.",
-                "75 Representative Buildings and 35 Building Briefs.",
+                "78 Representative Buildings and 38 Building Briefs.",
                 "7 representative roles and 5 operational categories are covered."
               ],
               "targetSubtypes": [
@@ -36721,7 +36339,7 @@
                 "ecosystemId": "office",
                 "state": "strong",
                 "stateLabel": "Strong",
-                "buildingCount": 75,
+                "buildingCount": 78,
                 "explicitCount": 0,
                 "inheritedOnlyCount": 65,
                 "reviewRequiredCount": 0,
@@ -36737,8 +36355,8 @@
                 "subtypesCovered": [
                   "professional_office",
                   "downtown_office",
-                  "executive_office",
-                  "creative_office"
+                  "creative_office",
+                  "executive_office"
                 ],
                 "activityCoverage": [
                   "knowledge_work",
@@ -37080,7 +36698,7 @@
                 "districts": 7,
                 "secondaryDistricts": 6,
                 "recommendations": 7,
-                "representativeBuildings": 15,
+                "representativeBuildings": 12,
                 "buildingBriefs": 0,
                 "subtypes": 4,
                 "archetypes": 4,
@@ -37089,7 +36707,7 @@
                 "representativeRoles": 2,
                 "operationalCategories": 2,
                 "operationalCharacteristics": 5,
-                "reviewRequiredRepresentativeBuildings": 6
+                "reviewRequiredRepresentativeBuildings": 3
               },
               "gaps": [
                 "Building Brief coverage is missing for this ecosystem."
@@ -37099,7 +36717,7 @@
               "strategicPriority": 5,
               "evidence": [
                 "7 primary districts and 6 secondary districts.",
-                "15 Representative Buildings and 0 Building Briefs.",
+                "12 Representative Buildings and 0 Building Briefs.",
                 "2 representative roles and 2 operational categories are covered."
               ],
               "targetSubtypes": [
@@ -37125,10 +36743,10 @@
                 "ecosystemId": "retail",
                 "state": "partial",
                 "stateLabel": "Partial",
-                "buildingCount": 15,
+                "buildingCount": 12,
                 "explicitCount": 0,
-                "inheritedOnlyCount": 15,
-                "reviewRequiredCount": 6,
+                "inheritedOnlyCount": 12,
+                "reviewRequiredCount": 3,
                 "rolesCovered": [
                   "neighborhood_service_retail",
                   "showroom_retail_environment"
@@ -37176,24 +36794,6 @@
                 "highestPriorityMissingOperationalCategory": "access_loading",
                 "exampleBuildings": [
                   {
-                    "name": "119 Filbert St",
-                    "path": "/commercial-real-estate/building/CA/oakland/119-filbert-st/",
-                    "role": "neighborhood_service_retail",
-                    "confidence": "review_required"
-                  },
-                  {
-                    "name": "160 Franklin St",
-                    "path": "/commercial-real-estate/building/CA/oakland/160-franklin-st/",
-                    "role": "neighborhood_service_retail",
-                    "confidence": "review_required"
-                  },
-                  {
-                    "name": "424 3rd St",
-                    "path": "/commercial-real-estate/building/CA/oakland/424-3rd-st/",
-                    "role": "neighborhood_service_retail",
-                    "confidence": "review_required"
-                  },
-                  {
                     "name": "101 Lytton Ave",
                     "path": "/commercial-real-estate/building/CA/palo-alto/101-lytton-ave/",
                     "role": "neighborhood_service_retail",
@@ -37210,6 +36810,24 @@
                     "path": "/commercial-real-estate/building/CA/palo-alto/525-university-ave/",
                     "role": "neighborhood_service_retail",
                     "confidence": "review_required"
+                  },
+                  {
+                    "name": "One Henry Adams",
+                    "path": "/commercial-real-estate/building/CA/san-francisco/1-henry-adams-st/",
+                    "role": "showroom_retail_environment",
+                    "confidence": "district_inferred"
+                  },
+                  {
+                    "name": "San Francisco Design Center - Galleria",
+                    "path": "/commercial-real-estate/building/CA/san-francisco/101-henry-adams-st/",
+                    "role": "showroom_retail_environment",
+                    "confidence": "district_inferred"
+                  },
+                  {
+                    "name": "San Francisco Armory",
+                    "path": "/commercial-real-estate/building/CA/san-francisco/1800-mission-st/",
+                    "role": "neighborhood_service_retail",
+                    "confidence": "district_inferred"
                   }
                 ]
               },
@@ -37693,7 +37311,7 @@
               "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
               "evidence": [
                 "7 primary districts and 6 secondary districts.",
-                "15 Representative Buildings and 0 Building Briefs.",
+                "12 Representative Buildings and 0 Building Briefs.",
                 "2 representative roles and 2 operational categories are covered."
               ],
               "recommendedSprintFamily": "Ecosystem Building Brief Migration",
@@ -37719,7 +37337,7 @@
               "rationale": "Representative role coverage is too narrow for this ecosystem.",
               "evidence": [
                 "7 primary districts and 6 secondary districts.",
-                "15 Representative Buildings and 0 Building Briefs.",
+                "12 Representative Buildings and 0 Building Briefs.",
                 "2 representative roles and 2 operational categories are covered."
               ],
               "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -37745,7 +37363,7 @@
               "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
               "evidence": [
                 "7 primary districts and 6 secondary districts.",
-                "15 Representative Buildings and 0 Building Briefs.",
+                "12 Representative Buildings and 0 Building Briefs.",
                 "2 representative roles and 2 operational categories are covered."
               ],
               "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -38113,8 +37731,8 @@
             "state": "balanced",
             "label": "Balanced",
             "dominantEcosystem": "industrial_flex",
-            "representativeBuildingShare": 0.48,
-            "buildingBriefShare": 0.52,
+            "representativeBuildingShare": 0.5,
+            "buildingBriefShare": 0.5,
             "warnings": []
           }
         },
@@ -38122,8 +37740,8 @@
           "state": "balanced",
           "label": "Balanced",
           "dominantEcosystem": "industrial_flex",
-          "representativeBuildingShare": 0.48,
-          "buildingBriefShare": 0.52,
+          "representativeBuildingShare": 0.5,
+          "buildingBriefShare": 0.5,
           "warnings": []
         },
         "ecosystemCoverage": {
@@ -38134,8 +37752,8 @@
               "districtCount": 7,
               "secondaryDistrictCount": 14,
               "recommendationNodeCount": 7,
-              "representativeBuildingCount": 75,
-              "buildingBriefCount": 35,
+              "representativeBuildingCount": 78,
+              "buildingBriefCount": 38,
               "status": "Developed",
               "districts": [
                 {
@@ -38214,71 +37832,71 @@
                 "ecosystemId": "office",
                 "state": "strong",
                 "stateLabel": "Strong",
-                "buildingCount": 75,
+                "buildingCount": 78,
                 "explicitCount": 0,
                 "inheritedOnlyCount": 65,
                 "reviewRequiredCount": 0,
                 "rolesCovered": {
                   "downtown_class_a_office": 6,
-                  "professional_office_environment": 7,
+                  "professional_office_environment": 9,
                   "government_office_environment": 1,
-                  "creative_office_environment": 45,
+                  "creative_office_environment": 46,
                   "executive_office_environment": 13,
                   "suburban_office_campus": 1,
                   "transit_oriented_office_environment": 2
                 },
                 "subtypesCovered": {
-                  "professional_office": 22,
+                  "professional_office": 25,
                   "downtown_office": 38,
-                  "executive_office": 16,
-                  "creative_office": 49
+                  "creative_office": 50,
+                  "executive_office": 16
                 },
                 "activityCoverage": {
-                  "knowledge_work": 75,
-                  "client_meetings": 48,
-                  "administrative_operations": 29,
-                  "walk_in_retail": 13,
-                  "walk_in_service": 17,
-                  "customer_showroom": 33,
-                  "collaboration": 50,
-                  "product_development": 46,
+                  "knowledge_work": 78,
+                  "client_meetings": 50,
+                  "administrative_operations": 31,
+                  "walk_in_retail": 16,
+                  "walk_in_service": 20,
+                  "customer_showroom": 36,
+                  "collaboration": 51,
+                  "product_development": 47,
                   "light_manufacturing": 6,
                   "research": 3
                 },
                 "archetypeCoverage": {
-                  "wellness_practice": 13,
-                  "marketing_agency": 66,
-                  "professional_office": 75,
-                  "law_firm": 75,
-                  "accounting_firm": 75,
-                  "financial_services_firm": 75,
-                  "consulting_firm": 75,
-                  "creative_studio": 75,
+                  "wellness_practice": 16,
+                  "marketing_agency": 69,
+                  "professional_office": 78,
+                  "law_firm": 78,
+                  "accounting_firm": 78,
+                  "financial_services_firm": 78,
+                  "consulting_firm": 78,
+                  "creative_studio": 78,
                   "startup": 62,
                   "research_company": 9
                 },
                 "operationalCharacteristicsCovered": {
-                  "professional_image": 29,
+                  "professional_image": 31,
                   "transit_access": 8,
                   "large_floorplates": 6,
                   "structured_parking": 6,
-                  "private_office_layout": 20,
-                  "customer_parking": 7,
+                  "private_office_layout": 22,
+                  "customer_parking": 9,
                   "urban_core_access": 1,
                   "enhanced_security": 14,
-                  "creative_environment": 45,
-                  "open_workspace": 45,
-                  "flexible_suite_sizes": 45,
-                  "walkability": 47,
+                  "creative_environment": 46,
+                  "open_workspace": 46,
+                  "flexible_suite_sizes": 46,
+                  "walkability": 48,
                   "campus_environment": 1,
                   "surface_parking": 1,
                   "suburban_access": 1
                 },
                 "operationalCategoriesCovered": {
-                  "market_presence": 75,
-                  "location_workforce": 57,
-                  "configuration": 116,
-                  "parking_vehicles": 14,
+                  "market_presence": 78,
+                  "location_workforce": 58,
+                  "configuration": 120,
+                  "parking_vehicles": 16,
                   "infrastructure": 14
                 },
                 "missingRoles": [
@@ -38576,7 +38194,7 @@
               "districtCount": 7,
               "secondaryDistrictCount": 6,
               "recommendationNodeCount": 7,
-              "representativeBuildingCount": 15,
+              "representativeBuildingCount": 12,
               "buildingBriefCount": 0,
               "status": "Partial",
               "districts": [
@@ -38646,43 +38264,43 @@
                 "ecosystemId": "retail",
                 "state": "partial",
                 "stateLabel": "Partial",
-                "buildingCount": 15,
+                "buildingCount": 12,
                 "explicitCount": 0,
-                "inheritedOnlyCount": 15,
-                "reviewRequiredCount": 6,
+                "inheritedOnlyCount": 12,
+                "reviewRequiredCount": 3,
                 "rolesCovered": {
-                  "neighborhood_service_retail": 10,
+                  "neighborhood_service_retail": 7,
                   "showroom_retail_environment": 5
                 },
                 "subtypesCovered": {
-                  "neighborhood_retail": 10,
+                  "neighborhood_retail": 7,
                   "showroom_retail": 5
                 },
                 "activityCoverage": {
-                  "walk_in_service": 15,
-                  "walk_in_retail": 10,
-                  "customer_showroom": 15,
+                  "walk_in_service": 12,
+                  "walk_in_retail": 7,
+                  "customer_showroom": 12,
                   "collaboration": 5,
                   "knowledge_work": 9
                 },
                 "archetypeCoverage": {
-                  "wellness_practice": 15,
-                  "marketing_agency": 15,
-                  "food_producer": 15,
-                  "training_center": 15,
+                  "wellness_practice": 12,
+                  "marketing_agency": 12,
+                  "food_producer": 12,
+                  "training_center": 12,
                   "creative_studio": 9,
                   "professional_office": 9
                 },
                 "operationalCharacteristicsCovered": {
-                  "street_visibility": 15,
-                  "walk_in_customer_access": 10,
-                  "customer_parking": 10,
+                  "street_visibility": 12,
+                  "walk_in_customer_access": 7,
+                  "customer_parking": 7,
                   "showroom_frontage": 5,
                   "destination_customer_access": 5
                 },
                 "operationalCategoriesCovered": {
-                  "market_presence": 35,
-                  "parking_vehicles": 10
+                  "market_presence": 29,
+                  "parking_vehicles": 7
                 },
                 "missingRoles": [
                   "destination_retail_environment"
@@ -38696,24 +38314,6 @@
                 "highestPriorityMissingRole": "destination_retail_environment",
                 "highestPriorityMissingOperationalCategory": "access_loading",
                 "exampleBuildings": [
-                  {
-                    "name": "119 Filbert St",
-                    "path": "/commercial-real-estate/building/CA/oakland/119-filbert-st/",
-                    "role": "neighborhood_service_retail",
-                    "confidence": "review_required"
-                  },
-                  {
-                    "name": "160 Franklin St",
-                    "path": "/commercial-real-estate/building/CA/oakland/160-franklin-st/",
-                    "role": "neighborhood_service_retail",
-                    "confidence": "review_required"
-                  },
-                  {
-                    "name": "424 3rd St",
-                    "path": "/commercial-real-estate/building/CA/oakland/424-3rd-st/",
-                    "role": "neighborhood_service_retail",
-                    "confidence": "review_required"
-                  },
                   {
                     "name": "101 Lytton Ave",
                     "path": "/commercial-real-estate/building/CA/palo-alto/101-lytton-ave/",
@@ -38731,6 +38331,24 @@
                     "path": "/commercial-real-estate/building/CA/palo-alto/525-university-ave/",
                     "role": "neighborhood_service_retail",
                     "confidence": "review_required"
+                  },
+                  {
+                    "name": "One Henry Adams",
+                    "path": "/commercial-real-estate/building/CA/san-francisco/1-henry-adams-st/",
+                    "role": "showroom_retail_environment",
+                    "confidence": "district_inferred"
+                  },
+                  {
+                    "name": "San Francisco Design Center - Galleria",
+                    "path": "/commercial-real-estate/building/CA/san-francisco/101-henry-adams-st/",
+                    "role": "showroom_retail_environment",
+                    "confidence": "district_inferred"
+                  },
+                  {
+                    "name": "San Francisco Armory",
+                    "path": "/commercial-real-estate/building/CA/san-francisco/1800-mission-st/",
+                    "role": "neighborhood_service_retail",
+                    "confidence": "district_inferred"
                   }
                 ]
               }
@@ -39132,7 +38750,7 @@
             "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
             "evidence": [
               "7 primary districts and 6 secondary districts.",
-              "15 Representative Buildings and 0 Building Briefs.",
+              "12 Representative Buildings and 0 Building Briefs.",
               "2 representative roles and 2 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem Building Brief Migration",
@@ -39358,7 +38976,7 @@
             "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
             "evidence": [
               "7 primary districts and 6 secondary districts.",
-              "15 Representative Buildings and 0 Building Briefs.",
+              "12 Representative Buildings and 0 Building Briefs.",
               "2 representative roles and 2 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -39384,7 +39002,7 @@
             "rationale": "Representative role coverage is too narrow for this ecosystem.",
             "evidence": [
               "7 primary districts and 6 secondary districts.",
-              "15 Representative Buildings and 0 Building Briefs.",
+              "12 Representative Buildings and 0 Building Briefs.",
               "2 representative roles and 2 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -40132,69 +39750,12 @@
           "buildingBriefs": {
             "key": "buildingBriefs",
             "label": "Building Briefs",
-            "score": 54,
-            "completed": 83,
+            "score": 55,
+            "completed": 86,
             "total": 155,
-            "missing": 72,
-            "explanation": "83 of 155 representative building records use the canonical Building Brief journey.",
+            "missing": 69,
+            "explanation": "86 of 155 representative building records use the canonical Building Brief journey.",
             "issues": [
-              {
-                "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-oakland-119-filbert-st",
-                "code": "missing-brief",
-                "metroId": "san-francisco",
-                "metroName": "San Francisco",
-                "category": "buildingBriefs",
-                "categoryLabel": "Building Briefs",
-                "taskType": "representative building missing Building Brief",
-                "itemName": "119 Filbert St",
-                "severity": "medium",
-                "priority": 40,
-                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-                "sourceId": "/commercial-real-estate/building/CA/oakland/119-filbert-st/",
-                "publicUrl": "/commercial-real-estate/building/CA/oakland/119-filbert-st/",
-                "adminUrl": "",
-                "suggestedNextAction": "Author a Building Brief for this representative building.",
-                "automationCandidate": true,
-                "readinessState": ""
-              },
-              {
-                "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-oakland-160-franklin-st",
-                "code": "missing-brief",
-                "metroId": "san-francisco",
-                "metroName": "San Francisco",
-                "category": "buildingBriefs",
-                "categoryLabel": "Building Briefs",
-                "taskType": "representative building missing Building Brief",
-                "itemName": "160 Franklin St",
-                "severity": "medium",
-                "priority": 40,
-                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-                "sourceId": "/commercial-real-estate/building/CA/oakland/160-franklin-st/",
-                "publicUrl": "/commercial-real-estate/building/CA/oakland/160-franklin-st/",
-                "adminUrl": "",
-                "suggestedNextAction": "Author a Building Brief for this representative building.",
-                "automationCandidate": true,
-                "readinessState": ""
-              },
-              {
-                "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-oakland-424-3rd-st",
-                "code": "missing-brief",
-                "metroId": "san-francisco",
-                "metroName": "San Francisco",
-                "category": "buildingBriefs",
-                "categoryLabel": "Building Briefs",
-                "taskType": "representative building missing Building Brief",
-                "itemName": "424 3rd St",
-                "severity": "medium",
-                "priority": 40,
-                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-                "sourceId": "/commercial-real-estate/building/CA/oakland/424-3rd-st/",
-                "publicUrl": "/commercial-real-estate/building/CA/oakland/424-3rd-st/",
-                "adminUrl": "",
-                "suggestedNextAction": "Author a Building Brief for this representative building.",
-                "automationCandidate": true,
-                "readinessState": ""
-              },
               {
                 "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-palo-alto-101-lytton-ave",
                 "code": "missing-brief",
@@ -41561,8 +41122,8 @@
             "key": "editorialQuality",
             "label": "Editorial Quality",
             "score": 98,
-            "completed": 105,
-            "total": 107,
+            "completed": 108,
+            "total": 110,
             "missing": 2,
             "explanation": "Deterministic scan for placeholders, unsupported generated phrasing, and style-guide avoid phrases.",
             "issues": [
@@ -41771,25 +41332,6 @@
             "readinessState": ""
           },
           {
-            "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-oakland-119-filbert-st",
-            "code": "missing-brief",
-            "metroId": "san-francisco",
-            "metroName": "San Francisco",
-            "category": "buildingBriefs",
-            "categoryLabel": "Building Briefs",
-            "taskType": "representative building missing Building Brief",
-            "itemName": "119 Filbert St",
-            "severity": "medium",
-            "priority": 40,
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-            "sourceId": "/commercial-real-estate/building/CA/oakland/119-filbert-st/",
-            "publicUrl": "/commercial-real-estate/building/CA/oakland/119-filbert-st/",
-            "adminUrl": "",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
-            "automationCandidate": true,
-            "readinessState": ""
-          },
-          {
             "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-121-spear-st",
             "code": "missing-brief",
             "metroId": "san-francisco",
@@ -41936,25 +41478,6 @@
             "reason": "Representative building has not migrated to the canonical Building Brief journey.",
             "sourceId": "/commercial-real-estate/building/CA/san-francisco/151-union-st/",
             "publicUrl": "/commercial-real-estate/building/CA/san-francisco/151-union-st/",
-            "adminUrl": "",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
-            "automationCandidate": true,
-            "readinessState": ""
-          },
-          {
-            "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-oakland-160-franklin-st",
-            "code": "missing-brief",
-            "metroId": "san-francisco",
-            "metroName": "San Francisco",
-            "category": "buildingBriefs",
-            "categoryLabel": "Building Briefs",
-            "taskType": "representative building missing Building Brief",
-            "itemName": "160 Franklin St",
-            "severity": "medium",
-            "priority": 40,
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-            "sourceId": "/commercial-real-estate/building/CA/oakland/160-franklin-st/",
-            "publicUrl": "/commercial-real-estate/building/CA/oakland/160-franklin-st/",
             "adminUrl": "",
             "suggestedNextAction": "Author a Building Brief for this representative building.",
             "automationCandidate": true,
@@ -42487,25 +42010,6 @@
             "reason": "Representative building has not migrated to the canonical Building Brief journey.",
             "sourceId": "/commercial-real-estate/building/CA/san-francisco/414-brannan-st/",
             "publicUrl": "/commercial-real-estate/building/CA/san-francisco/414-brannan-st/",
-            "adminUrl": "",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
-            "automationCandidate": true,
-            "readinessState": ""
-          },
-          {
-            "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-oakland-424-3rd-st",
-            "code": "missing-brief",
-            "metroId": "san-francisco",
-            "metroName": "San Francisco",
-            "category": "buildingBriefs",
-            "categoryLabel": "Building Briefs",
-            "taskType": "representative building missing Building Brief",
-            "itemName": "424 3rd St",
-            "severity": "medium",
-            "priority": 40,
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-            "sourceId": "/commercial-real-estate/building/CA/oakland/424-3rd-st/",
-            "publicUrl": "/commercial-real-estate/building/CA/oakland/424-3rd-st/",
             "adminUrl": "",
             "suggestedNextAction": "Author a Building Brief for this representative building.",
             "automationCandidate": true,
@@ -43653,11 +43157,11 @@
             "label": "Editorial Coverage",
             "score": 93,
             "status": "",
-            "explanation": "8 of 8 districts have substantive descriptions; 48 representative buildings and 45 Building Briefs are available.",
+            "explanation": "8 of 8 districts have substantive descriptions; 48 representative buildings and 48 Building Briefs are available.",
             "completed": {
               "districtsWithDescriptions": 8,
               "representativeBuildings": 48,
-              "buildingBriefs": 45
+              "buildingBriefs": 48
             },
             "targets": {
               "representativeBuildingsPerDistrict": 3,
@@ -43722,7 +43226,7 @@
         "cityPath": "/commercial-real-estate/CA/oakland/",
         "districtCount": 8,
         "representativeBuildingCount": 48,
-        "buildingBriefCount": 45,
+        "buildingBriefCount": 48,
         "geographicReadiness": {
           "state": "strong",
           "label": "Strong",
@@ -43746,7 +43250,7 @@
           "label": "Partial",
           "rationale": [
             "Industrial & Flex coverage is strong or developed.",
-            "Office is Partial; Retail is Partial; Life Science is Missing.",
+            "Office is Partial; Retail is Thin; Life Science is Missing.",
             "Representative Building coverage is concentrated in Industrial & Flex."
           ],
           "passed": false,
@@ -43760,6 +43264,7 @@
             "special_purpose"
           ],
           "blockingEcosystems": [
+            "retail",
             "life_science"
           ],
           "evaluations": [
@@ -43784,15 +43289,15 @@
                 "districts": 1,
                 "secondaryDistricts": 3,
                 "recommendations": 1,
-                "representativeBuildings": 10,
-                "buildingBriefs": 10,
+                "representativeBuildings": 13,
+                "buildingBriefs": 13,
                 "subtypes": 2,
                 "archetypes": 5,
                 "activities": 4,
                 "reviewRequiredDistricts": 0,
-                "representativeRoles": 3,
+                "representativeRoles": 4,
                 "operationalCategories": 5,
-                "operationalCharacteristics": 8,
+                "operationalCharacteristics": 12,
                 "reviewRequiredRepresentativeBuildings": 0
               },
               "gaps": [],
@@ -43801,8 +43306,8 @@
               "strategicPriority": 2,
               "evidence": [
                 "1 primary districts and 3 secondary districts.",
-                "10 Representative Buildings and 10 Building Briefs.",
-                "3 representative roles and 5 operational categories are covered."
+                "13 Representative Buildings and 13 Building Briefs.",
+                "4 representative roles and 5 operational categories are covered."
               ],
               "targetSubtypes": [
                 "downtown_office",
@@ -43827,20 +43332,22 @@
               ],
               "representativeBuildingIntelligence": {
                 "ecosystemId": "office",
-                "state": "partial",
-                "stateLabel": "Partial",
-                "buildingCount": 10,
+                "state": "strong",
+                "stateLabel": "Strong",
+                "buildingCount": 13,
                 "explicitCount": 0,
                 "inheritedOnlyCount": 0,
                 "reviewRequiredCount": 0,
                 "rolesCovered": [
                   "downtown_class_a_office",
                   "professional_office_environment",
-                  "government_office_environment"
+                  "government_office_environment",
+                  "creative_office_environment"
                 ],
                 "subtypesCovered": [
                   "professional_office",
-                  "downtown_office"
+                  "downtown_office",
+                  "creative_office"
                 ],
                 "activityCoverage": [
                   "knowledge_work",
@@ -43848,7 +43355,9 @@
                   "administrative_operations",
                   "walk_in_retail",
                   "walk_in_service",
-                  "customer_showroom"
+                  "customer_showroom",
+                  "collaboration",
+                  "product_development"
                 ],
                 "archetypeCoverage": [
                   "wellness_practice",
@@ -43868,7 +43377,11 @@
                   "private_office_layout",
                   "customer_parking",
                   "urban_core_access",
-                  "enhanced_security"
+                  "enhanced_security",
+                  "creative_environment",
+                  "open_workspace",
+                  "flexible_suite_sizes",
+                  "walkability"
                 ],
                 "operationalCategoriesCovered": [
                   "market_presence",
@@ -44142,12 +43655,12 @@
               "label": "Retail",
               "relevance": "important",
               "relevanceLabel": "Important",
-              "readinessState": "partial",
-              "readinessLabel": "Partial",
+              "readinessState": "thin",
+              "readinessLabel": "Thin",
               "layers": {
                 "districts": "developed",
                 "recommendations": "developed",
-                "representativeBuildings": "strong",
+                "representativeBuildings": "missing",
                 "buildingBriefs": "missing",
                 "subtypes": "developed",
                 "archetypes": "partial",
@@ -44158,28 +43671,26 @@
                 "districts": 2,
                 "secondaryDistricts": 1,
                 "recommendations": 2,
-                "representativeBuildings": 3,
+                "representativeBuildings": 0,
                 "buildingBriefs": 0,
                 "subtypes": 2,
                 "archetypes": 2,
                 "activities": 3,
                 "reviewRequiredDistricts": 0,
-                "representativeRoles": 1,
-                "operationalCategories": 2,
-                "operationalCharacteristics": 3,
-                "reviewRequiredRepresentativeBuildings": 3
+                "representativeRoles": 0,
+                "operationalCategories": 0,
+                "operationalCharacteristics": 0,
+                "reviewRequiredRepresentativeBuildings": 0
               },
               "gaps": [
-                "Building Brief coverage is missing for this ecosystem.",
-                "Representative Building intelligence requires editorial review."
+                "Representative Building coverage is missing for this ecosystem."
               ],
               "blocking": false,
               "blockingCodes": [],
               "strategicPriority": 5,
               "evidence": [
                 "2 primary districts and 1 secondary districts.",
-                "3 Representative Buildings and 0 Building Briefs.",
-                "1 representative roles and 2 operational categories are covered."
+                "0 Representative Buildings and 0 Building Briefs."
               ],
               "targetSubtypes": [
                 "neighborhood_retail",
@@ -44202,64 +43713,29 @@
               ],
               "representativeBuildingIntelligence": {
                 "ecosystemId": "retail",
-                "state": "review_required",
-                "stateLabel": "Review Required",
-                "buildingCount": 3,
+                "state": "missing",
+                "stateLabel": "Missing",
+                "buildingCount": 0,
                 "explicitCount": 0,
-                "inheritedOnlyCount": 3,
-                "reviewRequiredCount": 3,
-                "rolesCovered": [
+                "inheritedOnlyCount": 0,
+                "reviewRequiredCount": 0,
+                "rolesCovered": [],
+                "subtypesCovered": [],
+                "activityCoverage": [],
+                "archetypeCoverage": [],
+                "operationalCharacteristicsCovered": [],
+                "operationalCategoriesCovered": [],
+                "missingRoles": [
                   "neighborhood_service_retail"
                 ],
-                "subtypesCovered": [
-                  "neighborhood_retail"
-                ],
-                "activityCoverage": [
-                  "walk_in_service",
-                  "walk_in_retail",
-                  "customer_showroom"
-                ],
-                "archetypeCoverage": [
-                  "wellness_practice",
-                  "marketing_agency",
-                  "food_producer",
-                  "training_center"
-                ],
-                "operationalCharacteristicsCovered": [
-                  "street_visibility",
-                  "walk_in_customer_access",
-                  "customer_parking"
-                ],
-                "operationalCategoriesCovered": [
+                "missingOperationalCategories": [
                   "market_presence",
+                  "configuration",
                   "parking_vehicles"
                 ],
-                "missingRoles": [],
-                "missingOperationalCategories": [
-                  "configuration"
-                ],
-                "highestPriorityMissingRole": "",
-                "highestPriorityMissingOperationalCategory": "configuration",
-                "exampleBuildings": [
-                  {
-                    "name": "119 Filbert St",
-                    "path": "/commercial-real-estate/building/CA/oakland/119-filbert-st/",
-                    "role": "neighborhood_service_retail",
-                    "confidence": "review_required"
-                  },
-                  {
-                    "name": "160 Franklin St",
-                    "path": "/commercial-real-estate/building/CA/oakland/160-franklin-st/",
-                    "role": "neighborhood_service_retail",
-                    "confidence": "review_required"
-                  },
-                  {
-                    "name": "424 3rd St",
-                    "path": "/commercial-real-estate/building/CA/oakland/424-3rd-st/",
-                    "role": "neighborhood_service_retail",
-                    "confidence": "review_required"
-                  }
-                ]
+                "highestPriorityMissingRole": "neighborhood_service_retail",
+                "highestPriorityMissingOperationalCategory": "market_presence",
+                "exampleBuildings": []
               },
               "completionCriteria": [
                 "Validated district ecosystem classification",
@@ -44683,8 +44159,8 @@
               "rationale": "Representative role coverage is too narrow for this ecosystem.",
               "evidence": [
                 "1 primary districts and 3 secondary districts.",
-                "10 Representative Buildings and 10 Building Briefs.",
-                "3 representative roles and 5 operational categories are covered."
+                "13 Representative Buildings and 13 Building Briefs.",
+                "4 representative roles and 5 operational categories are covered."
               ],
               "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
               "completionCriteria": [
@@ -44697,22 +44173,21 @@
               "blocksEcosystemReadiness": false
             },
             {
-              "id": "ecosystem:retail:ecosystem_building_brief_gap",
-              "code": "ecosystem_building_brief_gap",
-              "label": "Ecosystem Building Brief Gap",
+              "id": "ecosystem:retail:ecosystem_thin",
+              "code": "ecosystem_thin",
+              "label": "Ecosystem Thin",
               "severity": "medium",
-              "layer": "buildingBriefs",
+              "layer": "representativeBuildings",
               "ecosystemId": "retail",
               "ecosystemLabel": "Retail",
               "relevance": "important",
-              "readinessState": "partial",
-              "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
+              "readinessState": "thin",
+              "rationale": "Relevant ecosystem has district coverage but lacks enough representative-building or layer depth.",
               "evidence": [
                 "2 primary districts and 1 secondary districts.",
-                "3 Representative Buildings and 0 Building Briefs.",
-                "1 representative roles and 2 operational categories are covered."
+                "0 Representative Buildings and 0 Building Briefs."
               ],
-              "recommendedSprintFamily": "Ecosystem Building Brief Migration",
+              "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
               "completionCriteria": [
                 "Validated district ecosystem classification",
                 "Representative Building coverage across the most important subtypes",
@@ -44723,22 +44198,21 @@
               "blocksEcosystemReadiness": false
             },
             {
-              "id": "ecosystem:retail:representative_building_review_required",
-              "code": "representative_building_review_required",
-              "label": "Representative Building Review Required",
+              "id": "ecosystem:retail:ecosystem_representative_building_gap",
+              "code": "ecosystem_representative_building_gap",
+              "label": "Ecosystem Representative Building Gap",
               "severity": "medium",
-              "layer": "representativeBuildingIntelligence",
+              "layer": "representativeBuildings",
               "ecosystemId": "retail",
               "ecosystemLabel": "Retail",
               "relevance": "important",
-              "readinessState": "partial",
-              "rationale": "Representative Building intelligence exists but requires editorial review.",
+              "readinessState": "thin",
+              "rationale": "District foundation exists, but Representative Buildings are missing.",
               "evidence": [
                 "2 primary districts and 1 secondary districts.",
-                "3 Representative Buildings and 0 Building Briefs.",
-                "1 representative roles and 2 operational categories are covered."
+                "0 Representative Buildings and 0 Building Briefs."
               ],
-              "recommendedSprintFamily": "Representative Building Intelligence Review",
+              "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
               "completionCriteria": [
                 "Validated district ecosystem classification",
                 "Representative Building coverage across the most important subtypes",
@@ -44749,20 +44223,19 @@
               "blocksEcosystemReadiness": false
             },
             {
-              "id": "ecosystem:retail:operational_category_gap",
-              "code": "operational_category_gap",
-              "label": "Operational Category Gap",
+              "id": "ecosystem:retail:representative_role_thin",
+              "code": "representative_role_thin",
+              "label": "Representative Role Thin",
               "severity": "low",
               "layer": "representativeBuildingIntelligence",
               "ecosystemId": "retail",
               "ecosystemLabel": "Retail",
               "relevance": "important",
-              "readinessState": "partial",
-              "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
+              "readinessState": "thin",
+              "rationale": "Representative role coverage is too narrow for this ecosystem.",
               "evidence": [
                 "2 primary districts and 1 secondary districts.",
-                "3 Representative Buildings and 0 Building Briefs.",
-                "1 representative roles and 2 operational categories are covered."
+                "0 Representative Buildings and 0 Building Briefs."
               ],
               "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
               "completionCriteria": [
@@ -45248,83 +44721,27 @@
                 "Publisher ecosystem QA passes without hard errors"
               ],
               "blocksEcosystemReadiness": false
-            },
-            {
-              "id": "ecosystem:industrial_flex:ecosystem_building_brief_concentration",
-              "code": "ecosystem_building_brief_concentration",
-              "label": "Ecosystem Building Brief Concentration",
-              "severity": "medium",
-              "layer": "balance",
-              "ecosystemId": "industrial_flex",
-              "ecosystemLabel": "Industrial & Flex",
-              "relevance": "core",
-              "readinessState": "developed",
-              "rationale": "Building Brief coverage is concentrated in Industrial & Flex.",
-              "evidence": [
-                "5 primary districts and 1 secondary districts.",
-                "35 Representative Buildings and 35 Building Briefs.",
-                "6 representative roles and 6 operational categories are covered."
-              ],
-              "recommendedSprintFamily": "Ecosystem Balance Sprint",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
-              "id": "ecosystem:industrial_flex:ecosystem_building_brief_concentration",
-              "code": "ecosystem_building_brief_concentration",
-              "label": "Ecosystem Building Brief Concentration",
-              "severity": "medium",
-              "layer": "balance",
-              "ecosystemId": "industrial_flex",
-              "ecosystemLabel": "Industrial & Flex",
-              "relevance": "core",
-              "readinessState": "developed",
-              "rationale": "Industrial & Flex Building Brief depth may mask gaps in Office, Retail, Life Science.",
-              "evidence": [
-                "5 primary districts and 1 secondary districts.",
-                "35 Representative Buildings and 35 Building Briefs.",
-                "6 representative roles and 6 operational categories are covered."
-              ],
-              "recommendedSprintFamily": "Ecosystem Balance Sprint",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
             }
           ],
           "balance": {
-            "state": "industrial_flex_brief_concentrated",
-            "label": "Industrial Flex Brief Concentrated",
+            "state": "industrial_flex_representative_building_concentrated",
+            "label": "Industrial Flex Representative Building Concentrated",
             "dominantEcosystem": "industrial_flex",
             "representativeBuildingShare": 0.73,
-            "buildingBriefShare": 0.78,
+            "buildingBriefShare": 0.73,
             "warnings": [
-              "Representative Building coverage is concentrated in Industrial & Flex.",
-              "Building Brief coverage is concentrated in Industrial & Flex.",
-              "Industrial & Flex Building Brief depth may mask gaps in Office, Retail, Life Science."
+              "Representative Building coverage is concentrated in Industrial & Flex."
             ]
           }
         },
         "ecosystemBalance": {
-          "state": "industrial_flex_brief_concentrated",
-          "label": "Industrial Flex Brief Concentrated",
+          "state": "industrial_flex_representative_building_concentrated",
+          "label": "Industrial Flex Representative Building Concentrated",
           "dominantEcosystem": "industrial_flex",
           "representativeBuildingShare": 0.73,
-          "buildingBriefShare": 0.78,
+          "buildingBriefShare": 0.73,
           "warnings": [
-            "Representative Building coverage is concentrated in Industrial & Flex.",
-            "Building Brief coverage is concentrated in Industrial & Flex.",
-            "Industrial & Flex Building Brief depth may mask gaps in Office, Retail, Life Science."
+            "Representative Building coverage is concentrated in Industrial & Flex."
           ]
         },
         "ecosystemCoverage": {
@@ -45335,8 +44752,8 @@
               "districtCount": 1,
               "secondaryDistrictCount": 3,
               "recommendationNodeCount": 1,
-              "representativeBuildingCount": 10,
-              "buildingBriefCount": 10,
+              "representativeBuildingCount": 13,
+              "buildingBriefCount": 13,
               "status": "Developed",
               "districts": [
                 {
@@ -45371,54 +44788,62 @@
               ],
               "representativeBuildingIntelligence": {
                 "ecosystemId": "office",
-                "state": "partial",
-                "stateLabel": "Partial",
-                "buildingCount": 10,
+                "state": "strong",
+                "stateLabel": "Strong",
+                "buildingCount": 13,
                 "explicitCount": 0,
                 "inheritedOnlyCount": 0,
                 "reviewRequiredCount": 0,
                 "rolesCovered": {
                   "downtown_class_a_office": 6,
-                  "professional_office_environment": 3,
-                  "government_office_environment": 1
+                  "professional_office_environment": 5,
+                  "government_office_environment": 1,
+                  "creative_office_environment": 1
                 },
                 "subtypesCovered": {
-                  "professional_office": 10,
-                  "downtown_office": 1
+                  "professional_office": 13,
+                  "downtown_office": 1,
+                  "creative_office": 1
                 },
                 "activityCoverage": {
-                  "knowledge_work": 10,
-                  "client_meetings": 10,
-                  "administrative_operations": 10,
-                  "walk_in_retail": 10,
-                  "walk_in_service": 10,
-                  "customer_showroom": 10
+                  "knowledge_work": 13,
+                  "client_meetings": 12,
+                  "administrative_operations": 12,
+                  "walk_in_retail": 13,
+                  "walk_in_service": 13,
+                  "customer_showroom": 13,
+                  "collaboration": 1,
+                  "product_development": 1
                 },
                 "archetypeCoverage": {
-                  "wellness_practice": 10,
-                  "marketing_agency": 10,
-                  "professional_office": 10,
-                  "law_firm": 10,
-                  "accounting_firm": 10,
-                  "financial_services_firm": 10,
-                  "consulting_firm": 10,
-                  "creative_studio": 10
+                  "wellness_practice": 13,
+                  "marketing_agency": 13,
+                  "professional_office": 13,
+                  "law_firm": 13,
+                  "accounting_firm": 13,
+                  "financial_services_firm": 13,
+                  "consulting_firm": 13,
+                  "creative_studio": 13
                 },
                 "operationalCharacteristicsCovered": {
-                  "professional_image": 10,
+                  "professional_image": 12,
                   "transit_access": 6,
                   "large_floorplates": 6,
                   "structured_parking": 6,
-                  "private_office_layout": 3,
-                  "customer_parking": 3,
+                  "private_office_layout": 5,
+                  "customer_parking": 5,
                   "urban_core_access": 1,
-                  "enhanced_security": 1
+                  "enhanced_security": 1,
+                  "creative_environment": 1,
+                  "open_workspace": 1,
+                  "flexible_suite_sizes": 1,
+                  "walkability": 1
                 },
                 "operationalCategoriesCovered": {
-                  "market_presence": 10,
-                  "location_workforce": 7,
-                  "configuration": 9,
-                  "parking_vehicles": 9,
+                  "market_presence": 13,
+                  "location_workforce": 8,
+                  "configuration": 13,
+                  "parking_vehicles": 11,
                   "infrastructure": 1
                 },
                 "missingRoles": [
@@ -45680,9 +45105,9 @@
               "districtCount": 2,
               "secondaryDistrictCount": 1,
               "recommendationNodeCount": 2,
-              "representativeBuildingCount": 3,
+              "representativeBuildingCount": 0,
               "buildingBriefCount": 0,
-              "status": "Partial",
+              "status": "Thin",
               "districts": [
                 {
                   "slug": "downtown-berkeley",
@@ -45717,64 +45142,29 @@
               ],
               "representativeBuildingIntelligence": {
                 "ecosystemId": "retail",
-                "state": "review_required",
-                "stateLabel": "Review Required",
-                "buildingCount": 3,
+                "state": "missing",
+                "stateLabel": "Missing",
+                "buildingCount": 0,
                 "explicitCount": 0,
-                "inheritedOnlyCount": 3,
-                "reviewRequiredCount": 3,
-                "rolesCovered": {
-                  "neighborhood_service_retail": 3
-                },
-                "subtypesCovered": {
-                  "neighborhood_retail": 3
-                },
-                "activityCoverage": {
-                  "walk_in_service": 3,
-                  "walk_in_retail": 3,
-                  "customer_showroom": 3
-                },
-                "archetypeCoverage": {
-                  "wellness_practice": 3,
-                  "marketing_agency": 3,
-                  "food_producer": 3,
-                  "training_center": 3
-                },
-                "operationalCharacteristicsCovered": {
-                  "street_visibility": 3,
-                  "walk_in_customer_access": 3,
-                  "customer_parking": 3
-                },
-                "operationalCategoriesCovered": {
-                  "market_presence": 6,
-                  "parking_vehicles": 3
-                },
-                "missingRoles": [],
-                "missingOperationalCategories": [
-                  "configuration"
+                "inheritedOnlyCount": 0,
+                "reviewRequiredCount": 0,
+                "rolesCovered": {},
+                "subtypesCovered": {},
+                "activityCoverage": {},
+                "archetypeCoverage": {},
+                "operationalCharacteristicsCovered": {},
+                "operationalCategoriesCovered": {},
+                "missingRoles": [
+                  "neighborhood_service_retail"
                 ],
-                "highestPriorityMissingRole": "",
-                "highestPriorityMissingOperationalCategory": "configuration",
-                "exampleBuildings": [
-                  {
-                    "name": "119 Filbert St",
-                    "path": "/commercial-real-estate/building/CA/oakland/119-filbert-st/",
-                    "role": "neighborhood_service_retail",
-                    "confidence": "review_required"
-                  },
-                  {
-                    "name": "160 Franklin St",
-                    "path": "/commercial-real-estate/building/CA/oakland/160-franklin-st/",
-                    "role": "neighborhood_service_retail",
-                    "confidence": "review_required"
-                  },
-                  {
-                    "name": "424 3rd St",
-                    "path": "/commercial-real-estate/building/CA/oakland/424-3rd-st/",
-                    "role": "neighborhood_service_retail",
-                    "confidence": "review_required"
-                  }
-                ]
+                "missingOperationalCategories": [
+                  "market_presence",
+                  "configuration",
+                  "parking_vehicles"
+                ],
+                "highestPriorityMissingRole": "neighborhood_service_retail",
+                "highestPriorityMissingOperationalCategory": "market_presence",
+                "exampleBuildings": []
               }
             },
             "medical": {
@@ -46023,6 +45413,13 @@
           "reviewRequiredDistricts": [],
           "underrepresentedEcosystems": [
             {
+              "id": "retail",
+              "label": "Retail",
+              "status": "Thin",
+              "districtCount": 2,
+              "representativeBuildingCount": 0
+            },
+            {
               "id": "medical",
               "label": "Medical",
               "status": "Missing",
@@ -46054,65 +45451,13 @@
           "summary": {
             "ecosystemCount": 7,
             "developedCount": 2,
-            "partialCount": 1,
-            "thinCount": 0,
+            "partialCount": 0,
+            "thinCount": 1,
             "missingCount": 4,
             "reviewRequiredDistrictCount": 0
           }
         },
         "ecosystemGaps": [
-          {
-            "id": "ecosystem:industrial_flex:ecosystem_building_brief_concentration",
-            "code": "ecosystem_building_brief_concentration",
-            "label": "Ecosystem Building Brief Concentration",
-            "severity": "medium",
-            "layer": "balance",
-            "ecosystemId": "industrial_flex",
-            "ecosystemLabel": "Industrial & Flex",
-            "relevance": "core",
-            "readinessState": "developed",
-            "rationale": "Building Brief coverage is concentrated in Industrial & Flex.",
-            "evidence": [
-              "5 primary districts and 1 secondary districts.",
-              "35 Representative Buildings and 35 Building Briefs.",
-              "6 representative roles and 6 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem Balance Sprint",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:industrial_flex:ecosystem_building_brief_concentration",
-            "code": "ecosystem_building_brief_concentration",
-            "label": "Ecosystem Building Brief Concentration",
-            "severity": "medium",
-            "layer": "balance",
-            "ecosystemId": "industrial_flex",
-            "ecosystemLabel": "Industrial & Flex",
-            "relevance": "core",
-            "readinessState": "developed",
-            "rationale": "Industrial & Flex Building Brief depth may mask gaps in Office, Retail, Life Science.",
-            "evidence": [
-              "5 primary districts and 1 secondary districts.",
-              "35 Representative Buildings and 35 Building Briefs.",
-              "6 representative roles and 6 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem Balance Sprint",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
           {
             "id": "ecosystem:office:representative_role_thin",
             "code": "representative_role_thin",
@@ -46126,8 +45471,8 @@
             "rationale": "Representative role coverage is too narrow for this ecosystem.",
             "evidence": [
               "1 primary districts and 3 secondary districts.",
-              "10 Representative Buildings and 10 Building Briefs.",
-              "3 representative roles and 5 operational categories are covered."
+              "13 Representative Buildings and 13 Building Briefs.",
+              "4 representative roles and 5 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
             "completionCriteria": [
@@ -46190,22 +45535,21 @@
             "blocksEcosystemReadiness": false
           },
           {
-            "id": "ecosystem:retail:ecosystem_building_brief_gap",
-            "code": "ecosystem_building_brief_gap",
-            "label": "Ecosystem Building Brief Gap",
+            "id": "ecosystem:retail:ecosystem_representative_building_gap",
+            "code": "ecosystem_representative_building_gap",
+            "label": "Ecosystem Representative Building Gap",
             "severity": "medium",
-            "layer": "buildingBriefs",
+            "layer": "representativeBuildings",
             "ecosystemId": "retail",
             "ecosystemLabel": "Retail",
             "relevance": "important",
-            "readinessState": "partial",
-            "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
+            "readinessState": "thin",
+            "rationale": "District foundation exists, but Representative Buildings are missing.",
             "evidence": [
               "2 primary districts and 1 secondary districts.",
-              "3 Representative Buildings and 0 Building Briefs.",
-              "1 representative roles and 2 operational categories are covered."
+              "0 Representative Buildings and 0 Building Briefs."
             ],
-            "recommendedSprintFamily": "Ecosystem Building Brief Migration",
+            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
             "completionCriteria": [
               "Validated district ecosystem classification",
               "Representative Building coverage across the most important subtypes",
@@ -46216,22 +45560,21 @@
             "blocksEcosystemReadiness": false
           },
           {
-            "id": "ecosystem:retail:representative_building_review_required",
-            "code": "representative_building_review_required",
-            "label": "Representative Building Review Required",
+            "id": "ecosystem:retail:ecosystem_thin",
+            "code": "ecosystem_thin",
+            "label": "Ecosystem Thin",
             "severity": "medium",
-            "layer": "representativeBuildingIntelligence",
+            "layer": "representativeBuildings",
             "ecosystemId": "retail",
             "ecosystemLabel": "Retail",
             "relevance": "important",
-            "readinessState": "partial",
-            "rationale": "Representative Building intelligence exists but requires editorial review.",
+            "readinessState": "thin",
+            "rationale": "Relevant ecosystem has district coverage but lacks enough representative-building or layer depth.",
             "evidence": [
               "2 primary districts and 1 secondary districts.",
-              "3 Representative Buildings and 0 Building Briefs.",
-              "1 representative roles and 2 operational categories are covered."
+              "0 Representative Buildings and 0 Building Briefs."
             ],
-            "recommendedSprintFamily": "Representative Building Intelligence Review",
+            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
             "completionCriteria": [
               "Validated district ecosystem classification",
               "Representative Building coverage across the most important subtypes",
@@ -46467,20 +45810,19 @@
             "blocksEcosystemReadiness": false
           },
           {
-            "id": "ecosystem:retail:operational_category_gap",
-            "code": "operational_category_gap",
-            "label": "Operational Category Gap",
+            "id": "ecosystem:retail:representative_role_thin",
+            "code": "representative_role_thin",
+            "label": "Representative Role Thin",
             "severity": "low",
             "layer": "representativeBuildingIntelligence",
             "ecosystemId": "retail",
             "ecosystemLabel": "Retail",
             "relevance": "important",
-            "readinessState": "partial",
-            "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
+            "readinessState": "thin",
+            "rationale": "Representative role coverage is too narrow for this ecosystem.",
             "evidence": [
               "2 primary districts and 1 secondary districts.",
-              "3 Representative Buildings and 0 Building Briefs.",
-              "1 representative roles and 2 operational categories are covered."
+              "0 Representative Buildings and 0 Building Briefs."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
             "completionCriteria": [
@@ -46694,6 +46036,7 @@
           }
         ],
         "blockingEcosystems": [
+          "retail",
           "life_science"
         ],
         "readinessGates": {
@@ -46707,17 +46050,18 @@
             "state": "partial",
             "label": "Partial",
             "blockingEcosystems": [
+              "retail",
               "life_science"
             ]
           }
         },
         "recommendedEcosystemSprint": {
-          "title": "East Bay Industrial & Flex Ecosystem Balance Sprint",
-          "ecosystemId": "industrial_flex",
-          "ecosystemLabel": "Industrial & Flex",
-          "sprintFamily": "Ecosystem Balance Sprint",
-          "rationale": "Building Brief coverage is concentrated in Industrial & Flex.",
-          "gapCode": "ecosystem_building_brief_concentration",
+          "title": "East Bay Office Ecosystem Representative Building Foundation",
+          "ecosystemId": "office",
+          "ecosystemLabel": "Office",
+          "sprintFamily": "Ecosystem Representative Building Foundation",
+          "rationale": "Representative role coverage is too narrow for this ecosystem.",
+          "gapCode": "representative_role_thin",
           "completionCriteria": [
             "Validated district ecosystem classification",
             "Representative Building coverage across the most important subtypes",
@@ -46877,70 +46221,12 @@
           "buildingBriefs": {
             "key": "buildingBriefs",
             "label": "Building Briefs",
-            "score": 94,
-            "completed": 45,
+            "score": 100,
+            "completed": 48,
             "total": 48,
-            "missing": 3,
-            "explanation": "45 of 48 representative building records use the canonical Building Brief journey.",
-            "issues": [
-              {
-                "id": "east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-oakland-119-filbert-st",
-                "code": "missing-brief",
-                "metroId": "east-bay",
-                "metroName": "East Bay",
-                "category": "buildingBriefs",
-                "categoryLabel": "Building Briefs",
-                "taskType": "representative building missing Building Brief",
-                "itemName": "119 Filbert St",
-                "severity": "medium",
-                "priority": 40,
-                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-                "sourceId": "/commercial-real-estate/building/CA/oakland/119-filbert-st/",
-                "publicUrl": "/commercial-real-estate/building/CA/oakland/119-filbert-st/",
-                "adminUrl": "",
-                "suggestedNextAction": "Author a Building Brief for this representative building.",
-                "automationCandidate": true,
-                "readinessState": ""
-              },
-              {
-                "id": "east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-oakland-160-franklin-st",
-                "code": "missing-brief",
-                "metroId": "east-bay",
-                "metroName": "East Bay",
-                "category": "buildingBriefs",
-                "categoryLabel": "Building Briefs",
-                "taskType": "representative building missing Building Brief",
-                "itemName": "160 Franklin St",
-                "severity": "medium",
-                "priority": 40,
-                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-                "sourceId": "/commercial-real-estate/building/CA/oakland/160-franklin-st/",
-                "publicUrl": "/commercial-real-estate/building/CA/oakland/160-franklin-st/",
-                "adminUrl": "",
-                "suggestedNextAction": "Author a Building Brief for this representative building.",
-                "automationCandidate": true,
-                "readinessState": ""
-              },
-              {
-                "id": "east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-oakland-424-3rd-st",
-                "code": "missing-brief",
-                "metroId": "east-bay",
-                "metroName": "East Bay",
-                "category": "buildingBriefs",
-                "categoryLabel": "Building Briefs",
-                "taskType": "representative building missing Building Brief",
-                "itemName": "424 3rd St",
-                "severity": "medium",
-                "priority": 40,
-                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-                "sourceId": "/commercial-real-estate/building/CA/oakland/424-3rd-st/",
-                "publicUrl": "/commercial-real-estate/building/CA/oakland/424-3rd-st/",
-                "adminUrl": "",
-                "suggestedNextAction": "Author a Building Brief for this representative building.",
-                "automationCandidate": true,
-                "readinessState": ""
-              }
-            ]
+            "missing": 0,
+            "explanation": "48 of 48 representative building records use the canonical Building Brief journey.",
+            "issues": []
           },
           "recommendationReadiness": {
             "key": "recommendationReadiness",
@@ -46976,8 +46262,8 @@
             "key": "editorialQuality",
             "label": "Editorial Quality",
             "score": 100,
-            "completed": 53,
-            "total": 53,
+            "completed": 56,
+            "total": 56,
             "missing": 0,
             "explanation": "Deterministic scan for placeholders, unsupported generated phrasing, and style-guide avoid phrases.",
             "issues": []
@@ -47030,63 +46316,6 @@
             "adminUrl": "",
             "suggestedNextAction": "Add or update recommendation QA documentation for this metro.",
             "automationCandidate": false,
-            "readinessState": ""
-          },
-          {
-            "id": "east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-oakland-119-filbert-st",
-            "code": "missing-brief",
-            "metroId": "east-bay",
-            "metroName": "East Bay",
-            "category": "buildingBriefs",
-            "categoryLabel": "Building Briefs",
-            "taskType": "representative building missing Building Brief",
-            "itemName": "119 Filbert St",
-            "severity": "medium",
-            "priority": 40,
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-            "sourceId": "/commercial-real-estate/building/CA/oakland/119-filbert-st/",
-            "publicUrl": "/commercial-real-estate/building/CA/oakland/119-filbert-st/",
-            "adminUrl": "",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
-            "automationCandidate": true,
-            "readinessState": ""
-          },
-          {
-            "id": "east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-oakland-160-franklin-st",
-            "code": "missing-brief",
-            "metroId": "east-bay",
-            "metroName": "East Bay",
-            "category": "buildingBriefs",
-            "categoryLabel": "Building Briefs",
-            "taskType": "representative building missing Building Brief",
-            "itemName": "160 Franklin St",
-            "severity": "medium",
-            "priority": 40,
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-            "sourceId": "/commercial-real-estate/building/CA/oakland/160-franklin-st/",
-            "publicUrl": "/commercial-real-estate/building/CA/oakland/160-franklin-st/",
-            "adminUrl": "",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
-            "automationCandidate": true,
-            "readinessState": ""
-          },
-          {
-            "id": "east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-oakland-424-3rd-st",
-            "code": "missing-brief",
-            "metroId": "east-bay",
-            "metroName": "East Bay",
-            "category": "buildingBriefs",
-            "categoryLabel": "Building Briefs",
-            "taskType": "representative building missing Building Brief",
-            "itemName": "424 3rd St",
-            "severity": "medium",
-            "priority": 40,
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-            "sourceId": "/commercial-real-estate/building/CA/oakland/424-3rd-st/",
-            "publicUrl": "/commercial-real-estate/building/CA/oakland/424-3rd-st/",
-            "adminUrl": "",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
-            "automationCandidate": true,
             "readinessState": ""
           },
           {
@@ -71378,63 +70607,6 @@
         "readinessState": ""
       },
       {
-        "id": "east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-oakland-119-filbert-st",
-        "code": "missing-brief",
-        "metroId": "east-bay",
-        "metroName": "East Bay",
-        "category": "buildingBriefs",
-        "categoryLabel": "Building Briefs",
-        "taskType": "representative building missing Building Brief",
-        "itemName": "119 Filbert St",
-        "severity": "medium",
-        "priority": 40,
-        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-        "sourceId": "/commercial-real-estate/building/CA/oakland/119-filbert-st/",
-        "publicUrl": "/commercial-real-estate/building/CA/oakland/119-filbert-st/",
-        "adminUrl": "",
-        "suggestedNextAction": "Author a Building Brief for this representative building.",
-        "automationCandidate": true,
-        "readinessState": ""
-      },
-      {
-        "id": "east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-oakland-160-franklin-st",
-        "code": "missing-brief",
-        "metroId": "east-bay",
-        "metroName": "East Bay",
-        "category": "buildingBriefs",
-        "categoryLabel": "Building Briefs",
-        "taskType": "representative building missing Building Brief",
-        "itemName": "160 Franklin St",
-        "severity": "medium",
-        "priority": 40,
-        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-        "sourceId": "/commercial-real-estate/building/CA/oakland/160-franklin-st/",
-        "publicUrl": "/commercial-real-estate/building/CA/oakland/160-franklin-st/",
-        "adminUrl": "",
-        "suggestedNextAction": "Author a Building Brief for this representative building.",
-        "automationCandidate": true,
-        "readinessState": ""
-      },
-      {
-        "id": "east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-oakland-424-3rd-st",
-        "code": "missing-brief",
-        "metroId": "east-bay",
-        "metroName": "East Bay",
-        "category": "buildingBriefs",
-        "categoryLabel": "Building Briefs",
-        "taskType": "representative building missing Building Brief",
-        "itemName": "424 3rd St",
-        "severity": "medium",
-        "priority": 40,
-        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-        "sourceId": "/commercial-real-estate/building/CA/oakland/424-3rd-st/",
-        "publicUrl": "/commercial-real-estate/building/CA/oakland/424-3rd-st/",
-        "adminUrl": "",
-        "suggestedNextAction": "Author a Building Brief for this representative building.",
-        "automationCandidate": true,
-        "readinessState": ""
-      },
-      {
         "id": "east-bay:representativeBuildings:district missing representative buildings:antioch-east-18th-industrial",
         "code": "district-no-reps",
         "metroId": "east-bay",
@@ -73696,25 +72868,6 @@
         "readinessState": ""
       },
       {
-        "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-oakland-119-filbert-st",
-        "code": "missing-brief",
-        "metroId": "san-francisco",
-        "metroName": "San Francisco",
-        "category": "buildingBriefs",
-        "categoryLabel": "Building Briefs",
-        "taskType": "representative building missing Building Brief",
-        "itemName": "119 Filbert St",
-        "severity": "medium",
-        "priority": 40,
-        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-        "sourceId": "/commercial-real-estate/building/CA/oakland/119-filbert-st/",
-        "publicUrl": "/commercial-real-estate/building/CA/oakland/119-filbert-st/",
-        "adminUrl": "",
-        "suggestedNextAction": "Author a Building Brief for this representative building.",
-        "automationCandidate": true,
-        "readinessState": ""
-      },
-      {
         "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-121-spear-st",
         "code": "missing-brief",
         "metroId": "san-francisco",
@@ -73861,25 +73014,6 @@
         "reason": "Representative building has not migrated to the canonical Building Brief journey.",
         "sourceId": "/commercial-real-estate/building/CA/san-francisco/151-union-st/",
         "publicUrl": "/commercial-real-estate/building/CA/san-francisco/151-union-st/",
-        "adminUrl": "",
-        "suggestedNextAction": "Author a Building Brief for this representative building.",
-        "automationCandidate": true,
-        "readinessState": ""
-      },
-      {
-        "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-oakland-160-franklin-st",
-        "code": "missing-brief",
-        "metroId": "san-francisco",
-        "metroName": "San Francisco",
-        "category": "buildingBriefs",
-        "categoryLabel": "Building Briefs",
-        "taskType": "representative building missing Building Brief",
-        "itemName": "160 Franklin St",
-        "severity": "medium",
-        "priority": 40,
-        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-        "sourceId": "/commercial-real-estate/building/CA/oakland/160-franklin-st/",
-        "publicUrl": "/commercial-real-estate/building/CA/oakland/160-franklin-st/",
         "adminUrl": "",
         "suggestedNextAction": "Author a Building Brief for this representative building.",
         "automationCandidate": true,
@@ -74412,25 +73546,6 @@
         "reason": "Representative building has not migrated to the canonical Building Brief journey.",
         "sourceId": "/commercial-real-estate/building/CA/san-francisco/414-brannan-st/",
         "publicUrl": "/commercial-real-estate/building/CA/san-francisco/414-brannan-st/",
-        "adminUrl": "",
-        "suggestedNextAction": "Author a Building Brief for this representative building.",
-        "automationCandidate": true,
-        "readinessState": ""
-      },
-      {
-        "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-oakland-424-3rd-st",
-        "code": "missing-brief",
-        "metroId": "san-francisco",
-        "metroName": "San Francisco",
-        "category": "buildingBriefs",
-        "categoryLabel": "Building Briefs",
-        "taskType": "representative building missing Building Brief",
-        "itemName": "424 3rd St",
-        "severity": "medium",
-        "priority": 40,
-        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-        "sourceId": "/commercial-real-estate/building/CA/oakland/424-3rd-st/",
-        "publicUrl": "/commercial-real-estate/building/CA/oakland/424-3rd-st/",
         "adminUrl": "",
         "suggestedNextAction": "Author a Building Brief for this representative building.",
         "automationCandidate": true,
@@ -76757,63 +75872,6 @@
         "readinessState": ""
       },
       {
-        "id": "east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-oakland-119-filbert-st",
-        "code": "missing-brief",
-        "metroId": "east-bay",
-        "metroName": "East Bay",
-        "category": "buildingBriefs",
-        "categoryLabel": "Building Briefs",
-        "taskType": "representative building missing Building Brief",
-        "itemName": "119 Filbert St",
-        "severity": "medium",
-        "priority": 40,
-        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-        "sourceId": "/commercial-real-estate/building/CA/oakland/119-filbert-st/",
-        "publicUrl": "/commercial-real-estate/building/CA/oakland/119-filbert-st/",
-        "adminUrl": "",
-        "suggestedNextAction": "Author a Building Brief for this representative building.",
-        "automationCandidate": true,
-        "readinessState": ""
-      },
-      {
-        "id": "east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-oakland-160-franklin-st",
-        "code": "missing-brief",
-        "metroId": "east-bay",
-        "metroName": "East Bay",
-        "category": "buildingBriefs",
-        "categoryLabel": "Building Briefs",
-        "taskType": "representative building missing Building Brief",
-        "itemName": "160 Franklin St",
-        "severity": "medium",
-        "priority": 40,
-        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-        "sourceId": "/commercial-real-estate/building/CA/oakland/160-franklin-st/",
-        "publicUrl": "/commercial-real-estate/building/CA/oakland/160-franklin-st/",
-        "adminUrl": "",
-        "suggestedNextAction": "Author a Building Brief for this representative building.",
-        "automationCandidate": true,
-        "readinessState": ""
-      },
-      {
-        "id": "east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-oakland-424-3rd-st",
-        "code": "missing-brief",
-        "metroId": "east-bay",
-        "metroName": "East Bay",
-        "category": "buildingBriefs",
-        "categoryLabel": "Building Briefs",
-        "taskType": "representative building missing Building Brief",
-        "itemName": "424 3rd St",
-        "severity": "medium",
-        "priority": 40,
-        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-        "sourceId": "/commercial-real-estate/building/CA/oakland/424-3rd-st/",
-        "publicUrl": "/commercial-real-estate/building/CA/oakland/424-3rd-st/",
-        "adminUrl": "",
-        "suggestedNextAction": "Author a Building Brief for this representative building.",
-        "automationCandidate": true,
-        "readinessState": ""
-      },
-      {
         "id": "east-bay:representativeBuildings:district missing representative buildings:antioch-east-18th-industrial",
         "code": "district-no-reps",
         "metroId": "east-bay",
@@ -79075,25 +78133,6 @@
         "readinessState": ""
       },
       {
-        "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-oakland-119-filbert-st",
-        "code": "missing-brief",
-        "metroId": "san-francisco",
-        "metroName": "San Francisco",
-        "category": "buildingBriefs",
-        "categoryLabel": "Building Briefs",
-        "taskType": "representative building missing Building Brief",
-        "itemName": "119 Filbert St",
-        "severity": "medium",
-        "priority": 40,
-        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-        "sourceId": "/commercial-real-estate/building/CA/oakland/119-filbert-st/",
-        "publicUrl": "/commercial-real-estate/building/CA/oakland/119-filbert-st/",
-        "adminUrl": "",
-        "suggestedNextAction": "Author a Building Brief for this representative building.",
-        "automationCandidate": true,
-        "readinessState": ""
-      },
-      {
         "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-121-spear-st",
         "code": "missing-brief",
         "metroId": "san-francisco",
@@ -79240,25 +78279,6 @@
         "reason": "Representative building has not migrated to the canonical Building Brief journey.",
         "sourceId": "/commercial-real-estate/building/CA/san-francisco/151-union-st/",
         "publicUrl": "/commercial-real-estate/building/CA/san-francisco/151-union-st/",
-        "adminUrl": "",
-        "suggestedNextAction": "Author a Building Brief for this representative building.",
-        "automationCandidate": true,
-        "readinessState": ""
-      },
-      {
-        "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-oakland-160-franklin-st",
-        "code": "missing-brief",
-        "metroId": "san-francisco",
-        "metroName": "San Francisco",
-        "category": "buildingBriefs",
-        "categoryLabel": "Building Briefs",
-        "taskType": "representative building missing Building Brief",
-        "itemName": "160 Franklin St",
-        "severity": "medium",
-        "priority": 40,
-        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-        "sourceId": "/commercial-real-estate/building/CA/oakland/160-franklin-st/",
-        "publicUrl": "/commercial-real-estate/building/CA/oakland/160-franklin-st/",
         "adminUrl": "",
         "suggestedNextAction": "Author a Building Brief for this representative building.",
         "automationCandidate": true,
@@ -79791,25 +78811,6 @@
         "reason": "Representative building has not migrated to the canonical Building Brief journey.",
         "sourceId": "/commercial-real-estate/building/CA/san-francisco/414-brannan-st/",
         "publicUrl": "/commercial-real-estate/building/CA/san-francisco/414-brannan-st/",
-        "adminUrl": "",
-        "suggestedNextAction": "Author a Building Brief for this representative building.",
-        "automationCandidate": true,
-        "readinessState": ""
-      },
-      {
-        "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-oakland-424-3rd-st",
-        "code": "missing-brief",
-        "metroId": "san-francisco",
-        "metroName": "San Francisco",
-        "category": "buildingBriefs",
-        "categoryLabel": "Building Briefs",
-        "taskType": "representative building missing Building Brief",
-        "itemName": "424 3rd St",
-        "severity": "medium",
-        "priority": 40,
-        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-        "sourceId": "/commercial-real-estate/building/CA/oakland/424-3rd-st/",
-        "publicUrl": "/commercial-real-estate/building/CA/oakland/424-3rd-st/",
         "adminUrl": "",
         "suggestedNextAction": "Author a Building Brief for this representative building.",
         "automationCandidate": true,
@@ -82025,7 +81026,7 @@
       "service": "Commercial Market Evidence",
       "status": "Validated",
       "validationStatus": "PASS",
-      "collections": 27,
+      "collections": 28,
       "districts": [
         "Antioch East 18th Industrial",
         "Aurora",
@@ -82042,6 +81043,7 @@
         "Hayward Industrial",
         "Indianapolis Airport Logistics",
         "Inverness",
+        "Jack London Square",
         "Jackson Square",
         "Mission Bay",
         "Mission District",
@@ -82055,8 +81057,9 @@
         "Warm Springs Innovation District",
         "West Berkeley"
       ],
-      "evidenceRecords": 172,
+      "evidenceRecords": 175,
       "evidenceTypes": [
+        "Adaptive Commercial Building",
         "Adaptive Showroom / Creative Office",
         "Adaptive-Reuse Boutique Office",
         "Airport Logistics Industrial Building",
@@ -82213,7 +81216,9 @@
         "Warm Springs Business-Center Flex",
         "Waterfront Industrial Adaptive Reuse",
         "Waterfront Modern Office",
+        "Waterfront Service-Commercial Edge",
         "Waterfront Technology Ballpark Campus",
+        "Waterfront-Adjacent Commercial Building",
         "Waterfront-Edge Industrial / Flex",
         "Waterfront-Edge Innovation Office",
         "West SoMa Creative Technology Office",
@@ -82300,6 +81305,7 @@
         "Life Science Ecosystem Depth Benchmark",
         "Lower-Rise Neighborhood Anchor",
         "Lower-Rise Showplace Office Depth",
+        "Lower-Scale Service-Commercial Reference",
         "Maker and Education Anchor",
         "Maker and R&D-Support Benchmark",
         "Mid-Market Creative Demand",
@@ -82378,8 +81384,10 @@
         "Warehouse / Industrial Depth",
         "Warehouse / Industrial Market Context",
         "Warehouse Showroom Pattern",
+        "Warehouse-Adjacent Adaptive Commercial Reference",
         "Warm Springs Boulevard Corridor Benchmark",
         "Waterfront Historic Office Benchmark",
+        "Waterfront-Adjacent Commercial Reference",
         "West-Side Berkeley Access Benchmark",
         "Western Avenue Operating Benchmark",
         "Westinghouse Flex Operations Benchmark",
@@ -82387,11 +81395,11 @@
         "Whipple Road Warehouse Benchmark"
       ],
       "confidenceSummary": {
-        "High": 170,
+        "High": 173,
         "Low": 2
       },
-      "deferredCandidates": 67,
-      "latestValidation": "2026-08-11T13:19:25-07:00",
+      "deferredCandidates": 69,
+      "latestValidation": "2026-08-11T13:44:53-07:00",
       "errors": [],
       "warnings": [],
       "source": {
