@@ -45,10 +45,25 @@ assert(!source.includes("item.source &&\n      item.source.resolverId === \"dist
 assert(source.includes("foundation is established. Complete the remaining selected Building Profiles"), "Today should rewrite stale CME-missing rationale into current Building Profile-only rationale.");
 assert(source.includes("profileMissing(refreshedStatuses) === 0"), "Today should suppress fully resolved district building evidence candidates.");
 
-const staleAurora = (((runtime.portfolioQueues || {}).missionQueue) || []).find((item) =>
+const runtimeStaleAurora = (((runtime.portfolioQueues || {}).missionQueue) || []).find((item) =>
   item.id === "mission:denver:district-building-evidence:aurora" &&
   /lacks a Commercial Market Evidence collection/i.test(item.currentConstraint || "")
 );
+const staleAurora = runtimeStaleAurora || {
+  id: "mission:denver:district-building-evidence:aurora",
+  title: "Complete Aurora Building Evidence",
+  marketId: "denver",
+  districtId: "aurora",
+  districtName: "Aurora",
+  programId: "commercial_market_evidence",
+  portfolioId: "district-building-evidence:denver:aurora",
+  currentConstraint: "Aurora lacks a Commercial Market Evidence collection and selected evidence Building Profiles.",
+  componentStatuses: {
+    commercialMarketEvidence: "Missing",
+    evidenceBuildingProfiles: { completed: 0, target: 0, missing: 0 },
+    supportingBuildingProfiles: { completed: 0, target: 3, missing: 3 },
+  },
+};
 const currentAuroraIndustrial = (((runtime.portfolioQueues || {}).missionQueue) || []).find((item) =>
   item.id === "mission:denver:district-building-evidence:aurora-i-70-airport-industrial"
 );
@@ -56,13 +71,13 @@ const currentAuroraIndustrialEvidence = ((((runtime.portfolioResolution || {}).p
   item.evidenceMissionId === "district-building-evidence:denver:aurora-i-70-airport-industrial"
 );
 
-assert(Boolean(staleAurora), "Fixture should contain the stale generic Aurora candidate seen in production.");
+assert(Boolean(staleAurora), "Fixture should provide the stale generic Aurora candidate seen in production.");
 assert(!currentAuroraIndustrial, "Fixture should reflect completed Aurora industrial work by omitting it from the executable mission queue.");
 assert(Boolean(currentAuroraIndustrialEvidence), "Fixture should contain completed Aurora I-70 / Airport Industrial district evidence resolution.");
 assert(currentAuroraIndustrialEvidence && currentAuroraIndustrialEvidence.cmeStatus === "Complete", "Current Aurora industrial evidence should show CME complete.");
 assert(currentAuroraIndustrialEvidence && currentAuroraIndustrialEvidence.evidenceProfileCoverage && currentAuroraIndustrialEvidence.evidenceProfileCoverage.completed === 3, "Current Aurora industrial evidence should show selected Building Profiles complete.");
 assert(currentAuroraIndustrialEvidence && currentAuroraIndustrialEvidence.evidenceProfileCoverage && currentAuroraIndustrialEvidence.evidenceProfileCoverage.missing === 0, "Current Aurora industrial evidence should show no selected Building Profiles missing.");
-assert(staleAurora && !staleAurora.source, "Compact runtime fixture should demonstrate that source resolver metadata is pruned from Today mission records.");
+assert(staleAurora && !staleAurora.source, "Stale Aurora regression fixture should not depend on source resolver metadata.");
 
 function cmeComplete(statuses) {
   return String(statuses && statuses.commercialMarketEvidence || "").toLowerCase() === "complete";

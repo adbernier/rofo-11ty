@@ -43,6 +43,15 @@ const ECOSYSTEM_READINESS = {
       special_purpose: "secondary",
       hospitality: "secondary",
     },
+    "east-bay": {
+      office: "core",
+      industrial_flex: "core",
+      medical: "secondary",
+      life_science: "important",
+      retail: "important",
+      special_purpose: "secondary",
+      hospitality: "secondary",
+    },
     sacramento: {
       office: "core",
       industrial_flex: "core",
@@ -137,6 +146,25 @@ const ECOSYSTEM_READINESS = {
         "flex_business_park",
       ],
     },
+    "east-bay": {
+      office: [
+        "professional_office_environment",
+        "suburban_office_campus",
+        "technology_creative_office",
+        "transit_oriented_office_environment",
+      ],
+      industrial_flex: [
+        "small_bay_service_environment",
+        "warehouse_distribution_environment",
+        "light_manufacturing_environment",
+        "research_development_environment",
+        "flex_business_park",
+      ],
+      retail: [
+        "neighborhood_service_retail",
+        "mixed_use_commercial_center",
+      ],
+    },
     denver: {
       office: [
         "downtown_class_a_office",
@@ -188,6 +216,11 @@ const ECOSYSTEM_READINESS = {
       industrial_flex: ["access_loading", "parking_vehicles", "configuration", "infrastructure", "location_workforce", "outdoor_special_use"],
       retail: ["market_presence", "configuration", "parking_vehicles"],
     },
+    "east-bay": {
+      office: ["market_presence", "configuration", "parking_vehicles", "location_workforce"],
+      industrial_flex: ["access_loading", "configuration", "parking_vehicles", "location_workforce"],
+      retail: ["market_presence", "configuration", "parking_vehicles"],
+    },
     seattle: {
       office: ["market_presence", "configuration", "parking_vehicles", "location_workforce"],
       industrial_flex: ["access_loading", "configuration", "location_workforce"],
@@ -222,6 +255,14 @@ const METROS = [
       "Hayward",
       "Union City",
     ],
+  },
+  {
+    id: "east-bay",
+    name: "East Bay",
+    primaryCity: "Oakland",
+    state: "CA",
+    compassAliases: ["east-bay"],
+    cities: ["Oakland", "Berkeley", "Emeryville", "Hayward", "Union City", "Fremont", "Antioch"],
   },
   {
     id: "sacramento",
