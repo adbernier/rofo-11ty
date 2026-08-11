@@ -1,19 +1,20 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-11T15:18:07-07:00",
+  "generatedAt": "2026-08-11T15:36:40-07:00",
   "eosVersion": "editorial-operating-system-v2.2.4",
   "sourceSystems": [
     "Publisher",
     "Compass",
     "Commercial Knowledge Graph",
     "Commercial Market Evidence",
+    "Commercial Market Discovery",
     "Field Mode",
     "QA",
     "Editorial Planning"
   ],
   "commercialKnowledgeIntelligence": {
     "schemaVersion": "eos-commercial-knowledge-intelligence-v1",
-    "generatedAt": "2026-08-11T15:18:07-07:00",
+    "generatedAt": "2026-08-11T15:36:40-07:00",
     "sourceSystems": [
       "Editor-controlled strategic priorities",
       "Google Search Console Search Analytics API",
@@ -15218,6 +15219,306 @@
     ]
   },
   "platformServices": {
+    "marketDiscovery": {
+      "schemaVersion": "commercial-market-discovery-service-v1",
+      "service": "Commercial Market Discovery",
+      "owner": "EOS",
+      "displayedBy": "Mission Control",
+      "status": "Validated",
+      "validationStatus": "PASS",
+      "latestValidation": "2026-08-11T15:36:40-07:00",
+      "markets": [
+        {
+          "marketId": "east-bay",
+          "marketName": "East Bay",
+          "schemaVersion": "commercial-market-discovery-v1",
+          "discoveryVersion": "east-bay-commercial-market-discovery-v1",
+          "researchedAt": "2026-08-11",
+          "researchStatus": "current",
+          "sourceCount": 15,
+          "sourceTierCounts": {
+            "tier1": 14,
+            "tier2": 1
+          },
+          "counts": {
+            "covered": 3,
+            "partial": 6,
+            "missing": 5,
+            "conflict": 0,
+            "researchMore": 2,
+            "totalFindings": 16
+          },
+          "strongestFindings": [
+            {
+              "id": "east-bay-office-downtown-oakland",
+              "ecosystemId": "office",
+              "ecosystemLabel": "Office",
+              "geographyName": "Downtown Oakland",
+              "geographyType": "downtown office and mixed-use core",
+              "evidenceStrength": "STRONG",
+              "comparisonState": "PARTIAL",
+              "summary": "External evidence supports Downtown Oakland as a material East Bay central office and mixed-use commercial core distinct from Jack London Square.",
+              "gapCount": 2
+            },
+            {
+              "id": "east-bay-industrial-port-oakland",
+              "ecosystemId": "industrial_flex",
+              "ecosystemLabel": "Industrial / Warehouse / Flex",
+              "geographyName": "Port of Oakland logistics and maritime industrial area",
+              "geographyType": "port, logistics, maritime, and goods-movement cluster",
+              "evidenceStrength": "STRONG",
+              "comparisonState": "MISSING",
+              "summary": "External evidence supports Port of Oakland logistics and goods movement as a distinct East Bay commercial structure.",
+              "gapCount": 2
+            },
+            {
+              "id": "east-bay-retail-berkeley-corridors",
+              "ecosystemId": "retail",
+              "ecosystemLabel": "Retail",
+              "geographyName": "Berkeley retail districts and corridors",
+              "geographyType": "downtown, university-adjacent, destination, and neighborhood retail corridors",
+              "evidenceStrength": "STRONG",
+              "comparisonState": "PARTIAL",
+              "summary": "External evidence supports Berkeley retail as broader than Downtown Berkeley alone, including multiple destination and neighborhood commercial corridors.",
+              "gapCount": 1
+            },
+            {
+              "id": "east-bay-retail-downtown-oakland",
+              "ecosystemId": "retail",
+              "ecosystemLabel": "Retail",
+              "geographyName": "Downtown Oakland retail and entertainment corridors",
+              "geographyType": "urban retail, food, entertainment, and service-commercial core",
+              "evidenceStrength": "STRONG",
+              "comparisonState": "MISSING",
+              "summary": "External evidence supports Downtown Oakland as a material retail/service-commercial and entertainment environment, not only an office market.",
+              "gapCount": 1
+            },
+            {
+              "id": "east-bay-life-science-emeryville",
+              "ecosystemId": "life_science",
+              "ecosystemLabel": "Life Science / R&D",
+              "geographyName": "Emeryville",
+              "geographyType": "life-science, R&D support, and innovation commercial cluster",
+              "evidenceStrength": "STRONG",
+              "comparisonState": "PARTIAL",
+              "summary": "External evidence supports Emeryville as more than incidental life-science adjacency; it is a material East Bay R&D/life-science-support node.",
+              "gapCount": 1
+            },
+            {
+              "id": "east-bay-life-science-warm-springs",
+              "ecosystemId": "life_science",
+              "ecosystemLabel": "Life Science / R&D",
+              "geographyName": "Warm Springs / Fremont innovation corridor",
+              "geographyType": "advanced manufacturing, R&D, and innovation district",
+              "evidenceStrength": "STRONG",
+              "comparisonState": "PARTIAL",
+              "summary": "External evidence supports Warm Springs/South Fremont as an advanced manufacturing and R&D-oriented node, with life-science adjacency requiring careful classification.",
+              "gapCount": 1
+            }
+          ],
+          "materialGaps": [
+            {
+              "id": "discovery-gap:east-bay:downtown-oakland-office",
+              "label": "Downtown Oakland office and mixed-use commercial geography",
+              "comparisonState": "PARTIAL",
+              "implementationType": "commercial_geography",
+              "priority": "high"
+            },
+            {
+              "id": "discovery-gap:east-bay:emeryville-life-science-role",
+              "label": "Emeryville life-science/R&D ecosystem role review",
+              "comparisonState": "PARTIAL",
+              "implementationType": "ecosystem_classification",
+              "priority": "high"
+            },
+            {
+              "id": "discovery-gap:east-bay:alameda-life-science",
+              "label": "Alameda life-science/R&D and advanced-industries discovery",
+              "comparisonState": "MISSING",
+              "implementationType": "evidence_acquisition",
+              "priority": "high"
+            },
+            {
+              "id": "discovery-gap:east-bay:port-oakland-logistics",
+              "label": "Port of Oakland logistics and maritime industrial geography",
+              "comparisonState": "MISSING",
+              "implementationType": "commercial_geography",
+              "priority": "high"
+            },
+            {
+              "id": "discovery-gap:east-bay:oakland-medical",
+              "label": "Oakland medical-campus and medical-office geography",
+              "comparisonState": "MISSING",
+              "implementationType": "commercial_geography",
+              "priority": "medium"
+            },
+            {
+              "id": "discovery-gap:east-bay:retail-depth",
+              "label": "East Bay retail representative-building and corridor depth",
+              "comparisonState": "PARTIAL",
+              "implementationType": "retail_ecosystem",
+              "priority": "medium"
+            }
+          ],
+          "nonPromotionNotice": "These findings do not create public URLs, modify recommendations, alter Publisher scoring, or promote canonical geography. They identify research-supported candidate gaps for later approved implementation."
+        }
+      ],
+      "byMarket": {
+        "east-bay": {
+          "marketId": "east-bay",
+          "marketName": "East Bay",
+          "schemaVersion": "commercial-market-discovery-v1",
+          "discoveryVersion": "east-bay-commercial-market-discovery-v1",
+          "researchedAt": "2026-08-11",
+          "researchStatus": "current",
+          "sourceCount": 15,
+          "sourceTierCounts": {
+            "tier1": 14,
+            "tier2": 1
+          },
+          "counts": {
+            "covered": 3,
+            "partial": 6,
+            "missing": 5,
+            "conflict": 0,
+            "researchMore": 2,
+            "totalFindings": 16
+          },
+          "strongestFindings": [
+            {
+              "id": "east-bay-office-downtown-oakland",
+              "ecosystemId": "office",
+              "ecosystemLabel": "Office",
+              "geographyName": "Downtown Oakland",
+              "geographyType": "downtown office and mixed-use core",
+              "evidenceStrength": "STRONG",
+              "comparisonState": "PARTIAL",
+              "summary": "External evidence supports Downtown Oakland as a material East Bay central office and mixed-use commercial core distinct from Jack London Square.",
+              "gapCount": 2
+            },
+            {
+              "id": "east-bay-industrial-port-oakland",
+              "ecosystemId": "industrial_flex",
+              "ecosystemLabel": "Industrial / Warehouse / Flex",
+              "geographyName": "Port of Oakland logistics and maritime industrial area",
+              "geographyType": "port, logistics, maritime, and goods-movement cluster",
+              "evidenceStrength": "STRONG",
+              "comparisonState": "MISSING",
+              "summary": "External evidence supports Port of Oakland logistics and goods movement as a distinct East Bay commercial structure.",
+              "gapCount": 2
+            },
+            {
+              "id": "east-bay-retail-berkeley-corridors",
+              "ecosystemId": "retail",
+              "ecosystemLabel": "Retail",
+              "geographyName": "Berkeley retail districts and corridors",
+              "geographyType": "downtown, university-adjacent, destination, and neighborhood retail corridors",
+              "evidenceStrength": "STRONG",
+              "comparisonState": "PARTIAL",
+              "summary": "External evidence supports Berkeley retail as broader than Downtown Berkeley alone, including multiple destination and neighborhood commercial corridors.",
+              "gapCount": 1
+            },
+            {
+              "id": "east-bay-retail-downtown-oakland",
+              "ecosystemId": "retail",
+              "ecosystemLabel": "Retail",
+              "geographyName": "Downtown Oakland retail and entertainment corridors",
+              "geographyType": "urban retail, food, entertainment, and service-commercial core",
+              "evidenceStrength": "STRONG",
+              "comparisonState": "MISSING",
+              "summary": "External evidence supports Downtown Oakland as a material retail/service-commercial and entertainment environment, not only an office market.",
+              "gapCount": 1
+            },
+            {
+              "id": "east-bay-life-science-emeryville",
+              "ecosystemId": "life_science",
+              "ecosystemLabel": "Life Science / R&D",
+              "geographyName": "Emeryville",
+              "geographyType": "life-science, R&D support, and innovation commercial cluster",
+              "evidenceStrength": "STRONG",
+              "comparisonState": "PARTIAL",
+              "summary": "External evidence supports Emeryville as more than incidental life-science adjacency; it is a material East Bay R&D/life-science-support node.",
+              "gapCount": 1
+            },
+            {
+              "id": "east-bay-life-science-warm-springs",
+              "ecosystemId": "life_science",
+              "ecosystemLabel": "Life Science / R&D",
+              "geographyName": "Warm Springs / Fremont innovation corridor",
+              "geographyType": "advanced manufacturing, R&D, and innovation district",
+              "evidenceStrength": "STRONG",
+              "comparisonState": "PARTIAL",
+              "summary": "External evidence supports Warm Springs/South Fremont as an advanced manufacturing and R&D-oriented node, with life-science adjacency requiring careful classification.",
+              "gapCount": 1
+            }
+          ],
+          "materialGaps": [
+            {
+              "id": "discovery-gap:east-bay:downtown-oakland-office",
+              "label": "Downtown Oakland office and mixed-use commercial geography",
+              "comparisonState": "PARTIAL",
+              "implementationType": "commercial_geography",
+              "priority": "high"
+            },
+            {
+              "id": "discovery-gap:east-bay:emeryville-life-science-role",
+              "label": "Emeryville life-science/R&D ecosystem role review",
+              "comparisonState": "PARTIAL",
+              "implementationType": "ecosystem_classification",
+              "priority": "high"
+            },
+            {
+              "id": "discovery-gap:east-bay:alameda-life-science",
+              "label": "Alameda life-science/R&D and advanced-industries discovery",
+              "comparisonState": "MISSING",
+              "implementationType": "evidence_acquisition",
+              "priority": "high"
+            },
+            {
+              "id": "discovery-gap:east-bay:port-oakland-logistics",
+              "label": "Port of Oakland logistics and maritime industrial geography",
+              "comparisonState": "MISSING",
+              "implementationType": "commercial_geography",
+              "priority": "high"
+            },
+            {
+              "id": "discovery-gap:east-bay:oakland-medical",
+              "label": "Oakland medical-campus and medical-office geography",
+              "comparisonState": "MISSING",
+              "implementationType": "commercial_geography",
+              "priority": "medium"
+            },
+            {
+              "id": "discovery-gap:east-bay:retail-depth",
+              "label": "East Bay retail representative-building and corridor depth",
+              "comparisonState": "PARTIAL",
+              "implementationType": "retail_ecosystem",
+              "priority": "medium"
+            }
+          ],
+          "nonPromotionNotice": "These findings do not create public URLs, modify recommendations, alter Publisher scoring, or promote canonical geography. They identify research-supported candidate gaps for later approved implementation."
+        }
+      },
+      "summary": {
+        "researchedMarkets": 1,
+        "supportedFindings": 16,
+        "covered": 3,
+        "partial": 6,
+        "missing": 5,
+        "conflict": 0,
+        "researchMore": 2
+      },
+      "comparisonStates": [
+        "COVERED",
+        "PARTIAL",
+        "MISSING",
+        "CONFLICT",
+        "RESEARCH_MORE"
+      ],
+      "scoringImpact": "None. Discovery is research and gap analysis only; canonical knowledge and Publisher scoring are unchanged.",
+      "planningImpact": "Market Projection surfaces compact discovery status and candidate gaps for later approved implementation missions.",
+      "errors": []
+    },
     "commercialMarketEvidence": {
       "schemaVersion": "commercial-market-evidence-platform-v1",
       "service": "Commercial Market Evidence",
@@ -15596,7 +15897,7 @@
         "Low": 2
       },
       "deferredCandidates": 69,
-      "latestValidation": "2026-08-11T15:18:07-07:00",
+      "latestValidation": "2026-08-11T15:36:40-07:00",
       "errors": [],
       "warnings": [],
       "source": {
@@ -36601,6 +36902,7 @@
     "sourceSystems": [
       "Publisher",
       "Commercial Market Evidence",
+      "Commercial Market Discovery",
       "Commercial Knowledge Graph",
       "Field Mode",
       "Compass",
@@ -36609,6 +36911,7 @@
     "ownership": {
       "publisher": "Determines readiness and constraints.",
       "commercialMarketEvidence": "Owns evidence collections and validation.",
+      "marketDiscovery": "Owns external market research and discovery-vs-canonical gap analysis.",
       "buildingProfiles": "Own public Building Profile content and Building Brief architecture.",
       "eos": "Projects work into markets, programs, initiatives, and missions.",
       "missionControl": "Will render this projection in a future UI sprint."
@@ -36672,6 +36975,16 @@
         "sourceSystems": [
           "Commercial Location Knowledge Graph",
           "Publisher"
+        ]
+      },
+      {
+        "id": "market_discovery",
+        "label": "Commercial Market Discovery",
+        "ownerSystem": "EOS",
+        "purpose": "Tracks external market research and discovery-vs-canonical gap analysis without promoting findings automatically.",
+        "sourceSystems": [
+          "Commercial Market Discovery",
+          "EOS"
         ]
       }
     ],
@@ -38953,6 +39266,58 @@
                 "missions": []
               }
             ]
+          },
+          {
+            "id": "market_discovery",
+            "label": "Commercial Market Discovery",
+            "status": "Not Researched",
+            "progress": {
+              "unit": "Research",
+              "completed": 0,
+              "target": 1,
+              "label": "Not researched",
+              "statusLabel": "Not Researched",
+              "currentConstraint": "External commercial-market discovery has not been run for this market.",
+              "sourceEvidence": [
+                "Commercial Market Discovery registry."
+              ]
+            },
+            "currentConstraint": "External commercial-market discovery has not been run for this market.",
+            "nextMissionId": "",
+            "nextInitiativeId": "denver:market_discovery:status",
+            "campaigns": [
+              {
+                "id": "denver:market_discovery:completion-campaign",
+                "title": "Denver Commercial Market Discovery Completion",
+                "status": "Not Researched",
+                "progress": {
+                  "unit": "Research",
+                  "completed": 0,
+                  "target": 1,
+                  "label": "Not researched",
+                  "statusLabel": "Not Researched",
+                  "currentConstraint": "External commercial-market discovery has not been run for this market.",
+                  "sourceEvidence": [
+                    "Commercial Market Discovery registry."
+                  ]
+                },
+                "currentConstraint": "External commercial-market discovery has not been run for this market.",
+                "missionCount": 0,
+                "workItemCount": 0,
+                "sizingStrategy": "Market Discovery is a research audit program. Discovery findings become implementation missions only after separate canonical promotion approval."
+              }
+            ],
+            "initiatives": [
+              {
+                "id": "denver:market_discovery:status",
+                "title": "Denver Commercial Market Discovery",
+                "currentStage": "Not Researched",
+                "currentConstraint": "External commercial-market discovery has not been run for this market.",
+                "objective": "Track Commercial Market Discovery progress for Denver.",
+                "nextMissionId": "",
+                "missions": []
+              }
+            ]
           }
         ],
         "nextMissions": [
@@ -40047,6 +40412,304 @@
                 "missions": []
               }
             ]
+          },
+          {
+            "id": "market_discovery",
+            "label": "Commercial Market Discovery",
+            "status": "Research Current",
+            "progress": {
+              "unit": "Findings",
+              "completed": 14,
+              "target": 16,
+              "label": "16 findings; 5 missing, 6 partial",
+              "statusLabel": "Research Current",
+              "currentConstraint": "5 missing and 6 partial discovery findings require later canonical review before implementation.",
+              "sourceEvidence": [
+                "Commercial Market Discovery artifact.",
+                "Discovery vs canonical gap analysis."
+              ],
+              "researchedAt": "2026-08-11",
+              "discoveryVersion": "east-bay-commercial-market-discovery-v1",
+              "summary": {
+                "sourceCount": 15,
+                "covered": 3,
+                "partial": 6,
+                "missing": 5,
+                "conflict": 0,
+                "researchMore": 2,
+                "strongestFindings": [
+                  {
+                    "id": "east-bay-office-downtown-oakland",
+                    "ecosystemId": "office",
+                    "ecosystemLabel": "Office",
+                    "geographyName": "Downtown Oakland",
+                    "geographyType": "downtown office and mixed-use core",
+                    "evidenceStrength": "STRONG",
+                    "comparisonState": "PARTIAL",
+                    "summary": "External evidence supports Downtown Oakland as a material East Bay central office and mixed-use commercial core distinct from Jack London Square.",
+                    "gapCount": 2
+                  },
+                  {
+                    "id": "east-bay-industrial-port-oakland",
+                    "ecosystemId": "industrial_flex",
+                    "ecosystemLabel": "Industrial / Warehouse / Flex",
+                    "geographyName": "Port of Oakland logistics and maritime industrial area",
+                    "geographyType": "port, logistics, maritime, and goods-movement cluster",
+                    "evidenceStrength": "STRONG",
+                    "comparisonState": "MISSING",
+                    "summary": "External evidence supports Port of Oakland logistics and goods movement as a distinct East Bay commercial structure.",
+                    "gapCount": 2
+                  },
+                  {
+                    "id": "east-bay-retail-berkeley-corridors",
+                    "ecosystemId": "retail",
+                    "ecosystemLabel": "Retail",
+                    "geographyName": "Berkeley retail districts and corridors",
+                    "geographyType": "downtown, university-adjacent, destination, and neighborhood retail corridors",
+                    "evidenceStrength": "STRONG",
+                    "comparisonState": "PARTIAL",
+                    "summary": "External evidence supports Berkeley retail as broader than Downtown Berkeley alone, including multiple destination and neighborhood commercial corridors.",
+                    "gapCount": 1
+                  },
+                  {
+                    "id": "east-bay-retail-downtown-oakland",
+                    "ecosystemId": "retail",
+                    "ecosystemLabel": "Retail",
+                    "geographyName": "Downtown Oakland retail and entertainment corridors",
+                    "geographyType": "urban retail, food, entertainment, and service-commercial core",
+                    "evidenceStrength": "STRONG",
+                    "comparisonState": "MISSING",
+                    "summary": "External evidence supports Downtown Oakland as a material retail/service-commercial and entertainment environment, not only an office market.",
+                    "gapCount": 1
+                  },
+                  {
+                    "id": "east-bay-life-science-emeryville",
+                    "ecosystemId": "life_science",
+                    "ecosystemLabel": "Life Science / R&D",
+                    "geographyName": "Emeryville",
+                    "geographyType": "life-science, R&D support, and innovation commercial cluster",
+                    "evidenceStrength": "STRONG",
+                    "comparisonState": "PARTIAL",
+                    "summary": "External evidence supports Emeryville as more than incidental life-science adjacency; it is a material East Bay R&D/life-science-support node.",
+                    "gapCount": 1
+                  },
+                  {
+                    "id": "east-bay-life-science-warm-springs",
+                    "ecosystemId": "life_science",
+                    "ecosystemLabel": "Life Science / R&D",
+                    "geographyName": "Warm Springs / Fremont innovation corridor",
+                    "geographyType": "advanced manufacturing, R&D, and innovation district",
+                    "evidenceStrength": "STRONG",
+                    "comparisonState": "PARTIAL",
+                    "summary": "External evidence supports Warm Springs/South Fremont as an advanced manufacturing and R&D-oriented node, with life-science adjacency requiring careful classification.",
+                    "gapCount": 1
+                  }
+                ],
+                "materialGaps": [
+                  {
+                    "id": "discovery-gap:east-bay:downtown-oakland-office",
+                    "label": "Downtown Oakland office and mixed-use commercial geography",
+                    "comparisonState": "PARTIAL",
+                    "implementationType": "commercial_geography",
+                    "priority": "high"
+                  },
+                  {
+                    "id": "discovery-gap:east-bay:emeryville-life-science-role",
+                    "label": "Emeryville life-science/R&D ecosystem role review",
+                    "comparisonState": "PARTIAL",
+                    "implementationType": "ecosystem_classification",
+                    "priority": "high"
+                  },
+                  {
+                    "id": "discovery-gap:east-bay:alameda-life-science",
+                    "label": "Alameda life-science/R&D and advanced-industries discovery",
+                    "comparisonState": "MISSING",
+                    "implementationType": "evidence_acquisition",
+                    "priority": "high"
+                  },
+                  {
+                    "id": "discovery-gap:east-bay:port-oakland-logistics",
+                    "label": "Port of Oakland logistics and maritime industrial geography",
+                    "comparisonState": "MISSING",
+                    "implementationType": "commercial_geography",
+                    "priority": "high"
+                  },
+                  {
+                    "id": "discovery-gap:east-bay:oakland-medical",
+                    "label": "Oakland medical-campus and medical-office geography",
+                    "comparisonState": "MISSING",
+                    "implementationType": "commercial_geography",
+                    "priority": "medium"
+                  },
+                  {
+                    "id": "discovery-gap:east-bay:retail-depth",
+                    "label": "East Bay retail representative-building and corridor depth",
+                    "comparisonState": "PARTIAL",
+                    "implementationType": "retail_ecosystem",
+                    "priority": "medium"
+                  }
+                ]
+              }
+            },
+            "currentConstraint": "5 missing and 6 partial discovery findings require later canonical review before implementation.",
+            "nextMissionId": "",
+            "nextInitiativeId": "east-bay:market_discovery:status",
+            "campaigns": [
+              {
+                "id": "east-bay:market_discovery:completion-campaign",
+                "title": "East Bay Commercial Market Discovery Completion",
+                "status": "Research Current",
+                "progress": {
+                  "unit": "Findings",
+                  "completed": 14,
+                  "target": 16,
+                  "label": "16 findings; 5 missing, 6 partial",
+                  "statusLabel": "Research Current",
+                  "currentConstraint": "5 missing and 6 partial discovery findings require later canonical review before implementation.",
+                  "sourceEvidence": [
+                    "Commercial Market Discovery artifact.",
+                    "Discovery vs canonical gap analysis."
+                  ],
+                  "researchedAt": "2026-08-11",
+                  "discoveryVersion": "east-bay-commercial-market-discovery-v1",
+                  "summary": {
+                    "sourceCount": 15,
+                    "covered": 3,
+                    "partial": 6,
+                    "missing": 5,
+                    "conflict": 0,
+                    "researchMore": 2,
+                    "strongestFindings": [
+                      {
+                        "id": "east-bay-office-downtown-oakland",
+                        "ecosystemId": "office",
+                        "ecosystemLabel": "Office",
+                        "geographyName": "Downtown Oakland",
+                        "geographyType": "downtown office and mixed-use core",
+                        "evidenceStrength": "STRONG",
+                        "comparisonState": "PARTIAL",
+                        "summary": "External evidence supports Downtown Oakland as a material East Bay central office and mixed-use commercial core distinct from Jack London Square.",
+                        "gapCount": 2
+                      },
+                      {
+                        "id": "east-bay-industrial-port-oakland",
+                        "ecosystemId": "industrial_flex",
+                        "ecosystemLabel": "Industrial / Warehouse / Flex",
+                        "geographyName": "Port of Oakland logistics and maritime industrial area",
+                        "geographyType": "port, logistics, maritime, and goods-movement cluster",
+                        "evidenceStrength": "STRONG",
+                        "comparisonState": "MISSING",
+                        "summary": "External evidence supports Port of Oakland logistics and goods movement as a distinct East Bay commercial structure.",
+                        "gapCount": 2
+                      },
+                      {
+                        "id": "east-bay-retail-berkeley-corridors",
+                        "ecosystemId": "retail",
+                        "ecosystemLabel": "Retail",
+                        "geographyName": "Berkeley retail districts and corridors",
+                        "geographyType": "downtown, university-adjacent, destination, and neighborhood retail corridors",
+                        "evidenceStrength": "STRONG",
+                        "comparisonState": "PARTIAL",
+                        "summary": "External evidence supports Berkeley retail as broader than Downtown Berkeley alone, including multiple destination and neighborhood commercial corridors.",
+                        "gapCount": 1
+                      },
+                      {
+                        "id": "east-bay-retail-downtown-oakland",
+                        "ecosystemId": "retail",
+                        "ecosystemLabel": "Retail",
+                        "geographyName": "Downtown Oakland retail and entertainment corridors",
+                        "geographyType": "urban retail, food, entertainment, and service-commercial core",
+                        "evidenceStrength": "STRONG",
+                        "comparisonState": "MISSING",
+                        "summary": "External evidence supports Downtown Oakland as a material retail/service-commercial and entertainment environment, not only an office market.",
+                        "gapCount": 1
+                      },
+                      {
+                        "id": "east-bay-life-science-emeryville",
+                        "ecosystemId": "life_science",
+                        "ecosystemLabel": "Life Science / R&D",
+                        "geographyName": "Emeryville",
+                        "geographyType": "life-science, R&D support, and innovation commercial cluster",
+                        "evidenceStrength": "STRONG",
+                        "comparisonState": "PARTIAL",
+                        "summary": "External evidence supports Emeryville as more than incidental life-science adjacency; it is a material East Bay R&D/life-science-support node.",
+                        "gapCount": 1
+                      },
+                      {
+                        "id": "east-bay-life-science-warm-springs",
+                        "ecosystemId": "life_science",
+                        "ecosystemLabel": "Life Science / R&D",
+                        "geographyName": "Warm Springs / Fremont innovation corridor",
+                        "geographyType": "advanced manufacturing, R&D, and innovation district",
+                        "evidenceStrength": "STRONG",
+                        "comparisonState": "PARTIAL",
+                        "summary": "External evidence supports Warm Springs/South Fremont as an advanced manufacturing and R&D-oriented node, with life-science adjacency requiring careful classification.",
+                        "gapCount": 1
+                      }
+                    ],
+                    "materialGaps": [
+                      {
+                        "id": "discovery-gap:east-bay:downtown-oakland-office",
+                        "label": "Downtown Oakland office and mixed-use commercial geography",
+                        "comparisonState": "PARTIAL",
+                        "implementationType": "commercial_geography",
+                        "priority": "high"
+                      },
+                      {
+                        "id": "discovery-gap:east-bay:emeryville-life-science-role",
+                        "label": "Emeryville life-science/R&D ecosystem role review",
+                        "comparisonState": "PARTIAL",
+                        "implementationType": "ecosystem_classification",
+                        "priority": "high"
+                      },
+                      {
+                        "id": "discovery-gap:east-bay:alameda-life-science",
+                        "label": "Alameda life-science/R&D and advanced-industries discovery",
+                        "comparisonState": "MISSING",
+                        "implementationType": "evidence_acquisition",
+                        "priority": "high"
+                      },
+                      {
+                        "id": "discovery-gap:east-bay:port-oakland-logistics",
+                        "label": "Port of Oakland logistics and maritime industrial geography",
+                        "comparisonState": "MISSING",
+                        "implementationType": "commercial_geography",
+                        "priority": "high"
+                      },
+                      {
+                        "id": "discovery-gap:east-bay:oakland-medical",
+                        "label": "Oakland medical-campus and medical-office geography",
+                        "comparisonState": "MISSING",
+                        "implementationType": "commercial_geography",
+                        "priority": "medium"
+                      },
+                      {
+                        "id": "discovery-gap:east-bay:retail-depth",
+                        "label": "East Bay retail representative-building and corridor depth",
+                        "comparisonState": "PARTIAL",
+                        "implementationType": "retail_ecosystem",
+                        "priority": "medium"
+                      }
+                    ]
+                  }
+                },
+                "currentConstraint": "5 missing and 6 partial discovery findings require later canonical review before implementation.",
+                "missionCount": 0,
+                "workItemCount": 0,
+                "sizingStrategy": "Market Discovery is a research audit program. Discovery findings become implementation missions only after separate canonical promotion approval."
+              }
+            ],
+            "initiatives": [
+              {
+                "id": "east-bay:market_discovery:status",
+                "title": "East Bay Commercial Market Discovery",
+                "currentStage": "Research Current",
+                "currentConstraint": "5 missing and 6 partial discovery findings require later canonical review before implementation.",
+                "objective": "Track Commercial Market Discovery progress for East Bay.",
+                "nextMissionId": "",
+                "missions": []
+              }
+            ]
           }
         ],
         "nextMissions": [
@@ -40474,6 +41137,58 @@
                 "currentStage": "Missing",
                 "currentConstraint": "Operational market district coverage is projected from Knowledge Graph ownership.",
                 "objective": "Track Knowledge Graph progress for North Bay.",
+                "nextMissionId": "",
+                "missions": []
+              }
+            ]
+          },
+          {
+            "id": "market_discovery",
+            "label": "Commercial Market Discovery",
+            "status": "Not Researched",
+            "progress": {
+              "unit": "Research",
+              "completed": 0,
+              "target": 1,
+              "label": "Not researched",
+              "statusLabel": "Not Researched",
+              "currentConstraint": "External commercial-market discovery has not been run for this market.",
+              "sourceEvidence": [
+                "Commercial Market Discovery registry."
+              ]
+            },
+            "currentConstraint": "External commercial-market discovery has not been run for this market.",
+            "nextMissionId": "",
+            "nextInitiativeId": "north-bay:market_discovery:status",
+            "campaigns": [
+              {
+                "id": "north-bay:market_discovery:completion-campaign",
+                "title": "North Bay Commercial Market Discovery Completion",
+                "status": "Not Researched",
+                "progress": {
+                  "unit": "Research",
+                  "completed": 0,
+                  "target": 1,
+                  "label": "Not researched",
+                  "statusLabel": "Not Researched",
+                  "currentConstraint": "External commercial-market discovery has not been run for this market.",
+                  "sourceEvidence": [
+                    "Commercial Market Discovery registry."
+                  ]
+                },
+                "currentConstraint": "External commercial-market discovery has not been run for this market.",
+                "missionCount": 0,
+                "workItemCount": 0,
+                "sizingStrategy": "Market Discovery is a research audit program. Discovery findings become implementation missions only after separate canonical promotion approval."
+              }
+            ],
+            "initiatives": [
+              {
+                "id": "north-bay:market_discovery:status",
+                "title": "North Bay Commercial Market Discovery",
+                "currentStage": "Not Researched",
+                "currentConstraint": "External commercial-market discovery has not been run for this market.",
+                "objective": "Track Commercial Market Discovery progress for North Bay.",
                 "nextMissionId": "",
                 "missions": []
               }
@@ -42258,6 +42973,58 @@
                 "missions": []
               }
             ]
+          },
+          {
+            "id": "market_discovery",
+            "label": "Commercial Market Discovery",
+            "status": "Not Researched",
+            "progress": {
+              "unit": "Research",
+              "completed": 0,
+              "target": 1,
+              "label": "Not researched",
+              "statusLabel": "Not Researched",
+              "currentConstraint": "External commercial-market discovery has not been run for this market.",
+              "sourceEvidence": [
+                "Commercial Market Discovery registry."
+              ]
+            },
+            "currentConstraint": "External commercial-market discovery has not been run for this market.",
+            "nextMissionId": "",
+            "nextInitiativeId": "orange-county:market_discovery:status",
+            "campaigns": [
+              {
+                "id": "orange-county:market_discovery:completion-campaign",
+                "title": "Orange County Commercial Market Discovery Completion",
+                "status": "Not Researched",
+                "progress": {
+                  "unit": "Research",
+                  "completed": 0,
+                  "target": 1,
+                  "label": "Not researched",
+                  "statusLabel": "Not Researched",
+                  "currentConstraint": "External commercial-market discovery has not been run for this market.",
+                  "sourceEvidence": [
+                    "Commercial Market Discovery registry."
+                  ]
+                },
+                "currentConstraint": "External commercial-market discovery has not been run for this market.",
+                "missionCount": 0,
+                "workItemCount": 0,
+                "sizingStrategy": "Market Discovery is a research audit program. Discovery findings become implementation missions only after separate canonical promotion approval."
+              }
+            ],
+            "initiatives": [
+              {
+                "id": "orange-county:market_discovery:status",
+                "title": "Orange County Commercial Market Discovery",
+                "currentStage": "Not Researched",
+                "currentConstraint": "External commercial-market discovery has not been run for this market.",
+                "objective": "Track Commercial Market Discovery progress for Orange County.",
+                "nextMissionId": "",
+                "missions": []
+              }
+            ]
           }
         ],
         "nextMissions": [
@@ -43177,6 +43944,58 @@
                 "currentStage": "Missing",
                 "currentConstraint": "Operational market district coverage is projected from Knowledge Graph ownership.",
                 "objective": "Track Knowledge Graph progress for Peninsula.",
+                "nextMissionId": "",
+                "missions": []
+              }
+            ]
+          },
+          {
+            "id": "market_discovery",
+            "label": "Commercial Market Discovery",
+            "status": "Not Researched",
+            "progress": {
+              "unit": "Research",
+              "completed": 0,
+              "target": 1,
+              "label": "Not researched",
+              "statusLabel": "Not Researched",
+              "currentConstraint": "External commercial-market discovery has not been run for this market.",
+              "sourceEvidence": [
+                "Commercial Market Discovery registry."
+              ]
+            },
+            "currentConstraint": "External commercial-market discovery has not been run for this market.",
+            "nextMissionId": "",
+            "nextInitiativeId": "peninsula:market_discovery:status",
+            "campaigns": [
+              {
+                "id": "peninsula:market_discovery:completion-campaign",
+                "title": "Peninsula Commercial Market Discovery Completion",
+                "status": "Not Researched",
+                "progress": {
+                  "unit": "Research",
+                  "completed": 0,
+                  "target": 1,
+                  "label": "Not researched",
+                  "statusLabel": "Not Researched",
+                  "currentConstraint": "External commercial-market discovery has not been run for this market.",
+                  "sourceEvidence": [
+                    "Commercial Market Discovery registry."
+                  ]
+                },
+                "currentConstraint": "External commercial-market discovery has not been run for this market.",
+                "missionCount": 0,
+                "workItemCount": 0,
+                "sizingStrategy": "Market Discovery is a research audit program. Discovery findings become implementation missions only after separate canonical promotion approval."
+              }
+            ],
+            "initiatives": [
+              {
+                "id": "peninsula:market_discovery:status",
+                "title": "Peninsula Commercial Market Discovery",
+                "currentStage": "Not Researched",
+                "currentConstraint": "External commercial-market discovery has not been run for this market.",
+                "objective": "Track Commercial Market Discovery progress for Peninsula.",
                 "nextMissionId": "",
                 "missions": []
               }
@@ -45131,6 +45950,58 @@
                 "currentStage": "Strong",
                 "currentConstraint": "Public district pages, substantive descriptions, structured qualities, and decision positioning.",
                 "objective": "Track Knowledge Graph progress for Sacramento.",
+                "nextMissionId": "",
+                "missions": []
+              }
+            ]
+          },
+          {
+            "id": "market_discovery",
+            "label": "Commercial Market Discovery",
+            "status": "Not Researched",
+            "progress": {
+              "unit": "Research",
+              "completed": 0,
+              "target": 1,
+              "label": "Not researched",
+              "statusLabel": "Not Researched",
+              "currentConstraint": "External commercial-market discovery has not been run for this market.",
+              "sourceEvidence": [
+                "Commercial Market Discovery registry."
+              ]
+            },
+            "currentConstraint": "External commercial-market discovery has not been run for this market.",
+            "nextMissionId": "",
+            "nextInitiativeId": "sacramento:market_discovery:status",
+            "campaigns": [
+              {
+                "id": "sacramento:market_discovery:completion-campaign",
+                "title": "Sacramento Commercial Market Discovery Completion",
+                "status": "Not Researched",
+                "progress": {
+                  "unit": "Research",
+                  "completed": 0,
+                  "target": 1,
+                  "label": "Not researched",
+                  "statusLabel": "Not Researched",
+                  "currentConstraint": "External commercial-market discovery has not been run for this market.",
+                  "sourceEvidence": [
+                    "Commercial Market Discovery registry."
+                  ]
+                },
+                "currentConstraint": "External commercial-market discovery has not been run for this market.",
+                "missionCount": 0,
+                "workItemCount": 0,
+                "sizingStrategy": "Market Discovery is a research audit program. Discovery findings become implementation missions only after separate canonical promotion approval."
+              }
+            ],
+            "initiatives": [
+              {
+                "id": "sacramento:market_discovery:status",
+                "title": "Sacramento Commercial Market Discovery",
+                "currentStage": "Not Researched",
+                "currentConstraint": "External commercial-market discovery has not been run for this market.",
+                "objective": "Track Commercial Market Discovery progress for Sacramento.",
                 "nextMissionId": "",
                 "missions": []
               }
@@ -47324,6 +48195,58 @@
                 "currentStage": "Strong",
                 "currentConstraint": "Public district pages, substantive descriptions, structured qualities, and decision positioning.",
                 "objective": "Track Knowledge Graph progress for San Diego.",
+                "nextMissionId": "",
+                "missions": []
+              }
+            ]
+          },
+          {
+            "id": "market_discovery",
+            "label": "Commercial Market Discovery",
+            "status": "Not Researched",
+            "progress": {
+              "unit": "Research",
+              "completed": 0,
+              "target": 1,
+              "label": "Not researched",
+              "statusLabel": "Not Researched",
+              "currentConstraint": "External commercial-market discovery has not been run for this market.",
+              "sourceEvidence": [
+                "Commercial Market Discovery registry."
+              ]
+            },
+            "currentConstraint": "External commercial-market discovery has not been run for this market.",
+            "nextMissionId": "",
+            "nextInitiativeId": "san-diego:market_discovery:status",
+            "campaigns": [
+              {
+                "id": "san-diego:market_discovery:completion-campaign",
+                "title": "San Diego Commercial Market Discovery Completion",
+                "status": "Not Researched",
+                "progress": {
+                  "unit": "Research",
+                  "completed": 0,
+                  "target": 1,
+                  "label": "Not researched",
+                  "statusLabel": "Not Researched",
+                  "currentConstraint": "External commercial-market discovery has not been run for this market.",
+                  "sourceEvidence": [
+                    "Commercial Market Discovery registry."
+                  ]
+                },
+                "currentConstraint": "External commercial-market discovery has not been run for this market.",
+                "missionCount": 0,
+                "workItemCount": 0,
+                "sizingStrategy": "Market Discovery is a research audit program. Discovery findings become implementation missions only after separate canonical promotion approval."
+              }
+            ],
+            "initiatives": [
+              {
+                "id": "san-diego:market_discovery:status",
+                "title": "San Diego Commercial Market Discovery",
+                "currentStage": "Not Researched",
+                "currentConstraint": "External commercial-market discovery has not been run for this market.",
+                "objective": "Track Commercial Market Discovery progress for San Diego.",
                 "nextMissionId": "",
                 "missions": []
               }
@@ -49628,6 +50551,58 @@
                 "missions": []
               }
             ]
+          },
+          {
+            "id": "market_discovery",
+            "label": "Commercial Market Discovery",
+            "status": "Not Researched",
+            "progress": {
+              "unit": "Research",
+              "completed": 0,
+              "target": 1,
+              "label": "Not researched",
+              "statusLabel": "Not Researched",
+              "currentConstraint": "External commercial-market discovery has not been run for this market.",
+              "sourceEvidence": [
+                "Commercial Market Discovery registry."
+              ]
+            },
+            "currentConstraint": "External commercial-market discovery has not been run for this market.",
+            "nextMissionId": "",
+            "nextInitiativeId": "san-francisco:market_discovery:status",
+            "campaigns": [
+              {
+                "id": "san-francisco:market_discovery:completion-campaign",
+                "title": "San Francisco Commercial Market Discovery Completion",
+                "status": "Not Researched",
+                "progress": {
+                  "unit": "Research",
+                  "completed": 0,
+                  "target": 1,
+                  "label": "Not researched",
+                  "statusLabel": "Not Researched",
+                  "currentConstraint": "External commercial-market discovery has not been run for this market.",
+                  "sourceEvidence": [
+                    "Commercial Market Discovery registry."
+                  ]
+                },
+                "currentConstraint": "External commercial-market discovery has not been run for this market.",
+                "missionCount": 0,
+                "workItemCount": 0,
+                "sizingStrategy": "Market Discovery is a research audit program. Discovery findings become implementation missions only after separate canonical promotion approval."
+              }
+            ],
+            "initiatives": [
+              {
+                "id": "san-francisco:market_discovery:status",
+                "title": "San Francisco Commercial Market Discovery",
+                "currentStage": "Not Researched",
+                "currentConstraint": "External commercial-market discovery has not been run for this market.",
+                "objective": "Track Commercial Market Discovery progress for San Francisco.",
+                "nextMissionId": "",
+                "missions": []
+              }
+            ]
           }
         ],
         "nextMissions": [
@@ -51087,6 +52062,58 @@
                 "missions": []
               }
             ]
+          },
+          {
+            "id": "market_discovery",
+            "label": "Commercial Market Discovery",
+            "status": "Not Researched",
+            "progress": {
+              "unit": "Research",
+              "completed": 0,
+              "target": 1,
+              "label": "Not researched",
+              "statusLabel": "Not Researched",
+              "currentConstraint": "External commercial-market discovery has not been run for this market.",
+              "sourceEvidence": [
+                "Commercial Market Discovery registry."
+              ]
+            },
+            "currentConstraint": "External commercial-market discovery has not been run for this market.",
+            "nextMissionId": "",
+            "nextInitiativeId": "seattle:market_discovery:status",
+            "campaigns": [
+              {
+                "id": "seattle:market_discovery:completion-campaign",
+                "title": "Seattle Commercial Market Discovery Completion",
+                "status": "Not Researched",
+                "progress": {
+                  "unit": "Research",
+                  "completed": 0,
+                  "target": 1,
+                  "label": "Not researched",
+                  "statusLabel": "Not Researched",
+                  "currentConstraint": "External commercial-market discovery has not been run for this market.",
+                  "sourceEvidence": [
+                    "Commercial Market Discovery registry."
+                  ]
+                },
+                "currentConstraint": "External commercial-market discovery has not been run for this market.",
+                "missionCount": 0,
+                "workItemCount": 0,
+                "sizingStrategy": "Market Discovery is a research audit program. Discovery findings become implementation missions only after separate canonical promotion approval."
+              }
+            ],
+            "initiatives": [
+              {
+                "id": "seattle:market_discovery:status",
+                "title": "Seattle Commercial Market Discovery",
+                "currentStage": "Not Researched",
+                "currentConstraint": "External commercial-market discovery has not been run for this market.",
+                "objective": "Track Commercial Market Discovery progress for Seattle.",
+                "nextMissionId": "",
+                "missions": []
+              }
+            ]
           }
         ],
         "nextMissions": [
@@ -51860,6 +52887,58 @@
                 "currentStage": "Missing",
                 "currentConstraint": "Operational market district coverage is projected from Knowledge Graph ownership.",
                 "objective": "Track Knowledge Graph progress for South Bay.",
+                "nextMissionId": "",
+                "missions": []
+              }
+            ]
+          },
+          {
+            "id": "market_discovery",
+            "label": "Commercial Market Discovery",
+            "status": "Not Researched",
+            "progress": {
+              "unit": "Research",
+              "completed": 0,
+              "target": 1,
+              "label": "Not researched",
+              "statusLabel": "Not Researched",
+              "currentConstraint": "External commercial-market discovery has not been run for this market.",
+              "sourceEvidence": [
+                "Commercial Market Discovery registry."
+              ]
+            },
+            "currentConstraint": "External commercial-market discovery has not been run for this market.",
+            "nextMissionId": "",
+            "nextInitiativeId": "south-bay:market_discovery:status",
+            "campaigns": [
+              {
+                "id": "south-bay:market_discovery:completion-campaign",
+                "title": "South Bay Commercial Market Discovery Completion",
+                "status": "Not Researched",
+                "progress": {
+                  "unit": "Research",
+                  "completed": 0,
+                  "target": 1,
+                  "label": "Not researched",
+                  "statusLabel": "Not Researched",
+                  "currentConstraint": "External commercial-market discovery has not been run for this market.",
+                  "sourceEvidence": [
+                    "Commercial Market Discovery registry."
+                  ]
+                },
+                "currentConstraint": "External commercial-market discovery has not been run for this market.",
+                "missionCount": 0,
+                "workItemCount": 0,
+                "sizingStrategy": "Market Discovery is a research audit program. Discovery findings become implementation missions only after separate canonical promotion approval."
+              }
+            ],
+            "initiatives": [
+              {
+                "id": "south-bay:market_discovery:status",
+                "title": "South Bay Commercial Market Discovery",
+                "currentStage": "Not Researched",
+                "currentConstraint": "External commercial-market discovery has not been run for this market.",
+                "objective": "Track Commercial Market Discovery progress for South Bay.",
                 "nextMissionId": "",
                 "missions": []
               }
@@ -53772,6 +54851,49 @@
         "missions": []
       },
       {
+        "id": "denver:market_discovery:completion-campaign",
+        "marketId": "denver",
+        "marketName": "Denver",
+        "programId": "market_discovery",
+        "programLabel": "Commercial Market Discovery",
+        "title": "Denver Commercial Market Discovery Completion",
+        "objective": "Advance Denver Commercial Market Discovery toward market completion through coherent, reviewable missions.",
+        "status": "Not Researched",
+        "progress": {
+          "unit": "Research",
+          "completed": 0,
+          "target": 1,
+          "label": "Not researched",
+          "statusLabel": "Not Researched",
+          "currentConstraint": "External commercial-market discovery has not been run for this market.",
+          "sourceEvidence": [
+            "Commercial Market Discovery registry."
+          ]
+        },
+        "currentConstraint": "External commercial-market discovery has not been run for this market.",
+        "nextInitiativeId": "denver:market_discovery:status",
+        "nextMissionId": "",
+        "initiativeIds": [
+          "denver:market_discovery:status"
+        ],
+        "missionIds": [],
+        "missionCount": 0,
+        "workItemCount": 0,
+        "workItems": {
+          "hiddenByDefault": true,
+          "count": 0
+        },
+        "sizingStrategy": "Market Discovery is a research audit program. Discovery findings become implementation missions only after separate canonical promotion approval.",
+        "reviewabilityPrinciple": "Campaigns are not executable. They advance through Missions sized to remain reviewable inside one SER.",
+        "sourceEvidence": [
+          "Commercial Market Discovery registry."
+        ],
+        "initiatives": [
+          "denver:market_discovery:status"
+        ],
+        "missions": []
+      },
+      {
         "id": "east-bay:publisher:completion-campaign",
         "marketId": "east-bay",
         "marketName": "East Bay",
@@ -54492,6 +55614,173 @@
         "missions": []
       },
       {
+        "id": "east-bay:market_discovery:completion-campaign",
+        "marketId": "east-bay",
+        "marketName": "East Bay",
+        "programId": "market_discovery",
+        "programLabel": "Commercial Market Discovery",
+        "title": "East Bay Commercial Market Discovery Completion",
+        "objective": "Advance East Bay Commercial Market Discovery toward market completion through coherent, reviewable missions.",
+        "status": "Research Current",
+        "progress": {
+          "unit": "Findings",
+          "completed": 14,
+          "target": 16,
+          "label": "16 findings; 5 missing, 6 partial",
+          "statusLabel": "Research Current",
+          "currentConstraint": "5 missing and 6 partial discovery findings require later canonical review before implementation.",
+          "sourceEvidence": [
+            "Commercial Market Discovery artifact.",
+            "Discovery vs canonical gap analysis."
+          ],
+          "researchedAt": "2026-08-11",
+          "discoveryVersion": "east-bay-commercial-market-discovery-v1",
+          "summary": {
+            "sourceCount": 15,
+            "covered": 3,
+            "partial": 6,
+            "missing": 5,
+            "conflict": 0,
+            "researchMore": 2,
+            "strongestFindings": [
+              {
+                "id": "east-bay-office-downtown-oakland",
+                "ecosystemId": "office",
+                "ecosystemLabel": "Office",
+                "geographyName": "Downtown Oakland",
+                "geographyType": "downtown office and mixed-use core",
+                "evidenceStrength": "STRONG",
+                "comparisonState": "PARTIAL",
+                "summary": "External evidence supports Downtown Oakland as a material East Bay central office and mixed-use commercial core distinct from Jack London Square.",
+                "gapCount": 2
+              },
+              {
+                "id": "east-bay-industrial-port-oakland",
+                "ecosystemId": "industrial_flex",
+                "ecosystemLabel": "Industrial / Warehouse / Flex",
+                "geographyName": "Port of Oakland logistics and maritime industrial area",
+                "geographyType": "port, logistics, maritime, and goods-movement cluster",
+                "evidenceStrength": "STRONG",
+                "comparisonState": "MISSING",
+                "summary": "External evidence supports Port of Oakland logistics and goods movement as a distinct East Bay commercial structure.",
+                "gapCount": 2
+              },
+              {
+                "id": "east-bay-retail-berkeley-corridors",
+                "ecosystemId": "retail",
+                "ecosystemLabel": "Retail",
+                "geographyName": "Berkeley retail districts and corridors",
+                "geographyType": "downtown, university-adjacent, destination, and neighborhood retail corridors",
+                "evidenceStrength": "STRONG",
+                "comparisonState": "PARTIAL",
+                "summary": "External evidence supports Berkeley retail as broader than Downtown Berkeley alone, including multiple destination and neighborhood commercial corridors.",
+                "gapCount": 1
+              },
+              {
+                "id": "east-bay-retail-downtown-oakland",
+                "ecosystemId": "retail",
+                "ecosystemLabel": "Retail",
+                "geographyName": "Downtown Oakland retail and entertainment corridors",
+                "geographyType": "urban retail, food, entertainment, and service-commercial core",
+                "evidenceStrength": "STRONG",
+                "comparisonState": "MISSING",
+                "summary": "External evidence supports Downtown Oakland as a material retail/service-commercial and entertainment environment, not only an office market.",
+                "gapCount": 1
+              },
+              {
+                "id": "east-bay-life-science-emeryville",
+                "ecosystemId": "life_science",
+                "ecosystemLabel": "Life Science / R&D",
+                "geographyName": "Emeryville",
+                "geographyType": "life-science, R&D support, and innovation commercial cluster",
+                "evidenceStrength": "STRONG",
+                "comparisonState": "PARTIAL",
+                "summary": "External evidence supports Emeryville as more than incidental life-science adjacency; it is a material East Bay R&D/life-science-support node.",
+                "gapCount": 1
+              },
+              {
+                "id": "east-bay-life-science-warm-springs",
+                "ecosystemId": "life_science",
+                "ecosystemLabel": "Life Science / R&D",
+                "geographyName": "Warm Springs / Fremont innovation corridor",
+                "geographyType": "advanced manufacturing, R&D, and innovation district",
+                "evidenceStrength": "STRONG",
+                "comparisonState": "PARTIAL",
+                "summary": "External evidence supports Warm Springs/South Fremont as an advanced manufacturing and R&D-oriented node, with life-science adjacency requiring careful classification.",
+                "gapCount": 1
+              }
+            ],
+            "materialGaps": [
+              {
+                "id": "discovery-gap:east-bay:downtown-oakland-office",
+                "label": "Downtown Oakland office and mixed-use commercial geography",
+                "comparisonState": "PARTIAL",
+                "implementationType": "commercial_geography",
+                "priority": "high"
+              },
+              {
+                "id": "discovery-gap:east-bay:emeryville-life-science-role",
+                "label": "Emeryville life-science/R&D ecosystem role review",
+                "comparisonState": "PARTIAL",
+                "implementationType": "ecosystem_classification",
+                "priority": "high"
+              },
+              {
+                "id": "discovery-gap:east-bay:alameda-life-science",
+                "label": "Alameda life-science/R&D and advanced-industries discovery",
+                "comparisonState": "MISSING",
+                "implementationType": "evidence_acquisition",
+                "priority": "high"
+              },
+              {
+                "id": "discovery-gap:east-bay:port-oakland-logistics",
+                "label": "Port of Oakland logistics and maritime industrial geography",
+                "comparisonState": "MISSING",
+                "implementationType": "commercial_geography",
+                "priority": "high"
+              },
+              {
+                "id": "discovery-gap:east-bay:oakland-medical",
+                "label": "Oakland medical-campus and medical-office geography",
+                "comparisonState": "MISSING",
+                "implementationType": "commercial_geography",
+                "priority": "medium"
+              },
+              {
+                "id": "discovery-gap:east-bay:retail-depth",
+                "label": "East Bay retail representative-building and corridor depth",
+                "comparisonState": "PARTIAL",
+                "implementationType": "retail_ecosystem",
+                "priority": "medium"
+              }
+            ]
+          }
+        },
+        "currentConstraint": "5 missing and 6 partial discovery findings require later canonical review before implementation.",
+        "nextInitiativeId": "east-bay:market_discovery:status",
+        "nextMissionId": "",
+        "initiativeIds": [
+          "east-bay:market_discovery:status"
+        ],
+        "missionIds": [],
+        "missionCount": 0,
+        "workItemCount": 0,
+        "workItems": {
+          "hiddenByDefault": true,
+          "count": 0
+        },
+        "sizingStrategy": "Market Discovery is a research audit program. Discovery findings become implementation missions only after separate canonical promotion approval.",
+        "reviewabilityPrinciple": "Campaigns are not executable. They advance through Missions sized to remain reviewable inside one SER.",
+        "sourceEvidence": [
+          "Commercial Market Discovery artifact.",
+          "Discovery vs canonical gap analysis."
+        ],
+        "initiatives": [
+          "east-bay:market_discovery:status"
+        ],
+        "missions": []
+      },
+      {
         "id": "north-bay:publisher:completion-campaign",
         "marketId": "north-bay",
         "marketName": "North Bay",
@@ -54766,6 +56055,49 @@
         ],
         "initiatives": [
           "north-bay:knowledge_graph:status"
+        ],
+        "missions": []
+      },
+      {
+        "id": "north-bay:market_discovery:completion-campaign",
+        "marketId": "north-bay",
+        "marketName": "North Bay",
+        "programId": "market_discovery",
+        "programLabel": "Commercial Market Discovery",
+        "title": "North Bay Commercial Market Discovery Completion",
+        "objective": "Advance North Bay Commercial Market Discovery toward market completion through coherent, reviewable missions.",
+        "status": "Not Researched",
+        "progress": {
+          "unit": "Research",
+          "completed": 0,
+          "target": 1,
+          "label": "Not researched",
+          "statusLabel": "Not Researched",
+          "currentConstraint": "External commercial-market discovery has not been run for this market.",
+          "sourceEvidence": [
+            "Commercial Market Discovery registry."
+          ]
+        },
+        "currentConstraint": "External commercial-market discovery has not been run for this market.",
+        "nextInitiativeId": "north-bay:market_discovery:status",
+        "nextMissionId": "",
+        "initiativeIds": [
+          "north-bay:market_discovery:status"
+        ],
+        "missionIds": [],
+        "missionCount": 0,
+        "workItemCount": 0,
+        "workItems": {
+          "hiddenByDefault": true,
+          "count": 0
+        },
+        "sizingStrategy": "Market Discovery is a research audit program. Discovery findings become implementation missions only after separate canonical promotion approval.",
+        "reviewabilityPrinciple": "Campaigns are not executable. They advance through Missions sized to remain reviewable inside one SER.",
+        "sourceEvidence": [
+          "Commercial Market Discovery registry."
+        ],
+        "initiatives": [
+          "north-bay:market_discovery:status"
         ],
         "missions": []
       },
@@ -56069,6 +57401,49 @@
         "missions": []
       },
       {
+        "id": "orange-county:market_discovery:completion-campaign",
+        "marketId": "orange-county",
+        "marketName": "Orange County",
+        "programId": "market_discovery",
+        "programLabel": "Commercial Market Discovery",
+        "title": "Orange County Commercial Market Discovery Completion",
+        "objective": "Advance Orange County Commercial Market Discovery toward market completion through coherent, reviewable missions.",
+        "status": "Not Researched",
+        "progress": {
+          "unit": "Research",
+          "completed": 0,
+          "target": 1,
+          "label": "Not researched",
+          "statusLabel": "Not Researched",
+          "currentConstraint": "External commercial-market discovery has not been run for this market.",
+          "sourceEvidence": [
+            "Commercial Market Discovery registry."
+          ]
+        },
+        "currentConstraint": "External commercial-market discovery has not been run for this market.",
+        "nextInitiativeId": "orange-county:market_discovery:status",
+        "nextMissionId": "",
+        "initiativeIds": [
+          "orange-county:market_discovery:status"
+        ],
+        "missionIds": [],
+        "missionCount": 0,
+        "workItemCount": 0,
+        "workItems": {
+          "hiddenByDefault": true,
+          "count": 0
+        },
+        "sizingStrategy": "Market Discovery is a research audit program. Discovery findings become implementation missions only after separate canonical promotion approval.",
+        "reviewabilityPrinciple": "Campaigns are not executable. They advance through Missions sized to remain reviewable inside one SER.",
+        "sourceEvidence": [
+          "Commercial Market Discovery registry."
+        ],
+        "initiatives": [
+          "orange-county:market_discovery:status"
+        ],
+        "missions": []
+      },
+      {
         "id": "peninsula:publisher:completion-campaign",
         "marketId": "peninsula",
         "marketName": "Peninsula",
@@ -56632,6 +58007,49 @@
         ],
         "initiatives": [
           "peninsula:knowledge_graph:status"
+        ],
+        "missions": []
+      },
+      {
+        "id": "peninsula:market_discovery:completion-campaign",
+        "marketId": "peninsula",
+        "marketName": "Peninsula",
+        "programId": "market_discovery",
+        "programLabel": "Commercial Market Discovery",
+        "title": "Peninsula Commercial Market Discovery Completion",
+        "objective": "Advance Peninsula Commercial Market Discovery toward market completion through coherent, reviewable missions.",
+        "status": "Not Researched",
+        "progress": {
+          "unit": "Research",
+          "completed": 0,
+          "target": 1,
+          "label": "Not researched",
+          "statusLabel": "Not Researched",
+          "currentConstraint": "External commercial-market discovery has not been run for this market.",
+          "sourceEvidence": [
+            "Commercial Market Discovery registry."
+          ]
+        },
+        "currentConstraint": "External commercial-market discovery has not been run for this market.",
+        "nextInitiativeId": "peninsula:market_discovery:status",
+        "nextMissionId": "",
+        "initiativeIds": [
+          "peninsula:market_discovery:status"
+        ],
+        "missionIds": [],
+        "missionCount": 0,
+        "workItemCount": 0,
+        "workItems": {
+          "hiddenByDefault": true,
+          "count": 0
+        },
+        "sizingStrategy": "Market Discovery is a research audit program. Discovery findings become implementation missions only after separate canonical promotion approval.",
+        "reviewabilityPrinciple": "Campaigns are not executable. They advance through Missions sized to remain reviewable inside one SER.",
+        "sourceEvidence": [
+          "Commercial Market Discovery registry."
+        ],
+        "initiatives": [
+          "peninsula:market_discovery:status"
         ],
         "missions": []
       },
@@ -58029,6 +59447,49 @@
         ],
         "initiatives": [
           "sacramento:knowledge_graph:status"
+        ],
+        "missions": []
+      },
+      {
+        "id": "sacramento:market_discovery:completion-campaign",
+        "marketId": "sacramento",
+        "marketName": "Sacramento",
+        "programId": "market_discovery",
+        "programLabel": "Commercial Market Discovery",
+        "title": "Sacramento Commercial Market Discovery Completion",
+        "objective": "Advance Sacramento Commercial Market Discovery toward market completion through coherent, reviewable missions.",
+        "status": "Not Researched",
+        "progress": {
+          "unit": "Research",
+          "completed": 0,
+          "target": 1,
+          "label": "Not researched",
+          "statusLabel": "Not Researched",
+          "currentConstraint": "External commercial-market discovery has not been run for this market.",
+          "sourceEvidence": [
+            "Commercial Market Discovery registry."
+          ]
+        },
+        "currentConstraint": "External commercial-market discovery has not been run for this market.",
+        "nextInitiativeId": "sacramento:market_discovery:status",
+        "nextMissionId": "",
+        "initiativeIds": [
+          "sacramento:market_discovery:status"
+        ],
+        "missionIds": [],
+        "missionCount": 0,
+        "workItemCount": 0,
+        "workItems": {
+          "hiddenByDefault": true,
+          "count": 0
+        },
+        "sizingStrategy": "Market Discovery is a research audit program. Discovery findings become implementation missions only after separate canonical promotion approval.",
+        "reviewabilityPrinciple": "Campaigns are not executable. They advance through Missions sized to remain reviewable inside one SER.",
+        "sourceEvidence": [
+          "Commercial Market Discovery registry."
+        ],
+        "initiatives": [
+          "sacramento:market_discovery:status"
         ],
         "missions": []
       },
@@ -59656,6 +61117,49 @@
         ],
         "initiatives": [
           "san-diego:knowledge_graph:status"
+        ],
+        "missions": []
+      },
+      {
+        "id": "san-diego:market_discovery:completion-campaign",
+        "marketId": "san-diego",
+        "marketName": "San Diego",
+        "programId": "market_discovery",
+        "programLabel": "Commercial Market Discovery",
+        "title": "San Diego Commercial Market Discovery Completion",
+        "objective": "Advance San Diego Commercial Market Discovery toward market completion through coherent, reviewable missions.",
+        "status": "Not Researched",
+        "progress": {
+          "unit": "Research",
+          "completed": 0,
+          "target": 1,
+          "label": "Not researched",
+          "statusLabel": "Not Researched",
+          "currentConstraint": "External commercial-market discovery has not been run for this market.",
+          "sourceEvidence": [
+            "Commercial Market Discovery registry."
+          ]
+        },
+        "currentConstraint": "External commercial-market discovery has not been run for this market.",
+        "nextInitiativeId": "san-diego:market_discovery:status",
+        "nextMissionId": "",
+        "initiativeIds": [
+          "san-diego:market_discovery:status"
+        ],
+        "missionIds": [],
+        "missionCount": 0,
+        "workItemCount": 0,
+        "workItems": {
+          "hiddenByDefault": true,
+          "count": 0
+        },
+        "sizingStrategy": "Market Discovery is a research audit program. Discovery findings become implementation missions only after separate canonical promotion approval.",
+        "reviewabilityPrinciple": "Campaigns are not executable. They advance through Missions sized to remain reviewable inside one SER.",
+        "sourceEvidence": [
+          "Commercial Market Discovery registry."
+        ],
+        "initiatives": [
+          "san-diego:market_discovery:status"
         ],
         "missions": []
       },
@@ -61427,6 +62931,49 @@
         "missions": []
       },
       {
+        "id": "san-francisco:market_discovery:completion-campaign",
+        "marketId": "san-francisco",
+        "marketName": "San Francisco",
+        "programId": "market_discovery",
+        "programLabel": "Commercial Market Discovery",
+        "title": "San Francisco Commercial Market Discovery Completion",
+        "objective": "Advance San Francisco Commercial Market Discovery toward market completion through coherent, reviewable missions.",
+        "status": "Not Researched",
+        "progress": {
+          "unit": "Research",
+          "completed": 0,
+          "target": 1,
+          "label": "Not researched",
+          "statusLabel": "Not Researched",
+          "currentConstraint": "External commercial-market discovery has not been run for this market.",
+          "sourceEvidence": [
+            "Commercial Market Discovery registry."
+          ]
+        },
+        "currentConstraint": "External commercial-market discovery has not been run for this market.",
+        "nextInitiativeId": "san-francisco:market_discovery:status",
+        "nextMissionId": "",
+        "initiativeIds": [
+          "san-francisco:market_discovery:status"
+        ],
+        "missionIds": [],
+        "missionCount": 0,
+        "workItemCount": 0,
+        "workItems": {
+          "hiddenByDefault": true,
+          "count": 0
+        },
+        "sizingStrategy": "Market Discovery is a research audit program. Discovery findings become implementation missions only after separate canonical promotion approval.",
+        "reviewabilityPrinciple": "Campaigns are not executable. They advance through Missions sized to remain reviewable inside one SER.",
+        "sourceEvidence": [
+          "Commercial Market Discovery registry."
+        ],
+        "initiatives": [
+          "san-francisco:market_discovery:status"
+        ],
+        "missions": []
+      },
+      {
         "id": "seattle:publisher:completion-campaign",
         "marketId": "seattle",
         "marketName": "Seattle",
@@ -62338,6 +63885,49 @@
         "missions": []
       },
       {
+        "id": "seattle:market_discovery:completion-campaign",
+        "marketId": "seattle",
+        "marketName": "Seattle",
+        "programId": "market_discovery",
+        "programLabel": "Commercial Market Discovery",
+        "title": "Seattle Commercial Market Discovery Completion",
+        "objective": "Advance Seattle Commercial Market Discovery toward market completion through coherent, reviewable missions.",
+        "status": "Not Researched",
+        "progress": {
+          "unit": "Research",
+          "completed": 0,
+          "target": 1,
+          "label": "Not researched",
+          "statusLabel": "Not Researched",
+          "currentConstraint": "External commercial-market discovery has not been run for this market.",
+          "sourceEvidence": [
+            "Commercial Market Discovery registry."
+          ]
+        },
+        "currentConstraint": "External commercial-market discovery has not been run for this market.",
+        "nextInitiativeId": "seattle:market_discovery:status",
+        "nextMissionId": "",
+        "initiativeIds": [
+          "seattle:market_discovery:status"
+        ],
+        "missionIds": [],
+        "missionCount": 0,
+        "workItemCount": 0,
+        "workItems": {
+          "hiddenByDefault": true,
+          "count": 0
+        },
+        "sizingStrategy": "Market Discovery is a research audit program. Discovery findings become implementation missions only after separate canonical promotion approval.",
+        "reviewabilityPrinciple": "Campaigns are not executable. They advance through Missions sized to remain reviewable inside one SER.",
+        "sourceEvidence": [
+          "Commercial Market Discovery registry."
+        ],
+        "initiatives": [
+          "seattle:market_discovery:status"
+        ],
+        "missions": []
+      },
+      {
         "id": "south-bay:publisher:completion-campaign",
         "marketId": "south-bay",
         "marketName": "South Bay",
@@ -62799,6 +64389,49 @@
         ],
         "initiatives": [
           "south-bay:knowledge_graph:status"
+        ],
+        "missions": []
+      },
+      {
+        "id": "south-bay:market_discovery:completion-campaign",
+        "marketId": "south-bay",
+        "marketName": "South Bay",
+        "programId": "market_discovery",
+        "programLabel": "Commercial Market Discovery",
+        "title": "South Bay Commercial Market Discovery Completion",
+        "objective": "Advance South Bay Commercial Market Discovery toward market completion through coherent, reviewable missions.",
+        "status": "Not Researched",
+        "progress": {
+          "unit": "Research",
+          "completed": 0,
+          "target": 1,
+          "label": "Not researched",
+          "statusLabel": "Not Researched",
+          "currentConstraint": "External commercial-market discovery has not been run for this market.",
+          "sourceEvidence": [
+            "Commercial Market Discovery registry."
+          ]
+        },
+        "currentConstraint": "External commercial-market discovery has not been run for this market.",
+        "nextInitiativeId": "south-bay:market_discovery:status",
+        "nextMissionId": "",
+        "initiativeIds": [
+          "south-bay:market_discovery:status"
+        ],
+        "missionIds": [],
+        "missionCount": 0,
+        "workItemCount": 0,
+        "workItems": {
+          "hiddenByDefault": true,
+          "count": 0
+        },
+        "sizingStrategy": "Market Discovery is a research audit program. Discovery findings become implementation missions only after separate canonical promotion approval.",
+        "reviewabilityPrinciple": "Campaigns are not executable. They advance through Missions sized to remain reviewable inside one SER.",
+        "sourceEvidence": [
+          "Commercial Market Discovery registry."
+        ],
+        "initiatives": [
+          "south-bay:market_discovery:status"
         ],
         "missions": []
       }
@@ -64183,6 +65816,40 @@
         "campaignId": "denver:knowledge_graph:completion-campaign"
       },
       {
+        "id": "denver:market_discovery:status",
+        "marketId": "denver",
+        "marketName": "Denver",
+        "programId": "market_discovery",
+        "programLabel": "Commercial Market Discovery",
+        "title": "Denver Commercial Market Discovery",
+        "scope": "Denver",
+        "objective": "Track Commercial Market Discovery progress for Denver.",
+        "currentStage": "Not Researched",
+        "progress": {
+          "unit": "Research",
+          "completed": 0,
+          "target": 1,
+          "label": "Not researched",
+          "statusLabel": "Not Researched",
+          "currentConstraint": "External commercial-market discovery has not been run for this market.",
+          "sourceEvidence": [
+            "Commercial Market Discovery registry."
+          ]
+        },
+        "currentConstraint": "External commercial-market discovery has not been run for this market.",
+        "nextMissionId": "",
+        "remainingMilestones": [
+          "External commercial-market discovery has not been run for this market."
+        ],
+        "confidence": "Medium",
+        "sourceEvidence": [
+          "Commercial Market Discovery registry."
+        ],
+        "readOnly": true,
+        "missions": [],
+        "campaignId": "denver:market_discovery:completion-campaign"
+      },
+      {
         "id": "east-bay:publisher:life-science-readiness",
         "marketId": "east-bay",
         "marketName": "East Bay",
@@ -64806,6 +66473,164 @@
         "campaignId": "east-bay:knowledge_graph:completion-campaign"
       },
       {
+        "id": "east-bay:market_discovery:status",
+        "marketId": "east-bay",
+        "marketName": "East Bay",
+        "programId": "market_discovery",
+        "programLabel": "Commercial Market Discovery",
+        "title": "East Bay Commercial Market Discovery",
+        "scope": "East Bay",
+        "objective": "Track Commercial Market Discovery progress for East Bay.",
+        "currentStage": "Research Current",
+        "progress": {
+          "unit": "Findings",
+          "completed": 14,
+          "target": 16,
+          "label": "16 findings; 5 missing, 6 partial",
+          "statusLabel": "Research Current",
+          "currentConstraint": "5 missing and 6 partial discovery findings require later canonical review before implementation.",
+          "sourceEvidence": [
+            "Commercial Market Discovery artifact.",
+            "Discovery vs canonical gap analysis."
+          ],
+          "researchedAt": "2026-08-11",
+          "discoveryVersion": "east-bay-commercial-market-discovery-v1",
+          "summary": {
+            "sourceCount": 15,
+            "covered": 3,
+            "partial": 6,
+            "missing": 5,
+            "conflict": 0,
+            "researchMore": 2,
+            "strongestFindings": [
+              {
+                "id": "east-bay-office-downtown-oakland",
+                "ecosystemId": "office",
+                "ecosystemLabel": "Office",
+                "geographyName": "Downtown Oakland",
+                "geographyType": "downtown office and mixed-use core",
+                "evidenceStrength": "STRONG",
+                "comparisonState": "PARTIAL",
+                "summary": "External evidence supports Downtown Oakland as a material East Bay central office and mixed-use commercial core distinct from Jack London Square.",
+                "gapCount": 2
+              },
+              {
+                "id": "east-bay-industrial-port-oakland",
+                "ecosystemId": "industrial_flex",
+                "ecosystemLabel": "Industrial / Warehouse / Flex",
+                "geographyName": "Port of Oakland logistics and maritime industrial area",
+                "geographyType": "port, logistics, maritime, and goods-movement cluster",
+                "evidenceStrength": "STRONG",
+                "comparisonState": "MISSING",
+                "summary": "External evidence supports Port of Oakland logistics and goods movement as a distinct East Bay commercial structure.",
+                "gapCount": 2
+              },
+              {
+                "id": "east-bay-retail-berkeley-corridors",
+                "ecosystemId": "retail",
+                "ecosystemLabel": "Retail",
+                "geographyName": "Berkeley retail districts and corridors",
+                "geographyType": "downtown, university-adjacent, destination, and neighborhood retail corridors",
+                "evidenceStrength": "STRONG",
+                "comparisonState": "PARTIAL",
+                "summary": "External evidence supports Berkeley retail as broader than Downtown Berkeley alone, including multiple destination and neighborhood commercial corridors.",
+                "gapCount": 1
+              },
+              {
+                "id": "east-bay-retail-downtown-oakland",
+                "ecosystemId": "retail",
+                "ecosystemLabel": "Retail",
+                "geographyName": "Downtown Oakland retail and entertainment corridors",
+                "geographyType": "urban retail, food, entertainment, and service-commercial core",
+                "evidenceStrength": "STRONG",
+                "comparisonState": "MISSING",
+                "summary": "External evidence supports Downtown Oakland as a material retail/service-commercial and entertainment environment, not only an office market.",
+                "gapCount": 1
+              },
+              {
+                "id": "east-bay-life-science-emeryville",
+                "ecosystemId": "life_science",
+                "ecosystemLabel": "Life Science / R&D",
+                "geographyName": "Emeryville",
+                "geographyType": "life-science, R&D support, and innovation commercial cluster",
+                "evidenceStrength": "STRONG",
+                "comparisonState": "PARTIAL",
+                "summary": "External evidence supports Emeryville as more than incidental life-science adjacency; it is a material East Bay R&D/life-science-support node.",
+                "gapCount": 1
+              },
+              {
+                "id": "east-bay-life-science-warm-springs",
+                "ecosystemId": "life_science",
+                "ecosystemLabel": "Life Science / R&D",
+                "geographyName": "Warm Springs / Fremont innovation corridor",
+                "geographyType": "advanced manufacturing, R&D, and innovation district",
+                "evidenceStrength": "STRONG",
+                "comparisonState": "PARTIAL",
+                "summary": "External evidence supports Warm Springs/South Fremont as an advanced manufacturing and R&D-oriented node, with life-science adjacency requiring careful classification.",
+                "gapCount": 1
+              }
+            ],
+            "materialGaps": [
+              {
+                "id": "discovery-gap:east-bay:downtown-oakland-office",
+                "label": "Downtown Oakland office and mixed-use commercial geography",
+                "comparisonState": "PARTIAL",
+                "implementationType": "commercial_geography",
+                "priority": "high"
+              },
+              {
+                "id": "discovery-gap:east-bay:emeryville-life-science-role",
+                "label": "Emeryville life-science/R&D ecosystem role review",
+                "comparisonState": "PARTIAL",
+                "implementationType": "ecosystem_classification",
+                "priority": "high"
+              },
+              {
+                "id": "discovery-gap:east-bay:alameda-life-science",
+                "label": "Alameda life-science/R&D and advanced-industries discovery",
+                "comparisonState": "MISSING",
+                "implementationType": "evidence_acquisition",
+                "priority": "high"
+              },
+              {
+                "id": "discovery-gap:east-bay:port-oakland-logistics",
+                "label": "Port of Oakland logistics and maritime industrial geography",
+                "comparisonState": "MISSING",
+                "implementationType": "commercial_geography",
+                "priority": "high"
+              },
+              {
+                "id": "discovery-gap:east-bay:oakland-medical",
+                "label": "Oakland medical-campus and medical-office geography",
+                "comparisonState": "MISSING",
+                "implementationType": "commercial_geography",
+                "priority": "medium"
+              },
+              {
+                "id": "discovery-gap:east-bay:retail-depth",
+                "label": "East Bay retail representative-building and corridor depth",
+                "comparisonState": "PARTIAL",
+                "implementationType": "retail_ecosystem",
+                "priority": "medium"
+              }
+            ]
+          }
+        },
+        "currentConstraint": "5 missing and 6 partial discovery findings require later canonical review before implementation.",
+        "nextMissionId": "",
+        "remainingMilestones": [
+          "5 missing and 6 partial discovery findings require later canonical review before implementation."
+        ],
+        "confidence": "Medium",
+        "sourceEvidence": [
+          "Commercial Market Discovery artifact.",
+          "Discovery vs canonical gap analysis."
+        ],
+        "readOnly": true,
+        "missions": [],
+        "campaignId": "east-bay:market_discovery:completion-campaign"
+      },
+      {
         "id": "north-bay:publisher:status",
         "marketId": "north-bay",
         "marketName": "North Bay",
@@ -65016,6 +66841,40 @@
         "readOnly": true,
         "missions": [],
         "campaignId": "north-bay:knowledge_graph:completion-campaign"
+      },
+      {
+        "id": "north-bay:market_discovery:status",
+        "marketId": "north-bay",
+        "marketName": "North Bay",
+        "programId": "market_discovery",
+        "programLabel": "Commercial Market Discovery",
+        "title": "North Bay Commercial Market Discovery",
+        "scope": "North Bay",
+        "objective": "Track Commercial Market Discovery progress for North Bay.",
+        "currentStage": "Not Researched",
+        "progress": {
+          "unit": "Research",
+          "completed": 0,
+          "target": 1,
+          "label": "Not researched",
+          "statusLabel": "Not Researched",
+          "currentConstraint": "External commercial-market discovery has not been run for this market.",
+          "sourceEvidence": [
+            "Commercial Market Discovery registry."
+          ]
+        },
+        "currentConstraint": "External commercial-market discovery has not been run for this market.",
+        "nextMissionId": "",
+        "remainingMilestones": [
+          "External commercial-market discovery has not been run for this market."
+        ],
+        "confidence": "Medium",
+        "sourceEvidence": [
+          "Commercial Market Discovery registry."
+        ],
+        "readOnly": true,
+        "missions": [],
+        "campaignId": "north-bay:market_discovery:completion-campaign"
       },
       {
         "id": "orange-county:publisher:industrial-and-flex-readiness",
@@ -65818,6 +67677,40 @@
         "campaignId": "orange-county:knowledge_graph:completion-campaign"
       },
       {
+        "id": "orange-county:market_discovery:status",
+        "marketId": "orange-county",
+        "marketName": "Orange County",
+        "programId": "market_discovery",
+        "programLabel": "Commercial Market Discovery",
+        "title": "Orange County Commercial Market Discovery",
+        "scope": "Orange County",
+        "objective": "Track Commercial Market Discovery progress for Orange County.",
+        "currentStage": "Not Researched",
+        "progress": {
+          "unit": "Research",
+          "completed": 0,
+          "target": 1,
+          "label": "Not researched",
+          "statusLabel": "Not Researched",
+          "currentConstraint": "External commercial-market discovery has not been run for this market.",
+          "sourceEvidence": [
+            "Commercial Market Discovery registry."
+          ]
+        },
+        "currentConstraint": "External commercial-market discovery has not been run for this market.",
+        "nextMissionId": "",
+        "remainingMilestones": [
+          "External commercial-market discovery has not been run for this market."
+        ],
+        "confidence": "Medium",
+        "sourceEvidence": [
+          "Commercial Market Discovery registry."
+        ],
+        "readOnly": true,
+        "missions": [],
+        "campaignId": "orange-county:market_discovery:completion-campaign"
+      },
+      {
         "id": "peninsula:publisher:status",
         "marketId": "peninsula",
         "marketName": "Peninsula",
@@ -66224,6 +68117,40 @@
         "readOnly": true,
         "missions": [],
         "campaignId": "peninsula:knowledge_graph:completion-campaign"
+      },
+      {
+        "id": "peninsula:market_discovery:status",
+        "marketId": "peninsula",
+        "marketName": "Peninsula",
+        "programId": "market_discovery",
+        "programLabel": "Commercial Market Discovery",
+        "title": "Peninsula Commercial Market Discovery",
+        "scope": "Peninsula",
+        "objective": "Track Commercial Market Discovery progress for Peninsula.",
+        "currentStage": "Not Researched",
+        "progress": {
+          "unit": "Research",
+          "completed": 0,
+          "target": 1,
+          "label": "Not researched",
+          "statusLabel": "Not Researched",
+          "currentConstraint": "External commercial-market discovery has not been run for this market.",
+          "sourceEvidence": [
+            "Commercial Market Discovery registry."
+          ]
+        },
+        "currentConstraint": "External commercial-market discovery has not been run for this market.",
+        "nextMissionId": "",
+        "remainingMilestones": [
+          "External commercial-market discovery has not been run for this market."
+        ],
+        "confidence": "Medium",
+        "sourceEvidence": [
+          "Commercial Market Discovery registry."
+        ],
+        "readOnly": true,
+        "missions": [],
+        "campaignId": "peninsula:market_discovery:completion-campaign"
       },
       {
         "id": "sacramento:publisher:industrial-and-flex-readiness",
@@ -67105,6 +69032,40 @@
         "readOnly": true,
         "missions": [],
         "campaignId": "sacramento:knowledge_graph:completion-campaign"
+      },
+      {
+        "id": "sacramento:market_discovery:status",
+        "marketId": "sacramento",
+        "marketName": "Sacramento",
+        "programId": "market_discovery",
+        "programLabel": "Commercial Market Discovery",
+        "title": "Sacramento Commercial Market Discovery",
+        "scope": "Sacramento",
+        "objective": "Track Commercial Market Discovery progress for Sacramento.",
+        "currentStage": "Not Researched",
+        "progress": {
+          "unit": "Research",
+          "completed": 0,
+          "target": 1,
+          "label": "Not researched",
+          "statusLabel": "Not Researched",
+          "currentConstraint": "External commercial-market discovery has not been run for this market.",
+          "sourceEvidence": [
+            "Commercial Market Discovery registry."
+          ]
+        },
+        "currentConstraint": "External commercial-market discovery has not been run for this market.",
+        "nextMissionId": "",
+        "remainingMilestones": [
+          "External commercial-market discovery has not been run for this market."
+        ],
+        "confidence": "Medium",
+        "sourceEvidence": [
+          "Commercial Market Discovery registry."
+        ],
+        "readOnly": true,
+        "missions": [],
+        "campaignId": "sacramento:market_discovery:completion-campaign"
       },
       {
         "id": "san-diego:publisher:industrial-and-flex-readiness",
@@ -68027,6 +69988,40 @@
         "campaignId": "san-diego:knowledge_graph:completion-campaign"
       },
       {
+        "id": "san-diego:market_discovery:status",
+        "marketId": "san-diego",
+        "marketName": "San Diego",
+        "programId": "market_discovery",
+        "programLabel": "Commercial Market Discovery",
+        "title": "San Diego Commercial Market Discovery",
+        "scope": "San Diego",
+        "objective": "Track Commercial Market Discovery progress for San Diego.",
+        "currentStage": "Not Researched",
+        "progress": {
+          "unit": "Research",
+          "completed": 0,
+          "target": 1,
+          "label": "Not researched",
+          "statusLabel": "Not Researched",
+          "currentConstraint": "External commercial-market discovery has not been run for this market.",
+          "sourceEvidence": [
+            "Commercial Market Discovery registry."
+          ]
+        },
+        "currentConstraint": "External commercial-market discovery has not been run for this market.",
+        "nextMissionId": "",
+        "remainingMilestones": [
+          "External commercial-market discovery has not been run for this market."
+        ],
+        "confidence": "Medium",
+        "sourceEvidence": [
+          "Commercial Market Discovery registry."
+        ],
+        "readOnly": true,
+        "missions": [],
+        "campaignId": "san-diego:market_discovery:completion-campaign"
+      },
+      {
         "id": "san-francisco:publisher:medical-readiness",
         "marketId": "san-francisco",
         "marketName": "San Francisco",
@@ -68708,6 +70703,40 @@
         "readOnly": true,
         "missions": [],
         "campaignId": "san-francisco:knowledge_graph:completion-campaign"
+      },
+      {
+        "id": "san-francisco:market_discovery:status",
+        "marketId": "san-francisco",
+        "marketName": "San Francisco",
+        "programId": "market_discovery",
+        "programLabel": "Commercial Market Discovery",
+        "title": "San Francisco Commercial Market Discovery",
+        "scope": "San Francisco",
+        "objective": "Track Commercial Market Discovery progress for San Francisco.",
+        "currentStage": "Not Researched",
+        "progress": {
+          "unit": "Research",
+          "completed": 0,
+          "target": 1,
+          "label": "Not researched",
+          "statusLabel": "Not Researched",
+          "currentConstraint": "External commercial-market discovery has not been run for this market.",
+          "sourceEvidence": [
+            "Commercial Market Discovery registry."
+          ]
+        },
+        "currentConstraint": "External commercial-market discovery has not been run for this market.",
+        "nextMissionId": "",
+        "remainingMilestones": [
+          "External commercial-market discovery has not been run for this market."
+        ],
+        "confidence": "Medium",
+        "sourceEvidence": [
+          "Commercial Market Discovery registry."
+        ],
+        "readOnly": true,
+        "missions": [],
+        "campaignId": "san-francisco:market_discovery:completion-campaign"
       },
       {
         "id": "seattle:publisher:medical-readiness",
@@ -69473,6 +71502,40 @@
         "campaignId": "seattle:knowledge_graph:completion-campaign"
       },
       {
+        "id": "seattle:market_discovery:status",
+        "marketId": "seattle",
+        "marketName": "Seattle",
+        "programId": "market_discovery",
+        "programLabel": "Commercial Market Discovery",
+        "title": "Seattle Commercial Market Discovery",
+        "scope": "Seattle",
+        "objective": "Track Commercial Market Discovery progress for Seattle.",
+        "currentStage": "Not Researched",
+        "progress": {
+          "unit": "Research",
+          "completed": 0,
+          "target": 1,
+          "label": "Not researched",
+          "statusLabel": "Not Researched",
+          "currentConstraint": "External commercial-market discovery has not been run for this market.",
+          "sourceEvidence": [
+            "Commercial Market Discovery registry."
+          ]
+        },
+        "currentConstraint": "External commercial-market discovery has not been run for this market.",
+        "nextMissionId": "",
+        "remainingMilestones": [
+          "External commercial-market discovery has not been run for this market."
+        ],
+        "confidence": "Medium",
+        "sourceEvidence": [
+          "Commercial Market Discovery registry."
+        ],
+        "readOnly": true,
+        "missions": [],
+        "campaignId": "seattle:market_discovery:completion-campaign"
+      },
+      {
         "id": "south-bay:publisher:status",
         "marketId": "south-bay",
         "marketName": "South Bay",
@@ -69821,6 +71884,40 @@
         "readOnly": true,
         "missions": [],
         "campaignId": "south-bay:knowledge_graph:completion-campaign"
+      },
+      {
+        "id": "south-bay:market_discovery:status",
+        "marketId": "south-bay",
+        "marketName": "South Bay",
+        "programId": "market_discovery",
+        "programLabel": "Commercial Market Discovery",
+        "title": "South Bay Commercial Market Discovery",
+        "scope": "South Bay",
+        "objective": "Track Commercial Market Discovery progress for South Bay.",
+        "currentStage": "Not Researched",
+        "progress": {
+          "unit": "Research",
+          "completed": 0,
+          "target": 1,
+          "label": "Not researched",
+          "statusLabel": "Not Researched",
+          "currentConstraint": "External commercial-market discovery has not been run for this market.",
+          "sourceEvidence": [
+            "Commercial Market Discovery registry."
+          ]
+        },
+        "currentConstraint": "External commercial-market discovery has not been run for this market.",
+        "nextMissionId": "",
+        "remainingMilestones": [
+          "External commercial-market discovery has not been run for this market."
+        ],
+        "confidence": "Medium",
+        "sourceEvidence": [
+          "Commercial Market Discovery registry."
+        ],
+        "readOnly": true,
+        "missions": [],
+        "campaignId": "south-bay:market_discovery:completion-campaign"
       }
     ],
     "missions": [
@@ -74906,9 +77003,9 @@
     },
     "summary": {
       "markets": 10,
-      "programsPerMarket": 6,
-      "campaigns": 60,
-      "initiatives": 146,
+      "programsPerMarket": 7,
+      "campaigns": 70,
+      "initiatives": 156,
       "missions": 86
     },
     "note": "Additive projection for Mission Control v2. Campaigns optimize editorial throughput while preserving Publisher scoring, execution packet compatibility, and hidden Work Items."

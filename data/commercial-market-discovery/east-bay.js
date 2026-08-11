@@ -1,0 +1,628 @@
+const researchedAt = "2026-08-11";
+
+module.exports = {
+  schemaVersion: "commercial-market-discovery-v1",
+  discoveryVersion: "east-bay-commercial-market-discovery-v1",
+  marketId: "east-bay",
+  marketName: "East Bay",
+  regionId: "bay-area",
+  regionName: "Bay Area",
+  researchedAt,
+  researchStatus: "current",
+  sourceStandard: {
+    tier1: "Official government, economic-development, transit, institutional, owner/developer, and business-district sources.",
+    tier2: "Established brokerage, institutional CRE, economic, development, and local business sources.",
+    tier3: "Discovery sources only; not sufficient alone for canonical promotion.",
+  },
+  scope: {
+    purpose: "External commercial-market audit for East Bay. Findings are research evidence, not canonical Rofo promotion.",
+    ecosystems: ["office", "industrial_flex", "retail", "life_science", "medical", "special_purpose"],
+    geographicNote:
+      "Uses the current Rofo East Bay operating market as the comparison baseline while allowing external research to surface adjacent or broader East Bay structures that may require later boundary review.",
+  },
+  evidenceStrengthModel: {
+    STRONG: "Multiple credible sources or authoritative direct evidence.",
+    SUPPORTED: "Credible evidence supports the finding, but depth or boundary detail is more limited.",
+    EMERGING: "Evidence indicates a real pattern, but the commercial identity is less mature or less clearly bounded.",
+    DISCOVERY_ONLY: "Candidate requires stronger validation before implementation planning.",
+  },
+  canonicalComparisonModel: {
+    COVERED: "Rofo already represents this commercial reality adequately for current planning.",
+    PARTIAL: "Rofo represents the pattern but understates, narrows, or incompletely models it.",
+    MISSING: "Supported commercial reality is absent from canonical Rofo market knowledge.",
+    CONFLICT: "Current Rofo knowledge appears inconsistent with stronger external evidence.",
+    RESEARCH_MORE: "Evidence is insufficient or boundary-sensitive enough that further research should precede implementation.",
+  },
+  sources: [
+    {
+      id: "east-bay-eda-key-industries",
+      tier: "tier1",
+      title: "East Bay EDA key industries and regional economic-development context",
+      publisher: "East Bay Economic Development Alliance",
+      url: "https://eastbayeda.org/",
+      accessedAt: researchedAt,
+    },
+    {
+      id: "oakland-downtown-specific-plan",
+      tier: "tier1",
+      title: "Downtown Oakland Specific Plan",
+      publisher: "City of Oakland",
+      url: "https://www.oaklandca.gov/topics/downtown-oakland-specific-plan",
+      accessedAt: researchedAt,
+    },
+    {
+      id: "port-oakland-maritime",
+      tier: "tier1",
+      title: "Port of Oakland maritime and cargo context",
+      publisher: "Port of Oakland",
+      url: "https://www.portofoakland.com/maritime/",
+      accessedAt: researchedAt,
+    },
+    {
+      id: "fremont-warm-springs",
+      tier: "tier1",
+      title: "Warm Springs Innovation District and Fremont economic-development context",
+      publisher: "City of Fremont",
+      url: "https://www.fremont.gov/government/departments/economic-development/major-development-projects/warm-springs-innovation-district",
+      accessedAt: researchedAt,
+    },
+    {
+      id: "hayward-economic-development",
+      tier: "tier1",
+      title: "Hayward economic development and industrial/business context",
+      publisher: "City of Hayward",
+      url: "https://www.hayward-ca.gov/business",
+      accessedAt: researchedAt,
+    },
+    {
+      id: "union-city-economic-development",
+      tier: "tier1",
+      title: "Union City economic development and business context",
+      publisher: "City of Union City",
+      url: "https://www.unioncity.org/148/Economic-Development",
+      accessedAt: researchedAt,
+    },
+    {
+      id: "berkeley-economic-development",
+      tier: "tier1",
+      title: "Berkeley economic development and commercial districts",
+      publisher: "City of Berkeley",
+      url: "https://berkeleyca.gov/your-government/our-work/economic-development",
+      accessedAt: researchedAt,
+    },
+    {
+      id: "downtown-berkeley-association",
+      tier: "tier1",
+      title: "Downtown Berkeley business improvement district context",
+      publisher: "Downtown Berkeley Association",
+      url: "https://www.downtownberkeley.com/",
+      accessedAt: researchedAt,
+    },
+    {
+      id: "emeryville-economic-development",
+      tier: "tier1",
+      title: "Emeryville economic development and commercial district context",
+      publisher: "City of Emeryville",
+      url: "https://www.ci.emeryville.ca.us/107/Economic-Development",
+      accessedAt: researchedAt,
+    },
+    {
+      id: "alameda-economic-development",
+      tier: "tier1",
+      title: "Alameda economic development and Alameda Point business context",
+      publisher: "City of Alameda",
+      url: "https://www.alamedaca.gov/Business/Economic-Development",
+      accessedAt: researchedAt,
+    },
+    {
+      id: "kaiser-oakland",
+      tier: "tier1",
+      title: "Kaiser Permanente Oakland Medical Center",
+      publisher: "Kaiser Permanente",
+      url: "https://healthy.kaiserpermanente.org/northern-california/facilities/oakland-medical-center-100001",
+      accessedAt: researchedAt,
+    },
+    {
+      id: "ucsf-benioff-oakland",
+      tier: "tier1",
+      title: "UCSF Benioff Children's Hospital Oakland",
+      publisher: "UCSF Benioff Children's Hospitals",
+      url: "https://www.ucsfbenioffchildrens.org/locations/oakland",
+      accessedAt: researchedAt,
+    },
+    {
+      id: "john-muir-walnut-creek",
+      tier: "tier1",
+      title: "John Muir Health Walnut Creek Medical Center",
+      publisher: "John Muir Health",
+      url: "https://www.johnmuirhealth.com/locations/walnut-creek-medical-center.html",
+      accessedAt: researchedAt,
+    },
+    {
+      id: "bay-street-emeryville",
+      tier: "tier1",
+      title: "Bay Street Emeryville retail and mixed-use district",
+      publisher: "Bay Street Emeryville",
+      url: "https://www.baystreetemeryville.com/",
+      accessedAt: researchedAt,
+    },
+    {
+      id: "cbre-east-bay",
+      tier: "tier2",
+      title: "CBRE East Bay local market research hub",
+      publisher: "CBRE",
+      url: "https://www.cbre.com/insights/local-response/east-bay",
+      accessedAt: researchedAt,
+    },
+  ],
+  findings: [
+    {
+      id: "east-bay-office-downtown-oakland",
+      ecosystemId: "office",
+      ecosystemLabel: "Office",
+      findingType: "commercial_geography",
+      geographyName: "Downtown Oakland",
+      geographyType: "downtown office and mixed-use core",
+      aliases: ["Uptown Oakland", "Lake Merritt office edge", "Central Oakland"],
+      evidenceStrength: "STRONG",
+      sourceIds: ["oakland-downtown-specific-plan", "cbre-east-bay"],
+      summary:
+        "External evidence supports Downtown Oakland as a material East Bay central office and mixed-use commercial core distinct from Jack London Square.",
+      canonicalComparison: {
+        state: "PARTIAL",
+        rationale:
+          "Rofo has Oakland comparison/page context and Jack London Square evidence, but East Bay operational market knowledge does not yet fully model Downtown Oakland as a core office geography.",
+        canonicalEvidence: ["Jack London Square CME and Building Profiles.", "Oakland comparison-page context."],
+      },
+      candidateImplementationGaps: [
+        { type: "commercial_geography", label: "Review Downtown Oakland as a canonical East Bay office district.", priority: "high" },
+        { type: "cme", label: "If promoted, acquire a Downtown Oakland Commercial Market Evidence collection.", priority: "high" },
+      ],
+      unresolvedQuestions: ["Confirm the correct district boundary and whether Uptown/Lake Merritt should be separate or comparative nodes."],
+    },
+    {
+      id: "east-bay-office-downtown-berkeley",
+      ecosystemId: "office",
+      ecosystemLabel: "Office",
+      findingType: "commercial_geography",
+      geographyName: "Downtown Berkeley",
+      geographyType: "transit-oriented downtown office and service district",
+      aliases: ["Downtown Berkeley BART district"],
+      evidenceStrength: "STRONG",
+      sourceIds: ["berkeley-economic-development", "downtown-berkeley-association"],
+      summary:
+        "Downtown Berkeley is externally supported as a BART-oriented commercial district with office, civic, university-adjacent, and service-commercial demand.",
+      canonicalComparison: {
+        state: "COVERED",
+        rationale:
+          "Rofo already has Downtown Berkeley Knowledge Graph ownership, CME, selected Building Profiles, and comparison context.",
+        canonicalEvidence: ["Downtown Berkeley CME.", "Downtown Berkeley Building Profiles.", "East Bay operational market ownership."],
+      },
+      candidateImplementationGaps: [],
+      unresolvedQuestions: [],
+    },
+    {
+      id: "east-bay-office-emeryville",
+      ecosystemId: "office",
+      ecosystemLabel: "Office",
+      findingType: "commercial_geography",
+      geographyName: "Emeryville Commercial Core",
+      geographyType: "campus office, R&D support, and mixed commercial node",
+      aliases: ["Powell Street office corridor", "Bay Street/Christie commercial area"],
+      evidenceStrength: "STRONG",
+      sourceIds: ["emeryville-economic-development", "bay-street-emeryville", "cbre-east-bay"],
+      summary:
+        "External evidence supports Emeryville as a meaningful East Bay commercial node combining office, business-park, R&D support, and retail amenities.",
+      canonicalComparison: {
+        state: "COVERED",
+        rationale:
+          "Rofo represents Emeryville Commercial Core with Knowledge Graph ownership, CME, office/flex context, and comparison relationships.",
+        canonicalEvidence: ["Emeryville Commercial Core CME.", "East Bay office representative-building evidence."],
+      },
+      candidateImplementationGaps: [],
+      unresolvedQuestions: ["Review later whether Emeryville life-science weight should be stronger than secondary context."],
+    },
+    {
+      id: "east-bay-industrial-i880-corridor",
+      ecosystemId: "industrial_flex",
+      ecosystemLabel: "Industrial / Warehouse / Flex",
+      findingType: "commercial_geography",
+      geographyName: "I-880 East Bay industrial corridor",
+      geographyType: "warehouse, logistics, manufacturing, and flex corridor",
+      aliases: ["Hayward-Union City-Fremont industrial corridor", "East Bay I-880 corridor"],
+      evidenceStrength: "STRONG",
+      sourceIds: ["hayward-economic-development", "union-city-economic-development", "fremont-warm-springs", "cbre-east-bay"],
+      summary:
+        "External evidence supports the I-880 corridor as a core East Bay industrial, warehouse, manufacturing, and flex geography.",
+      canonicalComparison: {
+        state: "COVERED",
+        rationale:
+          "Rofo now has Hayward Industrial, Union City Industrial, Warm Springs Innovation District, West Berkeley, and related East Bay industrial/flex evidence.",
+        canonicalEvidence: ["East Bay industrial/flex Knowledge Graph districts.", "Completed East Bay industrial/flex CME collections.", "Industrial/flex Building Profiles."],
+      },
+      candidateImplementationGaps: [],
+      unresolvedQuestions: ["San Leandro and Oakland port/airport industrial edges remain candidates for separate future boundary review."],
+    },
+    {
+      id: "east-bay-industrial-port-oakland",
+      ecosystemId: "industrial_flex",
+      ecosystemLabel: "Industrial / Warehouse / Flex",
+      findingType: "commercial_geography",
+      geographyName: "Port of Oakland logistics and maritime industrial area",
+      geographyType: "port, logistics, maritime, and goods-movement cluster",
+      aliases: ["Oakland Seaport", "Oakland port logistics"],
+      evidenceStrength: "STRONG",
+      sourceIds: ["port-oakland-maritime", "oakland-downtown-specific-plan"],
+      summary:
+        "External evidence supports Port of Oakland logistics and goods movement as a distinct East Bay commercial structure.",
+      canonicalComparison: {
+        state: "MISSING",
+        rationale:
+          "Rofo has Jack London Square waterfront commercial evidence, but that is not the same as a port/logistics industrial geography.",
+        canonicalEvidence: ["Jack London Square CME and comparisons."],
+      },
+      candidateImplementationGaps: [
+        { type: "commercial_geography", label: "Research whether a Port of Oakland or West Oakland logistics district belongs in East Bay.", priority: "high" },
+        { type: "representative_buildings", label: "Identify source-supported logistics/industrial representative properties before promotion.", priority: "medium" },
+      ],
+      unresolvedQuestions: ["Separate public-facing tenant/logistics claims from district-scale commercial geography evidence."],
+    },
+    {
+      id: "east-bay-industrial-alameda",
+      ecosystemId: "industrial_flex",
+      ecosystemLabel: "Industrial / Warehouse / Flex",
+      findingType: "commercial_geography",
+      geographyName: "Alameda Point and Alameda business-park geography",
+      geographyType: "adaptive commercial, R&D, maker, waterfront, and business-park candidate",
+      aliases: ["Alameda Point", "Harbor Bay Business Park"],
+      evidenceStrength: "SUPPORTED",
+      sourceIds: ["alameda-economic-development", "east-bay-eda-key-industries"],
+      summary:
+        "External evidence supports Alameda as a candidate East Bay commercial geography with business-park, adaptive commercial, and innovation-related activity.",
+      canonicalComparison: {
+        state: "MISSING",
+        rationale:
+          "Rofo has comparison-page traces for Alameda, but East Bay operational market knowledge has not promoted Alameda into canonical district evidence.",
+        canonicalEvidence: ["Alameda comparison-page context."],
+      },
+      candidateImplementationGaps: [
+        { type: "evidence_acquisition", label: "Run Alameda commercial geography discovery before any canonical promotion.", priority: "medium" },
+      ],
+      unresolvedQuestions: ["Confirm whether Alameda Point, Harbor Bay, or another source-supported label is the correct Rofo geography."],
+    },
+    {
+      id: "east-bay-retail-berkeley-corridors",
+      ecosystemId: "retail",
+      ecosystemLabel: "Retail",
+      findingType: "commercial_geography",
+      geographyName: "Berkeley retail districts and corridors",
+      geographyType: "downtown, university-adjacent, destination, and neighborhood retail corridors",
+      aliases: ["Downtown Berkeley", "Telegraph", "Fourth Street", "Solano", "University Avenue"],
+      evidenceStrength: "STRONG",
+      sourceIds: ["berkeley-economic-development", "downtown-berkeley-association"],
+      summary:
+        "External evidence supports Berkeley retail as broader than Downtown Berkeley alone, including multiple destination and neighborhood commercial corridors.",
+      canonicalComparison: {
+        state: "PARTIAL",
+        rationale:
+          "Rofo covers Downtown Berkeley and West Berkeley, but East Bay retail representative-building and district coverage remains thin.",
+        canonicalEvidence: ["Downtown Berkeley CME.", "West Berkeley CME.", "Publisher ecosystem readiness reports East Bay retail as thin."],
+      },
+      candidateImplementationGaps: [
+        { type: "retail_ecosystem", label: "Research whether Telegraph, Fourth Street, or Solano should become retail-specific canonical geography.", priority: "medium" },
+      ],
+      unresolvedQuestions: ["Avoid creating retail geography until user-demand and source-supported commercial fit are clear."],
+    },
+    {
+      id: "east-bay-retail-emeryville",
+      ecosystemId: "retail",
+      ecosystemLabel: "Retail",
+      findingType: "commercial_geography",
+      geographyName: "Emeryville regional and mixed-use retail",
+      geographyType: "regional retail and mixed-use commercial node",
+      aliases: ["Bay Street Emeryville", "Emeryville retail core"],
+      evidenceStrength: "SUPPORTED",
+      sourceIds: ["bay-street-emeryville", "emeryville-economic-development"],
+      summary:
+        "External evidence supports Emeryville retail as a meaningful mixed-use and regional retail node inside the East Bay market.",
+      canonicalComparison: {
+        state: "PARTIAL",
+        rationale:
+          "Rofo recognizes Emeryville Commercial Core with secondary retail context, but retail-specific Building Profiles and recommendation QA are not mature.",
+        canonicalEvidence: ["Emeryville Commercial Core CME.", "East Bay retail ecosystem readiness is thin."],
+      },
+      candidateImplementationGaps: [
+        { type: "representative_buildings", label: "Add retail representative-building intelligence only if later recommendation scope needs it.", priority: "medium" },
+      ],
+      unresolvedQuestions: ["Determine whether Emeryville retail should remain secondary to the office/R&D commercial core."],
+    },
+    {
+      id: "east-bay-retail-downtown-oakland",
+      ecosystemId: "retail",
+      ecosystemLabel: "Retail",
+      findingType: "commercial_geography",
+      geographyName: "Downtown Oakland retail and entertainment corridors",
+      geographyType: "urban retail, food, entertainment, and service-commercial core",
+      aliases: ["Old Oakland", "Uptown Oakland", "Jack London retail edge"],
+      evidenceStrength: "STRONG",
+      sourceIds: ["oakland-downtown-specific-plan", "cbre-east-bay"],
+      summary:
+        "External evidence supports Downtown Oakland as a material retail/service-commercial and entertainment environment, not only an office market.",
+      canonicalComparison: {
+        state: "MISSING",
+        rationale:
+          "Rofo has Jack London Square and Oakland comparison context, but not a distinct Downtown Oakland retail/commercial evidence layer.",
+        canonicalEvidence: ["Jack London Square CME and public district context."],
+      },
+      candidateImplementationGaps: [
+        { type: "commercial_geography", label: "Review Downtown Oakland retail/service-commercial geography after office boundary research.", priority: "medium" },
+      ],
+      unresolvedQuestions: ["Separate retail/service geography from office geography without duplicating Downtown Oakland scope."],
+    },
+    {
+      id: "east-bay-life-science-emeryville",
+      ecosystemId: "life_science",
+      ecosystemLabel: "Life Science / R&D",
+      findingType: "ecosystem_cluster",
+      geographyName: "Emeryville",
+      geographyType: "life-science, R&D support, and innovation commercial cluster",
+      aliases: ["Emeryville Commercial Core", "Emeryville R&D cluster"],
+      evidenceStrength: "STRONG",
+      sourceIds: ["emeryville-economic-development", "east-bay-eda-key-industries", "cbre-east-bay"],
+      summary:
+        "External evidence supports Emeryville as more than incidental life-science adjacency; it is a material East Bay R&D/life-science-support node.",
+      canonicalComparison: {
+        state: "PARTIAL",
+        rationale:
+          "Rofo recognizes Emeryville life-science adjacency as secondary context, but the ecosystem role may be understated relative to external market evidence.",
+        canonicalEvidence: ["Emeryville Commercial Core Knowledge Graph metadata.", "Emeryville CME."],
+      },
+      candidateImplementationGaps: [
+        { type: "ecosystem_classification", label: "Review Emeryville life-science/R&D ecosystem role without changing recommendations automatically.", priority: "high" },
+      ],
+      unresolvedQuestions: ["Determine if life science should become primary, secondary, or a specialized sub-district signal."],
+    },
+    {
+      id: "east-bay-life-science-berkeley",
+      ecosystemId: "life_science",
+      ecosystemLabel: "Life Science / R&D",
+      findingType: "ecosystem_cluster",
+      geographyName: "Berkeley and West Berkeley",
+      geographyType: "university-adjacent research, maker, R&D, and life-science support geography",
+      aliases: ["West Berkeley", "UC Berkeley innovation adjacency"],
+      evidenceStrength: "SUPPORTED",
+      sourceIds: ["berkeley-economic-development", "east-bay-eda-key-industries", "cbre-east-bay"],
+      summary:
+        "External evidence supports Berkeley and West Berkeley as an R&D/life-science-support environment tied to university, maker, and industrial/flex contexts.",
+      canonicalComparison: {
+        state: "PARTIAL",
+        rationale:
+          "Rofo covers West Berkeley and Downtown Berkeley, but life-science/R&D is currently secondary and lacks ecosystem-specific representative-building depth.",
+        canonicalEvidence: ["West Berkeley CME.", "Downtown Berkeley CME.", "Life Science ecosystem readiness remains partial."],
+      },
+      candidateImplementationGaps: [
+        { type: "ecosystem_depth", label: "Review whether Berkeley needs life-science/R&D representative-building foundation work.", priority: "medium" },
+      ],
+      unresolvedQuestions: ["Separate true lab/R&D space evidence from general innovation or university adjacency."],
+    },
+    {
+      id: "east-bay-life-science-alameda",
+      ecosystemId: "life_science",
+      ecosystemLabel: "Life Science / R&D",
+      findingType: "ecosystem_cluster",
+      geographyName: "Alameda",
+      geographyType: "life-science and advanced-industries candidate geography",
+      aliases: ["Alameda Point", "Harbor Bay"],
+      evidenceStrength: "SUPPORTED",
+      sourceIds: ["alameda-economic-development", "east-bay-eda-key-industries"],
+      summary:
+        "External evidence suggests Alameda may have material life-science or advanced-industries relevance requiring stronger source validation before canonical promotion.",
+      canonicalComparison: {
+        state: "MISSING",
+        rationale:
+          "Rofo does not currently promote Alameda as an East Bay life-science/R&D geography in the canonical market workspace.",
+        canonicalEvidence: ["Alameda appears only in comparison-page context."],
+      },
+      candidateImplementationGaps: [
+        { type: "evidence_acquisition", label: "Research Alameda life-science/R&D geography before any taxonomy or district change.", priority: "high" },
+      ],
+      unresolvedQuestions: ["Confirm building/property evidence and district labels without relying on tenant anecdotes alone."],
+    },
+    {
+      id: "east-bay-life-science-warm-springs",
+      ecosystemId: "life_science",
+      ecosystemLabel: "Life Science / R&D",
+      findingType: "ecosystem_cluster",
+      geographyName: "Warm Springs / Fremont innovation corridor",
+      geographyType: "advanced manufacturing, R&D, and innovation district",
+      aliases: ["Warm Springs Innovation District", "South Fremont"],
+      evidenceStrength: "STRONG",
+      sourceIds: ["fremont-warm-springs", "east-bay-eda-key-industries", "cbre-east-bay"],
+      summary:
+        "External evidence supports Warm Springs/South Fremont as an advanced manufacturing and R&D-oriented node, with life-science adjacency requiring careful classification.",
+      canonicalComparison: {
+        state: "PARTIAL",
+        rationale:
+          "Rofo covers Warm Springs as industrial/flex and R&D-compatible, but life-science classification remains secondary and not recommendation-tested.",
+        canonicalEvidence: ["Warm Springs Innovation District CME.", "Warm Springs industrial/flex Building Profiles."],
+      },
+      candidateImplementationGaps: [
+        { type: "taxonomy_classification", label: "Review whether Warm Springs should carry stronger R&D/life-science metadata.", priority: "medium" },
+      ],
+      unresolvedQuestions: ["Keep advanced manufacturing, general R&D, and life science separate unless sources support overlap."],
+    },
+    {
+      id: "east-bay-medical-oakland",
+      ecosystemId: "medical",
+      ecosystemLabel: "Healthcare / Medical",
+      findingType: "commercial_geography",
+      geographyName: "Oakland medical campuses",
+      geographyType: "hospital and medical-service cluster candidate",
+      aliases: ["Kaiser Oakland", "UCSF Benioff Oakland", "Pill Hill medical area"],
+      evidenceStrength: "STRONG",
+      sourceIds: ["kaiser-oakland", "ucsf-benioff-oakland", "oakland-downtown-specific-plan"],
+      summary:
+        "External evidence supports Oakland medical campuses as meaningful East Bay healthcare geography that may influence medical-office and service requirements.",
+      canonicalComparison: {
+        state: "MISSING",
+        rationale:
+          "East Bay Publisher/EOS currently reports medical ecosystem coverage as missing; no canonical medical district or representative-building foundation exists.",
+        canonicalEvidence: ["East Bay medical ecosystem readiness is missing."],
+      },
+      candidateImplementationGaps: [
+        { type: "commercial_geography", label: "Research Oakland medical-office geography and hospital-adjacent commercial relevance.", priority: "medium" },
+        { type: "recommendation_implications", label: "Scope medical recommendation QA only after geography and representative buildings are validated.", priority: "medium" },
+      ],
+      unresolvedQuestions: ["Determine whether campus nodes produce occupier-facing commercial-office decisions or mainly institutional healthcare context."],
+    },
+    {
+      id: "east-bay-medical-walnut-creek",
+      ecosystemId: "medical",
+      ecosystemLabel: "Healthcare / Medical",
+      findingType: "commercial_geography",
+      geographyName: "Walnut Creek / Contra Costa medical-office node",
+      geographyType: "suburban medical-office and hospital-adjacent market candidate",
+      aliases: ["John Muir Walnut Creek", "Walnut Creek medical office"],
+      evidenceStrength: "SUPPORTED",
+      sourceIds: ["john-muir-walnut-creek", "cbre-east-bay"],
+      summary:
+        "External evidence supports Walnut Creek as a material East Bay medical/professional node, but it sits outside the current Rofo East Bay operating-market definition.",
+      canonicalComparison: {
+        state: "RESEARCH_MORE",
+        rationale:
+          "The commercial reality may be material, but Rofo must first decide whether Contra Costa should be inside East Bay, a separate market, or a comparison market.",
+        canonicalEvidence: ["Current Rofo East Bay operational districts are Alameda County-focused."],
+      },
+      candidateImplementationGaps: [
+        { type: "market_boundary_review", label: "Review Contra Costa / Walnut Creek market identity before canonical work.", priority: "medium" },
+      ],
+      unresolvedQuestions: ["Do not promote Walnut Creek into East Bay without explicit market-boundary approval."],
+    },
+    {
+      id: "east-bay-market-boundary",
+      ecosystemId: "special_purpose",
+      ecosystemLabel: "Locally Important Commercial Specializations",
+      findingType: "market_structure",
+      geographyName: "Broader East Bay market identity",
+      geographyType: "market boundary and specialization review",
+      aliases: ["Alameda County East Bay", "Contra Costa East Bay", "I-880 corridor", "East Bay innovation economy"],
+      evidenceStrength: "SUPPORTED",
+      sourceIds: ["east-bay-eda-key-industries", "cbre-east-bay"],
+      summary:
+        "External market evidence uses East Bay more broadly than Rofo's current Alameda County-heavy operational market. That creates future boundary questions before some discoveries can be promoted.",
+      canonicalComparison: {
+        state: "RESEARCH_MORE",
+        rationale:
+          "Rofo's current East Bay workspace is independently measured and useful, but external research shows broader East Bay structures that may need a separate boundary decision.",
+        canonicalEvidence: ["Current East Bay canonical district ownership.", "San Francisco Publisher compatibility infrastructure."],
+      },
+      candidateImplementationGaps: [
+        { type: "market_foundation", label: "Document East Bay boundary policy before Contra Costa or broader regional promotion.", priority: "medium" },
+      ],
+      unresolvedQuestions: ["Clarify whether Contra Costa, Tri-Valley, and Alameda County submarkets should be one workspace or multiple operating markets."],
+    },
+  ],
+  gapAnalysis: {
+    schemaVersion: "commercial-market-discovery-gap-analysis-v1",
+    counts: {
+      totalFindings: 16,
+      covered: 3,
+      partial: 6,
+      missing: 5,
+      conflict: 0,
+      researchMore: 2,
+    },
+    byEcosystem: [
+      {
+        ecosystemId: "office",
+        supportedFindings: 3,
+        materialGaps: ["Downtown Oakland office geography is only partially modeled."],
+      },
+      {
+        ecosystemId: "industrial_flex",
+        supportedFindings: 3,
+        materialGaps: ["Port of Oakland logistics and Alameda business-park/R&D geography are not yet canonical."],
+      },
+      {
+        ecosystemId: "retail",
+        supportedFindings: 3,
+        materialGaps: ["Retail exists beyond current representative-building depth, especially Berkeley corridors, Emeryville retail, and Downtown Oakland."],
+      },
+      {
+        ecosystemId: "life_science",
+        supportedFindings: 4,
+        materialGaps: ["Emeryville, Berkeley, Alameda, and Warm Springs need ecosystem-role review before canonical promotion."],
+      },
+      {
+        ecosystemId: "medical",
+        supportedFindings: 2,
+        materialGaps: ["Oakland medical campuses are missing; Walnut Creek requires market-boundary review."],
+      },
+      {
+        ecosystemId: "special_purpose",
+        supportedFindings: 1,
+        materialGaps: ["East Bay market-boundary policy needs clarification before broader regional discoveries are promoted."],
+      },
+    ],
+    prioritizedCandidateGaps: [
+      {
+        id: "discovery-gap:east-bay:downtown-oakland-office",
+        label: "Downtown Oakland office and mixed-use commercial geography",
+        comparisonState: "PARTIAL",
+        implementationType: "commercial_geography",
+        priority: "high",
+        reason: "Strong external evidence and partial Rofo representation.",
+      },
+      {
+        id: "discovery-gap:east-bay:emeryville-life-science-role",
+        label: "Emeryville life-science/R&D ecosystem role review",
+        comparisonState: "PARTIAL",
+        implementationType: "ecosystem_classification",
+        priority: "high",
+        reason: "External evidence suggests current secondary life-science treatment may understate market reality.",
+      },
+      {
+        id: "discovery-gap:east-bay:alameda-life-science",
+        label: "Alameda life-science/R&D and advanced-industries discovery",
+        comparisonState: "MISSING",
+        implementationType: "evidence_acquisition",
+        priority: "high",
+        reason: "Supported external evidence but no canonical East Bay district promotion.",
+      },
+      {
+        id: "discovery-gap:east-bay:port-oakland-logistics",
+        label: "Port of Oakland logistics and maritime industrial geography",
+        comparisonState: "MISSING",
+        implementationType: "commercial_geography",
+        priority: "high",
+        reason: "Strong official source support and absent canonical logistics geography.",
+      },
+      {
+        id: "discovery-gap:east-bay:oakland-medical",
+        label: "Oakland medical-campus and medical-office geography",
+        comparisonState: "MISSING",
+        implementationType: "commercial_geography",
+        priority: "medium",
+        reason: "Medical ecosystem is missing in current East Bay readiness.",
+      },
+      {
+        id: "discovery-gap:east-bay:retail-depth",
+        label: "East Bay retail representative-building and corridor depth",
+        comparisonState: "PARTIAL",
+        implementationType: "retail_ecosystem",
+        priority: "medium",
+        reason: "External retail patterns exceed current Rofo retail depth.",
+      },
+    ],
+  },
+  futureOperatingPattern: {
+    newMarket:
+      "Market Discovery -> Market Foundation -> Canonical Geography -> Commercial Market Evidence -> Representative Buildings / Building Profiles -> Ecosystem Depth -> Comparison Graph -> Recommendation QA -> Publisher maturity.",
+    establishedMarket:
+      "Discovery Audit -> Discovery vs Canonical Gap Analysis -> targeted EOS missions -> refreshed canonical knowledge -> future discovery refresh.",
+    searchIntelligenceRelationship:
+      "Search Intelligence can identify demand signals; Market Discovery researches the external commercial reality behind those signals before canonical implementation.",
+  },
+  nonPromotionNotice:
+    "These findings do not create public URLs, modify recommendations, alter Publisher scoring, or promote canonical geography. They identify research-supported candidate gaps for later approved implementation.",
+};

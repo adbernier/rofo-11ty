@@ -12,6 +12,8 @@ Mission Control displays Commercial Market Evidence as a platform service. It co
 
 EOS v3 Commercial Knowledge Intelligence is documented in `docs/product/eos-v3-commercial-knowledge-intelligence.md`. It adds an advisory layer that compares editor-controlled strategic markets with manual/importable Google Search Console opportunity signals, Commercial Knowledge System coverage, and Publisher readiness. It is additive and does not replace the existing strategic roadmap, Publisher scoring, or recommendation models.
 
+Commercial Market Discovery is documented in `docs/commercial-market-discovery.md`. It adds an external-research layer that records source-supported market realities, compares them with canonical Rofo knowledge, and surfaces compact gap counts in Market Projection without promoting findings, changing recommendations, or changing Publisher scoring.
+
 EOS discovers Commercial Market Evidence expansion opportunities by comparing Knowledge Graph district nodes with existing Market Evidence collections. Presence-based collection measurement remains intentionally simple, but the operator-facing Mission can also include selected Building Profile work when it belongs to the same district evidence workflow.
 
 EOS follows Rofo's one-commercial-geography principle: every canonical Knowledge Graph district is eligible for recommendations, Publisher coverage, Commercial Market Evidence planning, and Mission Control market-completion tracking. EOS may prioritize districts differently by maturity and evidence, but it should not maintain a separate district class that removes canonical districts from platform coverage.
@@ -125,7 +127,7 @@ Execution Packets
 Work Items
 ```
 
-Markets are the primary planning object because Rofo is built market by market. Programs sit inside each market and represent durable product systems: Publisher, Commercial Market Evidence, Building Profiles, Photography, Recommendation QA, and Knowledge Graph. Campaigns are the market-completion progress objects inside each Program. Initiatives represent meaningful milestones inside a Campaign. Missions remain the executable unit and continue to generate the same execution packets. Work items remain hidden evidence used to explain why missions exist.
+Markets are the primary planning object because Rofo is built market by market. Programs sit inside each market and represent durable product systems: Publisher, Commercial Market Evidence, Building Profiles, Photography, Recommendation QA, Knowledge Graph, and Commercial Market Discovery. Campaigns are the market-completion progress objects inside each Program. Initiatives represent meaningful milestones inside a Campaign. Missions remain the executable unit and continue to generate the same execution packets. Work items remain hidden evidence used to explain why missions exist.
 
 This projection is additive. It does not change Publisher scoring, mission generation, execution behavior, SER v1, Field Mode, Compass, recommendations, or the current Mission Control UI. It is the future data model for Mission Control v2.
 
@@ -138,7 +140,7 @@ Mission Control consumes `marketProjection` as its primary workspace. The home e
 - overall status and health
 - Knowledge Readiness and Experience Readiness
 - the single highest-priority projected Mission for that market
-- active Program progress for Publisher, Commercial Market Evidence, Building Profiles, Photography, Recommendation QA, and Knowledge Graph
+- active Program progress for Publisher, Commercial Market Evidence, Building Profiles, Photography, Recommendation QA, Knowledge Graph, and Commercial Market Discovery
 
 Selecting a Mission still opens the existing Execution Packet. Selecting a market opens a market workspace detail with Program and Initiative context before raw opportunity inventory. Publisher remains the analysis engine, EOS remains the planning engine, and Mission Control remains the operating workspace that consumes generated EOS data.
 
