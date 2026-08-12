@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-12T08:13:30-07:00",
-  "sourceCommit": "8a71443ed0ad0b3bfa883175c87719a2ae1e73ba",
+  "generatedAt": "2026-08-12T08:30:27-07:00",
+  "sourceCommit": "e1d6a3c8582b61397d5a17465c28d289e1d3242c",
   "geography": {
     "schemaVersion": "commercial-geography-summary-v1",
     "hierarchy": [
@@ -2235,7 +2235,7 @@
       "Low": 2
     },
     "deferredCandidates": 69,
-    "latestValidation": "2026-08-12T08:13:30-07:00",
+    "latestValidation": "2026-08-12T08:30:27-07:00",
     "errors": [],
     "warnings": [],
     "source": {
@@ -2245,7 +2245,7 @@
     "scoringImpact": "None. Reporting only; Publisher scoring and readiness calculations are unchanged."
   },
   "analysis": {
-    "generatedAt": "2026-08-12T08:13:30-07:00",
+    "generatedAt": "2026-08-12T08:30:27-07:00",
     "rulesVersion": "publisher-rules-v1",
     "overview": {
       "compassReadyCount": 5,
@@ -2293,10 +2293,10 @@
             "label": "Editorial Coverage",
             "score": 91,
             "status": "",
-            "explanation": "25 of 25 districts have substantive descriptions; 157 representative buildings and 86 Building Briefs are available.",
+            "explanation": "25 of 25 districts have substantive descriptions; 158 representative buildings and 86 Building Briefs are available.",
             "completed": {
               "districtsWithDescriptions": 25,
-              "representativeBuildings": 157,
+              "representativeBuildings": 158,
               "buildingBriefs": 86
             },
             "targets": {
@@ -2316,11 +2316,11 @@
             "completed": {
               "cityPage": 1,
               "districtPages": 25,
-              "internalLinks": 268
+              "internalLinks": 269
             },
             "targets": {
               "districtPages": 25,
-              "internalLinks": 268
+              "internalLinks": 269
             },
             "blockers": [],
             "topOpportunity": "Maintain public route integrity."
@@ -2333,7 +2333,7 @@
         "score": 96,
         "cityPath": "/commercial-real-estate/CA/san-francisco/",
         "districtCount": 25,
-        "representativeBuildingCount": 157,
+        "representativeBuildingCount": 158,
         "buildingBriefCount": 86,
         "geographicReadiness": {
           "state": "developed",
@@ -2357,7 +2357,7 @@
           "label": "Partial",
           "rationale": [
             "Office, Industrial & Flex, Retail coverage is strong or developed.",
-            "Medical is Thin; Life Science is Partial."
+            "Medical is Partial; Life Science is Partial."
           ],
           "passed": false,
           "relevantEcosystems": [
@@ -2369,9 +2369,7 @@
             "hospitality",
             "special_purpose"
           ],
-          "blockingEcosystems": [
-            "medical"
-          ],
+          "blockingEcosystems": [],
           "evaluations": [
             {
               "ecosystemId": "office",
@@ -2690,7 +2688,7 @@
                   "ecommerce_fulfillment_business",
                   "hvac_company",
                   "plumbing_company",
-                  "logistics_provider",
+                  "wholesaler",
                   "landscaper",
                   "wellness_practice",
                   "professional_office"
@@ -2951,12 +2949,12 @@
               "label": "Medical",
               "relevance": "important",
               "relevanceLabel": "Important",
-              "readinessState": "thin",
-              "readinessLabel": "Thin",
+              "readinessState": "partial",
+              "readinessLabel": "Partial",
               "layers": {
                 "districts": "strong",
                 "recommendations": "strong",
-                "representativeBuildings": "missing",
+                "representativeBuildings": "partial",
                 "buildingBriefs": "missing",
                 "subtypes": "developed",
                 "archetypes": "strong",
@@ -2967,26 +2965,28 @@
                 "districts": 1,
                 "secondaryDistricts": 1,
                 "recommendations": 1,
-                "representativeBuildings": 0,
+                "representativeBuildings": 1,
                 "buildingBriefs": 0,
                 "subtypes": 4,
                 "archetypes": 4,
                 "activities": 3,
                 "reviewRequiredDistricts": 0,
-                "representativeRoles": 0,
-                "operationalCategories": 0,
-                "operationalCharacteristics": 0,
+                "representativeRoles": 1,
+                "operationalCategories": 6,
+                "operationalCharacteristics": 7,
                 "reviewRequiredRepresentativeBuildings": 0
               },
               "gaps": [
-                "Representative Building coverage is missing for this ecosystem."
+                "Building Brief coverage is missing for this ecosystem.",
+                "Representative Building operational coverage is thin."
               ],
               "blocking": false,
               "blockingCodes": [],
               "strategicPriority": 3,
               "evidence": [
                 "1 primary districts and 1 secondary districts.",
-                "0 Representative Buildings and 0 Building Briefs."
+                "1 Representative Buildings and 0 Building Briefs.",
+                "1 representative roles and 6 operational categories are covered."
               ],
               "targetSubtypes": [
                 "medical_office",
@@ -3009,34 +3009,67 @@
               ],
               "representativeBuildingIntelligence": {
                 "ecosystemId": "medical",
-                "state": "missing",
-                "stateLabel": "Missing",
-                "buildingCount": 0,
-                "explicitCount": 0,
+                "state": "thin",
+                "stateLabel": "Thin",
+                "buildingCount": 1,
+                "explicitCount": 1,
                 "inheritedOnlyCount": 0,
                 "reviewRequiredCount": 0,
-                "rolesCovered": [],
-                "subtypesCovered": [],
-                "activityCoverage": [],
-                "archetypeCoverage": [],
-                "operationalCharacteristicsCovered": [],
-                "operationalCategoriesCovered": [],
+                "rolesCovered": [
+                  "medical_office_environment"
+                ],
+                "subtypesCovered": [
+                  "medical_office",
+                  "outpatient_clinic",
+                  "wellness",
+                  "hospital_adjacent"
+                ],
+                "activityCoverage": [
+                  "healthcare_delivery",
+                  "administrative_operations",
+                  "walk_in_service"
+                ],
+                "archetypeCoverage": [
+                  "medical_practice",
+                  "wellness_practice",
+                  "outpatient_clinic",
+                  "physical_therapy_practice",
+                  "dental_practice"
+                ],
+                "operationalCharacteristicsCovered": [
+                  "customer_parking",
+                  "private_office_layout",
+                  "professional_image",
+                  "hospital_adjacent",
+                  "medical_use_compatible",
+                  "transit_access",
+                  "plumbing_intensive"
+                ],
+                "operationalCategoriesCovered": [
+                  "parking_vehicles",
+                  "configuration",
+                  "market_presence",
+                  "outdoor_special_use",
+                  "location_workforce",
+                  "infrastructure"
+                ],
                 "missingRoles": [
-                  "medical_office_environment",
                   "hospital_adjacent_medical_environment",
                   "outpatient_clinic_environment"
                 ],
                 "missingOperationalCategories": [
-                  "access_loading",
-                  "parking_vehicles",
-                  "configuration",
-                  "infrastructure",
-                  "market_presence",
-                  "location_workforce"
+                  "access_loading"
                 ],
-                "highestPriorityMissingRole": "medical_office_environment",
+                "highestPriorityMissingRole": "hospital_adjacent_medical_environment",
                 "highestPriorityMissingOperationalCategory": "access_loading",
-                "exampleBuildings": []
+                "exampleBuildings": [
+                  {
+                    "name": "1 Kaiser Plz",
+                    "path": "/commercial-real-estate/building/CA/oakland/1-kaiser-plz/",
+                    "role": "medical_office_environment",
+                    "confidence": "editorially_supported"
+                  }
+                ]
               },
               "completionCriteria": [
                 "Validated district ecosystem classification",
@@ -3403,21 +3436,22 @@
           ],
           "gaps": [
             {
-              "id": "ecosystem:medical:ecosystem_thin",
-              "code": "ecosystem_thin",
-              "label": "Ecosystem Thin",
+              "id": "ecosystem:medical:ecosystem_building_brief_gap",
+              "code": "ecosystem_building_brief_gap",
+              "label": "Ecosystem Building Brief Gap",
               "severity": "medium",
-              "layer": "representativeBuildings",
+              "layer": "buildingBriefs",
               "ecosystemId": "medical",
               "ecosystemLabel": "Medical",
               "relevance": "important",
-              "readinessState": "thin",
-              "rationale": "Relevant ecosystem has district coverage but lacks enough representative-building or layer depth.",
+              "readinessState": "partial",
+              "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
               "evidence": [
                 "1 primary districts and 1 secondary districts.",
-                "0 Representative Buildings and 0 Building Briefs."
+                "1 Representative Buildings and 0 Building Briefs.",
+                "1 representative roles and 6 operational categories are covered."
               ],
-              "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
+              "recommendedSprintFamily": "Ecosystem Building Brief Migration",
               "completionCriteria": [
                 "Validated district ecosystem classification",
                 "Representative Building coverage across the most important subtypes",
@@ -3428,19 +3462,20 @@
               "blocksEcosystemReadiness": false
             },
             {
-              "id": "ecosystem:medical:ecosystem_representative_building_gap",
-              "code": "ecosystem_representative_building_gap",
-              "label": "Ecosystem Representative Building Gap",
+              "id": "ecosystem:medical:representative_building_intelligence_missing",
+              "code": "representative_building_intelligence_missing",
+              "label": "Representative Building Intelligence Missing",
               "severity": "medium",
-              "layer": "representativeBuildings",
+              "layer": "representativeBuildingIntelligence",
               "ecosystemId": "medical",
               "ecosystemLabel": "Medical",
               "relevance": "important",
-              "readinessState": "thin",
-              "rationale": "District foundation exists, but Representative Buildings are missing.",
+              "readinessState": "partial",
+              "rationale": "Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
               "evidence": [
                 "1 primary districts and 1 secondary districts.",
-                "0 Representative Buildings and 0 Building Briefs."
+                "1 Representative Buildings and 0 Building Briefs.",
+                "1 representative roles and 6 operational categories are covered."
               ],
               "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
               "completionCriteria": [
@@ -3461,11 +3496,38 @@
               "ecosystemId": "medical",
               "ecosystemLabel": "Medical",
               "relevance": "important",
-              "readinessState": "thin",
+              "readinessState": "partial",
               "rationale": "Representative role coverage is too narrow for this ecosystem.",
               "evidence": [
                 "1 primary districts and 1 secondary districts.",
-                "0 Representative Buildings and 0 Building Briefs."
+                "1 Representative Buildings and 0 Building Briefs.",
+                "1 representative roles and 6 operational categories are covered."
+              ],
+              "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
+              "completionCriteria": [
+                "Validated district ecosystem classification",
+                "Representative Building coverage across the most important subtypes",
+                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
+                "Building Brief migration only after canonical records and district association exist",
+                "Publisher ecosystem QA passes without hard errors"
+              ],
+              "blocksEcosystemReadiness": false
+            },
+            {
+              "id": "ecosystem:medical:operational_category_gap",
+              "code": "operational_category_gap",
+              "label": "Operational Category Gap",
+              "severity": "low",
+              "layer": "representativeBuildingIntelligence",
+              "ecosystemId": "medical",
+              "ecosystemLabel": "Medical",
+              "relevance": "important",
+              "readinessState": "partial",
+              "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
+              "evidence": [
+                "1 primary districts and 1 secondary districts.",
+                "1 Representative Buildings and 0 Building Briefs.",
+                "1 representative roles and 6 operational categories are covered."
               ],
               "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
               "completionCriteria": [
@@ -3707,7 +3769,7 @@
             "state": "balanced",
             "label": "Balanced",
             "dominantEcosystem": "industrial_flex",
-            "representativeBuildingShare": 0.5,
+            "representativeBuildingShare": 0.49,
             "buildingBriefShare": 0.5,
             "warnings": []
           }
@@ -3716,7 +3778,7 @@
           "state": "balanced",
           "label": "Balanced",
           "dominantEcosystem": "industrial_flex",
-          "representativeBuildingShare": 0.5,
+          "representativeBuildingShare": 0.49,
           "buildingBriefShare": 0.5,
           "warnings": []
         },
@@ -4086,7 +4148,7 @@
                   "ecommerce_fulfillment_business": 24,
                   "hvac_company": 31,
                   "plumbing_company": 30,
-                  "logistics_provider": 1,
+                  "wholesaler": 1,
                   "landscaper": 15,
                   "wellness_practice": 1,
                   "professional_office": 1
@@ -4347,9 +4409,9 @@
               "districtCount": 1,
               "secondaryDistrictCount": 1,
               "recommendationNodeCount": 1,
-              "representativeBuildingCount": 0,
+              "representativeBuildingCount": 1,
               "buildingBriefCount": 0,
-              "status": "Thin",
+              "status": "Partial",
               "districts": [
                 {
                   "slug": "oakland-medical-campuses",
@@ -4380,34 +4442,67 @@
               ],
               "representativeBuildingIntelligence": {
                 "ecosystemId": "medical",
-                "state": "missing",
-                "stateLabel": "Missing",
-                "buildingCount": 0,
-                "explicitCount": 0,
+                "state": "thin",
+                "stateLabel": "Thin",
+                "buildingCount": 1,
+                "explicitCount": 1,
                 "inheritedOnlyCount": 0,
                 "reviewRequiredCount": 0,
-                "rolesCovered": {},
-                "subtypesCovered": {},
-                "activityCoverage": {},
-                "archetypeCoverage": {},
-                "operationalCharacteristicsCovered": {},
-                "operationalCategoriesCovered": {},
+                "rolesCovered": {
+                  "medical_office_environment": 1
+                },
+                "subtypesCovered": {
+                  "medical_office": 1,
+                  "outpatient_clinic": 1,
+                  "wellness": 1,
+                  "hospital_adjacent": 1
+                },
+                "activityCoverage": {
+                  "healthcare_delivery": 1,
+                  "administrative_operations": 1,
+                  "walk_in_service": 1
+                },
+                "archetypeCoverage": {
+                  "medical_practice": 1,
+                  "wellness_practice": 1,
+                  "outpatient_clinic": 1,
+                  "physical_therapy_practice": 1,
+                  "dental_practice": 1
+                },
+                "operationalCharacteristicsCovered": {
+                  "customer_parking": 1,
+                  "private_office_layout": 1,
+                  "professional_image": 1,
+                  "hospital_adjacent": 1,
+                  "medical_use_compatible": 1,
+                  "transit_access": 1,
+                  "plumbing_intensive": 1
+                },
+                "operationalCategoriesCovered": {
+                  "parking_vehicles": 1,
+                  "configuration": 1,
+                  "market_presence": 2,
+                  "outdoor_special_use": 1,
+                  "location_workforce": 1,
+                  "infrastructure": 1
+                },
                 "missingRoles": [
-                  "medical_office_environment",
                   "hospital_adjacent_medical_environment",
                   "outpatient_clinic_environment"
                 ],
                 "missingOperationalCategories": [
-                  "access_loading",
-                  "parking_vehicles",
-                  "configuration",
-                  "infrastructure",
-                  "market_presence",
-                  "location_workforce"
+                  "access_loading"
                 ],
-                "highestPriorityMissingRole": "medical_office_environment",
+                "highestPriorityMissingRole": "hospital_adjacent_medical_environment",
                 "highestPriorityMissingOperationalCategory": "access_loading",
-                "exampleBuildings": []
+                "exampleBuildings": [
+                  {
+                    "name": "1 Kaiser Plz",
+                    "path": "/commercial-real-estate/building/CA/oakland/1-kaiser-plz/",
+                    "role": "medical_office_environment",
+                    "confidence": "editorially_supported"
+                  }
+                ]
               }
             },
             "life_science": {
@@ -4699,13 +4794,6 @@
           "reviewRequiredDistricts": [],
           "underrepresentedEcosystems": [
             {
-              "id": "medical",
-              "label": "Medical",
-              "status": "Thin",
-              "districtCount": 1,
-              "representativeBuildingCount": 0
-            },
-            {
               "id": "hospitality",
               "label": "Hospitality",
               "status": "Missing",
@@ -4723,29 +4811,30 @@
           "summary": {
             "ecosystemCount": 7,
             "developedCount": 4,
-            "partialCount": 0,
-            "thinCount": 1,
+            "partialCount": 1,
+            "thinCount": 0,
             "missingCount": 2,
             "reviewRequiredDistrictCount": 0
           }
         },
         "ecosystemGaps": [
           {
-            "id": "ecosystem:medical:ecosystem_representative_building_gap",
-            "code": "ecosystem_representative_building_gap",
-            "label": "Ecosystem Representative Building Gap",
+            "id": "ecosystem:medical:ecosystem_building_brief_gap",
+            "code": "ecosystem_building_brief_gap",
+            "label": "Ecosystem Building Brief Gap",
             "severity": "medium",
-            "layer": "representativeBuildings",
+            "layer": "buildingBriefs",
             "ecosystemId": "medical",
             "ecosystemLabel": "Medical",
             "relevance": "important",
-            "readinessState": "thin",
-            "rationale": "District foundation exists, but Representative Buildings are missing.",
+            "readinessState": "partial",
+            "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
             "evidence": [
               "1 primary districts and 1 secondary districts.",
-              "0 Representative Buildings and 0 Building Briefs."
+              "1 Representative Buildings and 0 Building Briefs.",
+              "1 representative roles and 6 operational categories are covered."
             ],
-            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
+            "recommendedSprintFamily": "Ecosystem Building Brief Migration",
             "completionCriteria": [
               "Validated district ecosystem classification",
               "Representative Building coverage across the most important subtypes",
@@ -4756,19 +4845,20 @@
             "blocksEcosystemReadiness": false
           },
           {
-            "id": "ecosystem:medical:ecosystem_thin",
-            "code": "ecosystem_thin",
-            "label": "Ecosystem Thin",
+            "id": "ecosystem:medical:representative_building_intelligence_missing",
+            "code": "representative_building_intelligence_missing",
+            "label": "Representative Building Intelligence Missing",
             "severity": "medium",
-            "layer": "representativeBuildings",
+            "layer": "representativeBuildingIntelligence",
             "ecosystemId": "medical",
             "ecosystemLabel": "Medical",
             "relevance": "important",
-            "readinessState": "thin",
-            "rationale": "Relevant ecosystem has district coverage but lacks enough representative-building or layer depth.",
+            "readinessState": "partial",
+            "rationale": "Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
             "evidence": [
               "1 primary districts and 1 secondary districts.",
-              "0 Representative Buildings and 0 Building Briefs."
+              "1 Representative Buildings and 0 Building Briefs.",
+              "1 representative roles and 6 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
             "completionCriteria": [
@@ -4881,6 +4971,32 @@
             "blocksEcosystemReadiness": false
           },
           {
+            "id": "ecosystem:medical:operational_category_gap",
+            "code": "operational_category_gap",
+            "label": "Operational Category Gap",
+            "severity": "low",
+            "layer": "representativeBuildingIntelligence",
+            "ecosystemId": "medical",
+            "ecosystemLabel": "Medical",
+            "relevance": "important",
+            "readinessState": "partial",
+            "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
+            "evidence": [
+              "1 primary districts and 1 secondary districts.",
+              "1 Representative Buildings and 0 Building Briefs.",
+              "1 representative roles and 6 operational categories are covered."
+            ],
+            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
+            "completionCriteria": [
+              "Validated district ecosystem classification",
+              "Representative Building coverage across the most important subtypes",
+              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
+              "Building Brief migration only after canonical records and district association exist",
+              "Publisher ecosystem QA passes without hard errors"
+            ],
+            "blocksEcosystemReadiness": false
+          },
+          {
             "id": "ecosystem:medical:representative_role_thin",
             "code": "representative_role_thin",
             "label": "Representative Role Thin",
@@ -4889,11 +5005,12 @@
             "ecosystemId": "medical",
             "ecosystemLabel": "Medical",
             "relevance": "important",
-            "readinessState": "thin",
+            "readinessState": "partial",
             "rationale": "Representative role coverage is too narrow for this ecosystem.",
             "evidence": [
               "1 primary districts and 1 secondary districts.",
-              "0 Representative Buildings and 0 Building Briefs."
+              "1 Representative Buildings and 0 Building Briefs.",
+              "1 representative roles and 6 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
             "completionCriteria": [
@@ -5031,9 +5148,7 @@
             "blocksEcosystemReadiness": false
           }
         ],
-        "blockingEcosystems": [
-          "medical"
-        ],
+        "blockingEcosystems": [],
         "readinessGates": {
           "geographic": {
             "passed": true,
@@ -5044,18 +5159,16 @@
             "passed": false,
             "state": "partial",
             "label": "Partial",
-            "blockingEcosystems": [
-              "medical"
-            ]
+            "blockingEcosystems": []
           }
         },
         "recommendedEcosystemSprint": {
-          "title": "San Francisco Medical Ecosystem Representative Building Foundation",
+          "title": "San Francisco Medical Ecosystem Building Brief Migration",
           "ecosystemId": "medical",
           "ecosystemLabel": "Medical",
-          "sprintFamily": "Ecosystem Representative Building Foundation",
-          "rationale": "District foundation exists, but Representative Buildings are missing.",
-          "gapCode": "ecosystem_representative_building_gap",
+          "sprintFamily": "Ecosystem Building Brief Migration",
+          "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
+          "gapCode": "ecosystem_building_brief_gap",
           "completionCriteria": [
             "Validated district ecosystem classification",
             "Representative Building coverage across the most important subtypes",
@@ -5576,11 +5689,11 @@
           "representativeBuildings": {
             "key": "representativeBuildings",
             "label": "Representative Buildings",
-            "score": 72,
-            "completed": 36,
+            "score": 74,
+            "completed": 37,
             "total": 50,
-            "missing": 14,
-            "explanation": "157 representative building relationships; v1 target is 3 per covered district.",
+            "missing": 13,
+            "explanation": "158 representative building relationships; v1 target is 3 per covered district.",
             "issues": [
               {
                 "id": "san-francisco:representativeBuildings:district missing representative buildings:stanford-research-park",
@@ -5676,36 +5789,17 @@
                 "suggestedNextAction": "Curate representative buildings that explain this district.",
                 "automationCandidate": true,
                 "readinessState": ""
-              },
-              {
-                "id": "san-francisco:representativeBuildings:district missing representative buildings:oakland-medical-campuses",
-                "code": "district-no-reps",
-                "metroId": "san-francisco",
-                "metroName": "San Francisco",
-                "category": "representativeBuildings",
-                "categoryLabel": "Representative Buildings",
-                "taskType": "district missing representative buildings",
-                "itemName": "Oakland Medical Campuses",
-                "severity": "medium",
-                "priority": 40,
-                "reason": "District has no representative building examples.",
-                "sourceId": "oakland-medical-campuses",
-                "publicUrl": "/commercial-real-estate/CA/oakland/oakland-medical-campuses/",
-                "adminUrl": "",
-                "suggestedNextAction": "Curate representative buildings that explain this district.",
-                "automationCandidate": true,
-                "readinessState": ""
               }
             ]
           },
           "buildingBriefs": {
             "key": "buildingBriefs",
             "label": "Building Briefs",
-            "score": 55,
+            "score": 54,
             "completed": 86,
-            "total": 157,
-            "missing": 71,
-            "explanation": "86 of 157 representative building records use the canonical Building Brief journey.",
+            "total": 158,
+            "missing": 72,
+            "explanation": "86 of 158 representative building records use the canonical Building Brief journey.",
             "issues": [
               {
                 "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st",
@@ -5740,6 +5834,25 @@
                 "reason": "Representative building has not migrated to the canonical Building Brief journey.",
                 "sourceId": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
                 "publicUrl": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
+                "adminUrl": "",
+                "suggestedNextAction": "Author a Building Brief for this representative building.",
+                "automationCandidate": true,
+                "readinessState": "representative-foundation"
+              },
+              {
+                "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-oakland-1-kaiser-plz",
+                "code": "missing-brief",
+                "metroId": "san-francisco",
+                "metroName": "San Francisco",
+                "category": "buildingBriefs",
+                "categoryLabel": "Building Briefs",
+                "taskType": "representative building missing Building Brief",
+                "itemName": "1 Kaiser Plz",
+                "severity": "medium",
+                "priority": 40,
+                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+                "sourceId": "/commercial-real-estate/building/CA/oakland/1-kaiser-plz/",
+                "publicUrl": "/commercial-real-estate/building/CA/oakland/1-kaiser-plz/",
                 "adminUrl": "",
                 "suggestedNextAction": "Author a Building Brief for this representative building.",
                 "automationCandidate": true,
@@ -7160,8 +7273,8 @@
             "key": "internalLinking",
             "label": "Internal Linking",
             "score": 100,
-            "completed": 268,
-            "total": 268,
+            "completed": 269,
+            "total": 269,
             "missing": 0,
             "explanation": "Checks public city, district, building, and comparison references that Publisher can resolve from generated data.",
             "issues": []
@@ -7186,6 +7299,25 @@
             "suggestedNextAction": "Author a Building Brief for this representative building.",
             "automationCandidate": true,
             "readinessState": ""
+          },
+          {
+            "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-oakland-1-kaiser-plz",
+            "code": "missing-brief",
+            "metroId": "san-francisco",
+            "metroName": "San Francisco",
+            "category": "buildingBriefs",
+            "categoryLabel": "Building Briefs",
+            "taskType": "representative building missing Building Brief",
+            "itemName": "1 Kaiser Plz",
+            "severity": "medium",
+            "priority": 40,
+            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+            "sourceId": "/commercial-real-estate/building/CA/oakland/1-kaiser-plz/",
+            "publicUrl": "/commercial-real-estate/building/CA/oakland/1-kaiser-plz/",
+            "adminUrl": "",
+            "suggestedNextAction": "Author a Building Brief for this representative building.",
+            "automationCandidate": true,
+            "readinessState": "representative-foundation"
           },
           {
             "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-1-warriors-way",
@@ -8632,25 +8764,6 @@
             "readinessState": ""
           },
           {
-            "id": "san-francisco:representativeBuildings:district missing representative buildings:oakland-medical-campuses",
-            "code": "district-no-reps",
-            "metroId": "san-francisco",
-            "metroName": "San Francisco",
-            "category": "representativeBuildings",
-            "categoryLabel": "Representative Buildings",
-            "taskType": "district missing representative buildings",
-            "itemName": "Oakland Medical Campuses",
-            "severity": "medium",
-            "priority": 40,
-            "reason": "District has no representative building examples.",
-            "sourceId": "oakland-medical-campuses",
-            "publicUrl": "/commercial-real-estate/CA/oakland/oakland-medical-campuses/",
-            "adminUrl": "",
-            "suggestedNextAction": "Curate representative buildings that explain this district.",
-            "automationCandidate": true,
-            "readinessState": ""
-          },
-          {
             "id": "san-francisco:representativeBuildings:district missing representative buildings:stanford-research-park",
             "code": "district-no-reps",
             "metroId": "san-francisco",
@@ -9239,12 +9352,12 @@
           "editorialCoverage": {
             "key": "editorialCoverage",
             "label": "Editorial Coverage",
-            "score": 92,
+            "score": 93,
             "status": "",
-            "explanation": "9 of 9 districts have substantive descriptions; 50 representative buildings and 48 Building Briefs are available.",
+            "explanation": "9 of 9 districts have substantive descriptions; 51 representative buildings and 48 Building Briefs are available.",
             "completed": {
               "districtsWithDescriptions": 9,
-              "representativeBuildings": 50,
+              "representativeBuildings": 51,
               "buildingBriefs": 48
             },
             "targets": {
@@ -9264,11 +9377,11 @@
             "completed": {
               "cityPage": 1,
               "districtPages": 9,
-              "internalLinks": 95
+              "internalLinks": 96
             },
             "targets": {
               "districtPages": 9,
-              "internalLinks": 95
+              "internalLinks": 96
             },
             "blockers": [
               {
@@ -9309,7 +9422,7 @@
         "score": 74,
         "cityPath": "/commercial-real-estate/CA/oakland/",
         "districtCount": 9,
-        "representativeBuildingCount": 50,
+        "representativeBuildingCount": 51,
         "buildingBriefCount": 48,
         "geographicReadiness": {
           "state": "strong",
@@ -9334,8 +9447,7 @@
           "label": "Partial",
           "rationale": [
             "Industrial & Flex, Retail coverage is strong or developed.",
-            "Office is Partial; Life Science is Partial.",
-            "Representative Building coverage is concentrated in Industrial & Flex."
+            "Office is Partial; Life Science is Partial."
           ],
           "passed": false,
           "relevantEcosystems": [
@@ -9655,7 +9767,7 @@
                   "ecommerce_fulfillment_business",
                   "hvac_company",
                   "plumbing_company",
-                  "logistics_provider"
+                  "wholesaler"
                 ],
                 "operationalCharacteristicsCovered": [
                   "grade_level_loading",
@@ -9883,7 +9995,7 @@
               "layers": {
                 "districts": "strong",
                 "recommendations": "strong",
-                "representativeBuildings": "missing",
+                "representativeBuildings": "strong",
                 "buildingBriefs": "missing",
                 "subtypes": "developed",
                 "archetypes": "developed",
@@ -9894,24 +10006,27 @@
                 "districts": 1,
                 "secondaryDistricts": 0,
                 "recommendations": 1,
-                "representativeBuildings": 0,
+                "representativeBuildings": 1,
                 "buildingBriefs": 0,
                 "subtypes": 4,
                 "archetypes": 4,
                 "activities": 3,
                 "reviewRequiredDistricts": 0,
-                "representativeRoles": 0,
-                "operationalCategories": 0,
-                "operationalCharacteristics": 0,
+                "representativeRoles": 1,
+                "operationalCategories": 6,
+                "operationalCharacteristics": 7,
                 "reviewRequiredRepresentativeBuildings": 0
               },
-              "gaps": [],
+              "gaps": [
+                "Representative Building operational coverage is thin."
+              ],
               "blocking": false,
               "blockingCodes": [],
               "strategicPriority": 3,
               "evidence": [
                 "1 primary districts and 0 secondary districts.",
-                "0 Representative Buildings and 0 Building Briefs."
+                "1 Representative Buildings and 0 Building Briefs.",
+                "1 representative roles and 6 operational categories are covered."
               ],
               "targetSubtypes": [
                 "medical_office",
@@ -9934,34 +10049,62 @@
               ],
               "representativeBuildingIntelligence": {
                 "ecosystemId": "medical",
-                "state": "missing",
-                "stateLabel": "Missing",
-                "buildingCount": 0,
-                "explicitCount": 0,
+                "state": "thin",
+                "stateLabel": "Thin",
+                "buildingCount": 1,
+                "explicitCount": 1,
                 "inheritedOnlyCount": 0,
                 "reviewRequiredCount": 0,
-                "rolesCovered": [],
-                "subtypesCovered": [],
-                "activityCoverage": [],
-                "archetypeCoverage": [],
-                "operationalCharacteristicsCovered": [],
-                "operationalCategoriesCovered": [],
-                "missingRoles": [
-                  "medical_office_environment",
-                  "hospital_adjacent_medical_environment",
-                  "outpatient_clinic_environment"
+                "rolesCovered": [
+                  "medical_office_environment"
                 ],
-                "missingOperationalCategories": [
-                  "access_loading",
+                "subtypesCovered": [
+                  "medical_office",
+                  "outpatient_clinic",
+                  "wellness",
+                  "hospital_adjacent"
+                ],
+                "activityCoverage": [
+                  "healthcare_delivery",
+                  "administrative_operations",
+                  "walk_in_service"
+                ],
+                "archetypeCoverage": [
+                  "medical_practice",
+                  "wellness_practice",
+                  "outpatient_clinic",
+                  "physical_therapy_practice",
+                  "dental_practice"
+                ],
+                "operationalCharacteristicsCovered": [
+                  "customer_parking",
+                  "private_office_layout",
+                  "professional_image",
+                  "hospital_adjacent",
+                  "medical_use_compatible",
+                  "transit_access",
+                  "plumbing_intensive"
+                ],
+                "operationalCategoriesCovered": [
                   "parking_vehicles",
                   "configuration",
-                  "infrastructure",
                   "market_presence",
-                  "location_workforce"
+                  "outdoor_special_use",
+                  "location_workforce",
+                  "infrastructure"
                 ],
-                "highestPriorityMissingRole": "medical_office_environment",
-                "highestPriorityMissingOperationalCategory": "access_loading",
-                "exampleBuildings": []
+                "missingRoles": [],
+                "missingOperationalCategories": [],
+                "highestPriorityMissingRole": "",
+                "highestPriorityMissingOperationalCategory": "",
+                "exampleBuildings": [
+                  {
+                    "name": "1 Kaiser Plz",
+                    "path": "/commercial-real-estate/building/CA/oakland/1-kaiser-plz/",
+                    "role": "medical_office_environment",
+                    "confidence": "editorially_supported"
+                  }
+                ]
               },
               "completionCriteria": [
                 "Validated district ecosystem classification",
@@ -10267,21 +10410,22 @@
           ],
           "gaps": [
             {
-              "id": "ecosystem:medical:ecosystem_representative_building_gap",
-              "code": "ecosystem_representative_building_gap",
-              "label": "Ecosystem Representative Building Gap",
+              "id": "ecosystem:medical:ecosystem_building_brief_gap",
+              "code": "ecosystem_building_brief_gap",
+              "label": "Ecosystem Building Brief Gap",
               "severity": "medium",
-              "layer": "representativeBuildings",
+              "layer": "buildingBriefs",
               "ecosystemId": "medical",
               "ecosystemLabel": "Medical",
               "relevance": "secondary",
               "readinessState": "missing",
-              "rationale": "District foundation exists, but Representative Buildings are missing.",
+              "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
               "evidence": [
                 "1 primary districts and 0 secondary districts.",
-                "0 Representative Buildings and 0 Building Briefs."
+                "1 Representative Buildings and 0 Building Briefs.",
+                "1 representative roles and 6 operational categories are covered."
               ],
-              "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
+              "recommendedSprintFamily": "Ecosystem Building Brief Migration",
               "completionCriteria": [
                 "Validated district ecosystem classification",
                 "Representative Building coverage across the most important subtypes",
@@ -10292,19 +10436,20 @@
               "blocksEcosystemReadiness": false
             },
             {
-              "id": "ecosystem:medical:representative_role_thin",
-              "code": "representative_role_thin",
-              "label": "Representative Role Thin",
-              "severity": "low",
+              "id": "ecosystem:medical:representative_building_intelligence_missing",
+              "code": "representative_building_intelligence_missing",
+              "label": "Representative Building Intelligence Missing",
+              "severity": "medium",
               "layer": "representativeBuildingIntelligence",
               "ecosystemId": "medical",
               "ecosystemLabel": "Medical",
               "relevance": "secondary",
               "readinessState": "missing",
-              "rationale": "Representative role coverage is too narrow for this ecosystem.",
+              "rationale": "Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
               "evidence": [
                 "1 primary districts and 0 secondary districts.",
-                "0 Representative Buildings and 0 Building Briefs."
+                "1 Representative Buildings and 0 Building Briefs.",
+                "1 representative roles and 6 operational categories are covered."
               ],
               "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
               "completionCriteria": [
@@ -10593,25 +10738,21 @@
             }
           ],
           "balance": {
-            "state": "industrial_flex_representative_building_concentrated",
-            "label": "Industrial Flex Representative Building Concentrated",
+            "state": "balanced",
+            "label": "Balanced",
             "dominantEcosystem": "industrial_flex",
-            "representativeBuildingShare": 0.7,
+            "representativeBuildingShare": 0.69,
             "buildingBriefShare": 0.73,
-            "warnings": [
-              "Representative Building coverage is concentrated in Industrial & Flex."
-            ]
+            "warnings": []
           }
         },
         "ecosystemBalance": {
-          "state": "industrial_flex_representative_building_concentrated",
-          "label": "Industrial Flex Representative Building Concentrated",
+          "state": "balanced",
+          "label": "Balanced",
           "dominantEcosystem": "industrial_flex",
-          "representativeBuildingShare": 0.7,
+          "representativeBuildingShare": 0.69,
           "buildingBriefShare": 0.73,
-          "warnings": [
-            "Representative Building coverage is concentrated in Industrial & Flex."
-          ]
+          "warnings": []
         },
         "ecosystemCoverage": {
           "ecosystems": {
@@ -10913,7 +11054,7 @@
                   "ecommerce_fulfillment_business": 23,
                   "hvac_company": 16,
                   "plumbing_company": 15,
-                  "logistics_provider": 1
+                  "wholesaler": 1
                 },
                 "operationalCharacteristicsCovered": {
                   "grade_level_loading": 29,
@@ -11105,9 +11246,9 @@
               "districtCount": 1,
               "secondaryDistrictCount": 0,
               "recommendationNodeCount": 1,
-              "representativeBuildingCount": 0,
+              "representativeBuildingCount": 1,
               "buildingBriefCount": 0,
-              "status": "Thin",
+              "status": "Partial",
               "districts": [
                 {
                   "slug": "oakland-medical-campuses",
@@ -11138,34 +11279,62 @@
               ],
               "representativeBuildingIntelligence": {
                 "ecosystemId": "medical",
-                "state": "missing",
-                "stateLabel": "Missing",
-                "buildingCount": 0,
-                "explicitCount": 0,
+                "state": "thin",
+                "stateLabel": "Thin",
+                "buildingCount": 1,
+                "explicitCount": 1,
                 "inheritedOnlyCount": 0,
                 "reviewRequiredCount": 0,
-                "rolesCovered": {},
-                "subtypesCovered": {},
-                "activityCoverage": {},
-                "archetypeCoverage": {},
-                "operationalCharacteristicsCovered": {},
-                "operationalCategoriesCovered": {},
-                "missingRoles": [
-                  "medical_office_environment",
-                  "hospital_adjacent_medical_environment",
-                  "outpatient_clinic_environment"
-                ],
-                "missingOperationalCategories": [
-                  "access_loading",
-                  "parking_vehicles",
-                  "configuration",
-                  "infrastructure",
-                  "market_presence",
-                  "location_workforce"
-                ],
-                "highestPriorityMissingRole": "medical_office_environment",
-                "highestPriorityMissingOperationalCategory": "access_loading",
-                "exampleBuildings": []
+                "rolesCovered": {
+                  "medical_office_environment": 1
+                },
+                "subtypesCovered": {
+                  "medical_office": 1,
+                  "outpatient_clinic": 1,
+                  "wellness": 1,
+                  "hospital_adjacent": 1
+                },
+                "activityCoverage": {
+                  "healthcare_delivery": 1,
+                  "administrative_operations": 1,
+                  "walk_in_service": 1
+                },
+                "archetypeCoverage": {
+                  "medical_practice": 1,
+                  "wellness_practice": 1,
+                  "outpatient_clinic": 1,
+                  "physical_therapy_practice": 1,
+                  "dental_practice": 1
+                },
+                "operationalCharacteristicsCovered": {
+                  "customer_parking": 1,
+                  "private_office_layout": 1,
+                  "professional_image": 1,
+                  "hospital_adjacent": 1,
+                  "medical_use_compatible": 1,
+                  "transit_access": 1,
+                  "plumbing_intensive": 1
+                },
+                "operationalCategoriesCovered": {
+                  "parking_vehicles": 1,
+                  "configuration": 1,
+                  "market_presence": 2,
+                  "outdoor_special_use": 1,
+                  "location_workforce": 1,
+                  "infrastructure": 1
+                },
+                "missingRoles": [],
+                "missingOperationalCategories": [],
+                "highestPriorityMissingRole": "",
+                "highestPriorityMissingOperationalCategory": "",
+                "exampleBuildings": [
+                  {
+                    "name": "1 Kaiser Plz",
+                    "path": "/commercial-real-estate/building/CA/oakland/1-kaiser-plz/",
+                    "role": "medical_office_environment",
+                    "confidence": "editorially_supported"
+                  }
+                ]
               }
             },
             "life_science": {
@@ -11384,13 +11553,6 @@
           "reviewRequiredDistricts": [],
           "underrepresentedEcosystems": [
             {
-              "id": "medical",
-              "label": "Medical",
-              "status": "Thin",
-              "districtCount": 1,
-              "representativeBuildingCount": 0
-            },
-            {
               "id": "hospitality",
               "label": "Hospitality",
               "status": "Missing",
@@ -11408,27 +11570,54 @@
           "summary": {
             "ecosystemCount": 7,
             "developedCount": 3,
-            "partialCount": 1,
-            "thinCount": 1,
+            "partialCount": 2,
+            "thinCount": 0,
             "missingCount": 2,
             "reviewRequiredDistrictCount": 0
           }
         },
         "ecosystemGaps": [
           {
-            "id": "ecosystem:medical:ecosystem_representative_building_gap",
-            "code": "ecosystem_representative_building_gap",
-            "label": "Ecosystem Representative Building Gap",
+            "id": "ecosystem:medical:ecosystem_building_brief_gap",
+            "code": "ecosystem_building_brief_gap",
+            "label": "Ecosystem Building Brief Gap",
             "severity": "medium",
-            "layer": "representativeBuildings",
+            "layer": "buildingBriefs",
             "ecosystemId": "medical",
             "ecosystemLabel": "Medical",
             "relevance": "secondary",
             "readinessState": "missing",
-            "rationale": "District foundation exists, but Representative Buildings are missing.",
+            "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
             "evidence": [
               "1 primary districts and 0 secondary districts.",
-              "0 Representative Buildings and 0 Building Briefs."
+              "1 Representative Buildings and 0 Building Briefs.",
+              "1 representative roles and 6 operational categories are covered."
+            ],
+            "recommendedSprintFamily": "Ecosystem Building Brief Migration",
+            "completionCriteria": [
+              "Validated district ecosystem classification",
+              "Representative Building coverage across the most important subtypes",
+              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
+              "Building Brief migration only after canonical records and district association exist",
+              "Publisher ecosystem QA passes without hard errors"
+            ],
+            "blocksEcosystemReadiness": false
+          },
+          {
+            "id": "ecosystem:medical:representative_building_intelligence_missing",
+            "code": "representative_building_intelligence_missing",
+            "label": "Representative Building Intelligence Missing",
+            "severity": "medium",
+            "layer": "representativeBuildingIntelligence",
+            "ecosystemId": "medical",
+            "ecosystemLabel": "Medical",
+            "relevance": "secondary",
+            "readinessState": "missing",
+            "rationale": "Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
+            "evidence": [
+              "1 primary districts and 0 secondary districts.",
+              "1 Representative Buildings and 0 Building Briefs.",
+              "1 representative roles and 6 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
             "completionCriteria": [
@@ -11591,31 +11780,6 @@
             "blocksEcosystemReadiness": false
           },
           {
-            "id": "ecosystem:medical:representative_role_thin",
-            "code": "representative_role_thin",
-            "label": "Representative Role Thin",
-            "severity": "low",
-            "layer": "representativeBuildingIntelligence",
-            "ecosystemId": "medical",
-            "ecosystemLabel": "Medical",
-            "relevance": "secondary",
-            "readinessState": "missing",
-            "rationale": "Representative role coverage is too narrow for this ecosystem.",
-            "evidence": [
-              "1 primary districts and 0 secondary districts.",
-              "0 Representative Buildings and 0 Building Briefs."
-            ],
-            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
             "id": "ecosystem:special_purpose:ecosystem_activity_gap",
             "code": "ecosystem_activity_gap",
             "label": "Ecosystem Activity Gap",
@@ -11756,12 +11920,12 @@
           }
         },
         "recommendedEcosystemSprint": {
-          "title": "East Bay Medical Ecosystem Representative Building Foundation",
+          "title": "East Bay Medical Ecosystem Building Brief Migration",
           "ecosystemId": "medical",
           "ecosystemLabel": "Medical",
-          "sprintFamily": "Ecosystem Representative Building Foundation",
-          "rationale": "District foundation exists, but Representative Buildings are missing.",
-          "gapCode": "ecosystem_representative_building_gap",
+          "sprintFamily": "Ecosystem Building Brief Migration",
+          "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
+          "gapCode": "ecosystem_building_brief_gap",
           "completionCriteria": [
             "Validated district ecosystem classification",
             "Representative Building coverage across the most important subtypes",
@@ -11929,11 +12093,11 @@
           "representativeBuildings": {
             "key": "representativeBuildings",
             "label": "Representative Buildings",
-            "score": 72,
-            "completed": 13,
+            "score": 78,
+            "completed": 14,
             "total": 18,
-            "missing": 5,
-            "explanation": "50 representative building relationships; v1 target is 3 per covered district.",
+            "missing": 4,
+            "explanation": "51 representative building relationships; v1 target is 3 per covered district.",
             "issues": [
               {
                 "id": "east-bay:representativeBuildings:district missing representative buildings:antioch-east-18th-industrial",
@@ -11953,36 +12117,17 @@
                 "suggestedNextAction": "Curate representative buildings that explain this district.",
                 "automationCandidate": true,
                 "readinessState": ""
-              },
-              {
-                "id": "east-bay:representativeBuildings:district missing representative buildings:oakland-medical-campuses",
-                "code": "district-no-reps",
-                "metroId": "east-bay",
-                "metroName": "East Bay",
-                "category": "representativeBuildings",
-                "categoryLabel": "Representative Buildings",
-                "taskType": "district missing representative buildings",
-                "itemName": "Oakland Medical Campuses",
-                "severity": "medium",
-                "priority": 40,
-                "reason": "District has no representative building examples.",
-                "sourceId": "oakland-medical-campuses",
-                "publicUrl": "/commercial-real-estate/CA/oakland/oakland-medical-campuses/",
-                "adminUrl": "",
-                "suggestedNextAction": "Curate representative buildings that explain this district.",
-                "automationCandidate": true,
-                "readinessState": ""
               }
             ]
           },
           "buildingBriefs": {
             "key": "buildingBriefs",
             "label": "Building Briefs",
-            "score": 96,
+            "score": 94,
             "completed": 48,
-            "total": 50,
-            "missing": 2,
-            "explanation": "48 of 50 representative building records use the canonical Building Brief journey.",
+            "total": 51,
+            "missing": 3,
+            "explanation": "48 of 51 representative building records use the canonical Building Brief journey.",
             "issues": [
               {
                 "id": "east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st",
@@ -12017,6 +12162,25 @@
                 "reason": "Representative building has not migrated to the canonical Building Brief journey.",
                 "sourceId": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
                 "publicUrl": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
+                "adminUrl": "",
+                "suggestedNextAction": "Author a Building Brief for this representative building.",
+                "automationCandidate": true,
+                "readinessState": "representative-foundation"
+              },
+              {
+                "id": "east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-oakland-1-kaiser-plz",
+                "code": "missing-brief",
+                "metroId": "east-bay",
+                "metroName": "East Bay",
+                "category": "buildingBriefs",
+                "categoryLabel": "Building Briefs",
+                "taskType": "representative building missing Building Brief",
+                "itemName": "1 Kaiser Plz",
+                "severity": "medium",
+                "priority": 40,
+                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+                "sourceId": "/commercial-real-estate/building/CA/oakland/1-kaiser-plz/",
+                "publicUrl": "/commercial-real-estate/building/CA/oakland/1-kaiser-plz/",
                 "adminUrl": "",
                 "suggestedNextAction": "Author a Building Brief for this representative building.",
                 "automationCandidate": true,
@@ -12068,8 +12232,8 @@
             "key": "internalLinking",
             "label": "Internal Linking",
             "score": 100,
-            "completed": 95,
-            "total": 95,
+            "completed": 96,
+            "total": 96,
             "missing": 0,
             "explanation": "Checks public city, district, building, and comparison references that Publisher can resolve from generated data.",
             "issues": []
@@ -12113,6 +12277,25 @@
             "suggestedNextAction": "Add or update recommendation QA documentation for this metro.",
             "automationCandidate": false,
             "readinessState": ""
+          },
+          {
+            "id": "east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-oakland-1-kaiser-plz",
+            "code": "missing-brief",
+            "metroId": "east-bay",
+            "metroName": "East Bay",
+            "category": "buildingBriefs",
+            "categoryLabel": "Building Briefs",
+            "taskType": "representative building missing Building Brief",
+            "itemName": "1 Kaiser Plz",
+            "severity": "medium",
+            "priority": 40,
+            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+            "sourceId": "/commercial-real-estate/building/CA/oakland/1-kaiser-plz/",
+            "publicUrl": "/commercial-real-estate/building/CA/oakland/1-kaiser-plz/",
+            "adminUrl": "",
+            "suggestedNextAction": "Author a Building Brief for this representative building.",
+            "automationCandidate": true,
+            "readinessState": "representative-foundation"
           },
           {
             "id": "east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
@@ -12166,25 +12349,6 @@
             "reason": "District has no representative building examples.",
             "sourceId": "antioch-east-18th-industrial",
             "publicUrl": "/commercial-real-estate/CA/antioch/antioch-east-18th-industrial/",
-            "adminUrl": "",
-            "suggestedNextAction": "Curate representative buildings that explain this district.",
-            "automationCandidate": true,
-            "readinessState": ""
-          },
-          {
-            "id": "east-bay:representativeBuildings:district missing representative buildings:oakland-medical-campuses",
-            "code": "district-no-reps",
-            "metroId": "east-bay",
-            "metroName": "East Bay",
-            "category": "representativeBuildings",
-            "categoryLabel": "Representative Buildings",
-            "taskType": "district missing representative buildings",
-            "itemName": "Oakland Medical Campuses",
-            "severity": "medium",
-            "priority": 40,
-            "reason": "District has no representative building examples.",
-            "sourceId": "oakland-medical-campuses",
-            "publicUrl": "/commercial-real-estate/CA/oakland/oakland-medical-campuses/",
             "adminUrl": "",
             "suggestedNextAction": "Curate representative buildings that explain this district.",
             "automationCandidate": true,
@@ -35113,10 +35277,10 @@
             "label": "Editorial Coverage",
             "score": 91,
             "status": "",
-            "explanation": "25 of 25 districts have substantive descriptions; 157 representative buildings and 86 Building Briefs are available.",
+            "explanation": "25 of 25 districts have substantive descriptions; 158 representative buildings and 86 Building Briefs are available.",
             "completed": {
               "districtsWithDescriptions": 25,
-              "representativeBuildings": 157,
+              "representativeBuildings": 158,
               "buildingBriefs": 86
             },
             "targets": {
@@ -35136,11 +35300,11 @@
             "completed": {
               "cityPage": 1,
               "districtPages": 25,
-              "internalLinks": 268
+              "internalLinks": 269
             },
             "targets": {
               "districtPages": 25,
-              "internalLinks": 268
+              "internalLinks": 269
             },
             "blockers": [],
             "topOpportunity": "Maintain public route integrity."
@@ -35153,7 +35317,7 @@
         "score": 96,
         "cityPath": "/commercial-real-estate/CA/san-francisco/",
         "districtCount": 25,
-        "representativeBuildingCount": 157,
+        "representativeBuildingCount": 158,
         "buildingBriefCount": 86,
         "geographicReadiness": {
           "state": "developed",
@@ -35177,7 +35341,7 @@
           "label": "Partial",
           "rationale": [
             "Office, Industrial & Flex, Retail coverage is strong or developed.",
-            "Medical is Thin; Life Science is Partial."
+            "Medical is Partial; Life Science is Partial."
           ],
           "passed": false,
           "relevantEcosystems": [
@@ -35189,9 +35353,7 @@
             "hospitality",
             "special_purpose"
           ],
-          "blockingEcosystems": [
-            "medical"
-          ],
+          "blockingEcosystems": [],
           "evaluations": [
             {
               "ecosystemId": "office",
@@ -35510,7 +35672,7 @@
                   "ecommerce_fulfillment_business",
                   "hvac_company",
                   "plumbing_company",
-                  "logistics_provider",
+                  "wholesaler",
                   "landscaper",
                   "wellness_practice",
                   "professional_office"
@@ -35771,12 +35933,12 @@
               "label": "Medical",
               "relevance": "important",
               "relevanceLabel": "Important",
-              "readinessState": "thin",
-              "readinessLabel": "Thin",
+              "readinessState": "partial",
+              "readinessLabel": "Partial",
               "layers": {
                 "districts": "strong",
                 "recommendations": "strong",
-                "representativeBuildings": "missing",
+                "representativeBuildings": "partial",
                 "buildingBriefs": "missing",
                 "subtypes": "developed",
                 "archetypes": "strong",
@@ -35787,26 +35949,28 @@
                 "districts": 1,
                 "secondaryDistricts": 1,
                 "recommendations": 1,
-                "representativeBuildings": 0,
+                "representativeBuildings": 1,
                 "buildingBriefs": 0,
                 "subtypes": 4,
                 "archetypes": 4,
                 "activities": 3,
                 "reviewRequiredDistricts": 0,
-                "representativeRoles": 0,
-                "operationalCategories": 0,
-                "operationalCharacteristics": 0,
+                "representativeRoles": 1,
+                "operationalCategories": 6,
+                "operationalCharacteristics": 7,
                 "reviewRequiredRepresentativeBuildings": 0
               },
               "gaps": [
-                "Representative Building coverage is missing for this ecosystem."
+                "Building Brief coverage is missing for this ecosystem.",
+                "Representative Building operational coverage is thin."
               ],
               "blocking": false,
               "blockingCodes": [],
               "strategicPriority": 3,
               "evidence": [
                 "1 primary districts and 1 secondary districts.",
-                "0 Representative Buildings and 0 Building Briefs."
+                "1 Representative Buildings and 0 Building Briefs.",
+                "1 representative roles and 6 operational categories are covered."
               ],
               "targetSubtypes": [
                 "medical_office",
@@ -35829,34 +35993,67 @@
               ],
               "representativeBuildingIntelligence": {
                 "ecosystemId": "medical",
-                "state": "missing",
-                "stateLabel": "Missing",
-                "buildingCount": 0,
-                "explicitCount": 0,
+                "state": "thin",
+                "stateLabel": "Thin",
+                "buildingCount": 1,
+                "explicitCount": 1,
                 "inheritedOnlyCount": 0,
                 "reviewRequiredCount": 0,
-                "rolesCovered": [],
-                "subtypesCovered": [],
-                "activityCoverage": [],
-                "archetypeCoverage": [],
-                "operationalCharacteristicsCovered": [],
-                "operationalCategoriesCovered": [],
+                "rolesCovered": [
+                  "medical_office_environment"
+                ],
+                "subtypesCovered": [
+                  "medical_office",
+                  "outpatient_clinic",
+                  "wellness",
+                  "hospital_adjacent"
+                ],
+                "activityCoverage": [
+                  "healthcare_delivery",
+                  "administrative_operations",
+                  "walk_in_service"
+                ],
+                "archetypeCoverage": [
+                  "medical_practice",
+                  "wellness_practice",
+                  "outpatient_clinic",
+                  "physical_therapy_practice",
+                  "dental_practice"
+                ],
+                "operationalCharacteristicsCovered": [
+                  "customer_parking",
+                  "private_office_layout",
+                  "professional_image",
+                  "hospital_adjacent",
+                  "medical_use_compatible",
+                  "transit_access",
+                  "plumbing_intensive"
+                ],
+                "operationalCategoriesCovered": [
+                  "parking_vehicles",
+                  "configuration",
+                  "market_presence",
+                  "outdoor_special_use",
+                  "location_workforce",
+                  "infrastructure"
+                ],
                 "missingRoles": [
-                  "medical_office_environment",
                   "hospital_adjacent_medical_environment",
                   "outpatient_clinic_environment"
                 ],
                 "missingOperationalCategories": [
-                  "access_loading",
-                  "parking_vehicles",
-                  "configuration",
-                  "infrastructure",
-                  "market_presence",
-                  "location_workforce"
+                  "access_loading"
                 ],
-                "highestPriorityMissingRole": "medical_office_environment",
+                "highestPriorityMissingRole": "hospital_adjacent_medical_environment",
                 "highestPriorityMissingOperationalCategory": "access_loading",
-                "exampleBuildings": []
+                "exampleBuildings": [
+                  {
+                    "name": "1 Kaiser Plz",
+                    "path": "/commercial-real-estate/building/CA/oakland/1-kaiser-plz/",
+                    "role": "medical_office_environment",
+                    "confidence": "editorially_supported"
+                  }
+                ]
               },
               "completionCriteria": [
                 "Validated district ecosystem classification",
@@ -36223,21 +36420,22 @@
           ],
           "gaps": [
             {
-              "id": "ecosystem:medical:ecosystem_thin",
-              "code": "ecosystem_thin",
-              "label": "Ecosystem Thin",
+              "id": "ecosystem:medical:ecosystem_building_brief_gap",
+              "code": "ecosystem_building_brief_gap",
+              "label": "Ecosystem Building Brief Gap",
               "severity": "medium",
-              "layer": "representativeBuildings",
+              "layer": "buildingBriefs",
               "ecosystemId": "medical",
               "ecosystemLabel": "Medical",
               "relevance": "important",
-              "readinessState": "thin",
-              "rationale": "Relevant ecosystem has district coverage but lacks enough representative-building or layer depth.",
+              "readinessState": "partial",
+              "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
               "evidence": [
                 "1 primary districts and 1 secondary districts.",
-                "0 Representative Buildings and 0 Building Briefs."
+                "1 Representative Buildings and 0 Building Briefs.",
+                "1 representative roles and 6 operational categories are covered."
               ],
-              "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
+              "recommendedSprintFamily": "Ecosystem Building Brief Migration",
               "completionCriteria": [
                 "Validated district ecosystem classification",
                 "Representative Building coverage across the most important subtypes",
@@ -36248,19 +36446,20 @@
               "blocksEcosystemReadiness": false
             },
             {
-              "id": "ecosystem:medical:ecosystem_representative_building_gap",
-              "code": "ecosystem_representative_building_gap",
-              "label": "Ecosystem Representative Building Gap",
+              "id": "ecosystem:medical:representative_building_intelligence_missing",
+              "code": "representative_building_intelligence_missing",
+              "label": "Representative Building Intelligence Missing",
               "severity": "medium",
-              "layer": "representativeBuildings",
+              "layer": "representativeBuildingIntelligence",
               "ecosystemId": "medical",
               "ecosystemLabel": "Medical",
               "relevance": "important",
-              "readinessState": "thin",
-              "rationale": "District foundation exists, but Representative Buildings are missing.",
+              "readinessState": "partial",
+              "rationale": "Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
               "evidence": [
                 "1 primary districts and 1 secondary districts.",
-                "0 Representative Buildings and 0 Building Briefs."
+                "1 Representative Buildings and 0 Building Briefs.",
+                "1 representative roles and 6 operational categories are covered."
               ],
               "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
               "completionCriteria": [
@@ -36281,11 +36480,38 @@
               "ecosystemId": "medical",
               "ecosystemLabel": "Medical",
               "relevance": "important",
-              "readinessState": "thin",
+              "readinessState": "partial",
               "rationale": "Representative role coverage is too narrow for this ecosystem.",
               "evidence": [
                 "1 primary districts and 1 secondary districts.",
-                "0 Representative Buildings and 0 Building Briefs."
+                "1 Representative Buildings and 0 Building Briefs.",
+                "1 representative roles and 6 operational categories are covered."
+              ],
+              "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
+              "completionCriteria": [
+                "Validated district ecosystem classification",
+                "Representative Building coverage across the most important subtypes",
+                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
+                "Building Brief migration only after canonical records and district association exist",
+                "Publisher ecosystem QA passes without hard errors"
+              ],
+              "blocksEcosystemReadiness": false
+            },
+            {
+              "id": "ecosystem:medical:operational_category_gap",
+              "code": "operational_category_gap",
+              "label": "Operational Category Gap",
+              "severity": "low",
+              "layer": "representativeBuildingIntelligence",
+              "ecosystemId": "medical",
+              "ecosystemLabel": "Medical",
+              "relevance": "important",
+              "readinessState": "partial",
+              "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
+              "evidence": [
+                "1 primary districts and 1 secondary districts.",
+                "1 Representative Buildings and 0 Building Briefs.",
+                "1 representative roles and 6 operational categories are covered."
               ],
               "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
               "completionCriteria": [
@@ -36527,7 +36753,7 @@
             "state": "balanced",
             "label": "Balanced",
             "dominantEcosystem": "industrial_flex",
-            "representativeBuildingShare": 0.5,
+            "representativeBuildingShare": 0.49,
             "buildingBriefShare": 0.5,
             "warnings": []
           }
@@ -36536,7 +36762,7 @@
           "state": "balanced",
           "label": "Balanced",
           "dominantEcosystem": "industrial_flex",
-          "representativeBuildingShare": 0.5,
+          "representativeBuildingShare": 0.49,
           "buildingBriefShare": 0.5,
           "warnings": []
         },
@@ -36906,7 +37132,7 @@
                   "ecommerce_fulfillment_business": 24,
                   "hvac_company": 31,
                   "plumbing_company": 30,
-                  "logistics_provider": 1,
+                  "wholesaler": 1,
                   "landscaper": 15,
                   "wellness_practice": 1,
                   "professional_office": 1
@@ -37167,9 +37393,9 @@
               "districtCount": 1,
               "secondaryDistrictCount": 1,
               "recommendationNodeCount": 1,
-              "representativeBuildingCount": 0,
+              "representativeBuildingCount": 1,
               "buildingBriefCount": 0,
-              "status": "Thin",
+              "status": "Partial",
               "districts": [
                 {
                   "slug": "oakland-medical-campuses",
@@ -37200,34 +37426,67 @@
               ],
               "representativeBuildingIntelligence": {
                 "ecosystemId": "medical",
-                "state": "missing",
-                "stateLabel": "Missing",
-                "buildingCount": 0,
-                "explicitCount": 0,
+                "state": "thin",
+                "stateLabel": "Thin",
+                "buildingCount": 1,
+                "explicitCount": 1,
                 "inheritedOnlyCount": 0,
                 "reviewRequiredCount": 0,
-                "rolesCovered": {},
-                "subtypesCovered": {},
-                "activityCoverage": {},
-                "archetypeCoverage": {},
-                "operationalCharacteristicsCovered": {},
-                "operationalCategoriesCovered": {},
+                "rolesCovered": {
+                  "medical_office_environment": 1
+                },
+                "subtypesCovered": {
+                  "medical_office": 1,
+                  "outpatient_clinic": 1,
+                  "wellness": 1,
+                  "hospital_adjacent": 1
+                },
+                "activityCoverage": {
+                  "healthcare_delivery": 1,
+                  "administrative_operations": 1,
+                  "walk_in_service": 1
+                },
+                "archetypeCoverage": {
+                  "medical_practice": 1,
+                  "wellness_practice": 1,
+                  "outpatient_clinic": 1,
+                  "physical_therapy_practice": 1,
+                  "dental_practice": 1
+                },
+                "operationalCharacteristicsCovered": {
+                  "customer_parking": 1,
+                  "private_office_layout": 1,
+                  "professional_image": 1,
+                  "hospital_adjacent": 1,
+                  "medical_use_compatible": 1,
+                  "transit_access": 1,
+                  "plumbing_intensive": 1
+                },
+                "operationalCategoriesCovered": {
+                  "parking_vehicles": 1,
+                  "configuration": 1,
+                  "market_presence": 2,
+                  "outdoor_special_use": 1,
+                  "location_workforce": 1,
+                  "infrastructure": 1
+                },
                 "missingRoles": [
-                  "medical_office_environment",
                   "hospital_adjacent_medical_environment",
                   "outpatient_clinic_environment"
                 ],
                 "missingOperationalCategories": [
-                  "access_loading",
-                  "parking_vehicles",
-                  "configuration",
-                  "infrastructure",
-                  "market_presence",
-                  "location_workforce"
+                  "access_loading"
                 ],
-                "highestPriorityMissingRole": "medical_office_environment",
+                "highestPriorityMissingRole": "hospital_adjacent_medical_environment",
                 "highestPriorityMissingOperationalCategory": "access_loading",
-                "exampleBuildings": []
+                "exampleBuildings": [
+                  {
+                    "name": "1 Kaiser Plz",
+                    "path": "/commercial-real-estate/building/CA/oakland/1-kaiser-plz/",
+                    "role": "medical_office_environment",
+                    "confidence": "editorially_supported"
+                  }
+                ]
               }
             },
             "life_science": {
@@ -37519,13 +37778,6 @@
           "reviewRequiredDistricts": [],
           "underrepresentedEcosystems": [
             {
-              "id": "medical",
-              "label": "Medical",
-              "status": "Thin",
-              "districtCount": 1,
-              "representativeBuildingCount": 0
-            },
-            {
               "id": "hospitality",
               "label": "Hospitality",
               "status": "Missing",
@@ -37543,29 +37795,30 @@
           "summary": {
             "ecosystemCount": 7,
             "developedCount": 4,
-            "partialCount": 0,
-            "thinCount": 1,
+            "partialCount": 1,
+            "thinCount": 0,
             "missingCount": 2,
             "reviewRequiredDistrictCount": 0
           }
         },
         "ecosystemGaps": [
           {
-            "id": "ecosystem:medical:ecosystem_representative_building_gap",
-            "code": "ecosystem_representative_building_gap",
-            "label": "Ecosystem Representative Building Gap",
+            "id": "ecosystem:medical:ecosystem_building_brief_gap",
+            "code": "ecosystem_building_brief_gap",
+            "label": "Ecosystem Building Brief Gap",
             "severity": "medium",
-            "layer": "representativeBuildings",
+            "layer": "buildingBriefs",
             "ecosystemId": "medical",
             "ecosystemLabel": "Medical",
             "relevance": "important",
-            "readinessState": "thin",
-            "rationale": "District foundation exists, but Representative Buildings are missing.",
+            "readinessState": "partial",
+            "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
             "evidence": [
               "1 primary districts and 1 secondary districts.",
-              "0 Representative Buildings and 0 Building Briefs."
+              "1 Representative Buildings and 0 Building Briefs.",
+              "1 representative roles and 6 operational categories are covered."
             ],
-            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
+            "recommendedSprintFamily": "Ecosystem Building Brief Migration",
             "completionCriteria": [
               "Validated district ecosystem classification",
               "Representative Building coverage across the most important subtypes",
@@ -37576,19 +37829,20 @@
             "blocksEcosystemReadiness": false
           },
           {
-            "id": "ecosystem:medical:ecosystem_thin",
-            "code": "ecosystem_thin",
-            "label": "Ecosystem Thin",
+            "id": "ecosystem:medical:representative_building_intelligence_missing",
+            "code": "representative_building_intelligence_missing",
+            "label": "Representative Building Intelligence Missing",
             "severity": "medium",
-            "layer": "representativeBuildings",
+            "layer": "representativeBuildingIntelligence",
             "ecosystemId": "medical",
             "ecosystemLabel": "Medical",
             "relevance": "important",
-            "readinessState": "thin",
-            "rationale": "Relevant ecosystem has district coverage but lacks enough representative-building or layer depth.",
+            "readinessState": "partial",
+            "rationale": "Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
             "evidence": [
               "1 primary districts and 1 secondary districts.",
-              "0 Representative Buildings and 0 Building Briefs."
+              "1 Representative Buildings and 0 Building Briefs.",
+              "1 representative roles and 6 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
             "completionCriteria": [
@@ -37701,6 +37955,32 @@
             "blocksEcosystemReadiness": false
           },
           {
+            "id": "ecosystem:medical:operational_category_gap",
+            "code": "operational_category_gap",
+            "label": "Operational Category Gap",
+            "severity": "low",
+            "layer": "representativeBuildingIntelligence",
+            "ecosystemId": "medical",
+            "ecosystemLabel": "Medical",
+            "relevance": "important",
+            "readinessState": "partial",
+            "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
+            "evidence": [
+              "1 primary districts and 1 secondary districts.",
+              "1 Representative Buildings and 0 Building Briefs.",
+              "1 representative roles and 6 operational categories are covered."
+            ],
+            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
+            "completionCriteria": [
+              "Validated district ecosystem classification",
+              "Representative Building coverage across the most important subtypes",
+              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
+              "Building Brief migration only after canonical records and district association exist",
+              "Publisher ecosystem QA passes without hard errors"
+            ],
+            "blocksEcosystemReadiness": false
+          },
+          {
             "id": "ecosystem:medical:representative_role_thin",
             "code": "representative_role_thin",
             "label": "Representative Role Thin",
@@ -37709,11 +37989,12 @@
             "ecosystemId": "medical",
             "ecosystemLabel": "Medical",
             "relevance": "important",
-            "readinessState": "thin",
+            "readinessState": "partial",
             "rationale": "Representative role coverage is too narrow for this ecosystem.",
             "evidence": [
               "1 primary districts and 1 secondary districts.",
-              "0 Representative Buildings and 0 Building Briefs."
+              "1 Representative Buildings and 0 Building Briefs.",
+              "1 representative roles and 6 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
             "completionCriteria": [
@@ -37851,9 +38132,7 @@
             "blocksEcosystemReadiness": false
           }
         ],
-        "blockingEcosystems": [
-          "medical"
-        ],
+        "blockingEcosystems": [],
         "readinessGates": {
           "geographic": {
             "passed": true,
@@ -37864,18 +38143,16 @@
             "passed": false,
             "state": "partial",
             "label": "Partial",
-            "blockingEcosystems": [
-              "medical"
-            ]
+            "blockingEcosystems": []
           }
         },
         "recommendedEcosystemSprint": {
-          "title": "San Francisco Medical Ecosystem Representative Building Foundation",
+          "title": "San Francisco Medical Ecosystem Building Brief Migration",
           "ecosystemId": "medical",
           "ecosystemLabel": "Medical",
-          "sprintFamily": "Ecosystem Representative Building Foundation",
-          "rationale": "District foundation exists, but Representative Buildings are missing.",
-          "gapCode": "ecosystem_representative_building_gap",
+          "sprintFamily": "Ecosystem Building Brief Migration",
+          "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
+          "gapCode": "ecosystem_building_brief_gap",
           "completionCriteria": [
             "Validated district ecosystem classification",
             "Representative Building coverage across the most important subtypes",
@@ -38396,11 +38673,11 @@
           "representativeBuildings": {
             "key": "representativeBuildings",
             "label": "Representative Buildings",
-            "score": 72,
-            "completed": 36,
+            "score": 74,
+            "completed": 37,
             "total": 50,
-            "missing": 14,
-            "explanation": "157 representative building relationships; v1 target is 3 per covered district.",
+            "missing": 13,
+            "explanation": "158 representative building relationships; v1 target is 3 per covered district.",
             "issues": [
               {
                 "id": "san-francisco:representativeBuildings:district missing representative buildings:stanford-research-park",
@@ -38496,36 +38773,17 @@
                 "suggestedNextAction": "Curate representative buildings that explain this district.",
                 "automationCandidate": true,
                 "readinessState": ""
-              },
-              {
-                "id": "san-francisco:representativeBuildings:district missing representative buildings:oakland-medical-campuses",
-                "code": "district-no-reps",
-                "metroId": "san-francisco",
-                "metroName": "San Francisco",
-                "category": "representativeBuildings",
-                "categoryLabel": "Representative Buildings",
-                "taskType": "district missing representative buildings",
-                "itemName": "Oakland Medical Campuses",
-                "severity": "medium",
-                "priority": 40,
-                "reason": "District has no representative building examples.",
-                "sourceId": "oakland-medical-campuses",
-                "publicUrl": "/commercial-real-estate/CA/oakland/oakland-medical-campuses/",
-                "adminUrl": "",
-                "suggestedNextAction": "Curate representative buildings that explain this district.",
-                "automationCandidate": true,
-                "readinessState": ""
               }
             ]
           },
           "buildingBriefs": {
             "key": "buildingBriefs",
             "label": "Building Briefs",
-            "score": 55,
+            "score": 54,
             "completed": 86,
-            "total": 157,
-            "missing": 71,
-            "explanation": "86 of 157 representative building records use the canonical Building Brief journey.",
+            "total": 158,
+            "missing": 72,
+            "explanation": "86 of 158 representative building records use the canonical Building Brief journey.",
             "issues": [
               {
                 "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st",
@@ -38560,6 +38818,25 @@
                 "reason": "Representative building has not migrated to the canonical Building Brief journey.",
                 "sourceId": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
                 "publicUrl": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
+                "adminUrl": "",
+                "suggestedNextAction": "Author a Building Brief for this representative building.",
+                "automationCandidate": true,
+                "readinessState": "representative-foundation"
+              },
+              {
+                "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-oakland-1-kaiser-plz",
+                "code": "missing-brief",
+                "metroId": "san-francisco",
+                "metroName": "San Francisco",
+                "category": "buildingBriefs",
+                "categoryLabel": "Building Briefs",
+                "taskType": "representative building missing Building Brief",
+                "itemName": "1 Kaiser Plz",
+                "severity": "medium",
+                "priority": 40,
+                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+                "sourceId": "/commercial-real-estate/building/CA/oakland/1-kaiser-plz/",
+                "publicUrl": "/commercial-real-estate/building/CA/oakland/1-kaiser-plz/",
                 "adminUrl": "",
                 "suggestedNextAction": "Author a Building Brief for this representative building.",
                 "automationCandidate": true,
@@ -39980,8 +40257,8 @@
             "key": "internalLinking",
             "label": "Internal Linking",
             "score": 100,
-            "completed": 268,
-            "total": 268,
+            "completed": 269,
+            "total": 269,
             "missing": 0,
             "explanation": "Checks public city, district, building, and comparison references that Publisher can resolve from generated data.",
             "issues": []
@@ -40006,6 +40283,25 @@
             "suggestedNextAction": "Author a Building Brief for this representative building.",
             "automationCandidate": true,
             "readinessState": ""
+          },
+          {
+            "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-oakland-1-kaiser-plz",
+            "code": "missing-brief",
+            "metroId": "san-francisco",
+            "metroName": "San Francisco",
+            "category": "buildingBriefs",
+            "categoryLabel": "Building Briefs",
+            "taskType": "representative building missing Building Brief",
+            "itemName": "1 Kaiser Plz",
+            "severity": "medium",
+            "priority": 40,
+            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+            "sourceId": "/commercial-real-estate/building/CA/oakland/1-kaiser-plz/",
+            "publicUrl": "/commercial-real-estate/building/CA/oakland/1-kaiser-plz/",
+            "adminUrl": "",
+            "suggestedNextAction": "Author a Building Brief for this representative building.",
+            "automationCandidate": true,
+            "readinessState": "representative-foundation"
           },
           {
             "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-1-warriors-way",
@@ -41452,25 +41748,6 @@
             "readinessState": ""
           },
           {
-            "id": "san-francisco:representativeBuildings:district missing representative buildings:oakland-medical-campuses",
-            "code": "district-no-reps",
-            "metroId": "san-francisco",
-            "metroName": "San Francisco",
-            "category": "representativeBuildings",
-            "categoryLabel": "Representative Buildings",
-            "taskType": "district missing representative buildings",
-            "itemName": "Oakland Medical Campuses",
-            "severity": "medium",
-            "priority": 40,
-            "reason": "District has no representative building examples.",
-            "sourceId": "oakland-medical-campuses",
-            "publicUrl": "/commercial-real-estate/CA/oakland/oakland-medical-campuses/",
-            "adminUrl": "",
-            "suggestedNextAction": "Curate representative buildings that explain this district.",
-            "automationCandidate": true,
-            "readinessState": ""
-          },
-          {
             "id": "san-francisco:representativeBuildings:district missing representative buildings:stanford-research-park",
             "code": "district-no-reps",
             "metroId": "san-francisco",
@@ -42059,12 +42336,12 @@
           "editorialCoverage": {
             "key": "editorialCoverage",
             "label": "Editorial Coverage",
-            "score": 92,
+            "score": 93,
             "status": "",
-            "explanation": "9 of 9 districts have substantive descriptions; 50 representative buildings and 48 Building Briefs are available.",
+            "explanation": "9 of 9 districts have substantive descriptions; 51 representative buildings and 48 Building Briefs are available.",
             "completed": {
               "districtsWithDescriptions": 9,
-              "representativeBuildings": 50,
+              "representativeBuildings": 51,
               "buildingBriefs": 48
             },
             "targets": {
@@ -42084,11 +42361,11 @@
             "completed": {
               "cityPage": 1,
               "districtPages": 9,
-              "internalLinks": 95
+              "internalLinks": 96
             },
             "targets": {
               "districtPages": 9,
-              "internalLinks": 95
+              "internalLinks": 96
             },
             "blockers": [
               {
@@ -42129,7 +42406,7 @@
         "score": 74,
         "cityPath": "/commercial-real-estate/CA/oakland/",
         "districtCount": 9,
-        "representativeBuildingCount": 50,
+        "representativeBuildingCount": 51,
         "buildingBriefCount": 48,
         "geographicReadiness": {
           "state": "strong",
@@ -42154,8 +42431,7 @@
           "label": "Partial",
           "rationale": [
             "Industrial & Flex, Retail coverage is strong or developed.",
-            "Office is Partial; Life Science is Partial.",
-            "Representative Building coverage is concentrated in Industrial & Flex."
+            "Office is Partial; Life Science is Partial."
           ],
           "passed": false,
           "relevantEcosystems": [
@@ -42475,7 +42751,7 @@
                   "ecommerce_fulfillment_business",
                   "hvac_company",
                   "plumbing_company",
-                  "logistics_provider"
+                  "wholesaler"
                 ],
                 "operationalCharacteristicsCovered": [
                   "grade_level_loading",
@@ -42703,7 +42979,7 @@
               "layers": {
                 "districts": "strong",
                 "recommendations": "strong",
-                "representativeBuildings": "missing",
+                "representativeBuildings": "strong",
                 "buildingBriefs": "missing",
                 "subtypes": "developed",
                 "archetypes": "developed",
@@ -42714,24 +42990,27 @@
                 "districts": 1,
                 "secondaryDistricts": 0,
                 "recommendations": 1,
-                "representativeBuildings": 0,
+                "representativeBuildings": 1,
                 "buildingBriefs": 0,
                 "subtypes": 4,
                 "archetypes": 4,
                 "activities": 3,
                 "reviewRequiredDistricts": 0,
-                "representativeRoles": 0,
-                "operationalCategories": 0,
-                "operationalCharacteristics": 0,
+                "representativeRoles": 1,
+                "operationalCategories": 6,
+                "operationalCharacteristics": 7,
                 "reviewRequiredRepresentativeBuildings": 0
               },
-              "gaps": [],
+              "gaps": [
+                "Representative Building operational coverage is thin."
+              ],
               "blocking": false,
               "blockingCodes": [],
               "strategicPriority": 3,
               "evidence": [
                 "1 primary districts and 0 secondary districts.",
-                "0 Representative Buildings and 0 Building Briefs."
+                "1 Representative Buildings and 0 Building Briefs.",
+                "1 representative roles and 6 operational categories are covered."
               ],
               "targetSubtypes": [
                 "medical_office",
@@ -42754,34 +43033,62 @@
               ],
               "representativeBuildingIntelligence": {
                 "ecosystemId": "medical",
-                "state": "missing",
-                "stateLabel": "Missing",
-                "buildingCount": 0,
-                "explicitCount": 0,
+                "state": "thin",
+                "stateLabel": "Thin",
+                "buildingCount": 1,
+                "explicitCount": 1,
                 "inheritedOnlyCount": 0,
                 "reviewRequiredCount": 0,
-                "rolesCovered": [],
-                "subtypesCovered": [],
-                "activityCoverage": [],
-                "archetypeCoverage": [],
-                "operationalCharacteristicsCovered": [],
-                "operationalCategoriesCovered": [],
-                "missingRoles": [
-                  "medical_office_environment",
-                  "hospital_adjacent_medical_environment",
-                  "outpatient_clinic_environment"
+                "rolesCovered": [
+                  "medical_office_environment"
                 ],
-                "missingOperationalCategories": [
-                  "access_loading",
+                "subtypesCovered": [
+                  "medical_office",
+                  "outpatient_clinic",
+                  "wellness",
+                  "hospital_adjacent"
+                ],
+                "activityCoverage": [
+                  "healthcare_delivery",
+                  "administrative_operations",
+                  "walk_in_service"
+                ],
+                "archetypeCoverage": [
+                  "medical_practice",
+                  "wellness_practice",
+                  "outpatient_clinic",
+                  "physical_therapy_practice",
+                  "dental_practice"
+                ],
+                "operationalCharacteristicsCovered": [
+                  "customer_parking",
+                  "private_office_layout",
+                  "professional_image",
+                  "hospital_adjacent",
+                  "medical_use_compatible",
+                  "transit_access",
+                  "plumbing_intensive"
+                ],
+                "operationalCategoriesCovered": [
                   "parking_vehicles",
                   "configuration",
-                  "infrastructure",
                   "market_presence",
-                  "location_workforce"
+                  "outdoor_special_use",
+                  "location_workforce",
+                  "infrastructure"
                 ],
-                "highestPriorityMissingRole": "medical_office_environment",
-                "highestPriorityMissingOperationalCategory": "access_loading",
-                "exampleBuildings": []
+                "missingRoles": [],
+                "missingOperationalCategories": [],
+                "highestPriorityMissingRole": "",
+                "highestPriorityMissingOperationalCategory": "",
+                "exampleBuildings": [
+                  {
+                    "name": "1 Kaiser Plz",
+                    "path": "/commercial-real-estate/building/CA/oakland/1-kaiser-plz/",
+                    "role": "medical_office_environment",
+                    "confidence": "editorially_supported"
+                  }
+                ]
               },
               "completionCriteria": [
                 "Validated district ecosystem classification",
@@ -43087,21 +43394,22 @@
           ],
           "gaps": [
             {
-              "id": "ecosystem:medical:ecosystem_representative_building_gap",
-              "code": "ecosystem_representative_building_gap",
-              "label": "Ecosystem Representative Building Gap",
+              "id": "ecosystem:medical:ecosystem_building_brief_gap",
+              "code": "ecosystem_building_brief_gap",
+              "label": "Ecosystem Building Brief Gap",
               "severity": "medium",
-              "layer": "representativeBuildings",
+              "layer": "buildingBriefs",
               "ecosystemId": "medical",
               "ecosystemLabel": "Medical",
               "relevance": "secondary",
               "readinessState": "missing",
-              "rationale": "District foundation exists, but Representative Buildings are missing.",
+              "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
               "evidence": [
                 "1 primary districts and 0 secondary districts.",
-                "0 Representative Buildings and 0 Building Briefs."
+                "1 Representative Buildings and 0 Building Briefs.",
+                "1 representative roles and 6 operational categories are covered."
               ],
-              "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
+              "recommendedSprintFamily": "Ecosystem Building Brief Migration",
               "completionCriteria": [
                 "Validated district ecosystem classification",
                 "Representative Building coverage across the most important subtypes",
@@ -43112,19 +43420,20 @@
               "blocksEcosystemReadiness": false
             },
             {
-              "id": "ecosystem:medical:representative_role_thin",
-              "code": "representative_role_thin",
-              "label": "Representative Role Thin",
-              "severity": "low",
+              "id": "ecosystem:medical:representative_building_intelligence_missing",
+              "code": "representative_building_intelligence_missing",
+              "label": "Representative Building Intelligence Missing",
+              "severity": "medium",
               "layer": "representativeBuildingIntelligence",
               "ecosystemId": "medical",
               "ecosystemLabel": "Medical",
               "relevance": "secondary",
               "readinessState": "missing",
-              "rationale": "Representative role coverage is too narrow for this ecosystem.",
+              "rationale": "Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
               "evidence": [
                 "1 primary districts and 0 secondary districts.",
-                "0 Representative Buildings and 0 Building Briefs."
+                "1 Representative Buildings and 0 Building Briefs.",
+                "1 representative roles and 6 operational categories are covered."
               ],
               "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
               "completionCriteria": [
@@ -43413,25 +43722,21 @@
             }
           ],
           "balance": {
-            "state": "industrial_flex_representative_building_concentrated",
-            "label": "Industrial Flex Representative Building Concentrated",
+            "state": "balanced",
+            "label": "Balanced",
             "dominantEcosystem": "industrial_flex",
-            "representativeBuildingShare": 0.7,
+            "representativeBuildingShare": 0.69,
             "buildingBriefShare": 0.73,
-            "warnings": [
-              "Representative Building coverage is concentrated in Industrial & Flex."
-            ]
+            "warnings": []
           }
         },
         "ecosystemBalance": {
-          "state": "industrial_flex_representative_building_concentrated",
-          "label": "Industrial Flex Representative Building Concentrated",
+          "state": "balanced",
+          "label": "Balanced",
           "dominantEcosystem": "industrial_flex",
-          "representativeBuildingShare": 0.7,
+          "representativeBuildingShare": 0.69,
           "buildingBriefShare": 0.73,
-          "warnings": [
-            "Representative Building coverage is concentrated in Industrial & Flex."
-          ]
+          "warnings": []
         },
         "ecosystemCoverage": {
           "ecosystems": {
@@ -43733,7 +44038,7 @@
                   "ecommerce_fulfillment_business": 23,
                   "hvac_company": 16,
                   "plumbing_company": 15,
-                  "logistics_provider": 1
+                  "wholesaler": 1
                 },
                 "operationalCharacteristicsCovered": {
                   "grade_level_loading": 29,
@@ -43925,9 +44230,9 @@
               "districtCount": 1,
               "secondaryDistrictCount": 0,
               "recommendationNodeCount": 1,
-              "representativeBuildingCount": 0,
+              "representativeBuildingCount": 1,
               "buildingBriefCount": 0,
-              "status": "Thin",
+              "status": "Partial",
               "districts": [
                 {
                   "slug": "oakland-medical-campuses",
@@ -43958,34 +44263,62 @@
               ],
               "representativeBuildingIntelligence": {
                 "ecosystemId": "medical",
-                "state": "missing",
-                "stateLabel": "Missing",
-                "buildingCount": 0,
-                "explicitCount": 0,
+                "state": "thin",
+                "stateLabel": "Thin",
+                "buildingCount": 1,
+                "explicitCount": 1,
                 "inheritedOnlyCount": 0,
                 "reviewRequiredCount": 0,
-                "rolesCovered": {},
-                "subtypesCovered": {},
-                "activityCoverage": {},
-                "archetypeCoverage": {},
-                "operationalCharacteristicsCovered": {},
-                "operationalCategoriesCovered": {},
-                "missingRoles": [
-                  "medical_office_environment",
-                  "hospital_adjacent_medical_environment",
-                  "outpatient_clinic_environment"
-                ],
-                "missingOperationalCategories": [
-                  "access_loading",
-                  "parking_vehicles",
-                  "configuration",
-                  "infrastructure",
-                  "market_presence",
-                  "location_workforce"
-                ],
-                "highestPriorityMissingRole": "medical_office_environment",
-                "highestPriorityMissingOperationalCategory": "access_loading",
-                "exampleBuildings": []
+                "rolesCovered": {
+                  "medical_office_environment": 1
+                },
+                "subtypesCovered": {
+                  "medical_office": 1,
+                  "outpatient_clinic": 1,
+                  "wellness": 1,
+                  "hospital_adjacent": 1
+                },
+                "activityCoverage": {
+                  "healthcare_delivery": 1,
+                  "administrative_operations": 1,
+                  "walk_in_service": 1
+                },
+                "archetypeCoverage": {
+                  "medical_practice": 1,
+                  "wellness_practice": 1,
+                  "outpatient_clinic": 1,
+                  "physical_therapy_practice": 1,
+                  "dental_practice": 1
+                },
+                "operationalCharacteristicsCovered": {
+                  "customer_parking": 1,
+                  "private_office_layout": 1,
+                  "professional_image": 1,
+                  "hospital_adjacent": 1,
+                  "medical_use_compatible": 1,
+                  "transit_access": 1,
+                  "plumbing_intensive": 1
+                },
+                "operationalCategoriesCovered": {
+                  "parking_vehicles": 1,
+                  "configuration": 1,
+                  "market_presence": 2,
+                  "outdoor_special_use": 1,
+                  "location_workforce": 1,
+                  "infrastructure": 1
+                },
+                "missingRoles": [],
+                "missingOperationalCategories": [],
+                "highestPriorityMissingRole": "",
+                "highestPriorityMissingOperationalCategory": "",
+                "exampleBuildings": [
+                  {
+                    "name": "1 Kaiser Plz",
+                    "path": "/commercial-real-estate/building/CA/oakland/1-kaiser-plz/",
+                    "role": "medical_office_environment",
+                    "confidence": "editorially_supported"
+                  }
+                ]
               }
             },
             "life_science": {
@@ -44204,13 +44537,6 @@
           "reviewRequiredDistricts": [],
           "underrepresentedEcosystems": [
             {
-              "id": "medical",
-              "label": "Medical",
-              "status": "Thin",
-              "districtCount": 1,
-              "representativeBuildingCount": 0
-            },
-            {
               "id": "hospitality",
               "label": "Hospitality",
               "status": "Missing",
@@ -44228,27 +44554,54 @@
           "summary": {
             "ecosystemCount": 7,
             "developedCount": 3,
-            "partialCount": 1,
-            "thinCount": 1,
+            "partialCount": 2,
+            "thinCount": 0,
             "missingCount": 2,
             "reviewRequiredDistrictCount": 0
           }
         },
         "ecosystemGaps": [
           {
-            "id": "ecosystem:medical:ecosystem_representative_building_gap",
-            "code": "ecosystem_representative_building_gap",
-            "label": "Ecosystem Representative Building Gap",
+            "id": "ecosystem:medical:ecosystem_building_brief_gap",
+            "code": "ecosystem_building_brief_gap",
+            "label": "Ecosystem Building Brief Gap",
             "severity": "medium",
-            "layer": "representativeBuildings",
+            "layer": "buildingBriefs",
             "ecosystemId": "medical",
             "ecosystemLabel": "Medical",
             "relevance": "secondary",
             "readinessState": "missing",
-            "rationale": "District foundation exists, but Representative Buildings are missing.",
+            "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
             "evidence": [
               "1 primary districts and 0 secondary districts.",
-              "0 Representative Buildings and 0 Building Briefs."
+              "1 Representative Buildings and 0 Building Briefs.",
+              "1 representative roles and 6 operational categories are covered."
+            ],
+            "recommendedSprintFamily": "Ecosystem Building Brief Migration",
+            "completionCriteria": [
+              "Validated district ecosystem classification",
+              "Representative Building coverage across the most important subtypes",
+              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
+              "Building Brief migration only after canonical records and district association exist",
+              "Publisher ecosystem QA passes without hard errors"
+            ],
+            "blocksEcosystemReadiness": false
+          },
+          {
+            "id": "ecosystem:medical:representative_building_intelligence_missing",
+            "code": "representative_building_intelligence_missing",
+            "label": "Representative Building Intelligence Missing",
+            "severity": "medium",
+            "layer": "representativeBuildingIntelligence",
+            "ecosystemId": "medical",
+            "ecosystemLabel": "Medical",
+            "relevance": "secondary",
+            "readinessState": "missing",
+            "rationale": "Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
+            "evidence": [
+              "1 primary districts and 0 secondary districts.",
+              "1 Representative Buildings and 0 Building Briefs.",
+              "1 representative roles and 6 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
             "completionCriteria": [
@@ -44411,31 +44764,6 @@
             "blocksEcosystemReadiness": false
           },
           {
-            "id": "ecosystem:medical:representative_role_thin",
-            "code": "representative_role_thin",
-            "label": "Representative Role Thin",
-            "severity": "low",
-            "layer": "representativeBuildingIntelligence",
-            "ecosystemId": "medical",
-            "ecosystemLabel": "Medical",
-            "relevance": "secondary",
-            "readinessState": "missing",
-            "rationale": "Representative role coverage is too narrow for this ecosystem.",
-            "evidence": [
-              "1 primary districts and 0 secondary districts.",
-              "0 Representative Buildings and 0 Building Briefs."
-            ],
-            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
             "id": "ecosystem:special_purpose:ecosystem_activity_gap",
             "code": "ecosystem_activity_gap",
             "label": "Ecosystem Activity Gap",
@@ -44576,12 +44904,12 @@
           }
         },
         "recommendedEcosystemSprint": {
-          "title": "East Bay Medical Ecosystem Representative Building Foundation",
+          "title": "East Bay Medical Ecosystem Building Brief Migration",
           "ecosystemId": "medical",
           "ecosystemLabel": "Medical",
-          "sprintFamily": "Ecosystem Representative Building Foundation",
-          "rationale": "District foundation exists, but Representative Buildings are missing.",
-          "gapCode": "ecosystem_representative_building_gap",
+          "sprintFamily": "Ecosystem Building Brief Migration",
+          "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
+          "gapCode": "ecosystem_building_brief_gap",
           "completionCriteria": [
             "Validated district ecosystem classification",
             "Representative Building coverage across the most important subtypes",
@@ -44749,11 +45077,11 @@
           "representativeBuildings": {
             "key": "representativeBuildings",
             "label": "Representative Buildings",
-            "score": 72,
-            "completed": 13,
+            "score": 78,
+            "completed": 14,
             "total": 18,
-            "missing": 5,
-            "explanation": "50 representative building relationships; v1 target is 3 per covered district.",
+            "missing": 4,
+            "explanation": "51 representative building relationships; v1 target is 3 per covered district.",
             "issues": [
               {
                 "id": "east-bay:representativeBuildings:district missing representative buildings:antioch-east-18th-industrial",
@@ -44773,36 +45101,17 @@
                 "suggestedNextAction": "Curate representative buildings that explain this district.",
                 "automationCandidate": true,
                 "readinessState": ""
-              },
-              {
-                "id": "east-bay:representativeBuildings:district missing representative buildings:oakland-medical-campuses",
-                "code": "district-no-reps",
-                "metroId": "east-bay",
-                "metroName": "East Bay",
-                "category": "representativeBuildings",
-                "categoryLabel": "Representative Buildings",
-                "taskType": "district missing representative buildings",
-                "itemName": "Oakland Medical Campuses",
-                "severity": "medium",
-                "priority": 40,
-                "reason": "District has no representative building examples.",
-                "sourceId": "oakland-medical-campuses",
-                "publicUrl": "/commercial-real-estate/CA/oakland/oakland-medical-campuses/",
-                "adminUrl": "",
-                "suggestedNextAction": "Curate representative buildings that explain this district.",
-                "automationCandidate": true,
-                "readinessState": ""
               }
             ]
           },
           "buildingBriefs": {
             "key": "buildingBriefs",
             "label": "Building Briefs",
-            "score": 96,
+            "score": 94,
             "completed": 48,
-            "total": 50,
-            "missing": 2,
-            "explanation": "48 of 50 representative building records use the canonical Building Brief journey.",
+            "total": 51,
+            "missing": 3,
+            "explanation": "48 of 51 representative building records use the canonical Building Brief journey.",
             "issues": [
               {
                 "id": "east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st",
@@ -44837,6 +45146,25 @@
                 "reason": "Representative building has not migrated to the canonical Building Brief journey.",
                 "sourceId": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
                 "publicUrl": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
+                "adminUrl": "",
+                "suggestedNextAction": "Author a Building Brief for this representative building.",
+                "automationCandidate": true,
+                "readinessState": "representative-foundation"
+              },
+              {
+                "id": "east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-oakland-1-kaiser-plz",
+                "code": "missing-brief",
+                "metroId": "east-bay",
+                "metroName": "East Bay",
+                "category": "buildingBriefs",
+                "categoryLabel": "Building Briefs",
+                "taskType": "representative building missing Building Brief",
+                "itemName": "1 Kaiser Plz",
+                "severity": "medium",
+                "priority": 40,
+                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+                "sourceId": "/commercial-real-estate/building/CA/oakland/1-kaiser-plz/",
+                "publicUrl": "/commercial-real-estate/building/CA/oakland/1-kaiser-plz/",
                 "adminUrl": "",
                 "suggestedNextAction": "Author a Building Brief for this representative building.",
                 "automationCandidate": true,
@@ -44888,8 +45216,8 @@
             "key": "internalLinking",
             "label": "Internal Linking",
             "score": 100,
-            "completed": 95,
-            "total": 95,
+            "completed": 96,
+            "total": 96,
             "missing": 0,
             "explanation": "Checks public city, district, building, and comparison references that Publisher can resolve from generated data.",
             "issues": []
@@ -44933,6 +45261,25 @@
             "suggestedNextAction": "Add or update recommendation QA documentation for this metro.",
             "automationCandidate": false,
             "readinessState": ""
+          },
+          {
+            "id": "east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-oakland-1-kaiser-plz",
+            "code": "missing-brief",
+            "metroId": "east-bay",
+            "metroName": "East Bay",
+            "category": "buildingBriefs",
+            "categoryLabel": "Building Briefs",
+            "taskType": "representative building missing Building Brief",
+            "itemName": "1 Kaiser Plz",
+            "severity": "medium",
+            "priority": 40,
+            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+            "sourceId": "/commercial-real-estate/building/CA/oakland/1-kaiser-plz/",
+            "publicUrl": "/commercial-real-estate/building/CA/oakland/1-kaiser-plz/",
+            "adminUrl": "",
+            "suggestedNextAction": "Author a Building Brief for this representative building.",
+            "automationCandidate": true,
+            "readinessState": "representative-foundation"
           },
           {
             "id": "east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
@@ -44986,25 +45333,6 @@
             "reason": "District has no representative building examples.",
             "sourceId": "antioch-east-18th-industrial",
             "publicUrl": "/commercial-real-estate/CA/antioch/antioch-east-18th-industrial/",
-            "adminUrl": "",
-            "suggestedNextAction": "Curate representative buildings that explain this district.",
-            "automationCandidate": true,
-            "readinessState": ""
-          },
-          {
-            "id": "east-bay:representativeBuildings:district missing representative buildings:oakland-medical-campuses",
-            "code": "district-no-reps",
-            "metroId": "east-bay",
-            "metroName": "East Bay",
-            "category": "representativeBuildings",
-            "categoryLabel": "Representative Buildings",
-            "taskType": "district missing representative buildings",
-            "itemName": "Oakland Medical Campuses",
-            "severity": "medium",
-            "priority": 40,
-            "reason": "District has no representative building examples.",
-            "sourceId": "oakland-medical-campuses",
-            "publicUrl": "/commercial-real-estate/CA/oakland/oakland-medical-campuses/",
             "adminUrl": "",
             "suggestedNextAction": "Curate representative buildings that explain this district.",
             "automationCandidate": true,
@@ -68431,6 +68759,25 @@
         "readinessState": ""
       },
       {
+        "id": "east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-oakland-1-kaiser-plz",
+        "code": "missing-brief",
+        "metroId": "east-bay",
+        "metroName": "East Bay",
+        "category": "buildingBriefs",
+        "categoryLabel": "Building Briefs",
+        "taskType": "representative building missing Building Brief",
+        "itemName": "1 Kaiser Plz",
+        "severity": "medium",
+        "priority": 40,
+        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+        "sourceId": "/commercial-real-estate/building/CA/oakland/1-kaiser-plz/",
+        "publicUrl": "/commercial-real-estate/building/CA/oakland/1-kaiser-plz/",
+        "adminUrl": "",
+        "suggestedNextAction": "Author a Building Brief for this representative building.",
+        "automationCandidate": true,
+        "readinessState": "representative-foundation"
+      },
+      {
         "id": "east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
         "code": "missing-brief",
         "metroId": "east-bay",
@@ -68482,25 +68829,6 @@
         "reason": "District has no representative building examples.",
         "sourceId": "antioch-east-18th-industrial",
         "publicUrl": "/commercial-real-estate/CA/antioch/antioch-east-18th-industrial/",
-        "adminUrl": "",
-        "suggestedNextAction": "Curate representative buildings that explain this district.",
-        "automationCandidate": true,
-        "readinessState": ""
-      },
-      {
-        "id": "east-bay:representativeBuildings:district missing representative buildings:oakland-medical-campuses",
-        "code": "district-no-reps",
-        "metroId": "east-bay",
-        "metroName": "East Bay",
-        "category": "representativeBuildings",
-        "categoryLabel": "Representative Buildings",
-        "taskType": "district missing representative buildings",
-        "itemName": "Oakland Medical Campuses",
-        "severity": "medium",
-        "priority": 40,
-        "reason": "District has no representative building examples.",
-        "sourceId": "oakland-medical-campuses",
-        "publicUrl": "/commercial-real-estate/CA/oakland/oakland-medical-campuses/",
         "adminUrl": "",
         "suggestedNextAction": "Curate representative buildings that explain this district.",
         "automationCandidate": true,
@@ -70597,6 +70925,25 @@
         "readinessState": ""
       },
       {
+        "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-oakland-1-kaiser-plz",
+        "code": "missing-brief",
+        "metroId": "san-francisco",
+        "metroName": "San Francisco",
+        "category": "buildingBriefs",
+        "categoryLabel": "Building Briefs",
+        "taskType": "representative building missing Building Brief",
+        "itemName": "1 Kaiser Plz",
+        "severity": "medium",
+        "priority": 40,
+        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+        "sourceId": "/commercial-real-estate/building/CA/oakland/1-kaiser-plz/",
+        "publicUrl": "/commercial-real-estate/building/CA/oakland/1-kaiser-plz/",
+        "adminUrl": "",
+        "suggestedNextAction": "Author a Building Brief for this representative building.",
+        "automationCandidate": true,
+        "readinessState": "representative-foundation"
+      },
+      {
         "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-1-warriors-way",
         "code": "missing-brief",
         "metroId": "san-francisco",
@@ -72035,25 +72382,6 @@
         "reason": "District has no representative building examples.",
         "sourceId": "north-san-jose",
         "publicUrl": "/commercial-real-estate/CA/san-jose/north-san-jose/",
-        "adminUrl": "",
-        "suggestedNextAction": "Curate representative buildings that explain this district.",
-        "automationCandidate": true,
-        "readinessState": ""
-      },
-      {
-        "id": "san-francisco:representativeBuildings:district missing representative buildings:oakland-medical-campuses",
-        "code": "district-no-reps",
-        "metroId": "san-francisco",
-        "metroName": "San Francisco",
-        "category": "representativeBuildings",
-        "categoryLabel": "Representative Buildings",
-        "taskType": "district missing representative buildings",
-        "itemName": "Oakland Medical Campuses",
-        "severity": "medium",
-        "priority": 40,
-        "reason": "District has no representative building examples.",
-        "sourceId": "oakland-medical-campuses",
-        "publicUrl": "/commercial-real-estate/CA/oakland/oakland-medical-campuses/",
         "adminUrl": "",
         "suggestedNextAction": "Curate representative buildings that explain this district.",
         "automationCandidate": true,
@@ -73886,6 +74214,25 @@
         "readinessState": ""
       },
       {
+        "id": "east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-oakland-1-kaiser-plz",
+        "code": "missing-brief",
+        "metroId": "east-bay",
+        "metroName": "East Bay",
+        "category": "buildingBriefs",
+        "categoryLabel": "Building Briefs",
+        "taskType": "representative building missing Building Brief",
+        "itemName": "1 Kaiser Plz",
+        "severity": "medium",
+        "priority": 40,
+        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+        "sourceId": "/commercial-real-estate/building/CA/oakland/1-kaiser-plz/",
+        "publicUrl": "/commercial-real-estate/building/CA/oakland/1-kaiser-plz/",
+        "adminUrl": "",
+        "suggestedNextAction": "Author a Building Brief for this representative building.",
+        "automationCandidate": true,
+        "readinessState": "representative-foundation"
+      },
+      {
         "id": "east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
         "code": "missing-brief",
         "metroId": "east-bay",
@@ -73937,25 +74284,6 @@
         "reason": "District has no representative building examples.",
         "sourceId": "antioch-east-18th-industrial",
         "publicUrl": "/commercial-real-estate/CA/antioch/antioch-east-18th-industrial/",
-        "adminUrl": "",
-        "suggestedNextAction": "Curate representative buildings that explain this district.",
-        "automationCandidate": true,
-        "readinessState": ""
-      },
-      {
-        "id": "east-bay:representativeBuildings:district missing representative buildings:oakland-medical-campuses",
-        "code": "district-no-reps",
-        "metroId": "east-bay",
-        "metroName": "East Bay",
-        "category": "representativeBuildings",
-        "categoryLabel": "Representative Buildings",
-        "taskType": "district missing representative buildings",
-        "itemName": "Oakland Medical Campuses",
-        "severity": "medium",
-        "priority": 40,
-        "reason": "District has no representative building examples.",
-        "sourceId": "oakland-medical-campuses",
-        "publicUrl": "/commercial-real-estate/CA/oakland/oakland-medical-campuses/",
         "adminUrl": "",
         "suggestedNextAction": "Curate representative buildings that explain this district.",
         "automationCandidate": true,
@@ -76052,6 +76380,25 @@
         "readinessState": ""
       },
       {
+        "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-oakland-1-kaiser-plz",
+        "code": "missing-brief",
+        "metroId": "san-francisco",
+        "metroName": "San Francisco",
+        "category": "buildingBriefs",
+        "categoryLabel": "Building Briefs",
+        "taskType": "representative building missing Building Brief",
+        "itemName": "1 Kaiser Plz",
+        "severity": "medium",
+        "priority": 40,
+        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+        "sourceId": "/commercial-real-estate/building/CA/oakland/1-kaiser-plz/",
+        "publicUrl": "/commercial-real-estate/building/CA/oakland/1-kaiser-plz/",
+        "adminUrl": "",
+        "suggestedNextAction": "Author a Building Brief for this representative building.",
+        "automationCandidate": true,
+        "readinessState": "representative-foundation"
+      },
+      {
         "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-1-warriors-way",
         "code": "missing-brief",
         "metroId": "san-francisco",
@@ -77490,25 +77837,6 @@
         "reason": "District has no representative building examples.",
         "sourceId": "north-san-jose",
         "publicUrl": "/commercial-real-estate/CA/san-jose/north-san-jose/",
-        "adminUrl": "",
-        "suggestedNextAction": "Curate representative buildings that explain this district.",
-        "automationCandidate": true,
-        "readinessState": ""
-      },
-      {
-        "id": "san-francisco:representativeBuildings:district missing representative buildings:oakland-medical-campuses",
-        "code": "district-no-reps",
-        "metroId": "san-francisco",
-        "metroName": "San Francisco",
-        "category": "representativeBuildings",
-        "categoryLabel": "Representative Buildings",
-        "taskType": "district missing representative buildings",
-        "itemName": "Oakland Medical Campuses",
-        "severity": "medium",
-        "priority": 40,
-        "reason": "District has no representative building examples.",
-        "sourceId": "oakland-medical-campuses",
-        "publicUrl": "/commercial-real-estate/CA/oakland/oakland-medical-campuses/",
         "adminUrl": "",
         "suggestedNextAction": "Curate representative buildings that explain this district.",
         "automationCandidate": true,
@@ -79603,7 +79931,7 @@
         "Low": 2
       },
       "deferredCandidates": 69,
-      "latestValidation": "2026-08-12T08:13:30-07:00",
+      "latestValidation": "2026-08-12T08:30:27-07:00",
       "errors": [],
       "warnings": [],
       "source": {

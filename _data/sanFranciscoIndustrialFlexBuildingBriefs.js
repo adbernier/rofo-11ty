@@ -1099,7 +1099,7 @@ const haywardSelectedBuildings = [
     roleId: "last_mile_logistics_environment",
     subtypes: ["warehouse", "distribution", "last_mile_logistics"],
     activities: ["receiving", "shipping", "storage", "distribution", "service_dispatch"],
-    archetypes: ["distributor", "ecommerce_fulfillment_business", "general_contractor", "logistics_provider"],
+    archetypes: ["distributor", "ecommerce_fulfillment_business", "general_contractor", "wholesaler"],
     characteristics: ["grade_level_loading", "freeway_access", "service_vehicle_parking", "office_warehouse_mix"],
     access: "Highway 92, Eden Landing, I-880, and the San Mateo Bridge side of Hayward",
     contrast: "more local service-flex or customer-facing buildings",
