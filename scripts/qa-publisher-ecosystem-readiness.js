@@ -155,6 +155,7 @@ if (sanFrancisco) {
 const eastBay = metroById("east-bay");
 if (eastBay) {
   const lifeScience = evaluationFor(eastBay, "life_science");
+  const retail = evaluationFor(eastBay, "retail");
   const eastBayPlan = planById("east-bay");
   requireField(lifeScience && lifeScience.counts && lifeScience.counts.secondaryDistricts >= 2, "East Bay: life science should retain secondary district evidence.");
   requireField(lifeScience && lifeScience.layers && ["strong", "developed"].includes(lifeScience.layers.subtypes), `East Bay: life science secondary subtype breadth should be credited, got ${lifeScience && lifeScience.layers && lifeScience.layers.subtypes}`);
@@ -162,6 +163,10 @@ if (eastBay) {
   requireField(lifeScience && lifeScience.layers && ["strong", "developed"].includes(lifeScience.layers.activities), `East Bay: life science secondary activity breadth should be credited, got ${lifeScience && lifeScience.layers && lifeScience.layers.activities}`);
   requireField(!((lifeScience && lifeScience.gaps) || []).includes("Subtype breadth is thin."), "East Bay: completed life-science subtype expansion should not remain open.");
   requireField(!((eastBayPlan && eastBayPlan.recommendedEcosystemSprint || {}).title || "").includes("Life Science Ecosystem Subtype Expansion"), "East Bay: completed Life Science subtype sprint should not remain recommended.");
+  requireField(retail && retail.counts && retail.counts.representativeBuildings >= 2, `East Bay: retail Representative Building foundation should be credited, got ${retail && retail.counts && retail.counts.representativeBuildings}`);
+  requireField(retail && retail.layers && ["strong", "developed"].includes(retail.layers.representativeBuildings), `East Bay: retail Representative Building layer should be strong or developed, got ${retail && retail.layers && retail.layers.representativeBuildings}`);
+  requireField(!((retail && retail.gaps) || []).includes("Representative Building coverage is missing for this ecosystem."), "East Bay: completed retail Representative Building foundation should not remain open.");
+  requireField(!((eastBayPlan && eastBayPlan.recommendedEcosystemSprint || {}).title || "").includes("Retail Ecosystem Representative Building Foundation"), "East Bay: completed Retail Representative Building Foundation should not remain recommended.");
 }
 
 ["san-diego", "orange-county", "denver"].forEach((id) => {

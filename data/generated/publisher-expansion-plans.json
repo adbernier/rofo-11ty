@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-11T16:12:18-07:00",
+  "generatedAt": "2026-08-11T17:37:16-07:00",
   "rulesVersion": "publisher-rules-v1",
   "plannerVersion": "publisher-expansion-planner-v1",
   "defaultMode": "balanced",
@@ -55,7 +55,7 @@
     {
       "metroId": "san-francisco",
       "metroName": "San Francisco",
-      "generatedAt": "2026-08-11T16:12:18-07:00",
+      "generatedAt": "2026-08-11T17:37:16-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 96,
@@ -103,8 +103,8 @@
         },
         "ecosystems": {
           "count": 7,
-          "developed": 3,
-          "partial": 2,
+          "developed": 4,
+          "partial": 1,
           "thin": 0,
           "missing": 2,
           "reviewRequired": 0,
@@ -119,8 +119,8 @@
             "districtCount": 7,
             "secondaryDistrictCount": 14,
             "recommendationNodeCount": 7,
-            "representativeBuildingCount": 80,
-            "buildingBriefCount": 38,
+            "representativeBuildingCount": 78,
+            "buildingBriefCount": 36,
             "status": "Developed",
             "districts": [
               {
@@ -201,15 +201,15 @@
               "ecosystemId": "office",
               "state": "strong",
               "stateLabel": "Strong",
-              "buildingCount": 80,
+              "buildingCount": 78,
               "explicitCount": 4,
               "inheritedOnlyCount": 65,
               "reviewRequiredCount": 0,
               "rolesCovered": {
                 "suburban_office_campus": 3,
                 "transit_oriented_office_environment": 4,
-                "downtown_class_a_office": 5,
-                "professional_office_environment": 8,
+                "professional_office_environment": 7,
+                "downtown_class_a_office": 4,
                 "government_office_environment": 1,
                 "creative_office_environment": 46,
                 "executive_office_environment": 13
@@ -217,48 +217,48 @@
               "subtypesCovered": {
                 "suburban_office": 2,
                 "office_campus": 2,
-                "professional_office": 27,
+                "professional_office": 25,
                 "downtown_office": 40,
                 "creative_office": 50,
                 "executive_office": 16
               },
               "activityCoverage": {
-                "knowledge_work": 80,
+                "knowledge_work": 78,
                 "collaboration": 53,
-                "administrative_operations": 33,
+                "administrative_operations": 31,
                 "research": 5,
                 "product_development": 49,
-                "client_meetings": 50,
-                "walk_in_retail": 16,
-                "walk_in_service": 20,
-                "customer_showroom": 36,
+                "client_meetings": 48,
+                "walk_in_retail": 14,
+                "walk_in_service": 18,
+                "customer_showroom": 34,
                 "light_manufacturing": 6
               },
               "archetypeCoverage": {
-                "professional_office": 80,
-                "consulting_firm": 80,
+                "professional_office": 78,
+                "consulting_firm": 78,
                 "startup": 64,
                 "research_company": 11,
                 "biotech_company": 2,
-                "law_firm": 80,
-                "accounting_firm": 80,
-                "financial_services_firm": 80,
+                "law_firm": 78,
+                "accounting_firm": 78,
+                "financial_services_firm": 78,
                 "nonprofit_office": 2,
-                "wellness_practice": 16,
-                "marketing_agency": 69,
-                "creative_studio": 76
+                "wellness_practice": 14,
+                "marketing_agency": 67,
+                "creative_studio": 74
               },
               "operationalCharacteristicsCovered": {
                 "campus_environment": 3,
                 "surface_parking": 3,
                 "suburban_access": 3,
-                "large_floorplates": 6,
-                "professional_image": 33,
-                "transit_access": 9,
+                "large_floorplates": 5,
+                "professional_image": 31,
+                "transit_access": 8,
                 "walkability": 50,
-                "structured_parking": 7,
-                "private_office_layout": 21,
-                "customer_parking": 8,
+                "structured_parking": 6,
+                "private_office_layout": 20,
+                "customer_parking": 7,
                 "urban_core_access": 1,
                 "enhanced_security": 14,
                 "creative_environment": 46,
@@ -266,10 +266,10 @@
                 "flexible_suite_sizes": 46
               },
               "operationalCategoriesCovered": {
-                "market_presence": 82,
-                "parking_vehicles": 18,
-                "location_workforce": 63,
-                "configuration": 119,
+                "market_presence": 80,
+                "parking_vehicles": 16,
+                "location_workforce": 62,
+                "configuration": 117,
                 "infrastructure": 14
               },
               "missingRoles": [
@@ -307,15 +307,15 @@
                   "confidence": "editorially_supported"
                 },
                 {
-                  "name": "1936 University Ave",
-                  "path": "/commercial-real-estate/building/CA/berkeley/1936-university-ave/",
-                  "role": "downtown_class_a_office",
-                  "confidence": "district_inferred"
-                },
-                {
                   "name": "2030 Addison St",
                   "path": "/commercial-real-estate/building/CA/berkeley/2030-addison-st/",
                   "role": "professional_office_environment",
+                  "confidence": "district_inferred"
+                },
+                {
+                  "name": "2040 Bancroft Way",
+                  "path": "/commercial-real-estate/building/CA/berkeley/2040-bancroft-way/",
+                  "role": "downtown_class_a_office",
                   "confidence": "district_inferred"
                 }
               ]
@@ -566,9 +566,9 @@
             "districtCount": 7,
             "secondaryDistrictCount": 5,
             "recommendationNodeCount": 7,
-            "representativeBuildingCount": 12,
-            "buildingBriefCount": 0,
-            "status": "Partial",
+            "representativeBuildingCount": 14,
+            "buildingBriefCount": 2,
+            "status": "Developed",
             "districts": [
               {
                 "slug": "downtown-palo-alto",
@@ -636,56 +636,73 @@
               "ecosystemId": "retail",
               "state": "partial",
               "stateLabel": "Partial",
-              "buildingCount": 12,
-              "explicitCount": 0,
+              "buildingCount": 14,
+              "explicitCount": 2,
               "inheritedOnlyCount": 12,
               "reviewRequiredCount": 3,
               "rolesCovered": {
-                "neighborhood_service_retail": 7,
+                "neighborhood_service_retail": 8,
+                "destination_retail_environment": 1,
                 "showroom_retail_environment": 5
               },
               "subtypesCovered": {
-                "neighborhood_retail": 7,
+                "neighborhood_retail": 9,
+                "service_retail": 2,
+                "lifestyle_retail": 1,
                 "showroom_retail": 5
               },
               "activityCoverage": {
-                "walk_in_service": 12,
-                "walk_in_retail": 7,
-                "customer_showroom": 12,
+                "walk_in_retail": 9,
+                "walk_in_service": 14,
+                "customer_showroom": 14,
+                "food_preparation": 1,
                 "collaboration": 5,
                 "knowledge_work": 9
               },
               "archetypeCoverage": {
-                "wellness_practice": 12,
-                "marketing_agency": 12,
-                "food_producer": 12,
-                "training_center": 12,
+                "wellness_practice": 14,
+                "marketing_agency": 14,
+                "food_producer": 14,
+                "training_center": 14,
                 "creative_studio": 9,
                 "professional_office": 9
               },
               "operationalCharacteristicsCovered": {
-                "street_visibility": 12,
-                "walk_in_customer_access": 7,
-                "customer_parking": 7,
-                "showroom_frontage": 5,
-                "destination_customer_access": 5
+                "street_visibility": 14,
+                "walk_in_customer_access": 8,
+                "limited_parking": 1,
+                "retail_adjacent": 2,
+                "customer_parking": 9,
+                "destination_customer_access": 6,
+                "signage_opportunity": 1,
+                "showroom_frontage": 5
               },
               "operationalCategoriesCovered": {
-                "market_presence": 29,
-                "parking_vehicles": 7
+                "market_presence": 36,
+                "parking_vehicles": 10
               },
-              "missingRoles": [
-                "destination_retail_environment"
-              ],
+              "missingRoles": [],
               "missingOperationalCategories": [
                 "access_loading",
                 "configuration",
                 "infrastructure",
                 "location_workforce"
               ],
-              "highestPriorityMissingRole": "destination_retail_environment",
+              "highestPriorityMissingRole": "",
               "highestPriorityMissingOperationalCategory": "access_loading",
               "exampleBuildings": [
+                {
+                  "name": "1936 University Ave",
+                  "path": "/commercial-real-estate/building/CA/berkeley/1936-university-ave/",
+                  "role": "neighborhood_service_retail",
+                  "confidence": "editorially_supported"
+                },
+                {
+                  "name": "160 Franklin St",
+                  "path": "/commercial-real-estate/building/CA/oakland/160-franklin-st/",
+                  "role": "destination_retail_environment",
+                  "confidence": "editorially_supported"
+                },
                 {
                   "name": "101 Lytton Ave",
                   "path": "/commercial-real-estate/building/CA/palo-alto/101-lytton-ave/",
@@ -708,18 +725,6 @@
                   "name": "One Henry Adams",
                   "path": "/commercial-real-estate/building/CA/san-francisco/1-henry-adams-st/",
                   "role": "showroom_retail_environment",
-                  "confidence": "district_inferred"
-                },
-                {
-                  "name": "San Francisco Design Center - Galleria",
-                  "path": "/commercial-real-estate/building/CA/san-francisco/101-henry-adams-st/",
-                  "role": "showroom_retail_environment",
-                  "confidence": "district_inferred"
-                },
-                {
-                  "name": "San Francisco Armory",
-                  "path": "/commercial-real-estate/building/CA/san-francisco/1800-mission-st/",
-                  "role": "neighborhood_service_retail",
                   "confidence": "district_inferred"
                 }
               ]
@@ -1074,8 +1079,8 @@
         ],
         "summary": {
           "ecosystemCount": 7,
-          "developedCount": 3,
-          "partialCount": 2,
+          "developedCount": 4,
+          "partialCount": 1,
           "thinCount": 0,
           "missingCount": 2,
           "reviewRequiredDistrictCount": 0
@@ -1102,8 +1107,8 @@
         "state": "partial",
         "label": "Partial",
         "rationale": [
-          "Office, Industrial & Flex coverage is strong or developed.",
-          "Retail is Partial; Medical is Partial; Life Science is Partial."
+          "Office, Industrial & Flex, Retail coverage is strong or developed.",
+          "Medical is Partial; Life Science is Partial."
         ],
         "passed": false,
         "relevantEcosystems": [
@@ -1138,8 +1143,8 @@
               "districts": 7,
               "secondaryDistricts": 14,
               "recommendations": 7,
-              "representativeBuildings": 80,
-              "buildingBriefs": 38,
+              "representativeBuildings": 78,
+              "buildingBriefs": 36,
               "subtypes": 10,
               "archetypes": 10,
               "activities": 7,
@@ -1155,7 +1160,7 @@
             "strategicPriority": 2,
             "evidence": [
               "7 primary districts and 14 secondary districts.",
-              "80 Representative Buildings and 38 Building Briefs.",
+              "78 Representative Buildings and 36 Building Briefs.",
               "7 representative roles and 5 operational categories are covered."
             ],
             "targetSubtypes": [
@@ -1183,15 +1188,15 @@
               "ecosystemId": "office",
               "state": "strong",
               "stateLabel": "Strong",
-              "buildingCount": 80,
+              "buildingCount": 78,
               "explicitCount": 4,
               "inheritedOnlyCount": 65,
               "reviewRequiredCount": 0,
               "rolesCovered": [
                 "suburban_office_campus",
                 "transit_oriented_office_environment",
-                "downtown_class_a_office",
                 "professional_office_environment",
+                "downtown_class_a_office",
                 "government_office_environment",
                 "creative_office_environment",
                 "executive_office_environment"
@@ -1289,15 +1294,15 @@
                   "confidence": "editorially_supported"
                 },
                 {
-                  "name": "1936 University Ave",
-                  "path": "/commercial-real-estate/building/CA/berkeley/1936-university-ave/",
-                  "role": "downtown_class_a_office",
-                  "confidence": "district_inferred"
-                },
-                {
                   "name": "2030 Addison St",
                   "path": "/commercial-real-estate/building/CA/berkeley/2030-addison-st/",
                   "role": "professional_office_environment",
+                  "confidence": "district_inferred"
+                },
+                {
+                  "name": "2040 Bancroft Way",
+                  "path": "/commercial-real-estate/building/CA/berkeley/2040-bancroft-way/",
+                  "role": "downtown_class_a_office",
                   "confidence": "district_inferred"
                 }
               ]
@@ -1530,13 +1535,13 @@
             "label": "Retail",
             "relevance": "important",
             "relevanceLabel": "Important",
-            "readinessState": "partial",
-            "readinessLabel": "Partial",
+            "readinessState": "strong",
+            "readinessLabel": "Strong",
             "layers": {
               "districts": "developed",
               "recommendations": "developed",
               "representativeBuildings": "developed",
-              "buildingBriefs": "missing",
+              "buildingBriefs": "developed",
               "subtypes": "developed",
               "archetypes": "strong",
               "activities": "developed",
@@ -1546,27 +1551,25 @@
               "districts": 7,
               "secondaryDistricts": 5,
               "recommendations": 7,
-              "representativeBuildings": 12,
-              "buildingBriefs": 0,
+              "representativeBuildings": 14,
+              "buildingBriefs": 2,
               "subtypes": 4,
               "archetypes": 4,
               "activities": 5,
               "reviewRequiredDistricts": 0,
-              "representativeRoles": 2,
+              "representativeRoles": 3,
               "operationalCategories": 2,
-              "operationalCharacteristics": 5,
+              "operationalCharacteristics": 8,
               "reviewRequiredRepresentativeBuildings": 3
             },
-            "gaps": [
-              "Building Brief coverage is missing for this ecosystem."
-            ],
+            "gaps": [],
             "blocking": false,
             "blockingCodes": [],
             "strategicPriority": 5,
             "evidence": [
               "7 primary districts and 5 secondary districts.",
-              "12 Representative Buildings and 0 Building Briefs.",
-              "2 representative roles and 2 operational categories are covered."
+              "14 Representative Buildings and 2 Building Briefs.",
+              "3 representative roles and 2 operational categories are covered."
             ],
             "targetSubtypes": [
               "neighborhood_retail",
@@ -1591,22 +1594,26 @@
               "ecosystemId": "retail",
               "state": "partial",
               "stateLabel": "Partial",
-              "buildingCount": 12,
-              "explicitCount": 0,
+              "buildingCount": 14,
+              "explicitCount": 2,
               "inheritedOnlyCount": 12,
               "reviewRequiredCount": 3,
               "rolesCovered": [
                 "neighborhood_service_retail",
+                "destination_retail_environment",
                 "showroom_retail_environment"
               ],
               "subtypesCovered": [
                 "neighborhood_retail",
+                "service_retail",
+                "lifestyle_retail",
                 "showroom_retail"
               ],
               "activityCoverage": [
-                "walk_in_service",
                 "walk_in_retail",
+                "walk_in_service",
                 "customer_showroom",
+                "food_preparation",
                 "collaboration",
                 "knowledge_work"
               ],
@@ -1621,26 +1628,39 @@
               "operationalCharacteristicsCovered": [
                 "street_visibility",
                 "walk_in_customer_access",
+                "limited_parking",
+                "retail_adjacent",
                 "customer_parking",
-                "showroom_frontage",
-                "destination_customer_access"
+                "destination_customer_access",
+                "signage_opportunity",
+                "showroom_frontage"
               ],
               "operationalCategoriesCovered": [
                 "market_presence",
                 "parking_vehicles"
               ],
-              "missingRoles": [
-                "destination_retail_environment"
-              ],
+              "missingRoles": [],
               "missingOperationalCategories": [
                 "access_loading",
                 "configuration",
                 "infrastructure",
                 "location_workforce"
               ],
-              "highestPriorityMissingRole": "destination_retail_environment",
+              "highestPriorityMissingRole": "",
               "highestPriorityMissingOperationalCategory": "access_loading",
               "exampleBuildings": [
+                {
+                  "name": "1936 University Ave",
+                  "path": "/commercial-real-estate/building/CA/berkeley/1936-university-ave/",
+                  "role": "neighborhood_service_retail",
+                  "confidence": "editorially_supported"
+                },
+                {
+                  "name": "160 Franklin St",
+                  "path": "/commercial-real-estate/building/CA/oakland/160-franklin-st/",
+                  "role": "destination_retail_environment",
+                  "confidence": "editorially_supported"
+                },
                 {
                   "name": "101 Lytton Ave",
                   "path": "/commercial-real-estate/building/CA/palo-alto/101-lytton-ave/",
@@ -1663,18 +1683,6 @@
                   "name": "One Henry Adams",
                   "path": "/commercial-real-estate/building/CA/san-francisco/1-henry-adams-st/",
                   "role": "showroom_retail_environment",
-                  "confidence": "district_inferred"
-                },
-                {
-                  "name": "San Francisco Design Center - Galleria",
-                  "path": "/commercial-real-estate/building/CA/san-francisco/101-henry-adams-st/",
-                  "role": "showroom_retail_environment",
-                  "confidence": "district_inferred"
-                },
-                {
-                  "name": "San Francisco Armory",
-                  "path": "/commercial-real-estate/building/CA/san-francisco/1800-mission-st/",
-                  "role": "neighborhood_service_retail",
                   "confidence": "district_inferred"
                 }
               ]
@@ -2147,84 +2155,6 @@
         ],
         "gaps": [
           {
-            "id": "ecosystem:retail:ecosystem_building_brief_gap",
-            "code": "ecosystem_building_brief_gap",
-            "label": "Ecosystem Building Brief Gap",
-            "severity": "medium",
-            "layer": "buildingBriefs",
-            "ecosystemId": "retail",
-            "ecosystemLabel": "Retail",
-            "relevance": "important",
-            "readinessState": "partial",
-            "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
-            "evidence": [
-              "7 primary districts and 5 secondary districts.",
-              "12 Representative Buildings and 0 Building Briefs.",
-              "2 representative roles and 2 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem Building Brief Migration",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:retail:representative_role_thin",
-            "code": "representative_role_thin",
-            "label": "Representative Role Thin",
-            "severity": "low",
-            "layer": "representativeBuildingIntelligence",
-            "ecosystemId": "retail",
-            "ecosystemLabel": "Retail",
-            "relevance": "important",
-            "readinessState": "partial",
-            "rationale": "Representative role coverage is too narrow for this ecosystem.",
-            "evidence": [
-              "7 primary districts and 5 secondary districts.",
-              "12 Representative Buildings and 0 Building Briefs.",
-              "2 representative roles and 2 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:retail:operational_category_gap",
-            "code": "operational_category_gap",
-            "label": "Operational Category Gap",
-            "severity": "low",
-            "layer": "representativeBuildingIntelligence",
-            "ecosystemId": "retail",
-            "ecosystemLabel": "Retail",
-            "relevance": "important",
-            "readinessState": "partial",
-            "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
-            "evidence": [
-              "7 primary districts and 5 secondary districts.",
-              "12 Representative Buildings and 0 Building Briefs.",
-              "2 representative roles and 2 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
             "id": "ecosystem:medical:ecosystem_subtype_gap",
             "code": "ecosystem_subtype_gap",
             "label": "Ecosystem Subtype Gap",
@@ -2579,7 +2509,7 @@
           "state": "balanced",
           "label": "Balanced",
           "dominantEcosystem": "industrial_flex",
-          "representativeBuildingShare": 0.51,
+          "representativeBuildingShare": 0.5,
           "buildingBriefShare": 0.5,
           "warnings": []
         }
@@ -2588,7 +2518,7 @@
         "state": "balanced",
         "label": "Balanced",
         "dominantEcosystem": "industrial_flex",
-        "representativeBuildingShare": 0.51,
+        "representativeBuildingShare": 0.5,
         "buildingBriefShare": 0.5,
         "warnings": []
       },
@@ -2609,32 +2539,6 @@
             "0 Representative Buildings and 0 Building Briefs."
           ],
           "recommendedSprintFamily": "Ecosystem Subtype Expansion",
-          "completionCriteria": [
-            "Validated district ecosystem classification",
-            "Representative Building coverage across the most important subtypes",
-            "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-            "Building Brief migration only after canonical records and district association exist",
-            "Publisher ecosystem QA passes without hard errors"
-          ],
-          "blocksEcosystemReadiness": false
-        },
-        {
-          "id": "ecosystem:retail:ecosystem_building_brief_gap",
-          "code": "ecosystem_building_brief_gap",
-          "label": "Ecosystem Building Brief Gap",
-          "severity": "medium",
-          "layer": "buildingBriefs",
-          "ecosystemId": "retail",
-          "ecosystemLabel": "Retail",
-          "relevance": "important",
-          "readinessState": "partial",
-          "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
-          "evidence": [
-            "7 primary districts and 5 secondary districts.",
-            "12 Representative Buildings and 0 Building Briefs.",
-            "2 representative roles and 2 operational categories are covered."
-          ],
-          "recommendedSprintFamily": "Ecosystem Building Brief Migration",
           "completionCriteria": [
             "Validated district ecosystem classification",
             "Representative Building coverage across the most important subtypes",
@@ -2833,58 +2737,6 @@
           "evidence": [
             "0 primary districts and 1 secondary districts.",
             "0 Representative Buildings and 0 Building Briefs."
-          ],
-          "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-          "completionCriteria": [
-            "Validated district ecosystem classification",
-            "Representative Building coverage across the most important subtypes",
-            "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-            "Building Brief migration only after canonical records and district association exist",
-            "Publisher ecosystem QA passes without hard errors"
-          ],
-          "blocksEcosystemReadiness": false
-        },
-        {
-          "id": "ecosystem:retail:operational_category_gap",
-          "code": "operational_category_gap",
-          "label": "Operational Category Gap",
-          "severity": "low",
-          "layer": "representativeBuildingIntelligence",
-          "ecosystemId": "retail",
-          "ecosystemLabel": "Retail",
-          "relevance": "important",
-          "readinessState": "partial",
-          "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
-          "evidence": [
-            "7 primary districts and 5 secondary districts.",
-            "12 Representative Buildings and 0 Building Briefs.",
-            "2 representative roles and 2 operational categories are covered."
-          ],
-          "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-          "completionCriteria": [
-            "Validated district ecosystem classification",
-            "Representative Building coverage across the most important subtypes",
-            "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-            "Building Brief migration only after canonical records and district association exist",
-            "Publisher ecosystem QA passes without hard errors"
-          ],
-          "blocksEcosystemReadiness": false
-        },
-        {
-          "id": "ecosystem:retail:representative_role_thin",
-          "code": "representative_role_thin",
-          "label": "Representative Role Thin",
-          "severity": "low",
-          "layer": "representativeBuildingIntelligence",
-          "ecosystemId": "retail",
-          "ecosystemLabel": "Retail",
-          "relevance": "important",
-          "readinessState": "partial",
-          "rationale": "Representative role coverage is too narrow for this ecosystem.",
-          "evidence": [
-            "7 primary districts and 5 secondary districts.",
-            "12 Representative Buildings and 0 Building Briefs.",
-            "2 representative roles and 2 operational categories are covered."
           ],
           "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
           "completionCriteria": [
@@ -14588,7 +14440,7 @@
     {
       "metroId": "east-bay",
       "metroName": "East Bay",
-      "generatedAt": "2026-08-11T16:12:18-07:00",
+      "generatedAt": "2026-08-11T17:37:16-07:00",
       "currentState": {
         "readinessStatus": "Editorially Developed",
         "overallScore": 74,
@@ -14636,9 +14488,9 @@
         },
         "ecosystems": {
           "count": 7,
-          "developed": 2,
+          "developed": 3,
           "partial": 1,
-          "thin": 1,
+          "thin": 0,
           "missing": 3,
           "reviewRequired": 0,
           "note": "Ecosystem coverage is reported for planning context and does not change Publisher readiness scoring in v1."
@@ -14652,8 +14504,8 @@
             "districtCount": 1,
             "secondaryDistrictCount": 3,
             "recommendationNodeCount": 1,
-            "representativeBuildingCount": 15,
-            "buildingBriefCount": 13,
+            "representativeBuildingCount": 13,
+            "buildingBriefCount": 11,
             "status": "Developed",
             "districts": [
               {
@@ -14699,61 +14551,61 @@
               "ecosystemId": "office",
               "state": "strong",
               "stateLabel": "Strong",
-              "buildingCount": 15,
+              "buildingCount": 13,
               "explicitCount": 4,
               "inheritedOnlyCount": 0,
               "reviewRequiredCount": 0,
               "rolesCovered": {
                 "suburban_office_campus": 2,
                 "transit_oriented_office_environment": 2,
-                "downtown_class_a_office": 5,
-                "professional_office_environment": 4,
+                "professional_office_environment": 3,
+                "downtown_class_a_office": 4,
                 "government_office_environment": 1,
                 "creative_office_environment": 1
               },
               "subtypesCovered": {
                 "suburban_office": 2,
                 "office_campus": 2,
-                "professional_office": 15,
+                "professional_office": 13,
                 "downtown_office": 3,
                 "creative_office": 1
               },
               "activityCoverage": {
-                "knowledge_work": 15,
+                "knowledge_work": 13,
                 "collaboration": 3,
-                "administrative_operations": 14,
+                "administrative_operations": 12,
                 "research": 2,
                 "product_development": 3,
-                "client_meetings": 12,
-                "walk_in_retail": 13,
-                "walk_in_service": 13,
-                "customer_showroom": 13
+                "client_meetings": 10,
+                "walk_in_retail": 11,
+                "walk_in_service": 11,
+                "customer_showroom": 11
               },
               "archetypeCoverage": {
-                "professional_office": 15,
-                "consulting_firm": 15,
+                "professional_office": 13,
+                "consulting_firm": 13,
                 "startup": 2,
                 "research_company": 2,
                 "biotech_company": 2,
-                "law_firm": 15,
-                "accounting_firm": 15,
-                "financial_services_firm": 15,
+                "law_firm": 13,
+                "accounting_firm": 13,
+                "financial_services_firm": 13,
                 "nonprofit_office": 2,
-                "wellness_practice": 13,
-                "marketing_agency": 13,
-                "creative_studio": 11
+                "wellness_practice": 11,
+                "marketing_agency": 11,
+                "creative_studio": 9
               },
               "operationalCharacteristicsCovered": {
                 "campus_environment": 2,
                 "surface_parking": 2,
                 "suburban_access": 2,
-                "large_floorplates": 6,
-                "professional_image": 14,
-                "transit_access": 7,
+                "large_floorplates": 5,
+                "professional_image": 12,
+                "transit_access": 6,
                 "walkability": 3,
-                "structured_parking": 7,
-                "private_office_layout": 4,
-                "customer_parking": 4,
+                "structured_parking": 6,
+                "private_office_layout": 3,
+                "customer_parking": 3,
                 "urban_core_access": 1,
                 "enhanced_security": 1,
                 "creative_environment": 1,
@@ -14761,10 +14613,10 @@
                 "flexible_suite_sizes": 1
               },
               "operationalCategoriesCovered": {
-                "market_presence": 17,
-                "parking_vehicles": 13,
-                "location_workforce": 13,
-                "configuration": 12,
+                "market_presence": 15,
+                "parking_vehicles": 11,
+                "location_workforce": 12,
+                "configuration": 10,
                 "infrastructure": 1
               },
               "missingRoles": [],
@@ -14797,15 +14649,15 @@
                   "confidence": "editorially_supported"
                 },
                 {
-                  "name": "1936 University Ave",
-                  "path": "/commercial-real-estate/building/CA/berkeley/1936-university-ave/",
-                  "role": "downtown_class_a_office",
-                  "confidence": "district_inferred"
-                },
-                {
                   "name": "2030 Addison St",
                   "path": "/commercial-real-estate/building/CA/berkeley/2030-addison-st/",
                   "role": "professional_office_environment",
+                  "confidence": "district_inferred"
+                },
+                {
+                  "name": "2040 Bancroft Way",
+                  "path": "/commercial-real-estate/building/CA/berkeley/2040-bancroft-way/",
+                  "role": "downtown_class_a_office",
                   "confidence": "district_inferred"
                 }
               ]
@@ -15029,9 +14881,9 @@
             "districtCount": 2,
             "secondaryDistrictCount": 0,
             "recommendationNodeCount": 2,
-            "representativeBuildingCount": 0,
-            "buildingBriefCount": 0,
-            "status": "Thin",
+            "representativeBuildingCount": 2,
+            "buildingBriefCount": 2,
+            "status": "Developed",
             "districts": [
               {
                 "slug": "downtown-berkeley",
@@ -15066,29 +14918,66 @@
             ],
             "representativeBuildingIntelligence": {
               "ecosystemId": "retail",
-              "state": "missing",
-              "stateLabel": "Missing",
-              "buildingCount": 0,
-              "explicitCount": 0,
+              "state": "partial",
+              "stateLabel": "Partial",
+              "buildingCount": 2,
+              "explicitCount": 2,
               "inheritedOnlyCount": 0,
               "reviewRequiredCount": 0,
-              "rolesCovered": {},
-              "subtypesCovered": {},
-              "activityCoverage": {},
-              "archetypeCoverage": {},
-              "operationalCharacteristicsCovered": {},
-              "operationalCategoriesCovered": {},
-              "missingRoles": [
-                "neighborhood_service_retail"
-              ],
+              "rolesCovered": {
+                "neighborhood_service_retail": 1,
+                "destination_retail_environment": 1
+              },
+              "subtypesCovered": {
+                "neighborhood_retail": 2,
+                "service_retail": 2,
+                "lifestyle_retail": 1
+              },
+              "activityCoverage": {
+                "walk_in_retail": 2,
+                "walk_in_service": 2,
+                "customer_showroom": 2,
+                "food_preparation": 1
+              },
+              "archetypeCoverage": {
+                "wellness_practice": 2,
+                "marketing_agency": 2,
+                "food_producer": 2,
+                "training_center": 2
+              },
+              "operationalCharacteristicsCovered": {
+                "street_visibility": 2,
+                "walk_in_customer_access": 1,
+                "limited_parking": 1,
+                "retail_adjacent": 2,
+                "customer_parking": 2,
+                "destination_customer_access": 1,
+                "signage_opportunity": 1
+              },
+              "operationalCategoriesCovered": {
+                "market_presence": 7,
+                "parking_vehicles": 3
+              },
+              "missingRoles": [],
               "missingOperationalCategories": [
-                "market_presence",
-                "configuration",
-                "parking_vehicles"
+                "configuration"
               ],
-              "highestPriorityMissingRole": "neighborhood_service_retail",
-              "highestPriorityMissingOperationalCategory": "market_presence",
-              "exampleBuildings": []
+              "highestPriorityMissingRole": "",
+              "highestPriorityMissingOperationalCategory": "configuration",
+              "exampleBuildings": [
+                {
+                  "name": "1936 University Ave",
+                  "path": "/commercial-real-estate/building/CA/berkeley/1936-university-ave/",
+                  "role": "neighborhood_service_retail",
+                  "confidence": "editorially_supported"
+                },
+                {
+                  "name": "160 Franklin St",
+                  "path": "/commercial-real-estate/building/CA/oakland/160-franklin-st/",
+                  "role": "destination_retail_environment",
+                  "confidence": "editorially_supported"
+                }
+              ]
             }
           },
           "medical": {
@@ -15351,13 +15240,6 @@
         "reviewRequiredDistricts": [],
         "underrepresentedEcosystems": [
           {
-            "id": "retail",
-            "label": "Retail",
-            "status": "Thin",
-            "districtCount": 2,
-            "representativeBuildingCount": 0
-          },
-          {
             "id": "medical",
             "label": "Medical",
             "status": "Missing",
@@ -15381,9 +15263,9 @@
         ],
         "summary": {
           "ecosystemCount": 7,
-          "developedCount": 2,
+          "developedCount": 3,
           "partialCount": 1,
-          "thinCount": 1,
+          "thinCount": 0,
           "missingCount": 3,
           "reviewRequiredDistrictCount": 0
         }
@@ -15411,7 +15293,7 @@
         "label": "Partial",
         "rationale": [
           "Industrial & Flex coverage is strong or developed.",
-          "Office is Partial; Retail is Thin; Life Science is Partial.",
+          "Office is Partial; Retail is Partial; Life Science is Partial.",
           "Representative Building coverage is concentrated in Industrial & Flex."
         ],
         "passed": false,
@@ -15424,9 +15306,7 @@
           "hospitality",
           "special_purpose"
         ],
-        "blockingEcosystems": [
-          "retail"
-        ],
+        "blockingEcosystems": [],
         "evaluations": [
           {
             "ecosystemId": "office",
@@ -15449,8 +15329,8 @@
               "districts": 1,
               "secondaryDistricts": 3,
               "recommendations": 1,
-              "representativeBuildings": 15,
-              "buildingBriefs": 13,
+              "representativeBuildings": 13,
+              "buildingBriefs": 11,
               "subtypes": 8,
               "archetypes": 7,
               "activities": 5,
@@ -15466,7 +15346,7 @@
             "strategicPriority": 2,
             "evidence": [
               "1 primary districts and 3 secondary districts.",
-              "15 Representative Buildings and 13 Building Briefs.",
+              "13 Representative Buildings and 11 Building Briefs.",
               "6 representative roles and 5 operational categories are covered."
             ],
             "targetSubtypes": [
@@ -15494,15 +15374,15 @@
               "ecosystemId": "office",
               "state": "strong",
               "stateLabel": "Strong",
-              "buildingCount": 15,
+              "buildingCount": 13,
               "explicitCount": 4,
               "inheritedOnlyCount": 0,
               "reviewRequiredCount": 0,
               "rolesCovered": [
                 "suburban_office_campus",
                 "transit_oriented_office_environment",
-                "downtown_class_a_office",
                 "professional_office_environment",
+                "downtown_class_a_office",
                 "government_office_environment",
                 "creative_office_environment"
               ],
@@ -15592,15 +15472,15 @@
                   "confidence": "editorially_supported"
                 },
                 {
-                  "name": "1936 University Ave",
-                  "path": "/commercial-real-estate/building/CA/berkeley/1936-university-ave/",
-                  "role": "downtown_class_a_office",
-                  "confidence": "district_inferred"
-                },
-                {
                   "name": "2030 Addison St",
                   "path": "/commercial-real-estate/building/CA/berkeley/2030-addison-st/",
                   "role": "professional_office_environment",
+                  "confidence": "district_inferred"
+                },
+                {
+                  "name": "2040 Bancroft Way",
+                  "path": "/commercial-real-estate/building/CA/berkeley/2040-bancroft-way/",
+                  "role": "downtown_class_a_office",
                   "confidence": "district_inferred"
                 }
               ]
@@ -15826,13 +15706,13 @@
             "label": "Retail",
             "relevance": "important",
             "relevanceLabel": "Important",
-            "readinessState": "thin",
-            "readinessLabel": "Thin",
+            "readinessState": "partial",
+            "readinessLabel": "Partial",
             "layers": {
               "districts": "developed",
               "recommendations": "developed",
-              "representativeBuildings": "missing",
-              "buildingBriefs": "missing",
+              "representativeBuildings": "strong",
+              "buildingBriefs": "developed",
               "subtypes": "developed",
               "archetypes": "partial",
               "activities": "strong",
@@ -15842,26 +15722,25 @@
               "districts": 2,
               "secondaryDistricts": 0,
               "recommendations": 2,
-              "representativeBuildings": 0,
-              "buildingBriefs": 0,
+              "representativeBuildings": 2,
+              "buildingBriefs": 2,
               "subtypes": 2,
               "archetypes": 2,
               "activities": 3,
               "reviewRequiredDistricts": 0,
-              "representativeRoles": 0,
-              "operationalCategories": 0,
-              "operationalCharacteristics": 0,
+              "representativeRoles": 2,
+              "operationalCategories": 2,
+              "operationalCharacteristics": 7,
               "reviewRequiredRepresentativeBuildings": 0
             },
-            "gaps": [
-              "Representative Building coverage is missing for this ecosystem."
-            ],
+            "gaps": [],
             "blocking": false,
             "blockingCodes": [],
             "strategicPriority": 5,
             "evidence": [
               "2 primary districts and 0 secondary districts.",
-              "0 Representative Buildings and 0 Building Briefs."
+              "2 Representative Buildings and 2 Building Briefs.",
+              "2 representative roles and 2 operational categories are covered."
             ],
             "targetSubtypes": [
               "neighborhood_retail",
@@ -15884,29 +15763,66 @@
             ],
             "representativeBuildingIntelligence": {
               "ecosystemId": "retail",
-              "state": "missing",
-              "stateLabel": "Missing",
-              "buildingCount": 0,
-              "explicitCount": 0,
+              "state": "partial",
+              "stateLabel": "Partial",
+              "buildingCount": 2,
+              "explicitCount": 2,
               "inheritedOnlyCount": 0,
               "reviewRequiredCount": 0,
-              "rolesCovered": [],
-              "subtypesCovered": [],
-              "activityCoverage": [],
-              "archetypeCoverage": [],
-              "operationalCharacteristicsCovered": [],
-              "operationalCategoriesCovered": [],
-              "missingRoles": [
-                "neighborhood_service_retail"
+              "rolesCovered": [
+                "neighborhood_service_retail",
+                "destination_retail_environment"
               ],
-              "missingOperationalCategories": [
+              "subtypesCovered": [
+                "neighborhood_retail",
+                "service_retail",
+                "lifestyle_retail"
+              ],
+              "activityCoverage": [
+                "walk_in_retail",
+                "walk_in_service",
+                "customer_showroom",
+                "food_preparation"
+              ],
+              "archetypeCoverage": [
+                "wellness_practice",
+                "marketing_agency",
+                "food_producer",
+                "training_center"
+              ],
+              "operationalCharacteristicsCovered": [
+                "street_visibility",
+                "walk_in_customer_access",
+                "limited_parking",
+                "retail_adjacent",
+                "customer_parking",
+                "destination_customer_access",
+                "signage_opportunity"
+              ],
+              "operationalCategoriesCovered": [
                 "market_presence",
-                "configuration",
                 "parking_vehicles"
               ],
-              "highestPriorityMissingRole": "neighborhood_service_retail",
-              "highestPriorityMissingOperationalCategory": "market_presence",
-              "exampleBuildings": []
+              "missingRoles": [],
+              "missingOperationalCategories": [
+                "configuration"
+              ],
+              "highestPriorityMissingRole": "",
+              "highestPriorityMissingOperationalCategory": "configuration",
+              "exampleBuildings": [
+                {
+                  "name": "1936 University Ave",
+                  "path": "/commercial-real-estate/building/CA/berkeley/1936-university-ave/",
+                  "role": "neighborhood_service_retail",
+                  "confidence": "editorially_supported"
+                },
+                {
+                  "name": "160 Franklin St",
+                  "path": "/commercial-real-estate/building/CA/oakland/160-franklin-st/",
+                  "role": "destination_retail_environment",
+                  "confidence": "editorially_supported"
+                }
+              ]
             },
             "completionCriteria": [
               "Validated district ecosystem classification",
@@ -16315,69 +16231,20 @@
         ],
         "gaps": [
           {
-            "id": "ecosystem:retail:ecosystem_thin",
-            "code": "ecosystem_thin",
-            "label": "Ecosystem Thin",
-            "severity": "medium",
-            "layer": "representativeBuildings",
-            "ecosystemId": "retail",
-            "ecosystemLabel": "Retail",
-            "relevance": "important",
-            "readinessState": "thin",
-            "rationale": "Relevant ecosystem has district coverage but lacks enough representative-building or layer depth.",
-            "evidence": [
-              "2 primary districts and 0 secondary districts.",
-              "0 Representative Buildings and 0 Building Briefs."
-            ],
-            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:retail:ecosystem_representative_building_gap",
-            "code": "ecosystem_representative_building_gap",
-            "label": "Ecosystem Representative Building Gap",
-            "severity": "medium",
-            "layer": "representativeBuildings",
-            "ecosystemId": "retail",
-            "ecosystemLabel": "Retail",
-            "relevance": "important",
-            "readinessState": "thin",
-            "rationale": "District foundation exists, but Representative Buildings are missing.",
-            "evidence": [
-              "2 primary districts and 0 secondary districts.",
-              "0 Representative Buildings and 0 Building Briefs."
-            ],
-            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:retail:representative_role_thin",
-            "code": "representative_role_thin",
-            "label": "Representative Role Thin",
+            "id": "ecosystem:retail:operational_category_gap",
+            "code": "operational_category_gap",
+            "label": "Operational Category Gap",
             "severity": "low",
             "layer": "representativeBuildingIntelligence",
             "ecosystemId": "retail",
             "ecosystemLabel": "Retail",
             "relevance": "important",
-            "readinessState": "thin",
-            "rationale": "Representative role coverage is too narrow for this ecosystem.",
+            "readinessState": "partial",
+            "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
             "evidence": [
               "2 primary districts and 0 secondary districts.",
-              "0 Representative Buildings and 0 Building Briefs."
+              "2 Representative Buildings and 2 Building Briefs.",
+              "2 representative roles and 2 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
             "completionCriteria": [
@@ -16813,56 +16680,6 @@
       },
       "ecosystemGaps": [
         {
-          "id": "ecosystem:retail:ecosystem_representative_building_gap",
-          "code": "ecosystem_representative_building_gap",
-          "label": "Ecosystem Representative Building Gap",
-          "severity": "medium",
-          "layer": "representativeBuildings",
-          "ecosystemId": "retail",
-          "ecosystemLabel": "Retail",
-          "relevance": "important",
-          "readinessState": "thin",
-          "rationale": "District foundation exists, but Representative Buildings are missing.",
-          "evidence": [
-            "2 primary districts and 0 secondary districts.",
-            "0 Representative Buildings and 0 Building Briefs."
-          ],
-          "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-          "completionCriteria": [
-            "Validated district ecosystem classification",
-            "Representative Building coverage across the most important subtypes",
-            "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-            "Building Brief migration only after canonical records and district association exist",
-            "Publisher ecosystem QA passes without hard errors"
-          ],
-          "blocksEcosystemReadiness": false
-        },
-        {
-          "id": "ecosystem:retail:ecosystem_thin",
-          "code": "ecosystem_thin",
-          "label": "Ecosystem Thin",
-          "severity": "medium",
-          "layer": "representativeBuildings",
-          "ecosystemId": "retail",
-          "ecosystemLabel": "Retail",
-          "relevance": "important",
-          "readinessState": "thin",
-          "rationale": "Relevant ecosystem has district coverage but lacks enough representative-building or layer depth.",
-          "evidence": [
-            "2 primary districts and 0 secondary districts.",
-            "0 Representative Buildings and 0 Building Briefs."
-          ],
-          "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-          "completionCriteria": [
-            "Validated district ecosystem classification",
-            "Representative Building coverage across the most important subtypes",
-            "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-            "Building Brief migration only after canonical records and district association exist",
-            "Publisher ecosystem QA passes without hard errors"
-          ],
-          "blocksEcosystemReadiness": false
-        },
-        {
           "id": "ecosystem:medical:ecosystem_missing",
           "code": "ecosystem_missing",
           "label": "Ecosystem Missing",
@@ -17063,19 +16880,20 @@
           "blocksEcosystemReadiness": false
         },
         {
-          "id": "ecosystem:retail:representative_role_thin",
-          "code": "representative_role_thin",
-          "label": "Representative Role Thin",
+          "id": "ecosystem:retail:operational_category_gap",
+          "code": "operational_category_gap",
+          "label": "Operational Category Gap",
           "severity": "low",
           "layer": "representativeBuildingIntelligence",
           "ecosystemId": "retail",
           "ecosystemLabel": "Retail",
           "relevance": "important",
-          "readinessState": "thin",
-          "rationale": "Representative role coverage is too narrow for this ecosystem.",
+          "readinessState": "partial",
+          "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
           "evidence": [
             "2 primary districts and 0 secondary districts.",
-            "0 Representative Buildings and 0 Building Briefs."
+            "2 Representative Buildings and 2 Building Briefs.",
+            "2 representative roles and 2 operational categories are covered."
           ],
           "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
           "completionCriteria": [
@@ -17289,37 +17107,37 @@
         }
       ],
       "recommendedEcosystemSprint": {
-        "title": "East Bay Retail Ecosystem Representative Building Foundation",
-        "objective": "Improve East Bay commercial balance by advancing Retail from Thin toward stronger ecosystem readiness.",
-        "ecosystemId": "retail",
-        "ecosystemLabel": "Retail",
-        "relevance": "important",
-        "relevanceLabel": "Important",
-        "readinessState": "thin",
-        "readinessLabel": "Thin",
-        "sprintFamily": "Ecosystem Representative Building Foundation",
-        "rationale": "Retail is Important for East Bay and is currently Thin. District foundation exists, but Representative Buildings are missing.",
-        "gapCode": "ecosystem_representative_building_gap",
-        "priorityScore": 72,
+        "title": "East Bay Medical Ecosystem District Foundation",
+        "objective": "Improve East Bay commercial balance by advancing Medical from Missing toward stronger ecosystem readiness.",
+        "ecosystemId": "medical",
+        "ecosystemLabel": "Medical",
+        "relevance": "secondary",
+        "relevanceLabel": "Secondary",
+        "readinessState": "missing",
+        "readinessLabel": "Missing",
+        "sprintFamily": "Ecosystem District Foundation",
+        "rationale": "Medical is Secondary for East Bay and is currently Missing. Relevant ecosystem has no meaningful district coverage.",
+        "gapCode": "ecosystem_missing",
+        "priorityScore": 66,
         "layers": {
-          "districts": "developed",
-          "recommendations": "developed",
+          "districts": "missing",
+          "recommendations": "missing",
           "representativeBuildings": "missing",
           "buildingBriefs": "missing",
-          "subtypes": "developed",
-          "archetypes": "partial",
-          "activities": "strong",
+          "subtypes": "missing",
+          "archetypes": "missing",
+          "activities": "missing",
           "editorialReview": "developed"
         },
         "counts": {
-          "districts": 2,
+          "districts": 0,
           "secondaryDistricts": 0,
-          "recommendations": 2,
+          "recommendations": 0,
           "representativeBuildings": 0,
           "buildingBriefs": 0,
-          "subtypes": 2,
-          "archetypes": 2,
-          "activities": 3,
+          "subtypes": 0,
+          "archetypes": 0,
+          "activities": 0,
           "reviewRequiredDistricts": 0,
           "representativeRoles": 0,
           "operationalCategories": 0,
@@ -17327,51 +17145,48 @@
           "reviewRequiredRepresentativeBuildings": 0
         },
         "gaps": [
-          "Representative Building coverage is missing for this ecosystem."
+          "No district coverage for this relevant ecosystem.",
+          "Subtype breadth is thin.",
+          "Business archetype coverage is thin.",
+          "Business activity coverage is thin."
         ],
         "targetSubtypes": [
-          "neighborhood_retail",
-          "downtown_retail",
-          "shopping_center",
-          "power_center",
-          "lifestyle_retail"
+          "medical_office",
+          "outpatient_clinic",
+          "dental",
+          "wellness",
+          "hospital_adjacent"
         ],
         "targetArchetypes": [
-          "marketing_agency",
+          "medical_practice",
+          "dental_practice",
+          "physical_therapy_practice",
           "wellness_practice",
-          "food_producer",
-          "training_center"
+          "outpatient_clinic"
         ],
         "targetActivities": [
-          "walk_in_retail",
+          "healthcare_delivery",
           "walk_in_service",
-          "customer_showroom",
-          "food_preparation"
+          "administrative_operations"
         ],
         "missingRepresentativeRoles": [
-          "neighborhood_service_retail"
+          "medical_office_environment",
+          "hospital_adjacent_medical_environment",
+          "outpatient_clinic_environment"
         ],
         "missingOperationalCategories": [
-          "market_presence",
+          "access_loading",
+          "parking_vehicles",
           "configuration",
-          "parking_vehicles"
+          "infrastructure",
+          "market_presence",
+          "location_workforce"
         ],
         "currentRepresentativeRoles": [],
         "currentOperationalCategories": [],
         "existingRepresentativeBuildings": [],
-        "districtCandidates": [
-          {
-            "slug": "downtown-berkeley",
-            "label": "Downtown Berkeley",
-            "path": "/commercial-real-estate/CA/berkeley/downtown-berkeley/"
-          },
-          {
-            "slug": "jack-london-square",
-            "label": "Jack London Square",
-            "path": "/commercial-real-estate/CA/oakland/jack-london-square/"
-          }
-        ],
-        "expectedBuildingRange": "8-15 source-supported representative buildings, selected for role and subtype breadth rather than raw count",
+        "districtCandidates": [],
+        "expectedBuildingRange": "use Publisher task scope",
         "dependencies": [
           "Ecosystem classification",
           "District foundation",
@@ -17394,7 +17209,7 @@
           "title": "East Bay Office Building Brief Migration",
           "whyNotFirst": "Office work remains useful, but the target ecosystem has a higher strategic gap based on current readiness."
         },
-        "codexPrompt": "Implement Publisher ecosystem sprint for East Bay: East Bay Retail Ecosystem Representative Building Foundation\n\nFramework:\n- Businesses search for places where their operations can succeed, not for property types.\n- Use the Commercial Ecosystem Framework and canonical taxonomy.\n- Do not change recommendation rankings, Search Profile questions, or public page design.\n\nTarget ecosystem: Retail (retail)\nMetro relevance: Important\nCurrent readiness: Thin\nSprint family: Ecosystem Representative Building Foundation\n\nCurrent layer coverage:\n- districts: developed\n- recommendations: developed\n- representativeBuildings: missing\n- buildingBriefs: missing\n- subtypes: developed\n- archetypes: partial\n- activities: strong\n- editorialReview: developed\n\nKnown gaps:\n- Representative Building coverage is missing for this ecosystem.\n\nTarget subtypes:\n- neighborhood_retail, downtown_retail, shopping_center, power_center, lifestyle_retail\nTarget archetypes:\n- marketing_agency, wellness_practice, food_producer, training_center\nTarget business activities:\n- walk_in_retail, walk_in_service, customer_showroom, food_preparation\nMissing representative roles:\n- neighborhood_service_retail\nMissing operational categories:\n- market_presence, configuration, parking_vehicles\nExisting representative buildings:\n- none\nDistrict candidates:\n- Downtown Berkeley, Jack London Square\n\nDependencies:\n- Ecosystem classification\n- District foundation\n- Recommendation foundation\n- Representative Building foundation\n- Building Brief migration after canonical records exist\n\nCompletion criteria:\n- Validated district ecosystem classification\n- Representative Building coverage across the most important subtypes\n- Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus\n- Building Brief migration only after canonical records and district association exist\n- Publisher ecosystem QA passes without hard errors\n- Every target representative role has at least one source-supported building or is explicitly marked research required\n- Target operational categories are represented without asserting unverified property features\n- Representative Building intelligence QA passes\n\nGuardrails:\n- Do not invent districts, buildings, tenants, availability, rents, or unsupported facts.\n- Do not deepen office-only coverage when the target ecosystem is different.\n- Do not treat taxonomy compatibility as proof that a property has a feature.\n- Validate loading, power, parking, yards, lab, food, medical, and permitted-use claims before authoring them as facts.\n- Do not recommend Building Brief migration before canonical representative buildings exist.\n- Regenerate Publisher snapshots and run ecosystem readiness QA.\n\nVerification:\n- npm run publisher:snapshot\n- npm run publisher:report\n- npm run build\n- node scripts/qa-commercial-ecosystem-foundation.js\n- node scripts/qa-publisher-ecosystem-readiness.js\n- node scripts/qa-representative-building-intelligence.js"
+        "codexPrompt": "Implement Publisher ecosystem sprint for East Bay: East Bay Medical Ecosystem District Foundation\n\nFramework:\n- Businesses search for places where their operations can succeed, not for property types.\n- Use the Commercial Ecosystem Framework and canonical taxonomy.\n- Do not change recommendation rankings, Search Profile questions, or public page design.\n\nTarget ecosystem: Medical (medical)\nMetro relevance: Secondary\nCurrent readiness: Missing\nSprint family: Ecosystem District Foundation\n\nCurrent layer coverage:\n- districts: missing\n- recommendations: missing\n- representativeBuildings: missing\n- buildingBriefs: missing\n- subtypes: missing\n- archetypes: missing\n- activities: missing\n- editorialReview: developed\n\nKnown gaps:\n- No district coverage for this relevant ecosystem.\n- Subtype breadth is thin.\n- Business archetype coverage is thin.\n- Business activity coverage is thin.\n\nTarget subtypes:\n- medical_office, outpatient_clinic, dental, wellness, hospital_adjacent\nTarget archetypes:\n- medical_practice, dental_practice, physical_therapy_practice, wellness_practice, outpatient_clinic\nTarget business activities:\n- healthcare_delivery, walk_in_service, administrative_operations\nMissing representative roles:\n- medical_office_environment, hospital_adjacent_medical_environment, outpatient_clinic_environment\nMissing operational categories:\n- access_loading, parking_vehicles, configuration, infrastructure, market_presence, location_workforce\nExisting representative buildings:\n- none\nDistrict candidates:\n- review required\n\nDependencies:\n- Ecosystem classification\n- District foundation\n- Recommendation foundation\n- Representative Building foundation\n- Building Brief migration after canonical records exist\n\nCompletion criteria:\n- Validated district ecosystem classification\n- Representative Building coverage across the most important subtypes\n- Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus\n- Building Brief migration only after canonical records and district association exist\n- Publisher ecosystem QA passes without hard errors\n- Every target representative role has at least one source-supported building or is explicitly marked research required\n- Target operational categories are represented without asserting unverified property features\n- Representative Building intelligence QA passes\n\nGuardrails:\n- Do not invent districts, buildings, tenants, availability, rents, or unsupported facts.\n- Do not deepen office-only coverage when the target ecosystem is different.\n- Do not treat taxonomy compatibility as proof that a property has a feature.\n- Validate loading, power, parking, yards, lab, food, medical, and permitted-use claims before authoring them as facts.\n- Do not recommend Building Brief migration before canonical representative buildings exist.\n- Regenerate Publisher snapshots and run ecosystem readiness QA.\n\nVerification:\n- npm run publisher:snapshot\n- npm run publisher:report\n- npm run build\n- node scripts/qa-commercial-ecosystem-foundation.js\n- node scripts/qa-publisher-ecosystem-readiness.js\n- node scripts/qa-representative-building-intelligence.js"
       },
       "gaps": [
         {
@@ -18836,7 +18651,7 @@
     {
       "metroId": "sacramento",
       "metroName": "Sacramento",
-      "generatedAt": "2026-08-11T16:12:18-07:00",
+      "generatedAt": "2026-08-11T17:37:16-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 98,
@@ -27482,7 +27297,7 @@
     {
       "metroId": "san-diego",
       "metroName": "San Diego",
-      "generatedAt": "2026-08-11T16:12:18-07:00",
+      "generatedAt": "2026-08-11T17:37:16-07:00",
       "currentState": {
         "readinessStatus": "Expansion Ready",
         "overallScore": 84,
@@ -37018,7 +36833,7 @@
     {
       "metroId": "orange-county",
       "metroName": "Orange County",
-      "generatedAt": "2026-08-11T16:12:18-07:00",
+      "generatedAt": "2026-08-11T17:37:16-07:00",
       "currentState": {
         "readinessStatus": "Expansion Ready",
         "overallScore": 84,
@@ -45823,7 +45638,7 @@
     {
       "metroId": "denver",
       "metroName": "Denver",
-      "generatedAt": "2026-08-11T16:12:18-07:00",
+      "generatedAt": "2026-08-11T17:37:16-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 97,
@@ -53530,7 +53345,7 @@
     {
       "metroId": "seattle",
       "metroName": "Seattle",
-      "generatedAt": "2026-08-11T16:12:18-07:00",
+      "generatedAt": "2026-08-11T17:37:16-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 94,
@@ -59056,7 +58871,7 @@
     {
       "metroId": "san-francisco",
       "metroName": "San Francisco",
-      "generatedAt": "2026-08-11T16:12:18-07:00",
+      "generatedAt": "2026-08-11T17:37:16-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 96,
@@ -59104,8 +58919,8 @@
         },
         "ecosystems": {
           "count": 7,
-          "developed": 3,
-          "partial": 2,
+          "developed": 4,
+          "partial": 1,
           "thin": 0,
           "missing": 2,
           "reviewRequired": 0,
@@ -59120,8 +58935,8 @@
             "districtCount": 7,
             "secondaryDistrictCount": 14,
             "recommendationNodeCount": 7,
-            "representativeBuildingCount": 80,
-            "buildingBriefCount": 38,
+            "representativeBuildingCount": 78,
+            "buildingBriefCount": 36,
             "status": "Developed",
             "districts": [
               {
@@ -59202,15 +59017,15 @@
               "ecosystemId": "office",
               "state": "strong",
               "stateLabel": "Strong",
-              "buildingCount": 80,
+              "buildingCount": 78,
               "explicitCount": 4,
               "inheritedOnlyCount": 65,
               "reviewRequiredCount": 0,
               "rolesCovered": {
                 "suburban_office_campus": 3,
                 "transit_oriented_office_environment": 4,
-                "downtown_class_a_office": 5,
-                "professional_office_environment": 8,
+                "professional_office_environment": 7,
+                "downtown_class_a_office": 4,
                 "government_office_environment": 1,
                 "creative_office_environment": 46,
                 "executive_office_environment": 13
@@ -59218,48 +59033,48 @@
               "subtypesCovered": {
                 "suburban_office": 2,
                 "office_campus": 2,
-                "professional_office": 27,
+                "professional_office": 25,
                 "downtown_office": 40,
                 "creative_office": 50,
                 "executive_office": 16
               },
               "activityCoverage": {
-                "knowledge_work": 80,
+                "knowledge_work": 78,
                 "collaboration": 53,
-                "administrative_operations": 33,
+                "administrative_operations": 31,
                 "research": 5,
                 "product_development": 49,
-                "client_meetings": 50,
-                "walk_in_retail": 16,
-                "walk_in_service": 20,
-                "customer_showroom": 36,
+                "client_meetings": 48,
+                "walk_in_retail": 14,
+                "walk_in_service": 18,
+                "customer_showroom": 34,
                 "light_manufacturing": 6
               },
               "archetypeCoverage": {
-                "professional_office": 80,
-                "consulting_firm": 80,
+                "professional_office": 78,
+                "consulting_firm": 78,
                 "startup": 64,
                 "research_company": 11,
                 "biotech_company": 2,
-                "law_firm": 80,
-                "accounting_firm": 80,
-                "financial_services_firm": 80,
+                "law_firm": 78,
+                "accounting_firm": 78,
+                "financial_services_firm": 78,
                 "nonprofit_office": 2,
-                "wellness_practice": 16,
-                "marketing_agency": 69,
-                "creative_studio": 76
+                "wellness_practice": 14,
+                "marketing_agency": 67,
+                "creative_studio": 74
               },
               "operationalCharacteristicsCovered": {
                 "campus_environment": 3,
                 "surface_parking": 3,
                 "suburban_access": 3,
-                "large_floorplates": 6,
-                "professional_image": 33,
-                "transit_access": 9,
+                "large_floorplates": 5,
+                "professional_image": 31,
+                "transit_access": 8,
                 "walkability": 50,
-                "structured_parking": 7,
-                "private_office_layout": 21,
-                "customer_parking": 8,
+                "structured_parking": 6,
+                "private_office_layout": 20,
+                "customer_parking": 7,
                 "urban_core_access": 1,
                 "enhanced_security": 14,
                 "creative_environment": 46,
@@ -59267,10 +59082,10 @@
                 "flexible_suite_sizes": 46
               },
               "operationalCategoriesCovered": {
-                "market_presence": 82,
-                "parking_vehicles": 18,
-                "location_workforce": 63,
-                "configuration": 119,
+                "market_presence": 80,
+                "parking_vehicles": 16,
+                "location_workforce": 62,
+                "configuration": 117,
                 "infrastructure": 14
               },
               "missingRoles": [
@@ -59308,15 +59123,15 @@
                   "confidence": "editorially_supported"
                 },
                 {
-                  "name": "1936 University Ave",
-                  "path": "/commercial-real-estate/building/CA/berkeley/1936-university-ave/",
-                  "role": "downtown_class_a_office",
-                  "confidence": "district_inferred"
-                },
-                {
                   "name": "2030 Addison St",
                   "path": "/commercial-real-estate/building/CA/berkeley/2030-addison-st/",
                   "role": "professional_office_environment",
+                  "confidence": "district_inferred"
+                },
+                {
+                  "name": "2040 Bancroft Way",
+                  "path": "/commercial-real-estate/building/CA/berkeley/2040-bancroft-way/",
+                  "role": "downtown_class_a_office",
                   "confidence": "district_inferred"
                 }
               ]
@@ -59567,9 +59382,9 @@
             "districtCount": 7,
             "secondaryDistrictCount": 5,
             "recommendationNodeCount": 7,
-            "representativeBuildingCount": 12,
-            "buildingBriefCount": 0,
-            "status": "Partial",
+            "representativeBuildingCount": 14,
+            "buildingBriefCount": 2,
+            "status": "Developed",
             "districts": [
               {
                 "slug": "downtown-palo-alto",
@@ -59637,56 +59452,73 @@
               "ecosystemId": "retail",
               "state": "partial",
               "stateLabel": "Partial",
-              "buildingCount": 12,
-              "explicitCount": 0,
+              "buildingCount": 14,
+              "explicitCount": 2,
               "inheritedOnlyCount": 12,
               "reviewRequiredCount": 3,
               "rolesCovered": {
-                "neighborhood_service_retail": 7,
+                "neighborhood_service_retail": 8,
+                "destination_retail_environment": 1,
                 "showroom_retail_environment": 5
               },
               "subtypesCovered": {
-                "neighborhood_retail": 7,
+                "neighborhood_retail": 9,
+                "service_retail": 2,
+                "lifestyle_retail": 1,
                 "showroom_retail": 5
               },
               "activityCoverage": {
-                "walk_in_service": 12,
-                "walk_in_retail": 7,
-                "customer_showroom": 12,
+                "walk_in_retail": 9,
+                "walk_in_service": 14,
+                "customer_showroom": 14,
+                "food_preparation": 1,
                 "collaboration": 5,
                 "knowledge_work": 9
               },
               "archetypeCoverage": {
-                "wellness_practice": 12,
-                "marketing_agency": 12,
-                "food_producer": 12,
-                "training_center": 12,
+                "wellness_practice": 14,
+                "marketing_agency": 14,
+                "food_producer": 14,
+                "training_center": 14,
                 "creative_studio": 9,
                 "professional_office": 9
               },
               "operationalCharacteristicsCovered": {
-                "street_visibility": 12,
-                "walk_in_customer_access": 7,
-                "customer_parking": 7,
-                "showroom_frontage": 5,
-                "destination_customer_access": 5
+                "street_visibility": 14,
+                "walk_in_customer_access": 8,
+                "limited_parking": 1,
+                "retail_adjacent": 2,
+                "customer_parking": 9,
+                "destination_customer_access": 6,
+                "signage_opportunity": 1,
+                "showroom_frontage": 5
               },
               "operationalCategoriesCovered": {
-                "market_presence": 29,
-                "parking_vehicles": 7
+                "market_presence": 36,
+                "parking_vehicles": 10
               },
-              "missingRoles": [
-                "destination_retail_environment"
-              ],
+              "missingRoles": [],
               "missingOperationalCategories": [
                 "access_loading",
                 "configuration",
                 "infrastructure",
                 "location_workforce"
               ],
-              "highestPriorityMissingRole": "destination_retail_environment",
+              "highestPriorityMissingRole": "",
               "highestPriorityMissingOperationalCategory": "access_loading",
               "exampleBuildings": [
+                {
+                  "name": "1936 University Ave",
+                  "path": "/commercial-real-estate/building/CA/berkeley/1936-university-ave/",
+                  "role": "neighborhood_service_retail",
+                  "confidence": "editorially_supported"
+                },
+                {
+                  "name": "160 Franklin St",
+                  "path": "/commercial-real-estate/building/CA/oakland/160-franklin-st/",
+                  "role": "destination_retail_environment",
+                  "confidence": "editorially_supported"
+                },
                 {
                   "name": "101 Lytton Ave",
                   "path": "/commercial-real-estate/building/CA/palo-alto/101-lytton-ave/",
@@ -59709,18 +59541,6 @@
                   "name": "One Henry Adams",
                   "path": "/commercial-real-estate/building/CA/san-francisco/1-henry-adams-st/",
                   "role": "showroom_retail_environment",
-                  "confidence": "district_inferred"
-                },
-                {
-                  "name": "San Francisco Design Center - Galleria",
-                  "path": "/commercial-real-estate/building/CA/san-francisco/101-henry-adams-st/",
-                  "role": "showroom_retail_environment",
-                  "confidence": "district_inferred"
-                },
-                {
-                  "name": "San Francisco Armory",
-                  "path": "/commercial-real-estate/building/CA/san-francisco/1800-mission-st/",
-                  "role": "neighborhood_service_retail",
                   "confidence": "district_inferred"
                 }
               ]
@@ -60075,8 +59895,8 @@
         ],
         "summary": {
           "ecosystemCount": 7,
-          "developedCount": 3,
-          "partialCount": 2,
+          "developedCount": 4,
+          "partialCount": 1,
           "thinCount": 0,
           "missingCount": 2,
           "reviewRequiredDistrictCount": 0
@@ -60103,8 +59923,8 @@
         "state": "partial",
         "label": "Partial",
         "rationale": [
-          "Office, Industrial & Flex coverage is strong or developed.",
-          "Retail is Partial; Medical is Partial; Life Science is Partial."
+          "Office, Industrial & Flex, Retail coverage is strong or developed.",
+          "Medical is Partial; Life Science is Partial."
         ],
         "passed": false,
         "relevantEcosystems": [
@@ -60139,8 +59959,8 @@
               "districts": 7,
               "secondaryDistricts": 14,
               "recommendations": 7,
-              "representativeBuildings": 80,
-              "buildingBriefs": 38,
+              "representativeBuildings": 78,
+              "buildingBriefs": 36,
               "subtypes": 10,
               "archetypes": 10,
               "activities": 7,
@@ -60156,7 +59976,7 @@
             "strategicPriority": 2,
             "evidence": [
               "7 primary districts and 14 secondary districts.",
-              "80 Representative Buildings and 38 Building Briefs.",
+              "78 Representative Buildings and 36 Building Briefs.",
               "7 representative roles and 5 operational categories are covered."
             ],
             "targetSubtypes": [
@@ -60184,15 +60004,15 @@
               "ecosystemId": "office",
               "state": "strong",
               "stateLabel": "Strong",
-              "buildingCount": 80,
+              "buildingCount": 78,
               "explicitCount": 4,
               "inheritedOnlyCount": 65,
               "reviewRequiredCount": 0,
               "rolesCovered": [
                 "suburban_office_campus",
                 "transit_oriented_office_environment",
-                "downtown_class_a_office",
                 "professional_office_environment",
+                "downtown_class_a_office",
                 "government_office_environment",
                 "creative_office_environment",
                 "executive_office_environment"
@@ -60290,15 +60110,15 @@
                   "confidence": "editorially_supported"
                 },
                 {
-                  "name": "1936 University Ave",
-                  "path": "/commercial-real-estate/building/CA/berkeley/1936-university-ave/",
-                  "role": "downtown_class_a_office",
-                  "confidence": "district_inferred"
-                },
-                {
                   "name": "2030 Addison St",
                   "path": "/commercial-real-estate/building/CA/berkeley/2030-addison-st/",
                   "role": "professional_office_environment",
+                  "confidence": "district_inferred"
+                },
+                {
+                  "name": "2040 Bancroft Way",
+                  "path": "/commercial-real-estate/building/CA/berkeley/2040-bancroft-way/",
+                  "role": "downtown_class_a_office",
                   "confidence": "district_inferred"
                 }
               ]
@@ -60531,13 +60351,13 @@
             "label": "Retail",
             "relevance": "important",
             "relevanceLabel": "Important",
-            "readinessState": "partial",
-            "readinessLabel": "Partial",
+            "readinessState": "strong",
+            "readinessLabel": "Strong",
             "layers": {
               "districts": "developed",
               "recommendations": "developed",
               "representativeBuildings": "developed",
-              "buildingBriefs": "missing",
+              "buildingBriefs": "developed",
               "subtypes": "developed",
               "archetypes": "strong",
               "activities": "developed",
@@ -60547,27 +60367,25 @@
               "districts": 7,
               "secondaryDistricts": 5,
               "recommendations": 7,
-              "representativeBuildings": 12,
-              "buildingBriefs": 0,
+              "representativeBuildings": 14,
+              "buildingBriefs": 2,
               "subtypes": 4,
               "archetypes": 4,
               "activities": 5,
               "reviewRequiredDistricts": 0,
-              "representativeRoles": 2,
+              "representativeRoles": 3,
               "operationalCategories": 2,
-              "operationalCharacteristics": 5,
+              "operationalCharacteristics": 8,
               "reviewRequiredRepresentativeBuildings": 3
             },
-            "gaps": [
-              "Building Brief coverage is missing for this ecosystem."
-            ],
+            "gaps": [],
             "blocking": false,
             "blockingCodes": [],
             "strategicPriority": 5,
             "evidence": [
               "7 primary districts and 5 secondary districts.",
-              "12 Representative Buildings and 0 Building Briefs.",
-              "2 representative roles and 2 operational categories are covered."
+              "14 Representative Buildings and 2 Building Briefs.",
+              "3 representative roles and 2 operational categories are covered."
             ],
             "targetSubtypes": [
               "neighborhood_retail",
@@ -60592,22 +60410,26 @@
               "ecosystemId": "retail",
               "state": "partial",
               "stateLabel": "Partial",
-              "buildingCount": 12,
-              "explicitCount": 0,
+              "buildingCount": 14,
+              "explicitCount": 2,
               "inheritedOnlyCount": 12,
               "reviewRequiredCount": 3,
               "rolesCovered": [
                 "neighborhood_service_retail",
+                "destination_retail_environment",
                 "showroom_retail_environment"
               ],
               "subtypesCovered": [
                 "neighborhood_retail",
+                "service_retail",
+                "lifestyle_retail",
                 "showroom_retail"
               ],
               "activityCoverage": [
-                "walk_in_service",
                 "walk_in_retail",
+                "walk_in_service",
                 "customer_showroom",
+                "food_preparation",
                 "collaboration",
                 "knowledge_work"
               ],
@@ -60622,26 +60444,39 @@
               "operationalCharacteristicsCovered": [
                 "street_visibility",
                 "walk_in_customer_access",
+                "limited_parking",
+                "retail_adjacent",
                 "customer_parking",
-                "showroom_frontage",
-                "destination_customer_access"
+                "destination_customer_access",
+                "signage_opportunity",
+                "showroom_frontage"
               ],
               "operationalCategoriesCovered": [
                 "market_presence",
                 "parking_vehicles"
               ],
-              "missingRoles": [
-                "destination_retail_environment"
-              ],
+              "missingRoles": [],
               "missingOperationalCategories": [
                 "access_loading",
                 "configuration",
                 "infrastructure",
                 "location_workforce"
               ],
-              "highestPriorityMissingRole": "destination_retail_environment",
+              "highestPriorityMissingRole": "",
               "highestPriorityMissingOperationalCategory": "access_loading",
               "exampleBuildings": [
+                {
+                  "name": "1936 University Ave",
+                  "path": "/commercial-real-estate/building/CA/berkeley/1936-university-ave/",
+                  "role": "neighborhood_service_retail",
+                  "confidence": "editorially_supported"
+                },
+                {
+                  "name": "160 Franklin St",
+                  "path": "/commercial-real-estate/building/CA/oakland/160-franklin-st/",
+                  "role": "destination_retail_environment",
+                  "confidence": "editorially_supported"
+                },
                 {
                   "name": "101 Lytton Ave",
                   "path": "/commercial-real-estate/building/CA/palo-alto/101-lytton-ave/",
@@ -60664,18 +60499,6 @@
                   "name": "One Henry Adams",
                   "path": "/commercial-real-estate/building/CA/san-francisco/1-henry-adams-st/",
                   "role": "showroom_retail_environment",
-                  "confidence": "district_inferred"
-                },
-                {
-                  "name": "San Francisco Design Center - Galleria",
-                  "path": "/commercial-real-estate/building/CA/san-francisco/101-henry-adams-st/",
-                  "role": "showroom_retail_environment",
-                  "confidence": "district_inferred"
-                },
-                {
-                  "name": "San Francisco Armory",
-                  "path": "/commercial-real-estate/building/CA/san-francisco/1800-mission-st/",
-                  "role": "neighborhood_service_retail",
                   "confidence": "district_inferred"
                 }
               ]
@@ -61148,84 +60971,6 @@
         ],
         "gaps": [
           {
-            "id": "ecosystem:retail:ecosystem_building_brief_gap",
-            "code": "ecosystem_building_brief_gap",
-            "label": "Ecosystem Building Brief Gap",
-            "severity": "medium",
-            "layer": "buildingBriefs",
-            "ecosystemId": "retail",
-            "ecosystemLabel": "Retail",
-            "relevance": "important",
-            "readinessState": "partial",
-            "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
-            "evidence": [
-              "7 primary districts and 5 secondary districts.",
-              "12 Representative Buildings and 0 Building Briefs.",
-              "2 representative roles and 2 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem Building Brief Migration",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:retail:representative_role_thin",
-            "code": "representative_role_thin",
-            "label": "Representative Role Thin",
-            "severity": "low",
-            "layer": "representativeBuildingIntelligence",
-            "ecosystemId": "retail",
-            "ecosystemLabel": "Retail",
-            "relevance": "important",
-            "readinessState": "partial",
-            "rationale": "Representative role coverage is too narrow for this ecosystem.",
-            "evidence": [
-              "7 primary districts and 5 secondary districts.",
-              "12 Representative Buildings and 0 Building Briefs.",
-              "2 representative roles and 2 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:retail:operational_category_gap",
-            "code": "operational_category_gap",
-            "label": "Operational Category Gap",
-            "severity": "low",
-            "layer": "representativeBuildingIntelligence",
-            "ecosystemId": "retail",
-            "ecosystemLabel": "Retail",
-            "relevance": "important",
-            "readinessState": "partial",
-            "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
-            "evidence": [
-              "7 primary districts and 5 secondary districts.",
-              "12 Representative Buildings and 0 Building Briefs.",
-              "2 representative roles and 2 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
             "id": "ecosystem:medical:ecosystem_subtype_gap",
             "code": "ecosystem_subtype_gap",
             "label": "Ecosystem Subtype Gap",
@@ -61580,7 +61325,7 @@
           "state": "balanced",
           "label": "Balanced",
           "dominantEcosystem": "industrial_flex",
-          "representativeBuildingShare": 0.51,
+          "representativeBuildingShare": 0.5,
           "buildingBriefShare": 0.5,
           "warnings": []
         }
@@ -61589,7 +61334,7 @@
         "state": "balanced",
         "label": "Balanced",
         "dominantEcosystem": "industrial_flex",
-        "representativeBuildingShare": 0.51,
+        "representativeBuildingShare": 0.5,
         "buildingBriefShare": 0.5,
         "warnings": []
       },
@@ -61610,32 +61355,6 @@
             "0 Representative Buildings and 0 Building Briefs."
           ],
           "recommendedSprintFamily": "Ecosystem Subtype Expansion",
-          "completionCriteria": [
-            "Validated district ecosystem classification",
-            "Representative Building coverage across the most important subtypes",
-            "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-            "Building Brief migration only after canonical records and district association exist",
-            "Publisher ecosystem QA passes without hard errors"
-          ],
-          "blocksEcosystemReadiness": false
-        },
-        {
-          "id": "ecosystem:retail:ecosystem_building_brief_gap",
-          "code": "ecosystem_building_brief_gap",
-          "label": "Ecosystem Building Brief Gap",
-          "severity": "medium",
-          "layer": "buildingBriefs",
-          "ecosystemId": "retail",
-          "ecosystemLabel": "Retail",
-          "relevance": "important",
-          "readinessState": "partial",
-          "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
-          "evidence": [
-            "7 primary districts and 5 secondary districts.",
-            "12 Representative Buildings and 0 Building Briefs.",
-            "2 representative roles and 2 operational categories are covered."
-          ],
-          "recommendedSprintFamily": "Ecosystem Building Brief Migration",
           "completionCriteria": [
             "Validated district ecosystem classification",
             "Representative Building coverage across the most important subtypes",
@@ -61834,58 +61553,6 @@
           "evidence": [
             "0 primary districts and 1 secondary districts.",
             "0 Representative Buildings and 0 Building Briefs."
-          ],
-          "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-          "completionCriteria": [
-            "Validated district ecosystem classification",
-            "Representative Building coverage across the most important subtypes",
-            "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-            "Building Brief migration only after canonical records and district association exist",
-            "Publisher ecosystem QA passes without hard errors"
-          ],
-          "blocksEcosystemReadiness": false
-        },
-        {
-          "id": "ecosystem:retail:operational_category_gap",
-          "code": "operational_category_gap",
-          "label": "Operational Category Gap",
-          "severity": "low",
-          "layer": "representativeBuildingIntelligence",
-          "ecosystemId": "retail",
-          "ecosystemLabel": "Retail",
-          "relevance": "important",
-          "readinessState": "partial",
-          "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
-          "evidence": [
-            "7 primary districts and 5 secondary districts.",
-            "12 Representative Buildings and 0 Building Briefs.",
-            "2 representative roles and 2 operational categories are covered."
-          ],
-          "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-          "completionCriteria": [
-            "Validated district ecosystem classification",
-            "Representative Building coverage across the most important subtypes",
-            "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-            "Building Brief migration only after canonical records and district association exist",
-            "Publisher ecosystem QA passes without hard errors"
-          ],
-          "blocksEcosystemReadiness": false
-        },
-        {
-          "id": "ecosystem:retail:representative_role_thin",
-          "code": "representative_role_thin",
-          "label": "Representative Role Thin",
-          "severity": "low",
-          "layer": "representativeBuildingIntelligence",
-          "ecosystemId": "retail",
-          "ecosystemLabel": "Retail",
-          "relevance": "important",
-          "readinessState": "partial",
-          "rationale": "Representative role coverage is too narrow for this ecosystem.",
-          "evidence": [
-            "7 primary districts and 5 secondary districts.",
-            "12 Representative Buildings and 0 Building Briefs.",
-            "2 representative roles and 2 operational categories are covered."
           ],
           "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
           "completionCriteria": [
@@ -73589,7 +73256,7 @@
     {
       "metroId": "east-bay",
       "metroName": "East Bay",
-      "generatedAt": "2026-08-11T16:12:18-07:00",
+      "generatedAt": "2026-08-11T17:37:16-07:00",
       "currentState": {
         "readinessStatus": "Editorially Developed",
         "overallScore": 74,
@@ -73637,9 +73304,9 @@
         },
         "ecosystems": {
           "count": 7,
-          "developed": 2,
+          "developed": 3,
           "partial": 1,
-          "thin": 1,
+          "thin": 0,
           "missing": 3,
           "reviewRequired": 0,
           "note": "Ecosystem coverage is reported for planning context and does not change Publisher readiness scoring in v1."
@@ -73653,8 +73320,8 @@
             "districtCount": 1,
             "secondaryDistrictCount": 3,
             "recommendationNodeCount": 1,
-            "representativeBuildingCount": 15,
-            "buildingBriefCount": 13,
+            "representativeBuildingCount": 13,
+            "buildingBriefCount": 11,
             "status": "Developed",
             "districts": [
               {
@@ -73700,61 +73367,61 @@
               "ecosystemId": "office",
               "state": "strong",
               "stateLabel": "Strong",
-              "buildingCount": 15,
+              "buildingCount": 13,
               "explicitCount": 4,
               "inheritedOnlyCount": 0,
               "reviewRequiredCount": 0,
               "rolesCovered": {
                 "suburban_office_campus": 2,
                 "transit_oriented_office_environment": 2,
-                "downtown_class_a_office": 5,
-                "professional_office_environment": 4,
+                "professional_office_environment": 3,
+                "downtown_class_a_office": 4,
                 "government_office_environment": 1,
                 "creative_office_environment": 1
               },
               "subtypesCovered": {
                 "suburban_office": 2,
                 "office_campus": 2,
-                "professional_office": 15,
+                "professional_office": 13,
                 "downtown_office": 3,
                 "creative_office": 1
               },
               "activityCoverage": {
-                "knowledge_work": 15,
+                "knowledge_work": 13,
                 "collaboration": 3,
-                "administrative_operations": 14,
+                "administrative_operations": 12,
                 "research": 2,
                 "product_development": 3,
-                "client_meetings": 12,
-                "walk_in_retail": 13,
-                "walk_in_service": 13,
-                "customer_showroom": 13
+                "client_meetings": 10,
+                "walk_in_retail": 11,
+                "walk_in_service": 11,
+                "customer_showroom": 11
               },
               "archetypeCoverage": {
-                "professional_office": 15,
-                "consulting_firm": 15,
+                "professional_office": 13,
+                "consulting_firm": 13,
                 "startup": 2,
                 "research_company": 2,
                 "biotech_company": 2,
-                "law_firm": 15,
-                "accounting_firm": 15,
-                "financial_services_firm": 15,
+                "law_firm": 13,
+                "accounting_firm": 13,
+                "financial_services_firm": 13,
                 "nonprofit_office": 2,
-                "wellness_practice": 13,
-                "marketing_agency": 13,
-                "creative_studio": 11
+                "wellness_practice": 11,
+                "marketing_agency": 11,
+                "creative_studio": 9
               },
               "operationalCharacteristicsCovered": {
                 "campus_environment": 2,
                 "surface_parking": 2,
                 "suburban_access": 2,
-                "large_floorplates": 6,
-                "professional_image": 14,
-                "transit_access": 7,
+                "large_floorplates": 5,
+                "professional_image": 12,
+                "transit_access": 6,
                 "walkability": 3,
-                "structured_parking": 7,
-                "private_office_layout": 4,
-                "customer_parking": 4,
+                "structured_parking": 6,
+                "private_office_layout": 3,
+                "customer_parking": 3,
                 "urban_core_access": 1,
                 "enhanced_security": 1,
                 "creative_environment": 1,
@@ -73762,10 +73429,10 @@
                 "flexible_suite_sizes": 1
               },
               "operationalCategoriesCovered": {
-                "market_presence": 17,
-                "parking_vehicles": 13,
-                "location_workforce": 13,
-                "configuration": 12,
+                "market_presence": 15,
+                "parking_vehicles": 11,
+                "location_workforce": 12,
+                "configuration": 10,
                 "infrastructure": 1
               },
               "missingRoles": [],
@@ -73798,15 +73465,15 @@
                   "confidence": "editorially_supported"
                 },
                 {
-                  "name": "1936 University Ave",
-                  "path": "/commercial-real-estate/building/CA/berkeley/1936-university-ave/",
-                  "role": "downtown_class_a_office",
-                  "confidence": "district_inferred"
-                },
-                {
                   "name": "2030 Addison St",
                   "path": "/commercial-real-estate/building/CA/berkeley/2030-addison-st/",
                   "role": "professional_office_environment",
+                  "confidence": "district_inferred"
+                },
+                {
+                  "name": "2040 Bancroft Way",
+                  "path": "/commercial-real-estate/building/CA/berkeley/2040-bancroft-way/",
+                  "role": "downtown_class_a_office",
                   "confidence": "district_inferred"
                 }
               ]
@@ -74030,9 +73697,9 @@
             "districtCount": 2,
             "secondaryDistrictCount": 0,
             "recommendationNodeCount": 2,
-            "representativeBuildingCount": 0,
-            "buildingBriefCount": 0,
-            "status": "Thin",
+            "representativeBuildingCount": 2,
+            "buildingBriefCount": 2,
+            "status": "Developed",
             "districts": [
               {
                 "slug": "downtown-berkeley",
@@ -74067,29 +73734,66 @@
             ],
             "representativeBuildingIntelligence": {
               "ecosystemId": "retail",
-              "state": "missing",
-              "stateLabel": "Missing",
-              "buildingCount": 0,
-              "explicitCount": 0,
+              "state": "partial",
+              "stateLabel": "Partial",
+              "buildingCount": 2,
+              "explicitCount": 2,
               "inheritedOnlyCount": 0,
               "reviewRequiredCount": 0,
-              "rolesCovered": {},
-              "subtypesCovered": {},
-              "activityCoverage": {},
-              "archetypeCoverage": {},
-              "operationalCharacteristicsCovered": {},
-              "operationalCategoriesCovered": {},
-              "missingRoles": [
-                "neighborhood_service_retail"
-              ],
+              "rolesCovered": {
+                "neighborhood_service_retail": 1,
+                "destination_retail_environment": 1
+              },
+              "subtypesCovered": {
+                "neighborhood_retail": 2,
+                "service_retail": 2,
+                "lifestyle_retail": 1
+              },
+              "activityCoverage": {
+                "walk_in_retail": 2,
+                "walk_in_service": 2,
+                "customer_showroom": 2,
+                "food_preparation": 1
+              },
+              "archetypeCoverage": {
+                "wellness_practice": 2,
+                "marketing_agency": 2,
+                "food_producer": 2,
+                "training_center": 2
+              },
+              "operationalCharacteristicsCovered": {
+                "street_visibility": 2,
+                "walk_in_customer_access": 1,
+                "limited_parking": 1,
+                "retail_adjacent": 2,
+                "customer_parking": 2,
+                "destination_customer_access": 1,
+                "signage_opportunity": 1
+              },
+              "operationalCategoriesCovered": {
+                "market_presence": 7,
+                "parking_vehicles": 3
+              },
+              "missingRoles": [],
               "missingOperationalCategories": [
-                "market_presence",
-                "configuration",
-                "parking_vehicles"
+                "configuration"
               ],
-              "highestPriorityMissingRole": "neighborhood_service_retail",
-              "highestPriorityMissingOperationalCategory": "market_presence",
-              "exampleBuildings": []
+              "highestPriorityMissingRole": "",
+              "highestPriorityMissingOperationalCategory": "configuration",
+              "exampleBuildings": [
+                {
+                  "name": "1936 University Ave",
+                  "path": "/commercial-real-estate/building/CA/berkeley/1936-university-ave/",
+                  "role": "neighborhood_service_retail",
+                  "confidence": "editorially_supported"
+                },
+                {
+                  "name": "160 Franklin St",
+                  "path": "/commercial-real-estate/building/CA/oakland/160-franklin-st/",
+                  "role": "destination_retail_environment",
+                  "confidence": "editorially_supported"
+                }
+              ]
             }
           },
           "medical": {
@@ -74352,13 +74056,6 @@
         "reviewRequiredDistricts": [],
         "underrepresentedEcosystems": [
           {
-            "id": "retail",
-            "label": "Retail",
-            "status": "Thin",
-            "districtCount": 2,
-            "representativeBuildingCount": 0
-          },
-          {
             "id": "medical",
             "label": "Medical",
             "status": "Missing",
@@ -74382,9 +74079,9 @@
         ],
         "summary": {
           "ecosystemCount": 7,
-          "developedCount": 2,
+          "developedCount": 3,
           "partialCount": 1,
-          "thinCount": 1,
+          "thinCount": 0,
           "missingCount": 3,
           "reviewRequiredDistrictCount": 0
         }
@@ -74412,7 +74109,7 @@
         "label": "Partial",
         "rationale": [
           "Industrial & Flex coverage is strong or developed.",
-          "Office is Partial; Retail is Thin; Life Science is Partial.",
+          "Office is Partial; Retail is Partial; Life Science is Partial.",
           "Representative Building coverage is concentrated in Industrial & Flex."
         ],
         "passed": false,
@@ -74425,9 +74122,7 @@
           "hospitality",
           "special_purpose"
         ],
-        "blockingEcosystems": [
-          "retail"
-        ],
+        "blockingEcosystems": [],
         "evaluations": [
           {
             "ecosystemId": "office",
@@ -74450,8 +74145,8 @@
               "districts": 1,
               "secondaryDistricts": 3,
               "recommendations": 1,
-              "representativeBuildings": 15,
-              "buildingBriefs": 13,
+              "representativeBuildings": 13,
+              "buildingBriefs": 11,
               "subtypes": 8,
               "archetypes": 7,
               "activities": 5,
@@ -74467,7 +74162,7 @@
             "strategicPriority": 2,
             "evidence": [
               "1 primary districts and 3 secondary districts.",
-              "15 Representative Buildings and 13 Building Briefs.",
+              "13 Representative Buildings and 11 Building Briefs.",
               "6 representative roles and 5 operational categories are covered."
             ],
             "targetSubtypes": [
@@ -74495,15 +74190,15 @@
               "ecosystemId": "office",
               "state": "strong",
               "stateLabel": "Strong",
-              "buildingCount": 15,
+              "buildingCount": 13,
               "explicitCount": 4,
               "inheritedOnlyCount": 0,
               "reviewRequiredCount": 0,
               "rolesCovered": [
                 "suburban_office_campus",
                 "transit_oriented_office_environment",
-                "downtown_class_a_office",
                 "professional_office_environment",
+                "downtown_class_a_office",
                 "government_office_environment",
                 "creative_office_environment"
               ],
@@ -74593,15 +74288,15 @@
                   "confidence": "editorially_supported"
                 },
                 {
-                  "name": "1936 University Ave",
-                  "path": "/commercial-real-estate/building/CA/berkeley/1936-university-ave/",
-                  "role": "downtown_class_a_office",
-                  "confidence": "district_inferred"
-                },
-                {
                   "name": "2030 Addison St",
                   "path": "/commercial-real-estate/building/CA/berkeley/2030-addison-st/",
                   "role": "professional_office_environment",
+                  "confidence": "district_inferred"
+                },
+                {
+                  "name": "2040 Bancroft Way",
+                  "path": "/commercial-real-estate/building/CA/berkeley/2040-bancroft-way/",
+                  "role": "downtown_class_a_office",
                   "confidence": "district_inferred"
                 }
               ]
@@ -74827,13 +74522,13 @@
             "label": "Retail",
             "relevance": "important",
             "relevanceLabel": "Important",
-            "readinessState": "thin",
-            "readinessLabel": "Thin",
+            "readinessState": "partial",
+            "readinessLabel": "Partial",
             "layers": {
               "districts": "developed",
               "recommendations": "developed",
-              "representativeBuildings": "missing",
-              "buildingBriefs": "missing",
+              "representativeBuildings": "strong",
+              "buildingBriefs": "developed",
               "subtypes": "developed",
               "archetypes": "partial",
               "activities": "strong",
@@ -74843,26 +74538,25 @@
               "districts": 2,
               "secondaryDistricts": 0,
               "recommendations": 2,
-              "representativeBuildings": 0,
-              "buildingBriefs": 0,
+              "representativeBuildings": 2,
+              "buildingBriefs": 2,
               "subtypes": 2,
               "archetypes": 2,
               "activities": 3,
               "reviewRequiredDistricts": 0,
-              "representativeRoles": 0,
-              "operationalCategories": 0,
-              "operationalCharacteristics": 0,
+              "representativeRoles": 2,
+              "operationalCategories": 2,
+              "operationalCharacteristics": 7,
               "reviewRequiredRepresentativeBuildings": 0
             },
-            "gaps": [
-              "Representative Building coverage is missing for this ecosystem."
-            ],
+            "gaps": [],
             "blocking": false,
             "blockingCodes": [],
             "strategicPriority": 5,
             "evidence": [
               "2 primary districts and 0 secondary districts.",
-              "0 Representative Buildings and 0 Building Briefs."
+              "2 Representative Buildings and 2 Building Briefs.",
+              "2 representative roles and 2 operational categories are covered."
             ],
             "targetSubtypes": [
               "neighborhood_retail",
@@ -74885,29 +74579,66 @@
             ],
             "representativeBuildingIntelligence": {
               "ecosystemId": "retail",
-              "state": "missing",
-              "stateLabel": "Missing",
-              "buildingCount": 0,
-              "explicitCount": 0,
+              "state": "partial",
+              "stateLabel": "Partial",
+              "buildingCount": 2,
+              "explicitCount": 2,
               "inheritedOnlyCount": 0,
               "reviewRequiredCount": 0,
-              "rolesCovered": [],
-              "subtypesCovered": [],
-              "activityCoverage": [],
-              "archetypeCoverage": [],
-              "operationalCharacteristicsCovered": [],
-              "operationalCategoriesCovered": [],
-              "missingRoles": [
-                "neighborhood_service_retail"
+              "rolesCovered": [
+                "neighborhood_service_retail",
+                "destination_retail_environment"
               ],
-              "missingOperationalCategories": [
+              "subtypesCovered": [
+                "neighborhood_retail",
+                "service_retail",
+                "lifestyle_retail"
+              ],
+              "activityCoverage": [
+                "walk_in_retail",
+                "walk_in_service",
+                "customer_showroom",
+                "food_preparation"
+              ],
+              "archetypeCoverage": [
+                "wellness_practice",
+                "marketing_agency",
+                "food_producer",
+                "training_center"
+              ],
+              "operationalCharacteristicsCovered": [
+                "street_visibility",
+                "walk_in_customer_access",
+                "limited_parking",
+                "retail_adjacent",
+                "customer_parking",
+                "destination_customer_access",
+                "signage_opportunity"
+              ],
+              "operationalCategoriesCovered": [
                 "market_presence",
-                "configuration",
                 "parking_vehicles"
               ],
-              "highestPriorityMissingRole": "neighborhood_service_retail",
-              "highestPriorityMissingOperationalCategory": "market_presence",
-              "exampleBuildings": []
+              "missingRoles": [],
+              "missingOperationalCategories": [
+                "configuration"
+              ],
+              "highestPriorityMissingRole": "",
+              "highestPriorityMissingOperationalCategory": "configuration",
+              "exampleBuildings": [
+                {
+                  "name": "1936 University Ave",
+                  "path": "/commercial-real-estate/building/CA/berkeley/1936-university-ave/",
+                  "role": "neighborhood_service_retail",
+                  "confidence": "editorially_supported"
+                },
+                {
+                  "name": "160 Franklin St",
+                  "path": "/commercial-real-estate/building/CA/oakland/160-franklin-st/",
+                  "role": "destination_retail_environment",
+                  "confidence": "editorially_supported"
+                }
+              ]
             },
             "completionCriteria": [
               "Validated district ecosystem classification",
@@ -75316,69 +75047,20 @@
         ],
         "gaps": [
           {
-            "id": "ecosystem:retail:ecosystem_thin",
-            "code": "ecosystem_thin",
-            "label": "Ecosystem Thin",
-            "severity": "medium",
-            "layer": "representativeBuildings",
-            "ecosystemId": "retail",
-            "ecosystemLabel": "Retail",
-            "relevance": "important",
-            "readinessState": "thin",
-            "rationale": "Relevant ecosystem has district coverage but lacks enough representative-building or layer depth.",
-            "evidence": [
-              "2 primary districts and 0 secondary districts.",
-              "0 Representative Buildings and 0 Building Briefs."
-            ],
-            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:retail:ecosystem_representative_building_gap",
-            "code": "ecosystem_representative_building_gap",
-            "label": "Ecosystem Representative Building Gap",
-            "severity": "medium",
-            "layer": "representativeBuildings",
-            "ecosystemId": "retail",
-            "ecosystemLabel": "Retail",
-            "relevance": "important",
-            "readinessState": "thin",
-            "rationale": "District foundation exists, but Representative Buildings are missing.",
-            "evidence": [
-              "2 primary districts and 0 secondary districts.",
-              "0 Representative Buildings and 0 Building Briefs."
-            ],
-            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:retail:representative_role_thin",
-            "code": "representative_role_thin",
-            "label": "Representative Role Thin",
+            "id": "ecosystem:retail:operational_category_gap",
+            "code": "operational_category_gap",
+            "label": "Operational Category Gap",
             "severity": "low",
             "layer": "representativeBuildingIntelligence",
             "ecosystemId": "retail",
             "ecosystemLabel": "Retail",
             "relevance": "important",
-            "readinessState": "thin",
-            "rationale": "Representative role coverage is too narrow for this ecosystem.",
+            "readinessState": "partial",
+            "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
             "evidence": [
               "2 primary districts and 0 secondary districts.",
-              "0 Representative Buildings and 0 Building Briefs."
+              "2 Representative Buildings and 2 Building Briefs.",
+              "2 representative roles and 2 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
             "completionCriteria": [
@@ -75814,56 +75496,6 @@
       },
       "ecosystemGaps": [
         {
-          "id": "ecosystem:retail:ecosystem_representative_building_gap",
-          "code": "ecosystem_representative_building_gap",
-          "label": "Ecosystem Representative Building Gap",
-          "severity": "medium",
-          "layer": "representativeBuildings",
-          "ecosystemId": "retail",
-          "ecosystemLabel": "Retail",
-          "relevance": "important",
-          "readinessState": "thin",
-          "rationale": "District foundation exists, but Representative Buildings are missing.",
-          "evidence": [
-            "2 primary districts and 0 secondary districts.",
-            "0 Representative Buildings and 0 Building Briefs."
-          ],
-          "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-          "completionCriteria": [
-            "Validated district ecosystem classification",
-            "Representative Building coverage across the most important subtypes",
-            "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-            "Building Brief migration only after canonical records and district association exist",
-            "Publisher ecosystem QA passes without hard errors"
-          ],
-          "blocksEcosystemReadiness": false
-        },
-        {
-          "id": "ecosystem:retail:ecosystem_thin",
-          "code": "ecosystem_thin",
-          "label": "Ecosystem Thin",
-          "severity": "medium",
-          "layer": "representativeBuildings",
-          "ecosystemId": "retail",
-          "ecosystemLabel": "Retail",
-          "relevance": "important",
-          "readinessState": "thin",
-          "rationale": "Relevant ecosystem has district coverage but lacks enough representative-building or layer depth.",
-          "evidence": [
-            "2 primary districts and 0 secondary districts.",
-            "0 Representative Buildings and 0 Building Briefs."
-          ],
-          "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-          "completionCriteria": [
-            "Validated district ecosystem classification",
-            "Representative Building coverage across the most important subtypes",
-            "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-            "Building Brief migration only after canonical records and district association exist",
-            "Publisher ecosystem QA passes without hard errors"
-          ],
-          "blocksEcosystemReadiness": false
-        },
-        {
           "id": "ecosystem:medical:ecosystem_missing",
           "code": "ecosystem_missing",
           "label": "Ecosystem Missing",
@@ -76064,19 +75696,20 @@
           "blocksEcosystemReadiness": false
         },
         {
-          "id": "ecosystem:retail:representative_role_thin",
-          "code": "representative_role_thin",
-          "label": "Representative Role Thin",
+          "id": "ecosystem:retail:operational_category_gap",
+          "code": "operational_category_gap",
+          "label": "Operational Category Gap",
           "severity": "low",
           "layer": "representativeBuildingIntelligence",
           "ecosystemId": "retail",
           "ecosystemLabel": "Retail",
           "relevance": "important",
-          "readinessState": "thin",
-          "rationale": "Representative role coverage is too narrow for this ecosystem.",
+          "readinessState": "partial",
+          "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
           "evidence": [
             "2 primary districts and 0 secondary districts.",
-            "0 Representative Buildings and 0 Building Briefs."
+            "2 Representative Buildings and 2 Building Briefs.",
+            "2 representative roles and 2 operational categories are covered."
           ],
           "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
           "completionCriteria": [
@@ -76290,37 +75923,37 @@
         }
       ],
       "recommendedEcosystemSprint": {
-        "title": "East Bay Retail Ecosystem Representative Building Foundation",
-        "objective": "Improve East Bay commercial balance by advancing Retail from Thin toward stronger ecosystem readiness.",
-        "ecosystemId": "retail",
-        "ecosystemLabel": "Retail",
-        "relevance": "important",
-        "relevanceLabel": "Important",
-        "readinessState": "thin",
-        "readinessLabel": "Thin",
-        "sprintFamily": "Ecosystem Representative Building Foundation",
-        "rationale": "Retail is Important for East Bay and is currently Thin. District foundation exists, but Representative Buildings are missing.",
-        "gapCode": "ecosystem_representative_building_gap",
-        "priorityScore": 72,
+        "title": "East Bay Medical Ecosystem District Foundation",
+        "objective": "Improve East Bay commercial balance by advancing Medical from Missing toward stronger ecosystem readiness.",
+        "ecosystemId": "medical",
+        "ecosystemLabel": "Medical",
+        "relevance": "secondary",
+        "relevanceLabel": "Secondary",
+        "readinessState": "missing",
+        "readinessLabel": "Missing",
+        "sprintFamily": "Ecosystem District Foundation",
+        "rationale": "Medical is Secondary for East Bay and is currently Missing. Relevant ecosystem has no meaningful district coverage.",
+        "gapCode": "ecosystem_missing",
+        "priorityScore": 66,
         "layers": {
-          "districts": "developed",
-          "recommendations": "developed",
+          "districts": "missing",
+          "recommendations": "missing",
           "representativeBuildings": "missing",
           "buildingBriefs": "missing",
-          "subtypes": "developed",
-          "archetypes": "partial",
-          "activities": "strong",
+          "subtypes": "missing",
+          "archetypes": "missing",
+          "activities": "missing",
           "editorialReview": "developed"
         },
         "counts": {
-          "districts": 2,
+          "districts": 0,
           "secondaryDistricts": 0,
-          "recommendations": 2,
+          "recommendations": 0,
           "representativeBuildings": 0,
           "buildingBriefs": 0,
-          "subtypes": 2,
-          "archetypes": 2,
-          "activities": 3,
+          "subtypes": 0,
+          "archetypes": 0,
+          "activities": 0,
           "reviewRequiredDistricts": 0,
           "representativeRoles": 0,
           "operationalCategories": 0,
@@ -76328,51 +75961,48 @@
           "reviewRequiredRepresentativeBuildings": 0
         },
         "gaps": [
-          "Representative Building coverage is missing for this ecosystem."
+          "No district coverage for this relevant ecosystem.",
+          "Subtype breadth is thin.",
+          "Business archetype coverage is thin.",
+          "Business activity coverage is thin."
         ],
         "targetSubtypes": [
-          "neighborhood_retail",
-          "downtown_retail",
-          "shopping_center",
-          "power_center",
-          "lifestyle_retail"
+          "medical_office",
+          "outpatient_clinic",
+          "dental",
+          "wellness",
+          "hospital_adjacent"
         ],
         "targetArchetypes": [
-          "marketing_agency",
+          "medical_practice",
+          "dental_practice",
+          "physical_therapy_practice",
           "wellness_practice",
-          "food_producer",
-          "training_center"
+          "outpatient_clinic"
         ],
         "targetActivities": [
-          "walk_in_retail",
+          "healthcare_delivery",
           "walk_in_service",
-          "customer_showroom",
-          "food_preparation"
+          "administrative_operations"
         ],
         "missingRepresentativeRoles": [
-          "neighborhood_service_retail"
+          "medical_office_environment",
+          "hospital_adjacent_medical_environment",
+          "outpatient_clinic_environment"
         ],
         "missingOperationalCategories": [
-          "market_presence",
+          "access_loading",
+          "parking_vehicles",
           "configuration",
-          "parking_vehicles"
+          "infrastructure",
+          "market_presence",
+          "location_workforce"
         ],
         "currentRepresentativeRoles": [],
         "currentOperationalCategories": [],
         "existingRepresentativeBuildings": [],
-        "districtCandidates": [
-          {
-            "slug": "downtown-berkeley",
-            "label": "Downtown Berkeley",
-            "path": "/commercial-real-estate/CA/berkeley/downtown-berkeley/"
-          },
-          {
-            "slug": "jack-london-square",
-            "label": "Jack London Square",
-            "path": "/commercial-real-estate/CA/oakland/jack-london-square/"
-          }
-        ],
-        "expectedBuildingRange": "8-15 source-supported representative buildings, selected for role and subtype breadth rather than raw count",
+        "districtCandidates": [],
+        "expectedBuildingRange": "use Publisher task scope",
         "dependencies": [
           "Ecosystem classification",
           "District foundation",
@@ -76395,7 +76025,7 @@
           "title": "East Bay Office Building Brief Migration",
           "whyNotFirst": "Office work remains useful, but the target ecosystem has a higher strategic gap based on current readiness."
         },
-        "codexPrompt": "Implement Publisher ecosystem sprint for East Bay: East Bay Retail Ecosystem Representative Building Foundation\n\nFramework:\n- Businesses search for places where their operations can succeed, not for property types.\n- Use the Commercial Ecosystem Framework and canonical taxonomy.\n- Do not change recommendation rankings, Search Profile questions, or public page design.\n\nTarget ecosystem: Retail (retail)\nMetro relevance: Important\nCurrent readiness: Thin\nSprint family: Ecosystem Representative Building Foundation\n\nCurrent layer coverage:\n- districts: developed\n- recommendations: developed\n- representativeBuildings: missing\n- buildingBriefs: missing\n- subtypes: developed\n- archetypes: partial\n- activities: strong\n- editorialReview: developed\n\nKnown gaps:\n- Representative Building coverage is missing for this ecosystem.\n\nTarget subtypes:\n- neighborhood_retail, downtown_retail, shopping_center, power_center, lifestyle_retail\nTarget archetypes:\n- marketing_agency, wellness_practice, food_producer, training_center\nTarget business activities:\n- walk_in_retail, walk_in_service, customer_showroom, food_preparation\nMissing representative roles:\n- neighborhood_service_retail\nMissing operational categories:\n- market_presence, configuration, parking_vehicles\nExisting representative buildings:\n- none\nDistrict candidates:\n- Downtown Berkeley, Jack London Square\n\nDependencies:\n- Ecosystem classification\n- District foundation\n- Recommendation foundation\n- Representative Building foundation\n- Building Brief migration after canonical records exist\n\nCompletion criteria:\n- Validated district ecosystem classification\n- Representative Building coverage across the most important subtypes\n- Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus\n- Building Brief migration only after canonical records and district association exist\n- Publisher ecosystem QA passes without hard errors\n- Every target representative role has at least one source-supported building or is explicitly marked research required\n- Target operational categories are represented without asserting unverified property features\n- Representative Building intelligence QA passes\n\nGuardrails:\n- Do not invent districts, buildings, tenants, availability, rents, or unsupported facts.\n- Do not deepen office-only coverage when the target ecosystem is different.\n- Do not treat taxonomy compatibility as proof that a property has a feature.\n- Validate loading, power, parking, yards, lab, food, medical, and permitted-use claims before authoring them as facts.\n- Do not recommend Building Brief migration before canonical representative buildings exist.\n- Regenerate Publisher snapshots and run ecosystem readiness QA.\n\nVerification:\n- npm run publisher:snapshot\n- npm run publisher:report\n- npm run build\n- node scripts/qa-commercial-ecosystem-foundation.js\n- node scripts/qa-publisher-ecosystem-readiness.js\n- node scripts/qa-representative-building-intelligence.js"
+        "codexPrompt": "Implement Publisher ecosystem sprint for East Bay: East Bay Medical Ecosystem District Foundation\n\nFramework:\n- Businesses search for places where their operations can succeed, not for property types.\n- Use the Commercial Ecosystem Framework and canonical taxonomy.\n- Do not change recommendation rankings, Search Profile questions, or public page design.\n\nTarget ecosystem: Medical (medical)\nMetro relevance: Secondary\nCurrent readiness: Missing\nSprint family: Ecosystem District Foundation\n\nCurrent layer coverage:\n- districts: missing\n- recommendations: missing\n- representativeBuildings: missing\n- buildingBriefs: missing\n- subtypes: missing\n- archetypes: missing\n- activities: missing\n- editorialReview: developed\n\nKnown gaps:\n- No district coverage for this relevant ecosystem.\n- Subtype breadth is thin.\n- Business archetype coverage is thin.\n- Business activity coverage is thin.\n\nTarget subtypes:\n- medical_office, outpatient_clinic, dental, wellness, hospital_adjacent\nTarget archetypes:\n- medical_practice, dental_practice, physical_therapy_practice, wellness_practice, outpatient_clinic\nTarget business activities:\n- healthcare_delivery, walk_in_service, administrative_operations\nMissing representative roles:\n- medical_office_environment, hospital_adjacent_medical_environment, outpatient_clinic_environment\nMissing operational categories:\n- access_loading, parking_vehicles, configuration, infrastructure, market_presence, location_workforce\nExisting representative buildings:\n- none\nDistrict candidates:\n- review required\n\nDependencies:\n- Ecosystem classification\n- District foundation\n- Recommendation foundation\n- Representative Building foundation\n- Building Brief migration after canonical records exist\n\nCompletion criteria:\n- Validated district ecosystem classification\n- Representative Building coverage across the most important subtypes\n- Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus\n- Building Brief migration only after canonical records and district association exist\n- Publisher ecosystem QA passes without hard errors\n- Every target representative role has at least one source-supported building or is explicitly marked research required\n- Target operational categories are represented without asserting unverified property features\n- Representative Building intelligence QA passes\n\nGuardrails:\n- Do not invent districts, buildings, tenants, availability, rents, or unsupported facts.\n- Do not deepen office-only coverage when the target ecosystem is different.\n- Do not treat taxonomy compatibility as proof that a property has a feature.\n- Validate loading, power, parking, yards, lab, food, medical, and permitted-use claims before authoring them as facts.\n- Do not recommend Building Brief migration before canonical representative buildings exist.\n- Regenerate Publisher snapshots and run ecosystem readiness QA.\n\nVerification:\n- npm run publisher:snapshot\n- npm run publisher:report\n- npm run build\n- node scripts/qa-commercial-ecosystem-foundation.js\n- node scripts/qa-publisher-ecosystem-readiness.js\n- node scripts/qa-representative-building-intelligence.js"
       },
       "gaps": [
         {
@@ -77837,7 +77467,7 @@
     {
       "metroId": "sacramento",
       "metroName": "Sacramento",
-      "generatedAt": "2026-08-11T16:12:18-07:00",
+      "generatedAt": "2026-08-11T17:37:16-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 98,
@@ -86483,7 +86113,7 @@
     {
       "metroId": "san-diego",
       "metroName": "San Diego",
-      "generatedAt": "2026-08-11T16:12:18-07:00",
+      "generatedAt": "2026-08-11T17:37:16-07:00",
       "currentState": {
         "readinessStatus": "Expansion Ready",
         "overallScore": 84,
@@ -96019,7 +95649,7 @@
     {
       "metroId": "orange-county",
       "metroName": "Orange County",
-      "generatedAt": "2026-08-11T16:12:18-07:00",
+      "generatedAt": "2026-08-11T17:37:16-07:00",
       "currentState": {
         "readinessStatus": "Expansion Ready",
         "overallScore": 84,
@@ -104824,7 +104454,7 @@
     {
       "metroId": "denver",
       "metroName": "Denver",
-      "generatedAt": "2026-08-11T16:12:18-07:00",
+      "generatedAt": "2026-08-11T17:37:16-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 97,

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-11T16:12:18-07:00",
+  "generatedAt": "2026-08-11T17:37:16-07:00",
   "eosVersion": "editorial-operating-system-v2.2.4",
   "sourceSystems": [
     "Publisher",
@@ -14,7 +14,7 @@
   ],
   "commercialKnowledgeIntelligence": {
     "schemaVersion": "eos-commercial-knowledge-intelligence-v1",
-    "generatedAt": "2026-08-11T16:12:18-07:00",
+    "generatedAt": "2026-08-11T17:37:16-07:00",
     "sourceSystems": [
       "Editor-controlled strategic priorities",
       "Google Search Console Search Analytics API",
@@ -15226,7 +15226,7 @@
       "displayedBy": "Mission Control",
       "status": "Validated",
       "validationStatus": "PASS",
-      "latestValidation": "2026-08-11T16:12:18-07:00",
+      "latestValidation": "2026-08-11T17:37:16-07:00",
       "markets": [
         {
           "marketId": "east-bay",
@@ -15897,7 +15897,7 @@
         "Low": 2
       },
       "deferredCandidates": 69,
-      "latestValidation": "2026-08-11T16:12:18-07:00",
+      "latestValidation": "2026-08-11T17:37:16-07:00",
       "errors": [],
       "warnings": [],
       "source": {
@@ -39444,14 +39444,14 @@
           "label": "Needs Attention"
         },
         "overallEditorialHealth": {
-          "score": 58,
+          "score": 59,
           "state": {
             "id": "needs_attention",
             "label": "Needs Attention"
           },
           "label": "Needs Attention",
           "rationale": [
-            "Commercial Ecosystem Coverage: Industrial & Flex coverage is strong or developed. Office is Partial; Retail is Thin; Life Science is Partial. Representative Building coverage is concentrated in Industrial & Flex.",
+            "Commercial Ecosystem Coverage: Industrial & Flex coverage is strong or developed. Office is Partial; Retail is Partial; Life Science is Partial. Representative Building coverage is concentrated in Industrial & Flex.",
             "Photography Coverage: Runtime Field Mode photo counts are not connected to EOS yet; v1 treats photo coverage as a human planning signal.",
             "Recommendation Coverage: Authoritative Recommendation QA is not independently scoped or verified for this market yet."
           ]
@@ -39490,16 +39490,16 @@
               "target": null,
               "label": "74% Publisher Confidence",
               "statusLabel": "Editorially Developed",
-              "currentConstraint": "Commercial Ecosystem Coverage: Industrial & Flex coverage is strong or developed. Office is Partial; Retail is Thin; Life Science is Partial. Representative Building coverage is concentrated in Industrial & Flex.",
+              "currentConstraint": "Commercial Ecosystem Coverage: Industrial & Flex coverage is strong or developed. Office is Partial; Retail is Partial; Life Science is Partial. Representative Building coverage is concentrated in Industrial & Flex.",
               "sourceEvidence": [
                 "Publisher score.",
                 "Publisher readiness status.",
                 "EOS health signals."
               ]
             },
-            "currentConstraint": "District foundation exists, but Representative Buildings are missing.",
-            "nextMissionId": "mission:east-bay:east-bay-retail-ecosystem-representative-building-foundation",
-            "nextInitiativeId": "east-bay:publisher:retail-readiness",
+            "currentConstraint": "Relevant ecosystem has no meaningful district coverage.",
+            "nextMissionId": "mission:east-bay:east-bay-medical-ecosystem-district-foundation",
+            "nextInitiativeId": "east-bay:publisher:medical-readiness",
             "campaigns": [
               {
                 "id": "east-bay:publisher:completion-campaign",
@@ -39511,14 +39511,14 @@
                   "target": null,
                   "label": "74% Publisher Confidence",
                   "statusLabel": "Editorially Developed",
-                  "currentConstraint": "Commercial Ecosystem Coverage: Industrial & Flex coverage is strong or developed. Office is Partial; Retail is Thin; Life Science is Partial. Representative Building coverage is concentrated in Industrial & Flex.",
+                  "currentConstraint": "Commercial Ecosystem Coverage: Industrial & Flex coverage is strong or developed. Office is Partial; Retail is Partial; Life Science is Partial. Representative Building coverage is concentrated in Industrial & Flex.",
                   "sourceEvidence": [
                     "Publisher score.",
                     "Publisher readiness status.",
                     "EOS health signals."
                   ]
                 },
-                "currentConstraint": "District foundation exists, but Representative Buildings are missing.",
+                "currentConstraint": "Relevant ecosystem has no meaningful district coverage.",
                 "missionCount": 3,
                 "workItemCount": 5,
                 "sizingStrategy": "Publisher missions bundle the largest coherent readiness constraint that can be validated in one SER."
@@ -39526,19 +39526,19 @@
             ],
             "initiatives": [
               {
-                "id": "east-bay:publisher:retail-readiness",
-                "title": "East Bay Retail Readiness",
+                "id": "east-bay:publisher:medical-readiness",
+                "title": "East Bay Medical Readiness",
                 "status": "Next",
                 "currentStage": "Next",
-                "currentConstraint": "District foundation exists, but Representative Buildings are missing.",
-                "objective": "East Bay Retail Ecosystem Representative Building Foundation",
-                "nextMissionId": "mission:east-bay:east-bay-retail-ecosystem-representative-building-foundation",
+                "currentConstraint": "Relevant ecosystem has no meaningful district coverage.",
+                "objective": "East Bay Medical Ecosystem District Foundation",
+                "nextMissionId": "mission:east-bay:east-bay-medical-ecosystem-district-foundation",
                 "missions": [
                   {
-                    "id": "mission:east-bay:east-bay-retail-ecosystem-representative-building-foundation",
-                    "title": "East Bay Retail Ecosystem Representative Building Foundation",
+                    "id": "mission:east-bay:east-bay-medical-ecosystem-district-foundation",
+                    "title": "East Bay Medical Ecosystem District Foundation",
                     "programLabel": "Publisher",
-                    "currentConstraint": "District foundation exists, but Representative Buildings are missing.",
+                    "currentConstraint": "Relevant ecosystem has no meaningful district coverage.",
                     "expectedImpact": "High",
                     "estimatedEffort": "Small",
                     "missionSize": {
@@ -40714,10 +40714,10 @@
         ],
         "nextMissions": [
           {
-            "id": "mission:east-bay:east-bay-retail-ecosystem-representative-building-foundation",
-            "title": "East Bay Retail Ecosystem Representative Building Foundation",
+            "id": "mission:east-bay:east-bay-medical-ecosystem-district-foundation",
+            "title": "East Bay Medical Ecosystem District Foundation",
             "programLabel": "Publisher",
-            "currentConstraint": "District foundation exists, but Representative Buildings are missing.",
+            "currentConstraint": "Relevant ecosystem has no meaningful district coverage.",
             "expectedImpact": "High",
             "estimatedEffort": "Small",
             "missionSize": {
@@ -48348,13 +48348,13 @@
           },
           "label": "Improving",
           "rationale": [
-            "Commercial Ecosystem Coverage: Office, Industrial & Flex coverage is strong or developed. Retail is Partial; Medical is Partial; Life Science is Partial.",
+            "Commercial Ecosystem Coverage: Office, Industrial & Flex, Retail coverage is strong or developed. Medical is Partial; Life Science is Partial.",
             "Photography Coverage: Runtime Field Mode photo counts are not connected to EOS yet; v1 treats photo coverage as a human planning signal."
           ]
         },
         "knowledgeReadiness": {
           "label": "Strong",
-          "score": 86,
+          "score": 87,
           "interpretation": "EOS interpretation from Publisher, Compass, Knowledge Graph, Building Profile, and QA signals.",
           "sourceSignals": [
             "districtCoverage",
@@ -48386,7 +48386,7 @@
               "target": null,
               "label": "96% Publisher Confidence",
               "statusLabel": "Distribution Ready",
-              "currentConstraint": "Commercial Ecosystem Coverage: Office, Industrial & Flex coverage is strong or developed. Retail is Partial; Medical is Partial; Life Science is Partial.",
+              "currentConstraint": "Commercial Ecosystem Coverage: Office, Industrial & Flex, Retail coverage is strong or developed. Medical is Partial; Life Science is Partial.",
               "sourceEvidence": [
                 "Publisher score.",
                 "Publisher readiness status.",
@@ -48407,7 +48407,7 @@
                   "target": null,
                   "label": "96% Publisher Confidence",
                   "statusLabel": "Distribution Ready",
-                  "currentConstraint": "Commercial Ecosystem Coverage: Office, Industrial & Flex coverage is strong or developed. Retail is Partial; Medical is Partial; Life Science is Partial.",
+                  "currentConstraint": "Commercial Ecosystem Coverage: Office, Industrial & Flex, Retail coverage is strong or developed. Medical is Partial; Life Science is Partial.",
                   "sourceEvidence": [
                     "Publisher score.",
                     "Publisher readiness status.",
@@ -54908,23 +54908,23 @@
           "target": null,
           "label": "74% Publisher Confidence",
           "statusLabel": "Editorially Developed",
-          "currentConstraint": "Commercial Ecosystem Coverage: Industrial & Flex coverage is strong or developed. Office is Partial; Retail is Thin; Life Science is Partial. Representative Building coverage is concentrated in Industrial & Flex.",
+          "currentConstraint": "Commercial Ecosystem Coverage: Industrial & Flex coverage is strong or developed. Office is Partial; Retail is Partial; Life Science is Partial. Representative Building coverage is concentrated in Industrial & Flex.",
           "sourceEvidence": [
             "Publisher score.",
             "Publisher readiness status.",
             "EOS health signals."
           ]
         },
-        "currentConstraint": "District foundation exists, but Representative Buildings are missing.",
-        "nextInitiativeId": "east-bay:publisher:retail-readiness",
-        "nextMissionId": "mission:east-bay:east-bay-retail-ecosystem-representative-building-foundation",
+        "currentConstraint": "Relevant ecosystem has no meaningful district coverage.",
+        "nextInitiativeId": "east-bay:publisher:medical-readiness",
+        "nextMissionId": "mission:east-bay:east-bay-medical-ecosystem-district-foundation",
         "initiativeIds": [
-          "east-bay:publisher:retail-readiness",
+          "east-bay:publisher:medical-readiness",
           "east-bay:publisher:recommendation-readiness",
           "east-bay:publisher:comparison-graph"
         ],
         "missionIds": [
-          "mission:east-bay:east-bay-retail-ecosystem-representative-building-foundation",
+          "mission:east-bay:east-bay-medical-ecosystem-district-foundation",
           "mission:east-bay:add-or-update-recommendation-qa-documentation-for-this-metro",
           "mission:east-bay:add-meaningful-comparewith-relationships-to-nearby-or-decision-adjacent-districts"
         ],
@@ -54942,12 +54942,12 @@
           "EOS health signals."
         ],
         "initiatives": [
-          "east-bay:publisher:retail-readiness",
+          "east-bay:publisher:medical-readiness",
           "east-bay:publisher:recommendation-readiness",
           "east-bay:publisher:comparison-graph"
         ],
         "missions": [
-          "mission:east-bay:east-bay-retail-ecosystem-representative-building-foundation",
+          "mission:east-bay:east-bay-medical-ecosystem-district-foundation",
           "mission:east-bay:add-or-update-recommendation-qa-documentation-for-this-metro",
           "mission:east-bay:add-meaningful-comparewith-relationships-to-nearby-or-decision-adjacent-districts"
         ]
@@ -61178,7 +61178,7 @@
           "target": null,
           "label": "96% Publisher Confidence",
           "statusLabel": "Distribution Ready",
-          "currentConstraint": "Commercial Ecosystem Coverage: Office, Industrial & Flex coverage is strong or developed. Retail is Partial; Medical is Partial; Life Science is Partial.",
+          "currentConstraint": "Commercial Ecosystem Coverage: Office, Industrial & Flex, Retail coverage is strong or developed. Medical is Partial; Life Science is Partial.",
           "sourceEvidence": [
             "Publisher score.",
             "Publisher readiness status.",
@@ -65850,14 +65850,14 @@
         "campaignId": "denver:market_discovery:completion-campaign"
       },
       {
-        "id": "east-bay:publisher:retail-readiness",
+        "id": "east-bay:publisher:medical-readiness",
         "marketId": "east-bay",
         "marketName": "East Bay",
         "programId": "publisher",
         "programLabel": "Publisher",
-        "title": "East Bay Retail Readiness",
-        "scope": "Retail",
-        "objective": "East Bay Retail Ecosystem Representative Building Foundation",
+        "title": "East Bay Medical Readiness",
+        "scope": "Medical",
+        "objective": "East Bay Medical Ecosystem District Foundation",
         "status": "Next",
         "currentStage": "Next",
         "progress": {
@@ -65870,10 +65870,10 @@
             "EOS mission queue."
           ]
         },
-        "currentConstraint": "District foundation exists, but Representative Buildings are missing.",
-        "nextMissionId": "mission:east-bay:east-bay-retail-ecosystem-representative-building-foundation",
+        "currentConstraint": "Relevant ecosystem has no meaningful district coverage.",
+        "nextMissionId": "mission:east-bay:east-bay-medical-ecosystem-district-foundation",
         "remainingMilestones": [
-          "District foundation exists, but Representative Buildings are missing."
+          "Relevant ecosystem has no meaningful district coverage."
         ],
         "confidence": "Medium",
         "sourceEvidence": [
@@ -65882,7 +65882,7 @@
         ],
         "readOnly": false,
         "missions": [
-          "mission:east-bay:east-bay-retail-ecosystem-representative-building-foundation"
+          "mission:east-bay:east-bay-medical-ecosystem-district-foundation"
         ],
         "campaignId": "east-bay:publisher:completion-campaign"
       },
@@ -72867,21 +72867,21 @@
         }
       },
       {
-        "id": "mission:east-bay:east-bay-retail-ecosystem-representative-building-foundation",
-        "title": "East Bay Retail Ecosystem Representative Building Foundation",
+        "id": "mission:east-bay:east-bay-medical-ecosystem-district-foundation",
+        "title": "East Bay Medical Ecosystem District Foundation",
         "marketId": "east-bay",
         "marketName": "East Bay",
         "programId": "publisher",
         "programLabel": "Publisher",
         "campaignId": "east-bay:publisher:completion-campaign",
         "campaignTitle": "East Bay Publisher Completion",
-        "initiativeId": "east-bay:publisher:retail-readiness",
-        "initiativeTitle": "East Bay Retail Readiness",
+        "initiativeId": "east-bay:publisher:medical-readiness",
+        "initiativeTitle": "East Bay Medical Readiness",
         "portfolioId": "",
         "districtId": "",
         "districtName": "",
-        "objective": "East Bay Retail Ecosystem Representative Building Foundation",
-        "currentConstraint": "District foundation exists, but Representative Buildings are missing.",
+        "objective": "East Bay Medical Ecosystem District Foundation",
+        "currentConstraint": "Relevant ecosystem has no meaningful district coverage.",
         "expectedImpact": "High",
         "estimatedEffort": "Small",
         "missionSize": {
@@ -72893,21 +72893,18 @@
         "missionClass": "Readiness Blocker",
         "confidence": "Medium",
         "priorityScore": 100,
-        "executionPacketRef": "portfolioQueues.missionQueue:mission:east-bay:east-bay-retail-ecosystem-representative-building-foundation",
+        "executionPacketRef": "portfolioQueues.missionQueue:mission:east-bay:east-bay-medical-ecosystem-district-foundation",
         "executionPacketAvailable": true,
         "componentStatuses": null,
         "workItems": {
           "hiddenByDefault": true,
           "count": 1,
           "includedOpportunityIds": [
-            "ecosystem:east-bay:retail"
+            "ecosystem:east-bay:medical"
           ],
           "deferredWorkItemIds": [
             "field-mode-summary:east-bay",
-            "publisher:east-bay:comparisonGraph:orphan district comparison:antioch-east-18th-industrial",
-            "publisher:east-bay:recommendationReadiness:missing recommendation QA status:east-bay",
-            "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
-            "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st"
+            "publisher:east-bay:recommendationReadiness:missing recommendation QA status:east-bay"
           ]
         }
       },
@@ -77289,7 +77286,7 @@
     "openWorkItems": 310,
     "humanOnlyWorkItems": 7,
     "autonomousCandidates": 94,
-    "topWorkItem": "East Bay Retail Ecosystem Representative Building Foundation"
+    "topWorkItem": "East Bay Medical Ecosystem District Foundation"
   },
   "metros": [
     {
@@ -77307,7 +77304,7 @@
         },
         "label": "Improving",
         "rationale": [
-          "Commercial Ecosystem Coverage: Office, Industrial & Flex coverage is strong or developed. Retail is Partial; Medical is Partial; Life Science is Partial.",
+          "Commercial Ecosystem Coverage: Office, Industrial & Flex, Retail coverage is strong or developed. Medical is Partial; Life Science is Partial.",
           "Photography Coverage: Runtime Field Mode photo counts are not connected to EOS yet; v1 treats photo coverage as a human planning signal."
         ]
       },
@@ -77332,7 +77329,7 @@
         "source": "publisher"
       },
       "commercialEcosystemCoverage": {
-        "score": 55,
+        "score": 58,
         "state": "partial",
         "label": "Partial",
         "relevantEcosystems": [
@@ -77349,14 +77346,14 @@
           "state": "balanced",
           "label": "Balanced",
           "dominantEcosystem": "industrial_flex",
-          "representativeBuildingShare": 0.51,
+          "representativeBuildingShare": 0.5,
           "buildingBriefShare": 0.5,
           "warnings": []
         }
       },
       "knowledgeReadiness": {
         "label": "Strong",
-        "score": 86,
+        "score": 87,
         "interpretation": "EOS interpretation from Publisher, Compass, Knowledge Graph, Building Profile, and QA signals.",
         "sourceSignals": [
           "districtCoverage",
@@ -77469,12 +77466,12 @@
         "commercialEcosystem": {
           "id": "commercialEcosystem",
           "label": "Commercial Ecosystem Coverage",
-          "score": 55,
+          "score": 58,
           "state": {
             "id": "needs_attention",
             "label": "Needs Attention"
           },
-          "note": "Office, Industrial & Flex coverage is strong or developed. Retail is Partial; Medical is Partial; Life Science is Partial.",
+          "note": "Office, Industrial & Flex, Retail coverage is strong or developed. Medical is Partial; Life Science is Partial.",
           "source": "publisher"
         },
         "photography": {
@@ -77558,21 +77555,21 @@
         "label": "Needs Attention"
       },
       "overallEditorialHealth": {
-        "score": 58,
+        "score": 59,
         "state": {
           "id": "needs_attention",
           "label": "Needs Attention"
         },
         "label": "Needs Attention",
         "rationale": [
-          "Commercial Ecosystem Coverage: Industrial & Flex coverage is strong or developed. Office is Partial; Retail is Thin; Life Science is Partial. Representative Building coverage is concentrated in Industrial & Flex.",
+          "Commercial Ecosystem Coverage: Industrial & Flex coverage is strong or developed. Office is Partial; Retail is Partial; Life Science is Partial. Representative Building coverage is concentrated in Industrial & Flex.",
           "Photography Coverage: Runtime Field Mode photo counts are not connected to EOS yet; v1 treats photo coverage as a human planning signal.",
           "Recommendation Coverage: Authoritative Recommendation QA is not independently scoped or verified for this market yet."
         ]
       },
       "investmentScore": {
-        "score": 55,
-        "label": "55/100",
+        "score": 54,
+        "label": "54/100",
         "rationale": [
           "Existing foundation from Publisher score.",
           "Editorial leverage based on remaining health gap.",
@@ -77591,7 +77588,7 @@
         "source": "publisher"
       },
       "commercialEcosystemCoverage": {
-        "score": 37,
+        "score": 41,
         "state": "partial",
         "label": "Partial",
         "relevantEcosystems": [
@@ -77603,9 +77600,7 @@
           "hospitality",
           "special_purpose"
         ],
-        "blockingEcosystems": [
-          "retail"
-        ],
+        "blockingEcosystems": [],
         "balance": {
           "state": "industrial_flex_representative_building_concentrated",
           "label": "Industrial Flex Representative Building Concentrated",
@@ -77732,12 +77727,12 @@
         "commercialEcosystem": {
           "id": "commercialEcosystem",
           "label": "Commercial Ecosystem Coverage",
-          "score": 37,
+          "score": 41,
           "state": {
             "id": "planning",
             "label": "Planning"
           },
-          "note": "Industrial & Flex coverage is strong or developed. Office is Partial; Retail is Thin; Life Science is Partial. Representative Building coverage is concentrated in Industrial & Flex.",
+          "note": "Industrial & Flex coverage is strong or developed. Office is Partial; Retail is Partial; Life Science is Partial. Representative Building coverage is concentrated in Industrial & Flex.",
           "source": "publisher"
         },
         "photography": {
@@ -77805,7 +77800,7 @@
       "examples": [
         "Antioch East 18th Industrial",
         "East Bay Building Brief Migration Sprint",
-        "East Bay Retail Ecosystem Representative Building Foundation"
+        "East Bay Medical Ecosystem District Foundation"
       ],
       "source": {
         "publisherStatus": "Editorially Developed",
@@ -79566,31 +79561,31 @@
   "portfolioQueues": {
     "todaysRecommendedWork": [
       {
-        "id": "mission:east-bay:east-bay-retail-ecosystem-representative-building-foundation",
-        "title": "East Bay Retail Ecosystem Representative Building Foundation",
+        "id": "mission:east-bay:east-bay-medical-ecosystem-district-foundation",
+        "title": "East Bay Medical Ecosystem District Foundation",
         "marketId": "east-bay",
         "marketName": "East Bay",
         "programId": "publisher",
         "programLabel": "Publisher",
         "campaignId": "east-bay:publisher:completion-campaign",
         "campaignTitle": "East Bay Publisher Completion",
-        "initiativeId": "east-bay:publisher:retail-readiness",
-        "initiativeTitle": "East Bay Retail Readiness",
+        "initiativeId": "east-bay:publisher:medical-readiness",
+        "initiativeTitle": "East Bay Medical Readiness",
         "metroId": "east-bay",
         "metroName": "East Bay",
-        "ecosystem": "Retail",
-        "ecosystemId": "retail",
+        "ecosystem": "Medical",
+        "ecosystemId": "medical",
         "workstream": "Commercial Ecosystem",
         "includedOpportunityIds": [
-          "ecosystem:east-bay:retail"
+          "ecosystem:east-bay:medical"
         ],
         "includedTasks": [
           {
-            "id": "ecosystem:east-bay:retail",
-            "title": "East Bay Retail Ecosystem Representative Building Foundation",
+            "id": "ecosystem:east-bay:medical",
+            "title": "East Bay Medical Ecosystem District Foundation",
             "category": "commercialEcosystem",
             "categoryLabel": "Commercial Ecosystem",
-            "reason": "District foundation exists, but Representative Buildings are missing.",
+            "reason": "Relevant ecosystem has no meaningful district coverage.",
             "suggestedModule": {
               "id": "publisher",
               "label": "Publisher"
@@ -79608,15 +79603,6 @@
             }
           },
           {
-            "id": "publisher:east-bay:comparisonGraph:orphan district comparison:antioch-east-18th-industrial",
-            "title": "Add meaningful compareWith relationships to nearby or decision-adjacent districts.",
-            "reason": "Outside this mission's bounded product layer or ecosystem scope.",
-            "suggestedModule": {
-              "id": "knowledgeGraph",
-              "label": "Knowledge Graph"
-            }
-          },
-          {
             "id": "publisher:east-bay:recommendationReadiness:missing recommendation QA status:east-bay",
             "title": "Add or update recommendation QA documentation for this metro.",
             "reason": "Outside this mission's bounded product layer or ecosystem scope.",
@@ -79624,30 +79610,12 @@
               "id": "compass",
               "label": "Compass"
             }
-          },
-          {
-            "id": "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
-            "title": "Author a Building Brief for this representative building.",
-            "reason": "Outside this mission's bounded product layer or ecosystem scope.",
-            "suggestedModule": {
-              "id": "publisher",
-              "label": "Publisher"
-            }
-          },
-          {
-            "id": "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st",
-            "title": "Author a Building Brief for this representative building.",
-            "reason": "Outside this mission's bounded product layer or ecosystem scope.",
-            "suggestedModule": {
-              "id": "publisher",
-              "label": "Publisher"
-            }
           }
         ],
-        "objective": "East Bay Retail Ecosystem Representative Building Foundation",
+        "objective": "East Bay Medical Ecosystem District Foundation",
         "reason": [
           "1 related opportunity share metro, source, and validation paths.",
-          "District foundation exists, but Representative Buildings are missing.",
+          "Relevant ecosystem has no meaningful district coverage.",
           "Ecosystem readiness: Partial",
           "Commercial balance: Industrial Flex Representative Building Concentrated"
         ],
@@ -79661,7 +79629,7 @@
         },
         "impactEffortClass": "High Impact / Small Effort",
         "missionClass": "Readiness Blocker",
-        "currentConstraint": "District foundation exists, but Representative Buildings are missing.",
+        "currentConstraint": "Relevant ecosystem has no meaningful district coverage.",
         "completionCriteria": [
           "The cited measurable gap is closed or explicitly reclassified.",
           "Existing Publisher, EOS, and relevant QA checks pass.",
@@ -79719,7 +79687,7 @@
           "Deferred work is explicit so unrelated scope does not leak into the mission."
         ],
         "why": [
-          "Current constraint: District foundation exists, but Representative Buildings are missing.",
+          "Current constraint: Relevant ecosystem has no meaningful district coverage.",
           "Expected impact is high based on readiness, foundation, or multi-gap evidence.",
           "Small mission size keeps the packet inside a 30-60 minutes review window."
         ],
@@ -79730,22 +79698,22 @@
           ]
         },
         "executionPacket": {
-          "objective": "East Bay Retail Ecosystem Representative Building Foundation",
+          "objective": "East Bay Medical Ecosystem District Foundation",
           "reason": [
             "1 related opportunity share metro, source, and validation paths.",
-            "District foundation exists, but Representative Buildings are missing.",
+            "Relevant ecosystem has no meaningful district coverage.",
             "Ecosystem readiness: Partial",
             "Commercial balance: Industrial Flex Representative Building Concentrated"
           ],
-          "currentHealth": "58% Needs Attention",
-          "currentConstraint": "District foundation exists, but Representative Buildings are missing.",
+          "currentHealth": "59% Needs Attention",
+          "currentConstraint": "Relevant ecosystem has no meaningful district coverage.",
           "includedTasks": [
             {
-              "id": "ecosystem:east-bay:retail",
-              "title": "East Bay Retail Ecosystem Representative Building Foundation",
+              "id": "ecosystem:east-bay:medical",
+              "title": "East Bay Medical Ecosystem District Foundation",
               "category": "commercialEcosystem",
               "categoryLabel": "Commercial Ecosystem",
-              "reason": "District foundation exists, but Representative Buildings are missing.",
+              "reason": "Relevant ecosystem has no meaningful district coverage.",
               "suggestedModule": {
                 "id": "publisher",
                 "label": "Publisher"
@@ -79763,39 +79731,12 @@
               }
             },
             {
-              "id": "publisher:east-bay:comparisonGraph:orphan district comparison:antioch-east-18th-industrial",
-              "title": "Add meaningful compareWith relationships to nearby or decision-adjacent districts.",
-              "reason": "Outside this mission's bounded product layer or ecosystem scope.",
-              "suggestedModule": {
-                "id": "knowledgeGraph",
-                "label": "Knowledge Graph"
-              }
-            },
-            {
               "id": "publisher:east-bay:recommendationReadiness:missing recommendation QA status:east-bay",
               "title": "Add or update recommendation QA documentation for this metro.",
               "reason": "Outside this mission's bounded product layer or ecosystem scope.",
               "suggestedModule": {
                 "id": "compass",
                 "label": "Compass"
-              }
-            },
-            {
-              "id": "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
-              "title": "Author a Building Brief for this representative building.",
-              "reason": "Outside this mission's bounded product layer or ecosystem scope.",
-              "suggestedModule": {
-                "id": "publisher",
-                "label": "Publisher"
-              }
-            },
-            {
-              "id": "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st",
-              "title": "Author a Building Brief for this representative building.",
-              "reason": "Outside this mission's bounded product layer or ecosystem scope.",
-              "suggestedModule": {
-                "id": "publisher",
-                "label": "Publisher"
               }
             }
           ],
@@ -80017,7 +79958,7 @@
             "Task type: missing recommendation QA status",
             "Publisher severity: high"
           ],
-          "currentHealth": "58% Needs Attention",
+          "currentHealth": "59% Needs Attention",
           "currentConstraint": "Authoritative recommendation QA status was not found.",
           "includedTasks": [
             {
@@ -82515,20 +82456,20 @@
     ],
     "missionQueue": [
       {
-        "id": "mission:east-bay:east-bay-retail-ecosystem-representative-building-foundation",
-        "title": "East Bay Retail Ecosystem Representative Building Foundation",
+        "id": "mission:east-bay:east-bay-medical-ecosystem-district-foundation",
+        "title": "East Bay Medical Ecosystem District Foundation",
         "marketId": "east-bay",
         "marketName": "East Bay",
         "programId": "publisher",
         "programLabel": "Publisher",
         "campaignId": "east-bay:publisher:completion-campaign",
         "campaignTitle": "East Bay Publisher Completion",
-        "initiativeId": "east-bay:publisher:retail-readiness",
-        "initiativeTitle": "East Bay Retail Readiness",
+        "initiativeId": "east-bay:publisher:medical-readiness",
+        "initiativeTitle": "East Bay Medical Readiness",
         "metroId": "east-bay",
         "metroName": "East Bay",
-        "ecosystem": "Retail",
-        "ecosystemId": "retail",
+        "ecosystem": "Medical",
+        "ecosystemId": "medical",
         "expectedImpact": "High",
         "estimatedEffort": "Small",
         "missionSize": {
@@ -82539,7 +82480,7 @@
         },
         "impactEffortClass": "High Impact / Small Effort",
         "missionClass": "Readiness Blocker",
-        "currentConstraint": "District foundation exists, but Representative Buildings are missing.",
+        "currentConstraint": "Relevant ecosystem has no meaningful district coverage.",
         "dependencies": [
           "Canonical ecosystem metadata",
           "Publisher ecosystem readiness analysis"
@@ -82579,15 +82520,15 @@
           "label": "Publisher"
         },
         "why": [
-          "Current constraint: District foundation exists, but Representative Buildings are missing.",
+          "Current constraint: Relevant ecosystem has no meaningful district coverage.",
           "Expected impact is high based on readiness, foundation, or multi-gap evidence.",
           "Small mission size keeps the packet inside a 30-60 minutes review window."
         ],
         "includedTasks": [
           {
-            "id": "ecosystem:east-bay:retail",
-            "title": "East Bay Retail Ecosystem Representative Building Foundation",
-            "reason": "District foundation exists, but Representative Buildings are missing."
+            "id": "ecosystem:east-bay:medical",
+            "title": "East Bay Medical Ecosystem District Foundation",
+            "reason": "Relevant ecosystem has no meaningful district coverage."
           }
         ],
         "deferredTasks": [
@@ -82597,41 +82538,26 @@
             "reason": "Photography remains Experience Readiness work owned by Field Mode."
           },
           {
-            "id": "publisher:east-bay:comparisonGraph:orphan district comparison:antioch-east-18th-industrial",
-            "title": "Add meaningful compareWith relationships to nearby or decision-adjacent districts.",
-            "reason": "Outside this mission's bounded product layer or ecosystem scope."
-          },
-          {
             "id": "publisher:east-bay:recommendationReadiness:missing recommendation QA status:east-bay",
             "title": "Add or update recommendation QA documentation for this metro.",
-            "reason": "Outside this mission's bounded product layer or ecosystem scope."
-          },
-          {
-            "id": "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
-            "title": "Author a Building Brief for this representative building.",
-            "reason": "Outside this mission's bounded product layer or ecosystem scope."
-          },
-          {
-            "id": "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st",
-            "title": "Author a Building Brief for this representative building.",
             "reason": "Outside this mission's bounded product layer or ecosystem scope."
           }
         ],
         "executionPacket": {
-          "objective": "East Bay Retail Ecosystem Representative Building Foundation",
+          "objective": "East Bay Medical Ecosystem District Foundation",
           "reason": [
             "1 related opportunity share metro, source, and validation paths.",
-            "District foundation exists, but Representative Buildings are missing.",
+            "Relevant ecosystem has no meaningful district coverage.",
             "Ecosystem readiness: Partial",
             "Commercial balance: Industrial Flex Representative Building Concentrated"
           ],
-          "currentHealth": "58% Needs Attention",
-          "currentConstraint": "District foundation exists, but Representative Buildings are missing.",
+          "currentHealth": "59% Needs Attention",
+          "currentConstraint": "Relevant ecosystem has no meaningful district coverage.",
           "includedTasks": [
             {
-              "id": "ecosystem:east-bay:retail",
-              "title": "East Bay Retail Ecosystem Representative Building Foundation",
-              "reason": "District foundation exists, but Representative Buildings are missing."
+              "id": "ecosystem:east-bay:medical",
+              "title": "East Bay Medical Ecosystem District Foundation",
+              "reason": "Relevant ecosystem has no meaningful district coverage."
             }
           ],
           "deferredTasks": [
@@ -82641,23 +82567,8 @@
               "reason": "Photography remains Experience Readiness work owned by Field Mode."
             },
             {
-              "id": "publisher:east-bay:comparisonGraph:orphan district comparison:antioch-east-18th-industrial",
-              "title": "Add meaningful compareWith relationships to nearby or decision-adjacent districts.",
-              "reason": "Outside this mission's bounded product layer or ecosystem scope."
-            },
-            {
               "id": "publisher:east-bay:recommendationReadiness:missing recommendation QA status:east-bay",
               "title": "Add or update recommendation QA documentation for this metro.",
-              "reason": "Outside this mission's bounded product layer or ecosystem scope."
-            },
-            {
-              "id": "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
-              "title": "Author a Building Brief for this representative building.",
-              "reason": "Outside this mission's bounded product layer or ecosystem scope."
-            },
-            {
-              "id": "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st",
-              "title": "Author a Building Brief for this representative building.",
               "reason": "Outside this mission's bounded product layer or ecosystem scope."
             }
           ],
@@ -82836,7 +82747,7 @@
             "Task type: missing recommendation QA status",
             "Publisher severity: high"
           ],
-          "currentHealth": "58% Needs Attention",
+          "currentHealth": "59% Needs Attention",
           "currentConstraint": "Authoritative recommendation QA status was not found.",
           "includedTasks": [
             {
@@ -85012,7 +84923,7 @@
             "Task type: orphan district comparison",
             "Publisher severity: high"
           ],
-          "currentHealth": "58% Needs Attention",
+          "currentHealth": "59% Needs Attention",
           "currentConstraint": "District has no comparison relationships.",
           "includedTasks": [
             {
@@ -90754,7 +90665,7 @@
             "Supporting Building Profiles: 0 / 2.",
             "2 selected Building Profile work items are included in this bounded Mission."
           ],
-          "currentHealth": "58% Needs Attention",
+          "currentHealth": "59% Needs Attention",
           "currentConstraint": "Emeryville Commercial Core Commercial Market Evidence is complete, but selected evidence Building Profiles remain incomplete.",
           "includedTasks": [
             {
@@ -108494,12 +108405,12 @@
     ],
     "editorialQueue": [
       {
-        "id": "ecosystem:east-bay:retail",
-        "title": "East Bay Retail Ecosystem Representative Building Foundation",
+        "id": "ecosystem:east-bay:medical",
+        "title": "East Bay Medical Ecosystem District Foundation",
         "metroId": "east-bay",
         "metroName": "East Bay",
-        "ecosystemId": "retail",
-        "itemName": "Retail",
+        "ecosystemId": "medical",
+        "itemName": "Medical",
         "expectedEditorialImpact": "High",
         "estimatedEffort": "60-120 min",
         "dependencies": [
@@ -108532,20 +108443,20 @@
           "label": "Publisher"
         },
         "why": [
-          "District foundation exists, but Representative Buildings are missing.",
+          "Relevant ecosystem has no meaningful district coverage.",
           "Ecosystem readiness: Partial",
           "Commercial balance: Industrial Flex Representative Building Concentrated"
         ],
         "includedTasks": [],
         "deferredTasks": [],
         "executionPacket": {
-          "objective": "East Bay Retail Ecosystem Representative Building Foundation",
+          "objective": "East Bay Medical Ecosystem District Foundation",
           "reason": [
-            "District foundation exists, but Representative Buildings are missing.",
+            "Relevant ecosystem has no meaningful district coverage.",
             "Ecosystem readiness: Partial",
             "Commercial balance: Industrial Flex Representative Building Concentrated"
           ],
-          "currentHealth": "58% Needs Attention",
+          "currentHealth": "59% Needs Attention",
           "includedTasks": [],
           "deferredTasks": [],
           "files": [
@@ -109297,7 +109208,7 @@
             "Task type: orphan district comparison",
             "Publisher severity: high"
           ],
-          "currentHealth": "58% Needs Attention",
+          "currentHealth": "59% Needs Attention",
           "includedTasks": [],
           "deferredTasks": [],
           "files": [
@@ -109415,7 +109326,7 @@
             "Task type: missing recommendation QA status",
             "Publisher severity: high"
           ],
-          "currentHealth": "58% Needs Attention",
+          "currentHealth": "59% Needs Attention",
           "includedTasks": [],
           "deferredTasks": [],
           "files": [
@@ -112945,7 +112856,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "58% Needs Attention",
+          "currentHealth": "59% Needs Attention",
           "includedTasks": [],
           "deferredTasks": [],
           "files": [
@@ -113063,7 +112974,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "58% Needs Attention",
+          "currentHealth": "59% Needs Attention",
           "includedTasks": [],
           "deferredTasks": [],
           "files": [
@@ -113181,7 +113092,7 @@
             "Task type: district missing representative buildings",
             "Publisher severity: medium"
           ],
-          "currentHealth": "58% Needs Attention",
+          "currentHealth": "59% Needs Attention",
           "includedTasks": [],
           "deferredTasks": [],
           "files": [
@@ -121115,7 +121026,7 @@
           "Field Mode requires a human to capture Rofo-owned photos.",
           "A real city, district, or building photo improves public editorial trust without changing recommendations."
         ],
-        "currentHealth": "58% Needs Attention",
+        "currentHealth": "59% Needs Attention",
         "includedTasks": [],
         "deferredTasks": [],
         "files": [
@@ -121773,12 +121684,12 @@
       }
     },
     {
-      "id": "ecosystem:east-bay:retail",
-      "title": "East Bay Retail Ecosystem Representative Building Foundation",
+      "id": "ecosystem:east-bay:medical",
+      "title": "East Bay Medical Ecosystem District Foundation",
       "metroId": "east-bay",
       "metroName": "East Bay",
-      "ecosystemId": "retail",
-      "itemName": "Retail",
+      "ecosystemId": "medical",
+      "itemName": "Medical",
       "expectedEditorialImpact": "High",
       "estimatedEffort": "60-120 min",
       "dependencies": [
@@ -121811,20 +121722,20 @@
         "label": "Publisher"
       },
       "why": [
-        "District foundation exists, but Representative Buildings are missing.",
+        "Relevant ecosystem has no meaningful district coverage.",
         "Ecosystem readiness: Partial",
         "Commercial balance: Industrial Flex Representative Building Concentrated"
       ],
       "includedTasks": [],
       "deferredTasks": [],
       "executionPacket": {
-        "objective": "East Bay Retail Ecosystem Representative Building Foundation",
+        "objective": "East Bay Medical Ecosystem District Foundation",
         "reason": [
-          "District foundation exists, but Representative Buildings are missing.",
+          "Relevant ecosystem has no meaningful district coverage.",
           "Ecosystem readiness: Partial",
           "Commercial balance: Industrial Flex Representative Building Concentrated"
         ],
-        "currentHealth": "58% Needs Attention",
+        "currentHealth": "59% Needs Attention",
         "includedTasks": [],
         "deferredTasks": [],
         "files": [
@@ -122576,7 +122487,7 @@
           "Task type: orphan district comparison",
           "Publisher severity: high"
         ],
-        "currentHealth": "58% Needs Attention",
+        "currentHealth": "59% Needs Attention",
         "includedTasks": [],
         "deferredTasks": [],
         "files": [
@@ -122694,7 +122605,7 @@
           "Task type: missing recommendation QA status",
           "Publisher severity: high"
         ],
-        "currentHealth": "58% Needs Attention",
+        "currentHealth": "59% Needs Attention",
         "includedTasks": [],
         "deferredTasks": [],
         "files": [
@@ -124120,7 +124031,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "58% Needs Attention",
+        "currentHealth": "59% Needs Attention",
         "includedTasks": [],
         "deferredTasks": [],
         "files": [
@@ -124238,7 +124149,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "58% Needs Attention",
+        "currentHealth": "59% Needs Attention",
         "includedTasks": [],
         "deferredTasks": [],
         "files": [
@@ -124356,7 +124267,7 @@
           "Task type: district missing representative buildings",
           "Publisher severity: medium"
         ],
-        "currentHealth": "58% Needs Attention",
+        "currentHealth": "59% Needs Attention",
         "includedTasks": [],
         "deferredTasks": [],
         "files": [
@@ -127535,7 +127446,7 @@
           "Task type: one-way comparison",
           "Publisher severity: low"
         ],
-        "currentHealth": "58% Needs Attention",
+        "currentHealth": "59% Needs Attention",
         "includedTasks": [],
         "deferredTasks": [],
         "files": [
