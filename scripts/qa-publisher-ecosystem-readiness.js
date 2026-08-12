@@ -152,6 +152,18 @@ if (sanFrancisco) {
   requireField(["partial", "developed"].includes(evaluationFor(sanFrancisco, "industrial_flex").readinessState), "San Francisco: industrial/flex should be partial or developed");
 }
 
+const eastBay = metroById("east-bay");
+if (eastBay) {
+  const lifeScience = evaluationFor(eastBay, "life_science");
+  const eastBayPlan = planById("east-bay");
+  requireField(lifeScience && lifeScience.counts && lifeScience.counts.secondaryDistricts >= 2, "East Bay: life science should retain secondary district evidence.");
+  requireField(lifeScience && lifeScience.layers && ["strong", "developed"].includes(lifeScience.layers.subtypes), `East Bay: life science secondary subtype breadth should be credited, got ${lifeScience && lifeScience.layers && lifeScience.layers.subtypes}`);
+  requireField(lifeScience && lifeScience.layers && ["strong", "developed"].includes(lifeScience.layers.archetypes), `East Bay: life science secondary archetype breadth should be credited, got ${lifeScience && lifeScience.layers && lifeScience.layers.archetypes}`);
+  requireField(lifeScience && lifeScience.layers && ["strong", "developed"].includes(lifeScience.layers.activities), `East Bay: life science secondary activity breadth should be credited, got ${lifeScience && lifeScience.layers && lifeScience.layers.activities}`);
+  requireField(!((lifeScience && lifeScience.gaps) || []).includes("Subtype breadth is thin."), "East Bay: completed life-science subtype expansion should not remain open.");
+  requireField(!((eastBayPlan && eastBayPlan.recommendedEcosystemSprint || {}).title || "").includes("Life Science Ecosystem Subtype Expansion"), "East Bay: completed Life Science subtype sprint should not remain recommended.");
+}
+
 ["san-diego", "orange-county", "denver"].forEach((id) => {
   const metro = metroById(id);
   if (!metro) return;

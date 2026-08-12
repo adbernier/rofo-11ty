@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-11T15:36:40-07:00",
+  "generatedAt": "2026-08-11T16:12:18-07:00",
   "eosVersion": "editorial-operating-system-v2.2.4",
   "sourceSystems": [
     "Publisher",
@@ -14,7 +14,7 @@
   ],
   "commercialKnowledgeIntelligence": {
     "schemaVersion": "eos-commercial-knowledge-intelligence-v1",
-    "generatedAt": "2026-08-11T15:36:40-07:00",
+    "generatedAt": "2026-08-11T16:12:18-07:00",
     "sourceSystems": [
       "Editor-controlled strategic priorities",
       "Google Search Console Search Analytics API",
@@ -186553,7 +186553,7 @@
       "displayedBy": "Mission Control",
       "status": "Validated",
       "validationStatus": "PASS",
-      "latestValidation": "2026-08-11T15:36:40-07:00",
+      "latestValidation": "2026-08-11T16:12:18-07:00",
       "markets": [
         {
           "marketId": "east-bay",
@@ -187224,7 +187224,7 @@
         "Low": 2
       },
       "deferredCandidates": 69,
-      "latestValidation": "2026-08-11T15:36:40-07:00",
+      "latestValidation": "2026-08-11T16:12:18-07:00",
       "errors": [],
       "warnings": [],
       "source": {
@@ -213028,16 +213028,16 @@
                     "EOS health signals."
                   ]
                 },
-                "currentConstraint": "Subtype breadth is too narrow for the ecosystem's relevance.",
-                "nextInitiativeId": "east-bay:publisher:life-science-readiness",
-                "nextMissionId": "mission:east-bay:east-bay-life-science-ecosystem-subtype-expansion",
+                "currentConstraint": "District foundation exists, but Representative Buildings are missing.",
+                "nextInitiativeId": "east-bay:publisher:retail-readiness",
+                "nextMissionId": "mission:east-bay:east-bay-retail-ecosystem-representative-building-foundation",
                 "initiativeIds": [
-                  "east-bay:publisher:life-science-readiness",
+                  "east-bay:publisher:retail-readiness",
                   "east-bay:publisher:recommendation-readiness",
                   "east-bay:publisher:comparison-graph"
                 ],
                 "missionIds": [
-                  "mission:east-bay:east-bay-life-science-ecosystem-subtype-expansion",
+                  "mission:east-bay:east-bay-retail-ecosystem-representative-building-foundation",
                   "mission:east-bay:add-or-update-recommendation-qa-documentation-for-this-metro",
                   "mission:east-bay:add-meaningful-comparewith-relationships-to-nearby-or-decision-adjacent-districts"
                 ],
@@ -213058,19 +213058,19 @@
             ],
             "campaignId": "east-bay:publisher:completion-campaign",
             "nextCampaignId": "east-bay:publisher:completion-campaign",
-            "currentConstraint": "Subtype breadth is too narrow for the ecosystem's relevance.",
-            "nextInitiativeId": "east-bay:publisher:life-science-readiness",
-            "nextMissionId": "mission:east-bay:east-bay-life-science-ecosystem-subtype-expansion",
+            "currentConstraint": "District foundation exists, but Representative Buildings are missing.",
+            "nextInitiativeId": "east-bay:publisher:retail-readiness",
+            "nextMissionId": "mission:east-bay:east-bay-retail-ecosystem-representative-building-foundation",
             "initiatives": [
               {
-                "id": "east-bay:publisher:life-science-readiness",
+                "id": "east-bay:publisher:retail-readiness",
                 "marketId": "east-bay",
                 "marketName": "East Bay",
                 "programId": "publisher",
                 "programLabel": "Publisher",
-                "title": "East Bay Life Science Readiness",
-                "scope": "Life Science",
-                "objective": "East Bay Life Science Ecosystem Subtype Expansion",
+                "title": "East Bay Retail Readiness",
+                "scope": "Retail",
+                "objective": "East Bay Retail Ecosystem Representative Building Foundation",
                 "status": "Next",
                 "currentStage": "Next",
                 "progress": {
@@ -213083,10 +213083,10 @@
                     "EOS mission queue."
                   ]
                 },
-                "currentConstraint": "Subtype breadth is too narrow for the ecosystem's relevance.",
-                "nextMissionId": "mission:east-bay:east-bay-life-science-ecosystem-subtype-expansion",
+                "currentConstraint": "District foundation exists, but Representative Buildings are missing.",
+                "nextMissionId": "mission:east-bay:east-bay-retail-ecosystem-representative-building-foundation",
                 "remainingMilestones": [
-                  "Subtype breadth is too narrow for the ecosystem's relevance."
+                  "District foundation exists, but Representative Buildings are missing."
                 ],
                 "confidence": "Medium",
                 "sourceEvidence": [
@@ -213096,21 +213096,21 @@
                 "readOnly": false,
                 "missions": [
                   {
-                    "id": "mission:east-bay:east-bay-life-science-ecosystem-subtype-expansion",
-                    "title": "East Bay Life Science Ecosystem Subtype Expansion",
+                    "id": "mission:east-bay:east-bay-retail-ecosystem-representative-building-foundation",
+                    "title": "East Bay Retail Ecosystem Representative Building Foundation",
                     "marketId": "east-bay",
                     "marketName": "East Bay",
                     "programId": "publisher",
                     "programLabel": "Publisher",
                     "campaignId": "east-bay:publisher:completion-campaign",
                     "campaignTitle": "East Bay Publisher Completion",
-                    "initiativeId": "east-bay:publisher:life-science-readiness",
-                    "initiativeTitle": "East Bay Life Science Readiness",
+                    "initiativeId": "east-bay:publisher:retail-readiness",
+                    "initiativeTitle": "East Bay Retail Readiness",
                     "portfolioId": "",
                     "districtId": "",
                     "districtName": "",
-                    "objective": "East Bay Life Science Ecosystem Subtype Expansion",
-                    "currentConstraint": "Subtype breadth is too narrow for the ecosystem's relevance.",
+                    "objective": "East Bay Retail Ecosystem Representative Building Foundation",
+                    "currentConstraint": "District foundation exists, but Representative Buildings are missing.",
                     "expectedImpact": "High",
                     "estimatedEffort": "Small",
                     "missionSize": {
@@ -213119,21 +213119,24 @@
                       "reviewWindow": "30-60 minutes",
                       "maximumWorkItems": 3
                     },
-                    "missionClass": "Foundation",
+                    "missionClass": "Readiness Blocker",
                     "confidence": "Medium",
                     "priorityScore": 100,
-                    "executionPacketRef": "portfolioQueues.missionQueue:mission:east-bay:east-bay-life-science-ecosystem-subtype-expansion",
+                    "executionPacketRef": "portfolioQueues.missionQueue:mission:east-bay:east-bay-retail-ecosystem-representative-building-foundation",
                     "executionPacketAvailable": true,
                     "componentStatuses": null,
                     "workItems": {
                       "hiddenByDefault": true,
                       "count": 1,
                       "includedOpportunityIds": [
-                        "ecosystem:east-bay:life_science"
+                        "ecosystem:east-bay:retail"
                       ],
                       "deferredWorkItemIds": [
                         "field-mode-summary:east-bay",
-                        "publisher:east-bay:recommendationReadiness:missing recommendation QA status:east-bay"
+                        "publisher:east-bay:comparisonGraph:orphan district comparison:antioch-east-18th-industrial",
+                        "publisher:east-bay:recommendationReadiness:missing recommendation QA status:east-bay",
+                        "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
+                        "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st"
                       ]
                     }
                   }
@@ -215132,21 +215135,21 @@
         ],
         "nextMissions": [
           {
-            "id": "mission:east-bay:east-bay-life-science-ecosystem-subtype-expansion",
-            "title": "East Bay Life Science Ecosystem Subtype Expansion",
+            "id": "mission:east-bay:east-bay-retail-ecosystem-representative-building-foundation",
+            "title": "East Bay Retail Ecosystem Representative Building Foundation",
             "marketId": "east-bay",
             "marketName": "East Bay",
             "programId": "publisher",
             "programLabel": "Publisher",
             "campaignId": "east-bay:publisher:completion-campaign",
             "campaignTitle": "East Bay Publisher Completion",
-            "initiativeId": "east-bay:publisher:life-science-readiness",
-            "initiativeTitle": "East Bay Life Science Readiness",
+            "initiativeId": "east-bay:publisher:retail-readiness",
+            "initiativeTitle": "East Bay Retail Readiness",
             "portfolioId": "",
             "districtId": "",
             "districtName": "",
-            "objective": "East Bay Life Science Ecosystem Subtype Expansion",
-            "currentConstraint": "Subtype breadth is too narrow for the ecosystem's relevance.",
+            "objective": "East Bay Retail Ecosystem Representative Building Foundation",
+            "currentConstraint": "District foundation exists, but Representative Buildings are missing.",
             "expectedImpact": "High",
             "estimatedEffort": "Small",
             "missionSize": {
@@ -215155,21 +215158,24 @@
               "reviewWindow": "30-60 minutes",
               "maximumWorkItems": 3
             },
-            "missionClass": "Foundation",
+            "missionClass": "Readiness Blocker",
             "confidence": "Medium",
             "priorityScore": 100,
-            "executionPacketRef": "portfolioQueues.missionQueue:mission:east-bay:east-bay-life-science-ecosystem-subtype-expansion",
+            "executionPacketRef": "portfolioQueues.missionQueue:mission:east-bay:east-bay-retail-ecosystem-representative-building-foundation",
             "executionPacketAvailable": true,
             "componentStatuses": null,
             "workItems": {
               "hiddenByDefault": true,
               "count": 1,
               "includedOpportunityIds": [
-                "ecosystem:east-bay:life_science"
+                "ecosystem:east-bay:retail"
               ],
               "deferredWorkItemIds": [
                 "field-mode-summary:east-bay",
-                "publisher:east-bay:recommendationReadiness:missing recommendation QA status:east-bay"
+                "publisher:east-bay:comparisonGraph:orphan district comparison:antioch-east-18th-industrial",
+                "publisher:east-bay:recommendationReadiness:missing recommendation QA status:east-bay",
+                "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
+                "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st"
               ]
             }
           },
@@ -237923,16 +237929,16 @@
             "EOS health signals."
           ]
         },
-        "currentConstraint": "Subtype breadth is too narrow for the ecosystem's relevance.",
-        "nextInitiativeId": "east-bay:publisher:life-science-readiness",
-        "nextMissionId": "mission:east-bay:east-bay-life-science-ecosystem-subtype-expansion",
+        "currentConstraint": "District foundation exists, but Representative Buildings are missing.",
+        "nextInitiativeId": "east-bay:publisher:retail-readiness",
+        "nextMissionId": "mission:east-bay:east-bay-retail-ecosystem-representative-building-foundation",
         "initiativeIds": [
-          "east-bay:publisher:life-science-readiness",
+          "east-bay:publisher:retail-readiness",
           "east-bay:publisher:recommendation-readiness",
           "east-bay:publisher:comparison-graph"
         ],
         "missionIds": [
-          "mission:east-bay:east-bay-life-science-ecosystem-subtype-expansion",
+          "mission:east-bay:east-bay-retail-ecosystem-representative-building-foundation",
           "mission:east-bay:add-or-update-recommendation-qa-documentation-for-this-metro",
           "mission:east-bay:add-meaningful-comparewith-relationships-to-nearby-or-decision-adjacent-districts"
         ],
@@ -237950,12 +237956,12 @@
           "EOS health signals."
         ],
         "initiatives": [
-          "east-bay:publisher:life-science-readiness",
+          "east-bay:publisher:retail-readiness",
           "east-bay:publisher:recommendation-readiness",
           "east-bay:publisher:comparison-graph"
         ],
         "missions": [
-          "mission:east-bay:east-bay-life-science-ecosystem-subtype-expansion",
+          "mission:east-bay:east-bay-retail-ecosystem-representative-building-foundation",
           "mission:east-bay:add-or-update-recommendation-qa-documentation-for-this-metro",
           "mission:east-bay:add-meaningful-comparewith-relationships-to-nearby-or-decision-adjacent-districts"
         ]
@@ -248858,14 +248864,14 @@
         "campaignId": "denver:market_discovery:completion-campaign"
       },
       {
-        "id": "east-bay:publisher:life-science-readiness",
+        "id": "east-bay:publisher:retail-readiness",
         "marketId": "east-bay",
         "marketName": "East Bay",
         "programId": "publisher",
         "programLabel": "Publisher",
-        "title": "East Bay Life Science Readiness",
-        "scope": "Life Science",
-        "objective": "East Bay Life Science Ecosystem Subtype Expansion",
+        "title": "East Bay Retail Readiness",
+        "scope": "Retail",
+        "objective": "East Bay Retail Ecosystem Representative Building Foundation",
         "status": "Next",
         "currentStage": "Next",
         "progress": {
@@ -248878,10 +248884,10 @@
             "EOS mission queue."
           ]
         },
-        "currentConstraint": "Subtype breadth is too narrow for the ecosystem's relevance.",
-        "nextMissionId": "mission:east-bay:east-bay-life-science-ecosystem-subtype-expansion",
+        "currentConstraint": "District foundation exists, but Representative Buildings are missing.",
+        "nextMissionId": "mission:east-bay:east-bay-retail-ecosystem-representative-building-foundation",
         "remainingMilestones": [
-          "Subtype breadth is too narrow for the ecosystem's relevance."
+          "District foundation exists, but Representative Buildings are missing."
         ],
         "confidence": "Medium",
         "sourceEvidence": [
@@ -248890,7 +248896,7 @@
         ],
         "readOnly": false,
         "missions": [
-          "mission:east-bay:east-bay-life-science-ecosystem-subtype-expansion"
+          "mission:east-bay:east-bay-retail-ecosystem-representative-building-foundation"
         ],
         "campaignId": "east-bay:publisher:completion-campaign"
       },
@@ -255875,21 +255881,21 @@
         }
       },
       {
-        "id": "mission:east-bay:east-bay-life-science-ecosystem-subtype-expansion",
-        "title": "East Bay Life Science Ecosystem Subtype Expansion",
+        "id": "mission:east-bay:east-bay-retail-ecosystem-representative-building-foundation",
+        "title": "East Bay Retail Ecosystem Representative Building Foundation",
         "marketId": "east-bay",
         "marketName": "East Bay",
         "programId": "publisher",
         "programLabel": "Publisher",
         "campaignId": "east-bay:publisher:completion-campaign",
         "campaignTitle": "East Bay Publisher Completion",
-        "initiativeId": "east-bay:publisher:life-science-readiness",
-        "initiativeTitle": "East Bay Life Science Readiness",
+        "initiativeId": "east-bay:publisher:retail-readiness",
+        "initiativeTitle": "East Bay Retail Readiness",
         "portfolioId": "",
         "districtId": "",
         "districtName": "",
-        "objective": "East Bay Life Science Ecosystem Subtype Expansion",
-        "currentConstraint": "Subtype breadth is too narrow for the ecosystem's relevance.",
+        "objective": "East Bay Retail Ecosystem Representative Building Foundation",
+        "currentConstraint": "District foundation exists, but Representative Buildings are missing.",
         "expectedImpact": "High",
         "estimatedEffort": "Small",
         "missionSize": {
@@ -255898,21 +255904,24 @@
           "reviewWindow": "30-60 minutes",
           "maximumWorkItems": 3
         },
-        "missionClass": "Foundation",
+        "missionClass": "Readiness Blocker",
         "confidence": "Medium",
         "priorityScore": 100,
-        "executionPacketRef": "portfolioQueues.missionQueue:mission:east-bay:east-bay-life-science-ecosystem-subtype-expansion",
+        "executionPacketRef": "portfolioQueues.missionQueue:mission:east-bay:east-bay-retail-ecosystem-representative-building-foundation",
         "executionPacketAvailable": true,
         "componentStatuses": null,
         "workItems": {
           "hiddenByDefault": true,
           "count": 1,
           "includedOpportunityIds": [
-            "ecosystem:east-bay:life_science"
+            "ecosystem:east-bay:retail"
           ],
           "deferredWorkItemIds": [
             "field-mode-summary:east-bay",
-            "publisher:east-bay:recommendationReadiness:missing recommendation QA status:east-bay"
+            "publisher:east-bay:comparisonGraph:orphan district comparison:antioch-east-18th-industrial",
+            "publisher:east-bay:recommendationReadiness:missing recommendation QA status:east-bay",
+            "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
+            "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st"
           ]
         }
       },
@@ -260294,7 +260303,7 @@
     "openWorkItems": 310,
     "humanOnlyWorkItems": 7,
     "autonomousCandidates": 94,
-    "topWorkItem": "East Bay Life Science Ecosystem Subtype Expansion"
+    "topWorkItem": "East Bay Retail Ecosystem Representative Building Foundation"
   },
   "metros": [
     {
@@ -260810,7 +260819,7 @@
       "examples": [
         "Antioch East 18th Industrial",
         "East Bay Building Brief Migration Sprint",
-        "East Bay Life Science Ecosystem Subtype Expansion"
+        "East Bay Retail Ecosystem Representative Building Foundation"
       ],
       "source": {
         "publisherStatus": "Editorially Developed",
@@ -262571,31 +262580,31 @@
   "portfolioQueues": {
     "todaysRecommendedWork": [
       {
-        "id": "mission:east-bay:east-bay-life-science-ecosystem-subtype-expansion",
-        "title": "East Bay Life Science Ecosystem Subtype Expansion",
+        "id": "mission:east-bay:east-bay-retail-ecosystem-representative-building-foundation",
+        "title": "East Bay Retail Ecosystem Representative Building Foundation",
         "marketId": "east-bay",
         "marketName": "East Bay",
         "programId": "publisher",
         "programLabel": "Publisher",
         "campaignId": "east-bay:publisher:completion-campaign",
         "campaignTitle": "East Bay Publisher Completion",
-        "initiativeId": "east-bay:publisher:life-science-readiness",
-        "initiativeTitle": "East Bay Life Science Readiness",
+        "initiativeId": "east-bay:publisher:retail-readiness",
+        "initiativeTitle": "East Bay Retail Readiness",
         "metroId": "east-bay",
         "metroName": "East Bay",
-        "ecosystem": "Life Science",
-        "ecosystemId": "life_science",
+        "ecosystem": "Retail",
+        "ecosystemId": "retail",
         "workstream": "Commercial Ecosystem",
         "includedOpportunityIds": [
-          "ecosystem:east-bay:life_science"
+          "ecosystem:east-bay:retail"
         ],
         "includedTasks": [
           {
-            "id": "ecosystem:east-bay:life_science",
-            "title": "East Bay Life Science Ecosystem Subtype Expansion",
+            "id": "ecosystem:east-bay:retail",
+            "title": "East Bay Retail Ecosystem Representative Building Foundation",
             "category": "commercialEcosystem",
             "categoryLabel": "Commercial Ecosystem",
-            "reason": "Subtype breadth is too narrow for the ecosystem's relevance.",
+            "reason": "District foundation exists, but Representative Buildings are missing.",
             "suggestedModule": {
               "id": "publisher",
               "label": "Publisher"
@@ -262613,6 +262622,15 @@
             }
           },
           {
+            "id": "publisher:east-bay:comparisonGraph:orphan district comparison:antioch-east-18th-industrial",
+            "title": "Add meaningful compareWith relationships to nearby or decision-adjacent districts.",
+            "reason": "Outside this mission's bounded product layer or ecosystem scope.",
+            "suggestedModule": {
+              "id": "knowledgeGraph",
+              "label": "Knowledge Graph"
+            }
+          },
+          {
             "id": "publisher:east-bay:recommendationReadiness:missing recommendation QA status:east-bay",
             "title": "Add or update recommendation QA documentation for this metro.",
             "reason": "Outside this mission's bounded product layer or ecosystem scope.",
@@ -262620,12 +262638,30 @@
               "id": "compass",
               "label": "Compass"
             }
+          },
+          {
+            "id": "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
+            "title": "Author a Building Brief for this representative building.",
+            "reason": "Outside this mission's bounded product layer or ecosystem scope.",
+            "suggestedModule": {
+              "id": "publisher",
+              "label": "Publisher"
+            }
+          },
+          {
+            "id": "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st",
+            "title": "Author a Building Brief for this representative building.",
+            "reason": "Outside this mission's bounded product layer or ecosystem scope.",
+            "suggestedModule": {
+              "id": "publisher",
+              "label": "Publisher"
+            }
           }
         ],
-        "objective": "East Bay Life Science Ecosystem Subtype Expansion",
+        "objective": "East Bay Retail Ecosystem Representative Building Foundation",
         "reason": [
           "1 related opportunity share metro, source, and validation paths.",
-          "Subtype breadth is too narrow for the ecosystem's relevance.",
+          "District foundation exists, but Representative Buildings are missing.",
           "Ecosystem readiness: Partial",
           "Commercial balance: Industrial Flex Representative Building Concentrated"
         ],
@@ -262638,8 +262674,8 @@
           "maximumWorkItems": 3
         },
         "impactEffortClass": "High Impact / Small Effort",
-        "missionClass": "Foundation",
-        "currentConstraint": "Subtype breadth is too narrow for the ecosystem's relevance.",
+        "missionClass": "Readiness Blocker",
+        "currentConstraint": "District foundation exists, but Representative Buildings are missing.",
         "completionCriteria": [
           "The cited measurable gap is closed or explicitly reclassified.",
           "Existing Publisher, EOS, and relevant QA checks pass.",
@@ -262697,7 +262733,7 @@
           "Deferred work is explicit so unrelated scope does not leak into the mission."
         ],
         "why": [
-          "Current constraint: Subtype breadth is too narrow for the ecosystem's relevance.",
+          "Current constraint: District foundation exists, but Representative Buildings are missing.",
           "Expected impact is high based on readiness, foundation, or multi-gap evidence.",
           "Small mission size keeps the packet inside a 30-60 minutes review window."
         ],
@@ -262708,22 +262744,22 @@
           ]
         },
         "executionPacket": {
-          "objective": "East Bay Life Science Ecosystem Subtype Expansion",
+          "objective": "East Bay Retail Ecosystem Representative Building Foundation",
           "reason": [
             "1 related opportunity share metro, source, and validation paths.",
-            "Subtype breadth is too narrow for the ecosystem's relevance.",
+            "District foundation exists, but Representative Buildings are missing.",
             "Ecosystem readiness: Partial",
             "Commercial balance: Industrial Flex Representative Building Concentrated"
           ],
           "currentHealth": "58% Needs Attention",
-          "currentConstraint": "Subtype breadth is too narrow for the ecosystem's relevance.",
+          "currentConstraint": "District foundation exists, but Representative Buildings are missing.",
           "includedTasks": [
             {
-              "id": "ecosystem:east-bay:life_science",
-              "title": "East Bay Life Science Ecosystem Subtype Expansion",
+              "id": "ecosystem:east-bay:retail",
+              "title": "East Bay Retail Ecosystem Representative Building Foundation",
               "category": "commercialEcosystem",
               "categoryLabel": "Commercial Ecosystem",
-              "reason": "Subtype breadth is too narrow for the ecosystem's relevance.",
+              "reason": "District foundation exists, but Representative Buildings are missing.",
               "suggestedModule": {
                 "id": "publisher",
                 "label": "Publisher"
@@ -262741,12 +262777,39 @@
               }
             },
             {
+              "id": "publisher:east-bay:comparisonGraph:orphan district comparison:antioch-east-18th-industrial",
+              "title": "Add meaningful compareWith relationships to nearby or decision-adjacent districts.",
+              "reason": "Outside this mission's bounded product layer or ecosystem scope.",
+              "suggestedModule": {
+                "id": "knowledgeGraph",
+                "label": "Knowledge Graph"
+              }
+            },
+            {
               "id": "publisher:east-bay:recommendationReadiness:missing recommendation QA status:east-bay",
               "title": "Add or update recommendation QA documentation for this metro.",
               "reason": "Outside this mission's bounded product layer or ecosystem scope.",
               "suggestedModule": {
                 "id": "compass",
                 "label": "Compass"
+              }
+            },
+            {
+              "id": "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
+              "title": "Author a Building Brief for this representative building.",
+              "reason": "Outside this mission's bounded product layer or ecosystem scope.",
+              "suggestedModule": {
+                "id": "publisher",
+                "label": "Publisher"
+              }
+            },
+            {
+              "id": "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st",
+              "title": "Author a Building Brief for this representative building.",
+              "reason": "Outside this mission's bounded product layer or ecosystem scope.",
+              "suggestedModule": {
+                "id": "publisher",
+                "label": "Publisher"
               }
             }
           ],
@@ -262763,7 +262826,7 @@
             "reviewWindow": "30-60 minutes",
             "maximumWorkItems": 3
           },
-          "missionClass": "Foundation",
+          "missionClass": "Readiness Blocker",
           "files": [
             "_data/commercialEcosystemTaxonomy.js",
             "_data/locationKnowledgeGraph.js",
@@ -265466,31 +265529,31 @@
     ],
     "missionQueue": [
       {
-        "id": "mission:east-bay:east-bay-life-science-ecosystem-subtype-expansion",
-        "title": "East Bay Life Science Ecosystem Subtype Expansion",
+        "id": "mission:east-bay:east-bay-retail-ecosystem-representative-building-foundation",
+        "title": "East Bay Retail Ecosystem Representative Building Foundation",
         "marketId": "east-bay",
         "marketName": "East Bay",
         "programId": "publisher",
         "programLabel": "Publisher",
         "campaignId": "east-bay:publisher:completion-campaign",
         "campaignTitle": "East Bay Publisher Completion",
-        "initiativeId": "east-bay:publisher:life-science-readiness",
-        "initiativeTitle": "East Bay Life Science Readiness",
+        "initiativeId": "east-bay:publisher:retail-readiness",
+        "initiativeTitle": "East Bay Retail Readiness",
         "metroId": "east-bay",
         "metroName": "East Bay",
-        "ecosystem": "Life Science",
-        "ecosystemId": "life_science",
+        "ecosystem": "Retail",
+        "ecosystemId": "retail",
         "workstream": "Commercial Ecosystem",
         "includedOpportunityIds": [
-          "ecosystem:east-bay:life_science"
+          "ecosystem:east-bay:retail"
         ],
         "includedTasks": [
           {
-            "id": "ecosystem:east-bay:life_science",
-            "title": "East Bay Life Science Ecosystem Subtype Expansion",
+            "id": "ecosystem:east-bay:retail",
+            "title": "East Bay Retail Ecosystem Representative Building Foundation",
             "category": "commercialEcosystem",
             "categoryLabel": "Commercial Ecosystem",
-            "reason": "Subtype breadth is too narrow for the ecosystem's relevance.",
+            "reason": "District foundation exists, but Representative Buildings are missing.",
             "suggestedModule": {
               "id": "publisher",
               "label": "Publisher"
@@ -265508,6 +265571,15 @@
             }
           },
           {
+            "id": "publisher:east-bay:comparisonGraph:orphan district comparison:antioch-east-18th-industrial",
+            "title": "Add meaningful compareWith relationships to nearby or decision-adjacent districts.",
+            "reason": "Outside this mission's bounded product layer or ecosystem scope.",
+            "suggestedModule": {
+              "id": "knowledgeGraph",
+              "label": "Knowledge Graph"
+            }
+          },
+          {
             "id": "publisher:east-bay:recommendationReadiness:missing recommendation QA status:east-bay",
             "title": "Add or update recommendation QA documentation for this metro.",
             "reason": "Outside this mission's bounded product layer or ecosystem scope.",
@@ -265515,12 +265587,30 @@
               "id": "compass",
               "label": "Compass"
             }
+          },
+          {
+            "id": "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
+            "title": "Author a Building Brief for this representative building.",
+            "reason": "Outside this mission's bounded product layer or ecosystem scope.",
+            "suggestedModule": {
+              "id": "publisher",
+              "label": "Publisher"
+            }
+          },
+          {
+            "id": "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st",
+            "title": "Author a Building Brief for this representative building.",
+            "reason": "Outside this mission's bounded product layer or ecosystem scope.",
+            "suggestedModule": {
+              "id": "publisher",
+              "label": "Publisher"
+            }
           }
         ],
-        "objective": "East Bay Life Science Ecosystem Subtype Expansion",
+        "objective": "East Bay Retail Ecosystem Representative Building Foundation",
         "reason": [
           "1 related opportunity share metro, source, and validation paths.",
-          "Subtype breadth is too narrow for the ecosystem's relevance.",
+          "District foundation exists, but Representative Buildings are missing.",
           "Ecosystem readiness: Partial",
           "Commercial balance: Industrial Flex Representative Building Concentrated"
         ],
@@ -265533,8 +265623,8 @@
           "maximumWorkItems": 3
         },
         "impactEffortClass": "High Impact / Small Effort",
-        "missionClass": "Foundation",
-        "currentConstraint": "Subtype breadth is too narrow for the ecosystem's relevance.",
+        "missionClass": "Readiness Blocker",
+        "currentConstraint": "District foundation exists, but Representative Buildings are missing.",
         "completionCriteria": [
           "The cited measurable gap is closed or explicitly reclassified.",
           "Existing Publisher, EOS, and relevant QA checks pass.",
@@ -265592,7 +265682,7 @@
           "Deferred work is explicit so unrelated scope does not leak into the mission."
         ],
         "why": [
-          "Current constraint: Subtype breadth is too narrow for the ecosystem's relevance.",
+          "Current constraint: District foundation exists, but Representative Buildings are missing.",
           "Expected impact is high based on readiness, foundation, or multi-gap evidence.",
           "Small mission size keeps the packet inside a 30-60 minutes review window."
         ],
@@ -265603,22 +265693,22 @@
           ]
         },
         "executionPacket": {
-          "objective": "East Bay Life Science Ecosystem Subtype Expansion",
+          "objective": "East Bay Retail Ecosystem Representative Building Foundation",
           "reason": [
             "1 related opportunity share metro, source, and validation paths.",
-            "Subtype breadth is too narrow for the ecosystem's relevance.",
+            "District foundation exists, but Representative Buildings are missing.",
             "Ecosystem readiness: Partial",
             "Commercial balance: Industrial Flex Representative Building Concentrated"
           ],
           "currentHealth": "58% Needs Attention",
-          "currentConstraint": "Subtype breadth is too narrow for the ecosystem's relevance.",
+          "currentConstraint": "District foundation exists, but Representative Buildings are missing.",
           "includedTasks": [
             {
-              "id": "ecosystem:east-bay:life_science",
-              "title": "East Bay Life Science Ecosystem Subtype Expansion",
+              "id": "ecosystem:east-bay:retail",
+              "title": "East Bay Retail Ecosystem Representative Building Foundation",
               "category": "commercialEcosystem",
               "categoryLabel": "Commercial Ecosystem",
-              "reason": "Subtype breadth is too narrow for the ecosystem's relevance.",
+              "reason": "District foundation exists, but Representative Buildings are missing.",
               "suggestedModule": {
                 "id": "publisher",
                 "label": "Publisher"
@@ -265636,12 +265726,39 @@
               }
             },
             {
+              "id": "publisher:east-bay:comparisonGraph:orphan district comparison:antioch-east-18th-industrial",
+              "title": "Add meaningful compareWith relationships to nearby or decision-adjacent districts.",
+              "reason": "Outside this mission's bounded product layer or ecosystem scope.",
+              "suggestedModule": {
+                "id": "knowledgeGraph",
+                "label": "Knowledge Graph"
+              }
+            },
+            {
               "id": "publisher:east-bay:recommendationReadiness:missing recommendation QA status:east-bay",
               "title": "Add or update recommendation QA documentation for this metro.",
               "reason": "Outside this mission's bounded product layer or ecosystem scope.",
               "suggestedModule": {
                 "id": "compass",
                 "label": "Compass"
+              }
+            },
+            {
+              "id": "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
+              "title": "Author a Building Brief for this representative building.",
+              "reason": "Outside this mission's bounded product layer or ecosystem scope.",
+              "suggestedModule": {
+                "id": "publisher",
+                "label": "Publisher"
+              }
+            },
+            {
+              "id": "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st",
+              "title": "Author a Building Brief for this representative building.",
+              "reason": "Outside this mission's bounded product layer or ecosystem scope.",
+              "suggestedModule": {
+                "id": "publisher",
+                "label": "Publisher"
               }
             }
           ],
@@ -265658,7 +265775,7 @@
             "reviewWindow": "30-60 minutes",
             "maximumWorkItems": 3
           },
-          "missionClass": "Foundation",
+          "missionClass": "Readiness Blocker",
           "files": [
             "_data/commercialEcosystemTaxonomy.js",
             "_data/locationKnowledgeGraph.js",
@@ -301663,11 +301780,11 @@
     ],
     "editorialQueue": [
       {
-        "id": "ecosystem:east-bay:life_science",
+        "id": "ecosystem:east-bay:retail",
         "metroId": "east-bay",
         "metroName": "East Bay",
-        "title": "East Bay Life Science Ecosystem Subtype Expansion",
-        "itemName": "Life Science",
+        "title": "East Bay Retail Ecosystem Representative Building Foundation",
+        "itemName": "Retail",
         "priorityScore": 78,
         "priorityStars": 4,
         "automationLevel": {
@@ -301695,16 +301812,16 @@
         },
         "category": "commercialEcosystem",
         "categoryLabel": "Commercial Ecosystem",
-        "ecosystemId": "life_science",
-        "ecosystemLabel": "Life Science",
-        "sprintFamily": "Ecosystem Subtype Expansion",
-        "gapCode": "ecosystem_subtype_gap",
+        "ecosystemId": "retail",
+        "ecosystemLabel": "Retail",
+        "sprintFamily": "Ecosystem Representative Building Foundation",
+        "gapCode": "ecosystem_representative_building_gap",
         "suggestedModule": {
           "id": "publisher",
           "label": "Publisher"
         },
         "why": [
-          "Subtype breadth is too narrow for the ecosystem's relevance.",
+          "District foundation exists, but Representative Buildings are missing.",
           "Ecosystem readiness: Partial",
           "Commercial balance: Industrial Flex Representative Building Concentrated"
         ],
@@ -301714,9 +301831,9 @@
           "adminUrl": ""
         },
         "executionPacket": {
-          "objective": "East Bay Life Science Ecosystem Subtype Expansion",
+          "objective": "East Bay Retail Ecosystem Representative Building Foundation",
           "reason": [
-            "Subtype breadth is too narrow for the ecosystem's relevance.",
+            "District foundation exists, but Representative Buildings are missing.",
             "Ecosystem readiness: Partial",
             "Commercial balance: Industrial Flex Representative Building Concentrated"
           ],
@@ -340301,11 +340418,11 @@
       }
     },
     {
-      "id": "ecosystem:east-bay:life_science",
+      "id": "ecosystem:east-bay:retail",
       "metroId": "east-bay",
       "metroName": "East Bay",
-      "title": "East Bay Life Science Ecosystem Subtype Expansion",
-      "itemName": "Life Science",
+      "title": "East Bay Retail Ecosystem Representative Building Foundation",
+      "itemName": "Retail",
       "priorityScore": 78,
       "priorityStars": 4,
       "automationLevel": {
@@ -340333,16 +340450,16 @@
       },
       "category": "commercialEcosystem",
       "categoryLabel": "Commercial Ecosystem",
-      "ecosystemId": "life_science",
-      "ecosystemLabel": "Life Science",
-      "sprintFamily": "Ecosystem Subtype Expansion",
-      "gapCode": "ecosystem_subtype_gap",
+      "ecosystemId": "retail",
+      "ecosystemLabel": "Retail",
+      "sprintFamily": "Ecosystem Representative Building Foundation",
+      "gapCode": "ecosystem_representative_building_gap",
       "suggestedModule": {
         "id": "publisher",
         "label": "Publisher"
       },
       "why": [
-        "Subtype breadth is too narrow for the ecosystem's relevance.",
+        "District foundation exists, but Representative Buildings are missing.",
         "Ecosystem readiness: Partial",
         "Commercial balance: Industrial Flex Representative Building Concentrated"
       ],
@@ -340352,9 +340469,9 @@
         "adminUrl": ""
       },
       "executionPacket": {
-        "objective": "East Bay Life Science Ecosystem Subtype Expansion",
+        "objective": "East Bay Retail Ecosystem Representative Building Foundation",
         "reason": [
-          "Subtype breadth is too narrow for the ecosystem's relevance.",
+          "District foundation exists, but Representative Buildings are missing.",
           "Ecosystem readiness: Partial",
           "Commercial balance: Industrial Flex Representative Building Concentrated"
         ],
