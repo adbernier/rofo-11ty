@@ -1646,7 +1646,7 @@ Object.entries(industrialQuestionPrompts).forEach(([slug, questionsToValidate]) 
         bestFitSummary: "Best for medical-office, healthcare-adjacent, or administrative users that need Oakland medical-campus proximity and professional office context.",
         primaryTradeoff: "Healthcare adjacency and office form do not establish clinical buildout, patient-flow suitability, permitted medical use, plumbing, accessibility, or current availability.",
         sourceConfidence: "medium",
-        buildingBriefReadiness: "representative-foundation",
+        buildingBriefReadiness: "published",
         commercialIntelligence: {
           primaryEcosystem: "medical",
           ecosystemSubtypes: ["medical_office"],

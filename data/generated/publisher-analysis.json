@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-12T08:30:27-07:00",
-  "sourceCommit": "e1d6a3c8582b61397d5a17465c28d289e1d3242c",
+  "generatedAt": "2026-08-12T08:55:22-07:00",
+  "sourceCommit": "e41e6e49ef1bd4b3f21b6a2a725a3b0556c38899",
   "geography": {
     "schemaVersion": "commercial-geography-summary-v1",
     "hierarchy": [
@@ -2235,7 +2235,7 @@
       "Low": 2
     },
     "deferredCandidates": 69,
-    "latestValidation": "2026-08-12T08:30:27-07:00",
+    "latestValidation": "2026-08-12T08:55:22-07:00",
     "errors": [],
     "warnings": [],
     "source": {
@@ -2245,13 +2245,13 @@
     "scoringImpact": "None. Reporting only; Publisher scoring and readiness calculations are unchanged."
   },
   "analysis": {
-    "generatedAt": "2026-08-12T08:30:27-07:00",
+    "generatedAt": "2026-08-12T08:55:22-07:00",
     "rulesVersion": "publisher-rules-v1",
     "overview": {
       "compassReadyCount": 5,
       "averageScore": 89,
       "criticalIssues": 0,
-      "queuedTasks": 287,
+      "queuedTasks": 285,
       "closestToDistributionReady": "Sacramento",
       "largestCriticalGap": "None"
     },
@@ -2293,11 +2293,11 @@
             "label": "Editorial Coverage",
             "score": 91,
             "status": "",
-            "explanation": "25 of 25 districts have substantive descriptions; 158 representative buildings and 86 Building Briefs are available.",
+            "explanation": "25 of 25 districts have substantive descriptions; 158 representative buildings and 87 Building Briefs are available.",
             "completed": {
               "districtsWithDescriptions": 25,
               "representativeBuildings": 158,
-              "buildingBriefs": 86
+              "buildingBriefs": 87
             },
             "targets": {
               "representativeBuildingsPerDistrict": 3,
@@ -2334,7 +2334,7 @@
         "cityPath": "/commercial-real-estate/CA/san-francisco/",
         "districtCount": 25,
         "representativeBuildingCount": 158,
-        "buildingBriefCount": 86,
+        "buildingBriefCount": 87,
         "geographicReadiness": {
           "state": "developed",
           "label": "Developed",
@@ -2955,7 +2955,7 @@
                 "districts": "strong",
                 "recommendations": "strong",
                 "representativeBuildings": "partial",
-                "buildingBriefs": "missing",
+                "buildingBriefs": "strong",
                 "subtypes": "developed",
                 "archetypes": "strong",
                 "activities": "strong",
@@ -2966,7 +2966,7 @@
                 "secondaryDistricts": 1,
                 "recommendations": 1,
                 "representativeBuildings": 1,
-                "buildingBriefs": 0,
+                "buildingBriefs": 1,
                 "subtypes": 4,
                 "archetypes": 4,
                 "activities": 3,
@@ -2977,7 +2977,6 @@
                 "reviewRequiredRepresentativeBuildings": 0
               },
               "gaps": [
-                "Building Brief coverage is missing for this ecosystem.",
                 "Representative Building operational coverage is thin."
               ],
               "blocking": false,
@@ -2985,7 +2984,7 @@
               "strategicPriority": 3,
               "evidence": [
                 "1 primary districts and 1 secondary districts.",
-                "1 Representative Buildings and 0 Building Briefs.",
+                "1 Representative Buildings and 1 Building Briefs.",
                 "1 representative roles and 6 operational categories are covered."
               ],
               "targetSubtypes": [
@@ -3020,9 +3019,9 @@
                 ],
                 "subtypesCovered": [
                   "medical_office",
-                  "outpatient_clinic",
+                  "hospital_adjacent",
                   "wellness",
-                  "hospital_adjacent"
+                  "outpatient_clinic"
                 ],
                 "activityCoverage": [
                   "healthcare_delivery",
@@ -3436,32 +3435,6 @@
           ],
           "gaps": [
             {
-              "id": "ecosystem:medical:ecosystem_building_brief_gap",
-              "code": "ecosystem_building_brief_gap",
-              "label": "Ecosystem Building Brief Gap",
-              "severity": "medium",
-              "layer": "buildingBriefs",
-              "ecosystemId": "medical",
-              "ecosystemLabel": "Medical",
-              "relevance": "important",
-              "readinessState": "partial",
-              "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
-              "evidence": [
-                "1 primary districts and 1 secondary districts.",
-                "1 Representative Buildings and 0 Building Briefs.",
-                "1 representative roles and 6 operational categories are covered."
-              ],
-              "recommendedSprintFamily": "Ecosystem Building Brief Migration",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
               "id": "ecosystem:medical:representative_building_intelligence_missing",
               "code": "representative_building_intelligence_missing",
               "label": "Representative Building Intelligence Missing",
@@ -3474,7 +3447,7 @@
               "rationale": "Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
               "evidence": [
                 "1 primary districts and 1 secondary districts.",
-                "1 Representative Buildings and 0 Building Briefs.",
+                "1 Representative Buildings and 1 Building Briefs.",
                 "1 representative roles and 6 operational categories are covered."
               ],
               "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -3500,7 +3473,7 @@
               "rationale": "Representative role coverage is too narrow for this ecosystem.",
               "evidence": [
                 "1 primary districts and 1 secondary districts.",
-                "1 Representative Buildings and 0 Building Briefs.",
+                "1 Representative Buildings and 1 Building Briefs.",
                 "1 representative roles and 6 operational categories are covered."
               ],
               "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -3526,7 +3499,7 @@
               "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
               "evidence": [
                 "1 primary districts and 1 secondary districts.",
-                "1 Representative Buildings and 0 Building Briefs.",
+                "1 Representative Buildings and 1 Building Briefs.",
                 "1 representative roles and 6 operational categories are covered."
               ],
               "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -3770,7 +3743,7 @@
             "label": "Balanced",
             "dominantEcosystem": "industrial_flex",
             "representativeBuildingShare": 0.49,
-            "buildingBriefShare": 0.5,
+            "buildingBriefShare": 0.49,
             "warnings": []
           }
         },
@@ -3779,7 +3752,7 @@
           "label": "Balanced",
           "dominantEcosystem": "industrial_flex",
           "representativeBuildingShare": 0.49,
-          "buildingBriefShare": 0.5,
+          "buildingBriefShare": 0.49,
           "warnings": []
         },
         "ecosystemCoverage": {
@@ -4410,8 +4383,8 @@
               "secondaryDistrictCount": 1,
               "recommendationNodeCount": 1,
               "representativeBuildingCount": 1,
-              "buildingBriefCount": 0,
-              "status": "Partial",
+              "buildingBriefCount": 1,
+              "status": "Developed",
               "districts": [
                 {
                   "slug": "oakland-medical-campuses",
@@ -4453,9 +4426,9 @@
                 },
                 "subtypesCovered": {
                   "medical_office": 1,
-                  "outpatient_clinic": 1,
+                  "hospital_adjacent": 1,
                   "wellness": 1,
-                  "hospital_adjacent": 1
+                  "outpatient_clinic": 1
                 },
                 "activityCoverage": {
                   "healthcare_delivery": 1,
@@ -4810,40 +4783,14 @@
           ],
           "summary": {
             "ecosystemCount": 7,
-            "developedCount": 4,
-            "partialCount": 1,
+            "developedCount": 5,
+            "partialCount": 0,
             "thinCount": 0,
             "missingCount": 2,
             "reviewRequiredDistrictCount": 0
           }
         },
         "ecosystemGaps": [
-          {
-            "id": "ecosystem:medical:ecosystem_building_brief_gap",
-            "code": "ecosystem_building_brief_gap",
-            "label": "Ecosystem Building Brief Gap",
-            "severity": "medium",
-            "layer": "buildingBriefs",
-            "ecosystemId": "medical",
-            "ecosystemLabel": "Medical",
-            "relevance": "important",
-            "readinessState": "partial",
-            "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
-            "evidence": [
-              "1 primary districts and 1 secondary districts.",
-              "1 Representative Buildings and 0 Building Briefs.",
-              "1 representative roles and 6 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem Building Brief Migration",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
           {
             "id": "ecosystem:medical:representative_building_intelligence_missing",
             "code": "representative_building_intelligence_missing",
@@ -4857,7 +4804,7 @@
             "rationale": "Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
             "evidence": [
               "1 primary districts and 1 secondary districts.",
-              "1 Representative Buildings and 0 Building Briefs.",
+              "1 Representative Buildings and 1 Building Briefs.",
               "1 representative roles and 6 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -4983,7 +4930,7 @@
             "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
             "evidence": [
               "1 primary districts and 1 secondary districts.",
-              "1 Representative Buildings and 0 Building Briefs.",
+              "1 Representative Buildings and 1 Building Briefs.",
               "1 representative roles and 6 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -5009,7 +4956,7 @@
             "rationale": "Representative role coverage is too narrow for this ecosystem.",
             "evidence": [
               "1 primary districts and 1 secondary districts.",
-              "1 Representative Buildings and 0 Building Briefs.",
+              "1 Representative Buildings and 1 Building Briefs.",
               "1 representative roles and 6 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -5163,12 +5110,12 @@
           }
         },
         "recommendedEcosystemSprint": {
-          "title": "San Francisco Medical Ecosystem Building Brief Migration",
+          "title": "San Francisco Medical Ecosystem Representative Building Foundation",
           "ecosystemId": "medical",
           "ecosystemLabel": "Medical",
-          "sprintFamily": "Ecosystem Building Brief Migration",
-          "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
-          "gapCode": "ecosystem_building_brief_gap",
+          "sprintFamily": "Ecosystem Representative Building Foundation",
+          "rationale": "Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
+          "gapCode": "representative_building_intelligence_missing",
           "completionCriteria": [
             "Validated district ecosystem classification",
             "Representative Building coverage across the most important subtypes",
@@ -5795,11 +5742,11 @@
           "buildingBriefs": {
             "key": "buildingBriefs",
             "label": "Building Briefs",
-            "score": 54,
-            "completed": 86,
+            "score": 55,
+            "completed": 87,
             "total": 158,
-            "missing": 72,
-            "explanation": "86 of 158 representative building records use the canonical Building Brief journey.",
+            "missing": 71,
+            "explanation": "87 of 158 representative building records use the canonical Building Brief journey.",
             "issues": [
               {
                 "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st",
@@ -5834,25 +5781,6 @@
                 "reason": "Representative building has not migrated to the canonical Building Brief journey.",
                 "sourceId": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
                 "publicUrl": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
-                "adminUrl": "",
-                "suggestedNextAction": "Author a Building Brief for this representative building.",
-                "automationCandidate": true,
-                "readinessState": "representative-foundation"
-              },
-              {
-                "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-oakland-1-kaiser-plz",
-                "code": "missing-brief",
-                "metroId": "san-francisco",
-                "metroName": "San Francisco",
-                "category": "buildingBriefs",
-                "categoryLabel": "Building Briefs",
-                "taskType": "representative building missing Building Brief",
-                "itemName": "1 Kaiser Plz",
-                "severity": "medium",
-                "priority": 40,
-                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-                "sourceId": "/commercial-real-estate/building/CA/oakland/1-kaiser-plz/",
-                "publicUrl": "/commercial-real-estate/building/CA/oakland/1-kaiser-plz/",
                 "adminUrl": "",
                 "suggestedNextAction": "Author a Building Brief for this representative building.",
                 "automationCandidate": true,
@@ -7224,8 +7152,8 @@
             "key": "editorialQuality",
             "label": "Editorial Quality",
             "score": 98,
-            "completed": 109,
-            "total": 111,
+            "completed": 110,
+            "total": 112,
             "missing": 2,
             "explanation": "Deterministic scan for placeholders, unsupported generated phrasing, and style-guide avoid phrases.",
             "issues": [
@@ -7299,25 +7227,6 @@
             "suggestedNextAction": "Author a Building Brief for this representative building.",
             "automationCandidate": true,
             "readinessState": ""
-          },
-          {
-            "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-oakland-1-kaiser-plz",
-            "code": "missing-brief",
-            "metroId": "san-francisco",
-            "metroName": "San Francisco",
-            "category": "buildingBriefs",
-            "categoryLabel": "Building Briefs",
-            "taskType": "representative building missing Building Brief",
-            "itemName": "1 Kaiser Plz",
-            "severity": "medium",
-            "priority": 40,
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-            "sourceId": "/commercial-real-estate/building/CA/oakland/1-kaiser-plz/",
-            "publicUrl": "/commercial-real-estate/building/CA/oakland/1-kaiser-plz/",
-            "adminUrl": "",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
-            "automationCandidate": true,
-            "readinessState": "representative-foundation"
           },
           {
             "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-1-warriors-way",
@@ -9354,11 +9263,11 @@
             "label": "Editorial Coverage",
             "score": 93,
             "status": "",
-            "explanation": "9 of 9 districts have substantive descriptions; 51 representative buildings and 48 Building Briefs are available.",
+            "explanation": "9 of 9 districts have substantive descriptions; 51 representative buildings and 49 Building Briefs are available.",
             "completed": {
               "districtsWithDescriptions": 9,
               "representativeBuildings": 51,
-              "buildingBriefs": 48
+              "buildingBriefs": 49
             },
             "targets": {
               "representativeBuildingsPerDistrict": 3,
@@ -9423,7 +9332,7 @@
         "cityPath": "/commercial-real-estate/CA/oakland/",
         "districtCount": 9,
         "representativeBuildingCount": 51,
-        "buildingBriefCount": 48,
+        "buildingBriefCount": 49,
         "geographicReadiness": {
           "state": "strong",
           "label": "Strong",
@@ -9990,13 +9899,13 @@
               "label": "Medical",
               "relevance": "secondary",
               "relevanceLabel": "Secondary",
-              "readinessState": "missing",
-              "readinessLabel": "Missing",
+              "readinessState": "strong",
+              "readinessLabel": "Strong",
               "layers": {
                 "districts": "strong",
                 "recommendations": "strong",
                 "representativeBuildings": "strong",
-                "buildingBriefs": "missing",
+                "buildingBriefs": "developed",
                 "subtypes": "developed",
                 "archetypes": "developed",
                 "activities": "developed",
@@ -10007,7 +9916,7 @@
                 "secondaryDistricts": 0,
                 "recommendations": 1,
                 "representativeBuildings": 1,
-                "buildingBriefs": 0,
+                "buildingBriefs": 1,
                 "subtypes": 4,
                 "archetypes": 4,
                 "activities": 3,
@@ -10025,7 +9934,7 @@
               "strategicPriority": 3,
               "evidence": [
                 "1 primary districts and 0 secondary districts.",
-                "1 Representative Buildings and 0 Building Briefs.",
+                "1 Representative Buildings and 1 Building Briefs.",
                 "1 representative roles and 6 operational categories are covered."
               ],
               "targetSubtypes": [
@@ -10060,9 +9969,9 @@
                 ],
                 "subtypesCovered": [
                   "medical_office",
-                  "outpatient_clinic",
+                  "hospital_adjacent",
                   "wellness",
-                  "hospital_adjacent"
+                  "outpatient_clinic"
                 ],
                 "activityCoverage": [
                   "healthcare_delivery",
@@ -10410,32 +10319,6 @@
           ],
           "gaps": [
             {
-              "id": "ecosystem:medical:ecosystem_building_brief_gap",
-              "code": "ecosystem_building_brief_gap",
-              "label": "Ecosystem Building Brief Gap",
-              "severity": "medium",
-              "layer": "buildingBriefs",
-              "ecosystemId": "medical",
-              "ecosystemLabel": "Medical",
-              "relevance": "secondary",
-              "readinessState": "missing",
-              "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
-              "evidence": [
-                "1 primary districts and 0 secondary districts.",
-                "1 Representative Buildings and 0 Building Briefs.",
-                "1 representative roles and 6 operational categories are covered."
-              ],
-              "recommendedSprintFamily": "Ecosystem Building Brief Migration",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
               "id": "ecosystem:medical:representative_building_intelligence_missing",
               "code": "representative_building_intelligence_missing",
               "label": "Representative Building Intelligence Missing",
@@ -10444,11 +10327,11 @@
               "ecosystemId": "medical",
               "ecosystemLabel": "Medical",
               "relevance": "secondary",
-              "readinessState": "missing",
+              "readinessState": "strong",
               "rationale": "Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
               "evidence": [
                 "1 primary districts and 0 secondary districts.",
-                "1 Representative Buildings and 0 Building Briefs.",
+                "1 Representative Buildings and 1 Building Briefs.",
                 "1 representative roles and 6 operational categories are covered."
               ],
               "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -10742,7 +10625,7 @@
             "label": "Balanced",
             "dominantEcosystem": "industrial_flex",
             "representativeBuildingShare": 0.69,
-            "buildingBriefShare": 0.73,
+            "buildingBriefShare": 0.71,
             "warnings": []
           }
         },
@@ -10751,7 +10634,7 @@
           "label": "Balanced",
           "dominantEcosystem": "industrial_flex",
           "representativeBuildingShare": 0.69,
-          "buildingBriefShare": 0.73,
+          "buildingBriefShare": 0.71,
           "warnings": []
         },
         "ecosystemCoverage": {
@@ -11247,8 +11130,8 @@
               "secondaryDistrictCount": 0,
               "recommendationNodeCount": 1,
               "representativeBuildingCount": 1,
-              "buildingBriefCount": 0,
-              "status": "Partial",
+              "buildingBriefCount": 1,
+              "status": "Developed",
               "districts": [
                 {
                   "slug": "oakland-medical-campuses",
@@ -11290,9 +11173,9 @@
                 },
                 "subtypesCovered": {
                   "medical_office": 1,
-                  "outpatient_clinic": 1,
+                  "hospital_adjacent": 1,
                   "wellness": 1,
-                  "hospital_adjacent": 1
+                  "outpatient_clinic": 1
                 },
                 "activityCoverage": {
                   "healthcare_delivery": 1,
@@ -11569,40 +11452,14 @@
           ],
           "summary": {
             "ecosystemCount": 7,
-            "developedCount": 3,
-            "partialCount": 2,
+            "developedCount": 4,
+            "partialCount": 1,
             "thinCount": 0,
             "missingCount": 2,
             "reviewRequiredDistrictCount": 0
           }
         },
         "ecosystemGaps": [
-          {
-            "id": "ecosystem:medical:ecosystem_building_brief_gap",
-            "code": "ecosystem_building_brief_gap",
-            "label": "Ecosystem Building Brief Gap",
-            "severity": "medium",
-            "layer": "buildingBriefs",
-            "ecosystemId": "medical",
-            "ecosystemLabel": "Medical",
-            "relevance": "secondary",
-            "readinessState": "missing",
-            "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
-            "evidence": [
-              "1 primary districts and 0 secondary districts.",
-              "1 Representative Buildings and 0 Building Briefs.",
-              "1 representative roles and 6 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem Building Brief Migration",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
           {
             "id": "ecosystem:medical:representative_building_intelligence_missing",
             "code": "representative_building_intelligence_missing",
@@ -11612,11 +11469,11 @@
             "ecosystemId": "medical",
             "ecosystemLabel": "Medical",
             "relevance": "secondary",
-            "readinessState": "missing",
+            "readinessState": "strong",
             "rationale": "Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
             "evidence": [
               "1 primary districts and 0 secondary districts.",
-              "1 Representative Buildings and 0 Building Briefs.",
+              "1 Representative Buildings and 1 Building Briefs.",
               "1 representative roles and 6 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -11920,12 +11777,12 @@
           }
         },
         "recommendedEcosystemSprint": {
-          "title": "East Bay Medical Ecosystem Building Brief Migration",
+          "title": "East Bay Medical Ecosystem Representative Building Foundation",
           "ecosystemId": "medical",
           "ecosystemLabel": "Medical",
-          "sprintFamily": "Ecosystem Building Brief Migration",
-          "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
-          "gapCode": "ecosystem_building_brief_gap",
+          "sprintFamily": "Ecosystem Representative Building Foundation",
+          "rationale": "Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
+          "gapCode": "representative_building_intelligence_missing",
           "completionCriteria": [
             "Validated district ecosystem classification",
             "Representative Building coverage across the most important subtypes",
@@ -12123,11 +11980,11 @@
           "buildingBriefs": {
             "key": "buildingBriefs",
             "label": "Building Briefs",
-            "score": 94,
-            "completed": 48,
+            "score": 96,
+            "completed": 49,
             "total": 51,
-            "missing": 3,
-            "explanation": "48 of 51 representative building records use the canonical Building Brief journey.",
+            "missing": 2,
+            "explanation": "49 of 51 representative building records use the canonical Building Brief journey.",
             "issues": [
               {
                 "id": "east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st",
@@ -12162,25 +12019,6 @@
                 "reason": "Representative building has not migrated to the canonical Building Brief journey.",
                 "sourceId": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
                 "publicUrl": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
-                "adminUrl": "",
-                "suggestedNextAction": "Author a Building Brief for this representative building.",
-                "automationCandidate": true,
-                "readinessState": "representative-foundation"
-              },
-              {
-                "id": "east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-oakland-1-kaiser-plz",
-                "code": "missing-brief",
-                "metroId": "east-bay",
-                "metroName": "East Bay",
-                "category": "buildingBriefs",
-                "categoryLabel": "Building Briefs",
-                "taskType": "representative building missing Building Brief",
-                "itemName": "1 Kaiser Plz",
-                "severity": "medium",
-                "priority": 40,
-                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-                "sourceId": "/commercial-real-estate/building/CA/oakland/1-kaiser-plz/",
-                "publicUrl": "/commercial-real-estate/building/CA/oakland/1-kaiser-plz/",
                 "adminUrl": "",
                 "suggestedNextAction": "Author a Building Brief for this representative building.",
                 "automationCandidate": true,
@@ -12222,8 +12060,8 @@
             "key": "editorialQuality",
             "label": "Editorial Quality",
             "score": 100,
-            "completed": 57,
-            "total": 57,
+            "completed": 58,
+            "total": 58,
             "missing": 0,
             "explanation": "Deterministic scan for placeholders, unsupported generated phrasing, and style-guide avoid phrases.",
             "issues": []
@@ -12277,25 +12115,6 @@
             "suggestedNextAction": "Add or update recommendation QA documentation for this metro.",
             "automationCandidate": false,
             "readinessState": ""
-          },
-          {
-            "id": "east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-oakland-1-kaiser-plz",
-            "code": "missing-brief",
-            "metroId": "east-bay",
-            "metroName": "East Bay",
-            "category": "buildingBriefs",
-            "categoryLabel": "Building Briefs",
-            "taskType": "representative building missing Building Brief",
-            "itemName": "1 Kaiser Plz",
-            "severity": "medium",
-            "priority": 40,
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-            "sourceId": "/commercial-real-estate/building/CA/oakland/1-kaiser-plz/",
-            "publicUrl": "/commercial-real-estate/building/CA/oakland/1-kaiser-plz/",
-            "adminUrl": "",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
-            "automationCandidate": true,
-            "readinessState": "representative-foundation"
           },
           {
             "id": "east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
@@ -35277,11 +35096,11 @@
             "label": "Editorial Coverage",
             "score": 91,
             "status": "",
-            "explanation": "25 of 25 districts have substantive descriptions; 158 representative buildings and 86 Building Briefs are available.",
+            "explanation": "25 of 25 districts have substantive descriptions; 158 representative buildings and 87 Building Briefs are available.",
             "completed": {
               "districtsWithDescriptions": 25,
               "representativeBuildings": 158,
-              "buildingBriefs": 86
+              "buildingBriefs": 87
             },
             "targets": {
               "representativeBuildingsPerDistrict": 3,
@@ -35318,7 +35137,7 @@
         "cityPath": "/commercial-real-estate/CA/san-francisco/",
         "districtCount": 25,
         "representativeBuildingCount": 158,
-        "buildingBriefCount": 86,
+        "buildingBriefCount": 87,
         "geographicReadiness": {
           "state": "developed",
           "label": "Developed",
@@ -35939,7 +35758,7 @@
                 "districts": "strong",
                 "recommendations": "strong",
                 "representativeBuildings": "partial",
-                "buildingBriefs": "missing",
+                "buildingBriefs": "strong",
                 "subtypes": "developed",
                 "archetypes": "strong",
                 "activities": "strong",
@@ -35950,7 +35769,7 @@
                 "secondaryDistricts": 1,
                 "recommendations": 1,
                 "representativeBuildings": 1,
-                "buildingBriefs": 0,
+                "buildingBriefs": 1,
                 "subtypes": 4,
                 "archetypes": 4,
                 "activities": 3,
@@ -35961,7 +35780,6 @@
                 "reviewRequiredRepresentativeBuildings": 0
               },
               "gaps": [
-                "Building Brief coverage is missing for this ecosystem.",
                 "Representative Building operational coverage is thin."
               ],
               "blocking": false,
@@ -35969,7 +35787,7 @@
               "strategicPriority": 3,
               "evidence": [
                 "1 primary districts and 1 secondary districts.",
-                "1 Representative Buildings and 0 Building Briefs.",
+                "1 Representative Buildings and 1 Building Briefs.",
                 "1 representative roles and 6 operational categories are covered."
               ],
               "targetSubtypes": [
@@ -36004,9 +35822,9 @@
                 ],
                 "subtypesCovered": [
                   "medical_office",
-                  "outpatient_clinic",
+                  "hospital_adjacent",
                   "wellness",
-                  "hospital_adjacent"
+                  "outpatient_clinic"
                 ],
                 "activityCoverage": [
                   "healthcare_delivery",
@@ -36420,32 +36238,6 @@
           ],
           "gaps": [
             {
-              "id": "ecosystem:medical:ecosystem_building_brief_gap",
-              "code": "ecosystem_building_brief_gap",
-              "label": "Ecosystem Building Brief Gap",
-              "severity": "medium",
-              "layer": "buildingBriefs",
-              "ecosystemId": "medical",
-              "ecosystemLabel": "Medical",
-              "relevance": "important",
-              "readinessState": "partial",
-              "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
-              "evidence": [
-                "1 primary districts and 1 secondary districts.",
-                "1 Representative Buildings and 0 Building Briefs.",
-                "1 representative roles and 6 operational categories are covered."
-              ],
-              "recommendedSprintFamily": "Ecosystem Building Brief Migration",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
               "id": "ecosystem:medical:representative_building_intelligence_missing",
               "code": "representative_building_intelligence_missing",
               "label": "Representative Building Intelligence Missing",
@@ -36458,7 +36250,7 @@
               "rationale": "Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
               "evidence": [
                 "1 primary districts and 1 secondary districts.",
-                "1 Representative Buildings and 0 Building Briefs.",
+                "1 Representative Buildings and 1 Building Briefs.",
                 "1 representative roles and 6 operational categories are covered."
               ],
               "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -36484,7 +36276,7 @@
               "rationale": "Representative role coverage is too narrow for this ecosystem.",
               "evidence": [
                 "1 primary districts and 1 secondary districts.",
-                "1 Representative Buildings and 0 Building Briefs.",
+                "1 Representative Buildings and 1 Building Briefs.",
                 "1 representative roles and 6 operational categories are covered."
               ],
               "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -36510,7 +36302,7 @@
               "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
               "evidence": [
                 "1 primary districts and 1 secondary districts.",
-                "1 Representative Buildings and 0 Building Briefs.",
+                "1 Representative Buildings and 1 Building Briefs.",
                 "1 representative roles and 6 operational categories are covered."
               ],
               "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -36754,7 +36546,7 @@
             "label": "Balanced",
             "dominantEcosystem": "industrial_flex",
             "representativeBuildingShare": 0.49,
-            "buildingBriefShare": 0.5,
+            "buildingBriefShare": 0.49,
             "warnings": []
           }
         },
@@ -36763,7 +36555,7 @@
           "label": "Balanced",
           "dominantEcosystem": "industrial_flex",
           "representativeBuildingShare": 0.49,
-          "buildingBriefShare": 0.5,
+          "buildingBriefShare": 0.49,
           "warnings": []
         },
         "ecosystemCoverage": {
@@ -37394,8 +37186,8 @@
               "secondaryDistrictCount": 1,
               "recommendationNodeCount": 1,
               "representativeBuildingCount": 1,
-              "buildingBriefCount": 0,
-              "status": "Partial",
+              "buildingBriefCount": 1,
+              "status": "Developed",
               "districts": [
                 {
                   "slug": "oakland-medical-campuses",
@@ -37437,9 +37229,9 @@
                 },
                 "subtypesCovered": {
                   "medical_office": 1,
-                  "outpatient_clinic": 1,
+                  "hospital_adjacent": 1,
                   "wellness": 1,
-                  "hospital_adjacent": 1
+                  "outpatient_clinic": 1
                 },
                 "activityCoverage": {
                   "healthcare_delivery": 1,
@@ -37794,40 +37586,14 @@
           ],
           "summary": {
             "ecosystemCount": 7,
-            "developedCount": 4,
-            "partialCount": 1,
+            "developedCount": 5,
+            "partialCount": 0,
             "thinCount": 0,
             "missingCount": 2,
             "reviewRequiredDistrictCount": 0
           }
         },
         "ecosystemGaps": [
-          {
-            "id": "ecosystem:medical:ecosystem_building_brief_gap",
-            "code": "ecosystem_building_brief_gap",
-            "label": "Ecosystem Building Brief Gap",
-            "severity": "medium",
-            "layer": "buildingBriefs",
-            "ecosystemId": "medical",
-            "ecosystemLabel": "Medical",
-            "relevance": "important",
-            "readinessState": "partial",
-            "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
-            "evidence": [
-              "1 primary districts and 1 secondary districts.",
-              "1 Representative Buildings and 0 Building Briefs.",
-              "1 representative roles and 6 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem Building Brief Migration",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
           {
             "id": "ecosystem:medical:representative_building_intelligence_missing",
             "code": "representative_building_intelligence_missing",
@@ -37841,7 +37607,7 @@
             "rationale": "Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
             "evidence": [
               "1 primary districts and 1 secondary districts.",
-              "1 Representative Buildings and 0 Building Briefs.",
+              "1 Representative Buildings and 1 Building Briefs.",
               "1 representative roles and 6 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -37967,7 +37733,7 @@
             "rationale": "Representative Buildings do not yet cover enough operational decision categories.",
             "evidence": [
               "1 primary districts and 1 secondary districts.",
-              "1 Representative Buildings and 0 Building Briefs.",
+              "1 Representative Buildings and 1 Building Briefs.",
               "1 representative roles and 6 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -37993,7 +37759,7 @@
             "rationale": "Representative role coverage is too narrow for this ecosystem.",
             "evidence": [
               "1 primary districts and 1 secondary districts.",
-              "1 Representative Buildings and 0 Building Briefs.",
+              "1 Representative Buildings and 1 Building Briefs.",
               "1 representative roles and 6 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -38147,12 +37913,12 @@
           }
         },
         "recommendedEcosystemSprint": {
-          "title": "San Francisco Medical Ecosystem Building Brief Migration",
+          "title": "San Francisco Medical Ecosystem Representative Building Foundation",
           "ecosystemId": "medical",
           "ecosystemLabel": "Medical",
-          "sprintFamily": "Ecosystem Building Brief Migration",
-          "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
-          "gapCode": "ecosystem_building_brief_gap",
+          "sprintFamily": "Ecosystem Representative Building Foundation",
+          "rationale": "Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
+          "gapCode": "representative_building_intelligence_missing",
           "completionCriteria": [
             "Validated district ecosystem classification",
             "Representative Building coverage across the most important subtypes",
@@ -38779,11 +38545,11 @@
           "buildingBriefs": {
             "key": "buildingBriefs",
             "label": "Building Briefs",
-            "score": 54,
-            "completed": 86,
+            "score": 55,
+            "completed": 87,
             "total": 158,
-            "missing": 72,
-            "explanation": "86 of 158 representative building records use the canonical Building Brief journey.",
+            "missing": 71,
+            "explanation": "87 of 158 representative building records use the canonical Building Brief journey.",
             "issues": [
               {
                 "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st",
@@ -38818,25 +38584,6 @@
                 "reason": "Representative building has not migrated to the canonical Building Brief journey.",
                 "sourceId": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
                 "publicUrl": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
-                "adminUrl": "",
-                "suggestedNextAction": "Author a Building Brief for this representative building.",
-                "automationCandidate": true,
-                "readinessState": "representative-foundation"
-              },
-              {
-                "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-oakland-1-kaiser-plz",
-                "code": "missing-brief",
-                "metroId": "san-francisco",
-                "metroName": "San Francisco",
-                "category": "buildingBriefs",
-                "categoryLabel": "Building Briefs",
-                "taskType": "representative building missing Building Brief",
-                "itemName": "1 Kaiser Plz",
-                "severity": "medium",
-                "priority": 40,
-                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-                "sourceId": "/commercial-real-estate/building/CA/oakland/1-kaiser-plz/",
-                "publicUrl": "/commercial-real-estate/building/CA/oakland/1-kaiser-plz/",
                 "adminUrl": "",
                 "suggestedNextAction": "Author a Building Brief for this representative building.",
                 "automationCandidate": true,
@@ -40208,8 +39955,8 @@
             "key": "editorialQuality",
             "label": "Editorial Quality",
             "score": 98,
-            "completed": 109,
-            "total": 111,
+            "completed": 110,
+            "total": 112,
             "missing": 2,
             "explanation": "Deterministic scan for placeholders, unsupported generated phrasing, and style-guide avoid phrases.",
             "issues": [
@@ -40283,25 +40030,6 @@
             "suggestedNextAction": "Author a Building Brief for this representative building.",
             "automationCandidate": true,
             "readinessState": ""
-          },
-          {
-            "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-oakland-1-kaiser-plz",
-            "code": "missing-brief",
-            "metroId": "san-francisco",
-            "metroName": "San Francisco",
-            "category": "buildingBriefs",
-            "categoryLabel": "Building Briefs",
-            "taskType": "representative building missing Building Brief",
-            "itemName": "1 Kaiser Plz",
-            "severity": "medium",
-            "priority": 40,
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-            "sourceId": "/commercial-real-estate/building/CA/oakland/1-kaiser-plz/",
-            "publicUrl": "/commercial-real-estate/building/CA/oakland/1-kaiser-plz/",
-            "adminUrl": "",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
-            "automationCandidate": true,
-            "readinessState": "representative-foundation"
           },
           {
             "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-1-warriors-way",
@@ -42338,11 +42066,11 @@
             "label": "Editorial Coverage",
             "score": 93,
             "status": "",
-            "explanation": "9 of 9 districts have substantive descriptions; 51 representative buildings and 48 Building Briefs are available.",
+            "explanation": "9 of 9 districts have substantive descriptions; 51 representative buildings and 49 Building Briefs are available.",
             "completed": {
               "districtsWithDescriptions": 9,
               "representativeBuildings": 51,
-              "buildingBriefs": 48
+              "buildingBriefs": 49
             },
             "targets": {
               "representativeBuildingsPerDistrict": 3,
@@ -42407,7 +42135,7 @@
         "cityPath": "/commercial-real-estate/CA/oakland/",
         "districtCount": 9,
         "representativeBuildingCount": 51,
-        "buildingBriefCount": 48,
+        "buildingBriefCount": 49,
         "geographicReadiness": {
           "state": "strong",
           "label": "Strong",
@@ -42974,13 +42702,13 @@
               "label": "Medical",
               "relevance": "secondary",
               "relevanceLabel": "Secondary",
-              "readinessState": "missing",
-              "readinessLabel": "Missing",
+              "readinessState": "strong",
+              "readinessLabel": "Strong",
               "layers": {
                 "districts": "strong",
                 "recommendations": "strong",
                 "representativeBuildings": "strong",
-                "buildingBriefs": "missing",
+                "buildingBriefs": "developed",
                 "subtypes": "developed",
                 "archetypes": "developed",
                 "activities": "developed",
@@ -42991,7 +42719,7 @@
                 "secondaryDistricts": 0,
                 "recommendations": 1,
                 "representativeBuildings": 1,
-                "buildingBriefs": 0,
+                "buildingBriefs": 1,
                 "subtypes": 4,
                 "archetypes": 4,
                 "activities": 3,
@@ -43009,7 +42737,7 @@
               "strategicPriority": 3,
               "evidence": [
                 "1 primary districts and 0 secondary districts.",
-                "1 Representative Buildings and 0 Building Briefs.",
+                "1 Representative Buildings and 1 Building Briefs.",
                 "1 representative roles and 6 operational categories are covered."
               ],
               "targetSubtypes": [
@@ -43044,9 +42772,9 @@
                 ],
                 "subtypesCovered": [
                   "medical_office",
-                  "outpatient_clinic",
+                  "hospital_adjacent",
                   "wellness",
-                  "hospital_adjacent"
+                  "outpatient_clinic"
                 ],
                 "activityCoverage": [
                   "healthcare_delivery",
@@ -43394,32 +43122,6 @@
           ],
           "gaps": [
             {
-              "id": "ecosystem:medical:ecosystem_building_brief_gap",
-              "code": "ecosystem_building_brief_gap",
-              "label": "Ecosystem Building Brief Gap",
-              "severity": "medium",
-              "layer": "buildingBriefs",
-              "ecosystemId": "medical",
-              "ecosystemLabel": "Medical",
-              "relevance": "secondary",
-              "readinessState": "missing",
-              "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
-              "evidence": [
-                "1 primary districts and 0 secondary districts.",
-                "1 Representative Buildings and 0 Building Briefs.",
-                "1 representative roles and 6 operational categories are covered."
-              ],
-              "recommendedSprintFamily": "Ecosystem Building Brief Migration",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
               "id": "ecosystem:medical:representative_building_intelligence_missing",
               "code": "representative_building_intelligence_missing",
               "label": "Representative Building Intelligence Missing",
@@ -43428,11 +43130,11 @@
               "ecosystemId": "medical",
               "ecosystemLabel": "Medical",
               "relevance": "secondary",
-              "readinessState": "missing",
+              "readinessState": "strong",
               "rationale": "Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
               "evidence": [
                 "1 primary districts and 0 secondary districts.",
-                "1 Representative Buildings and 0 Building Briefs.",
+                "1 Representative Buildings and 1 Building Briefs.",
                 "1 representative roles and 6 operational categories are covered."
               ],
               "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -43726,7 +43428,7 @@
             "label": "Balanced",
             "dominantEcosystem": "industrial_flex",
             "representativeBuildingShare": 0.69,
-            "buildingBriefShare": 0.73,
+            "buildingBriefShare": 0.71,
             "warnings": []
           }
         },
@@ -43735,7 +43437,7 @@
           "label": "Balanced",
           "dominantEcosystem": "industrial_flex",
           "representativeBuildingShare": 0.69,
-          "buildingBriefShare": 0.73,
+          "buildingBriefShare": 0.71,
           "warnings": []
         },
         "ecosystemCoverage": {
@@ -44231,8 +43933,8 @@
               "secondaryDistrictCount": 0,
               "recommendationNodeCount": 1,
               "representativeBuildingCount": 1,
-              "buildingBriefCount": 0,
-              "status": "Partial",
+              "buildingBriefCount": 1,
+              "status": "Developed",
               "districts": [
                 {
                   "slug": "oakland-medical-campuses",
@@ -44274,9 +43976,9 @@
                 },
                 "subtypesCovered": {
                   "medical_office": 1,
-                  "outpatient_clinic": 1,
+                  "hospital_adjacent": 1,
                   "wellness": 1,
-                  "hospital_adjacent": 1
+                  "outpatient_clinic": 1
                 },
                 "activityCoverage": {
                   "healthcare_delivery": 1,
@@ -44553,40 +44255,14 @@
           ],
           "summary": {
             "ecosystemCount": 7,
-            "developedCount": 3,
-            "partialCount": 2,
+            "developedCount": 4,
+            "partialCount": 1,
             "thinCount": 0,
             "missingCount": 2,
             "reviewRequiredDistrictCount": 0
           }
         },
         "ecosystemGaps": [
-          {
-            "id": "ecosystem:medical:ecosystem_building_brief_gap",
-            "code": "ecosystem_building_brief_gap",
-            "label": "Ecosystem Building Brief Gap",
-            "severity": "medium",
-            "layer": "buildingBriefs",
-            "ecosystemId": "medical",
-            "ecosystemLabel": "Medical",
-            "relevance": "secondary",
-            "readinessState": "missing",
-            "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
-            "evidence": [
-              "1 primary districts and 0 secondary districts.",
-              "1 Representative Buildings and 0 Building Briefs.",
-              "1 representative roles and 6 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem Building Brief Migration",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
           {
             "id": "ecosystem:medical:representative_building_intelligence_missing",
             "code": "representative_building_intelligence_missing",
@@ -44596,11 +44272,11 @@
             "ecosystemId": "medical",
             "ecosystemLabel": "Medical",
             "relevance": "secondary",
-            "readinessState": "missing",
+            "readinessState": "strong",
             "rationale": "Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
             "evidence": [
               "1 primary districts and 0 secondary districts.",
-              "1 Representative Buildings and 0 Building Briefs.",
+              "1 Representative Buildings and 1 Building Briefs.",
               "1 representative roles and 6 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -44904,12 +44580,12 @@
           }
         },
         "recommendedEcosystemSprint": {
-          "title": "East Bay Medical Ecosystem Building Brief Migration",
+          "title": "East Bay Medical Ecosystem Representative Building Foundation",
           "ecosystemId": "medical",
           "ecosystemLabel": "Medical",
-          "sprintFamily": "Ecosystem Building Brief Migration",
-          "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
-          "gapCode": "ecosystem_building_brief_gap",
+          "sprintFamily": "Ecosystem Representative Building Foundation",
+          "rationale": "Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
+          "gapCode": "representative_building_intelligence_missing",
           "completionCriteria": [
             "Validated district ecosystem classification",
             "Representative Building coverage across the most important subtypes",
@@ -45107,11 +44783,11 @@
           "buildingBriefs": {
             "key": "buildingBriefs",
             "label": "Building Briefs",
-            "score": 94,
-            "completed": 48,
+            "score": 96,
+            "completed": 49,
             "total": 51,
-            "missing": 3,
-            "explanation": "48 of 51 representative building records use the canonical Building Brief journey.",
+            "missing": 2,
+            "explanation": "49 of 51 representative building records use the canonical Building Brief journey.",
             "issues": [
               {
                 "id": "east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st",
@@ -45146,25 +44822,6 @@
                 "reason": "Representative building has not migrated to the canonical Building Brief journey.",
                 "sourceId": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
                 "publicUrl": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
-                "adminUrl": "",
-                "suggestedNextAction": "Author a Building Brief for this representative building.",
-                "automationCandidate": true,
-                "readinessState": "representative-foundation"
-              },
-              {
-                "id": "east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-oakland-1-kaiser-plz",
-                "code": "missing-brief",
-                "metroId": "east-bay",
-                "metroName": "East Bay",
-                "category": "buildingBriefs",
-                "categoryLabel": "Building Briefs",
-                "taskType": "representative building missing Building Brief",
-                "itemName": "1 Kaiser Plz",
-                "severity": "medium",
-                "priority": 40,
-                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-                "sourceId": "/commercial-real-estate/building/CA/oakland/1-kaiser-plz/",
-                "publicUrl": "/commercial-real-estate/building/CA/oakland/1-kaiser-plz/",
                 "adminUrl": "",
                 "suggestedNextAction": "Author a Building Brief for this representative building.",
                 "automationCandidate": true,
@@ -45206,8 +44863,8 @@
             "key": "editorialQuality",
             "label": "Editorial Quality",
             "score": 100,
-            "completed": 57,
-            "total": 57,
+            "completed": 58,
+            "total": 58,
             "missing": 0,
             "explanation": "Deterministic scan for placeholders, unsupported generated phrasing, and style-guide avoid phrases.",
             "issues": []
@@ -45261,25 +44918,6 @@
             "suggestedNextAction": "Add or update recommendation QA documentation for this metro.",
             "automationCandidate": false,
             "readinessState": ""
-          },
-          {
-            "id": "east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-oakland-1-kaiser-plz",
-            "code": "missing-brief",
-            "metroId": "east-bay",
-            "metroName": "East Bay",
-            "category": "buildingBriefs",
-            "categoryLabel": "Building Briefs",
-            "taskType": "representative building missing Building Brief",
-            "itemName": "1 Kaiser Plz",
-            "severity": "medium",
-            "priority": 40,
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-            "sourceId": "/commercial-real-estate/building/CA/oakland/1-kaiser-plz/",
-            "publicUrl": "/commercial-real-estate/building/CA/oakland/1-kaiser-plz/",
-            "adminUrl": "",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
-            "automationCandidate": true,
-            "readinessState": "representative-foundation"
           },
           {
             "id": "east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
@@ -68759,25 +68397,6 @@
         "readinessState": ""
       },
       {
-        "id": "east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-oakland-1-kaiser-plz",
-        "code": "missing-brief",
-        "metroId": "east-bay",
-        "metroName": "East Bay",
-        "category": "buildingBriefs",
-        "categoryLabel": "Building Briefs",
-        "taskType": "representative building missing Building Brief",
-        "itemName": "1 Kaiser Plz",
-        "severity": "medium",
-        "priority": 40,
-        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-        "sourceId": "/commercial-real-estate/building/CA/oakland/1-kaiser-plz/",
-        "publicUrl": "/commercial-real-estate/building/CA/oakland/1-kaiser-plz/",
-        "adminUrl": "",
-        "suggestedNextAction": "Author a Building Brief for this representative building.",
-        "automationCandidate": true,
-        "readinessState": "representative-foundation"
-      },
-      {
         "id": "east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
         "code": "missing-brief",
         "metroId": "east-bay",
@@ -70923,25 +70542,6 @@
         "suggestedNextAction": "Author a Building Brief for this representative building.",
         "automationCandidate": true,
         "readinessState": ""
-      },
-      {
-        "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-oakland-1-kaiser-plz",
-        "code": "missing-brief",
-        "metroId": "san-francisco",
-        "metroName": "San Francisco",
-        "category": "buildingBriefs",
-        "categoryLabel": "Building Briefs",
-        "taskType": "representative building missing Building Brief",
-        "itemName": "1 Kaiser Plz",
-        "severity": "medium",
-        "priority": 40,
-        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-        "sourceId": "/commercial-real-estate/building/CA/oakland/1-kaiser-plz/",
-        "publicUrl": "/commercial-real-estate/building/CA/oakland/1-kaiser-plz/",
-        "adminUrl": "",
-        "suggestedNextAction": "Author a Building Brief for this representative building.",
-        "automationCandidate": true,
-        "readinessState": "representative-foundation"
       },
       {
         "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-1-warriors-way",
@@ -74214,25 +73814,6 @@
         "readinessState": ""
       },
       {
-        "id": "east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-oakland-1-kaiser-plz",
-        "code": "missing-brief",
-        "metroId": "east-bay",
-        "metroName": "East Bay",
-        "category": "buildingBriefs",
-        "categoryLabel": "Building Briefs",
-        "taskType": "representative building missing Building Brief",
-        "itemName": "1 Kaiser Plz",
-        "severity": "medium",
-        "priority": 40,
-        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-        "sourceId": "/commercial-real-estate/building/CA/oakland/1-kaiser-plz/",
-        "publicUrl": "/commercial-real-estate/building/CA/oakland/1-kaiser-plz/",
-        "adminUrl": "",
-        "suggestedNextAction": "Author a Building Brief for this representative building.",
-        "automationCandidate": true,
-        "readinessState": "representative-foundation"
-      },
-      {
         "id": "east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
         "code": "missing-brief",
         "metroId": "east-bay",
@@ -76378,25 +75959,6 @@
         "suggestedNextAction": "Author a Building Brief for this representative building.",
         "automationCandidate": true,
         "readinessState": ""
-      },
-      {
-        "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-oakland-1-kaiser-plz",
-        "code": "missing-brief",
-        "metroId": "san-francisco",
-        "metroName": "San Francisco",
-        "category": "buildingBriefs",
-        "categoryLabel": "Building Briefs",
-        "taskType": "representative building missing Building Brief",
-        "itemName": "1 Kaiser Plz",
-        "severity": "medium",
-        "priority": 40,
-        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-        "sourceId": "/commercial-real-estate/building/CA/oakland/1-kaiser-plz/",
-        "publicUrl": "/commercial-real-estate/building/CA/oakland/1-kaiser-plz/",
-        "adminUrl": "",
-        "suggestedNextAction": "Author a Building Brief for this representative building.",
-        "automationCandidate": true,
-        "readinessState": "representative-foundation"
       },
       {
         "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-1-warriors-way",
@@ -79931,7 +79493,7 @@
         "Low": 2
       },
       "deferredCandidates": 69,
-      "latestValidation": "2026-08-12T08:30:27-07:00",
+      "latestValidation": "2026-08-12T08:55:22-07:00",
       "errors": [],
       "warnings": [],
       "source": {
