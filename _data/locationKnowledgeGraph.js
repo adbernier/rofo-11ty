@@ -1614,6 +1614,42 @@ Object.entries(industrialQuestionPrompts).forEach(([slug, questionsToValidate]) 
       { slug: "west-berkeley", label: "West Berkeley", reason: "More industrial and maker-oriented Berkeley setting.", relationshipType: "more_creative" },
     ] },
   },
+  {
+    slug: "oakland-medical-campuses",
+    label: "Oakland Medical Campuses",
+    type: "district",
+    city: "Oakland",
+    state: "CA",
+    path: "/commercial-real-estate/CA/oakland/oakland-medical-campuses/",
+    confidence: "medium",
+    operationalMarketId: "east-bay",
+    operationalMarketName: "East Bay",
+    spaceTypeFit: {
+      medical: fit("strong", "Strong foundation-stage fit for East Bay medical office, outpatient, wellness, and healthcare-adjacent users that benefit from Oakland hospital-campus proximity.", ["medical practices", "outpatient clinics", "wellness providers", "healthcare-adjacent offices"], ["specific medical buildout, patient parking, permitted use, accessibility, and building systems must be validated property by property"]),
+      office: fit("good", "Good selective fit for healthcare administration, nonprofit, and professional office users that need Oakland medical-campus adjacency more than waterfront or campus-style office identity.", ["healthcare administration", "professional offices", "nonprofit offices"], ["office users without a medical or patient-access reason may prefer Jack London Square, Downtown Berkeley, or Emeryville"]),
+      retail: fit("limited", "Limited-to-good fit for patient-serving service retail, wellness, and visitor-oriented uses where block-level access and visibility support the business model.", ["wellness users", "patient-serving services", "service retail"], ["street-level demand, storefront condition, signage, and customer parking are site-specific"]),
+    },
+    attributes: businessAttrs({ transit: "medium", parking: "medium", walkability: "medium", freewayAccess: "high", executiveImage: "medium", customerAccess: "high", expansionFlexibility: "medium", talentAccess: "high", visibility: "medium", amenities: "medium", costPosition: "medium", corporateEnvironment: "medium" }),
+    retailAttributes: retailAttrs({ footTraffic: "medium", customerParking: "medium", coTenancy: "medium", streetPresence: "medium", daytimePopulation: "high", eveningWeekendActivity: "medium", signageVisibility: "medium" }),
+    bestFor: ["medical office users", "outpatient clinics", "wellness providers", "healthcare-adjacent offices"],
+    tradeoffs: ["foundation-stage district evidence only", "medical suitability depends on building-level access, parking, code, plumbing, and buildout validation", "users not tied to patient access may prefer stronger office or retail districts"],
+    strengths: ["Oakland patient geography", "hospital-campus adjacency", "regional freeway access", "healthcare and professional-service context"],
+    questionsToValidate: ["Does hospital-campus proximity materially improve the requirement?", "How important are patient parking, drop-off, and accessibility?", "Does the business need medical office, outpatient clinic, or wellness buildout?", "Would Jack London Square, Downtown Berkeley, or Emeryville provide a better non-medical office setting?"],
+    relationships: { compareWith: [
+      { slug: "jack-london-square", label: "Jack London Square", reason: "More waterfront and creative-office context when medical adjacency is less important.", relationshipType: "more_creative" },
+      { slug: "downtown-berkeley", label: "Downtown Berkeley", reason: "More BART-oriented university downtown alternative.", relationshipType: "better_transit" },
+      { slug: "emeryville-commercial-core", label: "Emeryville Commercial Core", reason: "More campus-oriented office and parking-friendly East Bay setting.", relationshipType: "better_parking" },
+    ] },
+    commercialEcosystem: {
+      primary: "medical",
+      secondary: ["office", "retail"],
+      subtypes: ["medical_office", "outpatient_clinic", "wellness", "hospital_adjacent"],
+      activities: ["healthcare_delivery", "administrative_operations", "walk_in_service"],
+      archetypes: ["medical_practice", "outpatient_clinic", "wellness_practice", "physical_therapy_practice"],
+      confidence: "medium",
+      reviewNotes: ["Oakland medical-campus geography is promoted from East Bay Commercial Market Discovery; property-level medical buildout, tenant/referral relationships, parking, accessibility, and permitted use remain validation topics."],
+    },
+  },
 ].forEach((card) => mergeKnowledgeCard(graph, card));
 
 [

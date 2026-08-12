@@ -156,6 +156,7 @@ const eastBay = metroById("east-bay");
 if (eastBay) {
   const lifeScience = evaluationFor(eastBay, "life_science");
   const retail = evaluationFor(eastBay, "retail");
+  const medical = evaluationFor(eastBay, "medical");
   const eastBayPlan = planById("east-bay");
   requireField(lifeScience && lifeScience.counts && lifeScience.counts.secondaryDistricts >= 2, "East Bay: life science should retain secondary district evidence.");
   requireField(lifeScience && lifeScience.layers && ["strong", "developed"].includes(lifeScience.layers.subtypes), `East Bay: life science secondary subtype breadth should be credited, got ${lifeScience && lifeScience.layers && lifeScience.layers.subtypes}`);
@@ -167,6 +168,12 @@ if (eastBay) {
   requireField(retail && retail.layers && ["strong", "developed"].includes(retail.layers.representativeBuildings), `East Bay: retail Representative Building layer should be strong or developed, got ${retail && retail.layers && retail.layers.representativeBuildings}`);
   requireField(!((retail && retail.gaps) || []).includes("Representative Building coverage is missing for this ecosystem."), "East Bay: completed retail Representative Building foundation should not remain open.");
   requireField(!((eastBayPlan && eastBayPlan.recommendedEcosystemSprint || {}).title || "").includes("Retail Ecosystem Representative Building Foundation"), "East Bay: completed Retail Representative Building Foundation should not remain recommended.");
+  requireField(medical && medical.counts && medical.counts.districts >= 1, `East Bay: medical district foundation should be credited, got ${medical && medical.counts && medical.counts.districts}`);
+  requireField(medical && medical.layers && ["strong", "developed"].includes(medical.layers.districts), `East Bay: medical district layer should be strong or developed, got ${medical && medical.layers && medical.layers.districts}`);
+  requireField(medical && medical.counts && medical.counts.representativeBuildings === 0, `East Bay: medical representative buildings should remain uncreated in district foundation sprint, got ${medical && medical.counts && medical.counts.representativeBuildings}`);
+  requireField(medical && medical.layers && medical.layers.representativeBuildings === "missing", `East Bay: medical Representative Building layer should remain missing, got ${medical && medical.layers && medical.layers.representativeBuildings}`);
+  requireField(!((medical && medical.gaps) || []).includes("No district coverage for this relevant ecosystem."), "East Bay: completed medical District Foundation should not remain open.");
+  requireField(!((eastBayPlan && eastBayPlan.recommendedEcosystemSprint || {}).title || "").includes("Medical Ecosystem District Foundation"), "East Bay: completed Medical District Foundation should not remain recommended.");
 }
 
 ["san-diego", "orange-county", "denver"].forEach((id) => {
