@@ -2,6 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const fallbackSnapshot = require("../_data/searchConsoleOpportunitySnapshot");
 const { normalizeSearchConsoleRecords } = require("../lib/eos/commercial-knowledge-intelligence");
+const { searchMarketIdentity } = require("../lib/search-intelligence/market-identity");
 
 function parseCsvLine(line) {
   const values = [];
@@ -70,13 +71,16 @@ function readCsv(filePath) {
     });
 
     const marketName = row.market || row.city || "";
-    const marketId = row.marketid || row.market_id || slugify(marketName);
-    if (!marketId) return;
+    const legacyMarketId = row.marketid || row.market_id || slugify(marketName);
+    const identity = searchMarketIdentity({ state: row.state, marketId: legacyMarketId, marketName });
+    if (!identity.marketId) return;
 
-    if (!records.has(marketId)) {
-      records.set(marketId, {
-        marketId,
-        marketName: marketName || marketId,
+    if (!records.has(identity.marketId)) {
+      records.set(identity.marketId, {
+        marketId: identity.marketId,
+        marketKey: identity.marketKey,
+        legacyMarketId: identity.legacyMarketId,
+        marketName: marketName || identity.legacyMarketId,
         state: row.state || "",
         impressions: 0,
         clicks: 0,
@@ -85,7 +89,7 @@ function readCsv(filePath) {
       });
     }
 
-    const record = records.get(marketId);
+    const record = records.get(identity.marketId);
     const impressions = numberOrNull(row.impressions);
     const clicks = numberOrNull(row.clicks);
     const position = numberOrNull(row.position || row.averageposition || row.average_position);

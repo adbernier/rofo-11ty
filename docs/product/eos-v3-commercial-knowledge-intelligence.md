@@ -86,6 +86,14 @@ Some records include complete metrics. Others are theme-only observations and ar
 
 ## Search Console Normalized Model
 
+### Geographic identity
+
+Search Intelligence treats the canonical Rofo ranking URL as the primary geographic evidence for a GSC observation. City, property-type, district, comparison, and Building Profile paths are resolved from their explicit state and city path segments before aggregation. Query text may describe intent, but an ambiguous city-only query must not override a state-qualified ranking URL.
+
+Every resolved observation carries a `marketKey` in `STATE:normalized-city-slug` form. For backward compatibility, non-colliding cities preserve their legacy slug in `marketId`. When the canonical city universe contains the same slug in more than one state, `marketId` is also state-qualified; `legacyMarketId` remains available for Publisher and canonical-knowledge compatibility joins. Display labels remain `marketName` plus `state` and do not expose the internal key format.
+
+Rows without authoritative URL geography or an explicit state remain unresolved rather than being assigned from an ambiguous city string. Market, property-type, topic, Search Mission, and EOS aggregation must use the state-safe identity.
+
 The normalized record shape supports future automated ingestion:
 
 ```json

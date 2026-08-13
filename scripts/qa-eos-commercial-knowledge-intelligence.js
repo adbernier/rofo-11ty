@@ -50,7 +50,7 @@ function run() {
   });
 
   const opportunityMarkets = new Set(((intelligence.googleOpportunity || {}).markets || []).map((market) => market.marketId));
-  ["salinas", "fort-wayne", "gainesville", "san-rafael", "houston"].forEach((marketId) => {
+  ["salinas", "fort-wayne", "FL:gainesville", "san-rafael", "houston"].forEach((marketId) => {
     assert(opportunityMarkets.has(marketId), `Google opportunity output should include ${marketId}.`);
   });
 
@@ -91,6 +91,23 @@ function run() {
   });
   const metricPendingMarket = ((metricPendingIntelligence.googleOpportunity || {}).markets || [])[0];
   assert(metricPendingMarket && metricPendingMarket.positionBand === "metric_pending", "Markets without average position should not be treated as near-term opportunities.");
+
+  const collisionIntelligence = buildCommercialKnowledgeIntelligence({
+    generatedAt: "2026-08-07T00:00:00.000Z",
+    searchConsoleSnapshot: {
+      schemaVersion: "normalized-search-console-opportunity-v2",
+      records: [
+        { marketId: "CO:aurora", marketKey: "CO:aurora", legacyMarketId: "aurora", marketName: "Aurora", state: "CO", impressions: 12, averagePosition: 22, topQueries: [{ query: "aurora industrial space", impressions: 12, position: 22 }] },
+        { marketId: "IL:aurora", marketKey: "IL:aurora", legacyMarketId: "aurora", marketName: "Aurora", state: "IL", impressions: 44, averagePosition: 12, topQueries: [{ query: "aurora industrial space", impressions: 44, position: 12 }] },
+      ],
+    },
+  });
+  const collisionMarkets = (collisionIntelligence.googleOpportunity || {}).markets || [];
+  assert(collisionMarkets.some((market) => market.marketId === "CO:aurora" && market.marketKey === "CO:aurora"), "EOS should preserve Aurora CO identity.");
+  assert(collisionMarkets.some((market) => market.marketId === "IL:aurora" && market.marketKey === "IL:aurora"), "EOS should preserve Aurora IL identity.");
+  const collisionMission = (collisionIntelligence.searchMissions || []).find((mission) => mission.id === "expand-warehouse-industrial-knowledge");
+  const collisionMissionKeys = new Set(((collisionMission || {}).supportingMarkets || []).map((market) => market.marketKey));
+  assert(collisionMissionKeys.has("CO:aurora") && collisionMissionKeys.has("IL:aurora"), "Search Mission evidence should retain state-qualified Aurora identities.");
 
   const orangeCounty = (intelligence.strategicRoadmap || []).find((market) => market.marketId === "orange-county");
   assert(orangeCounty && Array.isArray(orangeCounty.supportingSearchMarkets), "Strategic markets should expose supporting child-market search signals.");

@@ -10,10 +10,12 @@ const {
   normalizeGscRow,
   rowsToMarketRecords,
   compareMarketWindows,
+  buildPropertyTypeOpportunities,
   buildNormalizedSnapshot,
   syncSearchConsole,
 } = require("../lib/search-intelligence/search-console-sync");
 const { mapRofoUrlToEntity } = require("../lib/search-intelligence/url-entity-mapper");
+const { marketKey, searchMarketIdentity } = require("../lib/search-intelligence/market-identity");
 const {
   classifyQuery,
   classifyOccupierRelevance,
@@ -48,6 +50,22 @@ async function run() {
 
   const cityEntity = mapRofoUrlToEntity("https://www.rofo.com/commercial-real-estate/CA/san-francisco/");
   assert(cityEntity.entityType === "market" && cityEntity.marketId === "san-francisco", "City URL should map to market entity.");
+  assert(cityEntity.marketKey === "CA:san-francisco", "Every mapped city should carry an explicit state-safe market key.");
+
+  const collisionPairs = [
+    ["CO", "IL", "aurora"],
+    ["CA", "VA", "richmond"],
+    ["CA", "MI", "roseville"],
+  ];
+  collisionPairs.forEach(([firstState, secondState, slug]) => {
+    const first = mapRofoUrlToEntity(`https://www.rofo.com/commercial-real-estate/${firstState}/${slug}/`);
+    const second = mapRofoUrlToEntity(`https://www.rofo.com/commercial-real-estate/${secondState}/${slug}/`);
+    assert(first.marketId !== second.marketId, `${slug} markets in different states must have distinct Search Intelligence IDs.`);
+    assert(first.marketKey === marketKey(firstState, slug), `${firstState} ${slug} should preserve URL-derived geography.`);
+    assert(second.marketKey === marketKey(secondState, slug), `${secondState} ${slug} should preserve URL-derived geography.`);
+  });
+  assert(searchMarketIdentity({ state: "FL", marketId: "gainesville" }).marketId === "FL:gainesville", "Gainesville should qualify because the canonical city universe contains a cross-state collision.");
+  assert(searchMarketIdentity({ state: "CA", marketId: "oceanside" }).marketId === "oceanside", "A unique market should preserve its legacy market ID.");
 
   const officeEntity = mapRofoUrlToEntity("https://www.rofo.com/commercial-real-estate/CA/san-francisco/office-space/");
   assert(officeEntity.entityType === "property_type" && officeEntity.propertyType === "office", "Office Space URL should map to property-type entity.");
@@ -57,6 +75,12 @@ async function run() {
 
   const districtEntity = mapRofoUrlToEntity("https://www.rofo.com/commercial-real-estate/CA/san-francisco/mission-bay/");
   assert(districtEntity.entityType === "district" && districtEntity.districtId === "mission-bay", "District URL should map to district entity.");
+
+  const comparisonEntity = mapRofoUrlToEntity("https://www.rofo.com/commercial-real-estate/CO/aurora/aurora-vs-commerce-city/");
+  assert(comparisonEntity.entityType === "comparison" && comparisonEntity.marketKey === "CO:aurora", "Comparison URL should inherit state-safe geography from its canonical path.");
+
+  const lowercaseEntity = mapRofoUrlToEntity("https://m.rofo.com/commercial-real-estate/co/aurora/");
+  assert(lowercaseEntity.marketKey === "CO:aurora", "Host and state-path casing should not change geographic identity.");
 
   const buildingEntity = mapRofoUrlToEntity("https://www.rofo.com/commercial-real-estate/building/CO/denver/100-fillmore-place/");
   assert(buildingEntity.entityType === "building" && buildingEntity.marketId === "denver", "Building URL should map to building entity.");
@@ -93,6 +117,19 @@ async function run() {
   const salinas = records.find((record) => record.marketId === "salinas");
   assert(salinas && salinas.impressions === 100, "Market aggregation should sum impressions.");
   assert(salinas && salinas.topQueries.length === 2, "Market aggregation should preserve page/query grain in top queries.");
+
+  const collisionRows = [
+    normalizeGscRow({ keys: ["2026-08-01", "https://www.rofo.com/commercial-real-estate/CO/aurora/", "aurora industrial space"], impressions: 7, clicks: 0, position: 22 }, { id: "last_28_complete_days", startDate: "2026-07-10", endDate: "2026-08-06" }),
+    normalizeGscRow({ keys: ["2026-08-01", "https://www.rofo.com/commercial-real-estate/IL/aurora/", "aurora industrial space"], impressions: 31, clicks: 1, position: 12 }, { id: "last_28_complete_days", startDate: "2026-07-10", endDate: "2026-08-06" }),
+    normalizeGscRow({ keys: ["2026-08-01", "https://www.rofo.com/commercial-real-estate/CO/aurora/industrial-space/", "aurora warehouse for lease"], impressions: 5, clicks: 0, position: 18 }, { id: "last_28_complete_days", startDate: "2026-07-10", endDate: "2026-08-06" }),
+    normalizeGscRow({ keys: ["2026-08-01", "https://www.rofo.com/commercial-real-estate/IL/aurora/industrial-space/", "aurora warehouse for lease"], impressions: 13, clicks: 0, position: 9 }, { id: "last_28_complete_days", startDate: "2026-07-10", endDate: "2026-08-06" }),
+  ];
+  const collisionRecords = rowsToMarketRecords(collisionRows);
+  assert(collisionRecords.find((item) => item.marketId === "CO:aurora").impressions === 12, "Aurora CO observations should aggregate independently.");
+  assert(collisionRecords.find((item) => item.marketId === "IL:aurora").impressions === 44, "Aurora IL observations should aggregate independently.");
+  const collisionPropertyTypes = buildPropertyTypeOpportunities(collisionRows);
+  assert(collisionPropertyTypes.some((item) => item.id === "CO:aurora:industrial" && item.impressions === 5), "Aurora CO Industrial opportunity should remain state-specific.");
+  assert(collisionPropertyTypes.some((item) => item.id === "IL:aurora:industrial" && item.impressions === 13), "Aurora IL Industrial opportunity should remain state-specific.");
 
   const comparison = compareMarketWindows(currentRows, "last_28_complete_days", "previous_28_complete_days").salinas;
   assert(comparison.impressionMomentum === "up", "Momentum should identify meaningful growth.");
