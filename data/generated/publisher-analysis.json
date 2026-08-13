@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-12T09:36:45-07:00",
-  "sourceCommit": "5c1c4517b30b17e41b91f576b24001a330c04e4f",
+  "generatedAt": "2026-08-12T20:42:22-07:00",
+  "sourceCommit": "bae7cb0b4849a82280318a3163362f9173baad9c",
   "geography": {
     "schemaVersion": "commercial-geography-summary-v1",
     "hierarchy": [
@@ -2235,7 +2235,7 @@
       "Low": 2
     },
     "deferredCandidates": 69,
-    "latestValidation": "2026-08-12T09:36:45-07:00",
+    "latestValidation": "2026-08-12T20:42:22-07:00",
     "errors": [],
     "warnings": [],
     "source": {
@@ -2245,7 +2245,7 @@
     "scoringImpact": "None. Reporting only; Publisher scoring and readiness calculations are unchanged."
   },
   "analysis": {
-    "generatedAt": "2026-08-12T09:36:45-07:00",
+    "generatedAt": "2026-08-12T20:42:22-07:00",
     "rulesVersion": "publisher-rules-v1",
     "overview": {
       "compassReadyCount": 5,
@@ -2395,8 +2395,8 @@
                 "representativeBuildings": 78,
                 "buildingBriefs": 36,
                 "subtypes": 10,
-                "archetypes": 11,
-                "activities": 7,
+                "archetypes": 14,
+                "activities": 8,
                 "reviewRequiredDistricts": 0,
                 "representativeRoles": 7,
                 "operationalCategories": 5,
@@ -2468,6 +2468,8 @@
                   "walk_in_retail",
                   "walk_in_service",
                   "customer_showroom",
+                  "education",
+                  "training",
                   "light_manufacturing"
                 ],
                 "archetypeCoverage": [
@@ -2482,6 +2484,8 @@
                   "nonprofit_office",
                   "wellness_practice",
                   "marketing_agency",
+                  "education_provider",
+                  "training_center",
                   "creative_studio"
                 ],
                 "operationalCharacteristicsCovered": [
@@ -2802,9 +2806,9 @@
                 "recommendations": 7,
                 "representativeBuildings": 14,
                 "buildingBriefs": 2,
-                "subtypes": 4,
-                "archetypes": 5,
-                "activities": 5,
+                "subtypes": 10,
+                "archetypes": 11,
+                "activities": 9,
                 "reviewRequiredDistricts": 0,
                 "representativeRoles": 3,
                 "operationalCategories": 2,
@@ -2855,6 +2859,7 @@
                 "subtypesCovered": [
                   "neighborhood_retail",
                   "service_retail",
+                  "downtown_retail",
                   "lifestyle_retail",
                   "showroom_retail"
                 ],
@@ -2862,17 +2867,25 @@
                   "walk_in_retail",
                   "walk_in_service",
                   "customer_showroom",
+                  "knowledge_work",
+                  "client_meetings",
+                  "administrative_operations",
+                  "education",
+                  "training",
                   "food_preparation",
-                  "collaboration",
-                  "knowledge_work"
+                  "collaboration"
                 ],
                 "archetypeCoverage": [
                   "wellness_practice",
                   "marketing_agency",
-                  "food_producer",
+                  "professional_office",
+                  "law_firm",
+                  "consulting_firm",
+                  "nonprofit_office",
+                  "education_provider",
                   "training_center",
-                  "creative_studio",
-                  "professional_office"
+                  "food_producer",
+                  "creative_studio"
                 ],
                 "operationalCharacteristicsCovered": [
                   "street_visibility",
@@ -3334,27 +3347,27 @@
               "label": "Special Purpose",
               "relevance": "secondary",
               "relevanceLabel": "Secondary",
-              "readinessState": "missing",
-              "readinessLabel": "Missing",
+              "readinessState": "partial",
+              "readinessLabel": "Partial",
               "layers": {
                 "districts": "missing",
                 "recommendations": "missing",
                 "representativeBuildings": "missing",
                 "buildingBriefs": "missing",
-                "subtypes": "missing",
-                "archetypes": "missing",
-                "activities": "missing",
+                "subtypes": "developed",
+                "archetypes": "developed",
+                "activities": "developed",
                 "editorialReview": "developed"
               },
               "counts": {
                 "districts": 0,
-                "secondaryDistricts": 0,
+                "secondaryDistricts": 1,
                 "recommendations": 0,
                 "representativeBuildings": 0,
                 "buildingBriefs": 0,
-                "subtypes": 0,
-                "archetypes": 0,
-                "activities": 0,
+                "subtypes": 4,
+                "archetypes": 4,
+                "activities": 4,
                 "reviewRequiredDistricts": 0,
                 "representativeRoles": 0,
                 "operationalCategories": 0,
@@ -3362,16 +3375,13 @@
                 "reviewRequiredRepresentativeBuildings": 0
               },
               "gaps": [
-                "No district coverage for this relevant ecosystem.",
-                "Subtype breadth is thin.",
-                "Business archetype coverage is thin.",
-                "Business activity coverage is thin."
+                "Ecosystem appears only as a secondary district expression."
               ],
               "blocking": false,
               "blockingCodes": [],
               "strategicPriority": 6,
               "evidence": [
-                "0 primary districts and 0 secondary districts.",
+                "0 primary districts and 1 secondary districts.",
                 "0 Representative Buildings and 0 Building Briefs."
               ],
               "targetSubtypes": [
@@ -3613,106 +3623,6 @@
               "blocksEcosystemReadiness": false
             },
             {
-              "id": "ecosystem:special_purpose:ecosystem_missing",
-              "code": "ecosystem_missing",
-              "label": "Ecosystem Missing",
-              "severity": "medium",
-              "layer": "districts",
-              "ecosystemId": "special_purpose",
-              "ecosystemLabel": "Special Purpose",
-              "relevance": "secondary",
-              "readinessState": "missing",
-              "rationale": "Relevant ecosystem has no meaningful district coverage.",
-              "evidence": [
-                "0 primary districts and 0 secondary districts.",
-                "0 Representative Buildings and 0 Building Briefs."
-              ],
-              "recommendedSprintFamily": "Ecosystem District Foundation",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
-              "id": "ecosystem:special_purpose:ecosystem_subtype_gap",
-              "code": "ecosystem_subtype_gap",
-              "label": "Ecosystem Subtype Gap",
-              "severity": "medium",
-              "layer": "subtypes",
-              "ecosystemId": "special_purpose",
-              "ecosystemLabel": "Special Purpose",
-              "relevance": "secondary",
-              "readinessState": "missing",
-              "rationale": "Subtype breadth is too narrow for the ecosystem's relevance.",
-              "evidence": [
-                "0 primary districts and 0 secondary districts.",
-                "0 Representative Buildings and 0 Building Briefs."
-              ],
-              "recommendedSprintFamily": "Ecosystem Subtype Expansion",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
-              "id": "ecosystem:special_purpose:ecosystem_archetype_gap",
-              "code": "ecosystem_archetype_gap",
-              "label": "Ecosystem Archetype Gap",
-              "severity": "low",
-              "layer": "archetypes",
-              "ecosystemId": "special_purpose",
-              "ecosystemLabel": "Special Purpose",
-              "relevance": "secondary",
-              "readinessState": "missing",
-              "rationale": "Business archetype coverage is too narrow.",
-              "evidence": [
-                "0 primary districts and 0 secondary districts.",
-                "0 Representative Buildings and 0 Building Briefs."
-              ],
-              "recommendedSprintFamily": "Archetype Coverage Expansion",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
-              "id": "ecosystem:special_purpose:ecosystem_activity_gap",
-              "code": "ecosystem_activity_gap",
-              "label": "Ecosystem Activity Gap",
-              "severity": "low",
-              "layer": "activities",
-              "ecosystemId": "special_purpose",
-              "ecosystemLabel": "Special Purpose",
-              "relevance": "secondary",
-              "readinessState": "missing",
-              "rationale": "Business activity coverage is too narrow.",
-              "evidence": [
-                "0 primary districts and 0 secondary districts.",
-                "0 Representative Buildings and 0 Building Briefs."
-              ],
-              "recommendedSprintFamily": "Business Activity Coverage Review",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
               "id": "ecosystem:special_purpose:representative_role_thin",
               "code": "representative_role_thin",
               "label": "Representative Role Thin",
@@ -3721,13 +3631,38 @@
               "ecosystemId": "special_purpose",
               "ecosystemLabel": "Special Purpose",
               "relevance": "secondary",
-              "readinessState": "missing",
+              "readinessState": "partial",
               "rationale": "Representative role coverage is too narrow for this ecosystem.",
               "evidence": [
-                "0 primary districts and 0 secondary districts.",
+                "0 primary districts and 1 secondary districts.",
                 "0 Representative Buildings and 0 Building Briefs."
               ],
               "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
+              "completionCriteria": [
+                "Validated district ecosystem classification",
+                "Representative Building coverage across the most important subtypes",
+                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
+                "Building Brief migration only after canonical records and district association exist",
+                "Publisher ecosystem QA passes without hard errors"
+              ],
+              "blocksEcosystemReadiness": false
+            },
+            {
+              "id": "ecosystem:special_purpose:ecosystem_secondary_only",
+              "code": "ecosystem_secondary_only",
+              "label": "Ecosystem Secondary Only",
+              "severity": "low",
+              "layer": "districts",
+              "ecosystemId": "special_purpose",
+              "ecosystemLabel": "Special Purpose",
+              "relevance": "secondary",
+              "readinessState": "partial",
+              "rationale": "Ecosystem appears only as secondary context.",
+              "evidence": [
+                "0 primary districts and 1 secondary districts.",
+                "0 Representative Buildings and 0 Building Briefs."
+              ],
+              "recommendedSprintFamily": "Ecosystem District Foundation",
               "completionCriteria": [
                 "Validated district ecosystem classification",
                 "Representative Building coverage across the most important subtypes",
@@ -3821,21 +3756,25 @@
                 "startup": 10,
                 "creative_studio": 8,
                 "marketing_agency": 8,
-                "law_firm": 1,
+                "law_firm": 2,
                 "financial_services_firm": 1,
-                "consulting_firm": 3,
-                "professional_office": 5,
+                "consulting_firm": 4,
+                "professional_office": 6,
                 "general_contractor": 2,
+                "nonprofit_office": 1,
+                "education_provider": 1,
+                "training_center": 1,
                 "medical_practice": 1
               },
               "activities": {
                 "product_development": 9,
                 "collaboration": 10,
-                "knowledge_work": 13,
+                "knowledge_work": 14,
                 "customer_showroom": 2,
-                "client_meetings": 3,
-                "administrative_operations": 3,
-                "research": 2
+                "client_meetings": 4,
+                "administrative_operations": 4,
+                "research": 2,
+                "training": 1
               },
               "reviewRequiredDistricts": [],
               "notableSubtypeGaps": [
@@ -3877,6 +3816,8 @@
                   "walk_in_retail": 14,
                   "walk_in_service": 18,
                   "customer_showroom": 34,
+                  "education": 9,
+                  "training": 9,
                   "light_manufacturing": 6
                 },
                 "archetypeCoverage": {
@@ -3886,12 +3827,14 @@
                   "research_company": 11,
                   "biotech_company": 2,
                   "law_firm": 78,
-                  "accounting_firm": 78,
-                  "financial_services_firm": 78,
-                  "nonprofit_office": 2,
+                  "accounting_firm": 69,
+                  "financial_services_firm": 69,
+                  "nonprofit_office": 9,
                   "wellness_practice": 14,
                   "marketing_agency": 67,
-                  "creative_studio": 74
+                  "education_provider": 9,
+                  "training_center": 9,
+                  "creative_studio": 67
                 },
                 "operationalCharacteristicsCovered": {
                   "campus_environment": 3,
@@ -4255,13 +4198,25 @@
                 "professional_office": 5,
                 "neighborhood_retail": 6,
                 "showroom_retail": 1,
-                "creative_office": 2
+                "creative_office": 2,
+                "downtown_retail": 1,
+                "service_retail": 1,
+                "education": 1,
+                "nonprofit": 1,
+                "childcare": 1,
+                "institutional": 1
               },
               "archetypes": {
                 "marketing_agency": 8,
-                "professional_office": 4,
+                "professional_office": 5,
                 "wellness_practice": 7,
                 "creative_studio": 2,
+                "law_firm": 1,
+                "consulting_firm": 1,
+                "nonprofit_office": 1,
+                "education_provider": 1,
+                "training_center": 1,
+                "childcare_provider": 1,
                 "physical_therapy_practice": 1
               },
               "activities": {
@@ -4269,11 +4224,14 @@
                 "walk_in_retail": 6,
                 "walk_in_service": 8,
                 "collaboration": 1,
-                "knowledge_work": 2
+                "knowledge_work": 3,
+                "client_meetings": 1,
+                "administrative_operations": 1,
+                "education": 1,
+                "training": 1
               },
               "reviewRequiredDistricts": [],
               "notableSubtypeGaps": [
-                "downtown_retail",
                 "shopping_center",
                 "power_center",
                 "lifestyle_retail"
@@ -4294,6 +4252,7 @@
                 "subtypesCovered": {
                   "neighborhood_retail": 9,
                   "service_retail": 2,
+                  "downtown_retail": 1,
                   "lifestyle_retail": 1,
                   "showroom_retail": 5
                 },
@@ -4301,17 +4260,25 @@
                   "walk_in_retail": 9,
                   "walk_in_service": 14,
                   "customer_showroom": 14,
+                  "knowledge_work": 10,
+                  "client_meetings": 1,
+                  "administrative_operations": 1,
+                  "education": 1,
+                  "training": 1,
                   "food_preparation": 1,
-                  "collaboration": 5,
-                  "knowledge_work": 9
+                  "collaboration": 5
                 },
                 "archetypeCoverage": {
                   "wellness_practice": 14,
                   "marketing_agency": 14,
-                  "food_producer": 14,
+                  "professional_office": 10,
+                  "law_firm": 1,
+                  "consulting_firm": 1,
+                  "nonprofit_office": 1,
+                  "education_provider": 1,
                   "training_center": 14,
-                  "creative_studio": 9,
-                  "professional_office": 9
+                  "food_producer": 13,
+                  "creative_studio": 9
                 },
                 "operationalCharacteristicsCovered": {
                   "street_visibility": 14,
@@ -4657,21 +4624,36 @@
               "id": "special_purpose",
               "label": "Special Purpose",
               "districtCount": 0,
-              "secondaryDistrictCount": 0,
+              "secondaryDistrictCount": 1,
               "recommendationNodeCount": 0,
               "representativeBuildingCount": 0,
               "buildingBriefCount": 0,
-              "status": "Missing",
+              "status": "Partial",
               "districts": [],
-              "subtypes": {},
-              "archetypes": {},
-              "activities": {},
+              "subtypes": {
+                "education": 1,
+                "nonprofit": 1,
+                "childcare": 1,
+                "institutional": 1
+              },
+              "archetypes": {
+                "nonprofit_office": 1,
+                "education_provider": 1,
+                "training_center": 1,
+                "childcare_provider": 1
+              },
+              "activities": {
+                "walk_in_service": 1,
+                "administrative_operations": 1,
+                "education": 1,
+                "training": 1
+              },
               "reviewRequiredDistricts": [],
               "notableSubtypeGaps": [
-                "education",
-                "nonprofit",
                 "religious",
-                "automotive"
+                "automotive",
+                "self_storage",
+                "recreation"
               ],
               "representativeBuildingIntelligence": {
                 "ecosystemId": "special_purpose",
@@ -4721,6 +4703,12 @@
             "manufacturing": 1,
             "neighborhood_retail": 6,
             "showroom_retail": 1,
+            "downtown_retail": 1,
+            "service_retail": 1,
+            "education": 2,
+            "nonprofit": 2,
+            "childcare": 2,
+            "institutional": 2,
             "medical_office": 1,
             "outpatient_clinic": 1,
             "wellness": 1,
@@ -4729,18 +4717,20 @@
           "activityCoverage": {
             "product_development": 23,
             "collaboration": 19,
-            "knowledge_work": 19,
+            "knowledge_work": 21,
             "customer_showroom": 14,
-            "client_meetings": 3,
-            "administrative_operations": 4,
+            "client_meetings": 5,
+            "administrative_operations": 7,
             "research": 12,
+            "training": 3,
             "light_manufacturing": 9,
             "receiving": 5,
             "shipping": 5,
             "storage": 5,
             "service_dispatch": 5,
             "walk_in_retail": 6,
-            "walk_in_service": 9,
+            "walk_in_service": 10,
+            "education": 2,
             "healthcare_delivery": 1
           },
           "archetypeCoverage": {
@@ -4749,17 +4739,21 @@
             "startup": 24,
             "creative_studio": 17,
             "marketing_agency": 16,
-            "law_firm": 1,
+            "law_firm": 3,
             "financial_services_firm": 1,
-            "consulting_firm": 3,
-            "professional_office": 9,
+            "consulting_firm": 5,
+            "professional_office": 11,
             "general_contractor": 7,
+            "nonprofit_office": 3,
+            "education_provider": 3,
+            "training_center": 3,
             "medical_practice": 2,
             "light_manufacturer": 7,
             "cabinet_shop": 5,
             "distributor": 5,
             "ecommerce_fulfillment_business": 5,
             "wellness_practice": 8,
+            "childcare_provider": 2,
             "physical_therapy_practice": 2,
             "outpatient_clinic": 1
           },
@@ -4772,21 +4766,14 @@
               "status": "Missing",
               "districtCount": 0,
               "representativeBuildingCount": 0
-            },
-            {
-              "id": "special_purpose",
-              "label": "Special Purpose",
-              "status": "Missing",
-              "districtCount": 0,
-              "representativeBuildingCount": 0
             }
           ],
           "summary": {
             "ecosystemCount": 7,
             "developedCount": 5,
-            "partialCount": 0,
+            "partialCount": 1,
             "thinCount": 0,
-            "missingCount": 2,
+            "missingCount": 1,
             "reviewRequiredDistrictCount": 0
           }
         },
@@ -4808,56 +4795,6 @@
               "1 representative roles and 6 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:special_purpose:ecosystem_missing",
-            "code": "ecosystem_missing",
-            "label": "Ecosystem Missing",
-            "severity": "medium",
-            "layer": "districts",
-            "ecosystemId": "special_purpose",
-            "ecosystemLabel": "Special Purpose",
-            "relevance": "secondary",
-            "readinessState": "missing",
-            "rationale": "Relevant ecosystem has no meaningful district coverage.",
-            "evidence": [
-              "0 primary districts and 0 secondary districts.",
-              "0 Representative Buildings and 0 Building Briefs."
-            ],
-            "recommendedSprintFamily": "Ecosystem District Foundation",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:special_purpose:ecosystem_subtype_gap",
-            "code": "ecosystem_subtype_gap",
-            "label": "Ecosystem Subtype Gap",
-            "severity": "medium",
-            "layer": "subtypes",
-            "ecosystemId": "special_purpose",
-            "ecosystemLabel": "Special Purpose",
-            "relevance": "secondary",
-            "readinessState": "missing",
-            "rationale": "Subtype breadth is too narrow for the ecosystem's relevance.",
-            "evidence": [
-              "0 primary districts and 0 secondary districts.",
-              "0 Representative Buildings and 0 Building Briefs."
-            ],
-            "recommendedSprintFamily": "Ecosystem Subtype Expansion",
             "completionCriteria": [
               "Validated district ecosystem classification",
               "Representative Building coverage across the most important subtypes",
@@ -4970,46 +4907,21 @@
             "blocksEcosystemReadiness": false
           },
           {
-            "id": "ecosystem:special_purpose:ecosystem_activity_gap",
-            "code": "ecosystem_activity_gap",
-            "label": "Ecosystem Activity Gap",
+            "id": "ecosystem:special_purpose:ecosystem_secondary_only",
+            "code": "ecosystem_secondary_only",
+            "label": "Ecosystem Secondary Only",
             "severity": "low",
-            "layer": "activities",
+            "layer": "districts",
             "ecosystemId": "special_purpose",
             "ecosystemLabel": "Special Purpose",
             "relevance": "secondary",
-            "readinessState": "missing",
-            "rationale": "Business activity coverage is too narrow.",
+            "readinessState": "partial",
+            "rationale": "Ecosystem appears only as secondary context.",
             "evidence": [
-              "0 primary districts and 0 secondary districts.",
+              "0 primary districts and 1 secondary districts.",
               "0 Representative Buildings and 0 Building Briefs."
             ],
-            "recommendedSprintFamily": "Business Activity Coverage Review",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:special_purpose:ecosystem_archetype_gap",
-            "code": "ecosystem_archetype_gap",
-            "label": "Ecosystem Archetype Gap",
-            "severity": "low",
-            "layer": "archetypes",
-            "ecosystemId": "special_purpose",
-            "ecosystemLabel": "Special Purpose",
-            "relevance": "secondary",
-            "readinessState": "missing",
-            "rationale": "Business archetype coverage is too narrow.",
-            "evidence": [
-              "0 primary districts and 0 secondary districts.",
-              "0 Representative Buildings and 0 Building Briefs."
-            ],
-            "recommendedSprintFamily": "Archetype Coverage Expansion",
+            "recommendedSprintFamily": "Ecosystem District Foundation",
             "completionCriteria": [
               "Validated district ecosystem classification",
               "Representative Building coverage across the most important subtypes",
@@ -5028,10 +4940,10 @@
             "ecosystemId": "special_purpose",
             "ecosystemLabel": "Special Purpose",
             "relevance": "secondary",
-            "readinessState": "missing",
+            "readinessState": "partial",
             "rationale": "Representative role coverage is too narrow for this ecosystem.",
             "evidence": [
-              "0 primary districts and 0 secondary districts.",
+              "0 primary districts and 1 secondary districts.",
               "0 Representative Buildings and 0 Building Briefs."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -9384,7 +9296,7 @@
                 "buildingBriefs": "developed",
                 "subtypes": "developed",
                 "archetypes": "developed",
-                "activities": "strong",
+                "activities": "developed",
                 "editorialReview": "developed"
               },
               "counts": {
@@ -9394,8 +9306,8 @@
                 "representativeBuildings": 13,
                 "buildingBriefs": 11,
                 "subtypes": 8,
-                "archetypes": 8,
-                "activities": 5,
+                "archetypes": 12,
+                "activities": 7,
                 "reviewRequiredDistricts": 0,
                 "representativeRoles": 6,
                 "operationalCategories": 5,
@@ -9464,7 +9376,9 @@
                   "client_meetings",
                   "walk_in_retail",
                   "walk_in_service",
-                  "customer_showroom"
+                  "customer_showroom",
+                  "education",
+                  "training"
                 ],
                 "archetypeCoverage": [
                   "professional_office",
@@ -9478,6 +9392,8 @@
                   "nonprofit_office",
                   "wellness_practice",
                   "marketing_agency",
+                  "education_provider",
+                  "training_center",
                   "creative_studio"
                 ],
                 "operationalCharacteristicsCovered": [
@@ -9776,8 +9692,8 @@
                 "representativeBuildings": "strong",
                 "buildingBriefs": "developed",
                 "subtypes": "developed",
-                "archetypes": "strong",
-                "activities": "strong",
+                "archetypes": "developed",
+                "activities": "developed",
                 "editorialReview": "developed"
               },
               "counts": {
@@ -9786,9 +9702,9 @@
                 "recommendations": 2,
                 "representativeBuildings": 2,
                 "buildingBriefs": 2,
-                "subtypes": 2,
-                "archetypes": 3,
-                "activities": 3,
+                "subtypes": 8,
+                "archetypes": 10,
+                "activities": 8,
                 "reviewRequiredDistricts": 0,
                 "representativeRoles": 2,
                 "operationalCategories": 2,
@@ -9838,19 +9754,30 @@
                 "subtypesCovered": [
                   "neighborhood_retail",
                   "service_retail",
+                  "downtown_retail",
                   "lifestyle_retail"
                 ],
                 "activityCoverage": [
                   "walk_in_retail",
                   "walk_in_service",
                   "customer_showroom",
+                  "knowledge_work",
+                  "client_meetings",
+                  "administrative_operations",
+                  "education",
+                  "training",
                   "food_preparation"
                 ],
                 "archetypeCoverage": [
                   "wellness_practice",
                   "marketing_agency",
-                  "food_producer",
-                  "training_center"
+                  "professional_office",
+                  "law_firm",
+                  "consulting_firm",
+                  "nonprofit_office",
+                  "education_provider",
+                  "training_center",
+                  "food_producer"
                 ],
                 "operationalCharacteristicsCovered": [
                   "street_visibility",
@@ -10216,27 +10143,27 @@
               "label": "Special Purpose",
               "relevance": "secondary",
               "relevanceLabel": "Secondary",
-              "readinessState": "missing",
-              "readinessLabel": "Missing",
+              "readinessState": "partial",
+              "readinessLabel": "Partial",
               "layers": {
                 "districts": "missing",
                 "recommendations": "missing",
                 "representativeBuildings": "missing",
                 "buildingBriefs": "missing",
-                "subtypes": "missing",
-                "archetypes": "missing",
-                "activities": "missing",
+                "subtypes": "developed",
+                "archetypes": "developed",
+                "activities": "developed",
                 "editorialReview": "developed"
               },
               "counts": {
                 "districts": 0,
-                "secondaryDistricts": 0,
+                "secondaryDistricts": 1,
                 "recommendations": 0,
                 "representativeBuildings": 0,
                 "buildingBriefs": 0,
-                "subtypes": 0,
-                "archetypes": 0,
-                "activities": 0,
+                "subtypes": 4,
+                "archetypes": 4,
+                "activities": 4,
                 "reviewRequiredDistricts": 0,
                 "representativeRoles": 0,
                 "operationalCategories": 0,
@@ -10244,16 +10171,13 @@
                 "reviewRequiredRepresentativeBuildings": 0
               },
               "gaps": [
-                "No district coverage for this relevant ecosystem.",
-                "Subtype breadth is thin.",
-                "Business archetype coverage is thin.",
-                "Business activity coverage is thin."
+                "Ecosystem appears only as a secondary district expression."
               ],
               "blocking": false,
               "blockingCodes": [],
               "strategicPriority": 6,
               "evidence": [
-                "0 primary districts and 0 secondary districts.",
+                "0 primary districts and 1 secondary districts.",
                 "0 Representative Buildings and 0 Building Briefs."
               ],
               "targetSubtypes": [
@@ -10467,106 +10391,6 @@
               "blocksEcosystemReadiness": false
             },
             {
-              "id": "ecosystem:special_purpose:ecosystem_missing",
-              "code": "ecosystem_missing",
-              "label": "Ecosystem Missing",
-              "severity": "medium",
-              "layer": "districts",
-              "ecosystemId": "special_purpose",
-              "ecosystemLabel": "Special Purpose",
-              "relevance": "secondary",
-              "readinessState": "missing",
-              "rationale": "Relevant ecosystem has no meaningful district coverage.",
-              "evidence": [
-                "0 primary districts and 0 secondary districts.",
-                "0 Representative Buildings and 0 Building Briefs."
-              ],
-              "recommendedSprintFamily": "Ecosystem District Foundation",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
-              "id": "ecosystem:special_purpose:ecosystem_subtype_gap",
-              "code": "ecosystem_subtype_gap",
-              "label": "Ecosystem Subtype Gap",
-              "severity": "medium",
-              "layer": "subtypes",
-              "ecosystemId": "special_purpose",
-              "ecosystemLabel": "Special Purpose",
-              "relevance": "secondary",
-              "readinessState": "missing",
-              "rationale": "Subtype breadth is too narrow for the ecosystem's relevance.",
-              "evidence": [
-                "0 primary districts and 0 secondary districts.",
-                "0 Representative Buildings and 0 Building Briefs."
-              ],
-              "recommendedSprintFamily": "Ecosystem Subtype Expansion",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
-              "id": "ecosystem:special_purpose:ecosystem_archetype_gap",
-              "code": "ecosystem_archetype_gap",
-              "label": "Ecosystem Archetype Gap",
-              "severity": "low",
-              "layer": "archetypes",
-              "ecosystemId": "special_purpose",
-              "ecosystemLabel": "Special Purpose",
-              "relevance": "secondary",
-              "readinessState": "missing",
-              "rationale": "Business archetype coverage is too narrow.",
-              "evidence": [
-                "0 primary districts and 0 secondary districts.",
-                "0 Representative Buildings and 0 Building Briefs."
-              ],
-              "recommendedSprintFamily": "Archetype Coverage Expansion",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
-              "id": "ecosystem:special_purpose:ecosystem_activity_gap",
-              "code": "ecosystem_activity_gap",
-              "label": "Ecosystem Activity Gap",
-              "severity": "low",
-              "layer": "activities",
-              "ecosystemId": "special_purpose",
-              "ecosystemLabel": "Special Purpose",
-              "relevance": "secondary",
-              "readinessState": "missing",
-              "rationale": "Business activity coverage is too narrow.",
-              "evidence": [
-                "0 primary districts and 0 secondary districts.",
-                "0 Representative Buildings and 0 Building Briefs."
-              ],
-              "recommendedSprintFamily": "Business Activity Coverage Review",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
               "id": "ecosystem:special_purpose:representative_role_thin",
               "code": "representative_role_thin",
               "label": "Representative Role Thin",
@@ -10575,13 +10399,38 @@
               "ecosystemId": "special_purpose",
               "ecosystemLabel": "Special Purpose",
               "relevance": "secondary",
-              "readinessState": "missing",
+              "readinessState": "partial",
               "rationale": "Representative role coverage is too narrow for this ecosystem.",
               "evidence": [
-                "0 primary districts and 0 secondary districts.",
+                "0 primary districts and 1 secondary districts.",
                 "0 Representative Buildings and 0 Building Briefs."
               ],
               "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
+              "completionCriteria": [
+                "Validated district ecosystem classification",
+                "Representative Building coverage across the most important subtypes",
+                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
+                "Building Brief migration only after canonical records and district association exist",
+                "Publisher ecosystem QA passes without hard errors"
+              ],
+              "blocksEcosystemReadiness": false
+            },
+            {
+              "id": "ecosystem:special_purpose:ecosystem_secondary_only",
+              "code": "ecosystem_secondary_only",
+              "label": "Ecosystem Secondary Only",
+              "severity": "low",
+              "layer": "districts",
+              "ecosystemId": "special_purpose",
+              "ecosystemLabel": "Special Purpose",
+              "relevance": "secondary",
+              "readinessState": "partial",
+              "rationale": "Ecosystem appears only as secondary context.",
+              "evidence": [
+                "0 primary districts and 1 secondary districts.",
+                "0 Representative Buildings and 0 Building Briefs."
+              ],
+              "recommendedSprintFamily": "Ecosystem District Foundation",
               "completionCriteria": [
                 "Validated district ecosystem classification",
                 "Representative Building coverage across the most important subtypes",
@@ -10638,21 +10487,27 @@
                 "creative_office": 1
               },
               "archetypes": {
-                "professional_office": 1,
-                "consulting_firm": 1,
+                "professional_office": 2,
+                "consulting_firm": 2,
                 "startup": 2,
                 "research_company": 2,
                 "biotech_company": 1,
                 "marketing_agency": 2,
+                "law_firm": 1,
+                "nonprofit_office": 1,
+                "education_provider": 1,
+                "training_center": 1,
                 "creative_studio": 1,
                 "medical_practice": 1
               },
               "activities": {
-                "knowledge_work": 2,
+                "knowledge_work": 3,
                 "collaboration": 2,
-                "administrative_operations": 2,
+                "administrative_operations": 3,
                 "research": 1,
-                "product_development": 2
+                "product_development": 2,
+                "client_meetings": 1,
+                "training": 1
               },
               "reviewRequiredDistricts": [],
               "notableSubtypeGaps": [
@@ -10693,7 +10548,9 @@
                   "client_meetings": 10,
                   "walk_in_retail": 11,
                   "walk_in_service": 11,
-                  "customer_showroom": 11
+                  "customer_showroom": 11,
+                  "education": 9,
+                  "training": 9
                 },
                 "archetypeCoverage": {
                   "professional_office": 13,
@@ -10702,12 +10559,14 @@
                   "research_company": 2,
                   "biotech_company": 2,
                   "law_firm": 13,
-                  "accounting_firm": 13,
-                  "financial_services_firm": 13,
-                  "nonprofit_office": 2,
+                  "accounting_firm": 4,
+                  "financial_services_firm": 4,
+                  "nonprofit_office": 9,
                   "wellness_practice": 11,
                   "marketing_agency": 11,
-                  "creative_studio": 9
+                  "education_provider": 9,
+                  "training_center": 9,
+                  "creative_studio": 2
                 },
                 "operationalCharacteristicsCovered": {
                   "campus_environment": 2,
@@ -11011,25 +10870,43 @@
                 }
               ],
               "subtypes": {
+                "downtown_retail": 1,
+                "neighborhood_retail": 2,
+                "service_retail": 1,
                 "professional_office": 2,
-                "neighborhood_retail": 2
+                "education": 1,
+                "nonprofit": 1,
+                "childcare": 1,
+                "institutional": 1
               },
               "archetypes": {
                 "wellness_practice": 3,
                 "marketing_agency": 2,
+                "professional_office": 1,
+                "law_firm": 1,
+                "consulting_firm": 1,
+                "nonprofit_office": 1,
+                "education_provider": 1,
+                "training_center": 1,
+                "childcare_provider": 1,
                 "physical_therapy_practice": 1
               },
               "activities": {
                 "walk_in_retail": 2,
                 "walk_in_service": 3,
-                "customer_showroom": 2
+                "customer_showroom": 2,
+                "knowledge_work": 1,
+                "client_meetings": 1,
+                "administrative_operations": 1,
+                "education": 1,
+                "training": 1
               },
               "reviewRequiredDistricts": [],
               "notableSubtypeGaps": [
-                "downtown_retail",
                 "shopping_center",
                 "power_center",
-                "lifestyle_retail"
+                "lifestyle_retail",
+                "showroom_retail"
               ],
               "representativeBuildingIntelligence": {
                 "ecosystemId": "retail",
@@ -11046,19 +10923,30 @@
                 "subtypesCovered": {
                   "neighborhood_retail": 2,
                   "service_retail": 2,
+                  "downtown_retail": 1,
                   "lifestyle_retail": 1
                 },
                 "activityCoverage": {
                   "walk_in_retail": 2,
                   "walk_in_service": 2,
                   "customer_showroom": 2,
+                  "knowledge_work": 1,
+                  "client_meetings": 1,
+                  "administrative_operations": 1,
+                  "education": 1,
+                  "training": 1,
                   "food_preparation": 1
                 },
                 "archetypeCoverage": {
                   "wellness_practice": 2,
                   "marketing_agency": 2,
-                  "food_producer": 2,
-                  "training_center": 2
+                  "professional_office": 1,
+                  "law_firm": 1,
+                  "consulting_firm": 1,
+                  "nonprofit_office": 1,
+                  "education_provider": 1,
+                  "training_center": 2,
+                  "food_producer": 1
                 },
                 "operationalCharacteristicsCovered": {
                   "street_visibility": 2,
@@ -11302,21 +11190,36 @@
               "id": "special_purpose",
               "label": "Special Purpose",
               "districtCount": 0,
-              "secondaryDistrictCount": 0,
+              "secondaryDistrictCount": 1,
               "recommendationNodeCount": 0,
               "representativeBuildingCount": 0,
               "buildingBriefCount": 0,
-              "status": "Missing",
+              "status": "Partial",
               "districts": [],
-              "subtypes": {},
-              "archetypes": {},
-              "activities": {},
+              "subtypes": {
+                "education": 1,
+                "nonprofit": 1,
+                "childcare": 1,
+                "institutional": 1
+              },
+              "archetypes": {
+                "nonprofit_office": 1,
+                "education_provider": 1,
+                "training_center": 1,
+                "childcare_provider": 1
+              },
+              "activities": {
+                "walk_in_service": 1,
+                "administrative_operations": 1,
+                "education": 1,
+                "training": 1
+              },
               "reviewRequiredDistricts": [],
               "notableSubtypeGaps": [
-                "education",
-                "nonprofit",
                 "religious",
-                "automotive"
+                "automotive",
+                "self_storage",
+                "recreation"
               ],
               "representativeBuildingIntelligence": {
                 "ecosystemId": "special_purpose",
@@ -11363,35 +11266,48 @@
             "warehouse": 3,
             "manufacturing": 1,
             "contractor_service": 1,
+            "downtown_retail": 1,
             "neighborhood_retail": 2,
+            "service_retail": 1,
+            "education": 2,
+            "nonprofit": 2,
+            "childcare": 2,
+            "institutional": 2,
             "medical_office": 1,
             "outpatient_clinic": 1,
             "wellness": 1,
             "hospital_adjacent": 1
           },
           "activityCoverage": {
-            "knowledge_work": 3,
+            "knowledge_work": 5,
             "collaboration": 5,
-            "administrative_operations": 3,
+            "administrative_operations": 6,
             "research": 5,
             "product_development": 6,
+            "client_meetings": 2,
+            "training": 3,
             "receiving": 4,
             "shipping": 4,
             "storage": 4,
             "service_dispatch": 4,
             "light_manufacturing": 4,
             "walk_in_retail": 2,
-            "walk_in_service": 4,
+            "walk_in_service": 5,
             "customer_showroom": 2,
+            "education": 2,
             "healthcare_delivery": 1
           },
           "archetypeCoverage": {
-            "professional_office": 1,
-            "consulting_firm": 1,
+            "professional_office": 3,
+            "consulting_firm": 3,
             "startup": 6,
             "research_company": 6,
             "biotech_company": 2,
             "marketing_agency": 4,
+            "law_firm": 2,
+            "nonprofit_office": 3,
+            "education_provider": 3,
+            "training_center": 3,
             "creative_studio": 2,
             "medical_practice": 2,
             "general_contractor": 4,
@@ -11401,6 +11317,7 @@
             "ecommerce_fulfillment_business": 4,
             "building_services_company": 1,
             "wellness_practice": 4,
+            "childcare_provider": 2,
             "physical_therapy_practice": 2,
             "outpatient_clinic": 1
           },
@@ -11413,75 +11330,18 @@
               "status": "Missing",
               "districtCount": 0,
               "representativeBuildingCount": 0
-            },
-            {
-              "id": "special_purpose",
-              "label": "Special Purpose",
-              "status": "Missing",
-              "districtCount": 0,
-              "representativeBuildingCount": 0
             }
           ],
           "summary": {
             "ecosystemCount": 7,
             "developedCount": 4,
-            "partialCount": 1,
+            "partialCount": 2,
             "thinCount": 0,
-            "missingCount": 2,
+            "missingCount": 1,
             "reviewRequiredDistrictCount": 0
           }
         },
         "ecosystemGaps": [
-          {
-            "id": "ecosystem:special_purpose:ecosystem_missing",
-            "code": "ecosystem_missing",
-            "label": "Ecosystem Missing",
-            "severity": "medium",
-            "layer": "districts",
-            "ecosystemId": "special_purpose",
-            "ecosystemLabel": "Special Purpose",
-            "relevance": "secondary",
-            "readinessState": "missing",
-            "rationale": "Relevant ecosystem has no meaningful district coverage.",
-            "evidence": [
-              "0 primary districts and 0 secondary districts.",
-              "0 Representative Buildings and 0 Building Briefs."
-            ],
-            "recommendedSprintFamily": "Ecosystem District Foundation",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:special_purpose:ecosystem_subtype_gap",
-            "code": "ecosystem_subtype_gap",
-            "label": "Ecosystem Subtype Gap",
-            "severity": "medium",
-            "layer": "subtypes",
-            "ecosystemId": "special_purpose",
-            "ecosystemLabel": "Special Purpose",
-            "relevance": "secondary",
-            "readinessState": "missing",
-            "rationale": "Subtype breadth is too narrow for the ecosystem's relevance.",
-            "evidence": [
-              "0 primary districts and 0 secondary districts.",
-              "0 Representative Buildings and 0 Building Briefs."
-            ],
-            "recommendedSprintFamily": "Ecosystem Subtype Expansion",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
           {
             "id": "ecosystem:hospitality:ecosystem_missing",
             "code": "ecosystem_missing",
@@ -11583,46 +11443,21 @@
             "blocksEcosystemReadiness": false
           },
           {
-            "id": "ecosystem:special_purpose:ecosystem_activity_gap",
-            "code": "ecosystem_activity_gap",
-            "label": "Ecosystem Activity Gap",
+            "id": "ecosystem:special_purpose:ecosystem_secondary_only",
+            "code": "ecosystem_secondary_only",
+            "label": "Ecosystem Secondary Only",
             "severity": "low",
-            "layer": "activities",
+            "layer": "districts",
             "ecosystemId": "special_purpose",
             "ecosystemLabel": "Special Purpose",
             "relevance": "secondary",
-            "readinessState": "missing",
-            "rationale": "Business activity coverage is too narrow.",
+            "readinessState": "partial",
+            "rationale": "Ecosystem appears only as secondary context.",
             "evidence": [
-              "0 primary districts and 0 secondary districts.",
+              "0 primary districts and 1 secondary districts.",
               "0 Representative Buildings and 0 Building Briefs."
             ],
-            "recommendedSprintFamily": "Business Activity Coverage Review",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:special_purpose:ecosystem_archetype_gap",
-            "code": "ecosystem_archetype_gap",
-            "label": "Ecosystem Archetype Gap",
-            "severity": "low",
-            "layer": "archetypes",
-            "ecosystemId": "special_purpose",
-            "ecosystemLabel": "Special Purpose",
-            "relevance": "secondary",
-            "readinessState": "missing",
-            "rationale": "Business archetype coverage is too narrow.",
-            "evidence": [
-              "0 primary districts and 0 secondary districts.",
-              "0 Representative Buildings and 0 Building Briefs."
-            ],
-            "recommendedSprintFamily": "Archetype Coverage Expansion",
+            "recommendedSprintFamily": "Ecosystem District Foundation",
             "completionCriteria": [
               "Validated district ecosystem classification",
               "Representative Building coverage across the most important subtypes",
@@ -11641,10 +11476,10 @@
             "ecosystemId": "special_purpose",
             "ecosystemLabel": "Special Purpose",
             "relevance": "secondary",
-            "readinessState": "missing",
+            "readinessState": "partial",
             "rationale": "Representative role coverage is too narrow for this ecosystem.",
             "evidence": [
-              "0 primary districts and 0 secondary districts.",
+              "0 primary districts and 1 secondary districts.",
               "0 Representative Buildings and 0 Building Briefs."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -11723,9 +11558,9 @@
           }
         },
         "recommendedEcosystemSprint": {
-          "title": "East Bay Special Purpose Ecosystem District Foundation",
-          "ecosystemId": "special_purpose",
-          "ecosystemLabel": "Special Purpose",
+          "title": "East Bay Hospitality Ecosystem District Foundation",
+          "ecosystemId": "hospitality",
+          "ecosystemLabel": "Hospitality",
           "sprintFamily": "Ecosystem District Foundation",
           "rationale": "Relevant ecosystem has no meaningful district coverage.",
           "gapCode": "ecosystem_missing",
@@ -35144,8 +34979,8 @@
                 "representativeBuildings": 78,
                 "buildingBriefs": 36,
                 "subtypes": 10,
-                "archetypes": 11,
-                "activities": 7,
+                "archetypes": 14,
+                "activities": 8,
                 "reviewRequiredDistricts": 0,
                 "representativeRoles": 7,
                 "operationalCategories": 5,
@@ -35217,6 +35052,8 @@
                   "walk_in_retail",
                   "walk_in_service",
                   "customer_showroom",
+                  "education",
+                  "training",
                   "light_manufacturing"
                 ],
                 "archetypeCoverage": [
@@ -35231,6 +35068,8 @@
                   "nonprofit_office",
                   "wellness_practice",
                   "marketing_agency",
+                  "education_provider",
+                  "training_center",
                   "creative_studio"
                 ],
                 "operationalCharacteristicsCovered": [
@@ -35551,9 +35390,9 @@
                 "recommendations": 7,
                 "representativeBuildings": 14,
                 "buildingBriefs": 2,
-                "subtypes": 4,
-                "archetypes": 5,
-                "activities": 5,
+                "subtypes": 10,
+                "archetypes": 11,
+                "activities": 9,
                 "reviewRequiredDistricts": 0,
                 "representativeRoles": 3,
                 "operationalCategories": 2,
@@ -35604,6 +35443,7 @@
                 "subtypesCovered": [
                   "neighborhood_retail",
                   "service_retail",
+                  "downtown_retail",
                   "lifestyle_retail",
                   "showroom_retail"
                 ],
@@ -35611,17 +35451,25 @@
                   "walk_in_retail",
                   "walk_in_service",
                   "customer_showroom",
+                  "knowledge_work",
+                  "client_meetings",
+                  "administrative_operations",
+                  "education",
+                  "training",
                   "food_preparation",
-                  "collaboration",
-                  "knowledge_work"
+                  "collaboration"
                 ],
                 "archetypeCoverage": [
                   "wellness_practice",
                   "marketing_agency",
-                  "food_producer",
+                  "professional_office",
+                  "law_firm",
+                  "consulting_firm",
+                  "nonprofit_office",
+                  "education_provider",
                   "training_center",
-                  "creative_studio",
-                  "professional_office"
+                  "food_producer",
+                  "creative_studio"
                 ],
                 "operationalCharacteristicsCovered": [
                   "street_visibility",
@@ -36083,27 +35931,27 @@
               "label": "Special Purpose",
               "relevance": "secondary",
               "relevanceLabel": "Secondary",
-              "readinessState": "missing",
-              "readinessLabel": "Missing",
+              "readinessState": "partial",
+              "readinessLabel": "Partial",
               "layers": {
                 "districts": "missing",
                 "recommendations": "missing",
                 "representativeBuildings": "missing",
                 "buildingBriefs": "missing",
-                "subtypes": "missing",
-                "archetypes": "missing",
-                "activities": "missing",
+                "subtypes": "developed",
+                "archetypes": "developed",
+                "activities": "developed",
                 "editorialReview": "developed"
               },
               "counts": {
                 "districts": 0,
-                "secondaryDistricts": 0,
+                "secondaryDistricts": 1,
                 "recommendations": 0,
                 "representativeBuildings": 0,
                 "buildingBriefs": 0,
-                "subtypes": 0,
-                "archetypes": 0,
-                "activities": 0,
+                "subtypes": 4,
+                "archetypes": 4,
+                "activities": 4,
                 "reviewRequiredDistricts": 0,
                 "representativeRoles": 0,
                 "operationalCategories": 0,
@@ -36111,16 +35959,13 @@
                 "reviewRequiredRepresentativeBuildings": 0
               },
               "gaps": [
-                "No district coverage for this relevant ecosystem.",
-                "Subtype breadth is thin.",
-                "Business archetype coverage is thin.",
-                "Business activity coverage is thin."
+                "Ecosystem appears only as a secondary district expression."
               ],
               "blocking": false,
               "blockingCodes": [],
               "strategicPriority": 6,
               "evidence": [
-                "0 primary districts and 0 secondary districts.",
+                "0 primary districts and 1 secondary districts.",
                 "0 Representative Buildings and 0 Building Briefs."
               ],
               "targetSubtypes": [
@@ -36362,106 +36207,6 @@
               "blocksEcosystemReadiness": false
             },
             {
-              "id": "ecosystem:special_purpose:ecosystem_missing",
-              "code": "ecosystem_missing",
-              "label": "Ecosystem Missing",
-              "severity": "medium",
-              "layer": "districts",
-              "ecosystemId": "special_purpose",
-              "ecosystemLabel": "Special Purpose",
-              "relevance": "secondary",
-              "readinessState": "missing",
-              "rationale": "Relevant ecosystem has no meaningful district coverage.",
-              "evidence": [
-                "0 primary districts and 0 secondary districts.",
-                "0 Representative Buildings and 0 Building Briefs."
-              ],
-              "recommendedSprintFamily": "Ecosystem District Foundation",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
-              "id": "ecosystem:special_purpose:ecosystem_subtype_gap",
-              "code": "ecosystem_subtype_gap",
-              "label": "Ecosystem Subtype Gap",
-              "severity": "medium",
-              "layer": "subtypes",
-              "ecosystemId": "special_purpose",
-              "ecosystemLabel": "Special Purpose",
-              "relevance": "secondary",
-              "readinessState": "missing",
-              "rationale": "Subtype breadth is too narrow for the ecosystem's relevance.",
-              "evidence": [
-                "0 primary districts and 0 secondary districts.",
-                "0 Representative Buildings and 0 Building Briefs."
-              ],
-              "recommendedSprintFamily": "Ecosystem Subtype Expansion",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
-              "id": "ecosystem:special_purpose:ecosystem_archetype_gap",
-              "code": "ecosystem_archetype_gap",
-              "label": "Ecosystem Archetype Gap",
-              "severity": "low",
-              "layer": "archetypes",
-              "ecosystemId": "special_purpose",
-              "ecosystemLabel": "Special Purpose",
-              "relevance": "secondary",
-              "readinessState": "missing",
-              "rationale": "Business archetype coverage is too narrow.",
-              "evidence": [
-                "0 primary districts and 0 secondary districts.",
-                "0 Representative Buildings and 0 Building Briefs."
-              ],
-              "recommendedSprintFamily": "Archetype Coverage Expansion",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
-              "id": "ecosystem:special_purpose:ecosystem_activity_gap",
-              "code": "ecosystem_activity_gap",
-              "label": "Ecosystem Activity Gap",
-              "severity": "low",
-              "layer": "activities",
-              "ecosystemId": "special_purpose",
-              "ecosystemLabel": "Special Purpose",
-              "relevance": "secondary",
-              "readinessState": "missing",
-              "rationale": "Business activity coverage is too narrow.",
-              "evidence": [
-                "0 primary districts and 0 secondary districts.",
-                "0 Representative Buildings and 0 Building Briefs."
-              ],
-              "recommendedSprintFamily": "Business Activity Coverage Review",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
               "id": "ecosystem:special_purpose:representative_role_thin",
               "code": "representative_role_thin",
               "label": "Representative Role Thin",
@@ -36470,13 +36215,38 @@
               "ecosystemId": "special_purpose",
               "ecosystemLabel": "Special Purpose",
               "relevance": "secondary",
-              "readinessState": "missing",
+              "readinessState": "partial",
               "rationale": "Representative role coverage is too narrow for this ecosystem.",
               "evidence": [
-                "0 primary districts and 0 secondary districts.",
+                "0 primary districts and 1 secondary districts.",
                 "0 Representative Buildings and 0 Building Briefs."
               ],
               "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
+              "completionCriteria": [
+                "Validated district ecosystem classification",
+                "Representative Building coverage across the most important subtypes",
+                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
+                "Building Brief migration only after canonical records and district association exist",
+                "Publisher ecosystem QA passes without hard errors"
+              ],
+              "blocksEcosystemReadiness": false
+            },
+            {
+              "id": "ecosystem:special_purpose:ecosystem_secondary_only",
+              "code": "ecosystem_secondary_only",
+              "label": "Ecosystem Secondary Only",
+              "severity": "low",
+              "layer": "districts",
+              "ecosystemId": "special_purpose",
+              "ecosystemLabel": "Special Purpose",
+              "relevance": "secondary",
+              "readinessState": "partial",
+              "rationale": "Ecosystem appears only as secondary context.",
+              "evidence": [
+                "0 primary districts and 1 secondary districts.",
+                "0 Representative Buildings and 0 Building Briefs."
+              ],
+              "recommendedSprintFamily": "Ecosystem District Foundation",
               "completionCriteria": [
                 "Validated district ecosystem classification",
                 "Representative Building coverage across the most important subtypes",
@@ -36570,21 +36340,25 @@
                 "startup": 10,
                 "creative_studio": 8,
                 "marketing_agency": 8,
-                "law_firm": 1,
+                "law_firm": 2,
                 "financial_services_firm": 1,
-                "consulting_firm": 3,
-                "professional_office": 5,
+                "consulting_firm": 4,
+                "professional_office": 6,
                 "general_contractor": 2,
+                "nonprofit_office": 1,
+                "education_provider": 1,
+                "training_center": 1,
                 "medical_practice": 1
               },
               "activities": {
                 "product_development": 9,
                 "collaboration": 10,
-                "knowledge_work": 13,
+                "knowledge_work": 14,
                 "customer_showroom": 2,
-                "client_meetings": 3,
-                "administrative_operations": 3,
-                "research": 2
+                "client_meetings": 4,
+                "administrative_operations": 4,
+                "research": 2,
+                "training": 1
               },
               "reviewRequiredDistricts": [],
               "notableSubtypeGaps": [
@@ -36626,6 +36400,8 @@
                   "walk_in_retail": 14,
                   "walk_in_service": 18,
                   "customer_showroom": 34,
+                  "education": 9,
+                  "training": 9,
                   "light_manufacturing": 6
                 },
                 "archetypeCoverage": {
@@ -36635,12 +36411,14 @@
                   "research_company": 11,
                   "biotech_company": 2,
                   "law_firm": 78,
-                  "accounting_firm": 78,
-                  "financial_services_firm": 78,
-                  "nonprofit_office": 2,
+                  "accounting_firm": 69,
+                  "financial_services_firm": 69,
+                  "nonprofit_office": 9,
                   "wellness_practice": 14,
                   "marketing_agency": 67,
-                  "creative_studio": 74
+                  "education_provider": 9,
+                  "training_center": 9,
+                  "creative_studio": 67
                 },
                 "operationalCharacteristicsCovered": {
                   "campus_environment": 3,
@@ -37004,13 +36782,25 @@
                 "professional_office": 5,
                 "neighborhood_retail": 6,
                 "showroom_retail": 1,
-                "creative_office": 2
+                "creative_office": 2,
+                "downtown_retail": 1,
+                "service_retail": 1,
+                "education": 1,
+                "nonprofit": 1,
+                "childcare": 1,
+                "institutional": 1
               },
               "archetypes": {
                 "marketing_agency": 8,
-                "professional_office": 4,
+                "professional_office": 5,
                 "wellness_practice": 7,
                 "creative_studio": 2,
+                "law_firm": 1,
+                "consulting_firm": 1,
+                "nonprofit_office": 1,
+                "education_provider": 1,
+                "training_center": 1,
+                "childcare_provider": 1,
                 "physical_therapy_practice": 1
               },
               "activities": {
@@ -37018,11 +36808,14 @@
                 "walk_in_retail": 6,
                 "walk_in_service": 8,
                 "collaboration": 1,
-                "knowledge_work": 2
+                "knowledge_work": 3,
+                "client_meetings": 1,
+                "administrative_operations": 1,
+                "education": 1,
+                "training": 1
               },
               "reviewRequiredDistricts": [],
               "notableSubtypeGaps": [
-                "downtown_retail",
                 "shopping_center",
                 "power_center",
                 "lifestyle_retail"
@@ -37043,6 +36836,7 @@
                 "subtypesCovered": {
                   "neighborhood_retail": 9,
                   "service_retail": 2,
+                  "downtown_retail": 1,
                   "lifestyle_retail": 1,
                   "showroom_retail": 5
                 },
@@ -37050,17 +36844,25 @@
                   "walk_in_retail": 9,
                   "walk_in_service": 14,
                   "customer_showroom": 14,
+                  "knowledge_work": 10,
+                  "client_meetings": 1,
+                  "administrative_operations": 1,
+                  "education": 1,
+                  "training": 1,
                   "food_preparation": 1,
-                  "collaboration": 5,
-                  "knowledge_work": 9
+                  "collaboration": 5
                 },
                 "archetypeCoverage": {
                   "wellness_practice": 14,
                   "marketing_agency": 14,
-                  "food_producer": 14,
+                  "professional_office": 10,
+                  "law_firm": 1,
+                  "consulting_firm": 1,
+                  "nonprofit_office": 1,
+                  "education_provider": 1,
                   "training_center": 14,
-                  "creative_studio": 9,
-                  "professional_office": 9
+                  "food_producer": 13,
+                  "creative_studio": 9
                 },
                 "operationalCharacteristicsCovered": {
                   "street_visibility": 14,
@@ -37406,21 +37208,36 @@
               "id": "special_purpose",
               "label": "Special Purpose",
               "districtCount": 0,
-              "secondaryDistrictCount": 0,
+              "secondaryDistrictCount": 1,
               "recommendationNodeCount": 0,
               "representativeBuildingCount": 0,
               "buildingBriefCount": 0,
-              "status": "Missing",
+              "status": "Partial",
               "districts": [],
-              "subtypes": {},
-              "archetypes": {},
-              "activities": {},
+              "subtypes": {
+                "education": 1,
+                "nonprofit": 1,
+                "childcare": 1,
+                "institutional": 1
+              },
+              "archetypes": {
+                "nonprofit_office": 1,
+                "education_provider": 1,
+                "training_center": 1,
+                "childcare_provider": 1
+              },
+              "activities": {
+                "walk_in_service": 1,
+                "administrative_operations": 1,
+                "education": 1,
+                "training": 1
+              },
               "reviewRequiredDistricts": [],
               "notableSubtypeGaps": [
-                "education",
-                "nonprofit",
                 "religious",
-                "automotive"
+                "automotive",
+                "self_storage",
+                "recreation"
               ],
               "representativeBuildingIntelligence": {
                 "ecosystemId": "special_purpose",
@@ -37470,6 +37287,12 @@
             "manufacturing": 1,
             "neighborhood_retail": 6,
             "showroom_retail": 1,
+            "downtown_retail": 1,
+            "service_retail": 1,
+            "education": 2,
+            "nonprofit": 2,
+            "childcare": 2,
+            "institutional": 2,
             "medical_office": 1,
             "outpatient_clinic": 1,
             "wellness": 1,
@@ -37478,18 +37301,20 @@
           "activityCoverage": {
             "product_development": 23,
             "collaboration": 19,
-            "knowledge_work": 19,
+            "knowledge_work": 21,
             "customer_showroom": 14,
-            "client_meetings": 3,
-            "administrative_operations": 4,
+            "client_meetings": 5,
+            "administrative_operations": 7,
             "research": 12,
+            "training": 3,
             "light_manufacturing": 9,
             "receiving": 5,
             "shipping": 5,
             "storage": 5,
             "service_dispatch": 5,
             "walk_in_retail": 6,
-            "walk_in_service": 9,
+            "walk_in_service": 10,
+            "education": 2,
             "healthcare_delivery": 1
           },
           "archetypeCoverage": {
@@ -37498,17 +37323,21 @@
             "startup": 24,
             "creative_studio": 17,
             "marketing_agency": 16,
-            "law_firm": 1,
+            "law_firm": 3,
             "financial_services_firm": 1,
-            "consulting_firm": 3,
-            "professional_office": 9,
+            "consulting_firm": 5,
+            "professional_office": 11,
             "general_contractor": 7,
+            "nonprofit_office": 3,
+            "education_provider": 3,
+            "training_center": 3,
             "medical_practice": 2,
             "light_manufacturer": 7,
             "cabinet_shop": 5,
             "distributor": 5,
             "ecommerce_fulfillment_business": 5,
             "wellness_practice": 8,
+            "childcare_provider": 2,
             "physical_therapy_practice": 2,
             "outpatient_clinic": 1
           },
@@ -37521,21 +37350,14 @@
               "status": "Missing",
               "districtCount": 0,
               "representativeBuildingCount": 0
-            },
-            {
-              "id": "special_purpose",
-              "label": "Special Purpose",
-              "status": "Missing",
-              "districtCount": 0,
-              "representativeBuildingCount": 0
             }
           ],
           "summary": {
             "ecosystemCount": 7,
             "developedCount": 5,
-            "partialCount": 0,
+            "partialCount": 1,
             "thinCount": 0,
-            "missingCount": 2,
+            "missingCount": 1,
             "reviewRequiredDistrictCount": 0
           }
         },
@@ -37557,56 +37379,6 @@
               "1 representative roles and 6 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:special_purpose:ecosystem_missing",
-            "code": "ecosystem_missing",
-            "label": "Ecosystem Missing",
-            "severity": "medium",
-            "layer": "districts",
-            "ecosystemId": "special_purpose",
-            "ecosystemLabel": "Special Purpose",
-            "relevance": "secondary",
-            "readinessState": "missing",
-            "rationale": "Relevant ecosystem has no meaningful district coverage.",
-            "evidence": [
-              "0 primary districts and 0 secondary districts.",
-              "0 Representative Buildings and 0 Building Briefs."
-            ],
-            "recommendedSprintFamily": "Ecosystem District Foundation",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:special_purpose:ecosystem_subtype_gap",
-            "code": "ecosystem_subtype_gap",
-            "label": "Ecosystem Subtype Gap",
-            "severity": "medium",
-            "layer": "subtypes",
-            "ecosystemId": "special_purpose",
-            "ecosystemLabel": "Special Purpose",
-            "relevance": "secondary",
-            "readinessState": "missing",
-            "rationale": "Subtype breadth is too narrow for the ecosystem's relevance.",
-            "evidence": [
-              "0 primary districts and 0 secondary districts.",
-              "0 Representative Buildings and 0 Building Briefs."
-            ],
-            "recommendedSprintFamily": "Ecosystem Subtype Expansion",
             "completionCriteria": [
               "Validated district ecosystem classification",
               "Representative Building coverage across the most important subtypes",
@@ -37719,46 +37491,21 @@
             "blocksEcosystemReadiness": false
           },
           {
-            "id": "ecosystem:special_purpose:ecosystem_activity_gap",
-            "code": "ecosystem_activity_gap",
-            "label": "Ecosystem Activity Gap",
+            "id": "ecosystem:special_purpose:ecosystem_secondary_only",
+            "code": "ecosystem_secondary_only",
+            "label": "Ecosystem Secondary Only",
             "severity": "low",
-            "layer": "activities",
+            "layer": "districts",
             "ecosystemId": "special_purpose",
             "ecosystemLabel": "Special Purpose",
             "relevance": "secondary",
-            "readinessState": "missing",
-            "rationale": "Business activity coverage is too narrow.",
+            "readinessState": "partial",
+            "rationale": "Ecosystem appears only as secondary context.",
             "evidence": [
-              "0 primary districts and 0 secondary districts.",
+              "0 primary districts and 1 secondary districts.",
               "0 Representative Buildings and 0 Building Briefs."
             ],
-            "recommendedSprintFamily": "Business Activity Coverage Review",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:special_purpose:ecosystem_archetype_gap",
-            "code": "ecosystem_archetype_gap",
-            "label": "Ecosystem Archetype Gap",
-            "severity": "low",
-            "layer": "archetypes",
-            "ecosystemId": "special_purpose",
-            "ecosystemLabel": "Special Purpose",
-            "relevance": "secondary",
-            "readinessState": "missing",
-            "rationale": "Business archetype coverage is too narrow.",
-            "evidence": [
-              "0 primary districts and 0 secondary districts.",
-              "0 Representative Buildings and 0 Building Briefs."
-            ],
-            "recommendedSprintFamily": "Archetype Coverage Expansion",
+            "recommendedSprintFamily": "Ecosystem District Foundation",
             "completionCriteria": [
               "Validated district ecosystem classification",
               "Representative Building coverage across the most important subtypes",
@@ -37777,10 +37524,10 @@
             "ecosystemId": "special_purpose",
             "ecosystemLabel": "Special Purpose",
             "relevance": "secondary",
-            "readinessState": "missing",
+            "readinessState": "partial",
             "rationale": "Representative role coverage is too narrow for this ecosystem.",
             "evidence": [
-              "0 primary districts and 0 secondary districts.",
+              "0 primary districts and 1 secondary districts.",
               "0 Representative Buildings and 0 Building Briefs."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -42133,7 +41880,7 @@
                 "buildingBriefs": "developed",
                 "subtypes": "developed",
                 "archetypes": "developed",
-                "activities": "strong",
+                "activities": "developed",
                 "editorialReview": "developed"
               },
               "counts": {
@@ -42143,8 +41890,8 @@
                 "representativeBuildings": 13,
                 "buildingBriefs": 11,
                 "subtypes": 8,
-                "archetypes": 8,
-                "activities": 5,
+                "archetypes": 12,
+                "activities": 7,
                 "reviewRequiredDistricts": 0,
                 "representativeRoles": 6,
                 "operationalCategories": 5,
@@ -42213,7 +41960,9 @@
                   "client_meetings",
                   "walk_in_retail",
                   "walk_in_service",
-                  "customer_showroom"
+                  "customer_showroom",
+                  "education",
+                  "training"
                 ],
                 "archetypeCoverage": [
                   "professional_office",
@@ -42227,6 +41976,8 @@
                   "nonprofit_office",
                   "wellness_practice",
                   "marketing_agency",
+                  "education_provider",
+                  "training_center",
                   "creative_studio"
                 ],
                 "operationalCharacteristicsCovered": [
@@ -42525,8 +42276,8 @@
                 "representativeBuildings": "strong",
                 "buildingBriefs": "developed",
                 "subtypes": "developed",
-                "archetypes": "strong",
-                "activities": "strong",
+                "archetypes": "developed",
+                "activities": "developed",
                 "editorialReview": "developed"
               },
               "counts": {
@@ -42535,9 +42286,9 @@
                 "recommendations": 2,
                 "representativeBuildings": 2,
                 "buildingBriefs": 2,
-                "subtypes": 2,
-                "archetypes": 3,
-                "activities": 3,
+                "subtypes": 8,
+                "archetypes": 10,
+                "activities": 8,
                 "reviewRequiredDistricts": 0,
                 "representativeRoles": 2,
                 "operationalCategories": 2,
@@ -42587,19 +42338,30 @@
                 "subtypesCovered": [
                   "neighborhood_retail",
                   "service_retail",
+                  "downtown_retail",
                   "lifestyle_retail"
                 ],
                 "activityCoverage": [
                   "walk_in_retail",
                   "walk_in_service",
                   "customer_showroom",
+                  "knowledge_work",
+                  "client_meetings",
+                  "administrative_operations",
+                  "education",
+                  "training",
                   "food_preparation"
                 ],
                 "archetypeCoverage": [
                   "wellness_practice",
                   "marketing_agency",
-                  "food_producer",
-                  "training_center"
+                  "professional_office",
+                  "law_firm",
+                  "consulting_firm",
+                  "nonprofit_office",
+                  "education_provider",
+                  "training_center",
+                  "food_producer"
                 ],
                 "operationalCharacteristicsCovered": [
                   "street_visibility",
@@ -42965,27 +42727,27 @@
               "label": "Special Purpose",
               "relevance": "secondary",
               "relevanceLabel": "Secondary",
-              "readinessState": "missing",
-              "readinessLabel": "Missing",
+              "readinessState": "partial",
+              "readinessLabel": "Partial",
               "layers": {
                 "districts": "missing",
                 "recommendations": "missing",
                 "representativeBuildings": "missing",
                 "buildingBriefs": "missing",
-                "subtypes": "missing",
-                "archetypes": "missing",
-                "activities": "missing",
+                "subtypes": "developed",
+                "archetypes": "developed",
+                "activities": "developed",
                 "editorialReview": "developed"
               },
               "counts": {
                 "districts": 0,
-                "secondaryDistricts": 0,
+                "secondaryDistricts": 1,
                 "recommendations": 0,
                 "representativeBuildings": 0,
                 "buildingBriefs": 0,
-                "subtypes": 0,
-                "archetypes": 0,
-                "activities": 0,
+                "subtypes": 4,
+                "archetypes": 4,
+                "activities": 4,
                 "reviewRequiredDistricts": 0,
                 "representativeRoles": 0,
                 "operationalCategories": 0,
@@ -42993,16 +42755,13 @@
                 "reviewRequiredRepresentativeBuildings": 0
               },
               "gaps": [
-                "No district coverage for this relevant ecosystem.",
-                "Subtype breadth is thin.",
-                "Business archetype coverage is thin.",
-                "Business activity coverage is thin."
+                "Ecosystem appears only as a secondary district expression."
               ],
               "blocking": false,
               "blockingCodes": [],
               "strategicPriority": 6,
               "evidence": [
-                "0 primary districts and 0 secondary districts.",
+                "0 primary districts and 1 secondary districts.",
                 "0 Representative Buildings and 0 Building Briefs."
               ],
               "targetSubtypes": [
@@ -43216,106 +42975,6 @@
               "blocksEcosystemReadiness": false
             },
             {
-              "id": "ecosystem:special_purpose:ecosystem_missing",
-              "code": "ecosystem_missing",
-              "label": "Ecosystem Missing",
-              "severity": "medium",
-              "layer": "districts",
-              "ecosystemId": "special_purpose",
-              "ecosystemLabel": "Special Purpose",
-              "relevance": "secondary",
-              "readinessState": "missing",
-              "rationale": "Relevant ecosystem has no meaningful district coverage.",
-              "evidence": [
-                "0 primary districts and 0 secondary districts.",
-                "0 Representative Buildings and 0 Building Briefs."
-              ],
-              "recommendedSprintFamily": "Ecosystem District Foundation",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
-              "id": "ecosystem:special_purpose:ecosystem_subtype_gap",
-              "code": "ecosystem_subtype_gap",
-              "label": "Ecosystem Subtype Gap",
-              "severity": "medium",
-              "layer": "subtypes",
-              "ecosystemId": "special_purpose",
-              "ecosystemLabel": "Special Purpose",
-              "relevance": "secondary",
-              "readinessState": "missing",
-              "rationale": "Subtype breadth is too narrow for the ecosystem's relevance.",
-              "evidence": [
-                "0 primary districts and 0 secondary districts.",
-                "0 Representative Buildings and 0 Building Briefs."
-              ],
-              "recommendedSprintFamily": "Ecosystem Subtype Expansion",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
-              "id": "ecosystem:special_purpose:ecosystem_archetype_gap",
-              "code": "ecosystem_archetype_gap",
-              "label": "Ecosystem Archetype Gap",
-              "severity": "low",
-              "layer": "archetypes",
-              "ecosystemId": "special_purpose",
-              "ecosystemLabel": "Special Purpose",
-              "relevance": "secondary",
-              "readinessState": "missing",
-              "rationale": "Business archetype coverage is too narrow.",
-              "evidence": [
-                "0 primary districts and 0 secondary districts.",
-                "0 Representative Buildings and 0 Building Briefs."
-              ],
-              "recommendedSprintFamily": "Archetype Coverage Expansion",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
-              "id": "ecosystem:special_purpose:ecosystem_activity_gap",
-              "code": "ecosystem_activity_gap",
-              "label": "Ecosystem Activity Gap",
-              "severity": "low",
-              "layer": "activities",
-              "ecosystemId": "special_purpose",
-              "ecosystemLabel": "Special Purpose",
-              "relevance": "secondary",
-              "readinessState": "missing",
-              "rationale": "Business activity coverage is too narrow.",
-              "evidence": [
-                "0 primary districts and 0 secondary districts.",
-                "0 Representative Buildings and 0 Building Briefs."
-              ],
-              "recommendedSprintFamily": "Business Activity Coverage Review",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
               "id": "ecosystem:special_purpose:representative_role_thin",
               "code": "representative_role_thin",
               "label": "Representative Role Thin",
@@ -43324,13 +42983,38 @@
               "ecosystemId": "special_purpose",
               "ecosystemLabel": "Special Purpose",
               "relevance": "secondary",
-              "readinessState": "missing",
+              "readinessState": "partial",
               "rationale": "Representative role coverage is too narrow for this ecosystem.",
               "evidence": [
-                "0 primary districts and 0 secondary districts.",
+                "0 primary districts and 1 secondary districts.",
                 "0 Representative Buildings and 0 Building Briefs."
               ],
               "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
+              "completionCriteria": [
+                "Validated district ecosystem classification",
+                "Representative Building coverage across the most important subtypes",
+                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
+                "Building Brief migration only after canonical records and district association exist",
+                "Publisher ecosystem QA passes without hard errors"
+              ],
+              "blocksEcosystemReadiness": false
+            },
+            {
+              "id": "ecosystem:special_purpose:ecosystem_secondary_only",
+              "code": "ecosystem_secondary_only",
+              "label": "Ecosystem Secondary Only",
+              "severity": "low",
+              "layer": "districts",
+              "ecosystemId": "special_purpose",
+              "ecosystemLabel": "Special Purpose",
+              "relevance": "secondary",
+              "readinessState": "partial",
+              "rationale": "Ecosystem appears only as secondary context.",
+              "evidence": [
+                "0 primary districts and 1 secondary districts.",
+                "0 Representative Buildings and 0 Building Briefs."
+              ],
+              "recommendedSprintFamily": "Ecosystem District Foundation",
               "completionCriteria": [
                 "Validated district ecosystem classification",
                 "Representative Building coverage across the most important subtypes",
@@ -43387,21 +43071,27 @@
                 "creative_office": 1
               },
               "archetypes": {
-                "professional_office": 1,
-                "consulting_firm": 1,
+                "professional_office": 2,
+                "consulting_firm": 2,
                 "startup": 2,
                 "research_company": 2,
                 "biotech_company": 1,
                 "marketing_agency": 2,
+                "law_firm": 1,
+                "nonprofit_office": 1,
+                "education_provider": 1,
+                "training_center": 1,
                 "creative_studio": 1,
                 "medical_practice": 1
               },
               "activities": {
-                "knowledge_work": 2,
+                "knowledge_work": 3,
                 "collaboration": 2,
-                "administrative_operations": 2,
+                "administrative_operations": 3,
                 "research": 1,
-                "product_development": 2
+                "product_development": 2,
+                "client_meetings": 1,
+                "training": 1
               },
               "reviewRequiredDistricts": [],
               "notableSubtypeGaps": [
@@ -43442,7 +43132,9 @@
                   "client_meetings": 10,
                   "walk_in_retail": 11,
                   "walk_in_service": 11,
-                  "customer_showroom": 11
+                  "customer_showroom": 11,
+                  "education": 9,
+                  "training": 9
                 },
                 "archetypeCoverage": {
                   "professional_office": 13,
@@ -43451,12 +43143,14 @@
                   "research_company": 2,
                   "biotech_company": 2,
                   "law_firm": 13,
-                  "accounting_firm": 13,
-                  "financial_services_firm": 13,
-                  "nonprofit_office": 2,
+                  "accounting_firm": 4,
+                  "financial_services_firm": 4,
+                  "nonprofit_office": 9,
                   "wellness_practice": 11,
                   "marketing_agency": 11,
-                  "creative_studio": 9
+                  "education_provider": 9,
+                  "training_center": 9,
+                  "creative_studio": 2
                 },
                 "operationalCharacteristicsCovered": {
                   "campus_environment": 2,
@@ -43760,25 +43454,43 @@
                 }
               ],
               "subtypes": {
+                "downtown_retail": 1,
+                "neighborhood_retail": 2,
+                "service_retail": 1,
                 "professional_office": 2,
-                "neighborhood_retail": 2
+                "education": 1,
+                "nonprofit": 1,
+                "childcare": 1,
+                "institutional": 1
               },
               "archetypes": {
                 "wellness_practice": 3,
                 "marketing_agency": 2,
+                "professional_office": 1,
+                "law_firm": 1,
+                "consulting_firm": 1,
+                "nonprofit_office": 1,
+                "education_provider": 1,
+                "training_center": 1,
+                "childcare_provider": 1,
                 "physical_therapy_practice": 1
               },
               "activities": {
                 "walk_in_retail": 2,
                 "walk_in_service": 3,
-                "customer_showroom": 2
+                "customer_showroom": 2,
+                "knowledge_work": 1,
+                "client_meetings": 1,
+                "administrative_operations": 1,
+                "education": 1,
+                "training": 1
               },
               "reviewRequiredDistricts": [],
               "notableSubtypeGaps": [
-                "downtown_retail",
                 "shopping_center",
                 "power_center",
-                "lifestyle_retail"
+                "lifestyle_retail",
+                "showroom_retail"
               ],
               "representativeBuildingIntelligence": {
                 "ecosystemId": "retail",
@@ -43795,19 +43507,30 @@
                 "subtypesCovered": {
                   "neighborhood_retail": 2,
                   "service_retail": 2,
+                  "downtown_retail": 1,
                   "lifestyle_retail": 1
                 },
                 "activityCoverage": {
                   "walk_in_retail": 2,
                   "walk_in_service": 2,
                   "customer_showroom": 2,
+                  "knowledge_work": 1,
+                  "client_meetings": 1,
+                  "administrative_operations": 1,
+                  "education": 1,
+                  "training": 1,
                   "food_preparation": 1
                 },
                 "archetypeCoverage": {
                   "wellness_practice": 2,
                   "marketing_agency": 2,
-                  "food_producer": 2,
-                  "training_center": 2
+                  "professional_office": 1,
+                  "law_firm": 1,
+                  "consulting_firm": 1,
+                  "nonprofit_office": 1,
+                  "education_provider": 1,
+                  "training_center": 2,
+                  "food_producer": 1
                 },
                 "operationalCharacteristicsCovered": {
                   "street_visibility": 2,
@@ -44051,21 +43774,36 @@
               "id": "special_purpose",
               "label": "Special Purpose",
               "districtCount": 0,
-              "secondaryDistrictCount": 0,
+              "secondaryDistrictCount": 1,
               "recommendationNodeCount": 0,
               "representativeBuildingCount": 0,
               "buildingBriefCount": 0,
-              "status": "Missing",
+              "status": "Partial",
               "districts": [],
-              "subtypes": {},
-              "archetypes": {},
-              "activities": {},
+              "subtypes": {
+                "education": 1,
+                "nonprofit": 1,
+                "childcare": 1,
+                "institutional": 1
+              },
+              "archetypes": {
+                "nonprofit_office": 1,
+                "education_provider": 1,
+                "training_center": 1,
+                "childcare_provider": 1
+              },
+              "activities": {
+                "walk_in_service": 1,
+                "administrative_operations": 1,
+                "education": 1,
+                "training": 1
+              },
               "reviewRequiredDistricts": [],
               "notableSubtypeGaps": [
-                "education",
-                "nonprofit",
                 "religious",
-                "automotive"
+                "automotive",
+                "self_storage",
+                "recreation"
               ],
               "representativeBuildingIntelligence": {
                 "ecosystemId": "special_purpose",
@@ -44112,35 +43850,48 @@
             "warehouse": 3,
             "manufacturing": 1,
             "contractor_service": 1,
+            "downtown_retail": 1,
             "neighborhood_retail": 2,
+            "service_retail": 1,
+            "education": 2,
+            "nonprofit": 2,
+            "childcare": 2,
+            "institutional": 2,
             "medical_office": 1,
             "outpatient_clinic": 1,
             "wellness": 1,
             "hospital_adjacent": 1
           },
           "activityCoverage": {
-            "knowledge_work": 3,
+            "knowledge_work": 5,
             "collaboration": 5,
-            "administrative_operations": 3,
+            "administrative_operations": 6,
             "research": 5,
             "product_development": 6,
+            "client_meetings": 2,
+            "training": 3,
             "receiving": 4,
             "shipping": 4,
             "storage": 4,
             "service_dispatch": 4,
             "light_manufacturing": 4,
             "walk_in_retail": 2,
-            "walk_in_service": 4,
+            "walk_in_service": 5,
             "customer_showroom": 2,
+            "education": 2,
             "healthcare_delivery": 1
           },
           "archetypeCoverage": {
-            "professional_office": 1,
-            "consulting_firm": 1,
+            "professional_office": 3,
+            "consulting_firm": 3,
             "startup": 6,
             "research_company": 6,
             "biotech_company": 2,
             "marketing_agency": 4,
+            "law_firm": 2,
+            "nonprofit_office": 3,
+            "education_provider": 3,
+            "training_center": 3,
             "creative_studio": 2,
             "medical_practice": 2,
             "general_contractor": 4,
@@ -44150,6 +43901,7 @@
             "ecommerce_fulfillment_business": 4,
             "building_services_company": 1,
             "wellness_practice": 4,
+            "childcare_provider": 2,
             "physical_therapy_practice": 2,
             "outpatient_clinic": 1
           },
@@ -44162,75 +43914,18 @@
               "status": "Missing",
               "districtCount": 0,
               "representativeBuildingCount": 0
-            },
-            {
-              "id": "special_purpose",
-              "label": "Special Purpose",
-              "status": "Missing",
-              "districtCount": 0,
-              "representativeBuildingCount": 0
             }
           ],
           "summary": {
             "ecosystemCount": 7,
             "developedCount": 4,
-            "partialCount": 1,
+            "partialCount": 2,
             "thinCount": 0,
-            "missingCount": 2,
+            "missingCount": 1,
             "reviewRequiredDistrictCount": 0
           }
         },
         "ecosystemGaps": [
-          {
-            "id": "ecosystem:special_purpose:ecosystem_missing",
-            "code": "ecosystem_missing",
-            "label": "Ecosystem Missing",
-            "severity": "medium",
-            "layer": "districts",
-            "ecosystemId": "special_purpose",
-            "ecosystemLabel": "Special Purpose",
-            "relevance": "secondary",
-            "readinessState": "missing",
-            "rationale": "Relevant ecosystem has no meaningful district coverage.",
-            "evidence": [
-              "0 primary districts and 0 secondary districts.",
-              "0 Representative Buildings and 0 Building Briefs."
-            ],
-            "recommendedSprintFamily": "Ecosystem District Foundation",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:special_purpose:ecosystem_subtype_gap",
-            "code": "ecosystem_subtype_gap",
-            "label": "Ecosystem Subtype Gap",
-            "severity": "medium",
-            "layer": "subtypes",
-            "ecosystemId": "special_purpose",
-            "ecosystemLabel": "Special Purpose",
-            "relevance": "secondary",
-            "readinessState": "missing",
-            "rationale": "Subtype breadth is too narrow for the ecosystem's relevance.",
-            "evidence": [
-              "0 primary districts and 0 secondary districts.",
-              "0 Representative Buildings and 0 Building Briefs."
-            ],
-            "recommendedSprintFamily": "Ecosystem Subtype Expansion",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
           {
             "id": "ecosystem:hospitality:ecosystem_missing",
             "code": "ecosystem_missing",
@@ -44332,46 +44027,21 @@
             "blocksEcosystemReadiness": false
           },
           {
-            "id": "ecosystem:special_purpose:ecosystem_activity_gap",
-            "code": "ecosystem_activity_gap",
-            "label": "Ecosystem Activity Gap",
+            "id": "ecosystem:special_purpose:ecosystem_secondary_only",
+            "code": "ecosystem_secondary_only",
+            "label": "Ecosystem Secondary Only",
             "severity": "low",
-            "layer": "activities",
+            "layer": "districts",
             "ecosystemId": "special_purpose",
             "ecosystemLabel": "Special Purpose",
             "relevance": "secondary",
-            "readinessState": "missing",
-            "rationale": "Business activity coverage is too narrow.",
+            "readinessState": "partial",
+            "rationale": "Ecosystem appears only as secondary context.",
             "evidence": [
-              "0 primary districts and 0 secondary districts.",
+              "0 primary districts and 1 secondary districts.",
               "0 Representative Buildings and 0 Building Briefs."
             ],
-            "recommendedSprintFamily": "Business Activity Coverage Review",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:special_purpose:ecosystem_archetype_gap",
-            "code": "ecosystem_archetype_gap",
-            "label": "Ecosystem Archetype Gap",
-            "severity": "low",
-            "layer": "archetypes",
-            "ecosystemId": "special_purpose",
-            "ecosystemLabel": "Special Purpose",
-            "relevance": "secondary",
-            "readinessState": "missing",
-            "rationale": "Business archetype coverage is too narrow.",
-            "evidence": [
-              "0 primary districts and 0 secondary districts.",
-              "0 Representative Buildings and 0 Building Briefs."
-            ],
-            "recommendedSprintFamily": "Archetype Coverage Expansion",
+            "recommendedSprintFamily": "Ecosystem District Foundation",
             "completionCriteria": [
               "Validated district ecosystem classification",
               "Representative Building coverage across the most important subtypes",
@@ -44390,10 +44060,10 @@
             "ecosystemId": "special_purpose",
             "ecosystemLabel": "Special Purpose",
             "relevance": "secondary",
-            "readinessState": "missing",
+            "readinessState": "partial",
             "rationale": "Representative role coverage is too narrow for this ecosystem.",
             "evidence": [
-              "0 primary districts and 0 secondary districts.",
+              "0 primary districts and 1 secondary districts.",
               "0 Representative Buildings and 0 Building Briefs."
             ],
             "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
@@ -44472,9 +44142,9 @@
           }
         },
         "recommendedEcosystemSprint": {
-          "title": "East Bay Special Purpose Ecosystem District Foundation",
-          "ecosystemId": "special_purpose",
-          "ecosystemLabel": "Special Purpose",
+          "title": "East Bay Hospitality Ecosystem District Foundation",
+          "ecosystemId": "hospitality",
+          "ecosystemLabel": "Hospitality",
           "sprintFamily": "Ecosystem District Foundation",
           "rationale": "Relevant ecosystem has no meaningful district coverage.",
           "gapCode": "ecosystem_missing",
@@ -79385,7 +79055,7 @@
         "Low": 2
       },
       "deferredCandidates": 69,
-      "latestValidation": "2026-08-12T09:36:45-07:00",
+      "latestValidation": "2026-08-12T20:42:22-07:00",
       "errors": [],
       "warnings": [],
       "source": {

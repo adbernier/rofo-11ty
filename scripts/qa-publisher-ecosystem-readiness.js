@@ -157,6 +157,7 @@ if (eastBay) {
   const lifeScience = evaluationFor(eastBay, "life_science");
   const retail = evaluationFor(eastBay, "retail");
   const medical = evaluationFor(eastBay, "medical");
+  const specialPurpose = evaluationFor(eastBay, "special_purpose");
   const eastBayPlan = planById("east-bay");
   requireField(lifeScience && lifeScience.counts && lifeScience.counts.secondaryDistricts >= 2, "East Bay: life science should retain secondary district evidence.");
   requireField(lifeScience && lifeScience.layers && ["strong", "developed"].includes(lifeScience.layers.subtypes), `East Bay: life science secondary subtype breadth should be credited, got ${lifeScience && lifeScience.layers && lifeScience.layers.subtypes}`);
@@ -181,6 +182,10 @@ if (eastBay) {
   requireField(!((medical && medical.gaps) || []).includes("Representative Building operational coverage is thin."), "East Bay: completed medical Representative Building intelligence should not remain thin.");
   requireField(!((eastBayPlan && eastBayPlan.recommendedEcosystemSprint || {}).title || "").includes("Medical Ecosystem Representative Building Foundation"), "East Bay: completed Medical Representative Building Foundation should not remain recommended.");
   requireField(!((eastBayPlan && eastBayPlan.recommendedEcosystemSprint || {}).title || "").includes("Medical Ecosystem Building Brief Migration"), "East Bay: completed Medical Building Brief Migration should not remain recommended.");
+  requireField(specialPurpose && specialPurpose.counts && specialPurpose.counts.secondaryDistricts >= 1, `East Bay: special-purpose district foundation should be reclassified with secondary district evidence, got ${specialPurpose && specialPurpose.counts && specialPurpose.counts.secondaryDistricts}`);
+  requireField(specialPurpose && specialPurpose.readinessState === "partial", `East Bay: special-purpose readiness should be partial after district foundation reclassification, got ${specialPurpose && specialPurpose.readinessState}`);
+  requireField(!((specialPurpose && specialPurpose.gaps) || []).includes("No district coverage for this relevant ecosystem."), "East Bay: completed special-purpose District Foundation should not remain open.");
+  requireField(!((eastBayPlan && eastBayPlan.recommendedEcosystemSprint || {}).title || "").includes("Special Purpose Ecosystem District Foundation"), "East Bay: completed Special Purpose District Foundation should not remain recommended.");
 }
 
 ["san-diego", "orange-county", "denver"].forEach((id) => {
