@@ -463,6 +463,36 @@ eleventyComputed:
             </div>
           {% endif %}
 
+          {% if city.slug == "aliso-viejo" and city.state_abbr == "CA" %}
+            <aside class="city-card city-location-comparisons-card city-support-module" aria-labelledby="aliso-oc-decision-bridge-heading" data-experiment="aliso-oc-decision-bridge">
+              <div class="eyebrow">Orange County Location Decisions</div>
+              <h2 id="aliso-oc-decision-bridge-heading">Considering Locations Beyond Aliso Viejo?</h2>
+              <p>Orange County is not one uniform commercial market. If your search can extend beyond Aliso Viejo, different South Orange County and Irvine environments may fit materially different operating requirements.</p>
+              <div class="neighborhood-comparison-grid">
+                <a class="neighborhood-comparison-card neighborhood-link-card" href="/commercial-real-estate/CA/irvine/irvine-spectrum/">
+                  <h3>Irvine Spectrum</h3>
+                  <p>Consider for corporate technology, R&amp;D, recruiting, growth, and a stronger campus environment.</p>
+                </a>
+                <a class="neighborhood-comparison-card neighborhood-link-card" href="/commercial-real-estate/CA/lake-forest/lake-forest-business-center/">
+                  <h3>Lake Forest Business Park</h3>
+                  <p>Consider for practical South Orange County flex, technical services, light industrial, and operational requirements.</p>
+                </a>
+                <a class="neighborhood-comparison-card neighborhood-link-card" href="/commercial-real-estate/CA/mission-viejo/mission-viejo/">
+                  <h3>South OC Medical &amp; Professional</h3>
+                  <p>Consider when patient or customer geography, medical or professional services, and South County access matter.</p>
+                </a>
+                <a class="neighborhood-comparison-card neighborhood-link-card" href="/commercial-real-estate/CA/irvine/irvine-business-complex/">
+                  <h3>Irvine Business Complex</h3>
+                  <p>Consider for airport access, professional services, client meetings, and central Orange County accessibility.</p>
+                </a>
+              </div>
+              <div class="city-knowledge-snapshot__cta">
+                <p>Not sure which Orange County location fits your business?</p>
+                <a class="btn-primary" href="/find-locations/?city=Aliso%20Viejo&amp;state=CA&amp;source=aliso_oc_decision_bridge">Get My Recommendation</a>
+              </div>
+            </aside>
+          {% endif %}
+
           <div class="city-card city-commercial-knowledge-card city-support-module">
             <div class="eyebrow">Commercial Leasing Guide</div>
             <h2>Know the questions before the tour</h2>
