@@ -172,11 +172,14 @@ if (eastBay) {
   requireField(medical && medical.layers && ["strong", "developed"].includes(medical.layers.districts), `East Bay: medical district layer should be strong or developed, got ${medical && medical.layers && medical.layers.districts}`);
   requireField(medical && medical.counts && medical.counts.representativeBuildings >= 1, `East Bay: medical Representative Building foundation should be credited, got ${medical && medical.counts && medical.counts.representativeBuildings}`);
   requireField(medical && medical.layers && ["strong", "developed"].includes(medical.layers.representativeBuildings), `East Bay: medical Representative Building layer should be strong or developed, got ${medical && medical.layers && medical.layers.representativeBuildings}`);
+  requireField(medical && medical.representativeBuildingIntelligence && ["strong", "developed"].includes(medical.representativeBuildingIntelligence.state), `East Bay: medical Representative Building intelligence should be strong or developed after target calibration, got ${medical && medical.representativeBuildingIntelligence && medical.representativeBuildingIntelligence.state}`);
   requireField(medical && medical.counts && medical.counts.buildingBriefs >= 1, `East Bay: medical Building Brief migration should be credited, got ${medical && medical.counts && medical.counts.buildingBriefs}`);
   requireField(medical && medical.layers && ["strong", "developed"].includes(medical.layers.buildingBriefs), `East Bay: medical Building Brief layer should be strong or developed, got ${medical && medical.layers && medical.layers.buildingBriefs}`);
   requireField(!((medical && medical.gaps) || []).includes("No district coverage for this relevant ecosystem."), "East Bay: completed medical District Foundation should not remain open.");
   requireField(!((eastBayPlan && eastBayPlan.recommendedEcosystemSprint || {}).title || "").includes("Medical Ecosystem District Foundation"), "East Bay: completed Medical District Foundation should not remain recommended.");
   requireField(!((medical && medical.gaps) || []).includes("Representative Building coverage is missing for this ecosystem."), "East Bay: completed medical Representative Building foundation should not remain open.");
+  requireField(!((medical && medical.gaps) || []).includes("Representative Building operational coverage is thin."), "East Bay: completed medical Representative Building intelligence should not remain thin.");
+  requireField(!((eastBayPlan && eastBayPlan.recommendedEcosystemSprint || {}).title || "").includes("Medical Ecosystem Representative Building Foundation"), "East Bay: completed Medical Representative Building Foundation should not remain recommended.");
   requireField(!((eastBayPlan && eastBayPlan.recommendedEcosystemSprint || {}).title || "").includes("Medical Ecosystem Building Brief Migration"), "East Bay: completed Medical Building Brief Migration should not remain recommended.");
 }
 

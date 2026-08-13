@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-12T08:55:22-07:00",
-  "sourceCommit": "e41e6e49ef1bd4b3f21b6a2a725a3b0556c38899",
+  "generatedAt": "2026-08-12T09:36:45-07:00",
+  "sourceCommit": "5c1c4517b30b17e41b91f576b24001a330c04e4f",
   "geography": {
     "schemaVersion": "commercial-geography-summary-v1",
     "hierarchy": [
@@ -2235,7 +2235,7 @@
       "Low": 2
     },
     "deferredCandidates": 69,
-    "latestValidation": "2026-08-12T08:55:22-07:00",
+    "latestValidation": "2026-08-12T09:36:45-07:00",
     "errors": [],
     "warnings": [],
     "source": {
@@ -2245,7 +2245,7 @@
     "scoringImpact": "None. Reporting only; Publisher scoring and readiness calculations are unchanged."
   },
   "analysis": {
-    "generatedAt": "2026-08-12T08:55:22-07:00",
+    "generatedAt": "2026-08-12T09:36:45-07:00",
     "rulesVersion": "publisher-rules-v1",
     "overview": {
       "compassReadyCount": 5,
@@ -9926,9 +9926,7 @@
                 "operationalCharacteristics": 7,
                 "reviewRequiredRepresentativeBuildings": 0
               },
-              "gaps": [
-                "Representative Building operational coverage is thin."
-              ],
+              "gaps": [],
               "blocking": false,
               "blockingCodes": [],
               "strategicPriority": 3,
@@ -9958,8 +9956,8 @@
               ],
               "representativeBuildingIntelligence": {
                 "ecosystemId": "medical",
-                "state": "thin",
-                "stateLabel": "Thin",
+                "state": "strong",
+                "stateLabel": "Strong",
                 "buildingCount": 1,
                 "explicitCount": 1,
                 "inheritedOnlyCount": 0,
@@ -10318,32 +10316,6 @@
             }
           ],
           "gaps": [
-            {
-              "id": "ecosystem:medical:representative_building_intelligence_missing",
-              "code": "representative_building_intelligence_missing",
-              "label": "Representative Building Intelligence Missing",
-              "severity": "medium",
-              "layer": "representativeBuildingIntelligence",
-              "ecosystemId": "medical",
-              "ecosystemLabel": "Medical",
-              "relevance": "secondary",
-              "readinessState": "strong",
-              "rationale": "Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
-              "evidence": [
-                "1 primary districts and 0 secondary districts.",
-                "1 Representative Buildings and 1 Building Briefs.",
-                "1 representative roles and 6 operational categories are covered."
-              ],
-              "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
             {
               "id": "ecosystem:life_science:representative_role_thin",
               "code": "representative_role_thin",
@@ -11162,8 +11134,8 @@
               ],
               "representativeBuildingIntelligence": {
                 "ecosystemId": "medical",
-                "state": "thin",
-                "stateLabel": "Thin",
+                "state": "strong",
+                "stateLabel": "Strong",
                 "buildingCount": 1,
                 "explicitCount": 1,
                 "inheritedOnlyCount": 0,
@@ -11461,32 +11433,6 @@
         },
         "ecosystemGaps": [
           {
-            "id": "ecosystem:medical:representative_building_intelligence_missing",
-            "code": "representative_building_intelligence_missing",
-            "label": "Representative Building Intelligence Missing",
-            "severity": "medium",
-            "layer": "representativeBuildingIntelligence",
-            "ecosystemId": "medical",
-            "ecosystemLabel": "Medical",
-            "relevance": "secondary",
-            "readinessState": "strong",
-            "rationale": "Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
-            "evidence": [
-              "1 primary districts and 0 secondary districts.",
-              "1 Representative Buildings and 1 Building Briefs.",
-              "1 representative roles and 6 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
             "id": "ecosystem:special_purpose:ecosystem_missing",
             "code": "ecosystem_missing",
             "label": "Ecosystem Missing",
@@ -11777,12 +11723,12 @@
           }
         },
         "recommendedEcosystemSprint": {
-          "title": "East Bay Medical Ecosystem Representative Building Foundation",
-          "ecosystemId": "medical",
-          "ecosystemLabel": "Medical",
-          "sprintFamily": "Ecosystem Representative Building Foundation",
-          "rationale": "Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
-          "gapCode": "representative_building_intelligence_missing",
+          "title": "East Bay Special Purpose Ecosystem District Foundation",
+          "ecosystemId": "special_purpose",
+          "ecosystemLabel": "Special Purpose",
+          "sprintFamily": "Ecosystem District Foundation",
+          "rationale": "Relevant ecosystem has no meaningful district coverage.",
+          "gapCode": "ecosystem_missing",
           "completionCriteria": [
             "Validated district ecosystem classification",
             "Representative Building coverage across the most important subtypes",
@@ -42729,9 +42675,7 @@
                 "operationalCharacteristics": 7,
                 "reviewRequiredRepresentativeBuildings": 0
               },
-              "gaps": [
-                "Representative Building operational coverage is thin."
-              ],
+              "gaps": [],
               "blocking": false,
               "blockingCodes": [],
               "strategicPriority": 3,
@@ -42761,8 +42705,8 @@
               ],
               "representativeBuildingIntelligence": {
                 "ecosystemId": "medical",
-                "state": "thin",
-                "stateLabel": "Thin",
+                "state": "strong",
+                "stateLabel": "Strong",
                 "buildingCount": 1,
                 "explicitCount": 1,
                 "inheritedOnlyCount": 0,
@@ -43121,32 +43065,6 @@
             }
           ],
           "gaps": [
-            {
-              "id": "ecosystem:medical:representative_building_intelligence_missing",
-              "code": "representative_building_intelligence_missing",
-              "label": "Representative Building Intelligence Missing",
-              "severity": "medium",
-              "layer": "representativeBuildingIntelligence",
-              "ecosystemId": "medical",
-              "ecosystemLabel": "Medical",
-              "relevance": "secondary",
-              "readinessState": "strong",
-              "rationale": "Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
-              "evidence": [
-                "1 primary districts and 0 secondary districts.",
-                "1 Representative Buildings and 1 Building Briefs.",
-                "1 representative roles and 6 operational categories are covered."
-              ],
-              "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
             {
               "id": "ecosystem:life_science:representative_role_thin",
               "code": "representative_role_thin",
@@ -43965,8 +43883,8 @@
               ],
               "representativeBuildingIntelligence": {
                 "ecosystemId": "medical",
-                "state": "thin",
-                "stateLabel": "Thin",
+                "state": "strong",
+                "stateLabel": "Strong",
                 "buildingCount": 1,
                 "explicitCount": 1,
                 "inheritedOnlyCount": 0,
@@ -44264,32 +44182,6 @@
         },
         "ecosystemGaps": [
           {
-            "id": "ecosystem:medical:representative_building_intelligence_missing",
-            "code": "representative_building_intelligence_missing",
-            "label": "Representative Building Intelligence Missing",
-            "severity": "medium",
-            "layer": "representativeBuildingIntelligence",
-            "ecosystemId": "medical",
-            "ecosystemLabel": "Medical",
-            "relevance": "secondary",
-            "readinessState": "strong",
-            "rationale": "Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
-            "evidence": [
-              "1 primary districts and 0 secondary districts.",
-              "1 Representative Buildings and 1 Building Briefs.",
-              "1 representative roles and 6 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
             "id": "ecosystem:special_purpose:ecosystem_missing",
             "code": "ecosystem_missing",
             "label": "Ecosystem Missing",
@@ -44580,12 +44472,12 @@
           }
         },
         "recommendedEcosystemSprint": {
-          "title": "East Bay Medical Ecosystem Representative Building Foundation",
-          "ecosystemId": "medical",
-          "ecosystemLabel": "Medical",
-          "sprintFamily": "Ecosystem Representative Building Foundation",
-          "rationale": "Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
-          "gapCode": "representative_building_intelligence_missing",
+          "title": "East Bay Special Purpose Ecosystem District Foundation",
+          "ecosystemId": "special_purpose",
+          "ecosystemLabel": "Special Purpose",
+          "sprintFamily": "Ecosystem District Foundation",
+          "rationale": "Relevant ecosystem has no meaningful district coverage.",
+          "gapCode": "ecosystem_missing",
           "completionCriteria": [
             "Validated district ecosystem classification",
             "Representative Building coverage across the most important subtypes",
@@ -79493,7 +79385,7 @@
         "Low": 2
       },
       "deferredCandidates": 69,
-      "latestValidation": "2026-08-12T08:55:22-07:00",
+      "latestValidation": "2026-08-12T09:36:45-07:00",
       "errors": [],
       "warnings": [],
       "source": {
