@@ -160,11 +160,14 @@ if (eastBay) {
   const specialPurpose = evaluationFor(eastBay, "special_purpose");
   const hospitality = evaluationFor(eastBay, "hospitality");
   const eastBayPlan = planById("east-bay");
-  requireField(lifeScience && lifeScience.counts && lifeScience.counts.secondaryDistricts >= 2, "East Bay: life science should retain secondary district evidence.");
+  requireField(lifeScience && lifeScience.counts && lifeScience.counts.districts >= 1, `East Bay: life science district foundation should be credited, got ${lifeScience && lifeScience.counts && lifeScience.counts.districts}`);
+  requireField(lifeScience && lifeScience.counts && lifeScience.counts.secondaryDistricts >= 1, "East Bay: life science should retain supporting secondary district evidence.");
   requireField(lifeScience && lifeScience.layers && ["strong", "developed"].includes(lifeScience.layers.subtypes), `East Bay: life science secondary subtype breadth should be credited, got ${lifeScience && lifeScience.layers && lifeScience.layers.subtypes}`);
   requireField(lifeScience && lifeScience.layers && ["strong", "developed"].includes(lifeScience.layers.archetypes), `East Bay: life science secondary archetype breadth should be credited, got ${lifeScience && lifeScience.layers && lifeScience.layers.archetypes}`);
   requireField(lifeScience && lifeScience.layers && ["strong", "developed"].includes(lifeScience.layers.activities), `East Bay: life science secondary activity breadth should be credited, got ${lifeScience && lifeScience.layers && lifeScience.layers.activities}`);
   requireField(!((lifeScience && lifeScience.gaps) || []).includes("Subtype breadth is thin."), "East Bay: completed life-science subtype expansion should not remain open.");
+  requireField(!((lifeScience && lifeScience.gaps) || []).includes("Ecosystem appears only as a secondary district expression."), "East Bay: completed life-science District Foundation should not remain open.");
+  requireField(!((eastBayPlan && eastBayPlan.recommendedEcosystemSprint || {}).title || "").includes("Life Science Ecosystem District Foundation"), "East Bay: completed Life Science District Foundation should not remain recommended.");
   requireField(!((eastBayPlan && eastBayPlan.recommendedEcosystemSprint || {}).title || "").includes("Life Science Ecosystem Subtype Expansion"), "East Bay: completed Life Science subtype sprint should not remain recommended.");
   requireField(retail && retail.counts && retail.counts.representativeBuildings >= 2, `East Bay: retail Representative Building foundation should be credited, got ${retail && retail.counts && retail.counts.representativeBuildings}`);
   requireField(retail && retail.layers && ["strong", "developed"].includes(retail.layers.representativeBuildings), `East Bay: retail Representative Building layer should be strong or developed, got ${retail && retail.layers && retail.layers.representativeBuildings}`);

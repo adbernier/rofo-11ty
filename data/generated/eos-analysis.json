@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-12T21:47:44-07:00",
+  "generatedAt": "2026-08-13T07:26:39-07:00",
   "eosVersion": "editorial-operating-system-v2.2.4",
   "sourceSystems": [
     "Publisher",
@@ -14,7 +14,7 @@
   ],
   "commercialKnowledgeIntelligence": {
     "schemaVersion": "eos-commercial-knowledge-intelligence-v1",
-    "generatedAt": "2026-08-12T21:47:44-07:00",
+    "generatedAt": "2026-08-13T07:26:39-07:00",
     "sourceSystems": [
       "Editor-controlled strategic priorities",
       "Google Search Console Search Analytics API",
@@ -186553,7 +186553,7 @@
       "displayedBy": "Mission Control",
       "status": "Validated",
       "validationStatus": "PASS",
-      "latestValidation": "2026-08-12T21:47:44-07:00",
+      "latestValidation": "2026-08-13T07:26:39-07:00",
       "markets": [
         {
           "marketId": "east-bay",
@@ -187224,7 +187224,7 @@
         "Low": 2
       },
       "deferredCandidates": 69,
-      "latestValidation": "2026-08-12T21:47:44-07:00",
+      "latestValidation": "2026-08-13T07:26:39-07:00",
       "errors": [],
       "warnings": [],
       "source": {
@@ -213185,16 +213185,16 @@
                     "EOS health signals."
                   ]
                 },
-                "currentConstraint": "Ecosystem appears only as secondary context.",
+                "currentConstraint": "District foundation exists, but Representative Buildings are missing.",
                 "nextInitiativeId": "east-bay:publisher:life-science-readiness",
-                "nextMissionId": "mission:east-bay:east-bay-life-science-ecosystem-district-foundation",
+                "nextMissionId": "mission:east-bay:east-bay-life-science-ecosystem-representative-building-foundation",
                 "initiativeIds": [
                   "east-bay:publisher:life-science-readiness",
                   "east-bay:publisher:recommendation-readiness",
                   "east-bay:publisher:comparison-graph"
                 ],
                 "missionIds": [
-                  "mission:east-bay:east-bay-life-science-ecosystem-district-foundation",
+                  "mission:east-bay:east-bay-life-science-ecosystem-representative-building-foundation",
                   "mission:east-bay:add-or-update-recommendation-qa-documentation-for-this-metro",
                   "mission:east-bay:add-meaningful-comparewith-relationships-to-nearby-or-decision-adjacent-districts"
                 ],
@@ -213215,9 +213215,9 @@
             ],
             "campaignId": "east-bay:publisher:completion-campaign",
             "nextCampaignId": "east-bay:publisher:completion-campaign",
-            "currentConstraint": "Ecosystem appears only as secondary context.",
+            "currentConstraint": "District foundation exists, but Representative Buildings are missing.",
             "nextInitiativeId": "east-bay:publisher:life-science-readiness",
-            "nextMissionId": "mission:east-bay:east-bay-life-science-ecosystem-district-foundation",
+            "nextMissionId": "mission:east-bay:east-bay-life-science-ecosystem-representative-building-foundation",
             "initiatives": [
               {
                 "id": "east-bay:publisher:life-science-readiness",
@@ -213227,7 +213227,7 @@
                 "programLabel": "Publisher",
                 "title": "East Bay Life Science Readiness",
                 "scope": "Life Science",
-                "objective": "East Bay Life Science Ecosystem District Foundation",
+                "objective": "East Bay Life Science Ecosystem Representative Building Foundation",
                 "status": "Next",
                 "currentStage": "Next",
                 "progress": {
@@ -213240,10 +213240,10 @@
                     "EOS mission queue."
                   ]
                 },
-                "currentConstraint": "Ecosystem appears only as secondary context.",
-                "nextMissionId": "mission:east-bay:east-bay-life-science-ecosystem-district-foundation",
+                "currentConstraint": "District foundation exists, but Representative Buildings are missing.",
+                "nextMissionId": "mission:east-bay:east-bay-life-science-ecosystem-representative-building-foundation",
                 "remainingMilestones": [
-                  "Ecosystem appears only as secondary context."
+                  "District foundation exists, but Representative Buildings are missing."
                 ],
                 "confidence": "Medium",
                 "sourceEvidence": [
@@ -213253,8 +213253,8 @@
                 "readOnly": false,
                 "missions": [
                   {
-                    "id": "mission:east-bay:east-bay-life-science-ecosystem-district-foundation",
-                    "title": "East Bay Life Science Ecosystem District Foundation",
+                    "id": "mission:east-bay:east-bay-life-science-ecosystem-representative-building-foundation",
+                    "title": "East Bay Life Science Ecosystem Representative Building Foundation",
                     "marketId": "east-bay",
                     "marketName": "East Bay",
                     "programId": "publisher",
@@ -213266,8 +213266,8 @@
                     "portfolioId": "",
                     "districtId": "",
                     "districtName": "",
-                    "objective": "East Bay Life Science Ecosystem District Foundation",
-                    "currentConstraint": "Ecosystem appears only as secondary context.",
+                    "objective": "East Bay Life Science Ecosystem Representative Building Foundation",
+                    "currentConstraint": "District foundation exists, but Representative Buildings are missing.",
                     "expectedImpact": "High",
                     "estimatedEffort": "Small",
                     "missionSize": {
@@ -213279,7 +213279,7 @@
                     "missionClass": "Readiness Blocker",
                     "confidence": "Medium",
                     "priorityScore": 100,
-                    "executionPacketRef": "portfolioQueues.missionQueue:mission:east-bay:east-bay-life-science-ecosystem-district-foundation",
+                    "executionPacketRef": "portfolioQueues.missionQueue:mission:east-bay:east-bay-life-science-ecosystem-representative-building-foundation",
                     "executionPacketAvailable": true,
                     "componentStatuses": null,
                     "workItems": {
@@ -213290,7 +213290,10 @@
                       ],
                       "deferredWorkItemIds": [
                         "field-mode-summary:east-bay",
-                        "publisher:east-bay:recommendationReadiness:missing recommendation QA status:east-bay"
+                        "publisher:east-bay:comparisonGraph:orphan district comparison:antioch-east-18th-industrial",
+                        "publisher:east-bay:recommendationReadiness:missing recommendation QA status:east-bay",
+                        "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
+                        "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st"
                       ]
                     }
                   }
@@ -215469,8 +215472,8 @@
         ],
         "nextMissions": [
           {
-            "id": "mission:east-bay:east-bay-life-science-ecosystem-district-foundation",
-            "title": "East Bay Life Science Ecosystem District Foundation",
+            "id": "mission:east-bay:east-bay-life-science-ecosystem-representative-building-foundation",
+            "title": "East Bay Life Science Ecosystem Representative Building Foundation",
             "marketId": "east-bay",
             "marketName": "East Bay",
             "programId": "publisher",
@@ -215482,8 +215485,8 @@
             "portfolioId": "",
             "districtId": "",
             "districtName": "",
-            "objective": "East Bay Life Science Ecosystem District Foundation",
-            "currentConstraint": "Ecosystem appears only as secondary context.",
+            "objective": "East Bay Life Science Ecosystem Representative Building Foundation",
+            "currentConstraint": "District foundation exists, but Representative Buildings are missing.",
             "expectedImpact": "High",
             "estimatedEffort": "Small",
             "missionSize": {
@@ -215495,7 +215498,7 @@
             "missionClass": "Readiness Blocker",
             "confidence": "Medium",
             "priorityScore": 100,
-            "executionPacketRef": "portfolioQueues.missionQueue:mission:east-bay:east-bay-life-science-ecosystem-district-foundation",
+            "executionPacketRef": "portfolioQueues.missionQueue:mission:east-bay:east-bay-life-science-ecosystem-representative-building-foundation",
             "executionPacketAvailable": true,
             "componentStatuses": null,
             "workItems": {
@@ -215506,7 +215509,10 @@
               ],
               "deferredWorkItemIds": [
                 "field-mode-summary:east-bay",
-                "publisher:east-bay:recommendationReadiness:missing recommendation QA status:east-bay"
+                "publisher:east-bay:comparisonGraph:orphan district comparison:antioch-east-18th-industrial",
+                "publisher:east-bay:recommendationReadiness:missing recommendation QA status:east-bay",
+                "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
+                "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st"
               ]
             }
           },
@@ -228694,7 +228700,7 @@
           "label": "Improving"
         },
         "overallEditorialHealth": {
-          "score": 79,
+          "score": 80,
           "state": {
             "id": "improving",
             "label": "Improving"
@@ -238250,16 +238256,16 @@
             "EOS health signals."
           ]
         },
-        "currentConstraint": "Ecosystem appears only as secondary context.",
+        "currentConstraint": "District foundation exists, but Representative Buildings are missing.",
         "nextInitiativeId": "east-bay:publisher:life-science-readiness",
-        "nextMissionId": "mission:east-bay:east-bay-life-science-ecosystem-district-foundation",
+        "nextMissionId": "mission:east-bay:east-bay-life-science-ecosystem-representative-building-foundation",
         "initiativeIds": [
           "east-bay:publisher:life-science-readiness",
           "east-bay:publisher:recommendation-readiness",
           "east-bay:publisher:comparison-graph"
         ],
         "missionIds": [
-          "mission:east-bay:east-bay-life-science-ecosystem-district-foundation",
+          "mission:east-bay:east-bay-life-science-ecosystem-representative-building-foundation",
           "mission:east-bay:add-or-update-recommendation-qa-documentation-for-this-metro",
           "mission:east-bay:add-meaningful-comparewith-relationships-to-nearby-or-decision-adjacent-districts"
         ],
@@ -238282,7 +238288,7 @@
           "east-bay:publisher:comparison-graph"
         ],
         "missions": [
-          "mission:east-bay:east-bay-life-science-ecosystem-district-foundation",
+          "mission:east-bay:east-bay-life-science-ecosystem-representative-building-foundation",
           "mission:east-bay:add-or-update-recommendation-qa-documentation-for-this-metro",
           "mission:east-bay:add-meaningful-comparewith-relationships-to-nearby-or-decision-adjacent-districts"
         ]
@@ -249255,7 +249261,7 @@
         "programLabel": "Publisher",
         "title": "East Bay Life Science Readiness",
         "scope": "Life Science",
-        "objective": "East Bay Life Science Ecosystem District Foundation",
+        "objective": "East Bay Life Science Ecosystem Representative Building Foundation",
         "status": "Next",
         "currentStage": "Next",
         "progress": {
@@ -249268,10 +249274,10 @@
             "EOS mission queue."
           ]
         },
-        "currentConstraint": "Ecosystem appears only as secondary context.",
-        "nextMissionId": "mission:east-bay:east-bay-life-science-ecosystem-district-foundation",
+        "currentConstraint": "District foundation exists, but Representative Buildings are missing.",
+        "nextMissionId": "mission:east-bay:east-bay-life-science-ecosystem-representative-building-foundation",
         "remainingMilestones": [
-          "Ecosystem appears only as secondary context."
+          "District foundation exists, but Representative Buildings are missing."
         ],
         "confidence": "Medium",
         "sourceEvidence": [
@@ -249280,7 +249286,7 @@
         ],
         "readOnly": false,
         "missions": [
-          "mission:east-bay:east-bay-life-science-ecosystem-district-foundation"
+          "mission:east-bay:east-bay-life-science-ecosystem-representative-building-foundation"
         ],
         "campaignId": "east-bay:publisher:completion-campaign"
       },
@@ -256324,8 +256330,8 @@
         }
       },
       {
-        "id": "mission:east-bay:east-bay-life-science-ecosystem-district-foundation",
-        "title": "East Bay Life Science Ecosystem District Foundation",
+        "id": "mission:east-bay:east-bay-life-science-ecosystem-representative-building-foundation",
+        "title": "East Bay Life Science Ecosystem Representative Building Foundation",
         "marketId": "east-bay",
         "marketName": "East Bay",
         "programId": "publisher",
@@ -256337,8 +256343,8 @@
         "portfolioId": "",
         "districtId": "",
         "districtName": "",
-        "objective": "East Bay Life Science Ecosystem District Foundation",
-        "currentConstraint": "Ecosystem appears only as secondary context.",
+        "objective": "East Bay Life Science Ecosystem Representative Building Foundation",
+        "currentConstraint": "District foundation exists, but Representative Buildings are missing.",
         "expectedImpact": "High",
         "estimatedEffort": "Small",
         "missionSize": {
@@ -256350,7 +256356,7 @@
         "missionClass": "Readiness Blocker",
         "confidence": "Medium",
         "priorityScore": 100,
-        "executionPacketRef": "portfolioQueues.missionQueue:mission:east-bay:east-bay-life-science-ecosystem-district-foundation",
+        "executionPacketRef": "portfolioQueues.missionQueue:mission:east-bay:east-bay-life-science-ecosystem-representative-building-foundation",
         "executionPacketAvailable": true,
         "componentStatuses": null,
         "workItems": {
@@ -256361,7 +256367,10 @@
           ],
           "deferredWorkItemIds": [
             "field-mode-summary:east-bay",
-            "publisher:east-bay:recommendationReadiness:missing recommendation QA status:east-bay"
+            "publisher:east-bay:comparisonGraph:orphan district comparison:antioch-east-18th-industrial",
+            "publisher:east-bay:recommendationReadiness:missing recommendation QA status:east-bay",
+            "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
+            "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st"
           ]
         }
       },
@@ -260789,7 +260798,7 @@
   },
   "overview": {
     "metroCount": 7,
-    "averageHealth": 72,
+    "averageHealth": 73,
     "needsAttention": 1,
     "activeWorkItems": 8,
     "opportunityInventory": 316,
@@ -260799,7 +260808,7 @@
     "openWorkItems": 316,
     "humanOnlyWorkItems": 7,
     "autonomousCandidates": 100,
-    "topWorkItem": "East Bay Life Science Ecosystem District Foundation"
+    "topWorkItem": "East Bay Life Science Ecosystem Representative Building Foundation"
   },
   "metros": [
     {
@@ -260810,7 +260819,7 @@
         "label": "Improving"
       },
       "overallEditorialHealth": {
-        "score": 79,
+        "score": 80,
         "state": {
           "id": "improving",
           "label": "Improving"
@@ -260841,7 +260850,7 @@
         "source": "publisher"
       },
       "commercialEcosystemCoverage": {
-        "score": 78,
+        "score": 81,
         "state": "partial",
         "label": "Partial",
         "relevantEcosystems": [
@@ -260978,12 +260987,12 @@
         "commercialEcosystem": {
           "id": "commercialEcosystem",
           "label": "Commercial Ecosystem Coverage",
-          "score": 78,
+          "score": 81,
           "state": {
             "id": "improving",
             "label": "Improving"
           },
-          "note": "Office, Industrial & Flex, Retail coverage is strong or developed. Medical is Partial; Life Science is Partial.",
+          "note": "Office, Industrial & Flex, Retail, Life Science coverage is strong or developed. Medical is Partial.",
           "source": "publisher"
         },
         "photography": {
@@ -261099,7 +261108,7 @@
         "source": "publisher"
       },
       "commercialEcosystemCoverage": {
-        "score": 74,
+        "score": 70,
         "state": "partial",
         "label": "Partial",
         "relevantEcosystems": [
@@ -261111,7 +261120,9 @@
           "hospitality",
           "special_purpose"
         ],
-        "blockingEcosystems": [],
+        "blockingEcosystems": [
+          "life_science"
+        ],
         "balance": {
           "state": "balanced",
           "label": "Balanced",
@@ -261236,12 +261247,12 @@
         "commercialEcosystem": {
           "id": "commercialEcosystem",
           "label": "Commercial Ecosystem Coverage",
-          "score": 74,
+          "score": 70,
           "state": {
             "id": "improving",
             "label": "Improving"
           },
-          "note": "Industrial & Flex, Retail coverage is strong or developed. Office is Partial; Life Science is Partial.",
+          "note": "Industrial & Flex, Retail coverage is strong or developed. Office is Partial; Life Science is Thin.",
           "source": "publisher"
         },
         "photography": {
@@ -261309,7 +261320,7 @@
       "examples": [
         "Antioch East 18th Industrial",
         "East Bay Building Brief Migration Sprint",
-        "East Bay Life Science Ecosystem District Foundation"
+        "East Bay Life Science Ecosystem Representative Building Foundation"
       ],
       "source": {
         "publisherStatus": "Editorially Developed",
@@ -263070,8 +263081,8 @@
   "portfolioQueues": {
     "todaysRecommendedWork": [
       {
-        "id": "mission:east-bay:east-bay-life-science-ecosystem-district-foundation",
-        "title": "East Bay Life Science Ecosystem District Foundation",
+        "id": "mission:east-bay:east-bay-life-science-ecosystem-representative-building-foundation",
+        "title": "East Bay Life Science Ecosystem Representative Building Foundation",
         "marketId": "east-bay",
         "marketName": "East Bay",
         "programId": "publisher",
@@ -263091,10 +263102,10 @@
         "includedTasks": [
           {
             "id": "ecosystem:east-bay:life_science",
-            "title": "East Bay Life Science Ecosystem District Foundation",
+            "title": "East Bay Life Science Ecosystem Representative Building Foundation",
             "category": "commercialEcosystem",
             "categoryLabel": "Commercial Ecosystem",
-            "reason": "Ecosystem appears only as secondary context.",
+            "reason": "District foundation exists, but Representative Buildings are missing.",
             "suggestedModule": {
               "id": "publisher",
               "label": "Publisher"
@@ -263112,6 +263123,15 @@
             }
           },
           {
+            "id": "publisher:east-bay:comparisonGraph:orphan district comparison:antioch-east-18th-industrial",
+            "title": "Add meaningful compareWith relationships to nearby or decision-adjacent districts.",
+            "reason": "Outside this mission's bounded product layer or ecosystem scope.",
+            "suggestedModule": {
+              "id": "knowledgeGraph",
+              "label": "Knowledge Graph"
+            }
+          },
+          {
             "id": "publisher:east-bay:recommendationReadiness:missing recommendation QA status:east-bay",
             "title": "Add or update recommendation QA documentation for this metro.",
             "reason": "Outside this mission's bounded product layer or ecosystem scope.",
@@ -263119,12 +263139,30 @@
               "id": "compass",
               "label": "Compass"
             }
+          },
+          {
+            "id": "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
+            "title": "Author a Building Brief for this representative building.",
+            "reason": "Outside this mission's bounded product layer or ecosystem scope.",
+            "suggestedModule": {
+              "id": "publisher",
+              "label": "Publisher"
+            }
+          },
+          {
+            "id": "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st",
+            "title": "Author a Building Brief for this representative building.",
+            "reason": "Outside this mission's bounded product layer or ecosystem scope.",
+            "suggestedModule": {
+              "id": "publisher",
+              "label": "Publisher"
+            }
           }
         ],
-        "objective": "East Bay Life Science Ecosystem District Foundation",
+        "objective": "East Bay Life Science Ecosystem Representative Building Foundation",
         "reason": [
           "1 related opportunity share metro, source, and validation paths.",
-          "Ecosystem appears only as secondary context.",
+          "District foundation exists, but Representative Buildings are missing.",
           "Ecosystem readiness: Partial",
           "Commercial balance: Balanced"
         ],
@@ -263138,7 +263176,7 @@
         },
         "impactEffortClass": "High Impact / Small Effort",
         "missionClass": "Readiness Blocker",
-        "currentConstraint": "Ecosystem appears only as secondary context.",
+        "currentConstraint": "District foundation exists, but Representative Buildings are missing.",
         "completionCriteria": [
           "The cited measurable gap is closed or explicitly reclassified.",
           "Existing Publisher, EOS, and relevant QA checks pass.",
@@ -263196,7 +263234,7 @@
           "Deferred work is explicit so unrelated scope does not leak into the mission."
         ],
         "why": [
-          "Current constraint: Ecosystem appears only as secondary context.",
+          "Current constraint: District foundation exists, but Representative Buildings are missing.",
           "Expected impact is high based on readiness, foundation, or multi-gap evidence.",
           "Small mission size keeps the packet inside a 30-60 minutes review window."
         ],
@@ -263207,22 +263245,22 @@
           ]
         },
         "executionPacket": {
-          "objective": "East Bay Life Science Ecosystem District Foundation",
+          "objective": "East Bay Life Science Ecosystem Representative Building Foundation",
           "reason": [
             "1 related opportunity share metro, source, and validation paths.",
-            "Ecosystem appears only as secondary context.",
+            "District foundation exists, but Representative Buildings are missing.",
             "Ecosystem readiness: Partial",
             "Commercial balance: Balanced"
           ],
           "currentHealth": "64% Needs Attention",
-          "currentConstraint": "Ecosystem appears only as secondary context.",
+          "currentConstraint": "District foundation exists, but Representative Buildings are missing.",
           "includedTasks": [
             {
               "id": "ecosystem:east-bay:life_science",
-              "title": "East Bay Life Science Ecosystem District Foundation",
+              "title": "East Bay Life Science Ecosystem Representative Building Foundation",
               "category": "commercialEcosystem",
               "categoryLabel": "Commercial Ecosystem",
-              "reason": "Ecosystem appears only as secondary context.",
+              "reason": "District foundation exists, but Representative Buildings are missing.",
               "suggestedModule": {
                 "id": "publisher",
                 "label": "Publisher"
@@ -263240,12 +263278,39 @@
               }
             },
             {
+              "id": "publisher:east-bay:comparisonGraph:orphan district comparison:antioch-east-18th-industrial",
+              "title": "Add meaningful compareWith relationships to nearby or decision-adjacent districts.",
+              "reason": "Outside this mission's bounded product layer or ecosystem scope.",
+              "suggestedModule": {
+                "id": "knowledgeGraph",
+                "label": "Knowledge Graph"
+              }
+            },
+            {
               "id": "publisher:east-bay:recommendationReadiness:missing recommendation QA status:east-bay",
               "title": "Add or update recommendation QA documentation for this metro.",
               "reason": "Outside this mission's bounded product layer or ecosystem scope.",
               "suggestedModule": {
                 "id": "compass",
                 "label": "Compass"
+              }
+            },
+            {
+              "id": "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
+              "title": "Author a Building Brief for this representative building.",
+              "reason": "Outside this mission's bounded product layer or ecosystem scope.",
+              "suggestedModule": {
+                "id": "publisher",
+                "label": "Publisher"
+              }
+            },
+            {
+              "id": "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st",
+              "title": "Author a Building Brief for this representative building.",
+              "reason": "Outside this mission's bounded product layer or ecosystem scope.",
+              "suggestedModule": {
+                "id": "publisher",
+                "label": "Publisher"
               }
             }
           ],
@@ -263747,7 +263812,7 @@
             "Ecosystem readiness: Partial",
             "Commercial balance: Balanced"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "currentConstraint": "Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
           "includedTasks": [
             {
@@ -265807,8 +265872,8 @@
     ],
     "missionQueue": [
       {
-        "id": "mission:east-bay:east-bay-life-science-ecosystem-district-foundation",
-        "title": "East Bay Life Science Ecosystem District Foundation",
+        "id": "mission:east-bay:east-bay-life-science-ecosystem-representative-building-foundation",
+        "title": "East Bay Life Science Ecosystem Representative Building Foundation",
         "marketId": "east-bay",
         "marketName": "East Bay",
         "programId": "publisher",
@@ -265828,10 +265893,10 @@
         "includedTasks": [
           {
             "id": "ecosystem:east-bay:life_science",
-            "title": "East Bay Life Science Ecosystem District Foundation",
+            "title": "East Bay Life Science Ecosystem Representative Building Foundation",
             "category": "commercialEcosystem",
             "categoryLabel": "Commercial Ecosystem",
-            "reason": "Ecosystem appears only as secondary context.",
+            "reason": "District foundation exists, but Representative Buildings are missing.",
             "suggestedModule": {
               "id": "publisher",
               "label": "Publisher"
@@ -265849,6 +265914,15 @@
             }
           },
           {
+            "id": "publisher:east-bay:comparisonGraph:orphan district comparison:antioch-east-18th-industrial",
+            "title": "Add meaningful compareWith relationships to nearby or decision-adjacent districts.",
+            "reason": "Outside this mission's bounded product layer or ecosystem scope.",
+            "suggestedModule": {
+              "id": "knowledgeGraph",
+              "label": "Knowledge Graph"
+            }
+          },
+          {
             "id": "publisher:east-bay:recommendationReadiness:missing recommendation QA status:east-bay",
             "title": "Add or update recommendation QA documentation for this metro.",
             "reason": "Outside this mission's bounded product layer or ecosystem scope.",
@@ -265856,12 +265930,30 @@
               "id": "compass",
               "label": "Compass"
             }
+          },
+          {
+            "id": "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
+            "title": "Author a Building Brief for this representative building.",
+            "reason": "Outside this mission's bounded product layer or ecosystem scope.",
+            "suggestedModule": {
+              "id": "publisher",
+              "label": "Publisher"
+            }
+          },
+          {
+            "id": "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st",
+            "title": "Author a Building Brief for this representative building.",
+            "reason": "Outside this mission's bounded product layer or ecosystem scope.",
+            "suggestedModule": {
+              "id": "publisher",
+              "label": "Publisher"
+            }
           }
         ],
-        "objective": "East Bay Life Science Ecosystem District Foundation",
+        "objective": "East Bay Life Science Ecosystem Representative Building Foundation",
         "reason": [
           "1 related opportunity share metro, source, and validation paths.",
-          "Ecosystem appears only as secondary context.",
+          "District foundation exists, but Representative Buildings are missing.",
           "Ecosystem readiness: Partial",
           "Commercial balance: Balanced"
         ],
@@ -265875,7 +265967,7 @@
         },
         "impactEffortClass": "High Impact / Small Effort",
         "missionClass": "Readiness Blocker",
-        "currentConstraint": "Ecosystem appears only as secondary context.",
+        "currentConstraint": "District foundation exists, but Representative Buildings are missing.",
         "completionCriteria": [
           "The cited measurable gap is closed or explicitly reclassified.",
           "Existing Publisher, EOS, and relevant QA checks pass.",
@@ -265933,7 +266025,7 @@
           "Deferred work is explicit so unrelated scope does not leak into the mission."
         ],
         "why": [
-          "Current constraint: Ecosystem appears only as secondary context.",
+          "Current constraint: District foundation exists, but Representative Buildings are missing.",
           "Expected impact is high based on readiness, foundation, or multi-gap evidence.",
           "Small mission size keeps the packet inside a 30-60 minutes review window."
         ],
@@ -265944,22 +266036,22 @@
           ]
         },
         "executionPacket": {
-          "objective": "East Bay Life Science Ecosystem District Foundation",
+          "objective": "East Bay Life Science Ecosystem Representative Building Foundation",
           "reason": [
             "1 related opportunity share metro, source, and validation paths.",
-            "Ecosystem appears only as secondary context.",
+            "District foundation exists, but Representative Buildings are missing.",
             "Ecosystem readiness: Partial",
             "Commercial balance: Balanced"
           ],
           "currentHealth": "64% Needs Attention",
-          "currentConstraint": "Ecosystem appears only as secondary context.",
+          "currentConstraint": "District foundation exists, but Representative Buildings are missing.",
           "includedTasks": [
             {
               "id": "ecosystem:east-bay:life_science",
-              "title": "East Bay Life Science Ecosystem District Foundation",
+              "title": "East Bay Life Science Ecosystem Representative Building Foundation",
               "category": "commercialEcosystem",
               "categoryLabel": "Commercial Ecosystem",
-              "reason": "Ecosystem appears only as secondary context.",
+              "reason": "District foundation exists, but Representative Buildings are missing.",
               "suggestedModule": {
                 "id": "publisher",
                 "label": "Publisher"
@@ -265977,12 +266069,39 @@
               }
             },
             {
+              "id": "publisher:east-bay:comparisonGraph:orphan district comparison:antioch-east-18th-industrial",
+              "title": "Add meaningful compareWith relationships to nearby or decision-adjacent districts.",
+              "reason": "Outside this mission's bounded product layer or ecosystem scope.",
+              "suggestedModule": {
+                "id": "knowledgeGraph",
+                "label": "Knowledge Graph"
+              }
+            },
+            {
               "id": "publisher:east-bay:recommendationReadiness:missing recommendation QA status:east-bay",
               "title": "Add or update recommendation QA documentation for this metro.",
               "reason": "Outside this mission's bounded product layer or ecosystem scope.",
               "suggestedModule": {
                 "id": "compass",
                 "label": "Compass"
+              }
+            },
+            {
+              "id": "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
+              "title": "Author a Building Brief for this representative building.",
+              "reason": "Outside this mission's bounded product layer or ecosystem scope.",
+              "suggestedModule": {
+                "id": "publisher",
+                "label": "Publisher"
+              }
+            },
+            {
+              "id": "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st",
+              "title": "Author a Building Brief for this representative building.",
+              "reason": "Outside this mission's bounded product layer or ecosystem scope.",
+              "suggestedModule": {
+                "id": "publisher",
+                "label": "Publisher"
               }
             }
           ],
@@ -266484,7 +266603,7 @@
             "Ecosystem readiness: Partial",
             "Commercial balance: Balanced"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "currentConstraint": "Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
           "includedTasks": [
             {
@@ -269900,7 +270019,7 @@
             "Supporting Building Profiles will be selected only when they materially strengthen district explanation.",
             "9 selected Building Profile work items are included in this bounded Mission."
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "currentConstraint": "Design District Commercial Market Evidence is complete, but selected evidence Building Profiles remain incomplete.",
           "includedTasks": [
             {
@@ -270576,7 +270695,7 @@
             "Supporting Building Profiles will be selected only when they materially strengthen district explanation.",
             "9 selected Building Profile work items are included in this bounded Mission."
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "currentConstraint": "South Beach Commercial Market Evidence is complete, but selected evidence Building Profiles remain incomplete.",
           "includedTasks": [
             {
@@ -271694,7 +271813,7 @@
             "Supporting Building Profiles will be selected only when they materially strengthen district explanation.",
             "8 selected Building Profile work items are included in this bounded Mission."
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "currentConstraint": "Mission Bay Commercial Market Evidence is complete, but selected evidence Building Profiles remain incomplete.",
           "includedTasks": [
             {
@@ -272331,7 +272450,7 @@
             "Supporting Building Profiles will be selected only when they materially strengthen district explanation.",
             "8 selected Building Profile work items are included in this bounded Mission."
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "currentConstraint": "Mission District Commercial Market Evidence is complete, but selected evidence Building Profiles remain incomplete.",
           "includedTasks": [
             {
@@ -272968,7 +273087,7 @@
             "Supporting Building Profiles will be selected only when they materially strengthen district explanation.",
             "8 selected Building Profile work items are included in this bounded Mission."
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "currentConstraint": "Potrero Hill Commercial Market Evidence is complete, but selected evidence Building Profiles remain incomplete.",
           "includedTasks": [
             {
@@ -274587,7 +274706,7 @@
             "Supporting Building Profiles will be selected only when they materially strengthen district explanation.",
             "7 selected Building Profile work items are included in this bounded Mission."
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "currentConstraint": "Jackson Square Commercial Market Evidence is complete, but selected evidence Building Profiles remain incomplete.",
           "includedTasks": [
             {
@@ -275185,7 +275304,7 @@
             "Supporting Building Profiles will be selected only when they materially strengthen district explanation.",
             "7 selected Building Profile work items are included in this bounded Mission."
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "currentConstraint": "Showplace Square Commercial Market Evidence is complete, but selected evidence Building Profiles remain incomplete.",
           "includedTasks": [
             {
@@ -276508,7 +276627,7 @@
             "Supporting Building Profiles will be selected only when they materially strengthen district explanation.",
             "4 selected Building Profile work items are included in this bounded Mission."
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "currentConstraint": "SoMa Commercial Market Evidence is complete, but selected evidence Building Profiles remain incomplete.",
           "includedTasks": [
             {
@@ -302263,7 +302382,7 @@
         "id": "ecosystem:east-bay:life_science",
         "metroId": "east-bay",
         "metroName": "East Bay",
-        "title": "East Bay Life Science Ecosystem District Foundation",
+        "title": "East Bay Life Science Ecosystem Representative Building Foundation",
         "itemName": "Life Science",
         "priorityScore": 78,
         "priorityStars": 4,
@@ -302294,14 +302413,14 @@
         "categoryLabel": "Commercial Ecosystem",
         "ecosystemId": "life_science",
         "ecosystemLabel": "Life Science",
-        "sprintFamily": "Ecosystem District Foundation",
-        "gapCode": "ecosystem_secondary_only",
+        "sprintFamily": "Ecosystem Representative Building Foundation",
+        "gapCode": "ecosystem_representative_building_gap",
         "suggestedModule": {
           "id": "publisher",
           "label": "Publisher"
         },
         "why": [
-          "Ecosystem appears only as secondary context.",
+          "District foundation exists, but Representative Buildings are missing.",
           "Ecosystem readiness: Partial",
           "Commercial balance: Balanced"
         ],
@@ -302311,9 +302430,9 @@
           "adminUrl": ""
         },
         "executionPacket": {
-          "objective": "East Bay Life Science Ecosystem District Foundation",
+          "objective": "East Bay Life Science Ecosystem Representative Building Foundation",
           "reason": [
-            "Ecosystem appears only as secondary context.",
+            "District foundation exists, but Representative Buildings are missing.",
             "Ecosystem readiness: Partial",
             "Commercial balance: Balanced"
           ],
@@ -302837,7 +302956,7 @@
             "Ecosystem readiness: Partial",
             "Commercial balance: Balanced"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "_data/commercialEcosystemTaxonomy.js",
             "_data/locationKnowledgeGraph.js",
@@ -320216,7 +320335,7 @@
             "Task type: missing explainability fields",
             "Publisher severity: medium"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/CA/san-jose/north-san-jose/",
             "_data/recommendationQaStatus.js",
@@ -320335,7 +320454,7 @@
             "Task type: missing explainability fields",
             "Publisher severity: medium"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/CA/palo-alto/stanford-research-park/",
             "_data/recommendationQaStatus.js",
@@ -320454,7 +320573,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/building/CA/san-francisco/1-henry-adams-st/",
             "_data/buildingPages.js",
@@ -320574,7 +320693,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/building/CA/san-francisco/1-warriors-way/",
             "_data/buildingPages.js",
@@ -320694,7 +320813,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/building/CA/san-francisco/100-pine-st/",
             "_data/buildingPages.js",
@@ -320814,7 +320933,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/building/CA/san-francisco/1000-16th-st/",
             "_data/buildingPages.js",
@@ -320934,7 +321053,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/building/CA/san-francisco/1000-brannan-st/",
             "_data/buildingPages.js",
@@ -321054,7 +321173,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/building/CA/san-francisco/1000-sansome-st/",
             "_data/buildingPages.js",
@@ -321174,7 +321293,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/building/CA/san-francisco/101-henry-adams-st/",
             "_data/buildingPages.js",
@@ -321294,7 +321413,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/building/CA/palo-alto/101-lytton-ave/",
             "_data/buildingPages.js",
@@ -321414,7 +321533,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/building/CA/san-francisco/121-spear-st/",
             "_data/buildingPages.js",
@@ -321534,7 +321653,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/building/CA/san-francisco/140-new-montgomery-st/",
             "_data/buildingPages.js",
@@ -321654,7 +321773,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/building/CA/san-francisco/144-2nd-st/",
             "_data/buildingPages.js",
@@ -321774,7 +321893,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/building/CA/san-francisco/1455-17th-st/",
             "_data/buildingPages.js",
@@ -321894,7 +322013,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/building/CA/san-francisco/1455-3rd-st/",
             "_data/buildingPages.js",
@@ -322014,7 +322133,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/building/CA/san-francisco/150-hooper-st/",
             "_data/buildingPages.js",
@@ -322134,7 +322253,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/building/CA/san-francisco/1500-owens-st/",
             "_data/buildingPages.js",
@@ -322254,7 +322373,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/building/CA/san-francisco/151-union-st/",
             "_data/buildingPages.js",
@@ -322374,7 +322493,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/building/CA/san-francisco/1700-17th-st/",
             "_data/buildingPages.js",
@@ -322494,7 +322613,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/building/CA/san-francisco/1700-owens-st/",
             "_data/buildingPages.js",
@@ -322614,7 +322733,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/building/CA/san-francisco/1800-mission-st/",
             "_data/buildingPages.js",
@@ -322734,7 +322853,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/building/CA/san-francisco/1825-4th-st/",
             "_data/buildingPages.js",
@@ -322854,7 +322973,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/building/CA/san-francisco/1840-17th-st/",
             "_data/buildingPages.js",
@@ -322974,7 +323093,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/building/CA/san-francisco/185-berry-st/",
             "_data/buildingPages.js",
@@ -323094,7 +323213,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/building/CA/san-francisco/1850-bryant-st/",
             "_data/buildingPages.js",
@@ -323214,7 +323333,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/building/CA/san-francisco/188-spear-st/",
             "_data/buildingPages.js",
@@ -323334,7 +323453,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/building/CA/san-francisco/1880-mission-st/",
             "_data/buildingPages.js",
@@ -323454,7 +323573,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/building/CA/san-francisco/2-embarcadero-ctr/",
             "_data/buildingPages.js",
@@ -323574,7 +323693,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/building/CA/san-francisco/2-henry-adams-st/",
             "_data/buildingPages.js",
@@ -323694,7 +323813,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/building/CA/san-francisco/2-kansas-st/",
             "_data/buildingPages.js",
@@ -323814,7 +323933,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/building/CA/palo-alto/200-hamilton-ave/",
             "_data/buildingPages.js",
@@ -323934,7 +324053,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/building/CA/san-francisco/201-spear-st/",
             "_data/buildingPages.js",
@@ -324054,7 +324173,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
             "_data/buildingPages.js",
@@ -324174,7 +324293,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
             "_data/buildingPages.js",
@@ -324294,7 +324413,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/building/CA/san-francisco/2400-16th-st/",
             "_data/buildingPages.js",
@@ -324414,7 +324533,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/building/CA/san-francisco/2601-mission-st/",
             "_data/buildingPages.js",
@@ -324534,7 +324653,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/building/CA/san-francisco/2741-16th-st/",
             "_data/buildingPages.js",
@@ -324654,7 +324773,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/building/CA/san-francisco/2900-18th-st/",
             "_data/buildingPages.js",
@@ -324774,7 +324893,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/building/CA/san-francisco/300-clay-st/",
             "_data/buildingPages.js",
@@ -324894,7 +325013,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/building/CA/san-francisco/300-de-haro-st/",
             "_data/buildingPages.js",
@@ -325014,7 +325133,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/building/CA/san-francisco/301-brannan-st/",
             "_data/buildingPages.js",
@@ -325134,7 +325253,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/building/CA/san-francisco/303-2nd-st/",
             "_data/buildingPages.js",
@@ -325254,7 +325373,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/building/CA/san-francisco/3150-18th-st/",
             "_data/buildingPages.js",
@@ -325374,7 +325493,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/building/CA/san-francisco/345-spear-st/",
             "_data/buildingPages.js",
@@ -325494,7 +325613,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/building/CA/san-francisco/350-rhode-island-st/",
             "_data/buildingPages.js",
@@ -325614,7 +325733,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/building/CA/san-francisco/409-illinois-st/",
             "_data/buildingPages.js",
@@ -325734,7 +325853,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/building/CA/san-francisco/410-townsend-st/",
             "_data/buildingPages.js",
@@ -325854,7 +325973,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/building/CA/san-francisco/414-brannan-st/",
             "_data/buildingPages.js",
@@ -325974,7 +326093,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/building/CA/san-francisco/425-1st-st/",
             "_data/buildingPages.js",
@@ -326094,7 +326213,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/building/CA/san-francisco/425-market-st/",
             "_data/buildingPages.js",
@@ -326214,7 +326333,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/building/CA/san-francisco/44-montgomery-st/",
             "_data/buildingPages.js",
@@ -326334,7 +326453,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/building/CA/san-francisco/455-mission-bay-blvd-s/",
             "_data/buildingPages.js",
@@ -326454,7 +326573,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/building/CA/san-francisco/460-townsend-st/",
             "_data/buildingPages.js",
@@ -326574,7 +326693,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/building/CA/san-francisco/499-illinois-st/",
             "_data/buildingPages.js",
@@ -326694,7 +326813,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/building/CA/san-francisco/50-california-st/",
             "_data/buildingPages.js",
@@ -326814,7 +326933,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/building/CA/san-francisco/500-de-haro-st/",
             "_data/buildingPages.js",
@@ -326934,7 +327053,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/building/CA/palo-alto/525-university-ave/",
             "_data/buildingPages.js",
@@ -327054,7 +327173,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/building/CA/san-francisco/550-15th-st/",
             "_data/buildingPages.js",
@@ -327174,7 +327293,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/building/CA/san-francisco/555-de-haro-st/",
             "_data/buildingPages.js",
@@ -327294,7 +327413,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/building/CA/san-francisco/600-16th-st/",
             "_data/buildingPages.js",
@@ -327414,7 +327533,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/building/CA/san-francisco/601-townsend-st/",
             "_data/buildingPages.js",
@@ -327534,7 +327653,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/building/CA/san-francisco/650-california-st/",
             "_data/buildingPages.js",
@@ -327654,7 +327773,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/building/CA/san-francisco/699-8th-st/",
             "_data/buildingPages.js",
@@ -327774,7 +327893,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/building/CA/san-francisco/75-broadway/",
             "_data/buildingPages.js",
@@ -327894,7 +328013,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/building/CA/san-francisco/795-folsom-st/",
             "_data/buildingPages.js",
@@ -328014,7 +328133,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/building/CA/san-francisco/808-brannan-st/",
             "_data/buildingPages.js",
@@ -328134,7 +328253,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/building/CA/san-francisco/88-spear-st/",
             "_data/buildingPages.js",
@@ -328254,7 +328373,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/building/CA/san-francisco/901-battery-st/",
             "_data/buildingPages.js",
@@ -328374,7 +328493,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/building/CA/san-francisco/909-harrison-st/",
             "_data/buildingPages.js",
@@ -328494,7 +328613,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/building/CA/san-francisco/924-sansome-st/",
             "_data/buildingPages.js",
@@ -328614,7 +328733,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/building/CA/san-francisco/930-montgomery-st/",
             "_data/buildingPages.js",
@@ -328734,7 +328853,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/building/CA/san-francisco/99-rhode-island-st/",
             "_data/buildingPages.js",
@@ -328854,7 +328973,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/building/CA/san-francisco/999-brannan-st/",
             "_data/buildingPages.js",
@@ -328974,7 +329093,7 @@
             "Task type: district missing representative buildings",
             "Publisher severity: medium"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/CA/redwood-city/downtown-redwood-city/",
             "_data/recommendationRepresentativeBuildings.js",
@@ -329089,7 +329208,7 @@
             "Task type: district missing representative buildings",
             "Publisher severity: medium"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/CA/san-mateo/downtown-san-mateo/",
             "_data/recommendationRepresentativeBuildings.js",
@@ -329204,7 +329323,7 @@
             "Task type: district missing representative buildings",
             "Publisher severity: medium"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/CA/mountain-view/north-bayshore/",
             "_data/recommendationRepresentativeBuildings.js",
@@ -329319,7 +329438,7 @@
             "Task type: district missing representative buildings",
             "Publisher severity: medium"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/CA/san-jose/north-san-jose/",
             "_data/recommendationRepresentativeBuildings.js",
@@ -329434,7 +329553,7 @@
             "Task type: district missing representative buildings",
             "Publisher severity: medium"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/CA/palo-alto/stanford-research-park/",
             "_data/recommendationRepresentativeBuildings.js",
@@ -335539,7 +335658,7 @@
             "Task type: missing decision positioning",
             "Publisher severity: low"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/CA/san-jose/north-san-jose/",
             "_data/locationKnowledgeGraph.js",
@@ -335658,7 +335777,7 @@
             "Task type: missing decision positioning",
             "Publisher severity: low"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/CA/palo-alto/stanford-research-park/",
             "_data/locationKnowledgeGraph.js",
@@ -335777,7 +335896,7 @@
             "Task type: Building Brief style guide issue",
             "Publisher severity: low"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/building/CA/san-francisco/700-indiana-st/",
             "data/generated/publisher-analysis.json",
@@ -335894,7 +336013,7 @@
             "Task type: Building Brief style guide issue",
             "Publisher severity: low"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/building/CA/san-francisco/900-minnesota-st/",
             "data/generated/publisher-analysis.json",
@@ -336011,7 +336130,7 @@
             "Task type: one-way comparison",
             "Publisher severity: low"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/CA/san-francisco/design-district/",
             "_data/locationKnowledgeGraph.js",
@@ -336131,7 +336250,7 @@
             "Task type: one-way comparison",
             "Publisher severity: low"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/CA/san-francisco/design-district/",
             "_data/locationKnowledgeGraph.js",
@@ -336251,7 +336370,7 @@
             "Task type: one-way comparison",
             "Publisher severity: low"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/CA/san-francisco/dogpatch/",
             "_data/locationKnowledgeGraph.js",
@@ -336371,7 +336490,7 @@
             "Task type: one-way comparison",
             "Publisher severity: low"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/CA/san-francisco/dogpatch/",
             "_data/locationKnowledgeGraph.js",
@@ -336491,7 +336610,7 @@
             "Task type: one-way comparison",
             "Publisher severity: low"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/CA/palo-alto/downtown-palo-alto/",
             "_data/locationKnowledgeGraph.js",
@@ -336611,7 +336730,7 @@
             "Task type: one-way comparison",
             "Publisher severity: low"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/CA/redwood-city/downtown-redwood-city/",
             "_data/locationKnowledgeGraph.js",
@@ -336731,7 +336850,7 @@
             "Task type: one-way comparison",
             "Publisher severity: low"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/CA/san-mateo/downtown-san-mateo/",
             "_data/locationKnowledgeGraph.js",
@@ -336851,7 +336970,7 @@
             "Task type: one-way comparison",
             "Publisher severity: low"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/CA/hayward/hayward-industrial/",
             "_data/locationKnowledgeGraph.js",
@@ -336971,7 +337090,7 @@
             "Task type: one-way comparison",
             "Publisher severity: low"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/CA/san-francisco/jackson-square/",
             "_data/locationKnowledgeGraph.js",
@@ -337091,7 +337210,7 @@
             "Task type: one-way comparison",
             "Publisher severity: low"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/CA/san-francisco/mission-bay/",
             "_data/locationKnowledgeGraph.js",
@@ -337211,7 +337330,7 @@
             "Task type: one-way comparison",
             "Publisher severity: low"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/CA/san-francisco/mission-district/",
             "_data/locationKnowledgeGraph.js",
@@ -337331,7 +337450,7 @@
             "Task type: one-way comparison",
             "Publisher severity: low"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/CA/san-francisco/mission-district/",
             "_data/locationKnowledgeGraph.js",
@@ -337451,7 +337570,7 @@
             "Task type: one-way comparison",
             "Publisher severity: low"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/CA/san-francisco/mission-district/",
             "_data/locationKnowledgeGraph.js",
@@ -337571,7 +337690,7 @@
             "Task type: one-way comparison",
             "Publisher severity: low"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/CA/oakland/oakland-medical-campuses/",
             "_data/locationKnowledgeGraph.js",
@@ -337691,7 +337810,7 @@
             "Task type: one-way comparison",
             "Publisher severity: low"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/CA/oakland/oakland-medical-campuses/",
             "_data/locationKnowledgeGraph.js",
@@ -337811,7 +337930,7 @@
             "Task type: one-way comparison",
             "Publisher severity: low"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/CA/oakland/oakland-medical-campuses/",
             "_data/locationKnowledgeGraph.js",
@@ -337931,7 +338050,7 @@
             "Task type: one-way comparison",
             "Publisher severity: low"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/CA/san-francisco/potrero-hill/",
             "_data/locationKnowledgeGraph.js",
@@ -338051,7 +338170,7 @@
             "Task type: one-way comparison",
             "Publisher severity: low"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/CA/san-francisco/showplace-square/",
             "_data/locationKnowledgeGraph.js",
@@ -338171,7 +338290,7 @@
             "Task type: one-way comparison",
             "Publisher severity: low"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/CA/san-francisco/south-beach/",
             "_data/locationKnowledgeGraph.js",
@@ -338291,7 +338410,7 @@
             "Task type: one-way comparison",
             "Publisher severity: low"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/CA/san-francisco/south-beach/",
             "_data/locationKnowledgeGraph.js",
@@ -338411,7 +338530,7 @@
             "Task type: one-way comparison",
             "Publisher severity: low"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/CA/san-francisco/south-beach/",
             "_data/locationKnowledgeGraph.js",
@@ -338531,7 +338650,7 @@
             "Task type: one-way comparison",
             "Publisher severity: low"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/CA/palo-alto/stanford-research-park/",
             "_data/locationKnowledgeGraph.js",
@@ -338651,7 +338770,7 @@
             "Task type: one-way comparison",
             "Publisher severity: low"
           ],
-          "currentHealth": "79% Improving",
+          "currentHealth": "80% Improving",
           "files": [
             "/commercial-real-estate/CA/fremont/warm-springs-innovation-district/",
             "_data/locationKnowledgeGraph.js",
@@ -341433,7 +341552,7 @@
           "Field Mode requires a human to capture Rofo-owned photos.",
           "A real city, district, or building photo improves public editorial trust without changing recommendations."
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/CA/san-francisco/",
           "functions/admin/field-photos.js",
@@ -341621,7 +341740,7 @@
       "id": "ecosystem:east-bay:life_science",
       "metroId": "east-bay",
       "metroName": "East Bay",
-      "title": "East Bay Life Science Ecosystem District Foundation",
+      "title": "East Bay Life Science Ecosystem Representative Building Foundation",
       "itemName": "Life Science",
       "priorityScore": 78,
       "priorityStars": 4,
@@ -341652,14 +341771,14 @@
       "categoryLabel": "Commercial Ecosystem",
       "ecosystemId": "life_science",
       "ecosystemLabel": "Life Science",
-      "sprintFamily": "Ecosystem District Foundation",
-      "gapCode": "ecosystem_secondary_only",
+      "sprintFamily": "Ecosystem Representative Building Foundation",
+      "gapCode": "ecosystem_representative_building_gap",
       "suggestedModule": {
         "id": "publisher",
         "label": "Publisher"
       },
       "why": [
-        "Ecosystem appears only as secondary context.",
+        "District foundation exists, but Representative Buildings are missing.",
         "Ecosystem readiness: Partial",
         "Commercial balance: Balanced"
       ],
@@ -341669,9 +341788,9 @@
         "adminUrl": ""
       },
       "executionPacket": {
-        "objective": "East Bay Life Science Ecosystem District Foundation",
+        "objective": "East Bay Life Science Ecosystem Representative Building Foundation",
         "reason": [
-          "Ecosystem appears only as secondary context.",
+          "District foundation exists, but Representative Buildings are missing.",
           "Ecosystem readiness: Partial",
           "Commercial balance: Balanced"
         ],
@@ -342195,7 +342314,7 @@
           "Ecosystem readiness: Partial",
           "Commercial balance: Balanced"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "_data/commercialEcosystemTaxonomy.js",
           "_data/locationKnowledgeGraph.js",
@@ -359574,7 +359693,7 @@
           "Task type: missing explainability fields",
           "Publisher severity: medium"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/CA/san-jose/north-san-jose/",
           "_data/recommendationQaStatus.js",
@@ -359693,7 +359812,7 @@
           "Task type: missing explainability fields",
           "Publisher severity: medium"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/CA/palo-alto/stanford-research-park/",
           "_data/recommendationQaStatus.js",
@@ -359812,7 +359931,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/building/CA/san-francisco/1-henry-adams-st/",
           "_data/buildingPages.js",
@@ -359932,7 +360051,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/building/CA/san-francisco/1-warriors-way/",
           "_data/buildingPages.js",
@@ -360052,7 +360171,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/building/CA/san-francisco/100-pine-st/",
           "_data/buildingPages.js",
@@ -360172,7 +360291,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/building/CA/san-francisco/1000-16th-st/",
           "_data/buildingPages.js",
@@ -360292,7 +360411,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/building/CA/san-francisco/1000-brannan-st/",
           "_data/buildingPages.js",
@@ -360412,7 +360531,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/building/CA/san-francisco/1000-sansome-st/",
           "_data/buildingPages.js",
@@ -360532,7 +360651,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/building/CA/san-francisco/101-henry-adams-st/",
           "_data/buildingPages.js",
@@ -360652,7 +360771,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/building/CA/palo-alto/101-lytton-ave/",
           "_data/buildingPages.js",
@@ -360772,7 +360891,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/building/CA/san-francisco/121-spear-st/",
           "_data/buildingPages.js",
@@ -360892,7 +361011,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/building/CA/san-francisco/140-new-montgomery-st/",
           "_data/buildingPages.js",
@@ -361012,7 +361131,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/building/CA/san-francisco/144-2nd-st/",
           "_data/buildingPages.js",
@@ -361132,7 +361251,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/building/CA/san-francisco/1455-17th-st/",
           "_data/buildingPages.js",
@@ -361252,7 +361371,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/building/CA/san-francisco/1455-3rd-st/",
           "_data/buildingPages.js",
@@ -361372,7 +361491,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/building/CA/san-francisco/150-hooper-st/",
           "_data/buildingPages.js",
@@ -361492,7 +361611,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/building/CA/san-francisco/1500-owens-st/",
           "_data/buildingPages.js",
@@ -361612,7 +361731,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/building/CA/san-francisco/151-union-st/",
           "_data/buildingPages.js",
@@ -361732,7 +361851,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/building/CA/san-francisco/1700-17th-st/",
           "_data/buildingPages.js",
@@ -361852,7 +361971,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/building/CA/san-francisco/1700-owens-st/",
           "_data/buildingPages.js",
@@ -361972,7 +362091,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/building/CA/san-francisco/1800-mission-st/",
           "_data/buildingPages.js",
@@ -362092,7 +362211,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/building/CA/san-francisco/1825-4th-st/",
           "_data/buildingPages.js",
@@ -362212,7 +362331,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/building/CA/san-francisco/1840-17th-st/",
           "_data/buildingPages.js",
@@ -362332,7 +362451,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/building/CA/san-francisco/185-berry-st/",
           "_data/buildingPages.js",
@@ -362452,7 +362571,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/building/CA/san-francisco/1850-bryant-st/",
           "_data/buildingPages.js",
@@ -362572,7 +362691,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/building/CA/san-francisco/188-spear-st/",
           "_data/buildingPages.js",
@@ -362692,7 +362811,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/building/CA/san-francisco/1880-mission-st/",
           "_data/buildingPages.js",
@@ -362812,7 +362931,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/building/CA/san-francisco/2-embarcadero-ctr/",
           "_data/buildingPages.js",
@@ -362932,7 +363051,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/building/CA/san-francisco/2-henry-adams-st/",
           "_data/buildingPages.js",
@@ -363052,7 +363171,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/building/CA/san-francisco/2-kansas-st/",
           "_data/buildingPages.js",
@@ -363172,7 +363291,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/building/CA/palo-alto/200-hamilton-ave/",
           "_data/buildingPages.js",
@@ -363292,7 +363411,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/building/CA/san-francisco/201-spear-st/",
           "_data/buildingPages.js",
@@ -363412,7 +363531,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
           "_data/buildingPages.js",
@@ -363532,7 +363651,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
           "_data/buildingPages.js",
@@ -363652,7 +363771,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/building/CA/san-francisco/2400-16th-st/",
           "_data/buildingPages.js",
@@ -363772,7 +363891,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/building/CA/san-francisco/2601-mission-st/",
           "_data/buildingPages.js",
@@ -363892,7 +364011,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/building/CA/san-francisco/2741-16th-st/",
           "_data/buildingPages.js",
@@ -364012,7 +364131,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/building/CA/san-francisco/2900-18th-st/",
           "_data/buildingPages.js",
@@ -364132,7 +364251,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/building/CA/san-francisco/300-clay-st/",
           "_data/buildingPages.js",
@@ -364252,7 +364371,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/building/CA/san-francisco/300-de-haro-st/",
           "_data/buildingPages.js",
@@ -364372,7 +364491,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/building/CA/san-francisco/301-brannan-st/",
           "_data/buildingPages.js",
@@ -364492,7 +364611,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/building/CA/san-francisco/303-2nd-st/",
           "_data/buildingPages.js",
@@ -364612,7 +364731,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/building/CA/san-francisco/3150-18th-st/",
           "_data/buildingPages.js",
@@ -364732,7 +364851,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/building/CA/san-francisco/345-spear-st/",
           "_data/buildingPages.js",
@@ -364852,7 +364971,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/building/CA/san-francisco/350-rhode-island-st/",
           "_data/buildingPages.js",
@@ -364972,7 +365091,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/building/CA/san-francisco/409-illinois-st/",
           "_data/buildingPages.js",
@@ -365092,7 +365211,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/building/CA/san-francisco/410-townsend-st/",
           "_data/buildingPages.js",
@@ -365212,7 +365331,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/building/CA/san-francisco/414-brannan-st/",
           "_data/buildingPages.js",
@@ -365332,7 +365451,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/building/CA/san-francisco/425-1st-st/",
           "_data/buildingPages.js",
@@ -365452,7 +365571,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/building/CA/san-francisco/425-market-st/",
           "_data/buildingPages.js",
@@ -365572,7 +365691,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/building/CA/san-francisco/44-montgomery-st/",
           "_data/buildingPages.js",
@@ -365692,7 +365811,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/building/CA/san-francisco/455-mission-bay-blvd-s/",
           "_data/buildingPages.js",
@@ -365812,7 +365931,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/building/CA/san-francisco/460-townsend-st/",
           "_data/buildingPages.js",
@@ -365932,7 +366051,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/building/CA/san-francisco/499-illinois-st/",
           "_data/buildingPages.js",
@@ -366052,7 +366171,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/building/CA/san-francisco/50-california-st/",
           "_data/buildingPages.js",
@@ -366172,7 +366291,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/building/CA/san-francisco/500-de-haro-st/",
           "_data/buildingPages.js",
@@ -366292,7 +366411,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/building/CA/palo-alto/525-university-ave/",
           "_data/buildingPages.js",
@@ -366412,7 +366531,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/building/CA/san-francisco/550-15th-st/",
           "_data/buildingPages.js",
@@ -366532,7 +366651,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/building/CA/san-francisco/555-de-haro-st/",
           "_data/buildingPages.js",
@@ -366652,7 +366771,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/building/CA/san-francisco/600-16th-st/",
           "_data/buildingPages.js",
@@ -366772,7 +366891,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/building/CA/san-francisco/601-townsend-st/",
           "_data/buildingPages.js",
@@ -366892,7 +367011,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/building/CA/san-francisco/650-california-st/",
           "_data/buildingPages.js",
@@ -367012,7 +367131,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/building/CA/san-francisco/699-8th-st/",
           "_data/buildingPages.js",
@@ -367132,7 +367251,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/building/CA/san-francisco/75-broadway/",
           "_data/buildingPages.js",
@@ -367252,7 +367371,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/building/CA/san-francisco/795-folsom-st/",
           "_data/buildingPages.js",
@@ -367372,7 +367491,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/building/CA/san-francisco/808-brannan-st/",
           "_data/buildingPages.js",
@@ -367492,7 +367611,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/building/CA/san-francisco/88-spear-st/",
           "_data/buildingPages.js",
@@ -367612,7 +367731,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/building/CA/san-francisco/901-battery-st/",
           "_data/buildingPages.js",
@@ -367732,7 +367851,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/building/CA/san-francisco/909-harrison-st/",
           "_data/buildingPages.js",
@@ -367852,7 +367971,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/building/CA/san-francisco/924-sansome-st/",
           "_data/buildingPages.js",
@@ -367972,7 +368091,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/building/CA/san-francisco/930-montgomery-st/",
           "_data/buildingPages.js",
@@ -368092,7 +368211,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/building/CA/san-francisco/99-rhode-island-st/",
           "_data/buildingPages.js",
@@ -368212,7 +368331,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/building/CA/san-francisco/999-brannan-st/",
           "_data/buildingPages.js",
@@ -368332,7 +368451,7 @@
           "Task type: district missing representative buildings",
           "Publisher severity: medium"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/CA/redwood-city/downtown-redwood-city/",
           "_data/recommendationRepresentativeBuildings.js",
@@ -368447,7 +368566,7 @@
           "Task type: district missing representative buildings",
           "Publisher severity: medium"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/CA/san-mateo/downtown-san-mateo/",
           "_data/recommendationRepresentativeBuildings.js",
@@ -368562,7 +368681,7 @@
           "Task type: district missing representative buildings",
           "Publisher severity: medium"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/CA/mountain-view/north-bayshore/",
           "_data/recommendationRepresentativeBuildings.js",
@@ -368677,7 +368796,7 @@
           "Task type: district missing representative buildings",
           "Publisher severity: medium"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/CA/san-jose/north-san-jose/",
           "_data/recommendationRepresentativeBuildings.js",
@@ -368792,7 +368911,7 @@
           "Task type: district missing representative buildings",
           "Publisher severity: medium"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/CA/palo-alto/stanford-research-park/",
           "_data/recommendationRepresentativeBuildings.js",
@@ -374897,7 +375016,7 @@
           "Task type: missing decision positioning",
           "Publisher severity: low"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/CA/san-jose/north-san-jose/",
           "_data/locationKnowledgeGraph.js",
@@ -375016,7 +375135,7 @@
           "Task type: missing decision positioning",
           "Publisher severity: low"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/CA/palo-alto/stanford-research-park/",
           "_data/locationKnowledgeGraph.js",
@@ -375135,7 +375254,7 @@
           "Task type: Building Brief style guide issue",
           "Publisher severity: low"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/building/CA/san-francisco/700-indiana-st/",
           "data/generated/publisher-analysis.json",
@@ -375252,7 +375371,7 @@
           "Task type: Building Brief style guide issue",
           "Publisher severity: low"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/building/CA/san-francisco/900-minnesota-st/",
           "data/generated/publisher-analysis.json",
@@ -375369,7 +375488,7 @@
           "Task type: one-way comparison",
           "Publisher severity: low"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/CA/san-francisco/design-district/",
           "_data/locationKnowledgeGraph.js",
@@ -375489,7 +375608,7 @@
           "Task type: one-way comparison",
           "Publisher severity: low"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/CA/san-francisco/design-district/",
           "_data/locationKnowledgeGraph.js",
@@ -375609,7 +375728,7 @@
           "Task type: one-way comparison",
           "Publisher severity: low"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/CA/san-francisco/dogpatch/",
           "_data/locationKnowledgeGraph.js",
@@ -375729,7 +375848,7 @@
           "Task type: one-way comparison",
           "Publisher severity: low"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/CA/san-francisco/dogpatch/",
           "_data/locationKnowledgeGraph.js",
@@ -375849,7 +375968,7 @@
           "Task type: one-way comparison",
           "Publisher severity: low"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/CA/palo-alto/downtown-palo-alto/",
           "_data/locationKnowledgeGraph.js",
@@ -375969,7 +376088,7 @@
           "Task type: one-way comparison",
           "Publisher severity: low"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/CA/redwood-city/downtown-redwood-city/",
           "_data/locationKnowledgeGraph.js",
@@ -376089,7 +376208,7 @@
           "Task type: one-way comparison",
           "Publisher severity: low"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/CA/san-mateo/downtown-san-mateo/",
           "_data/locationKnowledgeGraph.js",
@@ -376209,7 +376328,7 @@
           "Task type: one-way comparison",
           "Publisher severity: low"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/CA/hayward/hayward-industrial/",
           "_data/locationKnowledgeGraph.js",
@@ -376329,7 +376448,7 @@
           "Task type: one-way comparison",
           "Publisher severity: low"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/CA/san-francisco/jackson-square/",
           "_data/locationKnowledgeGraph.js",
@@ -376449,7 +376568,7 @@
           "Task type: one-way comparison",
           "Publisher severity: low"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/CA/san-francisco/mission-bay/",
           "_data/locationKnowledgeGraph.js",
@@ -376569,7 +376688,7 @@
           "Task type: one-way comparison",
           "Publisher severity: low"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/CA/san-francisco/mission-district/",
           "_data/locationKnowledgeGraph.js",
@@ -376689,7 +376808,7 @@
           "Task type: one-way comparison",
           "Publisher severity: low"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/CA/san-francisco/mission-district/",
           "_data/locationKnowledgeGraph.js",
@@ -376809,7 +376928,7 @@
           "Task type: one-way comparison",
           "Publisher severity: low"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/CA/san-francisco/mission-district/",
           "_data/locationKnowledgeGraph.js",
@@ -376929,7 +377048,7 @@
           "Task type: one-way comparison",
           "Publisher severity: low"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/CA/oakland/oakland-medical-campuses/",
           "_data/locationKnowledgeGraph.js",
@@ -377049,7 +377168,7 @@
           "Task type: one-way comparison",
           "Publisher severity: low"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/CA/oakland/oakland-medical-campuses/",
           "_data/locationKnowledgeGraph.js",
@@ -377169,7 +377288,7 @@
           "Task type: one-way comparison",
           "Publisher severity: low"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/CA/oakland/oakland-medical-campuses/",
           "_data/locationKnowledgeGraph.js",
@@ -377289,7 +377408,7 @@
           "Task type: one-way comparison",
           "Publisher severity: low"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/CA/san-francisco/potrero-hill/",
           "_data/locationKnowledgeGraph.js",
@@ -377409,7 +377528,7 @@
           "Task type: one-way comparison",
           "Publisher severity: low"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/CA/san-francisco/showplace-square/",
           "_data/locationKnowledgeGraph.js",
@@ -377529,7 +377648,7 @@
           "Task type: one-way comparison",
           "Publisher severity: low"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/CA/san-francisco/south-beach/",
           "_data/locationKnowledgeGraph.js",
@@ -377649,7 +377768,7 @@
           "Task type: one-way comparison",
           "Publisher severity: low"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/CA/san-francisco/south-beach/",
           "_data/locationKnowledgeGraph.js",
@@ -377769,7 +377888,7 @@
           "Task type: one-way comparison",
           "Publisher severity: low"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/CA/san-francisco/south-beach/",
           "_data/locationKnowledgeGraph.js",
@@ -377889,7 +378008,7 @@
           "Task type: one-way comparison",
           "Publisher severity: low"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/CA/palo-alto/stanford-research-park/",
           "_data/locationKnowledgeGraph.js",
@@ -378009,7 +378128,7 @@
           "Task type: one-way comparison",
           "Publisher severity: low"
         ],
-        "currentHealth": "79% Improving",
+        "currentHealth": "80% Improving",
         "files": [
           "/commercial-real-estate/CA/fremont/warm-springs-innovation-district/",
           "_data/locationKnowledgeGraph.js",

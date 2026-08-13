@@ -1429,13 +1429,13 @@ Object.entries(industrialQuestionPrompts).forEach(([slug, questionsToValidate]) 
       { slug: "jack-london-square", label: "Jack London Square", reason: "More waterfront and downtown Oakland customer/client context.", relationshipType: "more_creative" },
     ] },
     commercialEcosystem: {
-      primary: "office",
-      secondary: ["industrial_flex", "life_science"],
+      primary: "life_science",
+      secondary: ["office", "industrial_flex"],
       subtypes: ["suburban_office", "office_campus", "professional_office", "flex", "research_development", "life_science_office", "innovation_campus"],
       activities: ["knowledge_work", "collaboration", "administrative_operations", "research", "product_development"],
       archetypes: ["professional_office", "consulting_firm", "startup", "research_company", "biotech_company"],
       confidence: "high",
-      reviewNotes: ["Life Science is a secondary district expression based on existing Emeryville office, R&D-support, and life-science-support evidence; specialized lab suitability remains building-specific."],
+      reviewNotes: ["Life Science is the primary district expression based on existing Emeryville R&D-support and life-science-support evidence plus the strong Commercial Market Discovery cluster finding; specialized lab suitability remains building-specific."],
     },
   },
   {
