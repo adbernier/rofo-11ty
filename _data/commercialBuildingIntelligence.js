@@ -6,6 +6,7 @@ const auroraMedicalBuildingBriefs = require("./auroraMedicalBuildingBriefs.js");
 const broomfieldOfficeBuildingBriefs = require("./broomfieldOfficeBuildingBriefs.js");
 const downtownBerkeleyOfficeRetailBuildingBriefs = require("./downtownBerkeleyOfficeRetailBuildingBriefs.js");
 const eastBayMedicalBuildingBriefs = require("./eastBayMedicalBuildingBriefs.js");
+const eastBayLifeScienceBuildingBriefs = require("./eastBayLifeScienceBuildingBriefs.js");
 const invernessOfficeBuildingBriefs = require("./invernessOfficeBuildingBriefs.js");
 const indianapolisTempeIndustrialFlexBuildingBriefs = require("./indianapolisTempeIndustrialFlexBuildingBriefs.js");
 const jackLondonSquareOfficeRetailBuildingBriefs = require("./jackLondonSquareOfficeRetailBuildingBriefs.js");
@@ -594,6 +595,7 @@ const canonicalBuildings = [
   .concat(broomfieldOfficeBuildingBriefs.canonicalBuildings || [])
   .concat(downtownBerkeleyOfficeRetailBuildingBriefs.canonicalBuildings || [])
   .concat(eastBayMedicalBuildingBriefs.canonicalBuildings || [])
+  .concat(eastBayLifeScienceBuildingBriefs.canonicalBuildings || [])
   .concat(invernessOfficeBuildingBriefs.canonicalBuildings || [])
   .concat(indianapolisTempeIndustrialFlexBuildingBriefs.canonicalBuildings || [])
   .concat(jackLondonSquareOfficeRetailBuildingBriefs.canonicalBuildings || [])

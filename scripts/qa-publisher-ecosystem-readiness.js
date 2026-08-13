@@ -173,6 +173,16 @@ if (eastBay) {
   requireField(!((lifeScience && lifeScience.gaps) || []).includes("Representative Building coverage is missing for this ecosystem."), "East Bay: completed life-science Representative Building foundation should not remain open.");
   requireField(!((lifeScience && lifeScience.gaps) || []).includes("Representative Building operational coverage is thin."), "East Bay: completed life-science Representative Building intelligence should not remain thin.");
   requireField(!((eastBayPlan && eastBayPlan.recommendedEcosystemSprint || {}).title || "").includes("Life Science Ecosystem Representative Building Foundation"), "East Bay: completed Life Science Representative Building Foundation should not remain recommended.");
+  requireField(lifeScience && lifeScience.counts && lifeScience.counts.buildingBriefs >= 1, `East Bay: life science Building Brief depth should be credited, got ${lifeScience && lifeScience.counts && lifeScience.counts.buildingBriefs}`);
+  requireField(lifeScience && lifeScience.layers && ["strong", "developed"].includes(lifeScience.layers.buildingBriefs), `East Bay: life science Building Brief layer should be strong or developed, got ${lifeScience && lifeScience.layers && lifeScience.layers.buildingBriefs}`);
+  requireField(!((lifeScience && lifeScience.gaps) || []).includes("Building Brief coverage is missing for this ecosystem."), "East Bay: completed life-science Building Brief migration should not remain open.");
+  requireField(!((eastBayPlan && eastBayPlan.recommendedEcosystemSprint || {}).title || "").includes("Life Science Ecosystem Building Brief Migration"), "East Bay: completed Life Science Building Brief Migration should not remain recommended.");
+  for (const path of [
+    "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
+    "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
+  ]) {
+    requireField(!((eastBay.queue || []).some((item) => item.code === "missing-brief" && item.sourceId === path)), `East Bay: completed Powell Street Building Brief should not remain queued: ${path}`);
+  }
   requireField(!((eastBayPlan && eastBayPlan.recommendedEcosystemSprint || {}).title || "").includes("Life Science Ecosystem Subtype Expansion"), "East Bay: completed Life Science subtype sprint should not remain recommended.");
   requireField(retail && retail.counts && retail.counts.representativeBuildings >= 2, `East Bay: retail Representative Building foundation should be credited, got ${retail && retail.counts && retail.counts.representativeBuildings}`);
   requireField(retail && retail.layers && ["strong", "developed"].includes(retail.layers.representativeBuildings), `East Bay: retail Representative Building layer should be strong or developed, got ${retail && retail.layers && retail.layers.representativeBuildings}`);

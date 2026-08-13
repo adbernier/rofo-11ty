@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-13T07:46:28-07:00",
+  "generatedAt": "2026-08-13T08:22:17-07:00",
   "rulesVersion": "publisher-rules-v1",
   "plannerVersion": "publisher-expansion-planner-v1",
   "defaultMode": "balanced",
@@ -55,14 +55,14 @@
     {
       "metroId": "san-francisco",
       "metroName": "San Francisco",
-      "generatedAt": "2026-08-13T07:46:28-07:00",
+      "generatedAt": "2026-08-13T08:22:17-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 96,
         "recommendationScore": 97,
         "editorialScore": 91,
         "publishingScore": 100,
-        "buildingScore": 55,
+        "buildingScore": 56,
         "comparisonScore": 100,
         "insightScore": 98,
         "geographicReadiness": "developed",
@@ -90,8 +90,8 @@
           "score": 74
         },
         "buildingBriefs": {
-          "count": 87,
-          "score": 55
+          "count": 89,
+          "score": 56
         },
         "insights": {
           "score": 98,
@@ -120,7 +120,7 @@
             "secondaryDistrictCount": 16,
             "recommendationNodeCount": 6,
             "representativeBuildingCount": 77,
-            "buildingBriefCount": 36,
+            "buildingBriefCount": 37,
             "status": "Developed",
             "districts": [
               {
@@ -875,7 +875,7 @@
             "secondaryDistrictCount": 4,
             "recommendationNodeCount": 2,
             "representativeBuildingCount": 15,
-            "buildingBriefCount": 5,
+            "buildingBriefCount": 6,
             "status": "Developed",
             "districts": [
               {
@@ -1279,7 +1279,7 @@
               "secondaryDistricts": 16,
               "recommendations": 6,
               "representativeBuildings": 77,
-              "buildingBriefs": 36,
+              "buildingBriefs": 37,
               "subtypes": 7,
               "archetypes": 14,
               "activities": 8,
@@ -1295,7 +1295,7 @@
             "strategicPriority": 2,
             "evidence": [
               "6 primary districts and 16 secondary districts.",
-              "77 Representative Buildings and 36 Building Briefs.",
+              "77 Representative Buildings and 37 Building Briefs.",
               "7 representative roles and 5 operational categories are covered."
             ],
             "targetSubtypes": [
@@ -2003,7 +2003,7 @@
               "secondaryDistricts": 4,
               "recommendations": 2,
               "representativeBuildings": 15,
-              "buildingBriefs": 5,
+              "buildingBriefs": 6,
               "subtypes": 7,
               "archetypes": 5,
               "activities": 5,
@@ -2019,7 +2019,7 @@
             "strategicPriority": 4,
             "evidence": [
               "2 primary districts and 4 secondary districts.",
-              "15 Representative Buildings and 5 Building Briefs.",
+              "15 Representative Buildings and 6 Building Briefs.",
               "3 representative roles and 5 operational categories are covered."
             ],
             "targetSubtypes": [
@@ -2493,7 +2493,7 @@
           "label": "Balanced",
           "dominantEcosystem": "industrial_flex",
           "representativeBuildingShare": 0.49,
-          "buildingBriefShare": 0.49,
+          "buildingBriefShare": 0.48,
           "warnings": []
         }
       },
@@ -2502,7 +2502,7 @@
         "label": "Balanced",
         "dominantEcosystem": "industrial_flex",
         "representativeBuildingShare": 0.49,
-        "buildingBriefShare": 0.49,
+        "buildingBriefShare": 0.48,
         "warnings": []
       },
       "ecosystemGaps": [
@@ -4214,104 +4214,6 @@
           "itemName": "201 Spear St",
           "sourceId": "/commercial-real-estate/building/CA/san-francisco/201-spear-st/",
           "publicUrl": "/commercial-real-estate/building/CA/san-francisco/201-spear-st/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "2100 Powell St",
-          "sourceId": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
-          "publicUrl": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "2200 Powell St",
-          "sourceId": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
-          "publicUrl": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
           "adminUrl": "",
           "severity": "medium",
           "description": "Representative building has not migrated to the Building Brief journey.",
@@ -9282,104 +9184,6 @@
           "itemName": "201 Spear St",
           "sourceId": "/commercial-real-estate/building/CA/san-francisco/201-spear-st/",
           "publicUrl": "/commercial-real-estate/building/CA/san-francisco/201-spear-st/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "2100 Powell St",
-          "sourceId": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
-          "publicUrl": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "2200 Powell St",
-          "sourceId": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
-          "publicUrl": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
           "adminUrl": "",
           "severity": "medium",
           "description": "Representative building has not migrated to the Building Brief journey.",
@@ -12919,7 +12723,7 @@
         "modeLabel": "Balanced Expansion",
         "title": "San Francisco Building Brief Migration Sprint",
         "objective": "Improve San Francisco expansion readiness by completing the highest-value Building Briefs, District Coverage, Representative Buildings work without creating unsupported content.",
-        "rationale": "Selected from 105 deterministic Publisher gaps using balanced expansion weighting.",
+        "rationale": "Selected from 103 deterministic Publisher gaps using balanced expansion weighting.",
         "tasks": [
           {
             "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-1-henry-adams-st",
@@ -13243,7 +13047,7 @@
           "modeLabel": "Balanced Expansion",
           "title": "San Francisco Building Brief Migration Sprint",
           "objective": "Improve San Francisco expansion readiness by completing the highest-value Building Briefs, District Coverage, Representative Buildings work without creating unsupported content.",
-          "rationale": "Selected from 105 deterministic Publisher gaps using balanced expansion weighting.",
+          "rationale": "Selected from 103 deterministic Publisher gaps using balanced expansion weighting.",
           "tasks": [
             {
               "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-1-henry-adams-st",
@@ -13566,7 +13370,7 @@
           "modeLabel": "Recommendation Readiness",
           "title": "San Francisco Recommendation Readiness Sprint",
           "objective": "Improve San Francisco expansion readiness by completing the highest-value Recommendation Readiness, Comparison Graph, District Coverage work without creating unsupported content.",
-          "rationale": "Selected from 105 deterministic Publisher gaps using recommendation readiness weighting.",
+          "rationale": "Selected from 103 deterministic Publisher gaps using recommendation readiness weighting.",
           "tasks": [
             {
               "id": "gap:san-francisco:recommendationReadiness:missing explainability fields:north-san-jose",
@@ -13872,7 +13676,7 @@
           "modeLabel": "Editorial Depth",
           "title": "San Francisco District Editorial Foundation Sprint",
           "objective": "Improve San Francisco expansion readiness by completing the highest-value District Coverage, Building Briefs, Representative Buildings work without creating unsupported content.",
-          "rationale": "Selected from 105 deterministic Publisher gaps using editorial depth weighting.",
+          "rationale": "Selected from 103 deterministic Publisher gaps using editorial depth weighting.",
           "tasks": [
             {
               "id": "gap:san-francisco:districtCoverage:missing decision positioning:north-san-jose",
@@ -14197,7 +14001,7 @@
           "modeLabel": "Building Depth",
           "title": "San Francisco Representative Building Foundation Sprint",
           "objective": "Improve San Francisco expansion readiness by completing the highest-value Representative Buildings, Building Briefs work without creating unsupported content.",
-          "rationale": "Selected from 105 deterministic Publisher gaps using building depth weighting.",
+          "rationale": "Selected from 103 deterministic Publisher gaps using building depth weighting.",
           "tasks": [
             {
               "id": "gap:san-francisco:representativeBuildings:district missing representative buildings:downtown-redwood-city",
@@ -14521,14 +14325,14 @@
     {
       "metroId": "east-bay",
       "metroName": "East Bay",
-      "generatedAt": "2026-08-13T07:46:28-07:00",
+      "generatedAt": "2026-08-13T08:22:17-07:00",
       "currentState": {
         "readinessStatus": "Editorially Developed",
         "overallScore": 74,
         "recommendationScore": 76,
         "editorialScore": 93,
         "publishingScore": 82,
-        "buildingScore": 96,
+        "buildingScore": 100,
         "comparisonScore": 84,
         "insightScore": 100,
         "geographicReadiness": "strong",
@@ -14556,8 +14360,8 @@
           "score": 78
         },
         "buildingBriefs": {
-          "count": 49,
-          "score": 96
+          "count": 51,
+          "score": 100
         },
         "insights": {
           "score": 100,
@@ -14569,8 +14373,8 @@
         },
         "ecosystems": {
           "count": 7,
-          "developed": 3,
-          "partial": 4,
+          "developed": 4,
+          "partial": 3,
           "thin": 0,
           "missing": 0,
           "reviewRequired": 0,
@@ -14586,7 +14390,7 @@
             "secondaryDistrictCount": 5,
             "recommendationNodeCount": 0,
             "representativeBuildingCount": 12,
-            "buildingBriefCount": 11,
+            "buildingBriefCount": 12,
             "status": "Partial",
             "districts": [],
             "subtypes": {
@@ -15207,8 +15011,8 @@
             "secondaryDistrictCount": 1,
             "recommendationNodeCount": 1,
             "representativeBuildingCount": 1,
-            "buildingBriefCount": 0,
-            "status": "Partial",
+            "buildingBriefCount": 1,
+            "status": "Developed",
             "districts": [
               {
                 "slug": "emeryville-commercial-core",
@@ -15498,8 +15302,8 @@
         "underrepresentedEcosystems": [],
         "summary": {
           "ecosystemCount": 7,
-          "developedCount": 3,
-          "partialCount": 4,
+          "developedCount": 4,
+          "partialCount": 3,
           "thinCount": 0,
           "missingCount": 0,
           "reviewRequiredDistrictCount": 0
@@ -15564,7 +15368,7 @@
               "secondaryDistricts": 5,
               "recommendations": 0,
               "representativeBuildings": 12,
-              "buildingBriefs": 11,
+              "buildingBriefs": 12,
               "subtypes": 4,
               "archetypes": 12,
               "activities": 6,
@@ -15582,7 +15386,7 @@
             "strategicPriority": 2,
             "evidence": [
               "0 primary districts and 5 secondary districts.",
-              "12 Representative Buildings and 11 Building Briefs.",
+              "12 Representative Buildings and 12 Building Briefs.",
               "6 representative roles and 5 operational categories are covered."
             ],
             "targetSubtypes": [
@@ -16226,7 +16030,7 @@
               "districts": "strong",
               "recommendations": "strong",
               "representativeBuildings": "partial",
-              "buildingBriefs": "missing",
+              "buildingBriefs": "strong",
               "subtypes": "developed",
               "archetypes": "developed",
               "activities": "developed",
@@ -16237,7 +16041,7 @@
               "secondaryDistricts": 1,
               "recommendations": 1,
               "representativeBuildings": 1,
-              "buildingBriefs": 0,
+              "buildingBriefs": 1,
               "subtypes": 7,
               "archetypes": 5,
               "activities": 5,
@@ -16247,15 +16051,13 @@
               "operationalCharacteristics": 4,
               "reviewRequiredRepresentativeBuildings": 0
             },
-            "gaps": [
-              "Building Brief coverage is missing for this ecosystem."
-            ],
+            "gaps": [],
             "blocking": false,
             "blockingCodes": [],
             "strategicPriority": 4,
             "evidence": [
               "1 primary districts and 1 secondary districts.",
-              "1 Representative Buildings and 0 Building Briefs.",
+              "1 Representative Buildings and 1 Building Briefs.",
               "1 representative roles and 4 operational categories are covered."
             ],
             "targetSubtypes": [
@@ -16542,36 +16344,10 @@
             "rationale": "Ecosystem appears only as secondary context.",
             "evidence": [
               "0 primary districts and 5 secondary districts.",
-              "12 Representative Buildings and 11 Building Briefs.",
+              "12 Representative Buildings and 12 Building Briefs.",
               "6 representative roles and 5 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem District Foundation",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:life_science:ecosystem_building_brief_gap",
-            "code": "ecosystem_building_brief_gap",
-            "label": "Ecosystem Building Brief Gap",
-            "severity": "medium",
-            "layer": "buildingBriefs",
-            "ecosystemId": "life_science",
-            "ecosystemLabel": "Life Science",
-            "relevance": "important",
-            "readinessState": "partial",
-            "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
-            "evidence": [
-              "1 primary districts and 1 secondary districts.",
-              "1 Representative Buildings and 0 Building Briefs.",
-              "1 representative roles and 4 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem Building Brief Migration",
             "completionCriteria": [
               "Validated district ecosystem classification",
               "Representative Building coverage across the most important subtypes",
@@ -16662,7 +16438,7 @@
           "label": "Balanced",
           "dominantEcosystem": "industrial_flex",
           "representativeBuildingShare": 0.69,
-          "buildingBriefShare": 0.71,
+          "buildingBriefShare": 0.69,
           "warnings": []
         }
       },
@@ -16671,36 +16447,10 @@
         "label": "Balanced",
         "dominantEcosystem": "industrial_flex",
         "representativeBuildingShare": 0.69,
-        "buildingBriefShare": 0.71,
+        "buildingBriefShare": 0.69,
         "warnings": []
       },
       "ecosystemGaps": [
-        {
-          "id": "ecosystem:life_science:ecosystem_building_brief_gap",
-          "code": "ecosystem_building_brief_gap",
-          "label": "Ecosystem Building Brief Gap",
-          "severity": "medium",
-          "layer": "buildingBriefs",
-          "ecosystemId": "life_science",
-          "ecosystemLabel": "Life Science",
-          "relevance": "important",
-          "readinessState": "partial",
-          "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
-          "evidence": [
-            "1 primary districts and 1 secondary districts.",
-            "1 Representative Buildings and 0 Building Briefs.",
-            "1 representative roles and 4 operational categories are covered."
-          ],
-          "recommendedSprintFamily": "Ecosystem Building Brief Migration",
-          "completionCriteria": [
-            "Validated district ecosystem classification",
-            "Representative Building coverage across the most important subtypes",
-            "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-            "Building Brief migration only after canonical records and district association exist",
-            "Publisher ecosystem QA passes without hard errors"
-          ],
-          "blocksEcosystemReadiness": false
-        },
         {
           "id": "ecosystem:office:ecosystem_secondary_only",
           "code": "ecosystem_secondary_only",
@@ -16714,7 +16464,7 @@
           "rationale": "Ecosystem appears only as secondary context.",
           "evidence": [
             "0 primary districts and 5 secondary districts.",
-            "12 Representative Buildings and 11 Building Briefs.",
+            "12 Representative Buildings and 12 Building Briefs.",
             "6 representative roles and 5 operational categories are covered."
           ],
           "recommendedSprintFamily": "Ecosystem District Foundation",
@@ -16804,90 +16554,123 @@
         }
       ],
       "recommendedEcosystemSprint": {
-        "title": "East Bay Life Science Ecosystem Building Brief Migration",
-        "objective": "Improve East Bay commercial balance by advancing Life Science from Partial toward stronger ecosystem readiness.",
-        "ecosystemId": "life_science",
-        "ecosystemLabel": "Life Science",
-        "relevance": "important",
-        "relevanceLabel": "Important",
+        "title": "East Bay Office Ecosystem District Foundation",
+        "objective": "Improve East Bay commercial balance by advancing Office from Partial toward stronger ecosystem readiness.",
+        "ecosystemId": "office",
+        "ecosystemLabel": "Office",
+        "relevance": "core",
+        "relevanceLabel": "Core",
         "readinessState": "partial",
         "readinessLabel": "Partial",
-        "sprintFamily": "Ecosystem Building Brief Migration",
-        "rationale": "Life Science is Important for East Bay and is currently Partial. Representative Buildings exist, but Building Brief depth is missing.",
-        "gapCode": "ecosystem_building_brief_gap",
-        "priorityScore": 75,
+        "sprintFamily": "Ecosystem District Foundation",
+        "rationale": "Office is Core for East Bay and is currently Partial. Ecosystem appears only as secondary context.",
+        "gapCode": "ecosystem_secondary_only",
+        "priorityScore": 66,
         "layers": {
-          "districts": "strong",
-          "recommendations": "strong",
-          "representativeBuildings": "partial",
-          "buildingBriefs": "missing",
+          "districts": "missing",
+          "recommendations": "missing",
+          "representativeBuildings": "developed",
+          "buildingBriefs": "developed",
           "subtypes": "developed",
           "archetypes": "developed",
           "activities": "developed",
           "editorialReview": "developed"
         },
         "counts": {
-          "districts": 1,
-          "secondaryDistricts": 1,
-          "recommendations": 1,
-          "representativeBuildings": 1,
-          "buildingBriefs": 0,
-          "subtypes": 7,
-          "archetypes": 5,
-          "activities": 5,
+          "districts": 0,
+          "secondaryDistricts": 5,
+          "recommendations": 0,
+          "representativeBuildings": 12,
+          "buildingBriefs": 12,
+          "subtypes": 4,
+          "archetypes": 12,
+          "activities": 6,
           "reviewRequiredDistricts": 0,
-          "representativeRoles": 1,
-          "operationalCategories": 4,
-          "operationalCharacteristics": 4,
+          "representativeRoles": 6,
+          "operationalCategories": 5,
+          "operationalCharacteristics": 15,
           "reviewRequiredRepresentativeBuildings": 0
         },
         "gaps": [
-          "Building Brief coverage is missing for this ecosystem."
+          "Ecosystem appears only as a secondary district expression."
         ],
         "targetSubtypes": [
-          "research_lab",
-          "wet_lab",
-          "life_science_office",
-          "biotech_research",
-          "innovation_campus"
+          "downtown_office",
+          "professional_office",
+          "creative_office",
+          "executive_office",
+          "suburban_office"
         ],
         "targetArchetypes": [
-          "research_company",
-          "biotech_company",
-          "startup"
+          "professional_office",
+          "law_firm",
+          "accounting_firm",
+          "financial_services_firm",
+          "consulting_firm",
+          "marketing_agency"
         ],
         "targetActivities": [
-          "research",
-          "product_development",
+          "knowledge_work",
+          "client_meetings",
           "collaboration",
           "administrative_operations"
         ],
         "missingRepresentativeRoles": [],
         "missingOperationalCategories": [],
         "currentRepresentativeRoles": [
-          "life_science_campus"
+          "suburban_office_campus",
+          "transit_oriented_office_environment",
+          "professional_office_environment",
+          "downtown_class_a_office",
+          "government_office_environment",
+          "creative_office_environment"
         ],
         "currentOperationalCategories": [
           "market_presence",
+          "parking_vehicles",
           "location_workforce",
-          "outdoor_special_use",
+          "configuration",
           "infrastructure"
         ],
         "existingRepresentativeBuildings": [
           {
-            "name": "2200 Powell St",
-            "path": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
-            "role": "life_science_campus",
+            "name": "2100 Powell St",
+            "path": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
+            "role": "suburban_office_campus",
             "confidence": "editorially_supported"
-          }
-        ],
-        "districtCandidates": [
+          },
           {
-            "slug": "emeryville-commercial-core",
-            "label": "Emeryville Commercial Core",
-            "path": "/commercial-real-estate/CA/emeryville/emeryville-commercial-core/"
+            "name": "2140 Shattuck Ave",
+            "path": "/commercial-real-estate/building/CA/berkeley/2140-shattuck-ave/",
+            "role": "transit_oriented_office_environment",
+            "confidence": "editorially_supported"
+          },
+          {
+            "name": "2150 Shattuck Ave",
+            "path": "/commercial-real-estate/building/CA/berkeley/2150-shattuck-ave/",
+            "role": "transit_oriented_office_environment",
+            "confidence": "editorially_supported"
+          },
+          {
+            "name": "2030 Addison St",
+            "path": "/commercial-real-estate/building/CA/berkeley/2030-addison-st/",
+            "role": "professional_office_environment",
+            "confidence": "district_inferred"
+          },
+          {
+            "name": "2040 Bancroft Way",
+            "path": "/commercial-real-estate/building/CA/berkeley/2040-bancroft-way/",
+            "role": "downtown_class_a_office",
+            "confidence": "district_inferred"
+          },
+          {
+            "name": "2070 Allston Way",
+            "path": "/commercial-real-estate/building/CA/berkeley/2070-allston-way/",
+            "role": "downtown_class_a_office",
+            "confidence": "district_inferred"
           }
         ],
+        "districtCandidates": [],
         "expectedBuildingRange": "use Publisher task scope",
         "dependencies": [
           "Ecosystem classification",
@@ -16907,11 +16690,8 @@
           "Representative Building intelligence QA passes"
         ],
         "blockingEcosystemReadiness": false,
-        "alternativeSprint": {
-          "title": "East Bay Office Building Brief Migration",
-          "whyNotFirst": "Office work remains useful, but the target ecosystem has a higher strategic gap based on current readiness."
-        },
-        "codexPrompt": "Implement Publisher ecosystem sprint for East Bay: East Bay Life Science Ecosystem Building Brief Migration\n\nFramework:\n- Businesses search for places where their operations can succeed, not for property types.\n- Use the Commercial Ecosystem Framework and canonical taxonomy.\n- Do not change recommendation rankings, Search Profile questions, or public page design.\n\nTarget ecosystem: Life Science (life_science)\nMetro relevance: Important\nCurrent readiness: Partial\nSprint family: Ecosystem Building Brief Migration\n\nCurrent layer coverage:\n- districts: strong\n- recommendations: strong\n- representativeBuildings: partial\n- buildingBriefs: missing\n- subtypes: developed\n- archetypes: developed\n- activities: developed\n- editorialReview: developed\n\nKnown gaps:\n- Building Brief coverage is missing for this ecosystem.\n\nTarget subtypes:\n- research_lab, wet_lab, life_science_office, biotech_research, innovation_campus\nTarget archetypes:\n- research_company, biotech_company, startup\nTarget business activities:\n- research, product_development, collaboration, administrative_operations\nMissing representative roles:\n- none identified\nMissing operational categories:\n- none identified\nExisting representative buildings:\n- 2200 Powell St (life_science_campus)\nDistrict candidates:\n- Emeryville Commercial Core\n\nDependencies:\n- Ecosystem classification\n- District foundation\n- Recommendation foundation\n- Representative Building foundation\n- Building Brief migration after canonical records exist\n\nCompletion criteria:\n- Validated district ecosystem classification\n- Representative Building coverage across the most important subtypes\n- Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus\n- Building Brief migration only after canonical records and district association exist\n- Publisher ecosystem QA passes without hard errors\n- Every target representative role has at least one source-supported building or is explicitly marked research required\n- Target operational categories are represented without asserting unverified property features\n- Representative Building intelligence QA passes\n\nGuardrails:\n- Do not invent districts, buildings, tenants, availability, rents, or unsupported facts.\n- Do not deepen office-only coverage when the target ecosystem is different.\n- Do not treat taxonomy compatibility as proof that a property has a feature.\n- Validate loading, power, parking, yards, lab, food, medical, and permitted-use claims before authoring them as facts.\n- Do not recommend Building Brief migration before canonical representative buildings exist.\n- Regenerate Publisher snapshots and run ecosystem readiness QA.\n\nVerification:\n- npm run publisher:snapshot\n- npm run publisher:report\n- npm run build\n- node scripts/qa-commercial-ecosystem-foundation.js\n- node scripts/qa-publisher-ecosystem-readiness.js\n- node scripts/qa-representative-building-intelligence.js"
+        "alternativeSprint": null,
+        "codexPrompt": "Implement Publisher ecosystem sprint for East Bay: East Bay Office Ecosystem District Foundation\n\nFramework:\n- Businesses search for places where their operations can succeed, not for property types.\n- Use the Commercial Ecosystem Framework and canonical taxonomy.\n- Do not change recommendation rankings, Search Profile questions, or public page design.\n\nTarget ecosystem: Office (office)\nMetro relevance: Core\nCurrent readiness: Partial\nSprint family: Ecosystem District Foundation\n\nCurrent layer coverage:\n- districts: missing\n- recommendations: missing\n- representativeBuildings: developed\n- buildingBriefs: developed\n- subtypes: developed\n- archetypes: developed\n- activities: developed\n- editorialReview: developed\n\nKnown gaps:\n- Ecosystem appears only as a secondary district expression.\n\nTarget subtypes:\n- downtown_office, professional_office, creative_office, executive_office, suburban_office\nTarget archetypes:\n- professional_office, law_firm, accounting_firm, financial_services_firm, consulting_firm, marketing_agency\nTarget business activities:\n- knowledge_work, client_meetings, collaboration, administrative_operations\nMissing representative roles:\n- none identified\nMissing operational categories:\n- none identified\nExisting representative buildings:\n- 2100 Powell St (suburban_office_campus); 2140 Shattuck Ave (transit_oriented_office_environment); 2150 Shattuck Ave (transit_oriented_office_environment); 2030 Addison St (professional_office_environment); 2040 Bancroft Way (downtown_class_a_office); 2070 Allston Way (downtown_class_a_office)\nDistrict candidates:\n- review required\n\nDependencies:\n- Ecosystem classification\n- District foundation\n- Recommendation foundation\n- Representative Building foundation\n- Building Brief migration after canonical records exist\n\nCompletion criteria:\n- Validated district ecosystem classification\n- Representative Building coverage across the most important subtypes\n- Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus\n- Building Brief migration only after canonical records and district association exist\n- Publisher ecosystem QA passes without hard errors\n- Every target representative role has at least one source-supported building or is explicitly marked research required\n- Target operational categories are represented without asserting unverified property features\n- Representative Building intelligence QA passes\n\nGuardrails:\n- Do not invent districts, buildings, tenants, availability, rents, or unsupported facts.\n- Do not deepen office-only coverage when the target ecosystem is different.\n- Do not treat taxonomy compatibility as proof that a property has a feature.\n- Validate loading, power, parking, yards, lab, food, medical, and permitted-use claims before authoring them as facts.\n- Do not recommend Building Brief migration before canonical representative buildings exist.\n- Regenerate Publisher snapshots and run ecosystem readiness QA.\n\nVerification:\n- npm run publisher:snapshot\n- npm run publisher:report\n- npm run build\n- node scripts/qa-commercial-ecosystem-foundation.js\n- node scripts/qa-publisher-ecosystem-readiness.js\n- node scripts/qa-representative-building-intelligence.js"
       },
       "gaps": [
         {
@@ -17005,104 +16785,6 @@
             "recommendation": 84,
             "editorial": 78,
             "building": 86
-          }
-        },
-        {
-          "id": "gap:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
-          "metroId": "east-bay",
-          "metroName": "East Bay",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "2100 Powell St",
-          "sourceId": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
-          "publicUrl": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
-          "id": "gap:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st",
-          "metroId": "east-bay",
-          "metroName": "East Bay",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "2200 Powell St",
-          "sourceId": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
-          "publicUrl": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
           }
         },
         {
@@ -17390,104 +17072,6 @@
         }
       ],
       "priorities": [
-        {
-          "id": "gap:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
-          "metroId": "east-bay",
-          "metroName": "East Bay",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "2100 Powell St",
-          "sourceId": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
-          "publicUrl": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
-          "id": "gap:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st",
-          "metroId": "east-bay",
-          "metroName": "East Bay",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "2200 Powell St",
-          "sourceId": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
-          "publicUrl": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
         {
           "id": "gap:east-bay:comparisonGraph:orphan district comparison:antioch-east-18th-industrial",
           "metroId": "east-bay",
@@ -17868,44 +17452,10 @@
       "recommendedSprint": {
         "mode": "balanced",
         "modeLabel": "Balanced Expansion",
-        "title": "East Bay Building Brief Migration Sprint",
-        "objective": "Improve East Bay expansion readiness by completing the highest-value Building Briefs, Comparison Graph, Recommendation Readiness work without creating unsupported content.",
-        "rationale": "Selected from 10 deterministic Publisher gaps using balanced expansion weighting.",
+        "title": "East Bay District Comparison Sprint",
+        "objective": "Improve East Bay expansion readiness by completing the highest-value Comparison Graph, Recommendation Readiness, Representative Buildings work without creating unsupported content.",
+        "rationale": "Selected from 8 deterministic Publisher gaps using balanced expansion weighting.",
         "tasks": [
-          {
-            "id": "gap:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
-            "category": "buildingBriefs",
-            "categoryLabel": "Building Briefs",
-            "gapType": "representativeBuilding",
-            "itemName": "2100 Powell St",
-            "sourceId": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
-            "publicUrl": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
-            "priorityScore": 80,
-            "confidence": "Ready",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
-            "blockedBy": [],
-            "unlocks": [
-              "Building Brief page depth",
-              "recommendation representative-building card eligibility"
-            ]
-          },
-          {
-            "id": "gap:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st",
-            "category": "buildingBriefs",
-            "categoryLabel": "Building Briefs",
-            "gapType": "representativeBuilding",
-            "itemName": "2200 Powell St",
-            "sourceId": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
-            "publicUrl": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
-            "priorityScore": 80,
-            "confidence": "Ready",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
-            "blockedBy": [],
-            "unlocks": [
-              "Building Brief page depth",
-              "recommendation representative-building card eligibility"
-            ]
-          },
           {
             "id": "gap:east-bay:comparisonGraph:orphan district comparison:antioch-east-18th-industrial",
             "category": "comparisonGraph",
@@ -18006,41 +17556,32 @@
           }
         ],
         "dataTasks": [
-          "Author a Building Brief for this representative building.",
-          "Author a Building Brief for this representative building.",
           "Add meaningful compareWith relationships to nearby or decision-adjacent districts.",
           "Curate representative buildings that explain this district.",
           "Review whether the comparison should be reciprocal.",
           "Review whether the comparison should be reciprocal.",
           "Review whether the comparison should be reciprocal."
         ],
-        "contentTasks": [
-          "Author a Building Brief for this representative building.",
-          "Author a Building Brief for this representative building."
-        ],
+        "contentTasks": [],
         "qaTasks": [
           "node scripts/qa-publisher-expansion-planner.js",
           "node scripts/run-recommendation-qa.js",
-          "node scripts/qa-building-brief-depth.js",
           "node scripts/qa-recommendation-representative-buildings.js"
         ],
         "dependencies": [
-          "canonical representative building record",
-          "district association",
           "district identity",
           "district commercial identity"
         ],
         "expectedImpact": [
           "clearer recommendation alternatives",
           "representative-building modules can unlock after curation",
-          "deeper public building intelligence and stronger internal links",
           "more defensible Compass and Location Brief output"
         ],
         "expectedCoverageImprovements": {
           "districtTasks": 0,
           "comparisonTasks": 4,
           "representativeBuildingTasks": 1,
-          "buildingBriefTasks": 2,
+          "buildingBriefTasks": 0,
           "recommendationTasks": 1
         },
         "exclusions": [
@@ -18049,50 +17590,16 @@
           "No live availability claims.",
           "No creation of placeholder pages."
         ],
-        "codexPrompt": "Implement Publisher recommended sprint for East Bay: East Bay Building Brief Migration Sprint\n\nMode: Balanced Expansion\nObjective: Improve East Bay expansion readiness by completing the highest-value Building Briefs, Comparison Graph, Recommendation Readiness work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 2100 Powell St, 2200 Powell St\n- Comparisons: Antioch East 18th Industrial; Hayward Industrial -> North San Jose; Oakland Medical Campuses -> Downtown Berkeley; Oakland Medical Campuses -> Emeryville Commercial Core\n\nTasks:\n- [Ready] Building Briefs: 2100 Powell St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 2200 Powell St - Author a Building Brief for this representative building.\n- [Review recommended] Comparison Graph: Antioch East 18th Industrial - Add meaningful compareWith relationships to nearby or decision-adjacent districts.\n- [Blocked] Recommendation Readiness: East Bay - Add or update recommendation QA documentation for this metro.\n- [Research required] Representative Buildings: Antioch East 18th Industrial - Curate representative buildings that explain this district.\n- [Review recommended] Comparison Graph: Hayward Industrial -> North San Jose - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Oakland Medical Campuses -> Downtown Berkeley - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Oakland Medical Campuses -> Emeryville Commercial Core - Review whether the comparison should be reciprocal.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
+        "codexPrompt": "Implement Publisher recommended sprint for East Bay: East Bay District Comparison Sprint\n\nMode: Balanced Expansion\nObjective: Improve East Bay expansion readiness by completing the highest-value Comparison Graph, Recommendation Readiness, Representative Buildings work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: none named\n- Comparisons: Antioch East 18th Industrial; Hayward Industrial -> North San Jose; Oakland Medical Campuses -> Downtown Berkeley; Oakland Medical Campuses -> Emeryville Commercial Core\n\nTasks:\n- [Review recommended] Comparison Graph: Antioch East 18th Industrial - Add meaningful compareWith relationships to nearby or decision-adjacent districts.\n- [Blocked] Recommendation Readiness: East Bay - Add or update recommendation QA documentation for this metro.\n- [Research required] Representative Buildings: Antioch East 18th Industrial - Curate representative buildings that explain this district.\n- [Review recommended] Comparison Graph: Hayward Industrial -> North San Jose - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Oakland Medical Campuses -> Downtown Berkeley - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Oakland Medical Campuses -> Emeryville Commercial Core - Review whether the comparison should be reciprocal.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
       },
       "plansByMode": {
         "balanced": {
           "mode": "balanced",
           "modeLabel": "Balanced Expansion",
-          "title": "East Bay Building Brief Migration Sprint",
-          "objective": "Improve East Bay expansion readiness by completing the highest-value Building Briefs, Comparison Graph, Recommendation Readiness work without creating unsupported content.",
-          "rationale": "Selected from 10 deterministic Publisher gaps using balanced expansion weighting.",
+          "title": "East Bay District Comparison Sprint",
+          "objective": "Improve East Bay expansion readiness by completing the highest-value Comparison Graph, Recommendation Readiness, Representative Buildings work without creating unsupported content.",
+          "rationale": "Selected from 8 deterministic Publisher gaps using balanced expansion weighting.",
           "tasks": [
-            {
-              "id": "gap:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
-              "category": "buildingBriefs",
-              "categoryLabel": "Building Briefs",
-              "gapType": "representativeBuilding",
-              "itemName": "2100 Powell St",
-              "sourceId": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
-              "publicUrl": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
-              "priorityScore": 80,
-              "confidence": "Ready",
-              "suggestedNextAction": "Author a Building Brief for this representative building.",
-              "blockedBy": [],
-              "unlocks": [
-                "Building Brief page depth",
-                "recommendation representative-building card eligibility"
-              ]
-            },
-            {
-              "id": "gap:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st",
-              "category": "buildingBriefs",
-              "categoryLabel": "Building Briefs",
-              "gapType": "representativeBuilding",
-              "itemName": "2200 Powell St",
-              "sourceId": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
-              "publicUrl": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
-              "priorityScore": 80,
-              "confidence": "Ready",
-              "suggestedNextAction": "Author a Building Brief for this representative building.",
-              "blockedBy": [],
-              "unlocks": [
-                "Building Brief page depth",
-                "recommendation representative-building card eligibility"
-              ]
-            },
             {
               "id": "gap:east-bay:comparisonGraph:orphan district comparison:antioch-east-18th-industrial",
               "category": "comparisonGraph",
@@ -18193,41 +17700,32 @@
             }
           ],
           "dataTasks": [
-            "Author a Building Brief for this representative building.",
-            "Author a Building Brief for this representative building.",
             "Add meaningful compareWith relationships to nearby or decision-adjacent districts.",
             "Curate representative buildings that explain this district.",
             "Review whether the comparison should be reciprocal.",
             "Review whether the comparison should be reciprocal.",
             "Review whether the comparison should be reciprocal."
           ],
-          "contentTasks": [
-            "Author a Building Brief for this representative building.",
-            "Author a Building Brief for this representative building."
-          ],
+          "contentTasks": [],
           "qaTasks": [
             "node scripts/qa-publisher-expansion-planner.js",
             "node scripts/run-recommendation-qa.js",
-            "node scripts/qa-building-brief-depth.js",
             "node scripts/qa-recommendation-representative-buildings.js"
           ],
           "dependencies": [
-            "canonical representative building record",
-            "district association",
             "district identity",
             "district commercial identity"
           ],
           "expectedImpact": [
             "clearer recommendation alternatives",
             "representative-building modules can unlock after curation",
-            "deeper public building intelligence and stronger internal links",
             "more defensible Compass and Location Brief output"
           ],
           "expectedCoverageImprovements": {
             "districtTasks": 0,
             "comparisonTasks": 4,
             "representativeBuildingTasks": 1,
-            "buildingBriefTasks": 2,
+            "buildingBriefTasks": 0,
             "recommendationTasks": 1
           },
           "exclusions": [
@@ -18236,14 +17734,14 @@
             "No live availability claims.",
             "No creation of placeholder pages."
           ],
-          "codexPrompt": "Implement Publisher recommended sprint for East Bay: East Bay Building Brief Migration Sprint\n\nMode: Balanced Expansion\nObjective: Improve East Bay expansion readiness by completing the highest-value Building Briefs, Comparison Graph, Recommendation Readiness work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 2100 Powell St, 2200 Powell St\n- Comparisons: Antioch East 18th Industrial; Hayward Industrial -> North San Jose; Oakland Medical Campuses -> Downtown Berkeley; Oakland Medical Campuses -> Emeryville Commercial Core\n\nTasks:\n- [Ready] Building Briefs: 2100 Powell St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 2200 Powell St - Author a Building Brief for this representative building.\n- [Review recommended] Comparison Graph: Antioch East 18th Industrial - Add meaningful compareWith relationships to nearby or decision-adjacent districts.\n- [Blocked] Recommendation Readiness: East Bay - Add or update recommendation QA documentation for this metro.\n- [Research required] Representative Buildings: Antioch East 18th Industrial - Curate representative buildings that explain this district.\n- [Review recommended] Comparison Graph: Hayward Industrial -> North San Jose - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Oakland Medical Campuses -> Downtown Berkeley - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Oakland Medical Campuses -> Emeryville Commercial Core - Review whether the comparison should be reciprocal.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
+          "codexPrompt": "Implement Publisher recommended sprint for East Bay: East Bay District Comparison Sprint\n\nMode: Balanced Expansion\nObjective: Improve East Bay expansion readiness by completing the highest-value Comparison Graph, Recommendation Readiness, Representative Buildings work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: none named\n- Comparisons: Antioch East 18th Industrial; Hayward Industrial -> North San Jose; Oakland Medical Campuses -> Downtown Berkeley; Oakland Medical Campuses -> Emeryville Commercial Core\n\nTasks:\n- [Review recommended] Comparison Graph: Antioch East 18th Industrial - Add meaningful compareWith relationships to nearby or decision-adjacent districts.\n- [Blocked] Recommendation Readiness: East Bay - Add or update recommendation QA documentation for this metro.\n- [Research required] Representative Buildings: Antioch East 18th Industrial - Curate representative buildings that explain this district.\n- [Review recommended] Comparison Graph: Hayward Industrial -> North San Jose - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Oakland Medical Campuses -> Downtown Berkeley - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Oakland Medical Campuses -> Emeryville Commercial Core - Review whether the comparison should be reciprocal.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
         },
         "recommendation": {
           "mode": "recommendation",
           "modeLabel": "Recommendation Readiness",
           "title": "East Bay Recommendation Readiness Sprint",
           "objective": "Improve East Bay expansion readiness by completing the highest-value Recommendation Readiness, Comparison Graph, Representative Buildings work without creating unsupported content.",
-          "rationale": "Selected from 10 deterministic Publisher gaps using recommendation readiness weighting.",
+          "rationale": "Selected from 8 deterministic Publisher gaps using recommendation readiness weighting.",
           "tasks": [
             {
               "id": "gap:east-bay:recommendationReadiness:missing recommendation QA status:east-bay",
@@ -18419,8 +17917,8 @@
           "mode": "editorial",
           "modeLabel": "Editorial Depth",
           "title": "East Bay Recommendation Readiness Sprint",
-          "objective": "Improve East Bay expansion readiness by completing the highest-value Recommendation Readiness, Building Briefs, Representative Buildings work without creating unsupported content.",
-          "rationale": "Selected from 10 deterministic Publisher gaps using editorial depth weighting.",
+          "objective": "Improve East Bay expansion readiness by completing the highest-value Recommendation Readiness, Representative Buildings, Comparison Graph work without creating unsupported content.",
+          "rationale": "Selected from 8 deterministic Publisher gaps using editorial depth weighting.",
           "tasks": [
             {
               "id": "gap:east-bay:recommendationReadiness:missing recommendation QA status:east-bay",
@@ -18437,40 +17935,6 @@
               "unlocks": [
                 "Compass readiness confidence",
                 "Distribution Ready gate clearance"
-              ]
-            },
-            {
-              "id": "gap:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
-              "category": "buildingBriefs",
-              "categoryLabel": "Building Briefs",
-              "gapType": "representativeBuilding",
-              "itemName": "2100 Powell St",
-              "sourceId": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
-              "publicUrl": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
-              "priorityScore": 87,
-              "confidence": "Ready",
-              "suggestedNextAction": "Author a Building Brief for this representative building.",
-              "blockedBy": [],
-              "unlocks": [
-                "Building Brief page depth",
-                "recommendation representative-building card eligibility"
-              ]
-            },
-            {
-              "id": "gap:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st",
-              "category": "buildingBriefs",
-              "categoryLabel": "Building Briefs",
-              "gapType": "representativeBuilding",
-              "itemName": "2200 Powell St",
-              "sourceId": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
-              "publicUrl": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
-              "priorityScore": 87,
-              "confidence": "Ready",
-              "suggestedNextAction": "Author a Building Brief for this representative building.",
-              "blockedBy": [],
-              "unlocks": [
-                "Building Brief page depth",
-                "recommendation representative-building card eligibility"
               ]
             },
             {
@@ -18588,8 +18052,6 @@
             }
           ],
           "dataTasks": [
-            "Author a Building Brief for this representative building.",
-            "Author a Building Brief for this representative building.",
             "Curate representative buildings that explain this district.",
             "Add meaningful compareWith relationships to nearby or decision-adjacent districts.",
             "Review whether the comparison should be reciprocal.",
@@ -18598,33 +18060,26 @@
             "Review whether the comparison should be reciprocal.",
             "Review whether the comparison should be reciprocal."
           ],
-          "contentTasks": [
-            "Author a Building Brief for this representative building.",
-            "Author a Building Brief for this representative building."
-          ],
+          "contentTasks": [],
           "qaTasks": [
             "node scripts/qa-publisher-expansion-planner.js",
             "node scripts/run-recommendation-qa.js",
-            "node scripts/qa-building-brief-depth.js",
             "node scripts/qa-recommendation-representative-buildings.js"
           ],
           "dependencies": [
-            "canonical representative building record",
-            "district association",
             "district commercial identity",
             "district identity"
           ],
           "expectedImpact": [
             "clearer recommendation alternatives",
             "representative-building modules can unlock after curation",
-            "deeper public building intelligence and stronger internal links",
             "more defensible Compass and Location Brief output"
           ],
           "expectedCoverageImprovements": {
             "districtTasks": 0,
             "comparisonTasks": 6,
             "representativeBuildingTasks": 1,
-            "buildingBriefTasks": 2,
+            "buildingBriefTasks": 0,
             "recommendationTasks": 1
           },
           "exclusions": [
@@ -18633,14 +18088,14 @@
             "No live availability claims.",
             "No creation of placeholder pages."
           ],
-          "codexPrompt": "Implement Publisher recommended sprint for East Bay: East Bay Recommendation Readiness Sprint\n\nMode: Editorial Depth\nObjective: Improve East Bay expansion readiness by completing the highest-value Recommendation Readiness, Building Briefs, Representative Buildings work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 2100 Powell St, 2200 Powell St\n- Comparisons: Antioch East 18th Industrial; Hayward Industrial -> North San Jose; Oakland Medical Campuses -> Downtown Berkeley; Oakland Medical Campuses -> Emeryville Commercial Core; Oakland Medical Campuses -> Jack London Square; Warm Springs Innovation District -> North San Jose\n\nTasks:\n- [Blocked] Recommendation Readiness: East Bay - Add or update recommendation QA documentation for this metro.\n- [Ready] Building Briefs: 2100 Powell St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 2200 Powell St - Author a Building Brief for this representative building.\n- [Research required] Representative Buildings: Antioch East 18th Industrial - Curate representative buildings that explain this district.\n- [Review recommended] Comparison Graph: Antioch East 18th Industrial - Add meaningful compareWith relationships to nearby or decision-adjacent districts.\n- [Review recommended] Comparison Graph: Hayward Industrial -> North San Jose - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Oakland Medical Campuses -> Downtown Berkeley - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Oakland Medical Campuses -> Emeryville Commercial Core - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Oakland Medical Campuses -> Jack London Square - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Warm Springs Innovation District -> North San Jose - Review whether the comparison should be reciprocal.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
+          "codexPrompt": "Implement Publisher recommended sprint for East Bay: East Bay Recommendation Readiness Sprint\n\nMode: Editorial Depth\nObjective: Improve East Bay expansion readiness by completing the highest-value Recommendation Readiness, Representative Buildings, Comparison Graph work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: none named\n- Comparisons: Antioch East 18th Industrial; Hayward Industrial -> North San Jose; Oakland Medical Campuses -> Downtown Berkeley; Oakland Medical Campuses -> Emeryville Commercial Core; Oakland Medical Campuses -> Jack London Square; Warm Springs Innovation District -> North San Jose\n\nTasks:\n- [Blocked] Recommendation Readiness: East Bay - Add or update recommendation QA documentation for this metro.\n- [Research required] Representative Buildings: Antioch East 18th Industrial - Curate representative buildings that explain this district.\n- [Review recommended] Comparison Graph: Antioch East 18th Industrial - Add meaningful compareWith relationships to nearby or decision-adjacent districts.\n- [Review recommended] Comparison Graph: Hayward Industrial -> North San Jose - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Oakland Medical Campuses -> Downtown Berkeley - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Oakland Medical Campuses -> Emeryville Commercial Core - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Oakland Medical Campuses -> Jack London Square - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Warm Springs Innovation District -> North San Jose - Review whether the comparison should be reciprocal.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
         },
         "building": {
           "mode": "building",
           "modeLabel": "Building Depth",
           "title": "East Bay Recommendation Readiness Sprint",
-          "objective": "Improve East Bay expansion readiness by completing the highest-value Recommendation Readiness, Representative Buildings, Building Briefs work without creating unsupported content.",
-          "rationale": "Selected from 10 deterministic Publisher gaps using building depth weighting.",
+          "objective": "Improve East Bay expansion readiness by completing the highest-value Recommendation Readiness, Representative Buildings work without creating unsupported content.",
+          "rationale": "Selected from 8 deterministic Publisher gaps using building depth weighting.",
           "tasks": [
             {
               "id": "gap:east-bay:recommendationReadiness:missing recommendation QA status:east-bay",
@@ -18675,72 +18130,29 @@
                 "Building Brief migration",
                 "recommendation representative-building module"
               ]
-            },
-            {
-              "id": "gap:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
-              "category": "buildingBriefs",
-              "categoryLabel": "Building Briefs",
-              "gapType": "representativeBuilding",
-              "itemName": "2100 Powell St",
-              "sourceId": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
-              "publicUrl": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
-              "priorityScore": 91,
-              "confidence": "Ready",
-              "suggestedNextAction": "Author a Building Brief for this representative building.",
-              "blockedBy": [],
-              "unlocks": [
-                "Building Brief page depth",
-                "recommendation representative-building card eligibility"
-              ]
-            },
-            {
-              "id": "gap:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st",
-              "category": "buildingBriefs",
-              "categoryLabel": "Building Briefs",
-              "gapType": "representativeBuilding",
-              "itemName": "2200 Powell St",
-              "sourceId": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
-              "publicUrl": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
-              "priorityScore": 91,
-              "confidence": "Ready",
-              "suggestedNextAction": "Author a Building Brief for this representative building.",
-              "blockedBy": [],
-              "unlocks": [
-                "Building Brief page depth",
-                "recommendation representative-building card eligibility"
-              ]
             }
           ],
           "dataTasks": [
-            "Curate representative buildings that explain this district.",
-            "Author a Building Brief for this representative building.",
-            "Author a Building Brief for this representative building."
+            "Curate representative buildings that explain this district."
           ],
-          "contentTasks": [
-            "Author a Building Brief for this representative building.",
-            "Author a Building Brief for this representative building."
-          ],
+          "contentTasks": [],
           "qaTasks": [
             "node scripts/qa-publisher-expansion-planner.js",
             "node scripts/run-recommendation-qa.js",
-            "node scripts/qa-building-brief-depth.js",
             "node scripts/qa-recommendation-representative-buildings.js"
           ],
           "dependencies": [
-            "district commercial identity",
-            "canonical representative building record",
-            "district association"
+            "district commercial identity"
           ],
           "expectedImpact": [
             "representative-building modules can unlock after curation",
-            "deeper public building intelligence and stronger internal links",
             "more defensible Compass and Location Brief output"
           ],
           "expectedCoverageImprovements": {
             "districtTasks": 0,
             "comparisonTasks": 0,
             "representativeBuildingTasks": 1,
-            "buildingBriefTasks": 2,
+            "buildingBriefTasks": 0,
             "recommendationTasks": 1
           },
           "exclusions": [
@@ -18749,7 +18161,7 @@
             "No live availability claims.",
             "No creation of placeholder pages."
           ],
-          "codexPrompt": "Implement Publisher recommended sprint for East Bay: East Bay Recommendation Readiness Sprint\n\nMode: Building Depth\nObjective: Improve East Bay expansion readiness by completing the highest-value Recommendation Readiness, Representative Buildings, Building Briefs work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 2100 Powell St, 2200 Powell St\n- Comparisons: none named\n\nTasks:\n- [Blocked] Recommendation Readiness: East Bay - Add or update recommendation QA documentation for this metro.\n- [Research required] Representative Buildings: Antioch East 18th Industrial - Curate representative buildings that explain this district.\n- [Ready] Building Briefs: 2100 Powell St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 2200 Powell St - Author a Building Brief for this representative building.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
+          "codexPrompt": "Implement Publisher recommended sprint for East Bay: East Bay Recommendation Readiness Sprint\n\nMode: Building Depth\nObjective: Improve East Bay expansion readiness by completing the highest-value Recommendation Readiness, Representative Buildings work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: none named\n- Comparisons: none named\n\nTasks:\n- [Blocked] Recommendation Readiness: East Bay - Add or update recommendation QA documentation for this metro.\n- [Research required] Representative Buildings: Antioch East 18th Industrial - Curate representative buildings that explain this district.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
         }
       },
       "blockers": [
@@ -18771,7 +18183,7 @@
     {
       "metroId": "sacramento",
       "metroName": "Sacramento",
-      "generatedAt": "2026-08-13T07:46:28-07:00",
+      "generatedAt": "2026-08-13T08:22:17-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 98,
@@ -27417,7 +26829,7 @@
     {
       "metroId": "san-diego",
       "metroName": "San Diego",
-      "generatedAt": "2026-08-13T07:46:28-07:00",
+      "generatedAt": "2026-08-13T08:22:17-07:00",
       "currentState": {
         "readinessStatus": "Expansion Ready",
         "overallScore": 84,
@@ -36953,7 +36365,7 @@
     {
       "metroId": "orange-county",
       "metroName": "Orange County",
-      "generatedAt": "2026-08-13T07:46:28-07:00",
+      "generatedAt": "2026-08-13T08:22:17-07:00",
       "currentState": {
         "readinessStatus": "Expansion Ready",
         "overallScore": 84,
@@ -45758,7 +45170,7 @@
     {
       "metroId": "denver",
       "metroName": "Denver",
-      "generatedAt": "2026-08-13T07:46:28-07:00",
+      "generatedAt": "2026-08-13T08:22:17-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 97,
@@ -53465,7 +52877,7 @@
     {
       "metroId": "seattle",
       "metroName": "Seattle",
-      "generatedAt": "2026-08-13T07:46:28-07:00",
+      "generatedAt": "2026-08-13T08:22:17-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 94,
@@ -58991,14 +58403,14 @@
     {
       "metroId": "san-francisco",
       "metroName": "San Francisco",
-      "generatedAt": "2026-08-13T07:46:28-07:00",
+      "generatedAt": "2026-08-13T08:22:17-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 96,
         "recommendationScore": 97,
         "editorialScore": 91,
         "publishingScore": 100,
-        "buildingScore": 55,
+        "buildingScore": 56,
         "comparisonScore": 100,
         "insightScore": 98,
         "geographicReadiness": "developed",
@@ -59026,8 +58438,8 @@
           "score": 74
         },
         "buildingBriefs": {
-          "count": 87,
-          "score": 55
+          "count": 89,
+          "score": 56
         },
         "insights": {
           "score": 98,
@@ -59056,7 +58468,7 @@
             "secondaryDistrictCount": 16,
             "recommendationNodeCount": 6,
             "representativeBuildingCount": 77,
-            "buildingBriefCount": 36,
+            "buildingBriefCount": 37,
             "status": "Developed",
             "districts": [
               {
@@ -59811,7 +59223,7 @@
             "secondaryDistrictCount": 4,
             "recommendationNodeCount": 2,
             "representativeBuildingCount": 15,
-            "buildingBriefCount": 5,
+            "buildingBriefCount": 6,
             "status": "Developed",
             "districts": [
               {
@@ -60215,7 +59627,7 @@
               "secondaryDistricts": 16,
               "recommendations": 6,
               "representativeBuildings": 77,
-              "buildingBriefs": 36,
+              "buildingBriefs": 37,
               "subtypes": 7,
               "archetypes": 14,
               "activities": 8,
@@ -60231,7 +59643,7 @@
             "strategicPriority": 2,
             "evidence": [
               "6 primary districts and 16 secondary districts.",
-              "77 Representative Buildings and 36 Building Briefs.",
+              "77 Representative Buildings and 37 Building Briefs.",
               "7 representative roles and 5 operational categories are covered."
             ],
             "targetSubtypes": [
@@ -60939,7 +60351,7 @@
               "secondaryDistricts": 4,
               "recommendations": 2,
               "representativeBuildings": 15,
-              "buildingBriefs": 5,
+              "buildingBriefs": 6,
               "subtypes": 7,
               "archetypes": 5,
               "activities": 5,
@@ -60955,7 +60367,7 @@
             "strategicPriority": 4,
             "evidence": [
               "2 primary districts and 4 secondary districts.",
-              "15 Representative Buildings and 5 Building Briefs.",
+              "15 Representative Buildings and 6 Building Briefs.",
               "3 representative roles and 5 operational categories are covered."
             ],
             "targetSubtypes": [
@@ -61429,7 +60841,7 @@
           "label": "Balanced",
           "dominantEcosystem": "industrial_flex",
           "representativeBuildingShare": 0.49,
-          "buildingBriefShare": 0.49,
+          "buildingBriefShare": 0.48,
           "warnings": []
         }
       },
@@ -61438,7 +60850,7 @@
         "label": "Balanced",
         "dominantEcosystem": "industrial_flex",
         "representativeBuildingShare": 0.49,
-        "buildingBriefShare": 0.49,
+        "buildingBriefShare": 0.48,
         "warnings": []
       },
       "ecosystemGaps": [
@@ -63150,104 +62562,6 @@
           "itemName": "201 Spear St",
           "sourceId": "/commercial-real-estate/building/CA/san-francisco/201-spear-st/",
           "publicUrl": "/commercial-real-estate/building/CA/san-francisco/201-spear-st/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "2100 Powell St",
-          "sourceId": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
-          "publicUrl": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "2200 Powell St",
-          "sourceId": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
-          "publicUrl": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
           "adminUrl": "",
           "severity": "medium",
           "description": "Representative building has not migrated to the Building Brief journey.",
@@ -68218,104 +67532,6 @@
           "itemName": "201 Spear St",
           "sourceId": "/commercial-real-estate/building/CA/san-francisco/201-spear-st/",
           "publicUrl": "/commercial-real-estate/building/CA/san-francisco/201-spear-st/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "2100 Powell St",
-          "sourceId": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
-          "publicUrl": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
-          "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st",
-          "metroId": "san-francisco",
-          "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "2200 Powell St",
-          "sourceId": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
-          "publicUrl": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
           "adminUrl": "",
           "severity": "medium",
           "description": "Representative building has not migrated to the Building Brief journey.",
@@ -71855,7 +71071,7 @@
         "modeLabel": "Balanced Expansion",
         "title": "San Francisco Building Brief Migration Sprint",
         "objective": "Improve San Francisco expansion readiness by completing the highest-value Building Briefs, District Coverage, Representative Buildings work without creating unsupported content.",
-        "rationale": "Selected from 105 deterministic Publisher gaps using balanced expansion weighting.",
+        "rationale": "Selected from 103 deterministic Publisher gaps using balanced expansion weighting.",
         "tasks": [
           {
             "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-1-henry-adams-st",
@@ -72179,7 +71395,7 @@
           "modeLabel": "Balanced Expansion",
           "title": "San Francisco Building Brief Migration Sprint",
           "objective": "Improve San Francisco expansion readiness by completing the highest-value Building Briefs, District Coverage, Representative Buildings work without creating unsupported content.",
-          "rationale": "Selected from 105 deterministic Publisher gaps using balanced expansion weighting.",
+          "rationale": "Selected from 103 deterministic Publisher gaps using balanced expansion weighting.",
           "tasks": [
             {
               "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-1-henry-adams-st",
@@ -72502,7 +71718,7 @@
           "modeLabel": "Recommendation Readiness",
           "title": "San Francisco Recommendation Readiness Sprint",
           "objective": "Improve San Francisco expansion readiness by completing the highest-value Recommendation Readiness, Comparison Graph, District Coverage work without creating unsupported content.",
-          "rationale": "Selected from 105 deterministic Publisher gaps using recommendation readiness weighting.",
+          "rationale": "Selected from 103 deterministic Publisher gaps using recommendation readiness weighting.",
           "tasks": [
             {
               "id": "gap:san-francisco:recommendationReadiness:missing explainability fields:north-san-jose",
@@ -72808,7 +72024,7 @@
           "modeLabel": "Editorial Depth",
           "title": "San Francisco District Editorial Foundation Sprint",
           "objective": "Improve San Francisco expansion readiness by completing the highest-value District Coverage, Building Briefs, Representative Buildings work without creating unsupported content.",
-          "rationale": "Selected from 105 deterministic Publisher gaps using editorial depth weighting.",
+          "rationale": "Selected from 103 deterministic Publisher gaps using editorial depth weighting.",
           "tasks": [
             {
               "id": "gap:san-francisco:districtCoverage:missing decision positioning:north-san-jose",
@@ -73133,7 +72349,7 @@
           "modeLabel": "Building Depth",
           "title": "San Francisco Representative Building Foundation Sprint",
           "objective": "Improve San Francisco expansion readiness by completing the highest-value Representative Buildings, Building Briefs work without creating unsupported content.",
-          "rationale": "Selected from 105 deterministic Publisher gaps using building depth weighting.",
+          "rationale": "Selected from 103 deterministic Publisher gaps using building depth weighting.",
           "tasks": [
             {
               "id": "gap:san-francisco:representativeBuildings:district missing representative buildings:downtown-redwood-city",
@@ -73457,14 +72673,14 @@
     {
       "metroId": "east-bay",
       "metroName": "East Bay",
-      "generatedAt": "2026-08-13T07:46:28-07:00",
+      "generatedAt": "2026-08-13T08:22:17-07:00",
       "currentState": {
         "readinessStatus": "Editorially Developed",
         "overallScore": 74,
         "recommendationScore": 76,
         "editorialScore": 93,
         "publishingScore": 82,
-        "buildingScore": 96,
+        "buildingScore": 100,
         "comparisonScore": 84,
         "insightScore": 100,
         "geographicReadiness": "strong",
@@ -73492,8 +72708,8 @@
           "score": 78
         },
         "buildingBriefs": {
-          "count": 49,
-          "score": 96
+          "count": 51,
+          "score": 100
         },
         "insights": {
           "score": 100,
@@ -73505,8 +72721,8 @@
         },
         "ecosystems": {
           "count": 7,
-          "developed": 3,
-          "partial": 4,
+          "developed": 4,
+          "partial": 3,
           "thin": 0,
           "missing": 0,
           "reviewRequired": 0,
@@ -73522,7 +72738,7 @@
             "secondaryDistrictCount": 5,
             "recommendationNodeCount": 0,
             "representativeBuildingCount": 12,
-            "buildingBriefCount": 11,
+            "buildingBriefCount": 12,
             "status": "Partial",
             "districts": [],
             "subtypes": {
@@ -74143,8 +73359,8 @@
             "secondaryDistrictCount": 1,
             "recommendationNodeCount": 1,
             "representativeBuildingCount": 1,
-            "buildingBriefCount": 0,
-            "status": "Partial",
+            "buildingBriefCount": 1,
+            "status": "Developed",
             "districts": [
               {
                 "slug": "emeryville-commercial-core",
@@ -74434,8 +73650,8 @@
         "underrepresentedEcosystems": [],
         "summary": {
           "ecosystemCount": 7,
-          "developedCount": 3,
-          "partialCount": 4,
+          "developedCount": 4,
+          "partialCount": 3,
           "thinCount": 0,
           "missingCount": 0,
           "reviewRequiredDistrictCount": 0
@@ -74500,7 +73716,7 @@
               "secondaryDistricts": 5,
               "recommendations": 0,
               "representativeBuildings": 12,
-              "buildingBriefs": 11,
+              "buildingBriefs": 12,
               "subtypes": 4,
               "archetypes": 12,
               "activities": 6,
@@ -74518,7 +73734,7 @@
             "strategicPriority": 2,
             "evidence": [
               "0 primary districts and 5 secondary districts.",
-              "12 Representative Buildings and 11 Building Briefs.",
+              "12 Representative Buildings and 12 Building Briefs.",
               "6 representative roles and 5 operational categories are covered."
             ],
             "targetSubtypes": [
@@ -75162,7 +74378,7 @@
               "districts": "strong",
               "recommendations": "strong",
               "representativeBuildings": "partial",
-              "buildingBriefs": "missing",
+              "buildingBriefs": "strong",
               "subtypes": "developed",
               "archetypes": "developed",
               "activities": "developed",
@@ -75173,7 +74389,7 @@
               "secondaryDistricts": 1,
               "recommendations": 1,
               "representativeBuildings": 1,
-              "buildingBriefs": 0,
+              "buildingBriefs": 1,
               "subtypes": 7,
               "archetypes": 5,
               "activities": 5,
@@ -75183,15 +74399,13 @@
               "operationalCharacteristics": 4,
               "reviewRequiredRepresentativeBuildings": 0
             },
-            "gaps": [
-              "Building Brief coverage is missing for this ecosystem."
-            ],
+            "gaps": [],
             "blocking": false,
             "blockingCodes": [],
             "strategicPriority": 4,
             "evidence": [
               "1 primary districts and 1 secondary districts.",
-              "1 Representative Buildings and 0 Building Briefs.",
+              "1 Representative Buildings and 1 Building Briefs.",
               "1 representative roles and 4 operational categories are covered."
             ],
             "targetSubtypes": [
@@ -75478,36 +74692,10 @@
             "rationale": "Ecosystem appears only as secondary context.",
             "evidence": [
               "0 primary districts and 5 secondary districts.",
-              "12 Representative Buildings and 11 Building Briefs.",
+              "12 Representative Buildings and 12 Building Briefs.",
               "6 representative roles and 5 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem District Foundation",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:life_science:ecosystem_building_brief_gap",
-            "code": "ecosystem_building_brief_gap",
-            "label": "Ecosystem Building Brief Gap",
-            "severity": "medium",
-            "layer": "buildingBriefs",
-            "ecosystemId": "life_science",
-            "ecosystemLabel": "Life Science",
-            "relevance": "important",
-            "readinessState": "partial",
-            "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
-            "evidence": [
-              "1 primary districts and 1 secondary districts.",
-              "1 Representative Buildings and 0 Building Briefs.",
-              "1 representative roles and 4 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem Building Brief Migration",
             "completionCriteria": [
               "Validated district ecosystem classification",
               "Representative Building coverage across the most important subtypes",
@@ -75598,7 +74786,7 @@
           "label": "Balanced",
           "dominantEcosystem": "industrial_flex",
           "representativeBuildingShare": 0.69,
-          "buildingBriefShare": 0.71,
+          "buildingBriefShare": 0.69,
           "warnings": []
         }
       },
@@ -75607,36 +74795,10 @@
         "label": "Balanced",
         "dominantEcosystem": "industrial_flex",
         "representativeBuildingShare": 0.69,
-        "buildingBriefShare": 0.71,
+        "buildingBriefShare": 0.69,
         "warnings": []
       },
       "ecosystemGaps": [
-        {
-          "id": "ecosystem:life_science:ecosystem_building_brief_gap",
-          "code": "ecosystem_building_brief_gap",
-          "label": "Ecosystem Building Brief Gap",
-          "severity": "medium",
-          "layer": "buildingBriefs",
-          "ecosystemId": "life_science",
-          "ecosystemLabel": "Life Science",
-          "relevance": "important",
-          "readinessState": "partial",
-          "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
-          "evidence": [
-            "1 primary districts and 1 secondary districts.",
-            "1 Representative Buildings and 0 Building Briefs.",
-            "1 representative roles and 4 operational categories are covered."
-          ],
-          "recommendedSprintFamily": "Ecosystem Building Brief Migration",
-          "completionCriteria": [
-            "Validated district ecosystem classification",
-            "Representative Building coverage across the most important subtypes",
-            "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-            "Building Brief migration only after canonical records and district association exist",
-            "Publisher ecosystem QA passes without hard errors"
-          ],
-          "blocksEcosystemReadiness": false
-        },
         {
           "id": "ecosystem:office:ecosystem_secondary_only",
           "code": "ecosystem_secondary_only",
@@ -75650,7 +74812,7 @@
           "rationale": "Ecosystem appears only as secondary context.",
           "evidence": [
             "0 primary districts and 5 secondary districts.",
-            "12 Representative Buildings and 11 Building Briefs.",
+            "12 Representative Buildings and 12 Building Briefs.",
             "6 representative roles and 5 operational categories are covered."
           ],
           "recommendedSprintFamily": "Ecosystem District Foundation",
@@ -75740,90 +74902,123 @@
         }
       ],
       "recommendedEcosystemSprint": {
-        "title": "East Bay Life Science Ecosystem Building Brief Migration",
-        "objective": "Improve East Bay commercial balance by advancing Life Science from Partial toward stronger ecosystem readiness.",
-        "ecosystemId": "life_science",
-        "ecosystemLabel": "Life Science",
-        "relevance": "important",
-        "relevanceLabel": "Important",
+        "title": "East Bay Office Ecosystem District Foundation",
+        "objective": "Improve East Bay commercial balance by advancing Office from Partial toward stronger ecosystem readiness.",
+        "ecosystemId": "office",
+        "ecosystemLabel": "Office",
+        "relevance": "core",
+        "relevanceLabel": "Core",
         "readinessState": "partial",
         "readinessLabel": "Partial",
-        "sprintFamily": "Ecosystem Building Brief Migration",
-        "rationale": "Life Science is Important for East Bay and is currently Partial. Representative Buildings exist, but Building Brief depth is missing.",
-        "gapCode": "ecosystem_building_brief_gap",
-        "priorityScore": 75,
+        "sprintFamily": "Ecosystem District Foundation",
+        "rationale": "Office is Core for East Bay and is currently Partial. Ecosystem appears only as secondary context.",
+        "gapCode": "ecosystem_secondary_only",
+        "priorityScore": 66,
         "layers": {
-          "districts": "strong",
-          "recommendations": "strong",
-          "representativeBuildings": "partial",
-          "buildingBriefs": "missing",
+          "districts": "missing",
+          "recommendations": "missing",
+          "representativeBuildings": "developed",
+          "buildingBriefs": "developed",
           "subtypes": "developed",
           "archetypes": "developed",
           "activities": "developed",
           "editorialReview": "developed"
         },
         "counts": {
-          "districts": 1,
-          "secondaryDistricts": 1,
-          "recommendations": 1,
-          "representativeBuildings": 1,
-          "buildingBriefs": 0,
-          "subtypes": 7,
-          "archetypes": 5,
-          "activities": 5,
+          "districts": 0,
+          "secondaryDistricts": 5,
+          "recommendations": 0,
+          "representativeBuildings": 12,
+          "buildingBriefs": 12,
+          "subtypes": 4,
+          "archetypes": 12,
+          "activities": 6,
           "reviewRequiredDistricts": 0,
-          "representativeRoles": 1,
-          "operationalCategories": 4,
-          "operationalCharacteristics": 4,
+          "representativeRoles": 6,
+          "operationalCategories": 5,
+          "operationalCharacteristics": 15,
           "reviewRequiredRepresentativeBuildings": 0
         },
         "gaps": [
-          "Building Brief coverage is missing for this ecosystem."
+          "Ecosystem appears only as a secondary district expression."
         ],
         "targetSubtypes": [
-          "research_lab",
-          "wet_lab",
-          "life_science_office",
-          "biotech_research",
-          "innovation_campus"
+          "downtown_office",
+          "professional_office",
+          "creative_office",
+          "executive_office",
+          "suburban_office"
         ],
         "targetArchetypes": [
-          "research_company",
-          "biotech_company",
-          "startup"
+          "professional_office",
+          "law_firm",
+          "accounting_firm",
+          "financial_services_firm",
+          "consulting_firm",
+          "marketing_agency"
         ],
         "targetActivities": [
-          "research",
-          "product_development",
+          "knowledge_work",
+          "client_meetings",
           "collaboration",
           "administrative_operations"
         ],
         "missingRepresentativeRoles": [],
         "missingOperationalCategories": [],
         "currentRepresentativeRoles": [
-          "life_science_campus"
+          "suburban_office_campus",
+          "transit_oriented_office_environment",
+          "professional_office_environment",
+          "downtown_class_a_office",
+          "government_office_environment",
+          "creative_office_environment"
         ],
         "currentOperationalCategories": [
           "market_presence",
+          "parking_vehicles",
           "location_workforce",
-          "outdoor_special_use",
+          "configuration",
           "infrastructure"
         ],
         "existingRepresentativeBuildings": [
           {
-            "name": "2200 Powell St",
-            "path": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
-            "role": "life_science_campus",
+            "name": "2100 Powell St",
+            "path": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
+            "role": "suburban_office_campus",
             "confidence": "editorially_supported"
-          }
-        ],
-        "districtCandidates": [
+          },
           {
-            "slug": "emeryville-commercial-core",
-            "label": "Emeryville Commercial Core",
-            "path": "/commercial-real-estate/CA/emeryville/emeryville-commercial-core/"
+            "name": "2140 Shattuck Ave",
+            "path": "/commercial-real-estate/building/CA/berkeley/2140-shattuck-ave/",
+            "role": "transit_oriented_office_environment",
+            "confidence": "editorially_supported"
+          },
+          {
+            "name": "2150 Shattuck Ave",
+            "path": "/commercial-real-estate/building/CA/berkeley/2150-shattuck-ave/",
+            "role": "transit_oriented_office_environment",
+            "confidence": "editorially_supported"
+          },
+          {
+            "name": "2030 Addison St",
+            "path": "/commercial-real-estate/building/CA/berkeley/2030-addison-st/",
+            "role": "professional_office_environment",
+            "confidence": "district_inferred"
+          },
+          {
+            "name": "2040 Bancroft Way",
+            "path": "/commercial-real-estate/building/CA/berkeley/2040-bancroft-way/",
+            "role": "downtown_class_a_office",
+            "confidence": "district_inferred"
+          },
+          {
+            "name": "2070 Allston Way",
+            "path": "/commercial-real-estate/building/CA/berkeley/2070-allston-way/",
+            "role": "downtown_class_a_office",
+            "confidence": "district_inferred"
           }
         ],
+        "districtCandidates": [],
         "expectedBuildingRange": "use Publisher task scope",
         "dependencies": [
           "Ecosystem classification",
@@ -75843,11 +75038,8 @@
           "Representative Building intelligence QA passes"
         ],
         "blockingEcosystemReadiness": false,
-        "alternativeSprint": {
-          "title": "East Bay Office Building Brief Migration",
-          "whyNotFirst": "Office work remains useful, but the target ecosystem has a higher strategic gap based on current readiness."
-        },
-        "codexPrompt": "Implement Publisher ecosystem sprint for East Bay: East Bay Life Science Ecosystem Building Brief Migration\n\nFramework:\n- Businesses search for places where their operations can succeed, not for property types.\n- Use the Commercial Ecosystem Framework and canonical taxonomy.\n- Do not change recommendation rankings, Search Profile questions, or public page design.\n\nTarget ecosystem: Life Science (life_science)\nMetro relevance: Important\nCurrent readiness: Partial\nSprint family: Ecosystem Building Brief Migration\n\nCurrent layer coverage:\n- districts: strong\n- recommendations: strong\n- representativeBuildings: partial\n- buildingBriefs: missing\n- subtypes: developed\n- archetypes: developed\n- activities: developed\n- editorialReview: developed\n\nKnown gaps:\n- Building Brief coverage is missing for this ecosystem.\n\nTarget subtypes:\n- research_lab, wet_lab, life_science_office, biotech_research, innovation_campus\nTarget archetypes:\n- research_company, biotech_company, startup\nTarget business activities:\n- research, product_development, collaboration, administrative_operations\nMissing representative roles:\n- none identified\nMissing operational categories:\n- none identified\nExisting representative buildings:\n- 2200 Powell St (life_science_campus)\nDistrict candidates:\n- Emeryville Commercial Core\n\nDependencies:\n- Ecosystem classification\n- District foundation\n- Recommendation foundation\n- Representative Building foundation\n- Building Brief migration after canonical records exist\n\nCompletion criteria:\n- Validated district ecosystem classification\n- Representative Building coverage across the most important subtypes\n- Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus\n- Building Brief migration only after canonical records and district association exist\n- Publisher ecosystem QA passes without hard errors\n- Every target representative role has at least one source-supported building or is explicitly marked research required\n- Target operational categories are represented without asserting unverified property features\n- Representative Building intelligence QA passes\n\nGuardrails:\n- Do not invent districts, buildings, tenants, availability, rents, or unsupported facts.\n- Do not deepen office-only coverage when the target ecosystem is different.\n- Do not treat taxonomy compatibility as proof that a property has a feature.\n- Validate loading, power, parking, yards, lab, food, medical, and permitted-use claims before authoring them as facts.\n- Do not recommend Building Brief migration before canonical representative buildings exist.\n- Regenerate Publisher snapshots and run ecosystem readiness QA.\n\nVerification:\n- npm run publisher:snapshot\n- npm run publisher:report\n- npm run build\n- node scripts/qa-commercial-ecosystem-foundation.js\n- node scripts/qa-publisher-ecosystem-readiness.js\n- node scripts/qa-representative-building-intelligence.js"
+        "alternativeSprint": null,
+        "codexPrompt": "Implement Publisher ecosystem sprint for East Bay: East Bay Office Ecosystem District Foundation\n\nFramework:\n- Businesses search for places where their operations can succeed, not for property types.\n- Use the Commercial Ecosystem Framework and canonical taxonomy.\n- Do not change recommendation rankings, Search Profile questions, or public page design.\n\nTarget ecosystem: Office (office)\nMetro relevance: Core\nCurrent readiness: Partial\nSprint family: Ecosystem District Foundation\n\nCurrent layer coverage:\n- districts: missing\n- recommendations: missing\n- representativeBuildings: developed\n- buildingBriefs: developed\n- subtypes: developed\n- archetypes: developed\n- activities: developed\n- editorialReview: developed\n\nKnown gaps:\n- Ecosystem appears only as a secondary district expression.\n\nTarget subtypes:\n- downtown_office, professional_office, creative_office, executive_office, suburban_office\nTarget archetypes:\n- professional_office, law_firm, accounting_firm, financial_services_firm, consulting_firm, marketing_agency\nTarget business activities:\n- knowledge_work, client_meetings, collaboration, administrative_operations\nMissing representative roles:\n- none identified\nMissing operational categories:\n- none identified\nExisting representative buildings:\n- 2100 Powell St (suburban_office_campus); 2140 Shattuck Ave (transit_oriented_office_environment); 2150 Shattuck Ave (transit_oriented_office_environment); 2030 Addison St (professional_office_environment); 2040 Bancroft Way (downtown_class_a_office); 2070 Allston Way (downtown_class_a_office)\nDistrict candidates:\n- review required\n\nDependencies:\n- Ecosystem classification\n- District foundation\n- Recommendation foundation\n- Representative Building foundation\n- Building Brief migration after canonical records exist\n\nCompletion criteria:\n- Validated district ecosystem classification\n- Representative Building coverage across the most important subtypes\n- Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus\n- Building Brief migration only after canonical records and district association exist\n- Publisher ecosystem QA passes without hard errors\n- Every target representative role has at least one source-supported building or is explicitly marked research required\n- Target operational categories are represented without asserting unverified property features\n- Representative Building intelligence QA passes\n\nGuardrails:\n- Do not invent districts, buildings, tenants, availability, rents, or unsupported facts.\n- Do not deepen office-only coverage when the target ecosystem is different.\n- Do not treat taxonomy compatibility as proof that a property has a feature.\n- Validate loading, power, parking, yards, lab, food, medical, and permitted-use claims before authoring them as facts.\n- Do not recommend Building Brief migration before canonical representative buildings exist.\n- Regenerate Publisher snapshots and run ecosystem readiness QA.\n\nVerification:\n- npm run publisher:snapshot\n- npm run publisher:report\n- npm run build\n- node scripts/qa-commercial-ecosystem-foundation.js\n- node scripts/qa-publisher-ecosystem-readiness.js\n- node scripts/qa-representative-building-intelligence.js"
       },
       "gaps": [
         {
@@ -75941,104 +75133,6 @@
             "recommendation": 84,
             "editorial": 78,
             "building": 86
-          }
-        },
-        {
-          "id": "gap:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
-          "metroId": "east-bay",
-          "metroName": "East Bay",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "2100 Powell St",
-          "sourceId": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
-          "publicUrl": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
-          "id": "gap:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st",
-          "metroId": "east-bay",
-          "metroName": "East Bay",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "2200 Powell St",
-          "sourceId": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
-          "publicUrl": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
           }
         },
         {
@@ -76326,104 +75420,6 @@
         }
       ],
       "priorities": [
-        {
-          "id": "gap:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
-          "metroId": "east-bay",
-          "metroName": "East Bay",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "2100 Powell St",
-          "sourceId": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
-          "publicUrl": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
-        {
-          "id": "gap:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st",
-          "metroId": "east-bay",
-          "metroName": "East Bay",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "gapType": "representativeBuilding",
-          "gapLabel": "Representative-Building Gap",
-          "code": "building-missing-building-brief",
-          "taskType": "representative building missing Building Brief",
-          "affectedType": "building-or-district",
-          "itemName": "2200 Powell St",
-          "sourceId": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
-          "publicUrl": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
-          "adminUrl": "",
-          "severity": "medium",
-          "description": "Representative building has not migrated to the Building Brief journey.",
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "confidence": "Ready",
-          "automationCandidate": true,
-          "priorityFactors": {
-            "userValue": 5,
-            "recommendationImpact": 3,
-            "coverageUnlock": 4,
-            "seoValue": 5,
-            "estimatedEffort": 4,
-            "dependencyRisk": 1
-          },
-          "blockedBy": [],
-          "unlocks": [
-            "Building Brief page depth",
-            "recommendation representative-building card eligibility"
-          ],
-          "prerequisite": [
-            "canonical representative building record",
-            "district association"
-          ],
-          "followUp": [
-            "QA Building Brief depth"
-          ],
-          "priorityScore": 80,
-          "modeScores": {
-            "balanced": 80,
-            "recommendation": 78,
-            "editorial": 87,
-            "building": 91
-          }
-        },
         {
           "id": "gap:east-bay:comparisonGraph:orphan district comparison:antioch-east-18th-industrial",
           "metroId": "east-bay",
@@ -76804,44 +75800,10 @@
       "recommendedSprint": {
         "mode": "balanced",
         "modeLabel": "Balanced Expansion",
-        "title": "East Bay Building Brief Migration Sprint",
-        "objective": "Improve East Bay expansion readiness by completing the highest-value Building Briefs, Comparison Graph, Recommendation Readiness work without creating unsupported content.",
-        "rationale": "Selected from 10 deterministic Publisher gaps using balanced expansion weighting.",
+        "title": "East Bay District Comparison Sprint",
+        "objective": "Improve East Bay expansion readiness by completing the highest-value Comparison Graph, Recommendation Readiness, Representative Buildings work without creating unsupported content.",
+        "rationale": "Selected from 8 deterministic Publisher gaps using balanced expansion weighting.",
         "tasks": [
-          {
-            "id": "gap:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
-            "category": "buildingBriefs",
-            "categoryLabel": "Building Briefs",
-            "gapType": "representativeBuilding",
-            "itemName": "2100 Powell St",
-            "sourceId": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
-            "publicUrl": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
-            "priorityScore": 80,
-            "confidence": "Ready",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
-            "blockedBy": [],
-            "unlocks": [
-              "Building Brief page depth",
-              "recommendation representative-building card eligibility"
-            ]
-          },
-          {
-            "id": "gap:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st",
-            "category": "buildingBriefs",
-            "categoryLabel": "Building Briefs",
-            "gapType": "representativeBuilding",
-            "itemName": "2200 Powell St",
-            "sourceId": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
-            "publicUrl": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
-            "priorityScore": 80,
-            "confidence": "Ready",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
-            "blockedBy": [],
-            "unlocks": [
-              "Building Brief page depth",
-              "recommendation representative-building card eligibility"
-            ]
-          },
           {
             "id": "gap:east-bay:comparisonGraph:orphan district comparison:antioch-east-18th-industrial",
             "category": "comparisonGraph",
@@ -76942,41 +75904,32 @@
           }
         ],
         "dataTasks": [
-          "Author a Building Brief for this representative building.",
-          "Author a Building Brief for this representative building.",
           "Add meaningful compareWith relationships to nearby or decision-adjacent districts.",
           "Curate representative buildings that explain this district.",
           "Review whether the comparison should be reciprocal.",
           "Review whether the comparison should be reciprocal.",
           "Review whether the comparison should be reciprocal."
         ],
-        "contentTasks": [
-          "Author a Building Brief for this representative building.",
-          "Author a Building Brief for this representative building."
-        ],
+        "contentTasks": [],
         "qaTasks": [
           "node scripts/qa-publisher-expansion-planner.js",
           "node scripts/run-recommendation-qa.js",
-          "node scripts/qa-building-brief-depth.js",
           "node scripts/qa-recommendation-representative-buildings.js"
         ],
         "dependencies": [
-          "canonical representative building record",
-          "district association",
           "district identity",
           "district commercial identity"
         ],
         "expectedImpact": [
           "clearer recommendation alternatives",
           "representative-building modules can unlock after curation",
-          "deeper public building intelligence and stronger internal links",
           "more defensible Compass and Location Brief output"
         ],
         "expectedCoverageImprovements": {
           "districtTasks": 0,
           "comparisonTasks": 4,
           "representativeBuildingTasks": 1,
-          "buildingBriefTasks": 2,
+          "buildingBriefTasks": 0,
           "recommendationTasks": 1
         },
         "exclusions": [
@@ -76985,50 +75938,16 @@
           "No live availability claims.",
           "No creation of placeholder pages."
         ],
-        "codexPrompt": "Implement Publisher recommended sprint for East Bay: East Bay Building Brief Migration Sprint\n\nMode: Balanced Expansion\nObjective: Improve East Bay expansion readiness by completing the highest-value Building Briefs, Comparison Graph, Recommendation Readiness work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 2100 Powell St, 2200 Powell St\n- Comparisons: Antioch East 18th Industrial; Hayward Industrial -> North San Jose; Oakland Medical Campuses -> Downtown Berkeley; Oakland Medical Campuses -> Emeryville Commercial Core\n\nTasks:\n- [Ready] Building Briefs: 2100 Powell St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 2200 Powell St - Author a Building Brief for this representative building.\n- [Review recommended] Comparison Graph: Antioch East 18th Industrial - Add meaningful compareWith relationships to nearby or decision-adjacent districts.\n- [Blocked] Recommendation Readiness: East Bay - Add or update recommendation QA documentation for this metro.\n- [Research required] Representative Buildings: Antioch East 18th Industrial - Curate representative buildings that explain this district.\n- [Review recommended] Comparison Graph: Hayward Industrial -> North San Jose - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Oakland Medical Campuses -> Downtown Berkeley - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Oakland Medical Campuses -> Emeryville Commercial Core - Review whether the comparison should be reciprocal.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
+        "codexPrompt": "Implement Publisher recommended sprint for East Bay: East Bay District Comparison Sprint\n\nMode: Balanced Expansion\nObjective: Improve East Bay expansion readiness by completing the highest-value Comparison Graph, Recommendation Readiness, Representative Buildings work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: none named\n- Comparisons: Antioch East 18th Industrial; Hayward Industrial -> North San Jose; Oakland Medical Campuses -> Downtown Berkeley; Oakland Medical Campuses -> Emeryville Commercial Core\n\nTasks:\n- [Review recommended] Comparison Graph: Antioch East 18th Industrial - Add meaningful compareWith relationships to nearby or decision-adjacent districts.\n- [Blocked] Recommendation Readiness: East Bay - Add or update recommendation QA documentation for this metro.\n- [Research required] Representative Buildings: Antioch East 18th Industrial - Curate representative buildings that explain this district.\n- [Review recommended] Comparison Graph: Hayward Industrial -> North San Jose - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Oakland Medical Campuses -> Downtown Berkeley - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Oakland Medical Campuses -> Emeryville Commercial Core - Review whether the comparison should be reciprocal.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
       },
       "plansByMode": {
         "balanced": {
           "mode": "balanced",
           "modeLabel": "Balanced Expansion",
-          "title": "East Bay Building Brief Migration Sprint",
-          "objective": "Improve East Bay expansion readiness by completing the highest-value Building Briefs, Comparison Graph, Recommendation Readiness work without creating unsupported content.",
-          "rationale": "Selected from 10 deterministic Publisher gaps using balanced expansion weighting.",
+          "title": "East Bay District Comparison Sprint",
+          "objective": "Improve East Bay expansion readiness by completing the highest-value Comparison Graph, Recommendation Readiness, Representative Buildings work without creating unsupported content.",
+          "rationale": "Selected from 8 deterministic Publisher gaps using balanced expansion weighting.",
           "tasks": [
-            {
-              "id": "gap:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
-              "category": "buildingBriefs",
-              "categoryLabel": "Building Briefs",
-              "gapType": "representativeBuilding",
-              "itemName": "2100 Powell St",
-              "sourceId": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
-              "publicUrl": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
-              "priorityScore": 80,
-              "confidence": "Ready",
-              "suggestedNextAction": "Author a Building Brief for this representative building.",
-              "blockedBy": [],
-              "unlocks": [
-                "Building Brief page depth",
-                "recommendation representative-building card eligibility"
-              ]
-            },
-            {
-              "id": "gap:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st",
-              "category": "buildingBriefs",
-              "categoryLabel": "Building Briefs",
-              "gapType": "representativeBuilding",
-              "itemName": "2200 Powell St",
-              "sourceId": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
-              "publicUrl": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
-              "priorityScore": 80,
-              "confidence": "Ready",
-              "suggestedNextAction": "Author a Building Brief for this representative building.",
-              "blockedBy": [],
-              "unlocks": [
-                "Building Brief page depth",
-                "recommendation representative-building card eligibility"
-              ]
-            },
             {
               "id": "gap:east-bay:comparisonGraph:orphan district comparison:antioch-east-18th-industrial",
               "category": "comparisonGraph",
@@ -77129,41 +76048,32 @@
             }
           ],
           "dataTasks": [
-            "Author a Building Brief for this representative building.",
-            "Author a Building Brief for this representative building.",
             "Add meaningful compareWith relationships to nearby or decision-adjacent districts.",
             "Curate representative buildings that explain this district.",
             "Review whether the comparison should be reciprocal.",
             "Review whether the comparison should be reciprocal.",
             "Review whether the comparison should be reciprocal."
           ],
-          "contentTasks": [
-            "Author a Building Brief for this representative building.",
-            "Author a Building Brief for this representative building."
-          ],
+          "contentTasks": [],
           "qaTasks": [
             "node scripts/qa-publisher-expansion-planner.js",
             "node scripts/run-recommendation-qa.js",
-            "node scripts/qa-building-brief-depth.js",
             "node scripts/qa-recommendation-representative-buildings.js"
           ],
           "dependencies": [
-            "canonical representative building record",
-            "district association",
             "district identity",
             "district commercial identity"
           ],
           "expectedImpact": [
             "clearer recommendation alternatives",
             "representative-building modules can unlock after curation",
-            "deeper public building intelligence and stronger internal links",
             "more defensible Compass and Location Brief output"
           ],
           "expectedCoverageImprovements": {
             "districtTasks": 0,
             "comparisonTasks": 4,
             "representativeBuildingTasks": 1,
-            "buildingBriefTasks": 2,
+            "buildingBriefTasks": 0,
             "recommendationTasks": 1
           },
           "exclusions": [
@@ -77172,14 +76082,14 @@
             "No live availability claims.",
             "No creation of placeholder pages."
           ],
-          "codexPrompt": "Implement Publisher recommended sprint for East Bay: East Bay Building Brief Migration Sprint\n\nMode: Balanced Expansion\nObjective: Improve East Bay expansion readiness by completing the highest-value Building Briefs, Comparison Graph, Recommendation Readiness work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 2100 Powell St, 2200 Powell St\n- Comparisons: Antioch East 18th Industrial; Hayward Industrial -> North San Jose; Oakland Medical Campuses -> Downtown Berkeley; Oakland Medical Campuses -> Emeryville Commercial Core\n\nTasks:\n- [Ready] Building Briefs: 2100 Powell St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 2200 Powell St - Author a Building Brief for this representative building.\n- [Review recommended] Comparison Graph: Antioch East 18th Industrial - Add meaningful compareWith relationships to nearby or decision-adjacent districts.\n- [Blocked] Recommendation Readiness: East Bay - Add or update recommendation QA documentation for this metro.\n- [Research required] Representative Buildings: Antioch East 18th Industrial - Curate representative buildings that explain this district.\n- [Review recommended] Comparison Graph: Hayward Industrial -> North San Jose - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Oakland Medical Campuses -> Downtown Berkeley - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Oakland Medical Campuses -> Emeryville Commercial Core - Review whether the comparison should be reciprocal.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
+          "codexPrompt": "Implement Publisher recommended sprint for East Bay: East Bay District Comparison Sprint\n\nMode: Balanced Expansion\nObjective: Improve East Bay expansion readiness by completing the highest-value Comparison Graph, Recommendation Readiness, Representative Buildings work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: none named\n- Comparisons: Antioch East 18th Industrial; Hayward Industrial -> North San Jose; Oakland Medical Campuses -> Downtown Berkeley; Oakland Medical Campuses -> Emeryville Commercial Core\n\nTasks:\n- [Review recommended] Comparison Graph: Antioch East 18th Industrial - Add meaningful compareWith relationships to nearby or decision-adjacent districts.\n- [Blocked] Recommendation Readiness: East Bay - Add or update recommendation QA documentation for this metro.\n- [Research required] Representative Buildings: Antioch East 18th Industrial - Curate representative buildings that explain this district.\n- [Review recommended] Comparison Graph: Hayward Industrial -> North San Jose - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Oakland Medical Campuses -> Downtown Berkeley - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Oakland Medical Campuses -> Emeryville Commercial Core - Review whether the comparison should be reciprocal.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
         },
         "recommendation": {
           "mode": "recommendation",
           "modeLabel": "Recommendation Readiness",
           "title": "East Bay Recommendation Readiness Sprint",
           "objective": "Improve East Bay expansion readiness by completing the highest-value Recommendation Readiness, Comparison Graph, Representative Buildings work without creating unsupported content.",
-          "rationale": "Selected from 10 deterministic Publisher gaps using recommendation readiness weighting.",
+          "rationale": "Selected from 8 deterministic Publisher gaps using recommendation readiness weighting.",
           "tasks": [
             {
               "id": "gap:east-bay:recommendationReadiness:missing recommendation QA status:east-bay",
@@ -77355,8 +76265,8 @@
           "mode": "editorial",
           "modeLabel": "Editorial Depth",
           "title": "East Bay Recommendation Readiness Sprint",
-          "objective": "Improve East Bay expansion readiness by completing the highest-value Recommendation Readiness, Building Briefs, Representative Buildings work without creating unsupported content.",
-          "rationale": "Selected from 10 deterministic Publisher gaps using editorial depth weighting.",
+          "objective": "Improve East Bay expansion readiness by completing the highest-value Recommendation Readiness, Representative Buildings, Comparison Graph work without creating unsupported content.",
+          "rationale": "Selected from 8 deterministic Publisher gaps using editorial depth weighting.",
           "tasks": [
             {
               "id": "gap:east-bay:recommendationReadiness:missing recommendation QA status:east-bay",
@@ -77373,40 +76283,6 @@
               "unlocks": [
                 "Compass readiness confidence",
                 "Distribution Ready gate clearance"
-              ]
-            },
-            {
-              "id": "gap:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
-              "category": "buildingBriefs",
-              "categoryLabel": "Building Briefs",
-              "gapType": "representativeBuilding",
-              "itemName": "2100 Powell St",
-              "sourceId": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
-              "publicUrl": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
-              "priorityScore": 87,
-              "confidence": "Ready",
-              "suggestedNextAction": "Author a Building Brief for this representative building.",
-              "blockedBy": [],
-              "unlocks": [
-                "Building Brief page depth",
-                "recommendation representative-building card eligibility"
-              ]
-            },
-            {
-              "id": "gap:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st",
-              "category": "buildingBriefs",
-              "categoryLabel": "Building Briefs",
-              "gapType": "representativeBuilding",
-              "itemName": "2200 Powell St",
-              "sourceId": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
-              "publicUrl": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
-              "priorityScore": 87,
-              "confidence": "Ready",
-              "suggestedNextAction": "Author a Building Brief for this representative building.",
-              "blockedBy": [],
-              "unlocks": [
-                "Building Brief page depth",
-                "recommendation representative-building card eligibility"
               ]
             },
             {
@@ -77524,8 +76400,6 @@
             }
           ],
           "dataTasks": [
-            "Author a Building Brief for this representative building.",
-            "Author a Building Brief for this representative building.",
             "Curate representative buildings that explain this district.",
             "Add meaningful compareWith relationships to nearby or decision-adjacent districts.",
             "Review whether the comparison should be reciprocal.",
@@ -77534,33 +76408,26 @@
             "Review whether the comparison should be reciprocal.",
             "Review whether the comparison should be reciprocal."
           ],
-          "contentTasks": [
-            "Author a Building Brief for this representative building.",
-            "Author a Building Brief for this representative building."
-          ],
+          "contentTasks": [],
           "qaTasks": [
             "node scripts/qa-publisher-expansion-planner.js",
             "node scripts/run-recommendation-qa.js",
-            "node scripts/qa-building-brief-depth.js",
             "node scripts/qa-recommendation-representative-buildings.js"
           ],
           "dependencies": [
-            "canonical representative building record",
-            "district association",
             "district commercial identity",
             "district identity"
           ],
           "expectedImpact": [
             "clearer recommendation alternatives",
             "representative-building modules can unlock after curation",
-            "deeper public building intelligence and stronger internal links",
             "more defensible Compass and Location Brief output"
           ],
           "expectedCoverageImprovements": {
             "districtTasks": 0,
             "comparisonTasks": 6,
             "representativeBuildingTasks": 1,
-            "buildingBriefTasks": 2,
+            "buildingBriefTasks": 0,
             "recommendationTasks": 1
           },
           "exclusions": [
@@ -77569,14 +76436,14 @@
             "No live availability claims.",
             "No creation of placeholder pages."
           ],
-          "codexPrompt": "Implement Publisher recommended sprint for East Bay: East Bay Recommendation Readiness Sprint\n\nMode: Editorial Depth\nObjective: Improve East Bay expansion readiness by completing the highest-value Recommendation Readiness, Building Briefs, Representative Buildings work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 2100 Powell St, 2200 Powell St\n- Comparisons: Antioch East 18th Industrial; Hayward Industrial -> North San Jose; Oakland Medical Campuses -> Downtown Berkeley; Oakland Medical Campuses -> Emeryville Commercial Core; Oakland Medical Campuses -> Jack London Square; Warm Springs Innovation District -> North San Jose\n\nTasks:\n- [Blocked] Recommendation Readiness: East Bay - Add or update recommendation QA documentation for this metro.\n- [Ready] Building Briefs: 2100 Powell St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 2200 Powell St - Author a Building Brief for this representative building.\n- [Research required] Representative Buildings: Antioch East 18th Industrial - Curate representative buildings that explain this district.\n- [Review recommended] Comparison Graph: Antioch East 18th Industrial - Add meaningful compareWith relationships to nearby or decision-adjacent districts.\n- [Review recommended] Comparison Graph: Hayward Industrial -> North San Jose - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Oakland Medical Campuses -> Downtown Berkeley - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Oakland Medical Campuses -> Emeryville Commercial Core - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Oakland Medical Campuses -> Jack London Square - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Warm Springs Innovation District -> North San Jose - Review whether the comparison should be reciprocal.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
+          "codexPrompt": "Implement Publisher recommended sprint for East Bay: East Bay Recommendation Readiness Sprint\n\nMode: Editorial Depth\nObjective: Improve East Bay expansion readiness by completing the highest-value Recommendation Readiness, Representative Buildings, Comparison Graph work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: none named\n- Comparisons: Antioch East 18th Industrial; Hayward Industrial -> North San Jose; Oakland Medical Campuses -> Downtown Berkeley; Oakland Medical Campuses -> Emeryville Commercial Core; Oakland Medical Campuses -> Jack London Square; Warm Springs Innovation District -> North San Jose\n\nTasks:\n- [Blocked] Recommendation Readiness: East Bay - Add or update recommendation QA documentation for this metro.\n- [Research required] Representative Buildings: Antioch East 18th Industrial - Curate representative buildings that explain this district.\n- [Review recommended] Comparison Graph: Antioch East 18th Industrial - Add meaningful compareWith relationships to nearby or decision-adjacent districts.\n- [Review recommended] Comparison Graph: Hayward Industrial -> North San Jose - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Oakland Medical Campuses -> Downtown Berkeley - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Oakland Medical Campuses -> Emeryville Commercial Core - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Oakland Medical Campuses -> Jack London Square - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Warm Springs Innovation District -> North San Jose - Review whether the comparison should be reciprocal.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
         },
         "building": {
           "mode": "building",
           "modeLabel": "Building Depth",
           "title": "East Bay Recommendation Readiness Sprint",
-          "objective": "Improve East Bay expansion readiness by completing the highest-value Recommendation Readiness, Representative Buildings, Building Briefs work without creating unsupported content.",
-          "rationale": "Selected from 10 deterministic Publisher gaps using building depth weighting.",
+          "objective": "Improve East Bay expansion readiness by completing the highest-value Recommendation Readiness, Representative Buildings work without creating unsupported content.",
+          "rationale": "Selected from 8 deterministic Publisher gaps using building depth weighting.",
           "tasks": [
             {
               "id": "gap:east-bay:recommendationReadiness:missing recommendation QA status:east-bay",
@@ -77611,72 +76478,29 @@
                 "Building Brief migration",
                 "recommendation representative-building module"
               ]
-            },
-            {
-              "id": "gap:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
-              "category": "buildingBriefs",
-              "categoryLabel": "Building Briefs",
-              "gapType": "representativeBuilding",
-              "itemName": "2100 Powell St",
-              "sourceId": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
-              "publicUrl": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
-              "priorityScore": 91,
-              "confidence": "Ready",
-              "suggestedNextAction": "Author a Building Brief for this representative building.",
-              "blockedBy": [],
-              "unlocks": [
-                "Building Brief page depth",
-                "recommendation representative-building card eligibility"
-              ]
-            },
-            {
-              "id": "gap:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st",
-              "category": "buildingBriefs",
-              "categoryLabel": "Building Briefs",
-              "gapType": "representativeBuilding",
-              "itemName": "2200 Powell St",
-              "sourceId": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
-              "publicUrl": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
-              "priorityScore": 91,
-              "confidence": "Ready",
-              "suggestedNextAction": "Author a Building Brief for this representative building.",
-              "blockedBy": [],
-              "unlocks": [
-                "Building Brief page depth",
-                "recommendation representative-building card eligibility"
-              ]
             }
           ],
           "dataTasks": [
-            "Curate representative buildings that explain this district.",
-            "Author a Building Brief for this representative building.",
-            "Author a Building Brief for this representative building."
+            "Curate representative buildings that explain this district."
           ],
-          "contentTasks": [
-            "Author a Building Brief for this representative building.",
-            "Author a Building Brief for this representative building."
-          ],
+          "contentTasks": [],
           "qaTasks": [
             "node scripts/qa-publisher-expansion-planner.js",
             "node scripts/run-recommendation-qa.js",
-            "node scripts/qa-building-brief-depth.js",
             "node scripts/qa-recommendation-representative-buildings.js"
           ],
           "dependencies": [
-            "district commercial identity",
-            "canonical representative building record",
-            "district association"
+            "district commercial identity"
           ],
           "expectedImpact": [
             "representative-building modules can unlock after curation",
-            "deeper public building intelligence and stronger internal links",
             "more defensible Compass and Location Brief output"
           ],
           "expectedCoverageImprovements": {
             "districtTasks": 0,
             "comparisonTasks": 0,
             "representativeBuildingTasks": 1,
-            "buildingBriefTasks": 2,
+            "buildingBriefTasks": 0,
             "recommendationTasks": 1
           },
           "exclusions": [
@@ -77685,7 +76509,7 @@
             "No live availability claims.",
             "No creation of placeholder pages."
           ],
-          "codexPrompt": "Implement Publisher recommended sprint for East Bay: East Bay Recommendation Readiness Sprint\n\nMode: Building Depth\nObjective: Improve East Bay expansion readiness by completing the highest-value Recommendation Readiness, Representative Buildings, Building Briefs work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 2100 Powell St, 2200 Powell St\n- Comparisons: none named\n\nTasks:\n- [Blocked] Recommendation Readiness: East Bay - Add or update recommendation QA documentation for this metro.\n- [Research required] Representative Buildings: Antioch East 18th Industrial - Curate representative buildings that explain this district.\n- [Ready] Building Briefs: 2100 Powell St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 2200 Powell St - Author a Building Brief for this representative building.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
+          "codexPrompt": "Implement Publisher recommended sprint for East Bay: East Bay Recommendation Readiness Sprint\n\nMode: Building Depth\nObjective: Improve East Bay expansion readiness by completing the highest-value Recommendation Readiness, Representative Buildings work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: none named\n- Comparisons: none named\n\nTasks:\n- [Blocked] Recommendation Readiness: East Bay - Add or update recommendation QA documentation for this metro.\n- [Research required] Representative Buildings: Antioch East 18th Industrial - Curate representative buildings that explain this district.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
         }
       },
       "blockers": [
@@ -77707,7 +76531,7 @@
     {
       "metroId": "sacramento",
       "metroName": "Sacramento",
-      "generatedAt": "2026-08-13T07:46:28-07:00",
+      "generatedAt": "2026-08-13T08:22:17-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 98,
@@ -86353,7 +85177,7 @@
     {
       "metroId": "san-diego",
       "metroName": "San Diego",
-      "generatedAt": "2026-08-13T07:46:28-07:00",
+      "generatedAt": "2026-08-13T08:22:17-07:00",
       "currentState": {
         "readinessStatus": "Expansion Ready",
         "overallScore": 84,
@@ -95889,7 +94713,7 @@
     {
       "metroId": "orange-county",
       "metroName": "Orange County",
-      "generatedAt": "2026-08-13T07:46:28-07:00",
+      "generatedAt": "2026-08-13T08:22:17-07:00",
       "currentState": {
         "readinessStatus": "Expansion Ready",
         "overallScore": 84,
@@ -104694,7 +103518,7 @@
     {
       "metroId": "denver",
       "metroName": "Denver",
-      "generatedAt": "2026-08-13T07:46:28-07:00",
+      "generatedAt": "2026-08-13T08:22:17-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 97,
@@ -112402,8 +111226,8 @@
   "overview": {
     "metroCount": 7,
     "primaryMetroCount": 6,
-    "totalGaps": 285,
-    "totalPriorities": 285,
+    "totalGaps": 281,
+    "totalPriorities": 281,
     "topRecommendedSprint": {
       "metroId": "san-diego",
       "metroName": "San Diego",

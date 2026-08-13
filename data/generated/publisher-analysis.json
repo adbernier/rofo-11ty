@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-13T07:46:28-07:00",
-  "sourceCommit": "3fbec59aba94b25dbb1649eaa291655cc1577c23",
+  "generatedAt": "2026-08-13T08:22:17-07:00",
+  "sourceCommit": "7b220760350a4a5654f7ec750f65911a92235e55",
   "geography": {
     "schemaVersion": "commercial-geography-summary-v1",
     "hierarchy": [
@@ -2235,7 +2235,7 @@
       "Low": 2
     },
     "deferredCandidates": 69,
-    "latestValidation": "2026-08-13T07:46:28-07:00",
+    "latestValidation": "2026-08-13T08:22:17-07:00",
     "errors": [],
     "warnings": [],
     "source": {
@@ -2245,13 +2245,13 @@
     "scoringImpact": "None. Reporting only; Publisher scoring and readiness calculations are unchanged."
   },
   "analysis": {
-    "generatedAt": "2026-08-13T07:46:28-07:00",
+    "generatedAt": "2026-08-13T08:22:17-07:00",
     "rulesVersion": "publisher-rules-v1",
     "overview": {
       "compassReadyCount": 5,
       "averageScore": 89,
       "criticalIssues": 0,
-      "queuedTasks": 285,
+      "queuedTasks": 281,
       "closestToDistributionReady": "Sacramento",
       "largestCriticalGap": "None"
     },
@@ -2293,11 +2293,11 @@
             "label": "Editorial Coverage",
             "score": 91,
             "status": "",
-            "explanation": "25 of 25 districts have substantive descriptions; 158 representative buildings and 87 Building Briefs are available.",
+            "explanation": "25 of 25 districts have substantive descriptions; 158 representative buildings and 89 Building Briefs are available.",
             "completed": {
               "districtsWithDescriptions": 25,
               "representativeBuildings": 158,
-              "buildingBriefs": 87
+              "buildingBriefs": 89
             },
             "targets": {
               "representativeBuildingsPerDistrict": 3,
@@ -2334,7 +2334,7 @@
         "cityPath": "/commercial-real-estate/CA/san-francisco/",
         "districtCount": 25,
         "representativeBuildingCount": 158,
-        "buildingBriefCount": 87,
+        "buildingBriefCount": 89,
         "geographicReadiness": {
           "state": "developed",
           "label": "Developed",
@@ -2393,7 +2393,7 @@
                 "secondaryDistricts": 16,
                 "recommendations": 6,
                 "representativeBuildings": 77,
-                "buildingBriefs": 36,
+                "buildingBriefs": 37,
                 "subtypes": 7,
                 "archetypes": 14,
                 "activities": 8,
@@ -2409,7 +2409,7 @@
               "strategicPriority": 2,
               "evidence": [
                 "6 primary districts and 16 secondary districts.",
-                "77 Representative Buildings and 36 Building Briefs.",
+                "77 Representative Buildings and 37 Building Briefs.",
                 "7 representative roles and 5 operational categories are covered."
               ],
               "targetSubtypes": [
@@ -3117,7 +3117,7 @@
                 "secondaryDistricts": 4,
                 "recommendations": 2,
                 "representativeBuildings": 15,
-                "buildingBriefs": 5,
+                "buildingBriefs": 6,
                 "subtypes": 7,
                 "archetypes": 5,
                 "activities": 5,
@@ -3133,7 +3133,7 @@
               "strategicPriority": 4,
               "evidence": [
                 "2 primary districts and 4 secondary districts.",
-                "15 Representative Buildings and 5 Building Briefs.",
+                "15 Representative Buildings and 6 Building Briefs.",
                 "3 representative roles and 5 operational categories are covered."
               ],
               "targetSubtypes": [
@@ -3607,7 +3607,7 @@
             "label": "Balanced",
             "dominantEcosystem": "industrial_flex",
             "representativeBuildingShare": 0.49,
-            "buildingBriefShare": 0.49,
+            "buildingBriefShare": 0.48,
             "warnings": []
           }
         },
@@ -3616,7 +3616,7 @@
           "label": "Balanced",
           "dominantEcosystem": "industrial_flex",
           "representativeBuildingShare": 0.49,
-          "buildingBriefShare": 0.49,
+          "buildingBriefShare": 0.48,
           "warnings": []
         },
         "ecosystemCoverage": {
@@ -3628,7 +3628,7 @@
               "secondaryDistrictCount": 16,
               "recommendationNodeCount": 6,
               "representativeBuildingCount": 77,
-              "buildingBriefCount": 36,
+              "buildingBriefCount": 37,
               "status": "Developed",
               "districts": [
                 {
@@ -4383,7 +4383,7 @@
               "secondaryDistrictCount": 4,
               "recommendationNodeCount": 2,
               "representativeBuildingCount": 15,
-              "buildingBriefCount": 5,
+              "buildingBriefCount": 6,
               "status": "Developed",
               "districts": [
                 {
@@ -5531,50 +5531,12 @@
           "buildingBriefs": {
             "key": "buildingBriefs",
             "label": "Building Briefs",
-            "score": 55,
-            "completed": 87,
+            "score": 56,
+            "completed": 89,
             "total": 158,
-            "missing": 71,
-            "explanation": "87 of 158 representative building records use the canonical Building Brief journey.",
+            "missing": 69,
+            "explanation": "89 of 158 representative building records use the canonical Building Brief journey.",
             "issues": [
-              {
-                "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st",
-                "code": "missing-brief",
-                "metroId": "san-francisco",
-                "metroName": "San Francisco",
-                "category": "buildingBriefs",
-                "categoryLabel": "Building Briefs",
-                "taskType": "representative building missing Building Brief",
-                "itemName": "2200 Powell St",
-                "severity": "medium",
-                "priority": 40,
-                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-                "sourceId": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
-                "publicUrl": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
-                "adminUrl": "",
-                "suggestedNextAction": "Author a Building Brief for this representative building.",
-                "automationCandidate": true,
-                "readinessState": "representative-foundation"
-              },
-              {
-                "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
-                "code": "missing-brief",
-                "metroId": "san-francisco",
-                "metroName": "San Francisco",
-                "category": "buildingBriefs",
-                "categoryLabel": "Building Briefs",
-                "taskType": "representative building missing Building Brief",
-                "itemName": "2100 Powell St",
-                "severity": "medium",
-                "priority": 40,
-                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-                "sourceId": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
-                "publicUrl": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
-                "adminUrl": "",
-                "suggestedNextAction": "Author a Building Brief for this representative building.",
-                "automationCandidate": true,
-                "readinessState": "representative-foundation"
-              },
               {
                 "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-palo-alto-101-lytton-ave",
                 "code": "missing-brief",
@@ -6941,8 +6903,8 @@
             "key": "editorialQuality",
             "label": "Editorial Quality",
             "score": 98,
-            "completed": 110,
-            "total": 112,
+            "completed": 112,
+            "total": 114,
             "missing": 2,
             "explanation": "Deterministic scan for placeholders, unsupported generated phrasing, and style-guide avoid phrases.",
             "issues": [
@@ -7567,44 +7529,6 @@
             "suggestedNextAction": "Author a Building Brief for this representative building.",
             "automationCandidate": true,
             "readinessState": ""
-          },
-          {
-            "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
-            "code": "missing-brief",
-            "metroId": "san-francisco",
-            "metroName": "San Francisco",
-            "category": "buildingBriefs",
-            "categoryLabel": "Building Briefs",
-            "taskType": "representative building missing Building Brief",
-            "itemName": "2100 Powell St",
-            "severity": "medium",
-            "priority": 40,
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-            "sourceId": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
-            "publicUrl": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
-            "adminUrl": "",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
-            "automationCandidate": true,
-            "readinessState": "representative-foundation"
-          },
-          {
-            "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st",
-            "code": "missing-brief",
-            "metroId": "san-francisco",
-            "metroName": "San Francisco",
-            "category": "buildingBriefs",
-            "categoryLabel": "Building Briefs",
-            "taskType": "representative building missing Building Brief",
-            "itemName": "2200 Powell St",
-            "severity": "medium",
-            "priority": 40,
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-            "sourceId": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
-            "publicUrl": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
-            "adminUrl": "",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
-            "automationCandidate": true,
-            "readinessState": "representative-foundation"
           },
           {
             "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-2400-16th-st",
@@ -9052,11 +8976,11 @@
             "label": "Editorial Coverage",
             "score": 93,
             "status": "",
-            "explanation": "9 of 9 districts have substantive descriptions; 51 representative buildings and 49 Building Briefs are available.",
+            "explanation": "9 of 9 districts have substantive descriptions; 51 representative buildings and 51 Building Briefs are available.",
             "completed": {
               "districtsWithDescriptions": 9,
               "representativeBuildings": 51,
-              "buildingBriefs": 49
+              "buildingBriefs": 51
             },
             "targets": {
               "representativeBuildingsPerDistrict": 3,
@@ -9121,7 +9045,7 @@
         "cityPath": "/commercial-real-estate/CA/oakland/",
         "districtCount": 9,
         "representativeBuildingCount": 51,
-        "buildingBriefCount": 49,
+        "buildingBriefCount": 51,
         "geographicReadiness": {
           "state": "strong",
           "label": "Strong",
@@ -9181,7 +9105,7 @@
                 "secondaryDistricts": 5,
                 "recommendations": 0,
                 "representativeBuildings": 12,
-                "buildingBriefs": 11,
+                "buildingBriefs": 12,
                 "subtypes": 4,
                 "archetypes": 12,
                 "activities": 6,
@@ -9199,7 +9123,7 @@
               "strategicPriority": 2,
               "evidence": [
                 "0 primary districts and 5 secondary districts.",
-                "12 Representative Buildings and 11 Building Briefs.",
+                "12 Representative Buildings and 12 Building Briefs.",
                 "6 representative roles and 5 operational categories are covered."
               ],
               "targetSubtypes": [
@@ -9843,7 +9767,7 @@
                 "districts": "strong",
                 "recommendations": "strong",
                 "representativeBuildings": "partial",
-                "buildingBriefs": "missing",
+                "buildingBriefs": "strong",
                 "subtypes": "developed",
                 "archetypes": "developed",
                 "activities": "developed",
@@ -9854,7 +9778,7 @@
                 "secondaryDistricts": 1,
                 "recommendations": 1,
                 "representativeBuildings": 1,
-                "buildingBriefs": 0,
+                "buildingBriefs": 1,
                 "subtypes": 7,
                 "archetypes": 5,
                 "activities": 5,
@@ -9864,15 +9788,13 @@
                 "operationalCharacteristics": 4,
                 "reviewRequiredRepresentativeBuildings": 0
               },
-              "gaps": [
-                "Building Brief coverage is missing for this ecosystem."
-              ],
+              "gaps": [],
               "blocking": false,
               "blockingCodes": [],
               "strategicPriority": 4,
               "evidence": [
                 "1 primary districts and 1 secondary districts.",
-                "1 Representative Buildings and 0 Building Briefs.",
+                "1 Representative Buildings and 1 Building Briefs.",
                 "1 representative roles and 4 operational categories are covered."
               ],
               "targetSubtypes": [
@@ -10159,36 +10081,10 @@
               "rationale": "Ecosystem appears only as secondary context.",
               "evidence": [
                 "0 primary districts and 5 secondary districts.",
-                "12 Representative Buildings and 11 Building Briefs.",
+                "12 Representative Buildings and 12 Building Briefs.",
                 "6 representative roles and 5 operational categories are covered."
               ],
               "recommendedSprintFamily": "Ecosystem District Foundation",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
-              "id": "ecosystem:life_science:ecosystem_building_brief_gap",
-              "code": "ecosystem_building_brief_gap",
-              "label": "Ecosystem Building Brief Gap",
-              "severity": "medium",
-              "layer": "buildingBriefs",
-              "ecosystemId": "life_science",
-              "ecosystemLabel": "Life Science",
-              "relevance": "important",
-              "readinessState": "partial",
-              "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
-              "evidence": [
-                "1 primary districts and 1 secondary districts.",
-                "1 Representative Buildings and 0 Building Briefs.",
-                "1 representative roles and 4 operational categories are covered."
-              ],
-              "recommendedSprintFamily": "Ecosystem Building Brief Migration",
               "completionCriteria": [
                 "Validated district ecosystem classification",
                 "Representative Building coverage across the most important subtypes",
@@ -10279,7 +10175,7 @@
             "label": "Balanced",
             "dominantEcosystem": "industrial_flex",
             "representativeBuildingShare": 0.69,
-            "buildingBriefShare": 0.71,
+            "buildingBriefShare": 0.69,
             "warnings": []
           }
         },
@@ -10288,7 +10184,7 @@
           "label": "Balanced",
           "dominantEcosystem": "industrial_flex",
           "representativeBuildingShare": 0.69,
-          "buildingBriefShare": 0.71,
+          "buildingBriefShare": 0.69,
           "warnings": []
         },
         "ecosystemCoverage": {
@@ -10300,7 +10196,7 @@
               "secondaryDistrictCount": 5,
               "recommendationNodeCount": 0,
               "representativeBuildingCount": 12,
-              "buildingBriefCount": 11,
+              "buildingBriefCount": 12,
               "status": "Partial",
               "districts": [],
               "subtypes": {
@@ -10921,8 +10817,8 @@
               "secondaryDistrictCount": 1,
               "recommendationNodeCount": 1,
               "representativeBuildingCount": 1,
-              "buildingBriefCount": 0,
-              "status": "Partial",
+              "buildingBriefCount": 1,
+              "status": "Developed",
               "districts": [
                 {
                   "slug": "emeryville-commercial-core",
@@ -11212,40 +11108,14 @@
           "underrepresentedEcosystems": [],
           "summary": {
             "ecosystemCount": 7,
-            "developedCount": 3,
-            "partialCount": 4,
+            "developedCount": 4,
+            "partialCount": 3,
             "thinCount": 0,
             "missingCount": 0,
             "reviewRequiredDistrictCount": 0
           }
         },
         "ecosystemGaps": [
-          {
-            "id": "ecosystem:life_science:ecosystem_building_brief_gap",
-            "code": "ecosystem_building_brief_gap",
-            "label": "Ecosystem Building Brief Gap",
-            "severity": "medium",
-            "layer": "buildingBriefs",
-            "ecosystemId": "life_science",
-            "ecosystemLabel": "Life Science",
-            "relevance": "important",
-            "readinessState": "partial",
-            "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
-            "evidence": [
-              "1 primary districts and 1 secondary districts.",
-              "1 Representative Buildings and 0 Building Briefs.",
-              "1 representative roles and 4 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem Building Brief Migration",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
           {
             "id": "ecosystem:office:ecosystem_secondary_only",
             "code": "ecosystem_secondary_only",
@@ -11259,7 +11129,7 @@
             "rationale": "Ecosystem appears only as secondary context.",
             "evidence": [
               "0 primary districts and 5 secondary districts.",
-              "12 Representative Buildings and 11 Building Briefs.",
+              "12 Representative Buildings and 12 Building Briefs.",
               "6 representative roles and 5 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem District Foundation",
@@ -11363,12 +11233,12 @@
           }
         },
         "recommendedEcosystemSprint": {
-          "title": "East Bay Life Science Ecosystem Building Brief Migration",
-          "ecosystemId": "life_science",
-          "ecosystemLabel": "Life Science",
-          "sprintFamily": "Ecosystem Building Brief Migration",
-          "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
-          "gapCode": "ecosystem_building_brief_gap",
+          "title": "East Bay Office Ecosystem District Foundation",
+          "ecosystemId": "office",
+          "ecosystemLabel": "Office",
+          "sprintFamily": "Ecosystem District Foundation",
+          "rationale": "Ecosystem appears only as secondary context.",
+          "gapCode": "ecosystem_secondary_only",
           "completionCriteria": [
             "Validated district ecosystem classification",
             "Representative Building coverage across the most important subtypes",
@@ -11566,51 +11436,12 @@
           "buildingBriefs": {
             "key": "buildingBriefs",
             "label": "Building Briefs",
-            "score": 96,
-            "completed": 49,
+            "score": 100,
+            "completed": 51,
             "total": 51,
-            "missing": 2,
-            "explanation": "49 of 51 representative building records use the canonical Building Brief journey.",
-            "issues": [
-              {
-                "id": "east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st",
-                "code": "missing-brief",
-                "metroId": "east-bay",
-                "metroName": "East Bay",
-                "category": "buildingBriefs",
-                "categoryLabel": "Building Briefs",
-                "taskType": "representative building missing Building Brief",
-                "itemName": "2200 Powell St",
-                "severity": "medium",
-                "priority": 40,
-                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-                "sourceId": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
-                "publicUrl": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
-                "adminUrl": "",
-                "suggestedNextAction": "Author a Building Brief for this representative building.",
-                "automationCandidate": true,
-                "readinessState": "representative-foundation"
-              },
-              {
-                "id": "east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
-                "code": "missing-brief",
-                "metroId": "east-bay",
-                "metroName": "East Bay",
-                "category": "buildingBriefs",
-                "categoryLabel": "Building Briefs",
-                "taskType": "representative building missing Building Brief",
-                "itemName": "2100 Powell St",
-                "severity": "medium",
-                "priority": 40,
-                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-                "sourceId": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
-                "publicUrl": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
-                "adminUrl": "",
-                "suggestedNextAction": "Author a Building Brief for this representative building.",
-                "automationCandidate": true,
-                "readinessState": "representative-foundation"
-              }
-            ]
+            "missing": 0,
+            "explanation": "51 of 51 representative building records use the canonical Building Brief journey.",
+            "issues": []
           },
           "recommendationReadiness": {
             "key": "recommendationReadiness",
@@ -11646,8 +11477,8 @@
             "key": "editorialQuality",
             "label": "Editorial Quality",
             "score": 100,
-            "completed": 58,
-            "total": 58,
+            "completed": 60,
+            "total": 60,
             "missing": 0,
             "explanation": "Deterministic scan for placeholders, unsupported generated phrasing, and style-guide avoid phrases.",
             "issues": []
@@ -11701,44 +11532,6 @@
             "suggestedNextAction": "Add or update recommendation QA documentation for this metro.",
             "automationCandidate": false,
             "readinessState": ""
-          },
-          {
-            "id": "east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
-            "code": "missing-brief",
-            "metroId": "east-bay",
-            "metroName": "East Bay",
-            "category": "buildingBriefs",
-            "categoryLabel": "Building Briefs",
-            "taskType": "representative building missing Building Brief",
-            "itemName": "2100 Powell St",
-            "severity": "medium",
-            "priority": 40,
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-            "sourceId": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
-            "publicUrl": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
-            "adminUrl": "",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
-            "automationCandidate": true,
-            "readinessState": "representative-foundation"
-          },
-          {
-            "id": "east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st",
-            "code": "missing-brief",
-            "metroId": "east-bay",
-            "metroName": "East Bay",
-            "category": "buildingBriefs",
-            "categoryLabel": "Building Briefs",
-            "taskType": "representative building missing Building Brief",
-            "itemName": "2200 Powell St",
-            "severity": "medium",
-            "priority": 40,
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-            "sourceId": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
-            "publicUrl": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
-            "adminUrl": "",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
-            "automationCandidate": true,
-            "readinessState": "representative-foundation"
           },
           {
             "id": "east-bay:representativeBuildings:district missing representative buildings:antioch-east-18th-industrial",
@@ -34682,11 +34475,11 @@
             "label": "Editorial Coverage",
             "score": 91,
             "status": "",
-            "explanation": "25 of 25 districts have substantive descriptions; 158 representative buildings and 87 Building Briefs are available.",
+            "explanation": "25 of 25 districts have substantive descriptions; 158 representative buildings and 89 Building Briefs are available.",
             "completed": {
               "districtsWithDescriptions": 25,
               "representativeBuildings": 158,
-              "buildingBriefs": 87
+              "buildingBriefs": 89
             },
             "targets": {
               "representativeBuildingsPerDistrict": 3,
@@ -34723,7 +34516,7 @@
         "cityPath": "/commercial-real-estate/CA/san-francisco/",
         "districtCount": 25,
         "representativeBuildingCount": 158,
-        "buildingBriefCount": 87,
+        "buildingBriefCount": 89,
         "geographicReadiness": {
           "state": "developed",
           "label": "Developed",
@@ -34782,7 +34575,7 @@
                 "secondaryDistricts": 16,
                 "recommendations": 6,
                 "representativeBuildings": 77,
-                "buildingBriefs": 36,
+                "buildingBriefs": 37,
                 "subtypes": 7,
                 "archetypes": 14,
                 "activities": 8,
@@ -34798,7 +34591,7 @@
               "strategicPriority": 2,
               "evidence": [
                 "6 primary districts and 16 secondary districts.",
-                "77 Representative Buildings and 36 Building Briefs.",
+                "77 Representative Buildings and 37 Building Briefs.",
                 "7 representative roles and 5 operational categories are covered."
               ],
               "targetSubtypes": [
@@ -35506,7 +35299,7 @@
                 "secondaryDistricts": 4,
                 "recommendations": 2,
                 "representativeBuildings": 15,
-                "buildingBriefs": 5,
+                "buildingBriefs": 6,
                 "subtypes": 7,
                 "archetypes": 5,
                 "activities": 5,
@@ -35522,7 +35315,7 @@
               "strategicPriority": 4,
               "evidence": [
                 "2 primary districts and 4 secondary districts.",
-                "15 Representative Buildings and 5 Building Briefs.",
+                "15 Representative Buildings and 6 Building Briefs.",
                 "3 representative roles and 5 operational categories are covered."
               ],
               "targetSubtypes": [
@@ -35996,7 +35789,7 @@
             "label": "Balanced",
             "dominantEcosystem": "industrial_flex",
             "representativeBuildingShare": 0.49,
-            "buildingBriefShare": 0.49,
+            "buildingBriefShare": 0.48,
             "warnings": []
           }
         },
@@ -36005,7 +35798,7 @@
           "label": "Balanced",
           "dominantEcosystem": "industrial_flex",
           "representativeBuildingShare": 0.49,
-          "buildingBriefShare": 0.49,
+          "buildingBriefShare": 0.48,
           "warnings": []
         },
         "ecosystemCoverage": {
@@ -36017,7 +35810,7 @@
               "secondaryDistrictCount": 16,
               "recommendationNodeCount": 6,
               "representativeBuildingCount": 77,
-              "buildingBriefCount": 36,
+              "buildingBriefCount": 37,
               "status": "Developed",
               "districts": [
                 {
@@ -36772,7 +36565,7 @@
               "secondaryDistrictCount": 4,
               "recommendationNodeCount": 2,
               "representativeBuildingCount": 15,
-              "buildingBriefCount": 5,
+              "buildingBriefCount": 6,
               "status": "Developed",
               "districts": [
                 {
@@ -37920,50 +37713,12 @@
           "buildingBriefs": {
             "key": "buildingBriefs",
             "label": "Building Briefs",
-            "score": 55,
-            "completed": 87,
+            "score": 56,
+            "completed": 89,
             "total": 158,
-            "missing": 71,
-            "explanation": "87 of 158 representative building records use the canonical Building Brief journey.",
+            "missing": 69,
+            "explanation": "89 of 158 representative building records use the canonical Building Brief journey.",
             "issues": [
-              {
-                "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st",
-                "code": "missing-brief",
-                "metroId": "san-francisco",
-                "metroName": "San Francisco",
-                "category": "buildingBriefs",
-                "categoryLabel": "Building Briefs",
-                "taskType": "representative building missing Building Brief",
-                "itemName": "2200 Powell St",
-                "severity": "medium",
-                "priority": 40,
-                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-                "sourceId": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
-                "publicUrl": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
-                "adminUrl": "",
-                "suggestedNextAction": "Author a Building Brief for this representative building.",
-                "automationCandidate": true,
-                "readinessState": "representative-foundation"
-              },
-              {
-                "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
-                "code": "missing-brief",
-                "metroId": "san-francisco",
-                "metroName": "San Francisco",
-                "category": "buildingBriefs",
-                "categoryLabel": "Building Briefs",
-                "taskType": "representative building missing Building Brief",
-                "itemName": "2100 Powell St",
-                "severity": "medium",
-                "priority": 40,
-                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-                "sourceId": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
-                "publicUrl": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
-                "adminUrl": "",
-                "suggestedNextAction": "Author a Building Brief for this representative building.",
-                "automationCandidate": true,
-                "readinessState": "representative-foundation"
-              },
               {
                 "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-palo-alto-101-lytton-ave",
                 "code": "missing-brief",
@@ -39330,8 +39085,8 @@
             "key": "editorialQuality",
             "label": "Editorial Quality",
             "score": 98,
-            "completed": 110,
-            "total": 112,
+            "completed": 112,
+            "total": 114,
             "missing": 2,
             "explanation": "Deterministic scan for placeholders, unsupported generated phrasing, and style-guide avoid phrases.",
             "issues": [
@@ -39956,44 +39711,6 @@
             "suggestedNextAction": "Author a Building Brief for this representative building.",
             "automationCandidate": true,
             "readinessState": ""
-          },
-          {
-            "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
-            "code": "missing-brief",
-            "metroId": "san-francisco",
-            "metroName": "San Francisco",
-            "category": "buildingBriefs",
-            "categoryLabel": "Building Briefs",
-            "taskType": "representative building missing Building Brief",
-            "itemName": "2100 Powell St",
-            "severity": "medium",
-            "priority": 40,
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-            "sourceId": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
-            "publicUrl": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
-            "adminUrl": "",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
-            "automationCandidate": true,
-            "readinessState": "representative-foundation"
-          },
-          {
-            "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st",
-            "code": "missing-brief",
-            "metroId": "san-francisco",
-            "metroName": "San Francisco",
-            "category": "buildingBriefs",
-            "categoryLabel": "Building Briefs",
-            "taskType": "representative building missing Building Brief",
-            "itemName": "2200 Powell St",
-            "severity": "medium",
-            "priority": 40,
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-            "sourceId": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
-            "publicUrl": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
-            "adminUrl": "",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
-            "automationCandidate": true,
-            "readinessState": "representative-foundation"
           },
           {
             "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-2400-16th-st",
@@ -41441,11 +41158,11 @@
             "label": "Editorial Coverage",
             "score": 93,
             "status": "",
-            "explanation": "9 of 9 districts have substantive descriptions; 51 representative buildings and 49 Building Briefs are available.",
+            "explanation": "9 of 9 districts have substantive descriptions; 51 representative buildings and 51 Building Briefs are available.",
             "completed": {
               "districtsWithDescriptions": 9,
               "representativeBuildings": 51,
-              "buildingBriefs": 49
+              "buildingBriefs": 51
             },
             "targets": {
               "representativeBuildingsPerDistrict": 3,
@@ -41510,7 +41227,7 @@
         "cityPath": "/commercial-real-estate/CA/oakland/",
         "districtCount": 9,
         "representativeBuildingCount": 51,
-        "buildingBriefCount": 49,
+        "buildingBriefCount": 51,
         "geographicReadiness": {
           "state": "strong",
           "label": "Strong",
@@ -41570,7 +41287,7 @@
                 "secondaryDistricts": 5,
                 "recommendations": 0,
                 "representativeBuildings": 12,
-                "buildingBriefs": 11,
+                "buildingBriefs": 12,
                 "subtypes": 4,
                 "archetypes": 12,
                 "activities": 6,
@@ -41588,7 +41305,7 @@
               "strategicPriority": 2,
               "evidence": [
                 "0 primary districts and 5 secondary districts.",
-                "12 Representative Buildings and 11 Building Briefs.",
+                "12 Representative Buildings and 12 Building Briefs.",
                 "6 representative roles and 5 operational categories are covered."
               ],
               "targetSubtypes": [
@@ -42232,7 +41949,7 @@
                 "districts": "strong",
                 "recommendations": "strong",
                 "representativeBuildings": "partial",
-                "buildingBriefs": "missing",
+                "buildingBriefs": "strong",
                 "subtypes": "developed",
                 "archetypes": "developed",
                 "activities": "developed",
@@ -42243,7 +41960,7 @@
                 "secondaryDistricts": 1,
                 "recommendations": 1,
                 "representativeBuildings": 1,
-                "buildingBriefs": 0,
+                "buildingBriefs": 1,
                 "subtypes": 7,
                 "archetypes": 5,
                 "activities": 5,
@@ -42253,15 +41970,13 @@
                 "operationalCharacteristics": 4,
                 "reviewRequiredRepresentativeBuildings": 0
               },
-              "gaps": [
-                "Building Brief coverage is missing for this ecosystem."
-              ],
+              "gaps": [],
               "blocking": false,
               "blockingCodes": [],
               "strategicPriority": 4,
               "evidence": [
                 "1 primary districts and 1 secondary districts.",
-                "1 Representative Buildings and 0 Building Briefs.",
+                "1 Representative Buildings and 1 Building Briefs.",
                 "1 representative roles and 4 operational categories are covered."
               ],
               "targetSubtypes": [
@@ -42548,36 +42263,10 @@
               "rationale": "Ecosystem appears only as secondary context.",
               "evidence": [
                 "0 primary districts and 5 secondary districts.",
-                "12 Representative Buildings and 11 Building Briefs.",
+                "12 Representative Buildings and 12 Building Briefs.",
                 "6 representative roles and 5 operational categories are covered."
               ],
               "recommendedSprintFamily": "Ecosystem District Foundation",
-              "completionCriteria": [
-                "Validated district ecosystem classification",
-                "Representative Building coverage across the most important subtypes",
-                "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-                "Building Brief migration only after canonical records and district association exist",
-                "Publisher ecosystem QA passes without hard errors"
-              ],
-              "blocksEcosystemReadiness": false
-            },
-            {
-              "id": "ecosystem:life_science:ecosystem_building_brief_gap",
-              "code": "ecosystem_building_brief_gap",
-              "label": "Ecosystem Building Brief Gap",
-              "severity": "medium",
-              "layer": "buildingBriefs",
-              "ecosystemId": "life_science",
-              "ecosystemLabel": "Life Science",
-              "relevance": "important",
-              "readinessState": "partial",
-              "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
-              "evidence": [
-                "1 primary districts and 1 secondary districts.",
-                "1 Representative Buildings and 0 Building Briefs.",
-                "1 representative roles and 4 operational categories are covered."
-              ],
-              "recommendedSprintFamily": "Ecosystem Building Brief Migration",
               "completionCriteria": [
                 "Validated district ecosystem classification",
                 "Representative Building coverage across the most important subtypes",
@@ -42668,7 +42357,7 @@
             "label": "Balanced",
             "dominantEcosystem": "industrial_flex",
             "representativeBuildingShare": 0.69,
-            "buildingBriefShare": 0.71,
+            "buildingBriefShare": 0.69,
             "warnings": []
           }
         },
@@ -42677,7 +42366,7 @@
           "label": "Balanced",
           "dominantEcosystem": "industrial_flex",
           "representativeBuildingShare": 0.69,
-          "buildingBriefShare": 0.71,
+          "buildingBriefShare": 0.69,
           "warnings": []
         },
         "ecosystemCoverage": {
@@ -42689,7 +42378,7 @@
               "secondaryDistrictCount": 5,
               "recommendationNodeCount": 0,
               "representativeBuildingCount": 12,
-              "buildingBriefCount": 11,
+              "buildingBriefCount": 12,
               "status": "Partial",
               "districts": [],
               "subtypes": {
@@ -43310,8 +42999,8 @@
               "secondaryDistrictCount": 1,
               "recommendationNodeCount": 1,
               "representativeBuildingCount": 1,
-              "buildingBriefCount": 0,
-              "status": "Partial",
+              "buildingBriefCount": 1,
+              "status": "Developed",
               "districts": [
                 {
                   "slug": "emeryville-commercial-core",
@@ -43601,40 +43290,14 @@
           "underrepresentedEcosystems": [],
           "summary": {
             "ecosystemCount": 7,
-            "developedCount": 3,
-            "partialCount": 4,
+            "developedCount": 4,
+            "partialCount": 3,
             "thinCount": 0,
             "missingCount": 0,
             "reviewRequiredDistrictCount": 0
           }
         },
         "ecosystemGaps": [
-          {
-            "id": "ecosystem:life_science:ecosystem_building_brief_gap",
-            "code": "ecosystem_building_brief_gap",
-            "label": "Ecosystem Building Brief Gap",
-            "severity": "medium",
-            "layer": "buildingBriefs",
-            "ecosystemId": "life_science",
-            "ecosystemLabel": "Life Science",
-            "relevance": "important",
-            "readinessState": "partial",
-            "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
-            "evidence": [
-              "1 primary districts and 1 secondary districts.",
-              "1 Representative Buildings and 0 Building Briefs.",
-              "1 representative roles and 4 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem Building Brief Migration",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
           {
             "id": "ecosystem:office:ecosystem_secondary_only",
             "code": "ecosystem_secondary_only",
@@ -43648,7 +43311,7 @@
             "rationale": "Ecosystem appears only as secondary context.",
             "evidence": [
               "0 primary districts and 5 secondary districts.",
-              "12 Representative Buildings and 11 Building Briefs.",
+              "12 Representative Buildings and 12 Building Briefs.",
               "6 representative roles and 5 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem District Foundation",
@@ -43752,12 +43415,12 @@
           }
         },
         "recommendedEcosystemSprint": {
-          "title": "East Bay Life Science Ecosystem Building Brief Migration",
-          "ecosystemId": "life_science",
-          "ecosystemLabel": "Life Science",
-          "sprintFamily": "Ecosystem Building Brief Migration",
-          "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
-          "gapCode": "ecosystem_building_brief_gap",
+          "title": "East Bay Office Ecosystem District Foundation",
+          "ecosystemId": "office",
+          "ecosystemLabel": "Office",
+          "sprintFamily": "Ecosystem District Foundation",
+          "rationale": "Ecosystem appears only as secondary context.",
+          "gapCode": "ecosystem_secondary_only",
           "completionCriteria": [
             "Validated district ecosystem classification",
             "Representative Building coverage across the most important subtypes",
@@ -43955,51 +43618,12 @@
           "buildingBriefs": {
             "key": "buildingBriefs",
             "label": "Building Briefs",
-            "score": 96,
-            "completed": 49,
+            "score": 100,
+            "completed": 51,
             "total": 51,
-            "missing": 2,
-            "explanation": "49 of 51 representative building records use the canonical Building Brief journey.",
-            "issues": [
-              {
-                "id": "east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st",
-                "code": "missing-brief",
-                "metroId": "east-bay",
-                "metroName": "East Bay",
-                "category": "buildingBriefs",
-                "categoryLabel": "Building Briefs",
-                "taskType": "representative building missing Building Brief",
-                "itemName": "2200 Powell St",
-                "severity": "medium",
-                "priority": 40,
-                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-                "sourceId": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
-                "publicUrl": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
-                "adminUrl": "",
-                "suggestedNextAction": "Author a Building Brief for this representative building.",
-                "automationCandidate": true,
-                "readinessState": "representative-foundation"
-              },
-              {
-                "id": "east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
-                "code": "missing-brief",
-                "metroId": "east-bay",
-                "metroName": "East Bay",
-                "category": "buildingBriefs",
-                "categoryLabel": "Building Briefs",
-                "taskType": "representative building missing Building Brief",
-                "itemName": "2100 Powell St",
-                "severity": "medium",
-                "priority": 40,
-                "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-                "sourceId": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
-                "publicUrl": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
-                "adminUrl": "",
-                "suggestedNextAction": "Author a Building Brief for this representative building.",
-                "automationCandidate": true,
-                "readinessState": "representative-foundation"
-              }
-            ]
+            "missing": 0,
+            "explanation": "51 of 51 representative building records use the canonical Building Brief journey.",
+            "issues": []
           },
           "recommendationReadiness": {
             "key": "recommendationReadiness",
@@ -44035,8 +43659,8 @@
             "key": "editorialQuality",
             "label": "Editorial Quality",
             "score": 100,
-            "completed": 58,
-            "total": 58,
+            "completed": 60,
+            "total": 60,
             "missing": 0,
             "explanation": "Deterministic scan for placeholders, unsupported generated phrasing, and style-guide avoid phrases.",
             "issues": []
@@ -44090,44 +43714,6 @@
             "suggestedNextAction": "Add or update recommendation QA documentation for this metro.",
             "automationCandidate": false,
             "readinessState": ""
-          },
-          {
-            "id": "east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
-            "code": "missing-brief",
-            "metroId": "east-bay",
-            "metroName": "East Bay",
-            "category": "buildingBriefs",
-            "categoryLabel": "Building Briefs",
-            "taskType": "representative building missing Building Brief",
-            "itemName": "2100 Powell St",
-            "severity": "medium",
-            "priority": 40,
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-            "sourceId": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
-            "publicUrl": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
-            "adminUrl": "",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
-            "automationCandidate": true,
-            "readinessState": "representative-foundation"
-          },
-          {
-            "id": "east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st",
-            "code": "missing-brief",
-            "metroId": "east-bay",
-            "metroName": "East Bay",
-            "category": "buildingBriefs",
-            "categoryLabel": "Building Briefs",
-            "taskType": "representative building missing Building Brief",
-            "itemName": "2200 Powell St",
-            "severity": "medium",
-            "priority": 40,
-            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-            "sourceId": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
-            "publicUrl": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
-            "adminUrl": "",
-            "suggestedNextAction": "Author a Building Brief for this representative building.",
-            "automationCandidate": true,
-            "readinessState": "representative-foundation"
           },
           {
             "id": "east-bay:representativeBuildings:district missing representative buildings:antioch-east-18th-industrial",
@@ -67569,44 +67155,6 @@
         "readinessState": ""
       },
       {
-        "id": "east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
-        "code": "missing-brief",
-        "metroId": "east-bay",
-        "metroName": "East Bay",
-        "category": "buildingBriefs",
-        "categoryLabel": "Building Briefs",
-        "taskType": "representative building missing Building Brief",
-        "itemName": "2100 Powell St",
-        "severity": "medium",
-        "priority": 40,
-        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-        "sourceId": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
-        "publicUrl": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
-        "adminUrl": "",
-        "suggestedNextAction": "Author a Building Brief for this representative building.",
-        "automationCandidate": true,
-        "readinessState": "representative-foundation"
-      },
-      {
-        "id": "east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st",
-        "code": "missing-brief",
-        "metroId": "east-bay",
-        "metroName": "East Bay",
-        "category": "buildingBriefs",
-        "categoryLabel": "Building Briefs",
-        "taskType": "representative building missing Building Brief",
-        "itemName": "2200 Powell St",
-        "severity": "medium",
-        "priority": 40,
-        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-        "sourceId": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
-        "publicUrl": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
-        "adminUrl": "",
-        "suggestedNextAction": "Author a Building Brief for this representative building.",
-        "automationCandidate": true,
-        "readinessState": "representative-foundation"
-      },
-      {
         "id": "east-bay:representativeBuildings:district missing representative buildings:antioch-east-18th-industrial",
         "code": "district-no-reps",
         "metroId": "east-bay",
@@ -70265,44 +69813,6 @@
         "suggestedNextAction": "Author a Building Brief for this representative building.",
         "automationCandidate": true,
         "readinessState": ""
-      },
-      {
-        "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
-        "code": "missing-brief",
-        "metroId": "san-francisco",
-        "metroName": "San Francisco",
-        "category": "buildingBriefs",
-        "categoryLabel": "Building Briefs",
-        "taskType": "representative building missing Building Brief",
-        "itemName": "2100 Powell St",
-        "severity": "medium",
-        "priority": 40,
-        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-        "sourceId": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
-        "publicUrl": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
-        "adminUrl": "",
-        "suggestedNextAction": "Author a Building Brief for this representative building.",
-        "automationCandidate": true,
-        "readinessState": "representative-foundation"
-      },
-      {
-        "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st",
-        "code": "missing-brief",
-        "metroId": "san-francisco",
-        "metroName": "San Francisco",
-        "category": "buildingBriefs",
-        "categoryLabel": "Building Briefs",
-        "taskType": "representative building missing Building Brief",
-        "itemName": "2200 Powell St",
-        "severity": "medium",
-        "priority": 40,
-        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-        "sourceId": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
-        "publicUrl": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
-        "adminUrl": "",
-        "suggestedNextAction": "Author a Building Brief for this representative building.",
-        "automationCandidate": true,
-        "readinessState": "representative-foundation"
       },
       {
         "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-2400-16th-st",
@@ -72986,44 +72496,6 @@
         "readinessState": ""
       },
       {
-        "id": "east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
-        "code": "missing-brief",
-        "metroId": "east-bay",
-        "metroName": "East Bay",
-        "category": "buildingBriefs",
-        "categoryLabel": "Building Briefs",
-        "taskType": "representative building missing Building Brief",
-        "itemName": "2100 Powell St",
-        "severity": "medium",
-        "priority": 40,
-        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-        "sourceId": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
-        "publicUrl": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
-        "adminUrl": "",
-        "suggestedNextAction": "Author a Building Brief for this representative building.",
-        "automationCandidate": true,
-        "readinessState": "representative-foundation"
-      },
-      {
-        "id": "east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st",
-        "code": "missing-brief",
-        "metroId": "east-bay",
-        "metroName": "East Bay",
-        "category": "buildingBriefs",
-        "categoryLabel": "Building Briefs",
-        "taskType": "representative building missing Building Brief",
-        "itemName": "2200 Powell St",
-        "severity": "medium",
-        "priority": 40,
-        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-        "sourceId": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
-        "publicUrl": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
-        "adminUrl": "",
-        "suggestedNextAction": "Author a Building Brief for this representative building.",
-        "automationCandidate": true,
-        "readinessState": "representative-foundation"
-      },
-      {
         "id": "east-bay:representativeBuildings:district missing representative buildings:antioch-east-18th-industrial",
         "code": "district-no-reps",
         "metroId": "east-bay",
@@ -75682,44 +75154,6 @@
         "suggestedNextAction": "Author a Building Brief for this representative building.",
         "automationCandidate": true,
         "readinessState": ""
-      },
-      {
-        "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
-        "code": "missing-brief",
-        "metroId": "san-francisco",
-        "metroName": "San Francisco",
-        "category": "buildingBriefs",
-        "categoryLabel": "Building Briefs",
-        "taskType": "representative building missing Building Brief",
-        "itemName": "2100 Powell St",
-        "severity": "medium",
-        "priority": 40,
-        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-        "sourceId": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
-        "publicUrl": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
-        "adminUrl": "",
-        "suggestedNextAction": "Author a Building Brief for this representative building.",
-        "automationCandidate": true,
-        "readinessState": "representative-foundation"
-      },
-      {
-        "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st",
-        "code": "missing-brief",
-        "metroId": "san-francisco",
-        "metroName": "San Francisco",
-        "category": "buildingBriefs",
-        "categoryLabel": "Building Briefs",
-        "taskType": "representative building missing Building Brief",
-        "itemName": "2200 Powell St",
-        "severity": "medium",
-        "priority": 40,
-        "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-        "sourceId": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
-        "publicUrl": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
-        "adminUrl": "",
-        "suggestedNextAction": "Author a Building Brief for this representative building.",
-        "automationCandidate": true,
-        "readinessState": "representative-foundation"
       },
       {
         "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-2400-16th-st",
@@ -78665,7 +78099,7 @@
         "Low": 2
       },
       "deferredCandidates": 69,
-      "latestValidation": "2026-08-13T07:46:28-07:00",
+      "latestValidation": "2026-08-13T08:22:17-07:00",
       "errors": [],
       "warnings": [],
       "source": {
