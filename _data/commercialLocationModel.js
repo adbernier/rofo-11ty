@@ -441,6 +441,140 @@ const districts = {
     confidence_level: "medium",
     review_status: "editor_reviewed",
   },
+  "/commercial-real-estate/CA/san-francisco/south-beach/": {
+    primary_archetype: "downtown_edge_mixed_use_office",
+    secondary_archetypes: ["waterfront_adjacent_commercial", "client_facing_professional_core"],
+    commercial_thesis:
+      "South Beach is an access-oriented waterfront office district between the Financial District, SoMa, and Mission Bay, useful for businesses that want downtown and Transbay connectivity in a less formal mixed-use setting than the traditional office core.",
+    best_fit_businesses: [
+      "Professional-service and client-facing teams that want downtown access without a traditional tower-core identity",
+      "Technology, healthcare-administrative, and growth-stage teams comparing the Financial District, SoMa, and Mission Bay",
+      "Businesses that value Transbay, Embarcadero, waterfront, and ballpark proximity alongside a mixed office and residential environment",
+    ],
+    poor_fit_businesses: [
+      "Firms that require the Financial District's most formal business address and office concentration",
+      "Lab-heavy or research users that need Mission Bay's institutional and specialized-building depth",
+      "Parking-dependent users or businesses whose operating model cannot absorb event-day and block-by-block access variation",
+    ],
+    decision_guidance: [
+      "Decide whether South Beach's main value is its bridge between downtown, SoMa, Mission Bay, and regional transit; businesses seeking a single dominant ecosystem may fit better elsewhere.",
+      "Test employee and client trips by BART, Muni, Caltrain, ferry, and car rather than treating waterfront proximity as a substitute for an actual commute plan.",
+      "Validate the individual building, suite, parking arrangement, and event-day access because the district's office environments and operating rhythms vary by block.",
+    ],
+    handbook_topics: [
+      {
+        title: "Choosing the Right Commercial Location",
+        url: "/commercial-real-estate/lease-guide/choosing-the-right-commercial-location/",
+        reason: "Use this to decide whether access and district adjacency should lead the search.",
+      },
+      {
+        title: "How to Compare Commercial Spaces",
+        url: "/commercial-real-estate/lease-guide/how-to-compare-commercial-spaces/",
+        reason: "Helpful when comparing South Beach buildings with Financial District towers and SoMa adaptive offices.",
+      },
+      {
+        title: "Commercial Leasing Timeline",
+        url: "/commercial-real-estate/lease-guide/commercial-leasing-timeline/",
+        reason: "Use this before moving from district fit to current building and suite validation.",
+      },
+    ],
+    compare_with: [
+      {
+        district_name: "Financial District SF",
+        district_path: "/commercial-real-estate/CA/san-francisco/financial-district/",
+        reason: "Compare if formal office-core identity and the densest concentration of client-facing services matter more than waterfront-edge flexibility.",
+      },
+      {
+        district_name: "SoMa",
+        district_path: "/commercial-real-estate/CA/san-francisco/soma/",
+        reason: "Compare if adaptive creative-office texture and broader central-city inventory matter more than waterfront and Transbay orientation.",
+      },
+      {
+        district_name: "Mission Bay",
+        district_path: "/commercial-real-estate/CA/san-francisco/mission-bay/",
+        reason: "Compare if newer institutional, medical, or life-science adjacency matters more than downtown and client access.",
+      },
+    ],
+    office_profile: {
+      office_orientation: "waterfront_downtown_edge",
+      client_facing_strength: "high",
+      transit_orientation: "high",
+      walkability_context: "high",
+      building_scale: "mixed",
+      floorplate_pattern: "mixed",
+      tenant_fit: ["professional_services", "technology", "healthcare_administrative", "client_facing"],
+      commute_pattern: ["bart", "muni", "caltrain_access", "ferry", "waterfront"],
+    },
+    confidence_level: "medium",
+    review_status: "editor_reviewed",
+  },
+  "/commercial-real-estate/CA/san-francisco/mission-district/": {
+    primary_archetype: "mixed_use_professional_district",
+    secondary_archetypes: ["central_city_creative_office", "service_commercial_office_edge"],
+    commercial_thesis:
+      "The Mission District is a transit-served neighborhood commercial district for mission-driven organizations, creative and local-service teams, and community-facing businesses that value neighborhood reach and street-level context more than a formal downtown office identity.",
+    best_fit_businesses: [
+      "Nonprofits and mission-driven organizations whose staff, partners, or communities benefit from a neighborhood-oriented San Francisco base",
+      "Creative, local-service, and smaller professional teams that want transit access and mixed commercial surroundings",
+      "Neighborhood retail and service businesses whose location decision depends on local visibility and customer proximity",
+    ],
+    poor_fit_businesses: [
+      "Large corporate users that need conventional tower floorplates, a formal headquarters identity, or simple expansion paths",
+      "Traditional client-facing firms whose visitors expect a Financial District office environment",
+      "Parking-, loading-, or specialized-use-dependent operations that have not validated the exact corridor and property",
+    ],
+    decision_guidance: [
+      "Clarify which employees, clients, partners, or communities need to reach the office; neighborhood identity is useful only when it supports the organization's actual operating pattern.",
+      "Compare SoMa if broader office inventory, central-city scale, or easier access to multiple adjacent business districts matters more than community context.",
+      "Validate the specific corridor, permitted use, building condition, accessibility, parking, loading, and evening operating needs because commercial conditions vary across the district.",
+    ],
+    handbook_topics: [
+      {
+        title: "Choosing the Right Commercial Location",
+        url: "/commercial-real-estate/lease-guide/choosing-the-right-commercial-location/",
+        reason: "Use this to test whether community access, workforce reach, or office convention should lead the decision.",
+      },
+      {
+        title: "How to Compare Commercial Spaces",
+        url: "/commercial-real-estate/lease-guide/how-to-compare-commercial-spaces/",
+        reason: "Helpful when comparing neighborhood buildings with more conventional SoMa office options.",
+      },
+      {
+        title: "Tenant Improvements",
+        url: "/commercial-real-estate/lease-guide/tenant-improvements/",
+        reason: "Relevant because older mixed-use and adaptive buildings may require closer buildout and accessibility review.",
+      },
+    ],
+    compare_with: [
+      {
+        district_name: "SoMa",
+        district_path: "/commercial-real-estate/CA/san-francisco/soma/",
+        reason: "Compare if broader central-city office inventory and adaptive office scale matter more than neighborhood and community orientation.",
+      },
+      {
+        district_name: "Potrero Hill",
+        district_path: "",
+        reason: "Keep as a decision-adjacent alternative where a quieter mixed commercial setting may fit better; no substantive comparison route is published yet.",
+      },
+      {
+        district_name: "Design District",
+        district_path: "",
+        reason: "Keep as a decision-adjacent alternative where showroom, design, and service-commercial context may fit better; no substantive comparison route is published yet.",
+      },
+    ],
+    office_profile: {
+      office_orientation: "neighborhood_creative_service",
+      client_facing_strength: "medium",
+      transit_orientation: "high",
+      walkability_context: "high",
+      building_scale: "small_to_mid",
+      floorplate_pattern: "small_to_mid",
+      tenant_fit: ["nonprofit", "mission_driven", "creative_services", "local_services", "small_business"],
+      commute_pattern: ["bart", "muni", "bike", "walkable_neighborhood"],
+    },
+    confidence_level: "medium",
+    review_status: "editor_reviewed",
+  },
   "/commercial-real-estate/CA/san-francisco/union-square/": {
     primary_archetype: "mixed_use_professional_district",
     secondary_archetypes: ["retail_office_transition", "client_facing_professional_core"],

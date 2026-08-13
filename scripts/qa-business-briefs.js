@@ -5,6 +5,7 @@ const businessBriefRedirects = require("../_data/businessBriefRedirects.js");
 const spaceTypePages = require("../_data/spaceTypePages.js");
 const businessArchetypes = require("../_data/businessArchetypes.js");
 const locationKnowledgeGraph = require("../_data/locationKnowledgeGraph.js");
+const neighborhoodPages = require("../_data/neighborhoodPages.js");
 const sfOfficeModel = require("../_data/sfOfficeRecommendationModel.js");
 const { resolveDenverOfficeRecommendation } = require("../lib/recommendations/denver-office-recommendation-resolver.js");
 
@@ -122,6 +123,12 @@ const failures = [];
 const briefs = businessBriefs.briefs || [];
 const readinessSummary = businessBriefs.readinessSummary || {};
 const byId = new Map(briefs.map((brief) => [brief.id, brief]));
+const publicDistrictRoutes = new Set(
+  neighborhoodPages
+    .filter((page) => !page.noindex)
+    .map((page) => page.canonical_neighborhood_path)
+    .filter(Boolean)
+);
 
 if (briefs.length !== REQUIRED_COUNT) {
   fail(`Expected ${REQUIRED_COUNT} Phase 1 Business Briefs, found ${briefs.length}`);
@@ -225,6 +232,9 @@ for (const brief of briefs) {
     }
     if (!fit.districtPath) {
       fail(`${context} missing district path for ${fit.districtSlug}`);
+    }
+    if (brief.isIndexable && !publicDistrictRoutes.has(fit.districtPath)) {
+      fail(`${context} links to an unpublished district route: ${fit.districtPath}`);
     }
     if (!fit.summary || !Array.isArray(fit.reasons) || fit.reasons.length !== 3) {
       fail(`${context} has incomplete Best Fit content for ${fit.districtSlug}`);
