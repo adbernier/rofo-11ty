@@ -1,0 +1,34 @@
+{% if entry.localDecisionGuide %}
+  <section class="content-card space-type-local-decision" aria-labelledby="space-type-local-decision-heading">
+    <div class="eyebrow">{{ entry.localDecisionGuide.eyebrow }}</div>
+    <h2 id="space-type-local-decision-heading">{{ entry.localDecisionGuide.title }}</h2>
+    <p>{{ entry.localDecisionGuide.introduction }}</p>
+
+    <div class="neighborhood-comparison-grid">
+      {% for option in entry.localDecisionGuide.entries %}
+        {% if option.path %}
+          <a class="neighborhood-comparison-card neighborhood-link-card" href="{{ option.path }}">
+            <div class="eyebrow">{{ option.label }}</div>
+            <h3>{{ option.name }}</h3>
+            <p>{{ option.summary }}</p>
+          </a>
+        {% else %}
+          <article class="neighborhood-comparison-card">
+            <div class="eyebrow">{{ option.label }}</div>
+            <h3>{{ option.name }}</h3>
+            <p>{{ option.summary }}</p>
+          </article>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    <div class="neighborhood-decision-guidance">
+      <h3>What to verify before comparing spaces</h3>
+      <ul>
+        {% for item in entry.localDecisionGuide.validation %}<li>{{ item }}</li>{% endfor %}
+      </ul>
+    </div>
+
+    <p class="semantic-footnote">District guidance explains operating patterns, not current availability or verified capability in a particular suite.</p>
+  </section>
+{% endif %}

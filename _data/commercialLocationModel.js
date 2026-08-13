@@ -10887,7 +10887,84 @@ Object.assign(districts, {
   },
 });
 
+Object.assign(districts, {
+  "/commercial-real-estate/CA/san-francisco/bayview-industrial/": {
+    primary_archetype: "sf_city_serving_industrial_district",
+    secondary_archetypes: ["warehouse_distribution_market", "contractor_service_industrial", "operational_flex_market"],
+    commercial_thesis: "Bayview Industrial is San Francisco's broadest city-serving operational industrial geography, appropriate when warehouse, distribution, wholesale food, contractor, fleet, light manufacturing, production, or operational flex needs must remain inside the city.",
+    best_fit_businesses: [
+      "City-serving warehouse, distribution, wholesale, and food operations",
+      "Contractor, building-service, repair, fleet, and dispatch businesses",
+      "Light manufacturing, production, and operational flex users that need San Francisco access",
+    ],
+    poor_fit_businesses: [
+      "Large regional logistics users needing deeper yards, trailer parking, and large-format distribution scale",
+      "Urban maker or prototyping teams better matched to Central Waterfront production geography",
+      "Showroom-led or client-facing users that benefit more from Showplace Square or office-oriented districts",
+    ],
+    decision_guidance: [
+      "Validate loading, truck circulation, clear height, power, ventilation, parking, yards, and any outdoor-storage need at the specific property.",
+      "Confirm permitted use, environmental history, shoreline or flood exposure, and sensitivity to nearby residential or mixed-use areas.",
+      "Compare Hayward or Union City when regional logistics scale matters more than remaining inside San Francisco.",
+      "Treat current availability and suite condition as a separate live market investigation.",
+    ],
+    handbook_topics: [
+      { title: "Choosing the Right Commercial Location", url: "/commercial-real-estate/lease-guide/choosing-the-right-commercial-location/", reason: "Use operating needs to decide whether a San Francisco location is essential." },
+      { title: "How to Compare Commercial Spaces", url: "/commercial-real-estate/lease-guide/how-to-compare-commercial-spaces/", reason: "Compare functional requirements before price or image." },
+    ],
+    compare_with: [
+      { district_name: "Central Waterfront", district_path: "/commercial-real-estate/CA/san-francisco/central-waterfront/", reason: "Compare when urban production, fabrication, prototyping, or practical flex matters more than warehouse and city-serving logistics depth." },
+      { district_name: "Hayward Industrial", district_path: "/commercial-real-estate/CA/hayward/hayward-industrial/", reason: "Compare when regional I-880 warehouse, truck, and distribution scale may outweigh a San Francisco address." },
+      { district_name: "Union City Industrial", district_path: "/commercial-real-estate/CA/union-city/union-city-industrial/", reason: "Compare when regional manufacturing and distribution requirements need more scale or loading flexibility." },
+    ],
+    warehouse_flex_profile: { industrial_orientation: "city_serving_warehouse_service_industrial", truck_access: "high", highway_access: "high", port_airport_access: "medium", loading_likelihood: "medium", yard_parking_likelihood: "medium", building_format: ["warehouse", "small_bay_industrial", "office_warehouse", "operational_flex"], tenant_fit: ["distribution", "food_wholesale", "contractor_service", "fleet", "light_manufacturing"] },
+    confidence_level: "high",
+    review_status: "published_evidence_supported",
+  },
+  "/commercial-real-estate/CA/san-francisco/central-waterfront/": {
+    primary_archetype: "sf_urban_production_pdr_district",
+    secondary_archetypes: ["practical_flex_market", "maker_fabrication_district", "office_production_hybrid"],
+    commercial_thesis: "Central Waterfront is San Francisco's protected operational PDR core for production, fabrication, maker, service-industrial, practical flex, prototyping, product development, and maritime-support uses south of mixed-use Dogpatch.",
+    best_fit_businesses: [
+      "Urban production, fabrication, maker, repair, and service-industrial businesses",
+      "Product-development and prototyping teams combining office, assembly, and production",
+      "Practical flex and office-production users that need an urban PDR setting near Dogpatch and Mission Bay",
+    ],
+    poor_fit_businesses: [
+      "Warehouse, food, fleet, or city-serving logistics users needing Bayview's broader operational depth",
+      "Mixed-use creative office or R&D teams that value Dogpatch neighborhood context over protected PDR geography",
+      "Showroom and design-trade users seeking a customer-facing Showplace Square environment",
+    ],
+    decision_guidance: [
+      "Confirm whether the property sits in the protected core PDR area or a more mixed-use portion of the waterfront.",
+      "Validate loading, power, ventilation, fabrication or assembly needs, permitted use, building systems, and suite condition.",
+      "Review Port jurisdiction, maritime adjacency, environmental history, and shoreline or flood exposure where relevant.",
+      "Do not treat Pier 70 redevelopment as proof of conventional industrial availability across the district.",
+    ],
+    handbook_topics: [
+      { title: "Choosing the Right Commercial Location", url: "/commercial-real-estate/lease-guide/choosing-the-right-commercial-location/", reason: "Use operating priorities to compare production geography with mixed-use alternatives." },
+      { title: "Tenant Improvements", url: "/commercial-real-estate/lease-guide/tenant-improvements/", reason: "Production and hybrid uses often require closer buildout and systems validation." },
+    ],
+    compare_with: [
+      { district_name: "Bayview Industrial", district_path: "/commercial-real-estate/CA/san-francisco/bayview-industrial/", reason: "Compare when warehouse, distribution, food, contractor, fleet, or logistics depth matters more than urban production and prototyping." },
+      { district_name: "Dogpatch", district_path: "/commercial-real-estate/CA/san-francisco/dogpatch/", reason: "Compare when mixed-use adaptive buildings, neighborhood identity, Mission Bay adjacency, or office/R&D context matters more than operational PDR." },
+      { district_name: "Showplace Square / Design District", reason: "Compare when showroom, design-trade, creative-office, or customer-facing PDR identity matters more than practical production." },
+    ],
+    warehouse_flex_profile: { industrial_orientation: "urban_production_practical_flex", truck_access: "medium", highway_access: "medium", port_airport_access: "medium", loading_likelihood: "medium", yard_parking_likelihood: "low", building_format: ["small_bay_industrial", "production_flex", "office_production", "adaptive_industrial"], tenant_fit: ["fabrication", "maker", "product_development", "prototyping", "service_industrial"] },
+    confidence_level: "high",
+    review_status: "published_evidence_supported",
+  },
+});
+
 const archetypeLabels = {
+  sf_city_serving_industrial_district: "City-serving industrial district",
+  warehouse_distribution_market: "Warehouse and distribution market",
+  contractor_service_industrial: "Contractor and service-industrial market",
+  operational_flex_market: "Operational flex market",
+  sf_urban_production_pdr_district: "Urban production and PDR district",
+  practical_flex_market: "Practical flex market",
+  maker_fabrication_district: "Maker and fabrication district",
+  office_production_hybrid: "Office and production hybrid market",
   adaptive_warehouse_office_district: "Adaptive warehouse-office district",
   mixed_use_startup_district: "Mixed-use startup district",
   central_city_creative_office: "Central-city creative office",

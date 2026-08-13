@@ -1,5 +1,3 @@
-const fs = require("fs");
-const path = require("path");
 const evidence = require("../_data/commercialMarketEvidence");
 const buildingIntelligence = require("../_data/commercialBuildingIntelligence");
 const neighborhoodPages = require("../_data/neighborhoodPages");
@@ -51,9 +49,7 @@ const design = require("../data/commercial-market-evidence/san-francisco/design-
 if (!showplace.records.length || !design.records.length) fail("Showplace Square and Design District compatibility collections must remain intact");
 
 for (const slug of ["bayview-industrial", "central-waterfront"]) {
-  if (neighborhoodPages.some((page) => page.slug === slug || String(page.permalink || "").includes(`/${slug}/`))) fail(`${slug} public page must remain unpublished`);
-  const builtPath = path.join(__dirname, "..", "_site", "commercial-real-estate", "CA", "san-francisco", slug, "index.html");
-  if (fs.existsSync(builtPath)) fail(`${slug} public build route exists unexpectedly`);
+  if (!neighborhoodPages.some((page) => page.slug === slug)) fail(`${slug} evidence must now have a public district consumer`);
 }
 
 if (errors.length) {
@@ -65,5 +61,5 @@ console.log("SF Industrial/Flex Evidence Foundation QA");
 console.log(`- Bayview evidence records: ${bayview.records.length}`);
 console.log(`- Central Waterfront evidence records: ${central.records.length}`);
 console.log("- new Building Profiles: 0");
-console.log("- new public district pages: 0");
+console.log("- evidence-backed public district pages: 2");
 console.log("SF Industrial/Flex Evidence Foundation QA passed.");

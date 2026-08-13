@@ -2,6 +2,7 @@ const cities = require("./cities.generated.json");
 const spaceTypes = require("./spaceTypes");
 const buildings = require("./buildings.js");
 const { getRoutingCandidates } = require("./leadRouting.js");
+const sfIndustrialFlexPublicDecision = require("./sfIndustrialFlexPublicDecision.js");
 
 function slugify(value) {
   return String(value || "")
@@ -185,6 +186,14 @@ module.exports = cities.flatMap((city) => {
         routing_space_type: normalizedTypeSlug,
         representativeBuildings: representativeBuildings.slice(0, 12),
         hasInventory: representativeBuildings.length > 0,
+        localDecisionGuide:
+          normalizedCitySlug === "san-francisco" && normalizedStateAbbr === "ca"
+            ? normalizedTypeSlug === "industrial-space"
+              ? sfIndustrialFlexPublicDecision.industrial
+              : normalizedTypeSlug === "flex-space"
+              ? sfIndustrialFlexPublicDecision.flex
+              : null
+            : null,
       };
     })
     .filter((entry) => entry.representativeBuildings.length > 0);

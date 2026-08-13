@@ -52,8 +52,8 @@ for (const district of [bayview, central]) {
   if (district.operationalMarketId !== "san-francisco") fail(`${district.slug} must belong to the San Francisco operational market`);
   if (district.recommendationEligible !== true) fail(`${district.slug} must remain a first-class canonical district`);
   if (district.commercialEcosystem?.primary !== "industrial_flex") fail(`${district.slug} must have Industrial & Flex as its primary ecosystem`);
-  if (!district.path || neighborhoodPages.some((page) => page.canonical_neighborhood_path === district.path)) {
-    fail(`${district.slug} must have a reserved canonical path without creating a public page in this sprint`);
+  if (!district.path || !neighborhoodPages.some((page) => page.canonical_neighborhood_path === district.path)) {
+    fail(`${district.slug} canonical path must resolve to its approved public district page`);
   }
 }
 

@@ -72,6 +72,10 @@ const commercialDistrictPublicIntegrations = require("./commercialDistrictPublic
 const commercialLocationModel = require("./commercialLocationModel.js");
 const commercialBuildingIntelligence = require("./commercialBuildingIntelligence.js");
 const representativeBuildingCards = require("./representativeBuildingCards.js");
+const commercialMarketEvidence = require("./commercialMarketEvidence.js");
+const commercialMarketEvidenceByDistrict = new Map(
+  (commercialMarketEvidence.collections || []).map((collection) => [collection.district?.districtId, collection])
+);
 const buildingByPath = new Map(buildingPages.map((building) => [building.building_path, building]));
 const curatedDistrictMediaBySlug = curatedDistrictMediaForPublicUse(curatedDistrictMediaExport);
 const allowlistByPath = new Map(
@@ -516,6 +520,24 @@ function districtLocatorMapFor(page) {
 
 function districtIdentityFor(page) {
   const pagePath = page.canonical_neighborhood_path;
+
+  if (pagePath === "/commercial-real-estate/CA/san-francisco/bayview-industrial/") {
+    return {
+      eyebrow: "Industrial District Guide",
+      title: "Bayview Industrial",
+      lead: "Understand San Francisco's broadest city-serving operational industrial geography for warehouse, distribution, food, contractor, fleet, production, and practical flex requirements.",
+      guide_label: "Industrial decision guide",
+    };
+  }
+
+  if (pagePath === "/commercial-real-estate/CA/san-francisco/central-waterfront/") {
+    return {
+      eyebrow: "Industrial District Guide",
+      title: "Central Waterfront",
+      lead: "Understand the protected Central Waterfront PDR core for urban production, fabrication, maker, practical flex, prototyping, product development, and maritime-support uses south of mixed-use Dogpatch.",
+      guide_label: "Production and flex district guide",
+    };
+  }
 
   if (
     page.slug === "soma" &&
@@ -5820,6 +5842,34 @@ const nashvilleMetroDistrictDefinitions = [
 
 const sfEditorialDistrictDefinitions = [
   {
+    id: "sf-bayview-industrial",
+    name: "Bayview Industrial",
+    slug: "bayview-industrial",
+    city: "San Francisco",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/san-francisco/bayview-industrial/",
+    centroid_lat: 37.739,
+    centroid_lng: -122.391,
+    area_type: "industrial_area",
+    approximate_space_types: ["industrial", "flex"],
+    profile: ["warehouse", "distribution", "food_logistics", "contractor_service", "light_manufacturing", "operational_flex"],
+    representative_building_paths: [],
+  },
+  {
+    id: "sf-central-waterfront",
+    name: "Central Waterfront",
+    slug: "central-waterfront",
+    city: "San Francisco",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/san-francisco/central-waterfront/",
+    centroid_lat: 37.752,
+    centroid_lng: -122.386,
+    area_type: "industrial_area",
+    approximate_space_types: ["industrial", "flex", "office"],
+    profile: ["production", "fabrication", "maker", "prototyping", "service_industrial", "maritime_support"],
+    representative_building_paths: [],
+  },
+  {
     id: "sf-south-beach",
     name: "South Beach",
     slug: "south-beach",
@@ -7512,6 +7562,7 @@ for (const page of allPages) {
     commercialDistrictPublicIntegrations.byPath[page.canonical_neighborhood_path] || null;
   page.commercial_location_model =
     commercialLocationModel.byPath[page.canonical_neighborhood_path] || null;
+  page.commercial_market_evidence = commercialMarketEvidenceByDistrict.get(page.slug) || null;
   const canonicalBuildingIntelligence =
     commercialBuildingIntelligence.byDistrictPath[page.canonical_neighborhood_path] || [];
   if (canonicalBuildingIntelligence.length) {

@@ -1,0 +1,41 @@
+{% set evidenceCollection = neighborhood.commercial_market_evidence %}
+{% if evidenceCollection and evidenceCollection.records and evidenceCollection.records.length %}
+  <section class="city-card neighborhood-market-evidence" aria-labelledby="market-evidence-heading">
+    <div class="eyebrow">Representative environments</div>
+    <h2 id="market-evidence-heading">How {{ neighborhood.name }} operates in practice</h2>
+    <p>{{ evidenceCollection.qualityStandard }}</p>
+
+    <div class="neighborhood-comparison-grid">
+      {% for evidence in evidenceCollection.records %}
+        {% set evidenceKind = "Representative environment" %}
+        {% if evidence.subjectType == "building" %}
+          {% set evidenceKind = "Representative building" %}
+        {% elif evidence.evidenceType and "proposed" in evidence.evidenceType %}
+          {% set evidenceKind = "Proposed development" %}
+        {% elif evidence.evidenceType and ("maritime" in evidence.evidenceType or "port" in evidence.evidenceType) %}
+          {% set evidenceKind = "Specialized infrastructure" %}
+        {% elif "Campus" in (evidence.evidenceTypeLabel or "") %}
+          {% set evidenceKind = "Campus / environment" %}
+        {% endif %}
+
+        {% if evidence.buildingProfileReference %}
+          <a class="neighborhood-comparison-card neighborhood-link-card" href="{{ evidence.buildingProfileReference }}">
+            <div class="eyebrow">{{ evidenceKind }}</div>
+            <h3>{{ evidence.title }}</h3>
+            <p>{{ evidence.whyItBelongs }}</p>
+            <p><strong>What it does not prove:</strong> {{ evidence.tradeoffs[0] }}</p>
+          </a>
+        {% else %}
+          <article class="neighborhood-comparison-card">
+            <div class="eyebrow">{{ evidenceKind }}</div>
+            <h3>{{ evidence.title }}</h3>
+            <p>{{ evidence.whyItBelongs }}</p>
+            <p><strong>What it does not prove:</strong> {{ evidence.tradeoffs[0] }}</p>
+          </article>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    <p class="semantic-footnote">These examples explain durable operating patterns. Confirm current availability, suite condition, permitted use, and property-specific capability separately.</p>
+  </section>
+{% endif %}
