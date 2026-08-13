@@ -539,6 +539,24 @@ function districtIdentityFor(page) {
     };
   }
 
+  if (pagePath === "/commercial-real-estate/CA/san-francisco/showplace-square/") {
+    return {
+      eyebrow: "Design Trade District Guide",
+      title: "Showplace Square / Design District",
+      lead: "Understand San Francisco's overlapping Showplace Square and Design District geography for showrooms, interiors, building products, creative production, office/showroom hybrids, and customer-facing PDR uses.",
+      guide_label: "Showroom and design-trade guide",
+    };
+  }
+
+  if (pagePath === "/commercial-real-estate/CA/san-francisco/potrero-hill/") {
+    return {
+      eyebrow: "Commercial District Guide",
+      title: "Potrero Hill",
+      lead: "Understand Potrero Hill's neighborhood-scale commercial identity and the selective production, maker, service-commercial, and flex relevance of its eastern/base and Showplace-adjacent edges.",
+      guide_label: "Commercial and production-edge guide",
+    };
+  }
+
   if (
     page.slug === "soma" &&
     clean(page.city).toLowerCase() === "san francisco" &&
@@ -5867,6 +5885,34 @@ const sfEditorialDistrictDefinitions = [
     area_type: "industrial_area",
     approximate_space_types: ["industrial", "flex", "office"],
     profile: ["production", "fabrication", "maker", "prototyping", "service_industrial", "maritime_support"],
+    representative_building_paths: [],
+  },
+  {
+    id: "sf-showplace-square",
+    name: "Showplace Square",
+    slug: "showplace-square",
+    city: "San Francisco",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/san-francisco/showplace-square/",
+    centroid_lat: 37.77,
+    centroid_lng: -122.402,
+    area_type: "district",
+    approximate_space_types: ["office", "industrial", "flex", "retail"],
+    profile: ["design_trade", "showroom", "creative_production", "office_showroom", "customer_facing_pdr"],
+    representative_building_paths: [],
+  },
+  {
+    id: "sf-potrero-hill",
+    name: "Potrero Hill",
+    slug: "potrero-hill",
+    city: "San Francisco",
+    state_abbr: "CA",
+    path: "/commercial-real-estate/CA/san-francisco/potrero-hill/",
+    centroid_lat: 37.756,
+    centroid_lng: -122.402,
+    area_type: "district",
+    approximate_space_types: ["office", "industrial", "flex"],
+    profile: ["creative_office", "selective_production", "maker", "service_commercial", "office_production"],
     representative_building_paths: [],
   },
   {

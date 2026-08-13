@@ -5,6 +5,7 @@ const path = require("path");
 const neighborhoodPages = require("../_data/neighborhoodPages");
 const spaceTypePages = require("../_data/spaceTypePages");
 const sfOfficeModel = require("../_data/sfOfficeRecommendationModel");
+const commercialKnowledgeMarketSnapshots = require("../_data/commercialKnowledgeMarketSnapshots");
 
 const root = path.join(__dirname, "..");
 const errors = [];
@@ -37,6 +38,14 @@ for (const entry of [...(industrial?.localDecisionGuide?.entries || []), ...(fle
 
 if ((sfOfficeModel.districtOrder || []).some((slug) => districtSlugs.includes(slug))) fail("New industrial districts must not enter the SF Office recommendation model");
 
+const sfMarketSnapshot = commercialKnowledgeMarketSnapshots["CA/san-francisco"];
+for (const slug of districtSlugs) {
+  const expectedPath = `/commercial-real-estate/CA/san-francisco/${slug}/`;
+  if (!(sfMarketSnapshot?.keyDistricts || []).some((district) => district.path === expectedPath)) {
+    fail(`SF market snapshot does not expose ${slug}`);
+  }
+}
+
 const buildChecks = [
   ["bayview-industrial", ["Bayview Industrial", "Representative environments", "The SF Market", "Proposed development", "Specialized infrastructure", "Central Waterfront", "Create My Location Brief"]],
   ["central-waterfront", ["Central Waterfront", "Representative environments", "American Industrial Center", "Pier 70 Building 12", "Dogpatch", "Create My Location Brief"]],
@@ -57,6 +66,15 @@ for (const [slug, expected] of hasFreshPublicBuild ? [["industrial-space", ["Cho
   for (const text of expected) if (!html.includes(text)) fail(`${slug} built page is missing ${text}`);
 }
 
+if (hasFreshPublicBuild) {
+  const marketOutputPath = path.join(root, "_site", "commercial-real-estate", "CA", "san-francisco", "index.html");
+  const marketHtml = fs.readFileSync(marketOutputPath, "utf8");
+  for (const slug of districtSlugs) {
+    const expectedPath = `/commercial-real-estate/CA/san-francisco/${slug}/`;
+    if (!marketHtml.includes(`href="${expectedPath}"`)) fail(`SF market page does not link to ${slug}`);
+  }
+}
+
 const warehouseOutput = path.join(root, "_site", "commercial-real-estate", "CA", "san-francisco", "warehouse-space", "index.html");
 if (hasFreshPublicBuild && fs.existsSync(warehouseOutput)) fail("A dedicated SF warehouse route was created unexpectedly");
 
@@ -69,6 +87,7 @@ console.log("SF Industrial/Flex Public Decision Path QA");
 console.log("- district pages: 2");
 console.log("- Industrial hub choices: 6");
 console.log("- Flex hub choices: 5");
+console.log("- SF market links to industrial decision districts: 2");
 console.log("- Office model additions: 0");
 console.log("- warehouse route additions: 0");
 console.log("SF Industrial/Flex Public Decision Path QA passed.");

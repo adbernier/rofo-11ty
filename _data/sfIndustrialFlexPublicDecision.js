@@ -31,7 +31,7 @@ const districts = [
   {
     id: "showplace-square",
     name: "Showplace Square / Design District",
-    path: "",
+    path: `${basePath}showplace-square/`,
     industrialNeed: "Showroom, design trade, and customer-facing PDR",
     flexNeed: "Showroom/design-oriented flex with customer and trade-partner visits",
     industrialSummary: "The primary decision identity for San Francisco's overlapping showroom and design-trade geography, where customer-facing PDR matters more than warehouse logistics or fabrication depth.",

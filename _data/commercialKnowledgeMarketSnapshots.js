@@ -4,7 +4,7 @@ module.exports = {
     marketId: "san-francisco",
     title: "San Francisco Market Snapshot",
     commercialCharacter:
-      "San Francisco is a dense, district-driven commercial market where office character, transit orientation, client access, and neighborhood identity can change materially within a few blocks.",
+      "San Francisco is a dense, district-driven commercial market where office character, transit orientation, client access, neighborhood identity, and operating requirements can change materially within a few blocks.",
     businessDrivers: [
       "Technology, professional services, finance, design, healthcare-adjacent organizations, nonprofits, and neighborhood-serving businesses all create distinct location needs.",
       "The strongest business-location decisions usually start with district fit before moving into buildings, economics, and current availability.",
@@ -12,8 +12,8 @@ module.exports = {
     propertyTypeContext: {
       office: "Office decisions often turn on the tradeoff between transit-oriented credibility, modern growth environments, creative/adaptive space, and boutique historic character.",
       retail: "Retail opportunities are highly neighborhood-specific, with customer patterns and street context mattering more than broad citywide averages.",
-      industrial: "Warehouse and light industrial needs are more selective within San Francisco and often require careful review of access, loading, and operational fit.",
-      flex: "Flex and mixed-use needs tend to depend on the balance between workspace, production, access, and neighborhood compatibility.",
+      industrial: "Industrial searches should separate Bayview's warehouse, distribution, food, contractor, fleet, and city-serving operations from Central Waterfront production, fabrication, maker, and practical-flex requirements.",
+      flex: "Flex searches should distinguish operational flex in Bayview, production-led flex in Central Waterfront, and more adaptive office/R&D or creative environments in Dogpatch and selective SoMa buildings.",
     },
     keyDistricts: [
       { label: "Financial District", path: "/commercial-real-estate/CA/san-francisco/financial-district/" },
@@ -21,11 +21,16 @@ module.exports = {
       { label: "Mission Bay", path: "/commercial-real-estate/CA/san-francisco/mission-bay/" },
       { label: "Jackson Square", path: "/commercial-real-estate/CA/san-francisco/jackson-square/" },
       { label: "South Beach", path: "/commercial-real-estate/CA/san-francisco/south-beach/" },
+      { label: "Bayview Industrial", path: "/commercial-real-estate/CA/san-francisco/bayview-industrial/" },
+      { label: "Central Waterfront", path: "/commercial-real-estate/CA/san-francisco/central-waterfront/" },
+      { label: "Showplace Square", path: "/commercial-real-estate/CA/san-francisco/showplace-square/" },
+      { label: "Potrero Hill", path: "/commercial-real-estate/CA/san-francisco/potrero-hill/" },
     ],
     businessLocationContext: [
       "Client-facing and professional users often need credible access and a meeting environment that matches the brand.",
       "Growth-oriented companies may value modern office environments, recruiting context, and room to evolve.",
       "Creative or design-led companies may place more weight on building character and neighborhood feel.",
+      "Industrial and flex users should choose geography from the operating requirement: logistics and service access point toward Bayview, while urban production and prototyping point toward Central Waterfront.",
     ],
     nearbyMarkets: [
       { label: "Oakland", path: "/commercial-real-estate/CA/oakland/" },
@@ -38,11 +43,12 @@ module.exports = {
     },
     sourceTrace: [
       "SF Office structured recommendation model",
+      "SF Industrial/Flex public decision model",
       "Business Brief publishing system",
       "Location Knowledge Graph district records",
       "Representative building readiness work",
     ],
-    lastReviewed: "2026-08-07",
+    lastReviewed: "2026-08-13",
   },
   "CO/denver": {
     schemaVersion: "occupier-market-snapshot-v1",
