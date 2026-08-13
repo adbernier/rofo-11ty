@@ -47,9 +47,7 @@ const SAN_FRANCISCO_CANONICAL_DISTRICTS = [
   "soma",
   "south-beach",
 ];
-const SAN_FRANCISCO_CME_COMPLETE_DISTRICTS = SAN_FRANCISCO_CANONICAL_DISTRICTS.filter(
-  (districtId) => !["bayview-industrial", "central-waterfront"].includes(districtId)
-);
+const SAN_FRANCISCO_CME_COMPLETE_DISTRICTS = SAN_FRANCISCO_CANONICAL_DISTRICTS;
 
 function fail(message) {
   console.error(`EOS QA error: ${message}`);
@@ -614,13 +612,13 @@ if (!sanFranciscoCmeProgram) {
   if (cmeProgress.completed !== SAN_FRANCISCO_CME_COMPLETE_DISTRICTS.length || cmeProgress.target !== SAN_FRANCISCO_CANONICAL_DISTRICTS.length) {
     fail(`San Francisco Commercial Market Evidence must measure the reconciled canonical inventory; expected ${SAN_FRANCISCO_CME_COMPLETE_DISTRICTS.length}/${SAN_FRANCISCO_CANONICAL_DISTRICTS.length}, got ${cmeProgress.completed}/${cmeProgress.target}.`);
   }
-  if (String(cmeProgress.statusLabel || "") !== "Partial") {
-    fail("San Francisco Commercial Market Evidence must report Partial while Bayview Industrial and Central Waterfront evidence remains deferred.");
+  if (String(cmeProgress.statusLabel || "") !== "Complete") {
+    fail("San Francisco Commercial Market Evidence must report Complete after Bayview Industrial and Central Waterfront evidence completion.");
   }
   const sfExistingCollections = (marketEvidenceExpansion.existingCollections || []).filter((district) => district.marketId === "san-francisco");
   const sfMissingCollections = (marketEvidenceExpansion.missingCollections || []).filter((district) => district.marketId === "san-francisco");
-  if (sfExistingCollections.length !== SAN_FRANCISCO_CME_COMPLETE_DISTRICTS.length || sfMissingCollections.length !== 2) {
-    fail(`San Francisco CME denominator must include the two reconciled evidence gaps; found ${sfExistingCollections.length} existing and ${sfMissingCollections.length} missing.`);
+  if (sfExistingCollections.length !== SAN_FRANCISCO_CME_COMPLETE_DISTRICTS.length || sfMissingCollections.length !== 0) {
+    fail(`San Francisco CME denominator must include all completed canonical collections; found ${sfExistingCollections.length} existing and ${sfMissingCollections.length} missing.`);
   }
   for (const districtId of SAN_FRANCISCO_CANONICAL_DISTRICTS) {
     const initiativeId = `san-francisco:commercial_market_evidence:${districtId}`;

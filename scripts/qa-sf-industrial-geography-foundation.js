@@ -103,7 +103,7 @@ for (const slug of ["bayview-industrial", "central-waterfront"]) {
 
 const cmeDistrictIds = new Set((commercialMarketEvidence.collections || []).map((collection) => collection?.district?.districtId).filter(Boolean));
 for (const slug of ["bayview-industrial", "central-waterfront"]) {
-  if (cmeDistrictIds.has(slug)) fail(`${slug} CME must remain deferred to the follow-on evidence sprint`);
+  if (!cmeDistrictIds.has(slug)) fail(`${slug} CME must exist after the follow-on evidence sprint`);
 }
 
 console.log("SF Industrial Geography Foundation QA");

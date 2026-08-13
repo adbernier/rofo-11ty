@@ -7,7 +7,7 @@ const { analyzePublisher } = require("../lib/publisher/analyze-metros.js");
 const { buildPublisherExpansionPlans } = require("../lib/publisher/expansion-planner.js");
 
 const EXPECTED_SCORES = {
-  "san-francisco": { overall: 96, status: "Distribution Ready" },
+  "san-francisco": { overall: 95, status: "Distribution Ready" },
   sacramento: { overall: 98, status: "Distribution Ready" },
   "san-diego": { overall: 84, status: "Expansion Ready" },
   "orange-county": { overall: 84, status: "Expansion Ready" },

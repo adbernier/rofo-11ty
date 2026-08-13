@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-13T10:27:31-07:00",
+  "generatedAt": "2026-08-13T10:56:16-07:00",
   "eosVersion": "editorial-operating-system-v2.2.4",
   "sourceSystems": [
     "Publisher",
@@ -14,7 +14,7 @@
   ],
   "commercialKnowledgeIntelligence": {
     "schemaVersion": "eos-commercial-knowledge-intelligence-v1",
-    "generatedAt": "2026-08-13T10:27:31-07:00",
+    "generatedAt": "2026-08-13T10:56:16-07:00",
     "sourceSystems": [
       "Editor-controlled strategic priorities",
       "Google Search Console Search Analytics API",
@@ -15226,7 +15226,7 @@
       "displayedBy": "Mission Control",
       "status": "Validated",
       "validationStatus": "PASS",
-      "latestValidation": "2026-08-13T10:27:31-07:00",
+      "latestValidation": "2026-08-13T10:56:16-07:00",
       "markets": [
         {
           "marketId": "east-bay",
@@ -15524,12 +15524,14 @@
       "service": "Commercial Market Evidence",
       "status": "Validated",
       "validationStatus": "PASS",
-      "collections": 28,
+      "collections": 30,
       "districts": [
         "Antioch East 18th Industrial",
         "Aurora",
         "Aurora I-70 / Airport Industrial",
+        "Bayview Industrial",
         "Broomfield",
+        "Central Waterfront",
         "Denver Tech Center",
         "Design District",
         "Dogpatch",
@@ -15555,9 +15557,10 @@
         "Warm Springs Innovation District",
         "West Berkeley"
       ],
-      "evidenceRecords": 175,
+      "evidenceRecords": 183,
       "evidenceTypes": [
         "Adaptive Commercial Building",
+        "Adaptive Multitenant Production and Flex",
         "Adaptive Showroom / Creative Office",
         "Adaptive-Reuse Boutique Office",
         "Airport Logistics Industrial Building",
@@ -15616,6 +15619,7 @@
         "Historic Waterfront Adaptive-Reuse Office",
         "I-880 Warehouse / Distribution Building",
         "Indianapolis Industrial Building",
+        "Industrial Heritage and Maker Transition",
         "Industrial Innovation District Anchor",
         "Industrial Production Counterpoint",
         "Institutional Life Science Anchor",
@@ -15637,6 +15641,7 @@
         "Maker / Creative Adaptive Reuse",
         "Maker / Industrial Conversion",
         "Maker / Retail / Production Anchor",
+        "Maritime-Support Operating Environment",
         "Medical Institutional Anchor",
         "Medical Office Environment",
         "Mid-Rise Production-Adjacent Creative Office",
@@ -15666,6 +15671,9 @@
         "Professional Office Building",
         "Professional Office Environment",
         "Professional Services Tower",
+        "Proposed Multistory PDR Development",
+        "Protected Urban PDR Environment",
+        "Protected Urban Production Environment",
         "R&D-Support Edge",
         "Repositioned Downtown Tower",
         "Repositioned Waterfront-Adjacent Office",
@@ -15682,6 +15690,7 @@
         "Small-Tenant Office Environment",
         "South Financial District Modernized Office",
         "South Hayward Industrial Building",
+        "Specialized Maritime Industrial Environment",
         "Startup Creative Mid-Rise Office",
         "Startup-Scale Creative Office",
         "Suburban Corporate Office",
@@ -15721,7 +15730,8 @@
         "Waterfront-Edge Innovation Office",
         "West SoMa Creative Technology Office",
         "Western Avenue Industrial Building",
-        "Whipple Road Industrial / Flex Building"
+        "Whipple Road Industrial / Flex Building",
+        "Wholesale Food and Distribution Campus"
       ],
       "evidenceRoles": [
         "16th Street Creative Benchmark",
@@ -15755,6 +15765,7 @@
         "Client-Facing Presence Benchmark",
         "Client-Facing Professional Services Benchmark",
         "Constitution Square Professional Office Benchmark",
+        "Contractor and Service-Industrial Foundation",
         "Corporate Creative Presence",
         "Creative / Professional Services Benchmark",
         "Creative Production Benchmark",
@@ -15771,6 +15782,7 @@
         "District Icon / Showroom Benchmark",
         "District Office Anchor",
         "District Origin / Life Science Anchor",
+        "Dogpatch / Central Waterfront Transition Benchmark",
         "Dogpatch / Potrero Operational Edge",
         "Embarcadero Access Professional Services Benchmark",
         "Embarcadero-Facing Professional Services Benchmark",
@@ -15778,6 +15790,7 @@
         "Executive Benchmark / Scale Comparison",
         "Financial District Edge Comparison Benchmark",
         "Flexible Office Entry Benchmark",
+        "Food Wholesale and Logistics Anchor",
         "Formal Professional Office Benchmark",
         "General Office Beyond Lab Benchmark",
         "Gilman Corridor Industrial / Flex Benchmark",
@@ -15806,6 +15819,7 @@
         "Lower-Scale Service-Commercial Reference",
         "Maker and Education Anchor",
         "Maker and R&D-Support Benchmark",
+        "Maritime-Support Context",
         "Mid-Market Creative Demand",
         "Mid-Rise Creative Office Benchmark",
         "Milmont Drive Manufacturing Benchmark",
@@ -15817,6 +15831,7 @@
         "Mission Street Cultural Commercial Anchor",
         "Mission Street Practical Office Benchmark",
         "Modern Headquarters Identity Benchmark",
+        "Modern PDR Development Evidence",
         "Neighborhood Commercial Ecosystem Anchor",
         "Neighborhood-Facing Patient Service Benchmark",
         "Next-Generation Workspace Benchmark",
@@ -15832,6 +15847,8 @@
         "Older Potrero Commercial Character",
         "Patient-Facing Medical Access Benchmark",
         "Pier 70 Mixed Commercial Anchor",
+        "Pier 70 Transition Evidence",
+        "Port, Cargo, and Heavy-Commercial Context",
         "Potrero / Showplace Overlap Benchmark",
         "Potrero / Showplace Transition Benchmark",
         "Potrero Flex Operating Benchmark",
@@ -15843,6 +15860,7 @@
         "Practical Professional Office Benchmark",
         "Private Life Science Cluster Benchmark",
         "Production / Service Flex Benchmark",
+        "Production, Fabrication, and Practical Flex Foundation",
         "Production-Adjacent Context",
         "Production-Oriented Industrial Benchmark",
         "Professional Medical Office Benchmark",
@@ -15893,11 +15911,11 @@
         "Whipple Road Warehouse Benchmark"
       ],
       "confidenceSummary": {
-        "High": 173,
+        "High": 181,
         "Low": 2
       },
-      "deferredCandidates": 69,
-      "latestValidation": "2026-08-13T10:27:31-07:00",
+      "deferredCandidates": 73,
+      "latestValidation": "2026-08-13T10:56:16-07:00",
       "errors": [],
       "warnings": [],
       "source": {
@@ -15917,8 +15935,8 @@
         ],
         "coverageSummary": {
           "knowledgeGraphDistricts": 118,
-          "existingCollections": 28,
-          "missingCollections": 90,
+          "existingCollections": 30,
+          "missingCollections": 88,
           "resolvedDistricts": 118,
           "unresolvedDistricts": 0,
           "ambiguousDistricts": 0,
@@ -16055,8 +16073,8 @@
             "publisherMetroId": "san-francisco",
             "publisherMetroName": "San Francisco",
             "resolvedDistricts": 12,
-            "existingCollections": 10,
-            "missingCollections": 2
+            "existingCollections": 12,
+            "missingCollections": 0
           },
           {
             "marketId": "seattle",
@@ -17891,6 +17909,42 @@
             "resolutionSource": "explicit district ownership",
             "path": "/commercial-real-estate/CA/oakland/jack-london-square/",
             "collectionId": "jack-london-square-commercial-market-evidence"
+          },
+          {
+            "districtId": "bayview-industrial",
+            "districtName": "Bayview Industrial",
+            "city": "San Francisco",
+            "state": "CA",
+            "metroId": "san-francisco",
+            "metroName": "San Francisco",
+            "marketId": "san-francisco",
+            "marketName": "San Francisco",
+            "regionId": "bay-area",
+            "regionName": "Bay Area",
+            "publisherMetroId": "san-francisco",
+            "publisherMetroName": "San Francisco",
+            "ownershipStatus": "Resolved",
+            "resolutionSource": "explicit district ownership",
+            "path": "/commercial-real-estate/CA/san-francisco/bayview-industrial/",
+            "collectionId": "sf-bayview-industrial-commercial-market-evidence"
+          },
+          {
+            "districtId": "central-waterfront",
+            "districtName": "Central Waterfront",
+            "city": "San Francisco",
+            "state": "CA",
+            "metroId": "san-francisco",
+            "metroName": "San Francisco",
+            "marketId": "san-francisco",
+            "marketName": "San Francisco",
+            "regionId": "bay-area",
+            "regionName": "Bay Area",
+            "publisherMetroId": "san-francisco",
+            "publisherMetroName": "San Francisco",
+            "ownershipStatus": "Resolved",
+            "resolutionSource": "explicit district ownership",
+            "path": "/commercial-real-estate/CA/san-francisco/central-waterfront/",
+            "collectionId": "sf-central-waterfront-commercial-market-evidence"
           },
           {
             "districtId": "design-district",
@@ -20638,96 +20692,6 @@
               ]
             },
             "expansionWeight": 1630
-          },
-          {
-            "districtId": "bayview-industrial",
-            "districtName": "Bayview Industrial",
-            "city": "San Francisco",
-            "state": "CA",
-            "metroId": "san-francisco",
-            "metroName": "San Francisco",
-            "marketId": "san-francisco",
-            "marketName": "San Francisco",
-            "regionId": "bay-area",
-            "regionName": "Bay Area",
-            "publisherMetroId": "san-francisco",
-            "publisherMetroName": "San Francisco",
-            "ownershipStatus": "Resolved",
-            "resolutionSource": "explicit district ownership",
-            "ownershipCandidates": [
-              {
-                "marketId": "san-francisco",
-                "marketName": "San Francisco",
-                "source": "explicit district ownership"
-              },
-              {
-                "marketId": "san-francisco",
-                "marketName": "San Francisco",
-                "source": "canonical public city ownership"
-              }
-            ],
-            "isFallbackAssignment": false,
-            "isExecutable": true,
-            "path": "/commercial-real-estate/CA/san-francisco/bayview-industrial/",
-            "signals": {
-              "publisherReadiness": "Distribution Ready",
-              "publisherScore": 95,
-              "districtConfidence": "high",
-              "publicPage": "Yes",
-              "representativeBuildings": 0,
-              "comparisonRelationships": 3,
-              "recommendationSignals": [
-                "space type fit",
-                "best fit",
-                "validation questions"
-              ]
-            },
-            "expansionWeight": 1592
-          },
-          {
-            "districtId": "central-waterfront",
-            "districtName": "Central Waterfront",
-            "city": "San Francisco",
-            "state": "CA",
-            "metroId": "san-francisco",
-            "metroName": "San Francisco",
-            "marketId": "san-francisco",
-            "marketName": "San Francisco",
-            "regionId": "bay-area",
-            "regionName": "Bay Area",
-            "publisherMetroId": "san-francisco",
-            "publisherMetroName": "San Francisco",
-            "ownershipStatus": "Resolved",
-            "resolutionSource": "explicit district ownership",
-            "ownershipCandidates": [
-              {
-                "marketId": "san-francisco",
-                "marketName": "San Francisco",
-                "source": "explicit district ownership"
-              },
-              {
-                "marketId": "san-francisco",
-                "marketName": "San Francisco",
-                "source": "canonical public city ownership"
-              }
-            ],
-            "isFallbackAssignment": false,
-            "isExecutable": true,
-            "path": "/commercial-real-estate/CA/san-francisco/central-waterfront/",
-            "signals": {
-              "publisherReadiness": "Distribution Ready",
-              "publisherScore": 95,
-              "districtConfidence": "high",
-              "publicPage": "Yes",
-              "representativeBuildings": 0,
-              "comparisonRelationships": 3,
-              "recommendationSignals": [
-                "space type fit",
-                "best fit",
-                "validation questions"
-              ]
-            },
-            "expansionWeight": 1592
           },
           {
             "districtId": "north-san-jose",
@@ -23618,60 +23582,6 @@
           },
           {
             "rank": 48,
-            "districtId": "bayview-industrial",
-            "districtName": "Bayview Industrial",
-            "city": "San Francisco",
-            "state": "CA",
-            "metroId": "san-francisco",
-            "metroName": "San Francisco",
-            "marketId": "san-francisco",
-            "marketName": "San Francisco",
-            "regionId": "bay-area",
-            "regionName": "Bay Area",
-            "publisherMetroId": "san-francisco",
-            "publisherMetroName": "San Francisco",
-            "ownershipStatus": "Resolved",
-            "resolutionSource": "explicit district ownership",
-            "path": "/commercial-real-estate/CA/san-francisco/bayview-industrial/",
-            "rationale": [
-              "San Francisco is the operational Market Workspace.",
-              "Publisher analysis backing: San Francisco.",
-              "Ownership resolved by explicit district ownership.",
-              "Publisher readiness: Distribution Ready.",
-              "Public district page exists.",
-              "Knowledge Graph confidence: high.",
-              "3 comparison relationships exist."
-            ]
-          },
-          {
-            "rank": 49,
-            "districtId": "central-waterfront",
-            "districtName": "Central Waterfront",
-            "city": "San Francisco",
-            "state": "CA",
-            "metroId": "san-francisco",
-            "metroName": "San Francisco",
-            "marketId": "san-francisco",
-            "marketName": "San Francisco",
-            "regionId": "bay-area",
-            "regionName": "Bay Area",
-            "publisherMetroId": "san-francisco",
-            "publisherMetroName": "San Francisco",
-            "ownershipStatus": "Resolved",
-            "resolutionSource": "explicit district ownership",
-            "path": "/commercial-real-estate/CA/san-francisco/central-waterfront/",
-            "rationale": [
-              "San Francisco is the operational Market Workspace.",
-              "Publisher analysis backing: San Francisco.",
-              "Ownership resolved by explicit district ownership.",
-              "Publisher readiness: Distribution Ready.",
-              "Public district page exists.",
-              "Knowledge Graph confidence: high.",
-              "3 comparison relationships exist."
-            ]
-          },
-          {
-            "rank": 50,
             "districtId": "north-bayshore",
             "districtName": "North Bayshore",
             "city": "Mountain View",
@@ -23698,7 +23608,7 @@
             ]
           },
           {
-            "rank": 51,
+            "rank": 49,
             "districtId": "university-research-park",
             "districtName": "University Research Park",
             "city": "Irvine",
@@ -23726,7 +23636,7 @@
             ]
           },
           {
-            "rank": 52,
+            "rank": 50,
             "districtId": "south-oc-medical-professional",
             "districtName": "South OC Medical & Professional",
             "city": "Mission Viejo",
@@ -23754,7 +23664,7 @@
             ]
           },
           {
-            "rank": 53,
+            "rank": 51,
             "districtId": "north-san-jose",
             "districtName": "North San Jose",
             "city": "San Jose",
@@ -23781,7 +23691,7 @@
             ]
           },
           {
-            "rank": 54,
+            "rank": 52,
             "districtId": "moffett-park",
             "districtName": "Moffett Park",
             "city": "Sunnyvale",
@@ -23808,7 +23718,7 @@
             ]
           },
           {
-            "rank": 55,
+            "rank": 53,
             "districtId": "georgetown-industrial",
             "districtName": "Georgetown Industrial",
             "city": "Seattle",
@@ -23835,7 +23745,7 @@
             ]
           },
           {
-            "rank": 56,
+            "rank": 54,
             "districtId": "oakland-medical-campuses",
             "districtName": "Oakland Medical Campuses",
             "city": "Oakland",
@@ -23863,7 +23773,7 @@
             ]
           },
           {
-            "rank": 57,
+            "rank": 55,
             "districtId": "eastside-tech-office-corridor",
             "districtName": "Eastside Tech Office Corridor",
             "city": "Redmond",
@@ -23891,7 +23801,7 @@
             ]
           },
           {
-            "rank": 58,
+            "rank": 56,
             "districtId": "belltown-waterfront-office",
             "districtName": "Belltown / Waterfront Creative Office",
             "city": "Seattle",
@@ -23919,7 +23829,7 @@
             ]
           },
           {
-            "rank": 59,
+            "rank": 57,
             "districtId": "pioneer-square-waterfront-office",
             "districtName": "Pioneer Square / Waterfront Office",
             "city": "Seattle",
@@ -23947,7 +23857,7 @@
             ]
           },
           {
-            "rank": 60,
+            "rank": 58,
             "districtId": "oceanside-industrial",
             "districtName": "Oceanside Industrial",
             "city": "Oceanside",
@@ -23975,7 +23885,7 @@
             ]
           },
           {
-            "rank": 61,
+            "rank": 59,
             "districtId": "golden",
             "districtName": "Golden",
             "city": "Golden",
@@ -24002,7 +23912,7 @@
             ]
           },
           {
-            "rank": 62,
+            "rank": 60,
             "districtId": "ballard-interbay-industrial",
             "districtName": "Ballard / Interbay Industrial",
             "city": "Seattle",
@@ -24030,7 +23940,7 @@
             ]
           },
           {
-            "rank": 63,
+            "rank": 61,
             "districtId": "first-hill-medical",
             "districtName": "First Hill Medical District",
             "city": "Seattle",
@@ -24057,7 +23967,7 @@
             ]
           },
           {
-            "rank": 64,
+            "rank": 62,
             "districtId": "downtown-san-mateo",
             "districtName": "Downtown San Mateo",
             "city": "San Mateo",
@@ -24084,7 +23994,7 @@
             ]
           },
           {
-            "rank": 65,
+            "rank": 63,
             "districtId": "lake-forest-business-park",
             "districtName": "Lake Forest Business Park",
             "city": "Lake Forest",
@@ -24112,7 +24022,7 @@
             ]
           },
           {
-            "rank": 66,
+            "rank": 64,
             "districtId": "fullerton",
             "districtName": "Fullerton",
             "city": "Fullerton",
@@ -24139,7 +24049,7 @@
             ]
           },
           {
-            "rank": 67,
+            "rank": 65,
             "districtId": "tustin-legacy",
             "districtName": "Tustin Legacy",
             "city": "Tustin",
@@ -24166,7 +24076,7 @@
             ]
           },
           {
-            "rank": 68,
+            "rank": 66,
             "districtId": "commerce-city",
             "districtName": "Commerce City",
             "city": "Commerce City",
@@ -24193,7 +24103,7 @@
             ]
           },
           {
-            "rank": 69,
+            "rank": 67,
             "districtId": "lone-tree",
             "districtName": "Lone Tree",
             "city": "Lone Tree",
@@ -29960,7 +29870,7 @@
             },
             "eligibleForExecution": true,
             "executionReadiness": "Queued",
-            "orderingRank": 68,
+            "orderingRank": 66,
             "orderingRationale": [
               "Denver is the operational Market Workspace.",
               "Publisher analysis backing: Denver.",
@@ -30018,7 +29928,7 @@
             },
             "eligibleForExecution": true,
             "executionReadiness": "Queued",
-            "orderingRank": 61,
+            "orderingRank": 59,
             "orderingRationale": [
               "Denver is the operational Market Workspace.",
               "Publisher analysis backing: Denver.",
@@ -30194,7 +30104,7 @@
             },
             "eligibleForExecution": true,
             "executionReadiness": "Queued",
-            "orderingRank": 69,
+            "orderingRank": 67,
             "orderingRationale": [
               "Denver is the operational Market Workspace.",
               "Publisher analysis backing: Denver.",
@@ -30764,7 +30674,7 @@
             },
             "eligibleForExecution": true,
             "executionReadiness": "Queued",
-            "orderingRank": 56,
+            "orderingRank": 54,
             "orderingRationale": [
               "East Bay is the operational Market Workspace.",
               "Publisher analysis backing: San Francisco.",
@@ -31942,7 +31852,7 @@
             },
             "eligibleForExecution": true,
             "executionReadiness": "Queued",
-            "orderingRank": 52,
+            "orderingRank": 50,
             "orderingRationale": [
               "Orange County is the operational Market Workspace.",
               "Publisher analysis backing: Orange County.",
@@ -32041,7 +31951,7 @@
             },
             "eligibleForExecution": true,
             "executionReadiness": "Queued",
-            "orderingRank": 51,
+            "orderingRank": 49,
             "orderingRationale": [
               "Orange County is the operational Market Workspace.",
               "Publisher analysis backing: Orange County.",
@@ -32100,7 +32010,7 @@
             },
             "eligibleForExecution": true,
             "executionReadiness": "Queued",
-            "orderingRank": 66,
+            "orderingRank": 64,
             "orderingRationale": [
               "Orange County is the operational Market Workspace.",
               "Publisher analysis backing: Orange County.",
@@ -32158,7 +32068,7 @@
             },
             "eligibleForExecution": true,
             "executionReadiness": "Queued",
-            "orderingRank": 65,
+            "orderingRank": 63,
             "orderingRationale": [
               "Orange County is the operational Market Workspace.",
               "Publisher analysis backing: Orange County.",
@@ -32217,7 +32127,7 @@
             },
             "eligibleForExecution": true,
             "executionReadiness": "Queued",
-            "orderingRank": 67,
+            "orderingRank": 65,
             "orderingRationale": [
               "Orange County is the operational Market Workspace.",
               "Publisher analysis backing: Orange County.",
@@ -32431,7 +32341,7 @@
             },
             "eligibleForExecution": true,
             "executionReadiness": "Queued",
-            "orderingRank": 64,
+            "orderingRank": 62,
             "orderingRationale": [
               "Peninsula is the operational Market Workspace.",
               "Publisher analysis backing: San Francisco.",
@@ -34696,7 +34606,7 @@
             },
             "eligibleForExecution": true,
             "executionReadiness": "Queued",
-            "orderingRank": 60,
+            "orderingRank": 58,
             "orderingRationale": [
               "San Diego is the operational Market Workspace.",
               "Publisher analysis backing: San Diego.",
@@ -36276,54 +36186,44 @@
             "districtId": "bayview-industrial",
             "districtName": "Bayview Industrial",
             "districtPath": "/commercial-real-estate/CA/san-francisco/bayview-industrial/",
-            "cmeStatus": "Missing",
-            "collectionId": "",
-            "evidenceRecordCount": 0,
+            "cmeStatus": "Complete",
+            "collectionId": "sf-bayview-industrial-commercial-market-evidence",
+            "evidenceRecordCount": 4,
             "evidenceProfileCoverage": {
               "completed": 0,
               "target": 0,
               "missing": 0,
-              "label": "Collection missing"
+              "label": "0 / 0"
             },
             "supportingProfileCoverage": {
               "completed": 0,
               "target": 0,
               "missing": 0,
-              "label": "To be selected during collection work"
+              "label": "No supporting profile work selected"
             },
             "unresolvedBuildingItems": 0,
             "validationStatus": "Requires validation",
-            "districtMissionStatus": "Missing",
+            "districtMissionStatus": "Complete",
             "workItems": [],
-            "workItemCount": 1,
+            "workItemCount": 0,
             "deferredWorkItems": [],
             "missionSize": {
-              "id": "standard",
-              "label": "Standard",
-              "reviewWindow": "60-120 minutes",
-              "maximumWorkItems": 8
+              "id": "small",
+              "label": "Small",
+              "reviewWindow": "30-60 minutes",
+              "maximumWorkItems": 3
             },
-            "eligibleForExecution": true,
-            "executionReadiness": "Queued",
-            "orderingRank": 48,
-            "orderingRationale": [
-              "San Francisco is the operational Market Workspace.",
-              "Publisher analysis backing: San Francisco.",
-              "Ownership resolved by explicit district ownership.",
-              "Publisher readiness: Distribution Ready.",
-              "Public district page exists.",
-              "Knowledge Graph confidence: high.",
-              "3 comparison relationships exist."
-            ],
+            "eligibleForExecution": false,
+            "executionReadiness": "Complete",
             "groupingRationale": [
-              "Commercial Market Evidence collection and required Building Profiles should be created from one district research pass.",
-              "Representative evidence selection, source-data collection, profile references, and validation remain hidden Work Items inside one Mission.",
-              "Publisher scoring and recommendation behavior remain unchanged."
+              "Commercial Market Evidence and selected Building Profiles share district research context, source paths, and validation flow.",
+              "Existing Commercial Market Evidence collection remains intact; mission focuses on validating the collection and completing selected evidence Building Profiles.",
+              "Evidence records remain hidden Work Items; Building Profile content stays in Commercial Building Intelligence."
             ],
             "splitRationale": [
-              "No split required; missing district collection starts as one Standard mission."
+              "No split required; district building evidence stays within the configured mission-size upper bound."
             ],
-            "confidence": "Medium"
+            "confidence": "High"
           },
           {
             "evidenceMissionId": "district-building-evidence:san-francisco:central-waterfront",
@@ -36334,54 +36234,44 @@
             "districtId": "central-waterfront",
             "districtName": "Central Waterfront",
             "districtPath": "/commercial-real-estate/CA/san-francisco/central-waterfront/",
-            "cmeStatus": "Missing",
-            "collectionId": "",
-            "evidenceRecordCount": 0,
+            "cmeStatus": "Complete",
+            "collectionId": "sf-central-waterfront-commercial-market-evidence",
+            "evidenceRecordCount": 4,
             "evidenceProfileCoverage": {
-              "completed": 0,
-              "target": 0,
+              "completed": 2,
+              "target": 2,
               "missing": 0,
-              "label": "Collection missing"
+              "label": "2 / 2"
             },
             "supportingProfileCoverage": {
               "completed": 0,
               "target": 0,
               "missing": 0,
-              "label": "To be selected during collection work"
+              "label": "No supporting profile work selected"
             },
             "unresolvedBuildingItems": 0,
             "validationStatus": "Requires validation",
-            "districtMissionStatus": "Missing",
+            "districtMissionStatus": "Complete",
             "workItems": [],
-            "workItemCount": 1,
+            "workItemCount": 0,
             "deferredWorkItems": [],
             "missionSize": {
-              "id": "standard",
-              "label": "Standard",
-              "reviewWindow": "60-120 minutes",
-              "maximumWorkItems": 8
+              "id": "small",
+              "label": "Small",
+              "reviewWindow": "30-60 minutes",
+              "maximumWorkItems": 3
             },
-            "eligibleForExecution": true,
-            "executionReadiness": "Queued",
-            "orderingRank": 49,
-            "orderingRationale": [
-              "San Francisco is the operational Market Workspace.",
-              "Publisher analysis backing: San Francisco.",
-              "Ownership resolved by explicit district ownership.",
-              "Publisher readiness: Distribution Ready.",
-              "Public district page exists.",
-              "Knowledge Graph confidence: high.",
-              "3 comparison relationships exist."
-            ],
+            "eligibleForExecution": false,
+            "executionReadiness": "Complete",
             "groupingRationale": [
-              "Commercial Market Evidence collection and required Building Profiles should be created from one district research pass.",
-              "Representative evidence selection, source-data collection, profile references, and validation remain hidden Work Items inside one Mission.",
-              "Publisher scoring and recommendation behavior remain unchanged."
+              "Commercial Market Evidence and selected Building Profiles share district research context, source paths, and validation flow.",
+              "Existing Commercial Market Evidence collection remains intact; mission focuses on validating the collection and completing selected evidence Building Profiles.",
+              "Evidence records remain hidden Work Items; Building Profile content stays in Commercial Building Intelligence."
             ],
             "splitRationale": [
-              "No split required; missing district collection starts as one Standard mission."
+              "No split required; district building evidence stays within the configured mission-size upper bound."
             ],
-            "confidence": "Medium"
+            "confidence": "High"
           },
           {
             "evidenceMissionId": "district-building-evidence:san-francisco:dogpatch",
@@ -36517,7 +36407,7 @@
             },
             "eligibleForExecution": true,
             "executionReadiness": "Queued",
-            "orderingRank": 62,
+            "orderingRank": 60,
             "orderingRationale": [
               "Seattle is the operational Market Workspace.",
               "Publisher analysis backing: Seattle.",
@@ -36635,7 +36525,7 @@
             },
             "eligibleForExecution": true,
             "executionReadiness": "Queued",
-            "orderingRank": 58,
+            "orderingRank": 56,
             "orderingRationale": [
               "Seattle is the operational Market Workspace.",
               "Publisher analysis backing: Seattle.",
@@ -36753,7 +36643,7 @@
             },
             "eligibleForExecution": true,
             "executionReadiness": "Queued",
-            "orderingRank": 57,
+            "orderingRank": 55,
             "orderingRationale": [
               "Seattle is the operational Market Workspace.",
               "Publisher analysis backing: Seattle.",
@@ -36812,7 +36702,7 @@
             },
             "eligibleForExecution": true,
             "executionReadiness": "Queued",
-            "orderingRank": 63,
+            "orderingRank": 61,
             "orderingRationale": [
               "Seattle is the operational Market Workspace.",
               "Publisher analysis backing: Seattle.",
@@ -36870,7 +36760,7 @@
             },
             "eligibleForExecution": true,
             "executionReadiness": "Queued",
-            "orderingRank": 55,
+            "orderingRank": 53,
             "orderingRationale": [
               "Seattle is the operational Market Workspace.",
               "Publisher analysis backing: Seattle.",
@@ -36987,7 +36877,7 @@
             },
             "eligibleForExecution": true,
             "executionReadiness": "Queued",
-            "orderingRank": 59,
+            "orderingRank": 57,
             "orderingRationale": [
               "Seattle is the operational Market Workspace.",
               "Publisher analysis backing: Seattle.",
@@ -37105,7 +36995,7 @@
             },
             "eligibleForExecution": true,
             "executionReadiness": "Queued",
-            "orderingRank": 54,
+            "orderingRank": 52,
             "orderingRationale": [
               "South Bay is the operational Market Workspace.",
               "Publisher analysis backing: San Francisco.",
@@ -37163,7 +37053,7 @@
             },
             "eligibleForExecution": true,
             "executionReadiness": "Queued",
-            "orderingRank": 50,
+            "orderingRank": 48,
             "orderingRationale": [
               "South Bay is the operational Market Workspace.",
               "Publisher analysis backing: San Francisco.",
@@ -37221,7 +37111,7 @@
             },
             "eligibleForExecution": true,
             "executionReadiness": "Queued",
-            "orderingRank": 53,
+            "orderingRank": 51,
             "orderingRationale": [
               "South Bay is the operational Market Workspace.",
               "Publisher analysis backing: San Francisco.",
@@ -37244,11 +37134,11 @@
         ],
         "summary": {
           "districts": 97,
-          "executableDistrictMissions": 77,
-          "completedDistricts": 20,
+          "executableDistrictMissions": 75,
+          "completedDistricts": 22,
           "inProgressDistricts": 8,
-          "missingCollections": 69,
-          "hiddenWorkItems": 256,
+          "missingCollections": 67,
+          "hiddenWorkItems": 254,
           "unresolvedBuildingItems": 0
         }
       }
@@ -38258,7 +38148,7 @@
                       },
                       "eligibleForExecution": true,
                       "executionReadiness": "Queued",
-                      "orderingRank": 68,
+                      "orderingRank": 66,
                       "orderingRationale": [
                         "Denver is the operational Market Workspace.",
                         "Publisher analysis backing: Denver.",
@@ -38316,7 +38206,7 @@
                       },
                       "eligibleForExecution": true,
                       "executionReadiness": "Queued",
-                      "orderingRank": 61,
+                      "orderingRank": 59,
                       "orderingRationale": [
                         "Denver is the operational Market Workspace.",
                         "Publisher analysis backing: Denver.",
@@ -38492,7 +38382,7 @@
                       },
                       "eligibleForExecution": true,
                       "executionReadiness": "Queued",
-                      "orderingRank": 69,
+                      "orderingRank": 67,
                       "orderingRationale": [
                         "Denver is the operational Market Workspace.",
                         "Publisher analysis backing: Denver.",
@@ -40062,7 +39952,7 @@
                       },
                       "eligibleForExecution": true,
                       "executionReadiness": "Queued",
-                      "orderingRank": 56,
+                      "orderingRank": 54,
                       "orderingRationale": [
                         "East Bay is the operational Market Workspace.",
                         "Publisher analysis backing: San Francisco.",
@@ -42467,7 +42357,7 @@
                       },
                       "eligibleForExecution": true,
                       "executionReadiness": "Queued",
-                      "orderingRank": 52,
+                      "orderingRank": 50,
                       "orderingRationale": [
                         "Orange County is the operational Market Workspace.",
                         "Publisher analysis backing: Orange County.",
@@ -42566,7 +42456,7 @@
                       },
                       "eligibleForExecution": true,
                       "executionReadiness": "Queued",
-                      "orderingRank": 51,
+                      "orderingRank": 49,
                       "orderingRationale": [
                         "Orange County is the operational Market Workspace.",
                         "Publisher analysis backing: Orange County.",
@@ -42625,7 +42515,7 @@
                       },
                       "eligibleForExecution": true,
                       "executionReadiness": "Queued",
-                      "orderingRank": 66,
+                      "orderingRank": 64,
                       "orderingRationale": [
                         "Orange County is the operational Market Workspace.",
                         "Publisher analysis backing: Orange County.",
@@ -42683,7 +42573,7 @@
                       },
                       "eligibleForExecution": true,
                       "executionReadiness": "Queued",
-                      "orderingRank": 65,
+                      "orderingRank": 63,
                       "orderingRationale": [
                         "Orange County is the operational Market Workspace.",
                         "Publisher analysis backing: Orange County.",
@@ -42742,7 +42632,7 @@
                       },
                       "eligibleForExecution": true,
                       "executionReadiness": "Queued",
-                      "orderingRank": 67,
+                      "orderingRank": 65,
                       "orderingRationale": [
                         "Orange County is the operational Market Workspace.",
                         "Publisher analysis backing: Orange County.",
@@ -43851,7 +43741,7 @@
                       },
                       "eligibleForExecution": true,
                       "executionReadiness": "Queued",
-                      "orderingRank": 64,
+                      "orderingRank": 62,
                       "orderingRationale": [
                         "Peninsula is the operational Market Workspace.",
                         "Publisher analysis backing: San Francisco.",
@@ -47769,7 +47659,7 @@
                       },
                       "eligibleForExecution": true,
                       "executionReadiness": "Queued",
-                      "orderingRank": 60,
+                      "orderingRank": 58,
                       "orderingRationale": [
                         "San Diego is the operational Market Workspace.",
                         "Publisher analysis backing: San Diego.",
@@ -48854,14 +48744,14 @@
           {
             "id": "commercial_market_evidence",
             "label": "Commercial Market Evidence",
-            "status": "Partial",
+            "status": "Complete",
             "progress": {
               "unit": "Collections",
-              "completed": 10,
+              "completed": 12,
               "target": 12,
-              "label": "10 / 12 Collections",
-              "statusLabel": "Partial",
-              "currentConstraint": "2 district collections remain unbuilt.",
+              "label": "12 / 12 Collections",
+              "statusLabel": "Complete",
+              "currentConstraint": "Commercial Market Evidence collections exist for all tracked Knowledge Graph districts.",
               "sourceEvidence": [
                 "Commercial Market Evidence collection registry.",
                 "Commercial Location Knowledge Graph district nodes."
@@ -48874,22 +48764,22 @@
               {
                 "id": "san-francisco:commercial_market_evidence:completion-campaign",
                 "title": "San Francisco Commercial Market Evidence Completion",
-                "status": "Partial",
+                "status": "Complete",
                 "progress": {
                   "unit": "Collections",
-                  "completed": 10,
+                  "completed": 12,
                   "target": 12,
-                  "label": "10 / 12 Collections",
-                  "statusLabel": "Partial",
-                  "currentConstraint": "2 district collections remain unbuilt.",
+                  "label": "12 / 12 Collections",
+                  "statusLabel": "Complete",
+                  "currentConstraint": "Commercial Market Evidence collections exist for all tracked Knowledge Graph districts.",
                   "sourceEvidence": [
                     "Commercial Market Evidence collection registry.",
                     "Commercial Location Knowledge Graph district nodes."
                   ]
                 },
                 "currentConstraint": "Design District Commercial Market Evidence is complete, but selected evidence Building Profiles remain incomplete.",
-                "missionCount": 10,
-                "workItemCount": 70,
+                "missionCount": 8,
+                "workItemCount": 68,
                 "districtBuildingEvidence": {
                   "districts": [
                     {
@@ -50253,54 +50143,44 @@
                       "districtId": "bayview-industrial",
                       "districtName": "Bayview Industrial",
                       "districtPath": "/commercial-real-estate/CA/san-francisco/bayview-industrial/",
-                      "cmeStatus": "Missing",
-                      "collectionId": "",
-                      "evidenceRecordCount": 0,
+                      "cmeStatus": "Complete",
+                      "collectionId": "sf-bayview-industrial-commercial-market-evidence",
+                      "evidenceRecordCount": 4,
                       "evidenceProfileCoverage": {
                         "completed": 0,
                         "target": 0,
                         "missing": 0,
-                        "label": "Collection missing"
+                        "label": "0 / 0"
                       },
                       "supportingProfileCoverage": {
                         "completed": 0,
                         "target": 0,
                         "missing": 0,
-                        "label": "To be selected during collection work"
+                        "label": "No supporting profile work selected"
                       },
                       "unresolvedBuildingItems": 0,
                       "validationStatus": "Requires validation",
-                      "districtMissionStatus": "Missing",
+                      "districtMissionStatus": "Complete",
                       "workItems": [],
-                      "workItemCount": 1,
+                      "workItemCount": 0,
                       "deferredWorkItems": [],
                       "missionSize": {
-                        "id": "standard",
-                        "label": "Standard",
-                        "reviewWindow": "60-120 minutes",
-                        "maximumWorkItems": 8
+                        "id": "small",
+                        "label": "Small",
+                        "reviewWindow": "30-60 minutes",
+                        "maximumWorkItems": 3
                       },
-                      "eligibleForExecution": true,
-                      "executionReadiness": "Queued",
-                      "orderingRank": 48,
-                      "orderingRationale": [
-                        "San Francisco is the operational Market Workspace.",
-                        "Publisher analysis backing: San Francisco.",
-                        "Ownership resolved by explicit district ownership.",
-                        "Publisher readiness: Distribution Ready.",
-                        "Public district page exists.",
-                        "Knowledge Graph confidence: high.",
-                        "3 comparison relationships exist."
-                      ],
+                      "eligibleForExecution": false,
+                      "executionReadiness": "Complete",
                       "groupingRationale": [
-                        "Commercial Market Evidence collection and required Building Profiles should be created from one district research pass.",
-                        "Representative evidence selection, source-data collection, profile references, and validation remain hidden Work Items inside one Mission.",
-                        "Publisher scoring and recommendation behavior remain unchanged."
+                        "Commercial Market Evidence and selected Building Profiles share district research context, source paths, and validation flow.",
+                        "Existing Commercial Market Evidence collection remains intact; mission focuses on validating the collection and completing selected evidence Building Profiles.",
+                        "Evidence records remain hidden Work Items; Building Profile content stays in Commercial Building Intelligence."
                       ],
                       "splitRationale": [
-                        "No split required; missing district collection starts as one Standard mission."
+                        "No split required; district building evidence stays within the configured mission-size upper bound."
                       ],
-                      "confidence": "Medium"
+                      "confidence": "High"
                     },
                     {
                       "evidenceMissionId": "district-building-evidence:san-francisco:central-waterfront",
@@ -50311,54 +50191,44 @@
                       "districtId": "central-waterfront",
                       "districtName": "Central Waterfront",
                       "districtPath": "/commercial-real-estate/CA/san-francisco/central-waterfront/",
-                      "cmeStatus": "Missing",
-                      "collectionId": "",
-                      "evidenceRecordCount": 0,
+                      "cmeStatus": "Complete",
+                      "collectionId": "sf-central-waterfront-commercial-market-evidence",
+                      "evidenceRecordCount": 4,
                       "evidenceProfileCoverage": {
-                        "completed": 0,
-                        "target": 0,
+                        "completed": 2,
+                        "target": 2,
                         "missing": 0,
-                        "label": "Collection missing"
+                        "label": "2 / 2"
                       },
                       "supportingProfileCoverage": {
                         "completed": 0,
                         "target": 0,
                         "missing": 0,
-                        "label": "To be selected during collection work"
+                        "label": "No supporting profile work selected"
                       },
                       "unresolvedBuildingItems": 0,
                       "validationStatus": "Requires validation",
-                      "districtMissionStatus": "Missing",
+                      "districtMissionStatus": "Complete",
                       "workItems": [],
-                      "workItemCount": 1,
+                      "workItemCount": 0,
                       "deferredWorkItems": [],
                       "missionSize": {
-                        "id": "standard",
-                        "label": "Standard",
-                        "reviewWindow": "60-120 minutes",
-                        "maximumWorkItems": 8
+                        "id": "small",
+                        "label": "Small",
+                        "reviewWindow": "30-60 minutes",
+                        "maximumWorkItems": 3
                       },
-                      "eligibleForExecution": true,
-                      "executionReadiness": "Queued",
-                      "orderingRank": 49,
-                      "orderingRationale": [
-                        "San Francisco is the operational Market Workspace.",
-                        "Publisher analysis backing: San Francisco.",
-                        "Ownership resolved by explicit district ownership.",
-                        "Publisher readiness: Distribution Ready.",
-                        "Public district page exists.",
-                        "Knowledge Graph confidence: high.",
-                        "3 comparison relationships exist."
-                      ],
+                      "eligibleForExecution": false,
+                      "executionReadiness": "Complete",
                       "groupingRationale": [
-                        "Commercial Market Evidence collection and required Building Profiles should be created from one district research pass.",
-                        "Representative evidence selection, source-data collection, profile references, and validation remain hidden Work Items inside one Mission.",
-                        "Publisher scoring and recommendation behavior remain unchanged."
+                        "Commercial Market Evidence and selected Building Profiles share district research context, source paths, and validation flow.",
+                        "Existing Commercial Market Evidence collection remains intact; mission focuses on validating the collection and completing selected evidence Building Profiles.",
+                        "Evidence records remain hidden Work Items; Building Profile content stays in Commercial Building Intelligence."
                       ],
                       "splitRationale": [
-                        "No split required; missing district collection starts as one Standard mission."
+                        "No split required; district building evidence stays within the configured mission-size upper bound."
                       ],
-                      "confidence": "Medium"
+                      "confidence": "High"
                     },
                     {
                       "evidenceMissionId": "district-building-evidence:san-francisco:dogpatch",
@@ -50457,11 +50327,11 @@
                       "confidence": "High"
                     }
                   ],
-                  "executableDistrictMissionCount": 10,
-                  "completeDistrictCount": 2,
+                  "executableDistrictMissionCount": 8,
+                  "completeDistrictCount": 4,
                   "inProgressDistrictCount": 8,
-                  "missingDistrictCount": 2,
-                  "hiddenWorkItemCount": 70,
+                  "missingDistrictCount": 0,
+                  "hiddenWorkItemCount": 68,
                   "unresolvedBuildingItemCount": 0
                 },
                 "sizingStrategy": "District Building Evidence missions combine Commercial Market Evidence and selected Building Profiles when both share one district workflow. Evidence records and building Work Items stay hidden inside one reviewable SER."
@@ -51417,7 +51287,7 @@
                       },
                       "eligibleForExecution": true,
                       "executionReadiness": "Queued",
-                      "orderingRank": 62,
+                      "orderingRank": 60,
                       "orderingRationale": [
                         "Seattle is the operational Market Workspace.",
                         "Publisher analysis backing: Seattle.",
@@ -51535,7 +51405,7 @@
                       },
                       "eligibleForExecution": true,
                       "executionReadiness": "Queued",
-                      "orderingRank": 58,
+                      "orderingRank": 56,
                       "orderingRationale": [
                         "Seattle is the operational Market Workspace.",
                         "Publisher analysis backing: Seattle.",
@@ -51653,7 +51523,7 @@
                       },
                       "eligibleForExecution": true,
                       "executionReadiness": "Queued",
-                      "orderingRank": 57,
+                      "orderingRank": 55,
                       "orderingRationale": [
                         "Seattle is the operational Market Workspace.",
                         "Publisher analysis backing: Seattle.",
@@ -51712,7 +51582,7 @@
                       },
                       "eligibleForExecution": true,
                       "executionReadiness": "Queued",
-                      "orderingRank": 63,
+                      "orderingRank": 61,
                       "orderingRationale": [
                         "Seattle is the operational Market Workspace.",
                         "Publisher analysis backing: Seattle.",
@@ -51770,7 +51640,7 @@
                       },
                       "eligibleForExecution": true,
                       "executionReadiness": "Queued",
-                      "orderingRank": 55,
+                      "orderingRank": 53,
                       "orderingRationale": [
                         "Seattle is the operational Market Workspace.",
                         "Publisher analysis backing: Seattle.",
@@ -51887,7 +51757,7 @@
                       },
                       "eligibleForExecution": true,
                       "executionReadiness": "Queued",
-                      "orderingRank": 59,
+                      "orderingRank": 57,
                       "orderingRationale": [
                         "Seattle is the operational Market Workspace.",
                         "Publisher analysis backing: Seattle.",
@@ -52900,7 +52770,7 @@
                       },
                       "eligibleForExecution": true,
                       "executionReadiness": "Queued",
-                      "orderingRank": 54,
+                      "orderingRank": 52,
                       "orderingRationale": [
                         "South Bay is the operational Market Workspace.",
                         "Publisher analysis backing: San Francisco.",
@@ -52958,7 +52828,7 @@
                       },
                       "eligibleForExecution": true,
                       "executionReadiness": "Queued",
-                      "orderingRank": 50,
+                      "orderingRank": 48,
                       "orderingRationale": [
                         "South Bay is the operational Market Workspace.",
                         "Publisher analysis backing: San Francisco.",
@@ -53016,7 +52886,7 @@
                       },
                       "eligibleForExecution": true,
                       "executionReadiness": "Queued",
-                      "orderingRank": 53,
+                      "orderingRank": 51,
                       "orderingRationale": [
                         "South Bay is the operational Market Workspace.",
                         "Publisher analysis backing: San Francisco.",
@@ -54361,7 +54231,7 @@
               },
               "eligibleForExecution": true,
               "executionReadiness": "Queued",
-              "orderingRank": 68,
+              "orderingRank": 66,
               "orderingRationale": [
                 "Denver is the operational Market Workspace.",
                 "Publisher analysis backing: Denver.",
@@ -54419,7 +54289,7 @@
               },
               "eligibleForExecution": true,
               "executionReadiness": "Queued",
-              "orderingRank": 61,
+              "orderingRank": 59,
               "orderingRationale": [
                 "Denver is the operational Market Workspace.",
                 "Publisher analysis backing: Denver.",
@@ -54595,7 +54465,7 @@
               },
               "eligibleForExecution": true,
               "executionReadiness": "Queued",
-              "orderingRank": 69,
+              "orderingRank": 67,
               "orderingRationale": [
                 "Denver is the operational Market Workspace.",
                 "Publisher analysis backing: Denver.",
@@ -55546,7 +55416,7 @@
               },
               "eligibleForExecution": true,
               "executionReadiness": "Queued",
-              "orderingRank": 56,
+              "orderingRank": 54,
               "orderingRationale": [
                 "East Bay is the operational Market Workspace.",
                 "Publisher analysis backing: San Francisco.",
@@ -57433,7 +57303,7 @@
               },
               "eligibleForExecution": true,
               "executionReadiness": "Queued",
-              "orderingRank": 52,
+              "orderingRank": 50,
               "orderingRationale": [
                 "Orange County is the operational Market Workspace.",
                 "Publisher analysis backing: Orange County.",
@@ -57532,7 +57402,7 @@
               },
               "eligibleForExecution": true,
               "executionReadiness": "Queued",
-              "orderingRank": 51,
+              "orderingRank": 49,
               "orderingRationale": [
                 "Orange County is the operational Market Workspace.",
                 "Publisher analysis backing: Orange County.",
@@ -57591,7 +57461,7 @@
               },
               "eligibleForExecution": true,
               "executionReadiness": "Queued",
-              "orderingRank": 66,
+              "orderingRank": 64,
               "orderingRationale": [
                 "Orange County is the operational Market Workspace.",
                 "Publisher analysis backing: Orange County.",
@@ -57649,7 +57519,7 @@
               },
               "eligibleForExecution": true,
               "executionReadiness": "Queued",
-              "orderingRank": 65,
+              "orderingRank": 63,
               "orderingRationale": [
                 "Orange County is the operational Market Workspace.",
                 "Publisher analysis backing: Orange County.",
@@ -57708,7 +57578,7 @@
               },
               "eligibleForExecution": true,
               "executionReadiness": "Queued",
-              "orderingRank": 67,
+              "orderingRank": 65,
               "orderingRationale": [
                 "Orange County is the operational Market Workspace.",
                 "Publisher analysis backing: Orange County.",
@@ -58272,7 +58142,7 @@
               },
               "eligibleForExecution": true,
               "executionReadiness": "Queued",
-              "orderingRank": 64,
+              "orderingRank": 62,
               "orderingRationale": [
                 "Peninsula is the operational Market Workspace.",
                 "Publisher analysis backing: San Francisco.",
@@ -61225,7 +61095,7 @@
               },
               "eligibleForExecution": true,
               "executionReadiness": "Queued",
-              "orderingRank": 60,
+              "orderingRank": 58,
               "orderingRationale": [
                 "San Diego is the operational Market Workspace.",
                 "Publisher analysis backing: San Diego.",
@@ -61770,14 +61640,14 @@
         "programLabel": "Commercial Market Evidence",
         "title": "San Francisco Commercial Market Evidence Completion",
         "objective": "Advance San Francisco Commercial Market Evidence toward market completion through coherent, reviewable missions.",
-        "status": "Partial",
+        "status": "Complete",
         "progress": {
           "unit": "Collections",
-          "completed": 10,
+          "completed": 12,
           "target": 12,
-          "label": "10 / 12 Collections",
-          "statusLabel": "Partial",
-          "currentConstraint": "2 district collections remain unbuilt.",
+          "label": "12 / 12 Collections",
+          "statusLabel": "Complete",
+          "currentConstraint": "Commercial Market Evidence collections exist for all tracked Knowledge Graph districts.",
           "sourceEvidence": [
             "Commercial Market Evidence collection registry.",
             "Commercial Location Knowledge Graph district nodes."
@@ -61808,12 +61678,10 @@
           "mission:san-francisco:district-building-evidence:potrero-hill",
           "mission:san-francisco:district-building-evidence:jackson-square",
           "mission:san-francisco:district-building-evidence:showplace-square",
-          "mission:san-francisco:district-building-evidence:soma",
-          "mission:san-francisco:district-building-evidence:bayview-industrial",
-          "mission:san-francisco:district-building-evidence:central-waterfront"
+          "mission:san-francisco:district-building-evidence:soma"
         ],
-        "missionCount": 10,
-        "workItemCount": 70,
+        "missionCount": 8,
+        "workItemCount": 68,
         "districtBuildingEvidence": {
           "districts": [
             {
@@ -63177,54 +63045,44 @@
               "districtId": "bayview-industrial",
               "districtName": "Bayview Industrial",
               "districtPath": "/commercial-real-estate/CA/san-francisco/bayview-industrial/",
-              "cmeStatus": "Missing",
-              "collectionId": "",
-              "evidenceRecordCount": 0,
+              "cmeStatus": "Complete",
+              "collectionId": "sf-bayview-industrial-commercial-market-evidence",
+              "evidenceRecordCount": 4,
               "evidenceProfileCoverage": {
                 "completed": 0,
                 "target": 0,
                 "missing": 0,
-                "label": "Collection missing"
+                "label": "0 / 0"
               },
               "supportingProfileCoverage": {
                 "completed": 0,
                 "target": 0,
                 "missing": 0,
-                "label": "To be selected during collection work"
+                "label": "No supporting profile work selected"
               },
               "unresolvedBuildingItems": 0,
               "validationStatus": "Requires validation",
-              "districtMissionStatus": "Missing",
+              "districtMissionStatus": "Complete",
               "workItems": [],
-              "workItemCount": 1,
+              "workItemCount": 0,
               "deferredWorkItems": [],
               "missionSize": {
-                "id": "standard",
-                "label": "Standard",
-                "reviewWindow": "60-120 minutes",
-                "maximumWorkItems": 8
+                "id": "small",
+                "label": "Small",
+                "reviewWindow": "30-60 minutes",
+                "maximumWorkItems": 3
               },
-              "eligibleForExecution": true,
-              "executionReadiness": "Queued",
-              "orderingRank": 48,
-              "orderingRationale": [
-                "San Francisco is the operational Market Workspace.",
-                "Publisher analysis backing: San Francisco.",
-                "Ownership resolved by explicit district ownership.",
-                "Publisher readiness: Distribution Ready.",
-                "Public district page exists.",
-                "Knowledge Graph confidence: high.",
-                "3 comparison relationships exist."
-              ],
+              "eligibleForExecution": false,
+              "executionReadiness": "Complete",
               "groupingRationale": [
-                "Commercial Market Evidence collection and required Building Profiles should be created from one district research pass.",
-                "Representative evidence selection, source-data collection, profile references, and validation remain hidden Work Items inside one Mission.",
-                "Publisher scoring and recommendation behavior remain unchanged."
+                "Commercial Market Evidence and selected Building Profiles share district research context, source paths, and validation flow.",
+                "Existing Commercial Market Evidence collection remains intact; mission focuses on validating the collection and completing selected evidence Building Profiles.",
+                "Evidence records remain hidden Work Items; Building Profile content stays in Commercial Building Intelligence."
               ],
               "splitRationale": [
-                "No split required; missing district collection starts as one Standard mission."
+                "No split required; district building evidence stays within the configured mission-size upper bound."
               ],
-              "confidence": "Medium"
+              "confidence": "High"
             },
             {
               "evidenceMissionId": "district-building-evidence:san-francisco:central-waterfront",
@@ -63235,54 +63093,44 @@
               "districtId": "central-waterfront",
               "districtName": "Central Waterfront",
               "districtPath": "/commercial-real-estate/CA/san-francisco/central-waterfront/",
-              "cmeStatus": "Missing",
-              "collectionId": "",
-              "evidenceRecordCount": 0,
+              "cmeStatus": "Complete",
+              "collectionId": "sf-central-waterfront-commercial-market-evidence",
+              "evidenceRecordCount": 4,
               "evidenceProfileCoverage": {
-                "completed": 0,
-                "target": 0,
+                "completed": 2,
+                "target": 2,
                 "missing": 0,
-                "label": "Collection missing"
+                "label": "2 / 2"
               },
               "supportingProfileCoverage": {
                 "completed": 0,
                 "target": 0,
                 "missing": 0,
-                "label": "To be selected during collection work"
+                "label": "No supporting profile work selected"
               },
               "unresolvedBuildingItems": 0,
               "validationStatus": "Requires validation",
-              "districtMissionStatus": "Missing",
+              "districtMissionStatus": "Complete",
               "workItems": [],
-              "workItemCount": 1,
+              "workItemCount": 0,
               "deferredWorkItems": [],
               "missionSize": {
-                "id": "standard",
-                "label": "Standard",
-                "reviewWindow": "60-120 minutes",
-                "maximumWorkItems": 8
+                "id": "small",
+                "label": "Small",
+                "reviewWindow": "30-60 minutes",
+                "maximumWorkItems": 3
               },
-              "eligibleForExecution": true,
-              "executionReadiness": "Queued",
-              "orderingRank": 49,
-              "orderingRationale": [
-                "San Francisco is the operational Market Workspace.",
-                "Publisher analysis backing: San Francisco.",
-                "Ownership resolved by explicit district ownership.",
-                "Publisher readiness: Distribution Ready.",
-                "Public district page exists.",
-                "Knowledge Graph confidence: high.",
-                "3 comparison relationships exist."
-              ],
+              "eligibleForExecution": false,
+              "executionReadiness": "Complete",
               "groupingRationale": [
-                "Commercial Market Evidence collection and required Building Profiles should be created from one district research pass.",
-                "Representative evidence selection, source-data collection, profile references, and validation remain hidden Work Items inside one Mission.",
-                "Publisher scoring and recommendation behavior remain unchanged."
+                "Commercial Market Evidence and selected Building Profiles share district research context, source paths, and validation flow.",
+                "Existing Commercial Market Evidence collection remains intact; mission focuses on validating the collection and completing selected evidence Building Profiles.",
+                "Evidence records remain hidden Work Items; Building Profile content stays in Commercial Building Intelligence."
               ],
               "splitRationale": [
-                "No split required; missing district collection starts as one Standard mission."
+                "No split required; district building evidence stays within the configured mission-size upper bound."
               ],
-              "confidence": "Medium"
+              "confidence": "High"
             },
             {
               "evidenceMissionId": "district-building-evidence:san-francisco:dogpatch",
@@ -63381,16 +63229,16 @@
               "confidence": "High"
             }
           ],
-          "executableDistrictMissionCount": 10,
-          "completeDistrictCount": 2,
+          "executableDistrictMissionCount": 8,
+          "completeDistrictCount": 4,
           "inProgressDistrictCount": 8,
-          "missingDistrictCount": 2,
-          "hiddenWorkItemCount": 70,
+          "missingDistrictCount": 0,
+          "hiddenWorkItemCount": 68,
           "unresolvedBuildingItemCount": 0
         },
         "workItems": {
           "hiddenByDefault": true,
-          "count": 70
+          "count": 68
         },
         "sizingStrategy": "District Building Evidence missions combine Commercial Market Evidence and selected Building Profiles when both share one district workflow. Evidence records and building Work Items stay hidden inside one reviewable SER.",
         "reviewabilityPrinciple": "Campaigns are not executable. They advance through Missions sized to remain reviewable inside one SER.",
@@ -63420,9 +63268,7 @@
           "mission:san-francisco:district-building-evidence:potrero-hill",
           "mission:san-francisco:district-building-evidence:jackson-square",
           "mission:san-francisco:district-building-evidence:showplace-square",
-          "mission:san-francisco:district-building-evidence:soma",
-          "mission:san-francisco:district-building-evidence:bayview-industrial",
-          "mission:san-francisco:district-building-evidence:central-waterfront"
+          "mission:san-francisco:district-building-evidence:soma"
         ]
       },
       {
@@ -63786,7 +63632,7 @@
               },
               "eligibleForExecution": true,
               "executionReadiness": "Queued",
-              "orderingRank": 62,
+              "orderingRank": 60,
               "orderingRationale": [
                 "Seattle is the operational Market Workspace.",
                 "Publisher analysis backing: Seattle.",
@@ -63904,7 +63750,7 @@
               },
               "eligibleForExecution": true,
               "executionReadiness": "Queued",
-              "orderingRank": 58,
+              "orderingRank": 56,
               "orderingRationale": [
                 "Seattle is the operational Market Workspace.",
                 "Publisher analysis backing: Seattle.",
@@ -64022,7 +63868,7 @@
               },
               "eligibleForExecution": true,
               "executionReadiness": "Queued",
-              "orderingRank": 57,
+              "orderingRank": 55,
               "orderingRationale": [
                 "Seattle is the operational Market Workspace.",
                 "Publisher analysis backing: Seattle.",
@@ -64081,7 +63927,7 @@
               },
               "eligibleForExecution": true,
               "executionReadiness": "Queued",
-              "orderingRank": 63,
+              "orderingRank": 61,
               "orderingRationale": [
                 "Seattle is the operational Market Workspace.",
                 "Publisher analysis backing: Seattle.",
@@ -64139,7 +63985,7 @@
               },
               "eligibleForExecution": true,
               "executionReadiness": "Queued",
-              "orderingRank": 55,
+              "orderingRank": 53,
               "orderingRationale": [
                 "Seattle is the operational Market Workspace.",
                 "Publisher analysis backing: Seattle.",
@@ -64256,7 +64102,7 @@
               },
               "eligibleForExecution": true,
               "executionReadiness": "Queued",
-              "orderingRank": 59,
+              "orderingRank": 57,
               "orderingRationale": [
                 "Seattle is the operational Market Workspace.",
                 "Publisher analysis backing: Seattle.",
@@ -64722,7 +64568,7 @@
               },
               "eligibleForExecution": true,
               "executionReadiness": "Queued",
-              "orderingRank": 54,
+              "orderingRank": 52,
               "orderingRationale": [
                 "South Bay is the operational Market Workspace.",
                 "Publisher analysis backing: San Francisco.",
@@ -64780,7 +64626,7 @@
               },
               "eligibleForExecution": true,
               "executionReadiness": "Queued",
-              "orderingRank": 50,
+              "orderingRank": 48,
               "orderingRationale": [
                 "South Bay is the operational Market Workspace.",
                 "Publisher analysis backing: San Francisco.",
@@ -64838,7 +64684,7 @@
               },
               "eligibleForExecution": true,
               "executionReadiness": "Queued",
-              "orderingRank": 53,
+              "orderingRank": 51,
               "orderingRationale": [
                 "South Bay is the operational Market Workspace.",
                 "Publisher analysis backing: San Francisco.",
@@ -65892,7 +65738,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": false,
-        "orderingRank": 61,
+        "orderingRank": 59,
         "orderingRationale": [
           "Denver is the operational Market Workspace.",
           "Publisher analysis backing: Denver.",
@@ -65950,7 +65796,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": false,
-        "orderingRank": 68,
+        "orderingRank": 66,
         "orderingRationale": [
           "Denver is the operational Market Workspace.",
           "Publisher analysis backing: Denver.",
@@ -66008,7 +65854,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": false,
-        "orderingRank": 69,
+        "orderingRank": 67,
         "orderingRationale": [
           "Denver is the operational Market Workspace.",
           "Publisher analysis backing: Denver.",
@@ -66671,7 +66517,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": false,
-        "orderingRank": 56,
+        "orderingRank": 54,
         "orderingRationale": [
           "East Bay is the operational Market Workspace.",
           "Publisher analysis backing: San Francisco.",
@@ -68009,7 +67855,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": false,
-        "orderingRank": 51,
+        "orderingRank": 49,
         "orderingRationale": [
           "Orange County is the operational Market Workspace.",
           "Publisher analysis backing: Orange County.",
@@ -68068,7 +67914,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": false,
-        "orderingRank": 52,
+        "orderingRank": 50,
         "orderingRationale": [
           "Orange County is the operational Market Workspace.",
           "Publisher analysis backing: Orange County.",
@@ -68127,7 +67973,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": false,
-        "orderingRank": 65,
+        "orderingRank": 63,
         "orderingRationale": [
           "Orange County is the operational Market Workspace.",
           "Publisher analysis backing: Orange County.",
@@ -68186,7 +68032,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": false,
-        "orderingRank": 66,
+        "orderingRank": 64,
         "orderingRationale": [
           "Orange County is the operational Market Workspace.",
           "Publisher analysis backing: Orange County.",
@@ -68244,7 +68090,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": false,
-        "orderingRank": 67,
+        "orderingRank": 65,
         "orderingRationale": [
           "Orange County is the operational Market Workspace.",
           "Publisher analysis backing: Orange County.",
@@ -68686,7 +68532,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": false,
-        "orderingRank": 64,
+        "orderingRank": 62,
         "orderingRationale": [
           "Peninsula is the operational Market Workspace.",
           "Publisher analysis backing: San Francisco.",
@@ -70554,7 +70400,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": false,
-        "orderingRank": 60,
+        "orderingRank": 58,
         "orderingRationale": [
           "San Diego is the operational Market Workspace.",
           "Publisher analysis backing: San Diego.",
@@ -71206,55 +71052,43 @@
         "marketName": "San Francisco",
         "programId": "commercial_market_evidence",
         "programLabel": "Commercial Market Evidence",
-        "title": "Bayview Industrial Building Evidence",
+        "title": "Bayview Industrial Collection",
         "scope": "Bayview Industrial",
-        "objective": "Create the Bayview Industrial Commercial Market Evidence collection and required selected Building Profiles.",
-        "status": "Queued",
-        "currentStage": "Queued",
+        "objective": "Maintain the completed Bayview Industrial Commercial Market Evidence collection.",
+        "status": "Complete",
+        "currentStage": "Complete",
         "progress": {
           "unit": "Collection",
-          "completed": 0,
+          "completed": 1,
           "target": 1,
-          "label": "Queued",
-          "statusLabel": "Queued",
+          "label": "Complete",
+          "statusLabel": "Complete",
           "sourceEvidence": [
-            "Commercial Market Evidence expansion ordering."
+            "Commercial Market Evidence collection registry.",
+            "Building Profile coverage for selected evidence records."
           ]
         },
-        "currentConstraint": "Bayview Industrial lacks a Commercial Market Evidence collection and selected evidence Building Profiles.",
-        "nextMissionId": "mission:san-francisco:district-building-evidence:bayview-industrial",
-        "missionRef": "portfolioQueues.missionQueue:mission:san-francisco:district-building-evidence:bayview-industrial",
-        "executionPacketRef": "portfolioQueues.missionQueue:mission:san-francisco:district-building-evidence:bayview-industrial",
-        "workItemCount": 1,
-        "remainingMilestones": [
-          "Source-supported evidence selection",
-          "District narrative",
-          "Selected Building Profiles",
-          "Validator pass"
-        ],
-        "confidence": "Medium",
+        "currentConstraint": "Collection exists.",
+        "nextMissionId": "",
+        "missionRef": "",
+        "executionPacketRef": "",
+        "remainingMilestones": [],
+        "confidence": "High",
         "sourceEvidence": [
-          "Commercial Location Knowledge Graph district node.",
-          "Commercial Market Evidence expansion ordering."
+          "Commercial Market Evidence collection registry.",
+          "Building Profile coverage for selected evidence records."
         ],
-        "readOnly": false,
-        "orderingRank": 48,
+        "readOnly": true,
+        "completionEvidence": "sf-bayview-industrial-commercial-market-evidence",
+        "orderingRank": null,
         "orderingRationale": [
-          "San Francisco is the operational Market Workspace.",
-          "Publisher analysis backing: San Francisco.",
-          "Ownership resolved by explicit district ownership.",
-          "Publisher readiness: Distribution Ready.",
-          "Public district page exists.",
-          "Knowledge Graph confidence: high.",
-          "3 comparison relationships exist."
+          "Existing Commercial Market Evidence collection."
         ],
         "workItems": {
           "hiddenByDefault": true,
-          "count": 1
+          "count": 0
         },
-        "missions": [
-          "mission:san-francisco:district-building-evidence:bayview-industrial"
-        ],
+        "missions": [],
         "campaignId": "san-francisco:commercial_market_evidence:completion-campaign"
       },
       {
@@ -71264,55 +71098,43 @@
         "marketName": "San Francisco",
         "programId": "commercial_market_evidence",
         "programLabel": "Commercial Market Evidence",
-        "title": "Central Waterfront Building Evidence",
+        "title": "Central Waterfront Collection",
         "scope": "Central Waterfront",
-        "objective": "Create the Central Waterfront Commercial Market Evidence collection and required selected Building Profiles.",
-        "status": "Queued",
-        "currentStage": "Queued",
+        "objective": "Maintain the completed Central Waterfront Commercial Market Evidence collection.",
+        "status": "Complete",
+        "currentStage": "Complete",
         "progress": {
           "unit": "Collection",
-          "completed": 0,
+          "completed": 1,
           "target": 1,
-          "label": "Queued",
-          "statusLabel": "Queued",
+          "label": "Complete",
+          "statusLabel": "Complete",
           "sourceEvidence": [
-            "Commercial Market Evidence expansion ordering."
+            "Commercial Market Evidence collection registry.",
+            "Building Profile coverage for selected evidence records."
           ]
         },
-        "currentConstraint": "Central Waterfront lacks a Commercial Market Evidence collection and selected evidence Building Profiles.",
-        "nextMissionId": "mission:san-francisco:district-building-evidence:central-waterfront",
-        "missionRef": "portfolioQueues.missionQueue:mission:san-francisco:district-building-evidence:central-waterfront",
-        "executionPacketRef": "portfolioQueues.missionQueue:mission:san-francisco:district-building-evidence:central-waterfront",
-        "workItemCount": 1,
-        "remainingMilestones": [
-          "Source-supported evidence selection",
-          "District narrative",
-          "Selected Building Profiles",
-          "Validator pass"
-        ],
-        "confidence": "Medium",
+        "currentConstraint": "Collection exists.",
+        "nextMissionId": "",
+        "missionRef": "",
+        "executionPacketRef": "",
+        "remainingMilestones": [],
+        "confidence": "High",
         "sourceEvidence": [
-          "Commercial Location Knowledge Graph district node.",
-          "Commercial Market Evidence expansion ordering."
+          "Commercial Market Evidence collection registry.",
+          "Building Profile coverage for selected evidence records."
         ],
-        "readOnly": false,
-        "orderingRank": 49,
+        "readOnly": true,
+        "completionEvidence": "sf-central-waterfront-commercial-market-evidence",
+        "orderingRank": null,
         "orderingRationale": [
-          "San Francisco is the operational Market Workspace.",
-          "Publisher analysis backing: San Francisco.",
-          "Ownership resolved by explicit district ownership.",
-          "Publisher readiness: Distribution Ready.",
-          "Public district page exists.",
-          "Knowledge Graph confidence: high.",
-          "3 comparison relationships exist."
+          "Existing Commercial Market Evidence collection."
         ],
         "workItems": {
           "hiddenByDefault": true,
-          "count": 1
+          "count": 0
         },
-        "missions": [
-          "mission:san-francisco:district-building-evidence:central-waterfront"
-        ],
+        "missions": [],
         "campaignId": "san-francisco:commercial_market_evidence:completion-campaign"
       },
       {
@@ -71891,7 +71713,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": false,
-        "orderingRank": 55,
+        "orderingRank": 53,
         "orderingRationale": [
           "Seattle is the operational Market Workspace.",
           "Publisher analysis backing: Seattle.",
@@ -71949,7 +71771,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": false,
-        "orderingRank": 57,
+        "orderingRank": 55,
         "orderingRationale": [
           "Seattle is the operational Market Workspace.",
           "Publisher analysis backing: Seattle.",
@@ -72008,7 +71830,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": false,
-        "orderingRank": 58,
+        "orderingRank": 56,
         "orderingRationale": [
           "Seattle is the operational Market Workspace.",
           "Publisher analysis backing: Seattle.",
@@ -72067,7 +71889,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": false,
-        "orderingRank": 59,
+        "orderingRank": 57,
         "orderingRationale": [
           "Seattle is the operational Market Workspace.",
           "Publisher analysis backing: Seattle.",
@@ -72126,7 +71948,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": false,
-        "orderingRank": 62,
+        "orderingRank": 60,
         "orderingRationale": [
           "Seattle is the operational Market Workspace.",
           "Publisher analysis backing: Seattle.",
@@ -72185,7 +72007,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": false,
-        "orderingRank": 63,
+        "orderingRank": 61,
         "orderingRationale": [
           "Seattle is the operational Market Workspace.",
           "Publisher analysis backing: Seattle.",
@@ -72453,7 +72275,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": false,
-        "orderingRank": 50,
+        "orderingRank": 48,
         "orderingRationale": [
           "South Bay is the operational Market Workspace.",
           "Publisher analysis backing: San Francisco.",
@@ -72511,7 +72333,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": false,
-        "orderingRank": 53,
+        "orderingRank": 51,
         "orderingRationale": [
           "South Bay is the operational Market Workspace.",
           "Publisher analysis backing: San Francisco.",
@@ -72569,7 +72391,7 @@
           "Commercial Market Evidence expansion ordering."
         ],
         "readOnly": false,
-        "orderingRank": 54,
+        "orderingRank": 52,
         "orderingRationale": [
           "South Bay is the operational Market Workspace.",
           "Publisher analysis backing: San Francisco.",
@@ -73556,7 +73378,7 @@
         },
         "missionClass": "Foundation",
         "confidence": "Medium",
-        "priorityScore": 26,
+        "priorityScore": 28,
         "executionPacketRef": "portfolioQueues.missionQueue:mission:denver:district-building-evidence:golden",
         "executionPacketAvailable": true,
         "componentStatuses": {
@@ -73615,7 +73437,7 @@
         },
         "missionClass": "Foundation",
         "confidence": "Medium",
-        "priorityScore": 19,
+        "priorityScore": 21,
         "executionPacketRef": "portfolioQueues.missionQueue:mission:denver:district-building-evidence:commerce-city",
         "executionPacketAvailable": true,
         "componentStatuses": {
@@ -73674,7 +73496,7 @@
         },
         "missionClass": "Foundation",
         "confidence": "Medium",
-        "priorityScore": 18,
+        "priorityScore": 20,
         "executionPacketRef": "portfolioQueues.missionQueue:mission:denver:district-building-evidence:lone-tree",
         "executionPacketAvailable": true,
         "componentStatuses": {
@@ -73862,7 +73684,7 @@
         },
         "missionClass": "Foundation",
         "confidence": "Medium",
-        "priorityScore": 31,
+        "priorityScore": 33,
         "executionPacketRef": "portfolioQueues.missionQueue:mission:east-bay:district-building-evidence:oakland-medical-campuses",
         "executionPacketAvailable": true,
         "componentStatuses": {
@@ -74326,7 +74148,7 @@
         },
         "missionClass": "Foundation",
         "confidence": "Medium",
-        "priorityScore": 39,
+        "priorityScore": 41,
         "executionPacketRef": "portfolioQueues.missionQueue:mission:orange-county:district-building-evidence:south-oc-medical-professional",
         "executionPacketAvailable": true,
         "componentStatuses": {
@@ -74389,7 +74211,7 @@
         },
         "missionClass": "Foundation",
         "confidence": "Medium",
-        "priorityScore": 39,
+        "priorityScore": 41,
         "executionPacketRef": "portfolioQueues.missionQueue:mission:orange-county:district-building-evidence:university-research-park",
         "executionPacketAvailable": true,
         "componentStatuses": {
@@ -74451,7 +74273,7 @@
         },
         "missionClass": "Foundation",
         "confidence": "Medium",
-        "priorityScore": 22,
+        "priorityScore": 24,
         "executionPacketRef": "portfolioQueues.missionQueue:mission:orange-county:district-building-evidence:lake-forest-business-park",
         "executionPacketAvailable": true,
         "componentStatuses": {
@@ -74510,7 +74332,7 @@
         },
         "missionClass": "Foundation",
         "confidence": "Medium",
-        "priorityScore": 21,
+        "priorityScore": 23,
         "executionPacketRef": "portfolioQueues.missionQueue:mission:orange-county:district-building-evidence:fullerton",
         "executionPacketAvailable": true,
         "componentStatuses": {
@@ -74569,7 +74391,7 @@
         },
         "missionClass": "Foundation",
         "confidence": "Medium",
-        "priorityScore": 20,
+        "priorityScore": 22,
         "executionPacketRef": "portfolioQueues.missionQueue:mission:orange-county:district-building-evidence:tustin-legacy",
         "executionPacketAvailable": true,
         "componentStatuses": {
@@ -74808,7 +74630,7 @@
         },
         "missionClass": "Foundation",
         "confidence": "Medium",
-        "priorityScore": 23,
+        "priorityScore": 25,
         "executionPacketRef": "portfolioQueues.missionQueue:mission:peninsula:district-building-evidence:downtown-san-mateo",
         "executionPacketAvailable": true,
         "componentStatuses": {
@@ -76424,7 +76246,7 @@
         },
         "missionClass": "Foundation",
         "confidence": "Medium",
-        "priorityScore": 30,
+        "priorityScore": 32,
         "executionPacketRef": "portfolioQueues.missionQueue:mission:san-diego:district-building-evidence:oceanside-industrial",
         "executionPacketAvailable": true,
         "componentStatuses": {
@@ -77022,124 +76844,6 @@
         }
       },
       {
-        "id": "mission:san-francisco:district-building-evidence:bayview-industrial",
-        "title": "Complete Bayview Industrial Building Evidence",
-        "marketId": "san-francisco",
-        "marketName": "San Francisco",
-        "programId": "commercial_market_evidence",
-        "programLabel": "Commercial Market Evidence",
-        "campaignId": "san-francisco:commercial_market_evidence:completion-campaign",
-        "campaignTitle": "San Francisco Building Evidence Completion",
-        "initiativeId": "san-francisco:commercial_market_evidence:bayview-industrial",
-        "initiativeTitle": "Bayview Industrial Building Evidence",
-        "portfolioId": "district-building-evidence:san-francisco:bayview-industrial",
-        "districtId": "bayview-industrial",
-        "districtName": "Bayview Industrial",
-        "objective": "Create the Bayview Industrial Commercial Market Evidence collection and complete the required selected Building Profiles in one district Mission.",
-        "currentConstraint": "Bayview Industrial lacks a Commercial Market Evidence collection and selected evidence Building Profiles.",
-        "expectedImpact": "High",
-        "estimatedEffort": "Medium",
-        "missionSize": {
-          "id": "standard",
-          "label": "Standard",
-          "reviewWindow": "60-120 minutes",
-          "maximumWorkItems": 8
-        },
-        "missionClass": "Foundation",
-        "confidence": "Medium",
-        "priorityScore": 39,
-        "executionPacketRef": "portfolioQueues.missionQueue:mission:san-francisco:district-building-evidence:bayview-industrial",
-        "executionPacketAvailable": true,
-        "componentStatuses": {
-          "commercialMarketEvidence": "Missing",
-          "evidenceRecordCount": 0,
-          "evidenceBuildingProfiles": {
-            "completed": 0,
-            "target": 0,
-            "missing": 0,
-            "label": "Collection missing"
-          },
-          "supportingBuildingProfiles": {
-            "completed": 0,
-            "target": 0,
-            "missing": 0,
-            "label": "To be selected during collection work"
-          },
-          "unresolvedBuildingItems": 0,
-          "validationStatus": "Requires validation",
-          "districtBuildingEvidence": "Missing"
-        },
-        "workItems": {
-          "hiddenByDefault": true,
-          "count": 1,
-          "includedOpportunityIds": [
-            "commercial-market-evidence:bayview-industrial:collection"
-          ],
-          "deferredWorkItemIds": [
-            "commercial-market-evidence:bayview-industrial:quality-scoring"
-          ]
-        }
-      },
-      {
-        "id": "mission:san-francisco:district-building-evidence:central-waterfront",
-        "title": "Complete Central Waterfront Building Evidence",
-        "marketId": "san-francisco",
-        "marketName": "San Francisco",
-        "programId": "commercial_market_evidence",
-        "programLabel": "Commercial Market Evidence",
-        "campaignId": "san-francisco:commercial_market_evidence:completion-campaign",
-        "campaignTitle": "San Francisco Building Evidence Completion",
-        "initiativeId": "san-francisco:commercial_market_evidence:central-waterfront",
-        "initiativeTitle": "Central Waterfront Building Evidence",
-        "portfolioId": "district-building-evidence:san-francisco:central-waterfront",
-        "districtId": "central-waterfront",
-        "districtName": "Central Waterfront",
-        "objective": "Create the Central Waterfront Commercial Market Evidence collection and complete the required selected Building Profiles in one district Mission.",
-        "currentConstraint": "Central Waterfront lacks a Commercial Market Evidence collection and selected evidence Building Profiles.",
-        "expectedImpact": "High",
-        "estimatedEffort": "Medium",
-        "missionSize": {
-          "id": "standard",
-          "label": "Standard",
-          "reviewWindow": "60-120 minutes",
-          "maximumWorkItems": 8
-        },
-        "missionClass": "Foundation",
-        "confidence": "Medium",
-        "priorityScore": 38,
-        "executionPacketRef": "portfolioQueues.missionQueue:mission:san-francisco:district-building-evidence:central-waterfront",
-        "executionPacketAvailable": true,
-        "componentStatuses": {
-          "commercialMarketEvidence": "Missing",
-          "evidenceRecordCount": 0,
-          "evidenceBuildingProfiles": {
-            "completed": 0,
-            "target": 0,
-            "missing": 0,
-            "label": "Collection missing"
-          },
-          "supportingBuildingProfiles": {
-            "completed": 0,
-            "target": 0,
-            "missing": 0,
-            "label": "To be selected during collection work"
-          },
-          "unresolvedBuildingItems": 0,
-          "validationStatus": "Requires validation",
-          "districtBuildingEvidence": "Missing"
-        },
-        "workItems": {
-          "hiddenByDefault": true,
-          "count": 1,
-          "includedOpportunityIds": [
-            "commercial-market-evidence:central-waterfront:collection"
-          ],
-          "deferredWorkItemIds": [
-            "commercial-market-evidence:central-waterfront:quality-scoring"
-          ]
-        }
-      },
-      {
         "id": "mission:seattle:seattle-medical-ecosystem-representative-building-foundation",
         "title": "Seattle Medical Ecosystem Representative Building Foundation",
         "marketId": "seattle",
@@ -77446,7 +77150,7 @@
         },
         "missionClass": "Foundation",
         "confidence": "Medium",
-        "priorityScore": 32,
+        "priorityScore": 34,
         "executionPacketRef": "portfolioQueues.missionQueue:mission:seattle:district-building-evidence:georgetown-industrial",
         "executionPacketAvailable": true,
         "componentStatuses": {
@@ -77505,7 +77209,7 @@
         },
         "missionClass": "Foundation",
         "confidence": "Medium",
-        "priorityScore": 30,
+        "priorityScore": 32,
         "executionPacketRef": "portfolioQueues.missionQueue:mission:seattle:district-building-evidence:eastside-tech-office-corridor",
         "executionPacketAvailable": true,
         "componentStatuses": {
@@ -77564,7 +77268,7 @@
         },
         "missionClass": "Foundation",
         "confidence": "Medium",
-        "priorityScore": 29,
+        "priorityScore": 31,
         "executionPacketRef": "portfolioQueues.missionQueue:mission:seattle:district-building-evidence:belltown-waterfront-office",
         "executionPacketAvailable": true,
         "componentStatuses": {
@@ -77623,7 +77327,7 @@
         },
         "missionClass": "Foundation",
         "confidence": "Medium",
-        "priorityScore": 28,
+        "priorityScore": 30,
         "executionPacketRef": "portfolioQueues.missionQueue:mission:seattle:district-building-evidence:pioneer-square-waterfront-office",
         "executionPacketAvailable": true,
         "componentStatuses": {
@@ -77682,7 +77386,7 @@
         },
         "missionClass": "Foundation",
         "confidence": "Medium",
-        "priorityScore": 25,
+        "priorityScore": 27,
         "executionPacketRef": "portfolioQueues.missionQueue:mission:seattle:district-building-evidence:ballard-interbay-industrial",
         "executionPacketAvailable": true,
         "componentStatuses": {
@@ -77741,7 +77445,7 @@
         },
         "missionClass": "Foundation",
         "confidence": "Medium",
-        "priorityScore": 24,
+        "priorityScore": 26,
         "executionPacketRef": "portfolioQueues.missionQueue:mission:seattle:district-building-evidence:first-hill-medical",
         "executionPacketAvailable": true,
         "componentStatuses": {
@@ -77800,7 +77504,7 @@
         },
         "missionClass": "Foundation",
         "confidence": "Medium",
-        "priorityScore": 37,
+        "priorityScore": 39,
         "executionPacketRef": "portfolioQueues.missionQueue:mission:south-bay:district-building-evidence:north-bayshore",
         "executionPacketAvailable": true,
         "componentStatuses": {
@@ -77859,7 +77563,7 @@
         },
         "missionClass": "Foundation",
         "confidence": "Medium",
-        "priorityScore": 34,
+        "priorityScore": 36,
         "executionPacketRef": "portfolioQueues.missionQueue:mission:south-bay:district-building-evidence:north-san-jose",
         "executionPacketAvailable": true,
         "componentStatuses": {
@@ -77918,7 +77622,7 @@
         },
         "missionClass": "Foundation",
         "confidence": "Medium",
-        "priorityScore": 33,
+        "priorityScore": 35,
         "executionPacketRef": "portfolioQueues.missionQueue:mission:south-bay:district-building-evidence:moffett-park",
         "executionPacketAvailable": true,
         "componentStatuses": {
@@ -77962,7 +77666,7 @@
       "programsPerMarket": 7,
       "campaigns": 70,
       "initiatives": 159,
-      "missions": 88
+      "missions": 86
     },
     "note": "Additive projection for Mission Control v2. Campaigns optimize editorial throughput while preserving Publisher scoring, execution packet compatibility, and hidden Work Items."
   },
@@ -103060,6 +102764,677 @@
         }
       },
       {
+        "id": "mission:orange-county:district-building-evidence:south-oc-medical-professional",
+        "title": "Complete South OC Medical & Professional Building Evidence",
+        "marketId": "orange-county",
+        "marketName": "Orange County",
+        "programId": "commercial_market_evidence",
+        "programLabel": "Commercial Market Evidence",
+        "campaignId": "orange-county:commercial_market_evidence:completion-campaign",
+        "campaignTitle": "Orange County Building Evidence Completion",
+        "initiativeId": "orange-county:commercial_market_evidence:south-oc-medical-professional",
+        "initiativeTitle": "South OC Medical & Professional Building Evidence",
+        "portfolioId": "district-building-evidence:orange-county:south-oc-medical-professional",
+        "metroId": "orange-county",
+        "metroName": "Orange County",
+        "ecosystem": "Building Evidence",
+        "ecosystemId": "",
+        "districtId": "south-oc-medical-professional",
+        "districtName": "South OC Medical & Professional",
+        "expectedImpact": "High",
+        "estimatedEffort": "Medium",
+        "missionSize": {
+          "id": "standard",
+          "label": "Standard",
+          "reviewWindow": "60-120 minutes",
+          "maximumWorkItems": 8
+        },
+        "impactEffortClass": "High Impact / Medium Effort / District Building Evidence",
+        "missionClass": "Foundation",
+        "currentConstraint": "South OC Medical & Professional lacks a Commercial Market Evidence collection and selected evidence Building Profiles.",
+        "dependencies": [
+          "Commercial Market Evidence architecture",
+          "Financial District canonical collection standard",
+          "Knowledge Graph district identity",
+          "Representative building and Commercial Building Intelligence evidence",
+          "Building Profile editorial standard",
+          "Publisher Building Brief depth analysis"
+        ],
+        "qaCommands": [
+          "node scripts/qa-commercial-market-evidence.js",
+          "node scripts/qa-building-brief-depth.js",
+          "npm run publisher:snapshot",
+          "node scripts/qa-eos.js",
+          "npm run build",
+          "git diff --check"
+        ],
+        "requiredReview": true,
+        "confidence": "Medium",
+        "priorityScore": 41,
+        "priorityStars": 2,
+        "automationLevel": {
+          "id": "review_required",
+          "label": "Review Required",
+          "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
+        },
+        "lifecycleState": {
+          "id": "ready",
+          "label": "Ready"
+        },
+        "status": "Ready",
+        "queueType": "editorial",
+        "operatingLane": {
+          "id": "editorial",
+          "label": "Editorial",
+          "description": "Commercial judgment, building profiles, handbook guidance, and public editorial depth."
+        },
+        "category": "mission",
+        "categoryLabel": "Mission",
+        "suggestedModule": {
+          "id": "commercialMarketEvidence",
+          "label": "Commercial Market Evidence"
+        },
+        "why": [
+          "Commercial Market Evidence and Building Profiles are separate data products but one district research workflow.",
+          "CME collection and required selected Building Profiles should be created in one execution packet.",
+          "One district Mission avoids detached Commence Work actions for evidence selection and Building Profile migration."
+        ],
+        "includedTasks": [
+          {
+            "id": "commercial-market-evidence:south-oc-medical-professional:collection",
+            "title": "South OC Medical & Professional Commercial Market Evidence collection",
+            "reason": "District is missing a Commercial Market Evidence collection."
+          },
+          {
+            "id": "publisher:orange-county:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-laguna-hills-23046-avenida-de-la-carlota",
+            "title": "Carlota Plaza Building Profile",
+            "reason": "Supporting Building Profile work materially strengthens district explanation."
+          },
+          {
+            "id": "publisher:orange-county:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-mission-viejo-999-corporate-drive",
+            "title": "Ladera Corporate Terrace Building Profile",
+            "reason": "Supporting Building Profile work materially strengthens district explanation."
+          },
+          {
+            "id": "publisher:orange-county:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-laguna-hills-23001-del-lago-dr",
+            "title": "Laguna Hills - Plaza del Lago Building Profile",
+            "reason": "Supporting Building Profile work materially strengthens district explanation."
+          },
+          {
+            "id": "publisher:orange-county:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-laguna-hills-23512-commerce-center-dr",
+            "title": "Laguna Hills - The ROW Building Profile",
+            "reason": "Supporting Building Profile work materially strengthens district explanation."
+          }
+        ],
+        "deferredTasks": [
+          {
+            "id": "commercial-market-evidence:south-oc-medical-professional:quality-scoring",
+            "title": "Publisher quality scoring for Commercial Market Evidence",
+            "reason": "Quality scoring remains deferred; Publisher continues reporting CME and Building Profiles separately."
+          }
+        ],
+        "componentStatuses": {
+          "commercialMarketEvidence": "Missing",
+          "evidenceRecordCount": 0,
+          "evidenceBuildingProfiles": {
+            "completed": 0,
+            "target": 0,
+            "missing": 0,
+            "label": "Collection missing"
+          },
+          "supportingBuildingProfiles": {
+            "completed": 0,
+            "target": 4,
+            "missing": 4,
+            "label": "0 / 4"
+          },
+          "unresolvedBuildingItems": 0,
+          "validationStatus": "Requires validation",
+          "districtBuildingEvidence": "Missing"
+        },
+        "workItems": {
+          "count": 5,
+          "buildings": [
+            {
+              "name": "Carlota Plaza",
+              "path": "/commercial-real-estate/building/CA/laguna-hills/23046-avenida-de-la-carlota/"
+            },
+            {
+              "name": "Ladera Corporate Terrace",
+              "path": "/commercial-real-estate/building/CA/mission-viejo/999-corporate-drive/"
+            },
+            {
+              "name": "Laguna Hills - Plaza del Lago",
+              "path": "/commercial-real-estate/building/CA/laguna-hills/23001-del-lago-dr/"
+            },
+            {
+              "name": "Laguna Hills - The ROW",
+              "path": "/commercial-real-estate/building/CA/laguna-hills/23512-commerce-center-dr/"
+            }
+          ]
+        },
+        "executionPacket": {
+          "objective": "Create the South OC Medical & Professional Commercial Market Evidence collection and complete the required selected Building Profiles in one district Mission.",
+          "reason": [
+            "South OC Medical & Professional is missing a Commercial Market Evidence collection.",
+            "Evidence Building Profiles: Collection missing.",
+            "Supporting Building Profiles: 0 / 4.",
+            "4 selected Building Profile work items are included in this bounded Mission."
+          ],
+          "currentHealth": "69% Improving",
+          "currentConstraint": "South OC Medical & Professional lacks a Commercial Market Evidence collection and selected evidence Building Profiles.",
+          "includedTasks": [
+            {
+              "id": "commercial-market-evidence:south-oc-medical-professional:collection",
+              "title": "South OC Medical & Professional Commercial Market Evidence collection",
+              "reason": "District is missing a Commercial Market Evidence collection."
+            },
+            {
+              "id": "publisher:orange-county:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-laguna-hills-23046-avenida-de-la-carlota",
+              "title": "Carlota Plaza Building Profile",
+              "reason": "Supporting Building Profile work materially strengthens district explanation."
+            },
+            {
+              "id": "publisher:orange-county:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-mission-viejo-999-corporate-drive",
+              "title": "Ladera Corporate Terrace Building Profile",
+              "reason": "Supporting Building Profile work materially strengthens district explanation."
+            },
+            {
+              "id": "publisher:orange-county:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-laguna-hills-23001-del-lago-dr",
+              "title": "Laguna Hills - Plaza del Lago Building Profile",
+              "reason": "Supporting Building Profile work materially strengthens district explanation."
+            },
+            {
+              "id": "publisher:orange-county:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-laguna-hills-23512-commerce-center-dr",
+              "title": "Laguna Hills - The ROW Building Profile",
+              "reason": "Supporting Building Profile work materially strengthens district explanation."
+            }
+          ],
+          "deferredTasks": [
+            {
+              "id": "commercial-market-evidence:south-oc-medical-professional:quality-scoring",
+              "title": "Publisher quality scoring for Commercial Market Evidence",
+              "reason": "Quality scoring remains deferred; Publisher continues reporting CME and Building Profiles separately."
+            }
+          ],
+          "reasonForBundling": [
+            "Commercial Market Evidence collection and required Building Profiles should be created from one district research pass.",
+            "Representative evidence selection, source-data collection, profile references, and validation remain hidden Work Items inside one Mission.",
+            "Publisher scoring and recommendation behavior remain unchanged.",
+            "No split required; missing district collection starts as one Standard mission."
+          ],
+          "expectedImpact": "High",
+          "estimatedEffort": "Medium",
+          "missionSize": {
+            "id": "standard",
+            "label": "Standard",
+            "reviewWindow": "60-120 minutes",
+            "maximumWorkItems": 8
+          },
+          "missionClass": "Foundation",
+          "files": [
+            "docs/product/rofo-master-plan.md",
+            "docs/editorial-operating-system.md",
+            "docs/mission-control-v2-operating-model.md",
+            "docs/commercial-market-evidence.md",
+            "docs/commercial-market-evidence-financial-district.md",
+            "docs/eos-portfolio-resolver.md",
+            "docs/rofo-publisher.md",
+            "docs/building-page-standard.md",
+            "_data/locationKnowledgeGraph.js",
+            "_data/commercialMarketEvidence.js",
+            "_data/commercialBuildingIntelligence.js",
+            "_data/representativeBuildingIntelligence.js",
+            "data/commercial-market-evidence/orange-county/south-oc-medical-professional.js",
+            "scripts/qa-commercial-market-evidence.js",
+            "scripts/qa-building-brief-depth.js",
+            "data/generated/publisher-analysis.json",
+            "data/generated/eos-analysis.json",
+            "/commercial-real-estate/building/CA/laguna-hills/23046-avenida-de-la-carlota/",
+            "/commercial-real-estate/building/CA/mission-viejo/999-corporate-drive/",
+            "/commercial-real-estate/building/CA/laguna-hills/23001-del-lago-dr/",
+            "/commercial-real-estate/building/CA/laguna-hills/23512-commerce-center-dr/"
+          ],
+          "dependencies": [
+            "Commercial Market Evidence architecture",
+            "Financial District canonical collection standard",
+            "Knowledge Graph district identity",
+            "Representative building and Commercial Building Intelligence evidence",
+            "Building Profile editorial standard",
+            "Publisher Building Brief depth analysis"
+          ],
+          "acceptanceCriteria": [
+            "Commercial Market Evidence and Building Profiles remain separate source systems and measurements.",
+            "A new district Commercial Market Evidence source collection exists in the canonical data path.",
+            "Selected evidence buildings resolve to adequate canonical Building Profiles or explicit remaining Work Items.",
+            "Building Profiles avoid unsupported leasing, tenant, lab, medical, or infrastructure claims.",
+            "CME validator, Building Brief depth QA, Publisher snapshot, EOS QA, and build pass.",
+            "Publisher scoring, recommendation rankings, public URLs, and Mission Control planning logic remain stable unless measured source coverage legitimately changes."
+          ],
+          "expectedDeliverables": [
+            "Commercial Market Evidence work completed or validated without unnecessary regeneration",
+            "Selected evidence Building Profiles completed or explicitly deferred",
+            "Commercial Market Evidence validator and Building Brief depth QA pass",
+            "Publisher and EOS snapshots regenerated",
+            "Per-component and per-building outcomes reported in SER v1"
+          ],
+          "qaCommands": [
+            "node scripts/qa-commercial-market-evidence.js",
+            "node scripts/qa-building-brief-depth.js",
+            "npm run publisher:snapshot",
+            "node scripts/qa-eos.js",
+            "npm run build",
+            "git diff --check"
+          ],
+          "requiredReview": true,
+          "automationLevel": {
+            "id": "review_required",
+            "label": "Review Required",
+            "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
+          },
+          "providers": [
+            {
+              "id": "manual",
+              "label": "Manual",
+              "description": "A human uses the execution packet as a checklist and updates EOS externally."
+            },
+            {
+              "id": "codex",
+              "label": "Codex",
+              "description": "A future execution provider can consume the packet and return work for review."
+            }
+          ],
+          "handoff": [
+            {
+              "id": "engineering",
+              "label": "Engineering",
+              "description": "Prepare source files, schema, generated data, or implementation scope."
+            },
+            {
+              "id": "execution",
+              "label": "Execution / Field Mode",
+              "description": "Execute the work manually, through Field Mode, or through a future provider."
+            },
+            {
+              "id": "qa",
+              "label": "QA",
+              "description": "Run deterministic validation and return exceptions to review."
+            },
+            {
+              "id": "publish",
+              "label": "Publish",
+              "description": "Regenerate snapshots/build and publish through the existing deployment workflow."
+            }
+          ],
+          "componentStatuses": {
+            "commercialMarketEvidence": "Missing",
+            "evidenceRecordCount": 0,
+            "evidenceBuildingProfiles": {
+              "completed": 0,
+              "target": 0,
+              "missing": 0,
+              "label": "Collection missing"
+            },
+            "supportingBuildingProfiles": {
+              "completed": 0,
+              "target": 4,
+              "missing": 4,
+              "label": "0 / 4"
+            },
+            "unresolvedBuildingItems": 0,
+            "validationStatus": "Requires validation",
+            "districtBuildingEvidence": "Missing"
+          },
+          "workItems": {
+            "count": 5,
+            "buildings": [
+              {
+                "name": "Carlota Plaza",
+                "path": "/commercial-real-estate/building/CA/laguna-hills/23046-avenida-de-la-carlota/"
+              },
+              {
+                "name": "Ladera Corporate Terrace",
+                "path": "/commercial-real-estate/building/CA/mission-viejo/999-corporate-drive/"
+              },
+              {
+                "name": "Laguna Hills - Plaza del Lago",
+                "path": "/commercial-real-estate/building/CA/laguna-hills/23001-del-lago-dr/"
+              },
+              {
+                "name": "Laguna Hills - The ROW",
+                "path": "/commercial-real-estate/building/CA/laguna-hills/23512-commerce-center-dr/"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "mission:orange-county:district-building-evidence:university-research-park",
+        "title": "Complete University Research Park Building Evidence",
+        "marketId": "orange-county",
+        "marketName": "Orange County",
+        "programId": "commercial_market_evidence",
+        "programLabel": "Commercial Market Evidence",
+        "campaignId": "orange-county:commercial_market_evidence:completion-campaign",
+        "campaignTitle": "Orange County Building Evidence Completion",
+        "initiativeId": "orange-county:commercial_market_evidence:university-research-park",
+        "initiativeTitle": "University Research Park Building Evidence",
+        "portfolioId": "district-building-evidence:orange-county:university-research-park",
+        "metroId": "orange-county",
+        "metroName": "Orange County",
+        "ecosystem": "Building Evidence",
+        "ecosystemId": "",
+        "districtId": "university-research-park",
+        "districtName": "University Research Park",
+        "expectedImpact": "High",
+        "estimatedEffort": "Medium",
+        "missionSize": {
+          "id": "standard",
+          "label": "Standard",
+          "reviewWindow": "60-120 minutes",
+          "maximumWorkItems": 8
+        },
+        "impactEffortClass": "High Impact / Medium Effort / District Building Evidence",
+        "missionClass": "Foundation",
+        "currentConstraint": "University Research Park lacks a Commercial Market Evidence collection and selected evidence Building Profiles.",
+        "dependencies": [
+          "Commercial Market Evidence architecture",
+          "Financial District canonical collection standard",
+          "Knowledge Graph district identity",
+          "Representative building and Commercial Building Intelligence evidence",
+          "Building Profile editorial standard",
+          "Publisher Building Brief depth analysis"
+        ],
+        "qaCommands": [
+          "node scripts/qa-commercial-market-evidence.js",
+          "node scripts/qa-building-brief-depth.js",
+          "npm run publisher:snapshot",
+          "node scripts/qa-eos.js",
+          "npm run build",
+          "git diff --check"
+        ],
+        "requiredReview": true,
+        "confidence": "Medium",
+        "priorityScore": 41,
+        "priorityStars": 2,
+        "automationLevel": {
+          "id": "review_required",
+          "label": "Review Required",
+          "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
+        },
+        "lifecycleState": {
+          "id": "ready",
+          "label": "Ready"
+        },
+        "status": "Ready",
+        "queueType": "editorial",
+        "operatingLane": {
+          "id": "editorial",
+          "label": "Editorial",
+          "description": "Commercial judgment, building profiles, handbook guidance, and public editorial depth."
+        },
+        "category": "mission",
+        "categoryLabel": "Mission",
+        "suggestedModule": {
+          "id": "commercialMarketEvidence",
+          "label": "Commercial Market Evidence"
+        },
+        "why": [
+          "Commercial Market Evidence and Building Profiles are separate data products but one district research workflow.",
+          "CME collection and required selected Building Profiles should be created in one execution packet.",
+          "One district Mission avoids detached Commence Work actions for evidence selection and Building Profile migration."
+        ],
+        "includedTasks": [
+          {
+            "id": "commercial-market-evidence:university-research-park:collection",
+            "title": "University Research Park Commercial Market Evidence collection",
+            "reason": "District is missing a Commercial Market Evidence collection."
+          },
+          {
+            "id": "publisher:orange-county:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-irvine-1672-reynolds-ave",
+            "title": "1672 Reynolds Ave Building Profile",
+            "reason": "Supporting Building Profile work materially strengthens district explanation."
+          },
+          {
+            "id": "publisher:orange-county:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-irvine-1-corporate-park",
+            "title": "Irvine - Corporate Pointe Building Profile",
+            "reason": "Supporting Building Profile work materially strengthens district explanation."
+          },
+          {
+            "id": "publisher:orange-county:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-irvine-10-hughes",
+            "title": "Irvine - Hughes St. Building Profile",
+            "reason": "Supporting Building Profile work materially strengthens district explanation."
+          }
+        ],
+        "deferredTasks": [
+          {
+            "id": "commercial-market-evidence:university-research-park:quality-scoring",
+            "title": "Publisher quality scoring for Commercial Market Evidence",
+            "reason": "Quality scoring remains deferred; Publisher continues reporting CME and Building Profiles separately."
+          }
+        ],
+        "componentStatuses": {
+          "commercialMarketEvidence": "Missing",
+          "evidenceRecordCount": 0,
+          "evidenceBuildingProfiles": {
+            "completed": 0,
+            "target": 0,
+            "missing": 0,
+            "label": "Collection missing"
+          },
+          "supportingBuildingProfiles": {
+            "completed": 0,
+            "target": 3,
+            "missing": 3,
+            "label": "0 / 3"
+          },
+          "unresolvedBuildingItems": 0,
+          "validationStatus": "Requires validation",
+          "districtBuildingEvidence": "Missing"
+        },
+        "workItems": {
+          "count": 4,
+          "buildings": [
+            {
+              "name": "1672 Reynolds Ave",
+              "path": "/commercial-real-estate/building/CA/irvine/1672-reynolds-ave/"
+            },
+            {
+              "name": "Irvine - Corporate Pointe",
+              "path": "/commercial-real-estate/building/CA/irvine/1-corporate-park/"
+            },
+            {
+              "name": "Irvine - Hughes St.",
+              "path": "/commercial-real-estate/building/CA/irvine/10-hughes/"
+            }
+          ]
+        },
+        "executionPacket": {
+          "objective": "Create the University Research Park Commercial Market Evidence collection and complete the required selected Building Profiles in one district Mission.",
+          "reason": [
+            "University Research Park is missing a Commercial Market Evidence collection.",
+            "Evidence Building Profiles: Collection missing.",
+            "Supporting Building Profiles: 0 / 3.",
+            "3 selected Building Profile work items are included in this bounded Mission."
+          ],
+          "currentHealth": "69% Improving",
+          "currentConstraint": "University Research Park lacks a Commercial Market Evidence collection and selected evidence Building Profiles.",
+          "includedTasks": [
+            {
+              "id": "commercial-market-evidence:university-research-park:collection",
+              "title": "University Research Park Commercial Market Evidence collection",
+              "reason": "District is missing a Commercial Market Evidence collection."
+            },
+            {
+              "id": "publisher:orange-county:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-irvine-1672-reynolds-ave",
+              "title": "1672 Reynolds Ave Building Profile",
+              "reason": "Supporting Building Profile work materially strengthens district explanation."
+            },
+            {
+              "id": "publisher:orange-county:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-irvine-1-corporate-park",
+              "title": "Irvine - Corporate Pointe Building Profile",
+              "reason": "Supporting Building Profile work materially strengthens district explanation."
+            },
+            {
+              "id": "publisher:orange-county:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-irvine-10-hughes",
+              "title": "Irvine - Hughes St. Building Profile",
+              "reason": "Supporting Building Profile work materially strengthens district explanation."
+            }
+          ],
+          "deferredTasks": [
+            {
+              "id": "commercial-market-evidence:university-research-park:quality-scoring",
+              "title": "Publisher quality scoring for Commercial Market Evidence",
+              "reason": "Quality scoring remains deferred; Publisher continues reporting CME and Building Profiles separately."
+            }
+          ],
+          "reasonForBundling": [
+            "Commercial Market Evidence collection and required Building Profiles should be created from one district research pass.",
+            "Representative evidence selection, source-data collection, profile references, and validation remain hidden Work Items inside one Mission.",
+            "Publisher scoring and recommendation behavior remain unchanged.",
+            "No split required; missing district collection starts as one Standard mission."
+          ],
+          "expectedImpact": "High",
+          "estimatedEffort": "Medium",
+          "missionSize": {
+            "id": "standard",
+            "label": "Standard",
+            "reviewWindow": "60-120 minutes",
+            "maximumWorkItems": 8
+          },
+          "missionClass": "Foundation",
+          "files": [
+            "docs/product/rofo-master-plan.md",
+            "docs/editorial-operating-system.md",
+            "docs/mission-control-v2-operating-model.md",
+            "docs/commercial-market-evidence.md",
+            "docs/commercial-market-evidence-financial-district.md",
+            "docs/eos-portfolio-resolver.md",
+            "docs/rofo-publisher.md",
+            "docs/building-page-standard.md",
+            "_data/locationKnowledgeGraph.js",
+            "_data/commercialMarketEvidence.js",
+            "_data/commercialBuildingIntelligence.js",
+            "_data/representativeBuildingIntelligence.js",
+            "data/commercial-market-evidence/orange-county/university-research-park.js",
+            "scripts/qa-commercial-market-evidence.js",
+            "scripts/qa-building-brief-depth.js",
+            "data/generated/publisher-analysis.json",
+            "data/generated/eos-analysis.json",
+            "/commercial-real-estate/building/CA/irvine/1672-reynolds-ave/",
+            "/commercial-real-estate/building/CA/irvine/1-corporate-park/",
+            "/commercial-real-estate/building/CA/irvine/10-hughes/"
+          ],
+          "dependencies": [
+            "Commercial Market Evidence architecture",
+            "Financial District canonical collection standard",
+            "Knowledge Graph district identity",
+            "Representative building and Commercial Building Intelligence evidence",
+            "Building Profile editorial standard",
+            "Publisher Building Brief depth analysis"
+          ],
+          "acceptanceCriteria": [
+            "Commercial Market Evidence and Building Profiles remain separate source systems and measurements.",
+            "A new district Commercial Market Evidence source collection exists in the canonical data path.",
+            "Selected evidence buildings resolve to adequate canonical Building Profiles or explicit remaining Work Items.",
+            "Building Profiles avoid unsupported leasing, tenant, lab, medical, or infrastructure claims.",
+            "CME validator, Building Brief depth QA, Publisher snapshot, EOS QA, and build pass.",
+            "Publisher scoring, recommendation rankings, public URLs, and Mission Control planning logic remain stable unless measured source coverage legitimately changes."
+          ],
+          "expectedDeliverables": [
+            "Commercial Market Evidence work completed or validated without unnecessary regeneration",
+            "Selected evidence Building Profiles completed or explicitly deferred",
+            "Commercial Market Evidence validator and Building Brief depth QA pass",
+            "Publisher and EOS snapshots regenerated",
+            "Per-component and per-building outcomes reported in SER v1"
+          ],
+          "qaCommands": [
+            "node scripts/qa-commercial-market-evidence.js",
+            "node scripts/qa-building-brief-depth.js",
+            "npm run publisher:snapshot",
+            "node scripts/qa-eos.js",
+            "npm run build",
+            "git diff --check"
+          ],
+          "requiredReview": true,
+          "automationLevel": {
+            "id": "review_required",
+            "label": "Review Required",
+            "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
+          },
+          "providers": [
+            {
+              "id": "manual",
+              "label": "Manual",
+              "description": "A human uses the execution packet as a checklist and updates EOS externally."
+            },
+            {
+              "id": "codex",
+              "label": "Codex",
+              "description": "A future execution provider can consume the packet and return work for review."
+            }
+          ],
+          "handoff": [
+            {
+              "id": "engineering",
+              "label": "Engineering",
+              "description": "Prepare source files, schema, generated data, or implementation scope."
+            },
+            {
+              "id": "execution",
+              "label": "Execution / Field Mode",
+              "description": "Execute the work manually, through Field Mode, or through a future provider."
+            },
+            {
+              "id": "qa",
+              "label": "QA",
+              "description": "Run deterministic validation and return exceptions to review."
+            },
+            {
+              "id": "publish",
+              "label": "Publish",
+              "description": "Regenerate snapshots/build and publish through the existing deployment workflow."
+            }
+          ],
+          "componentStatuses": {
+            "commercialMarketEvidence": "Missing",
+            "evidenceRecordCount": 0,
+            "evidenceBuildingProfiles": {
+              "completed": 0,
+              "target": 0,
+              "missing": 0,
+              "label": "Collection missing"
+            },
+            "supportingBuildingProfiles": {
+              "completed": 0,
+              "target": 3,
+              "missing": 3,
+              "label": "0 / 3"
+            },
+            "unresolvedBuildingItems": 0,
+            "validationStatus": "Requires validation",
+            "districtBuildingEvidence": "Missing"
+          },
+          "workItems": {
+            "count": 4,
+            "buildings": [
+              {
+                "name": "1672 Reynolds Ave",
+                "path": "/commercial-real-estate/building/CA/irvine/1672-reynolds-ave/"
+              },
+              {
+                "name": "Irvine - Corporate Pointe",
+                "path": "/commercial-real-estate/building/CA/irvine/1-corporate-park/"
+              },
+              {
+                "name": "Irvine - Hughes St.",
+                "path": "/commercial-real-estate/building/CA/irvine/10-hughes/"
+              }
+            ]
+          }
+        }
+      },
+      {
         "id": "mission:peninsula:district-building-evidence:stanford-research-park",
         "title": "Complete Stanford Research Park Building Evidence",
         "marketId": "peninsula",
@@ -103594,1211 +103969,6 @@
         }
       },
       {
-        "id": "mission:orange-county:district-building-evidence:south-oc-medical-professional",
-        "title": "Complete South OC Medical & Professional Building Evidence",
-        "marketId": "orange-county",
-        "marketName": "Orange County",
-        "programId": "commercial_market_evidence",
-        "programLabel": "Commercial Market Evidence",
-        "campaignId": "orange-county:commercial_market_evidence:completion-campaign",
-        "campaignTitle": "Orange County Building Evidence Completion",
-        "initiativeId": "orange-county:commercial_market_evidence:south-oc-medical-professional",
-        "initiativeTitle": "South OC Medical & Professional Building Evidence",
-        "portfolioId": "district-building-evidence:orange-county:south-oc-medical-professional",
-        "metroId": "orange-county",
-        "metroName": "Orange County",
-        "ecosystem": "Building Evidence",
-        "ecosystemId": "",
-        "districtId": "south-oc-medical-professional",
-        "districtName": "South OC Medical & Professional",
-        "expectedImpact": "High",
-        "estimatedEffort": "Medium",
-        "missionSize": {
-          "id": "standard",
-          "label": "Standard",
-          "reviewWindow": "60-120 minutes",
-          "maximumWorkItems": 8
-        },
-        "impactEffortClass": "High Impact / Medium Effort / District Building Evidence",
-        "missionClass": "Foundation",
-        "currentConstraint": "South OC Medical & Professional lacks a Commercial Market Evidence collection and selected evidence Building Profiles.",
-        "dependencies": [
-          "Commercial Market Evidence architecture",
-          "Financial District canonical collection standard",
-          "Knowledge Graph district identity",
-          "Representative building and Commercial Building Intelligence evidence",
-          "Building Profile editorial standard",
-          "Publisher Building Brief depth analysis"
-        ],
-        "qaCommands": [
-          "node scripts/qa-commercial-market-evidence.js",
-          "node scripts/qa-building-brief-depth.js",
-          "npm run publisher:snapshot",
-          "node scripts/qa-eos.js",
-          "npm run build",
-          "git diff --check"
-        ],
-        "requiredReview": true,
-        "confidence": "Medium",
-        "priorityScore": 39,
-        "priorityStars": 2,
-        "automationLevel": {
-          "id": "review_required",
-          "label": "Review Required",
-          "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
-        },
-        "lifecycleState": {
-          "id": "ready",
-          "label": "Ready"
-        },
-        "status": "Ready",
-        "queueType": "editorial",
-        "operatingLane": {
-          "id": "editorial",
-          "label": "Editorial",
-          "description": "Commercial judgment, building profiles, handbook guidance, and public editorial depth."
-        },
-        "category": "mission",
-        "categoryLabel": "Mission",
-        "suggestedModule": {
-          "id": "commercialMarketEvidence",
-          "label": "Commercial Market Evidence"
-        },
-        "why": [
-          "Commercial Market Evidence and Building Profiles are separate data products but one district research workflow.",
-          "CME collection and required selected Building Profiles should be created in one execution packet.",
-          "One district Mission avoids detached Commence Work actions for evidence selection and Building Profile migration."
-        ],
-        "includedTasks": [
-          {
-            "id": "commercial-market-evidence:south-oc-medical-professional:collection",
-            "title": "South OC Medical & Professional Commercial Market Evidence collection",
-            "reason": "District is missing a Commercial Market Evidence collection."
-          },
-          {
-            "id": "publisher:orange-county:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-laguna-hills-23046-avenida-de-la-carlota",
-            "title": "Carlota Plaza Building Profile",
-            "reason": "Supporting Building Profile work materially strengthens district explanation."
-          },
-          {
-            "id": "publisher:orange-county:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-mission-viejo-999-corporate-drive",
-            "title": "Ladera Corporate Terrace Building Profile",
-            "reason": "Supporting Building Profile work materially strengthens district explanation."
-          },
-          {
-            "id": "publisher:orange-county:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-laguna-hills-23001-del-lago-dr",
-            "title": "Laguna Hills - Plaza del Lago Building Profile",
-            "reason": "Supporting Building Profile work materially strengthens district explanation."
-          },
-          {
-            "id": "publisher:orange-county:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-laguna-hills-23512-commerce-center-dr",
-            "title": "Laguna Hills - The ROW Building Profile",
-            "reason": "Supporting Building Profile work materially strengthens district explanation."
-          }
-        ],
-        "deferredTasks": [
-          {
-            "id": "commercial-market-evidence:south-oc-medical-professional:quality-scoring",
-            "title": "Publisher quality scoring for Commercial Market Evidence",
-            "reason": "Quality scoring remains deferred; Publisher continues reporting CME and Building Profiles separately."
-          }
-        ],
-        "componentStatuses": {
-          "commercialMarketEvidence": "Missing",
-          "evidenceRecordCount": 0,
-          "evidenceBuildingProfiles": {
-            "completed": 0,
-            "target": 0,
-            "missing": 0,
-            "label": "Collection missing"
-          },
-          "supportingBuildingProfiles": {
-            "completed": 0,
-            "target": 4,
-            "missing": 4,
-            "label": "0 / 4"
-          },
-          "unresolvedBuildingItems": 0,
-          "validationStatus": "Requires validation",
-          "districtBuildingEvidence": "Missing"
-        },
-        "workItems": {
-          "count": 5,
-          "buildings": [
-            {
-              "name": "Carlota Plaza",
-              "path": "/commercial-real-estate/building/CA/laguna-hills/23046-avenida-de-la-carlota/"
-            },
-            {
-              "name": "Ladera Corporate Terrace",
-              "path": "/commercial-real-estate/building/CA/mission-viejo/999-corporate-drive/"
-            },
-            {
-              "name": "Laguna Hills - Plaza del Lago",
-              "path": "/commercial-real-estate/building/CA/laguna-hills/23001-del-lago-dr/"
-            },
-            {
-              "name": "Laguna Hills - The ROW",
-              "path": "/commercial-real-estate/building/CA/laguna-hills/23512-commerce-center-dr/"
-            }
-          ]
-        },
-        "executionPacket": {
-          "objective": "Create the South OC Medical & Professional Commercial Market Evidence collection and complete the required selected Building Profiles in one district Mission.",
-          "reason": [
-            "South OC Medical & Professional is missing a Commercial Market Evidence collection.",
-            "Evidence Building Profiles: Collection missing.",
-            "Supporting Building Profiles: 0 / 4.",
-            "4 selected Building Profile work items are included in this bounded Mission."
-          ],
-          "currentHealth": "69% Improving",
-          "currentConstraint": "South OC Medical & Professional lacks a Commercial Market Evidence collection and selected evidence Building Profiles.",
-          "includedTasks": [
-            {
-              "id": "commercial-market-evidence:south-oc-medical-professional:collection",
-              "title": "South OC Medical & Professional Commercial Market Evidence collection",
-              "reason": "District is missing a Commercial Market Evidence collection."
-            },
-            {
-              "id": "publisher:orange-county:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-laguna-hills-23046-avenida-de-la-carlota",
-              "title": "Carlota Plaza Building Profile",
-              "reason": "Supporting Building Profile work materially strengthens district explanation."
-            },
-            {
-              "id": "publisher:orange-county:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-mission-viejo-999-corporate-drive",
-              "title": "Ladera Corporate Terrace Building Profile",
-              "reason": "Supporting Building Profile work materially strengthens district explanation."
-            },
-            {
-              "id": "publisher:orange-county:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-laguna-hills-23001-del-lago-dr",
-              "title": "Laguna Hills - Plaza del Lago Building Profile",
-              "reason": "Supporting Building Profile work materially strengthens district explanation."
-            },
-            {
-              "id": "publisher:orange-county:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-laguna-hills-23512-commerce-center-dr",
-              "title": "Laguna Hills - The ROW Building Profile",
-              "reason": "Supporting Building Profile work materially strengthens district explanation."
-            }
-          ],
-          "deferredTasks": [
-            {
-              "id": "commercial-market-evidence:south-oc-medical-professional:quality-scoring",
-              "title": "Publisher quality scoring for Commercial Market Evidence",
-              "reason": "Quality scoring remains deferred; Publisher continues reporting CME and Building Profiles separately."
-            }
-          ],
-          "reasonForBundling": [
-            "Commercial Market Evidence collection and required Building Profiles should be created from one district research pass.",
-            "Representative evidence selection, source-data collection, profile references, and validation remain hidden Work Items inside one Mission.",
-            "Publisher scoring and recommendation behavior remain unchanged.",
-            "No split required; missing district collection starts as one Standard mission."
-          ],
-          "expectedImpact": "High",
-          "estimatedEffort": "Medium",
-          "missionSize": {
-            "id": "standard",
-            "label": "Standard",
-            "reviewWindow": "60-120 minutes",
-            "maximumWorkItems": 8
-          },
-          "missionClass": "Foundation",
-          "files": [
-            "docs/product/rofo-master-plan.md",
-            "docs/editorial-operating-system.md",
-            "docs/mission-control-v2-operating-model.md",
-            "docs/commercial-market-evidence.md",
-            "docs/commercial-market-evidence-financial-district.md",
-            "docs/eos-portfolio-resolver.md",
-            "docs/rofo-publisher.md",
-            "docs/building-page-standard.md",
-            "_data/locationKnowledgeGraph.js",
-            "_data/commercialMarketEvidence.js",
-            "_data/commercialBuildingIntelligence.js",
-            "_data/representativeBuildingIntelligence.js",
-            "data/commercial-market-evidence/orange-county/south-oc-medical-professional.js",
-            "scripts/qa-commercial-market-evidence.js",
-            "scripts/qa-building-brief-depth.js",
-            "data/generated/publisher-analysis.json",
-            "data/generated/eos-analysis.json",
-            "/commercial-real-estate/building/CA/laguna-hills/23046-avenida-de-la-carlota/",
-            "/commercial-real-estate/building/CA/mission-viejo/999-corporate-drive/",
-            "/commercial-real-estate/building/CA/laguna-hills/23001-del-lago-dr/",
-            "/commercial-real-estate/building/CA/laguna-hills/23512-commerce-center-dr/"
-          ],
-          "dependencies": [
-            "Commercial Market Evidence architecture",
-            "Financial District canonical collection standard",
-            "Knowledge Graph district identity",
-            "Representative building and Commercial Building Intelligence evidence",
-            "Building Profile editorial standard",
-            "Publisher Building Brief depth analysis"
-          ],
-          "acceptanceCriteria": [
-            "Commercial Market Evidence and Building Profiles remain separate source systems and measurements.",
-            "A new district Commercial Market Evidence source collection exists in the canonical data path.",
-            "Selected evidence buildings resolve to adequate canonical Building Profiles or explicit remaining Work Items.",
-            "Building Profiles avoid unsupported leasing, tenant, lab, medical, or infrastructure claims.",
-            "CME validator, Building Brief depth QA, Publisher snapshot, EOS QA, and build pass.",
-            "Publisher scoring, recommendation rankings, public URLs, and Mission Control planning logic remain stable unless measured source coverage legitimately changes."
-          ],
-          "expectedDeliverables": [
-            "Commercial Market Evidence work completed or validated without unnecessary regeneration",
-            "Selected evidence Building Profiles completed or explicitly deferred",
-            "Commercial Market Evidence validator and Building Brief depth QA pass",
-            "Publisher and EOS snapshots regenerated",
-            "Per-component and per-building outcomes reported in SER v1"
-          ],
-          "qaCommands": [
-            "node scripts/qa-commercial-market-evidence.js",
-            "node scripts/qa-building-brief-depth.js",
-            "npm run publisher:snapshot",
-            "node scripts/qa-eos.js",
-            "npm run build",
-            "git diff --check"
-          ],
-          "requiredReview": true,
-          "automationLevel": {
-            "id": "review_required",
-            "label": "Review Required",
-            "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
-          },
-          "providers": [
-            {
-              "id": "manual",
-              "label": "Manual",
-              "description": "A human uses the execution packet as a checklist and updates EOS externally."
-            },
-            {
-              "id": "codex",
-              "label": "Codex",
-              "description": "A future execution provider can consume the packet and return work for review."
-            }
-          ],
-          "handoff": [
-            {
-              "id": "engineering",
-              "label": "Engineering",
-              "description": "Prepare source files, schema, generated data, or implementation scope."
-            },
-            {
-              "id": "execution",
-              "label": "Execution / Field Mode",
-              "description": "Execute the work manually, through Field Mode, or through a future provider."
-            },
-            {
-              "id": "qa",
-              "label": "QA",
-              "description": "Run deterministic validation and return exceptions to review."
-            },
-            {
-              "id": "publish",
-              "label": "Publish",
-              "description": "Regenerate snapshots/build and publish through the existing deployment workflow."
-            }
-          ],
-          "componentStatuses": {
-            "commercialMarketEvidence": "Missing",
-            "evidenceRecordCount": 0,
-            "evidenceBuildingProfiles": {
-              "completed": 0,
-              "target": 0,
-              "missing": 0,
-              "label": "Collection missing"
-            },
-            "supportingBuildingProfiles": {
-              "completed": 0,
-              "target": 4,
-              "missing": 4,
-              "label": "0 / 4"
-            },
-            "unresolvedBuildingItems": 0,
-            "validationStatus": "Requires validation",
-            "districtBuildingEvidence": "Missing"
-          },
-          "workItems": {
-            "count": 5,
-            "buildings": [
-              {
-                "name": "Carlota Plaza",
-                "path": "/commercial-real-estate/building/CA/laguna-hills/23046-avenida-de-la-carlota/"
-              },
-              {
-                "name": "Ladera Corporate Terrace",
-                "path": "/commercial-real-estate/building/CA/mission-viejo/999-corporate-drive/"
-              },
-              {
-                "name": "Laguna Hills - Plaza del Lago",
-                "path": "/commercial-real-estate/building/CA/laguna-hills/23001-del-lago-dr/"
-              },
-              {
-                "name": "Laguna Hills - The ROW",
-                "path": "/commercial-real-estate/building/CA/laguna-hills/23512-commerce-center-dr/"
-              }
-            ]
-          }
-        }
-      },
-      {
-        "id": "mission:orange-county:district-building-evidence:university-research-park",
-        "title": "Complete University Research Park Building Evidence",
-        "marketId": "orange-county",
-        "marketName": "Orange County",
-        "programId": "commercial_market_evidence",
-        "programLabel": "Commercial Market Evidence",
-        "campaignId": "orange-county:commercial_market_evidence:completion-campaign",
-        "campaignTitle": "Orange County Building Evidence Completion",
-        "initiativeId": "orange-county:commercial_market_evidence:university-research-park",
-        "initiativeTitle": "University Research Park Building Evidence",
-        "portfolioId": "district-building-evidence:orange-county:university-research-park",
-        "metroId": "orange-county",
-        "metroName": "Orange County",
-        "ecosystem": "Building Evidence",
-        "ecosystemId": "",
-        "districtId": "university-research-park",
-        "districtName": "University Research Park",
-        "expectedImpact": "High",
-        "estimatedEffort": "Medium",
-        "missionSize": {
-          "id": "standard",
-          "label": "Standard",
-          "reviewWindow": "60-120 minutes",
-          "maximumWorkItems": 8
-        },
-        "impactEffortClass": "High Impact / Medium Effort / District Building Evidence",
-        "missionClass": "Foundation",
-        "currentConstraint": "University Research Park lacks a Commercial Market Evidence collection and selected evidence Building Profiles.",
-        "dependencies": [
-          "Commercial Market Evidence architecture",
-          "Financial District canonical collection standard",
-          "Knowledge Graph district identity",
-          "Representative building and Commercial Building Intelligence evidence",
-          "Building Profile editorial standard",
-          "Publisher Building Brief depth analysis"
-        ],
-        "qaCommands": [
-          "node scripts/qa-commercial-market-evidence.js",
-          "node scripts/qa-building-brief-depth.js",
-          "npm run publisher:snapshot",
-          "node scripts/qa-eos.js",
-          "npm run build",
-          "git diff --check"
-        ],
-        "requiredReview": true,
-        "confidence": "Medium",
-        "priorityScore": 39,
-        "priorityStars": 2,
-        "automationLevel": {
-          "id": "review_required",
-          "label": "Review Required",
-          "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
-        },
-        "lifecycleState": {
-          "id": "ready",
-          "label": "Ready"
-        },
-        "status": "Ready",
-        "queueType": "editorial",
-        "operatingLane": {
-          "id": "editorial",
-          "label": "Editorial",
-          "description": "Commercial judgment, building profiles, handbook guidance, and public editorial depth."
-        },
-        "category": "mission",
-        "categoryLabel": "Mission",
-        "suggestedModule": {
-          "id": "commercialMarketEvidence",
-          "label": "Commercial Market Evidence"
-        },
-        "why": [
-          "Commercial Market Evidence and Building Profiles are separate data products but one district research workflow.",
-          "CME collection and required selected Building Profiles should be created in one execution packet.",
-          "One district Mission avoids detached Commence Work actions for evidence selection and Building Profile migration."
-        ],
-        "includedTasks": [
-          {
-            "id": "commercial-market-evidence:university-research-park:collection",
-            "title": "University Research Park Commercial Market Evidence collection",
-            "reason": "District is missing a Commercial Market Evidence collection."
-          },
-          {
-            "id": "publisher:orange-county:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-irvine-1672-reynolds-ave",
-            "title": "1672 Reynolds Ave Building Profile",
-            "reason": "Supporting Building Profile work materially strengthens district explanation."
-          },
-          {
-            "id": "publisher:orange-county:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-irvine-1-corporate-park",
-            "title": "Irvine - Corporate Pointe Building Profile",
-            "reason": "Supporting Building Profile work materially strengthens district explanation."
-          },
-          {
-            "id": "publisher:orange-county:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-irvine-10-hughes",
-            "title": "Irvine - Hughes St. Building Profile",
-            "reason": "Supporting Building Profile work materially strengthens district explanation."
-          }
-        ],
-        "deferredTasks": [
-          {
-            "id": "commercial-market-evidence:university-research-park:quality-scoring",
-            "title": "Publisher quality scoring for Commercial Market Evidence",
-            "reason": "Quality scoring remains deferred; Publisher continues reporting CME and Building Profiles separately."
-          }
-        ],
-        "componentStatuses": {
-          "commercialMarketEvidence": "Missing",
-          "evidenceRecordCount": 0,
-          "evidenceBuildingProfiles": {
-            "completed": 0,
-            "target": 0,
-            "missing": 0,
-            "label": "Collection missing"
-          },
-          "supportingBuildingProfiles": {
-            "completed": 0,
-            "target": 3,
-            "missing": 3,
-            "label": "0 / 3"
-          },
-          "unresolvedBuildingItems": 0,
-          "validationStatus": "Requires validation",
-          "districtBuildingEvidence": "Missing"
-        },
-        "workItems": {
-          "count": 4,
-          "buildings": [
-            {
-              "name": "1672 Reynolds Ave",
-              "path": "/commercial-real-estate/building/CA/irvine/1672-reynolds-ave/"
-            },
-            {
-              "name": "Irvine - Corporate Pointe",
-              "path": "/commercial-real-estate/building/CA/irvine/1-corporate-park/"
-            },
-            {
-              "name": "Irvine - Hughes St.",
-              "path": "/commercial-real-estate/building/CA/irvine/10-hughes/"
-            }
-          ]
-        },
-        "executionPacket": {
-          "objective": "Create the University Research Park Commercial Market Evidence collection and complete the required selected Building Profiles in one district Mission.",
-          "reason": [
-            "University Research Park is missing a Commercial Market Evidence collection.",
-            "Evidence Building Profiles: Collection missing.",
-            "Supporting Building Profiles: 0 / 3.",
-            "3 selected Building Profile work items are included in this bounded Mission."
-          ],
-          "currentHealth": "69% Improving",
-          "currentConstraint": "University Research Park lacks a Commercial Market Evidence collection and selected evidence Building Profiles.",
-          "includedTasks": [
-            {
-              "id": "commercial-market-evidence:university-research-park:collection",
-              "title": "University Research Park Commercial Market Evidence collection",
-              "reason": "District is missing a Commercial Market Evidence collection."
-            },
-            {
-              "id": "publisher:orange-county:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-irvine-1672-reynolds-ave",
-              "title": "1672 Reynolds Ave Building Profile",
-              "reason": "Supporting Building Profile work materially strengthens district explanation."
-            },
-            {
-              "id": "publisher:orange-county:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-irvine-1-corporate-park",
-              "title": "Irvine - Corporate Pointe Building Profile",
-              "reason": "Supporting Building Profile work materially strengthens district explanation."
-            },
-            {
-              "id": "publisher:orange-county:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-irvine-10-hughes",
-              "title": "Irvine - Hughes St. Building Profile",
-              "reason": "Supporting Building Profile work materially strengthens district explanation."
-            }
-          ],
-          "deferredTasks": [
-            {
-              "id": "commercial-market-evidence:university-research-park:quality-scoring",
-              "title": "Publisher quality scoring for Commercial Market Evidence",
-              "reason": "Quality scoring remains deferred; Publisher continues reporting CME and Building Profiles separately."
-            }
-          ],
-          "reasonForBundling": [
-            "Commercial Market Evidence collection and required Building Profiles should be created from one district research pass.",
-            "Representative evidence selection, source-data collection, profile references, and validation remain hidden Work Items inside one Mission.",
-            "Publisher scoring and recommendation behavior remain unchanged.",
-            "No split required; missing district collection starts as one Standard mission."
-          ],
-          "expectedImpact": "High",
-          "estimatedEffort": "Medium",
-          "missionSize": {
-            "id": "standard",
-            "label": "Standard",
-            "reviewWindow": "60-120 minutes",
-            "maximumWorkItems": 8
-          },
-          "missionClass": "Foundation",
-          "files": [
-            "docs/product/rofo-master-plan.md",
-            "docs/editorial-operating-system.md",
-            "docs/mission-control-v2-operating-model.md",
-            "docs/commercial-market-evidence.md",
-            "docs/commercial-market-evidence-financial-district.md",
-            "docs/eos-portfolio-resolver.md",
-            "docs/rofo-publisher.md",
-            "docs/building-page-standard.md",
-            "_data/locationKnowledgeGraph.js",
-            "_data/commercialMarketEvidence.js",
-            "_data/commercialBuildingIntelligence.js",
-            "_data/representativeBuildingIntelligence.js",
-            "data/commercial-market-evidence/orange-county/university-research-park.js",
-            "scripts/qa-commercial-market-evidence.js",
-            "scripts/qa-building-brief-depth.js",
-            "data/generated/publisher-analysis.json",
-            "data/generated/eos-analysis.json",
-            "/commercial-real-estate/building/CA/irvine/1672-reynolds-ave/",
-            "/commercial-real-estate/building/CA/irvine/1-corporate-park/",
-            "/commercial-real-estate/building/CA/irvine/10-hughes/"
-          ],
-          "dependencies": [
-            "Commercial Market Evidence architecture",
-            "Financial District canonical collection standard",
-            "Knowledge Graph district identity",
-            "Representative building and Commercial Building Intelligence evidence",
-            "Building Profile editorial standard",
-            "Publisher Building Brief depth analysis"
-          ],
-          "acceptanceCriteria": [
-            "Commercial Market Evidence and Building Profiles remain separate source systems and measurements.",
-            "A new district Commercial Market Evidence source collection exists in the canonical data path.",
-            "Selected evidence buildings resolve to adequate canonical Building Profiles or explicit remaining Work Items.",
-            "Building Profiles avoid unsupported leasing, tenant, lab, medical, or infrastructure claims.",
-            "CME validator, Building Brief depth QA, Publisher snapshot, EOS QA, and build pass.",
-            "Publisher scoring, recommendation rankings, public URLs, and Mission Control planning logic remain stable unless measured source coverage legitimately changes."
-          ],
-          "expectedDeliverables": [
-            "Commercial Market Evidence work completed or validated without unnecessary regeneration",
-            "Selected evidence Building Profiles completed or explicitly deferred",
-            "Commercial Market Evidence validator and Building Brief depth QA pass",
-            "Publisher and EOS snapshots regenerated",
-            "Per-component and per-building outcomes reported in SER v1"
-          ],
-          "qaCommands": [
-            "node scripts/qa-commercial-market-evidence.js",
-            "node scripts/qa-building-brief-depth.js",
-            "npm run publisher:snapshot",
-            "node scripts/qa-eos.js",
-            "npm run build",
-            "git diff --check"
-          ],
-          "requiredReview": true,
-          "automationLevel": {
-            "id": "review_required",
-            "label": "Review Required",
-            "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
-          },
-          "providers": [
-            {
-              "id": "manual",
-              "label": "Manual",
-              "description": "A human uses the execution packet as a checklist and updates EOS externally."
-            },
-            {
-              "id": "codex",
-              "label": "Codex",
-              "description": "A future execution provider can consume the packet and return work for review."
-            }
-          ],
-          "handoff": [
-            {
-              "id": "engineering",
-              "label": "Engineering",
-              "description": "Prepare source files, schema, generated data, or implementation scope."
-            },
-            {
-              "id": "execution",
-              "label": "Execution / Field Mode",
-              "description": "Execute the work manually, through Field Mode, or through a future provider."
-            },
-            {
-              "id": "qa",
-              "label": "QA",
-              "description": "Run deterministic validation and return exceptions to review."
-            },
-            {
-              "id": "publish",
-              "label": "Publish",
-              "description": "Regenerate snapshots/build and publish through the existing deployment workflow."
-            }
-          ],
-          "componentStatuses": {
-            "commercialMarketEvidence": "Missing",
-            "evidenceRecordCount": 0,
-            "evidenceBuildingProfiles": {
-              "completed": 0,
-              "target": 0,
-              "missing": 0,
-              "label": "Collection missing"
-            },
-            "supportingBuildingProfiles": {
-              "completed": 0,
-              "target": 3,
-              "missing": 3,
-              "label": "0 / 3"
-            },
-            "unresolvedBuildingItems": 0,
-            "validationStatus": "Requires validation",
-            "districtBuildingEvidence": "Missing"
-          },
-          "workItems": {
-            "count": 4,
-            "buildings": [
-              {
-                "name": "1672 Reynolds Ave",
-                "path": "/commercial-real-estate/building/CA/irvine/1672-reynolds-ave/"
-              },
-              {
-                "name": "Irvine - Corporate Pointe",
-                "path": "/commercial-real-estate/building/CA/irvine/1-corporate-park/"
-              },
-              {
-                "name": "Irvine - Hughes St.",
-                "path": "/commercial-real-estate/building/CA/irvine/10-hughes/"
-              }
-            ]
-          }
-        }
-      },
-      {
-        "id": "mission:san-francisco:district-building-evidence:bayview-industrial",
-        "title": "Complete Bayview Industrial Building Evidence",
-        "marketId": "san-francisco",
-        "marketName": "San Francisco",
-        "programId": "commercial_market_evidence",
-        "programLabel": "Commercial Market Evidence",
-        "campaignId": "san-francisco:commercial_market_evidence:completion-campaign",
-        "campaignTitle": "San Francisco Building Evidence Completion",
-        "initiativeId": "san-francisco:commercial_market_evidence:bayview-industrial",
-        "initiativeTitle": "Bayview Industrial Building Evidence",
-        "portfolioId": "district-building-evidence:san-francisco:bayview-industrial",
-        "metroId": "san-francisco",
-        "metroName": "San Francisco",
-        "ecosystem": "Building Evidence",
-        "ecosystemId": "",
-        "districtId": "bayview-industrial",
-        "districtName": "Bayview Industrial",
-        "expectedImpact": "High",
-        "estimatedEffort": "Medium",
-        "missionSize": {
-          "id": "standard",
-          "label": "Standard",
-          "reviewWindow": "60-120 minutes",
-          "maximumWorkItems": 8
-        },
-        "impactEffortClass": "High Impact / Medium Effort / District Building Evidence",
-        "missionClass": "Foundation",
-        "currentConstraint": "Bayview Industrial lacks a Commercial Market Evidence collection and selected evidence Building Profiles.",
-        "dependencies": [
-          "Commercial Market Evidence architecture",
-          "Financial District canonical collection standard",
-          "Knowledge Graph district identity",
-          "Representative building and Commercial Building Intelligence evidence",
-          "Building Profile editorial standard",
-          "Publisher Building Brief depth analysis"
-        ],
-        "qaCommands": [
-          "node scripts/qa-commercial-market-evidence.js",
-          "node scripts/qa-building-brief-depth.js",
-          "npm run publisher:snapshot",
-          "node scripts/qa-eos.js",
-          "npm run build",
-          "git diff --check"
-        ],
-        "requiredReview": true,
-        "confidence": "Medium",
-        "priorityScore": 39,
-        "priorityStars": 2,
-        "automationLevel": {
-          "id": "review_required",
-          "label": "Review Required",
-          "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
-        },
-        "lifecycleState": {
-          "id": "ready",
-          "label": "Ready"
-        },
-        "status": "Ready",
-        "queueType": "editorial",
-        "operatingLane": {
-          "id": "editorial",
-          "label": "Editorial",
-          "description": "Commercial judgment, building profiles, handbook guidance, and public editorial depth."
-        },
-        "category": "mission",
-        "categoryLabel": "Mission",
-        "suggestedModule": {
-          "id": "commercialMarketEvidence",
-          "label": "Commercial Market Evidence"
-        },
-        "why": [
-          "Commercial Market Evidence and Building Profiles are separate data products but one district research workflow.",
-          "CME collection and required selected Building Profiles should be created in one execution packet.",
-          "One district Mission avoids detached Commence Work actions for evidence selection and Building Profile migration."
-        ],
-        "includedTasks": [
-          {
-            "id": "commercial-market-evidence:bayview-industrial:collection",
-            "title": "Bayview Industrial Commercial Market Evidence collection",
-            "reason": "District is missing a Commercial Market Evidence collection."
-          }
-        ],
-        "deferredTasks": [
-          {
-            "id": "commercial-market-evidence:bayview-industrial:quality-scoring",
-            "title": "Publisher quality scoring for Commercial Market Evidence",
-            "reason": "Quality scoring remains deferred; Publisher continues reporting CME and Building Profiles separately."
-          }
-        ],
-        "componentStatuses": {
-          "commercialMarketEvidence": "Missing",
-          "evidenceRecordCount": 0,
-          "evidenceBuildingProfiles": {
-            "completed": 0,
-            "target": 0,
-            "missing": 0,
-            "label": "Collection missing"
-          },
-          "supportingBuildingProfiles": {
-            "completed": 0,
-            "target": 0,
-            "missing": 0,
-            "label": "To be selected during collection work"
-          },
-          "unresolvedBuildingItems": 0,
-          "validationStatus": "Requires validation",
-          "districtBuildingEvidence": "Missing"
-        },
-        "workItems": {
-          "count": 1,
-          "buildings": []
-        },
-        "executionPacket": {
-          "objective": "Create the Bayview Industrial Commercial Market Evidence collection and complete the required selected Building Profiles in one district Mission.",
-          "reason": [
-            "Bayview Industrial is missing a Commercial Market Evidence collection.",
-            "Evidence Building Profiles: Collection missing.",
-            "Supporting Building Profiles will be selected only when they materially strengthen district explanation.",
-            "0 selected Building Profile work items are included in this bounded Mission."
-          ],
-          "currentHealth": "79% Improving",
-          "currentConstraint": "Bayview Industrial lacks a Commercial Market Evidence collection and selected evidence Building Profiles.",
-          "includedTasks": [
-            {
-              "id": "commercial-market-evidence:bayview-industrial:collection",
-              "title": "Bayview Industrial Commercial Market Evidence collection",
-              "reason": "District is missing a Commercial Market Evidence collection."
-            }
-          ],
-          "deferredTasks": [
-            {
-              "id": "commercial-market-evidence:bayview-industrial:quality-scoring",
-              "title": "Publisher quality scoring for Commercial Market Evidence",
-              "reason": "Quality scoring remains deferred; Publisher continues reporting CME and Building Profiles separately."
-            }
-          ],
-          "reasonForBundling": [
-            "Commercial Market Evidence collection and required Building Profiles should be created from one district research pass.",
-            "Representative evidence selection, source-data collection, profile references, and validation remain hidden Work Items inside one Mission.",
-            "Publisher scoring and recommendation behavior remain unchanged.",
-            "No split required; missing district collection starts as one Standard mission."
-          ],
-          "expectedImpact": "High",
-          "estimatedEffort": "Medium",
-          "missionSize": {
-            "id": "standard",
-            "label": "Standard",
-            "reviewWindow": "60-120 minutes",
-            "maximumWorkItems": 8
-          },
-          "missionClass": "Foundation",
-          "files": [
-            "docs/product/rofo-master-plan.md",
-            "docs/editorial-operating-system.md",
-            "docs/mission-control-v2-operating-model.md",
-            "docs/commercial-market-evidence.md",
-            "docs/commercial-market-evidence-financial-district.md",
-            "docs/eos-portfolio-resolver.md",
-            "docs/rofo-publisher.md",
-            "docs/building-page-standard.md",
-            "_data/locationKnowledgeGraph.js",
-            "_data/commercialMarketEvidence.js",
-            "_data/commercialBuildingIntelligence.js",
-            "_data/representativeBuildingIntelligence.js",
-            "data/commercial-market-evidence/san-francisco/bayview-industrial.js",
-            "scripts/qa-commercial-market-evidence.js",
-            "scripts/qa-building-brief-depth.js",
-            "data/generated/publisher-analysis.json",
-            "data/generated/eos-analysis.json"
-          ],
-          "dependencies": [
-            "Commercial Market Evidence architecture",
-            "Financial District canonical collection standard",
-            "Knowledge Graph district identity",
-            "Representative building and Commercial Building Intelligence evidence",
-            "Building Profile editorial standard",
-            "Publisher Building Brief depth analysis"
-          ],
-          "acceptanceCriteria": [
-            "Commercial Market Evidence and Building Profiles remain separate source systems and measurements.",
-            "A new district Commercial Market Evidence source collection exists in the canonical data path.",
-            "Selected evidence buildings resolve to adequate canonical Building Profiles or explicit remaining Work Items.",
-            "Building Profiles avoid unsupported leasing, tenant, lab, medical, or infrastructure claims.",
-            "CME validator, Building Brief depth QA, Publisher snapshot, EOS QA, and build pass.",
-            "Publisher scoring, recommendation rankings, public URLs, and Mission Control planning logic remain stable unless measured source coverage legitimately changes."
-          ],
-          "expectedDeliverables": [
-            "Commercial Market Evidence work completed or validated without unnecessary regeneration",
-            "Selected evidence Building Profiles completed or explicitly deferred",
-            "Commercial Market Evidence validator and Building Brief depth QA pass",
-            "Publisher and EOS snapshots regenerated",
-            "Per-component and per-building outcomes reported in SER v1"
-          ],
-          "qaCommands": [
-            "node scripts/qa-commercial-market-evidence.js",
-            "node scripts/qa-building-brief-depth.js",
-            "npm run publisher:snapshot",
-            "node scripts/qa-eos.js",
-            "npm run build",
-            "git diff --check"
-          ],
-          "requiredReview": true,
-          "automationLevel": {
-            "id": "review_required",
-            "label": "Review Required",
-            "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
-          },
-          "providers": [
-            {
-              "id": "manual",
-              "label": "Manual",
-              "description": "A human uses the execution packet as a checklist and updates EOS externally."
-            },
-            {
-              "id": "codex",
-              "label": "Codex",
-              "description": "A future execution provider can consume the packet and return work for review."
-            }
-          ],
-          "handoff": [
-            {
-              "id": "engineering",
-              "label": "Engineering",
-              "description": "Prepare source files, schema, generated data, or implementation scope."
-            },
-            {
-              "id": "execution",
-              "label": "Execution / Field Mode",
-              "description": "Execute the work manually, through Field Mode, or through a future provider."
-            },
-            {
-              "id": "qa",
-              "label": "QA",
-              "description": "Run deterministic validation and return exceptions to review."
-            },
-            {
-              "id": "publish",
-              "label": "Publish",
-              "description": "Regenerate snapshots/build and publish through the existing deployment workflow."
-            }
-          ],
-          "componentStatuses": {
-            "commercialMarketEvidence": "Missing",
-            "evidenceRecordCount": 0,
-            "evidenceBuildingProfiles": {
-              "completed": 0,
-              "target": 0,
-              "missing": 0,
-              "label": "Collection missing"
-            },
-            "supportingBuildingProfiles": {
-              "completed": 0,
-              "target": 0,
-              "missing": 0,
-              "label": "To be selected during collection work"
-            },
-            "unresolvedBuildingItems": 0,
-            "validationStatus": "Requires validation",
-            "districtBuildingEvidence": "Missing"
-          },
-          "workItems": {
-            "count": 1,
-            "buildings": []
-          }
-        }
-      },
-      {
-        "id": "mission:san-francisco:district-building-evidence:central-waterfront",
-        "title": "Complete Central Waterfront Building Evidence",
-        "marketId": "san-francisco",
-        "marketName": "San Francisco",
-        "programId": "commercial_market_evidence",
-        "programLabel": "Commercial Market Evidence",
-        "campaignId": "san-francisco:commercial_market_evidence:completion-campaign",
-        "campaignTitle": "San Francisco Building Evidence Completion",
-        "initiativeId": "san-francisco:commercial_market_evidence:central-waterfront",
-        "initiativeTitle": "Central Waterfront Building Evidence",
-        "portfolioId": "district-building-evidence:san-francisco:central-waterfront",
-        "metroId": "san-francisco",
-        "metroName": "San Francisco",
-        "ecosystem": "Building Evidence",
-        "ecosystemId": "",
-        "districtId": "central-waterfront",
-        "districtName": "Central Waterfront",
-        "expectedImpact": "High",
-        "estimatedEffort": "Medium",
-        "missionSize": {
-          "id": "standard",
-          "label": "Standard",
-          "reviewWindow": "60-120 minutes",
-          "maximumWorkItems": 8
-        },
-        "impactEffortClass": "High Impact / Medium Effort / District Building Evidence",
-        "missionClass": "Foundation",
-        "currentConstraint": "Central Waterfront lacks a Commercial Market Evidence collection and selected evidence Building Profiles.",
-        "dependencies": [
-          "Commercial Market Evidence architecture",
-          "Financial District canonical collection standard",
-          "Knowledge Graph district identity",
-          "Representative building and Commercial Building Intelligence evidence",
-          "Building Profile editorial standard",
-          "Publisher Building Brief depth analysis"
-        ],
-        "qaCommands": [
-          "node scripts/qa-commercial-market-evidence.js",
-          "node scripts/qa-building-brief-depth.js",
-          "npm run publisher:snapshot",
-          "node scripts/qa-eos.js",
-          "npm run build",
-          "git diff --check"
-        ],
-        "requiredReview": true,
-        "confidence": "Medium",
-        "priorityScore": 38,
-        "priorityStars": 2,
-        "automationLevel": {
-          "id": "review_required",
-          "label": "Review Required",
-          "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
-        },
-        "lifecycleState": {
-          "id": "ready",
-          "label": "Ready"
-        },
-        "status": "Ready",
-        "queueType": "editorial",
-        "operatingLane": {
-          "id": "editorial",
-          "label": "Editorial",
-          "description": "Commercial judgment, building profiles, handbook guidance, and public editorial depth."
-        },
-        "category": "mission",
-        "categoryLabel": "Mission",
-        "suggestedModule": {
-          "id": "commercialMarketEvidence",
-          "label": "Commercial Market Evidence"
-        },
-        "why": [
-          "Commercial Market Evidence and Building Profiles are separate data products but one district research workflow.",
-          "CME collection and required selected Building Profiles should be created in one execution packet.",
-          "One district Mission avoids detached Commence Work actions for evidence selection and Building Profile migration."
-        ],
-        "includedTasks": [
-          {
-            "id": "commercial-market-evidence:central-waterfront:collection",
-            "title": "Central Waterfront Commercial Market Evidence collection",
-            "reason": "District is missing a Commercial Market Evidence collection."
-          }
-        ],
-        "deferredTasks": [
-          {
-            "id": "commercial-market-evidence:central-waterfront:quality-scoring",
-            "title": "Publisher quality scoring for Commercial Market Evidence",
-            "reason": "Quality scoring remains deferred; Publisher continues reporting CME and Building Profiles separately."
-          }
-        ],
-        "componentStatuses": {
-          "commercialMarketEvidence": "Missing",
-          "evidenceRecordCount": 0,
-          "evidenceBuildingProfiles": {
-            "completed": 0,
-            "target": 0,
-            "missing": 0,
-            "label": "Collection missing"
-          },
-          "supportingBuildingProfiles": {
-            "completed": 0,
-            "target": 0,
-            "missing": 0,
-            "label": "To be selected during collection work"
-          },
-          "unresolvedBuildingItems": 0,
-          "validationStatus": "Requires validation",
-          "districtBuildingEvidence": "Missing"
-        },
-        "workItems": {
-          "count": 1,
-          "buildings": []
-        },
-        "executionPacket": {
-          "objective": "Create the Central Waterfront Commercial Market Evidence collection and complete the required selected Building Profiles in one district Mission.",
-          "reason": [
-            "Central Waterfront is missing a Commercial Market Evidence collection.",
-            "Evidence Building Profiles: Collection missing.",
-            "Supporting Building Profiles will be selected only when they materially strengthen district explanation.",
-            "0 selected Building Profile work items are included in this bounded Mission."
-          ],
-          "currentHealth": "79% Improving",
-          "currentConstraint": "Central Waterfront lacks a Commercial Market Evidence collection and selected evidence Building Profiles.",
-          "includedTasks": [
-            {
-              "id": "commercial-market-evidence:central-waterfront:collection",
-              "title": "Central Waterfront Commercial Market Evidence collection",
-              "reason": "District is missing a Commercial Market Evidence collection."
-            }
-          ],
-          "deferredTasks": [
-            {
-              "id": "commercial-market-evidence:central-waterfront:quality-scoring",
-              "title": "Publisher quality scoring for Commercial Market Evidence",
-              "reason": "Quality scoring remains deferred; Publisher continues reporting CME and Building Profiles separately."
-            }
-          ],
-          "reasonForBundling": [
-            "Commercial Market Evidence collection and required Building Profiles should be created from one district research pass.",
-            "Representative evidence selection, source-data collection, profile references, and validation remain hidden Work Items inside one Mission.",
-            "Publisher scoring and recommendation behavior remain unchanged.",
-            "No split required; missing district collection starts as one Standard mission."
-          ],
-          "expectedImpact": "High",
-          "estimatedEffort": "Medium",
-          "missionSize": {
-            "id": "standard",
-            "label": "Standard",
-            "reviewWindow": "60-120 minutes",
-            "maximumWorkItems": 8
-          },
-          "missionClass": "Foundation",
-          "files": [
-            "docs/product/rofo-master-plan.md",
-            "docs/editorial-operating-system.md",
-            "docs/mission-control-v2-operating-model.md",
-            "docs/commercial-market-evidence.md",
-            "docs/commercial-market-evidence-financial-district.md",
-            "docs/eos-portfolio-resolver.md",
-            "docs/rofo-publisher.md",
-            "docs/building-page-standard.md",
-            "_data/locationKnowledgeGraph.js",
-            "_data/commercialMarketEvidence.js",
-            "_data/commercialBuildingIntelligence.js",
-            "_data/representativeBuildingIntelligence.js",
-            "data/commercial-market-evidence/san-francisco/central-waterfront.js",
-            "scripts/qa-commercial-market-evidence.js",
-            "scripts/qa-building-brief-depth.js",
-            "data/generated/publisher-analysis.json",
-            "data/generated/eos-analysis.json"
-          ],
-          "dependencies": [
-            "Commercial Market Evidence architecture",
-            "Financial District canonical collection standard",
-            "Knowledge Graph district identity",
-            "Representative building and Commercial Building Intelligence evidence",
-            "Building Profile editorial standard",
-            "Publisher Building Brief depth analysis"
-          ],
-          "acceptanceCriteria": [
-            "Commercial Market Evidence and Building Profiles remain separate source systems and measurements.",
-            "A new district Commercial Market Evidence source collection exists in the canonical data path.",
-            "Selected evidence buildings resolve to adequate canonical Building Profiles or explicit remaining Work Items.",
-            "Building Profiles avoid unsupported leasing, tenant, lab, medical, or infrastructure claims.",
-            "CME validator, Building Brief depth QA, Publisher snapshot, EOS QA, and build pass.",
-            "Publisher scoring, recommendation rankings, public URLs, and Mission Control planning logic remain stable unless measured source coverage legitimately changes."
-          ],
-          "expectedDeliverables": [
-            "Commercial Market Evidence work completed or validated without unnecessary regeneration",
-            "Selected evidence Building Profiles completed or explicitly deferred",
-            "Commercial Market Evidence validator and Building Brief depth QA pass",
-            "Publisher and EOS snapshots regenerated",
-            "Per-component and per-building outcomes reported in SER v1"
-          ],
-          "qaCommands": [
-            "node scripts/qa-commercial-market-evidence.js",
-            "node scripts/qa-building-brief-depth.js",
-            "npm run publisher:snapshot",
-            "node scripts/qa-eos.js",
-            "npm run build",
-            "git diff --check"
-          ],
-          "requiredReview": true,
-          "automationLevel": {
-            "id": "review_required",
-            "label": "Review Required",
-            "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
-          },
-          "providers": [
-            {
-              "id": "manual",
-              "label": "Manual",
-              "description": "A human uses the execution packet as a checklist and updates EOS externally."
-            },
-            {
-              "id": "codex",
-              "label": "Codex",
-              "description": "A future execution provider can consume the packet and return work for review."
-            }
-          ],
-          "handoff": [
-            {
-              "id": "engineering",
-              "label": "Engineering",
-              "description": "Prepare source files, schema, generated data, or implementation scope."
-            },
-            {
-              "id": "execution",
-              "label": "Execution / Field Mode",
-              "description": "Execute the work manually, through Field Mode, or through a future provider."
-            },
-            {
-              "id": "qa",
-              "label": "QA",
-              "description": "Run deterministic validation and return exceptions to review."
-            },
-            {
-              "id": "publish",
-              "label": "Publish",
-              "description": "Regenerate snapshots/build and publish through the existing deployment workflow."
-            }
-          ],
-          "componentStatuses": {
-            "commercialMarketEvidence": "Missing",
-            "evidenceRecordCount": 0,
-            "evidenceBuildingProfiles": {
-              "completed": 0,
-              "target": 0,
-              "missing": 0,
-              "label": "Collection missing"
-            },
-            "supportingBuildingProfiles": {
-              "completed": 0,
-              "target": 0,
-              "missing": 0,
-              "label": "To be selected during collection work"
-            },
-            "unresolvedBuildingItems": 0,
-            "validationStatus": "Requires validation",
-            "districtBuildingEvidence": "Missing"
-          },
-          "workItems": {
-            "count": 1,
-            "buildings": []
-          }
-        }
-      },
-      {
         "id": "mission:south-bay:district-building-evidence:north-bayshore",
         "title": "Complete North Bayshore Building Evidence",
         "marketId": "south-bay",
@@ -104845,7 +104015,7 @@
         ],
         "requiredReview": true,
         "confidence": "Medium",
-        "priorityScore": 37,
+        "priorityScore": 39,
         "priorityStars": 2,
         "automationLevel": {
           "id": "review_required",
@@ -105112,7 +104282,7 @@
         ],
         "requiredReview": true,
         "confidence": "Medium",
-        "priorityScore": 34,
+        "priorityScore": 36,
         "priorityStars": 2,
         "automationLevel": {
           "id": "review_required",
@@ -105379,7 +104549,7 @@
         ],
         "requiredReview": true,
         "confidence": "Medium",
-        "priorityScore": 33,
+        "priorityScore": 35,
         "priorityStars": 2,
         "automationLevel": {
           "id": "review_required",
@@ -105646,7 +104816,7 @@
         ],
         "requiredReview": true,
         "confidence": "Medium",
-        "priorityScore": 32,
+        "priorityScore": 34,
         "priorityStars": 2,
         "automationLevel": {
           "id": "review_required",
@@ -105913,7 +105083,7 @@
         ],
         "requiredReview": true,
         "confidence": "Medium",
-        "priorityScore": 31,
+        "priorityScore": 33,
         "priorityStars": 2,
         "automationLevel": {
           "id": "review_required",
@@ -106180,7 +105350,7 @@
         ],
         "requiredReview": true,
         "confidence": "Medium",
-        "priorityScore": 30,
+        "priorityScore": 32,
         "priorityStars": 2,
         "automationLevel": {
           "id": "review_required",
@@ -106506,7 +105676,7 @@
         ],
         "requiredReview": true,
         "confidence": "Medium",
-        "priorityScore": 30,
+        "priorityScore": 32,
         "priorityStars": 2,
         "automationLevel": {
           "id": "review_required",
@@ -106773,7 +105943,7 @@
         ],
         "requiredReview": true,
         "confidence": "Medium",
-        "priorityScore": 29,
+        "priorityScore": 31,
         "priorityStars": 2,
         "automationLevel": {
           "id": "review_required",
@@ -107040,7 +106210,7 @@
         ],
         "requiredReview": true,
         "confidence": "Medium",
-        "priorityScore": 28,
+        "priorityScore": 30,
         "priorityStars": 2,
         "automationLevel": {
           "id": "review_required",
@@ -107307,7 +106477,7 @@
         ],
         "requiredReview": true,
         "confidence": "Medium",
-        "priorityScore": 26,
+        "priorityScore": 28,
         "priorityStars": 2,
         "automationLevel": {
           "id": "review_required",
@@ -107574,7 +106744,7 @@
         ],
         "requiredReview": true,
         "confidence": "Medium",
-        "priorityScore": 25,
+        "priorityScore": 27,
         "priorityStars": 2,
         "automationLevel": {
           "id": "review_required",
@@ -107841,7 +107011,7 @@
         ],
         "requiredReview": true,
         "confidence": "Medium",
-        "priorityScore": 24,
+        "priorityScore": 26,
         "priorityStars": 2,
         "automationLevel": {
           "id": "review_required",
@@ -108108,8 +107278,8 @@
         ],
         "requiredReview": true,
         "confidence": "Medium",
-        "priorityScore": 23,
-        "priorityStars": 1,
+        "priorityScore": 25,
+        "priorityStars": 2,
         "automationLevel": {
           "id": "review_required",
           "label": "Review Required",
@@ -108375,8 +107545,8 @@
         ],
         "requiredReview": true,
         "confidence": "Medium",
-        "priorityScore": 22,
-        "priorityStars": 1,
+        "priorityScore": 24,
+        "priorityStars": 2,
         "automationLevel": {
           "id": "review_required",
           "label": "Review Required",
@@ -108642,7 +107812,7 @@
         ],
         "requiredReview": true,
         "confidence": "Medium",
-        "priorityScore": 21,
+        "priorityScore": 23,
         "priorityStars": 1,
         "automationLevel": {
           "id": "review_required",
@@ -108909,7 +108079,7 @@
         ],
         "requiredReview": true,
         "confidence": "Medium",
-        "priorityScore": 20,
+        "priorityScore": 22,
         "priorityStars": 1,
         "automationLevel": {
           "id": "review_required",
@@ -109176,7 +108346,7 @@
         ],
         "requiredReview": true,
         "confidence": "Medium",
-        "priorityScore": 19,
+        "priorityScore": 21,
         "priorityStars": 1,
         "automationLevel": {
           "id": "review_required",
@@ -109443,7 +108613,7 @@
         ],
         "requiredReview": true,
         "confidence": "Medium",
-        "priorityScore": 18,
+        "priorityScore": 20,
         "priorityStars": 1,
         "automationLevel": {
           "id": "review_required",
@@ -122095,23 +121265,23 @@
     "reviewQueue": [],
     "opportunityInventory": {
       "total": 317,
-      "missions": 88,
+      "missions": 86,
       "resolvedPortfolioMissions": 0,
       "byQueue": {
         "editorial": 317,
-        "missions": 88,
+        "missions": 86,
         "resolvedPortfolioMissions": 0,
         "expansion": 4,
         "fieldMode": 7,
         "review": 0,
-        "programMissions": 77
+        "programMissions": 75
       },
       "hiddenFromHomepage": 317,
-      "programMissions": 77
+      "programMissions": 75
     },
     "queueCounts": {
       "editorialQueue": 317,
-      "missionQueue": 88,
+      "missionQueue": 86,
       "expansionQueue": 4,
       "fieldModeQueue": 7,
       "reviewQueue": 0

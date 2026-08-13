@@ -23,6 +23,8 @@ module.exports = {
     require("../data/commercial-market-evidence/san-francisco/soma"),
     require("../data/commercial-market-evidence/san-francisco/design-district"),
     require("../data/commercial-market-evidence/san-francisco/dogpatch"),
+    require("../data/commercial-market-evidence/san-francisco/bayview-industrial"),
+    require("../data/commercial-market-evidence/san-francisco/central-waterfront"),
     require("../data/commercial-market-evidence/san-francisco/mission-district"),
     require("../data/commercial-market-evidence/san-francisco/potrero-hill"),
     require("../data/commercial-market-evidence/san-francisco/showplace-square"),
