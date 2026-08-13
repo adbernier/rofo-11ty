@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-13T08:22:17-07:00",
+  "generatedAt": "2026-08-13T08:36:11-07:00",
   "rulesVersion": "publisher-rules-v1",
   "plannerVersion": "publisher-expansion-planner-v1",
   "defaultMode": "balanced",
@@ -55,7 +55,7 @@
     {
       "metroId": "san-francisco",
       "metroName": "San Francisco",
-      "generatedAt": "2026-08-13T08:22:17-07:00",
+      "generatedAt": "2026-08-13T08:36:11-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 96,
@@ -116,9 +116,9 @@
           "office": {
             "id": "office",
             "label": "Office",
-            "districtCount": 6,
-            "secondaryDistrictCount": 16,
-            "recommendationNodeCount": 6,
+            "districtCount": 7,
+            "secondaryDistrictCount": 15,
+            "recommendationNodeCount": 7,
             "representativeBuildingCount": 77,
             "buildingBriefCount": 37,
             "status": "Developed",
@@ -152,6 +152,11 @@
                 "slug": "south-beach",
                 "label": "South Beach",
                 "path": "/commercial-real-estate/CA/san-francisco/south-beach/"
+              },
+              {
+                "slug": "downtown-berkeley",
+                "label": "Downtown Berkeley",
+                "path": "/commercial-real-estate/CA/berkeley/downtown-berkeley/"
               }
             ],
             "subtypes": {
@@ -161,7 +166,14 @@
               "professional_office": 9,
               "office_campus": 2,
               "research_development": 2,
-              "suburban_office": 1
+              "suburban_office": 1,
+              "downtown_retail": 1,
+              "neighborhood_retail": 1,
+              "service_retail": 1,
+              "education": 1,
+              "nonprofit": 1,
+              "childcare": 1,
+              "institutional": 1
             },
             "archetypes": {
               "biotech_company": 3,
@@ -174,19 +186,24 @@
               "consulting_firm": 4,
               "professional_office": 7,
               "general_contractor": 2,
+              "wellness_practice": 1,
               "nonprofit_office": 1,
               "education_provider": 1,
               "training_center": 2,
+              "childcare_provider": 1,
               "medical_practice": 1
             },
             "activities": {
               "product_development": 9,
               "collaboration": 10,
               "knowledge_work": 15,
-              "customer_showroom": 2,
+              "customer_showroom": 3,
               "client_meetings": 5,
               "administrative_operations": 4,
               "research": 1,
+              "walk_in_retail": 1,
+              "walk_in_service": 1,
+              "education": 1,
               "training": 1
             },
             "reviewRequiredDistricts": [],
@@ -567,9 +584,9 @@
           "retail": {
             "id": "retail",
             "label": "Retail",
-            "districtCount": 7,
-            "secondaryDistrictCount": 6,
-            "recommendationNodeCount": 7,
+            "districtCount": 6,
+            "secondaryDistrictCount": 7,
+            "recommendationNodeCount": 6,
             "representativeBuildingCount": 14,
             "buildingBriefCount": 2,
             "status": "Developed",
@@ -600,27 +617,18 @@
                 "path": "/commercial-real-estate/CA/san-mateo/downtown-san-mateo/"
               },
               {
-                "slug": "downtown-berkeley",
-                "label": "Downtown Berkeley",
-                "path": "/commercial-real-estate/CA/berkeley/downtown-berkeley/"
-              },
-              {
                 "slug": "jack-london-square",
                 "label": "Jack London Square",
                 "path": "/commercial-real-estate/CA/oakland/jack-london-square/"
               }
             ],
             "subtypes": {
-              "professional_office": 5,
+              "professional_office": 4,
               "neighborhood_retail": 6,
               "showroom_retail": 1,
               "creative_office": 2,
               "downtown_retail": 1,
               "service_retail": 2,
-              "education": 1,
-              "nonprofit": 1,
-              "childcare": 1,
-              "institutional": 1,
               "lifestyle_retail": 1,
               "food_beverage": 1,
               "visitor_serving": 1,
@@ -631,13 +639,8 @@
               "professional_office": 6,
               "wellness_practice": 7,
               "creative_studio": 3,
-              "law_firm": 1,
-              "consulting_firm": 1,
-              "nonprofit_office": 1,
-              "education_provider": 1,
-              "training_center": 2,
-              "childcare_provider": 1,
               "food_producer": 1,
+              "training_center": 1,
               "physical_therapy_practice": 1
             },
             "activities": {
@@ -645,11 +648,8 @@
               "walk_in_retail": 6,
               "walk_in_service": 8,
               "collaboration": 1,
-              "knowledge_work": 4,
-              "client_meetings": 2,
-              "administrative_operations": 1,
-              "education": 1,
-              "training": 1,
+              "knowledge_work": 3,
+              "client_meetings": 1,
               "food_preparation": 1,
               "hospitality_service": 1
             },
@@ -1136,23 +1136,23 @@
           "creative_office": 12,
           "downtown_office": 3,
           "executive_office": 1,
-          "professional_office": 17,
+          "professional_office": 16,
           "office_campus": 3,
           "research_development": 12,
           "suburban_office": 2,
+          "downtown_retail": 2,
+          "neighborhood_retail": 7,
+          "service_retail": 3,
+          "education": 2,
+          "nonprofit": 2,
+          "childcare": 2,
+          "institutional": 2,
           "flex": 9,
           "small_bay_industrial": 5,
           "warehouse": 2,
           "manufacturing": 1,
           "life_science_office": 4,
-          "neighborhood_retail": 6,
           "showroom_retail": 1,
-          "downtown_retail": 1,
-          "service_retail": 2,
-          "education": 2,
-          "nonprofit": 2,
-          "childcare": 2,
-          "institutional": 2,
           "lifestyle_retail": 1,
           "food_beverage": 2,
           "visitor_serving": 2,
@@ -1166,20 +1166,20 @@
         "activityCoverage": {
           "product_development": 23,
           "collaboration": 19,
-          "knowledge_work": 24,
-          "customer_showroom": 14,
-          "client_meetings": 7,
-          "administrative_operations": 8,
+          "knowledge_work": 23,
+          "customer_showroom": 15,
+          "client_meetings": 6,
+          "administrative_operations": 7,
           "research": 11,
-          "training": 3,
+          "walk_in_retail": 7,
+          "walk_in_service": 11,
+          "education": 2,
+          "training": 2,
           "light_manufacturing": 9,
           "receiving": 5,
           "shipping": 5,
           "storage": 5,
           "service_dispatch": 5,
-          "walk_in_retail": 6,
-          "walk_in_service": 10,
-          "education": 2,
           "food_preparation": 2,
           "hospitality_service": 2,
           "healthcare_delivery": 1
@@ -1190,21 +1190,21 @@
           "startup": 24,
           "creative_studio": 19,
           "marketing_agency": 16,
-          "law_firm": 3,
+          "law_firm": 2,
           "financial_services_firm": 1,
-          "consulting_firm": 6,
+          "consulting_firm": 5,
           "professional_office": 14,
           "general_contractor": 7,
-          "nonprofit_office": 3,
-          "education_provider": 3,
-          "training_center": 5,
+          "wellness_practice": 9,
+          "nonprofit_office": 2,
+          "education_provider": 2,
+          "training_center": 4,
+          "childcare_provider": 2,
           "medical_practice": 2,
           "light_manufacturer": 7,
           "cabinet_shop": 5,
           "distributor": 5,
           "ecommerce_fulfillment_business": 5,
-          "wellness_practice": 8,
-          "childcare_provider": 2,
           "food_producer": 2,
           "physical_therapy_practice": 2,
           "outpatient_clinic": 1
@@ -1275,14 +1275,14 @@
               "editorialReview": "developed"
             },
             "counts": {
-              "districts": 6,
-              "secondaryDistricts": 16,
-              "recommendations": 6,
+              "districts": 7,
+              "secondaryDistricts": 15,
+              "recommendations": 7,
               "representativeBuildings": 77,
               "buildingBriefs": 37,
-              "subtypes": 7,
-              "archetypes": 14,
-              "activities": 8,
+              "subtypes": 14,
+              "archetypes": 16,
+              "activities": 11,
               "reviewRequiredDistricts": 0,
               "representativeRoles": 7,
               "operationalCategories": 5,
@@ -1294,7 +1294,7 @@
             "blockingCodes": [],
             "strategicPriority": 2,
             "evidence": [
-              "6 primary districts and 16 secondary districts.",
+              "7 primary districts and 15 secondary districts.",
               "77 Representative Buildings and 37 Building Briefs.",
               "7 representative roles and 5 operational categories are covered."
             ],
@@ -1690,14 +1690,14 @@
               "editorialReview": "developed"
             },
             "counts": {
-              "districts": 7,
-              "secondaryDistricts": 6,
-              "recommendations": 7,
+              "districts": 6,
+              "secondaryDistricts": 7,
+              "recommendations": 6,
               "representativeBuildings": 14,
               "buildingBriefs": 2,
-              "subtypes": 14,
-              "archetypes": 12,
-              "activities": 11,
+              "subtypes": 10,
+              "archetypes": 7,
+              "activities": 8,
               "reviewRequiredDistricts": 0,
               "representativeRoles": 3,
               "operationalCategories": 2,
@@ -1709,7 +1709,7 @@
             "blockingCodes": [],
             "strategicPriority": 5,
             "evidence": [
-              "7 primary districts and 6 secondary districts.",
+              "6 primary districts and 7 secondary districts.",
               "14 Representative Buildings and 2 Building Briefs.",
               "3 representative roles and 2 operational categories are covered."
             ],
@@ -14325,7 +14325,7 @@
     {
       "metroId": "east-bay",
       "metroName": "East Bay",
-      "generatedAt": "2026-08-13T08:22:17-07:00",
+      "generatedAt": "2026-08-13T08:36:11-07:00",
       "currentState": {
         "readinessStatus": "Editorially Developed",
         "overallScore": 74,
@@ -14373,8 +14373,8 @@
         },
         "ecosystems": {
           "count": 7,
-          "developed": 4,
-          "partial": 3,
+          "developed": 5,
+          "partial": 2,
           "thin": 0,
           "missing": 0,
           "reviewRequired": 0,
@@ -14386,17 +14386,30 @@
           "office": {
             "id": "office",
             "label": "Office",
-            "districtCount": 0,
-            "secondaryDistrictCount": 5,
-            "recommendationNodeCount": 0,
+            "districtCount": 1,
+            "secondaryDistrictCount": 4,
+            "recommendationNodeCount": 1,
             "representativeBuildingCount": 12,
             "buildingBriefCount": 12,
-            "status": "Partial",
-            "districts": [],
+            "status": "Developed",
+            "districts": [
+              {
+                "slug": "downtown-berkeley",
+                "label": "Downtown Berkeley",
+                "path": "/commercial-real-estate/CA/berkeley/downtown-berkeley/"
+              }
+            ],
             "subtypes": {
               "suburban_office": 1,
               "office_campus": 1,
               "professional_office": 3,
+              "downtown_retail": 1,
+              "neighborhood_retail": 1,
+              "service_retail": 1,
+              "education": 1,
+              "nonprofit": 1,
+              "childcare": 1,
+              "institutional": 1,
               "creative_office": 1
             },
             "archetypes": {
@@ -14405,11 +14418,13 @@
               "startup": 2,
               "research_company": 2,
               "biotech_company": 1,
+              "wellness_practice": 1,
               "marketing_agency": 2,
               "law_firm": 1,
               "nonprofit_office": 1,
               "education_provider": 1,
               "training_center": 2,
+              "childcare_provider": 1,
               "creative_studio": 2,
               "medical_practice": 1
             },
@@ -14418,7 +14433,11 @@
               "collaboration": 2,
               "administrative_operations": 3,
               "product_development": 2,
+              "walk_in_retail": 1,
+              "walk_in_service": 1,
+              "customer_showroom": 1,
               "client_meetings": 2,
+              "education": 1,
               "training": 1
             },
             "reviewRequiredDistricts": [],
@@ -14766,18 +14785,13 @@
           "retail": {
             "id": "retail",
             "label": "Retail",
-            "districtCount": 2,
-            "secondaryDistrictCount": 1,
-            "recommendationNodeCount": 2,
+            "districtCount": 1,
+            "secondaryDistrictCount": 2,
+            "recommendationNodeCount": 1,
             "representativeBuildingCount": 2,
             "buildingBriefCount": 2,
             "status": "Developed",
             "districts": [
-              {
-                "slug": "downtown-berkeley",
-                "label": "Downtown Berkeley",
-                "path": "/commercial-real-estate/CA/berkeley/downtown-berkeley/"
-              },
               {
                 "slug": "jack-london-square",
                 "label": "Jack London Square",
@@ -14788,12 +14802,8 @@
               "downtown_retail": 1,
               "neighborhood_retail": 2,
               "service_retail": 2,
-              "professional_office": 2,
-              "education": 1,
-              "nonprofit": 1,
-              "childcare": 1,
-              "institutional": 1,
               "lifestyle_retail": 1,
+              "professional_office": 1,
               "food_beverage": 1,
               "visitor_serving": 1,
               "event_hospitality": 1
@@ -14802,25 +14812,17 @@
               "wellness_practice": 3,
               "marketing_agency": 2,
               "professional_office": 2,
-              "law_firm": 1,
-              "consulting_firm": 1,
-              "nonprofit_office": 1,
-              "education_provider": 1,
-              "training_center": 2,
-              "childcare_provider": 1,
               "creative_studio": 1,
               "food_producer": 1,
+              "training_center": 1,
               "physical_therapy_practice": 1
             },
             "activities": {
               "walk_in_retail": 2,
               "walk_in_service": 3,
               "customer_showroom": 2,
-              "knowledge_work": 2,
-              "client_meetings": 2,
-              "administrative_operations": 1,
-              "education": 1,
-              "training": 1,
+              "knowledge_work": 1,
+              "client_meetings": 1,
               "food_preparation": 1,
               "hospitality_service": 1
             },
@@ -15225,7 +15227,14 @@
         "subtypeCoverage": {
           "suburban_office": 2,
           "office_campus": 2,
-          "professional_office": 6,
+          "professional_office": 5,
+          "downtown_retail": 2,
+          "neighborhood_retail": 3,
+          "service_retail": 3,
+          "education": 2,
+          "nonprofit": 2,
+          "childcare": 2,
+          "institutional": 2,
           "creative_office": 2,
           "small_bay_industrial": 5,
           "warehouse": 3,
@@ -15234,13 +15243,6 @@
           "research_development": 4,
           "contractor_service": 1,
           "life_science_office": 3,
-          "downtown_retail": 1,
-          "neighborhood_retail": 2,
-          "service_retail": 2,
-          "education": 2,
-          "nonprofit": 2,
-          "childcare": 2,
-          "institutional": 2,
           "lifestyle_retail": 1,
           "food_beverage": 2,
           "visitor_serving": 2,
@@ -15252,37 +15254,39 @@
           "innovation_campus": 1
         },
         "activityCoverage": {
-          "knowledge_work": 8,
+          "knowledge_work": 7,
           "collaboration": 5,
-          "administrative_operations": 7,
+          "administrative_operations": 6,
           "product_development": 6,
-          "client_meetings": 4,
-          "training": 3,
+          "walk_in_retail": 3,
+          "walk_in_service": 6,
+          "customer_showroom": 3,
+          "client_meetings": 3,
+          "education": 2,
+          "training": 2,
           "receiving": 4,
           "shipping": 4,
           "storage": 4,
           "service_dispatch": 4,
           "light_manufacturing": 4,
           "research": 4,
-          "walk_in_retail": 2,
-          "walk_in_service": 5,
-          "customer_showroom": 2,
-          "education": 2,
           "food_preparation": 2,
           "hospitality_service": 2,
           "healthcare_delivery": 1
         },
         "archetypeCoverage": {
           "professional_office": 6,
-          "consulting_firm": 4,
+          "consulting_firm": 3,
           "startup": 6,
           "research_company": 6,
           "biotech_company": 2,
+          "wellness_practice": 5,
           "marketing_agency": 4,
-          "law_firm": 2,
-          "nonprofit_office": 3,
-          "education_provider": 3,
-          "training_center": 5,
+          "law_firm": 1,
+          "nonprofit_office": 2,
+          "education_provider": 2,
+          "training_center": 4,
+          "childcare_provider": 2,
           "creative_studio": 4,
           "medical_practice": 2,
           "general_contractor": 4,
@@ -15291,8 +15295,6 @@
           "distributor": 4,
           "ecommerce_fulfillment_business": 4,
           "building_services_company": 1,
-          "wellness_practice": 4,
-          "childcare_provider": 2,
           "food_producer": 2,
           "physical_therapy_practice": 2,
           "outpatient_clinic": 1
@@ -15302,8 +15304,8 @@
         "underrepresentedEcosystems": [],
         "summary": {
           "ecosystemCount": 7,
-          "developedCount": 4,
-          "partialCount": 3,
+          "developedCount": 5,
+          "partialCount": 2,
           "thinCount": 0,
           "missingCount": 0,
           "reviewRequiredDistrictCount": 0
@@ -15354,8 +15356,8 @@
             "readinessState": "partial",
             "readinessLabel": "Partial",
             "layers": {
-              "districts": "missing",
-              "recommendations": "missing",
+              "districts": "partial",
+              "recommendations": "partial",
               "representativeBuildings": "developed",
               "buildingBriefs": "developed",
               "subtypes": "developed",
@@ -15364,28 +15366,26 @@
               "editorialReview": "developed"
             },
             "counts": {
-              "districts": 0,
-              "secondaryDistricts": 5,
-              "recommendations": 0,
+              "districts": 1,
+              "secondaryDistricts": 4,
+              "recommendations": 1,
               "representativeBuildings": 12,
               "buildingBriefs": 12,
-              "subtypes": 4,
-              "archetypes": 12,
-              "activities": 6,
+              "subtypes": 11,
+              "archetypes": 14,
+              "activities": 10,
               "reviewRequiredDistricts": 0,
               "representativeRoles": 6,
               "operationalCategories": 5,
               "operationalCharacteristics": 15,
               "reviewRequiredRepresentativeBuildings": 0
             },
-            "gaps": [
-              "Ecosystem appears only as a secondary district expression."
-            ],
+            "gaps": [],
             "blocking": false,
             "blockingCodes": [],
             "strategicPriority": 2,
             "evidence": [
-              "0 primary districts and 5 secondary districts.",
+              "1 primary districts and 4 secondary districts.",
               "12 Representative Buildings and 12 Building Briefs.",
               "6 representative roles and 5 operational categories are covered."
             ],
@@ -15756,8 +15756,8 @@
             "readinessState": "strong",
             "readinessLabel": "Strong",
             "layers": {
-              "districts": "developed",
-              "recommendations": "developed",
+              "districts": "strong",
+              "recommendations": "strong",
               "representativeBuildings": "strong",
               "buildingBriefs": "developed",
               "subtypes": "developed",
@@ -15766,14 +15766,14 @@
               "editorialReview": "developed"
             },
             "counts": {
-              "districts": 2,
-              "secondaryDistricts": 1,
-              "recommendations": 2,
+              "districts": 1,
+              "secondaryDistricts": 2,
+              "recommendations": 1,
               "representativeBuildings": 2,
               "buildingBriefs": 2,
-              "subtypes": 12,
-              "archetypes": 12,
-              "activities": 10,
+              "subtypes": 8,
+              "archetypes": 7,
+              "activities": 7,
               "reviewRequiredDistricts": 0,
               "representativeRoles": 2,
               "operationalCategories": 2,
@@ -15785,7 +15785,7 @@
             "blockingCodes": [],
             "strategicPriority": 5,
             "evidence": [
-              "2 primary districts and 1 secondary districts.",
+              "1 primary districts and 2 secondary districts.",
               "2 Representative Buildings and 2 Building Briefs.",
               "2 representative roles and 2 operational categories are covered."
             ],
@@ -16332,32 +16332,6 @@
         ],
         "gaps": [
           {
-            "id": "ecosystem:office:ecosystem_secondary_only",
-            "code": "ecosystem_secondary_only",
-            "label": "Ecosystem Secondary Only",
-            "severity": "low",
-            "layer": "districts",
-            "ecosystemId": "office",
-            "ecosystemLabel": "Office",
-            "relevance": "core",
-            "readinessState": "partial",
-            "rationale": "Ecosystem appears only as secondary context.",
-            "evidence": [
-              "0 primary districts and 5 secondary districts.",
-              "12 Representative Buildings and 12 Building Briefs.",
-              "6 representative roles and 5 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem District Foundation",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
             "id": "ecosystem:hospitality:ecosystem_secondary_only",
             "code": "ecosystem_secondary_only",
             "label": "Ecosystem Secondary Only",
@@ -16452,32 +16426,6 @@
       },
       "ecosystemGaps": [
         {
-          "id": "ecosystem:office:ecosystem_secondary_only",
-          "code": "ecosystem_secondary_only",
-          "label": "Ecosystem Secondary Only",
-          "severity": "low",
-          "layer": "districts",
-          "ecosystemId": "office",
-          "ecosystemLabel": "Office",
-          "relevance": "core",
-          "readinessState": "partial",
-          "rationale": "Ecosystem appears only as secondary context.",
-          "evidence": [
-            "0 primary districts and 5 secondary districts.",
-            "12 Representative Buildings and 12 Building Briefs.",
-            "6 representative roles and 5 operational categories are covered."
-          ],
-          "recommendedSprintFamily": "Ecosystem District Foundation",
-          "completionCriteria": [
-            "Validated district ecosystem classification",
-            "Representative Building coverage across the most important subtypes",
-            "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-            "Building Brief migration only after canonical records and district association exist",
-            "Publisher ecosystem QA passes without hard errors"
-          ],
-          "blocksEcosystemReadiness": false
-        },
-        {
           "id": "ecosystem:special_purpose:ecosystem_secondary_only",
           "code": "ecosystem_secondary_only",
           "label": "Ecosystem Secondary Only",
@@ -16554,23 +16502,23 @@
         }
       ],
       "recommendedEcosystemSprint": {
-        "title": "East Bay Office Ecosystem District Foundation",
-        "objective": "Improve East Bay commercial balance by advancing Office from Partial toward stronger ecosystem readiness.",
-        "ecosystemId": "office",
-        "ecosystemLabel": "Office",
-        "relevance": "core",
-        "relevanceLabel": "Core",
+        "title": "East Bay Special Purpose Ecosystem District Foundation",
+        "objective": "Improve East Bay commercial balance by advancing Special Purpose from Partial toward stronger ecosystem readiness.",
+        "ecosystemId": "special_purpose",
+        "ecosystemLabel": "Special Purpose",
+        "relevance": "secondary",
+        "relevanceLabel": "Secondary",
         "readinessState": "partial",
         "readinessLabel": "Partial",
         "sprintFamily": "Ecosystem District Foundation",
-        "rationale": "Office is Core for East Bay and is currently Partial. Ecosystem appears only as secondary context.",
+        "rationale": "Special Purpose is Secondary for East Bay and is currently Partial. Ecosystem appears only as secondary context.",
         "gapCode": "ecosystem_secondary_only",
-        "priorityScore": 66,
+        "priorityScore": 32,
         "layers": {
           "districts": "missing",
           "recommendations": "missing",
-          "representativeBuildings": "developed",
-          "buildingBriefs": "developed",
+          "representativeBuildings": "missing",
+          "buildingBriefs": "missing",
           "subtypes": "developed",
           "archetypes": "developed",
           "activities": "developed",
@@ -16578,98 +16526,57 @@
         },
         "counts": {
           "districts": 0,
-          "secondaryDistricts": 5,
+          "secondaryDistricts": 1,
           "recommendations": 0,
-          "representativeBuildings": 12,
-          "buildingBriefs": 12,
+          "representativeBuildings": 0,
+          "buildingBriefs": 0,
           "subtypes": 4,
-          "archetypes": 12,
-          "activities": 6,
+          "archetypes": 4,
+          "activities": 4,
           "reviewRequiredDistricts": 0,
-          "representativeRoles": 6,
-          "operationalCategories": 5,
-          "operationalCharacteristics": 15,
+          "representativeRoles": 0,
+          "operationalCategories": 0,
+          "operationalCharacteristics": 0,
           "reviewRequiredRepresentativeBuildings": 0
         },
         "gaps": [
           "Ecosystem appears only as a secondary district expression."
         ],
         "targetSubtypes": [
-          "downtown_office",
-          "professional_office",
-          "creative_office",
-          "executive_office",
-          "suburban_office"
+          "education",
+          "nonprofit",
+          "religious",
+          "automotive",
+          "self_storage"
         ],
         "targetArchetypes": [
-          "professional_office",
-          "law_firm",
-          "accounting_firm",
-          "financial_services_firm",
-          "consulting_firm",
-          "marketing_agency"
+          "education_provider",
+          "training_center",
+          "childcare_provider",
+          "nonprofit_office",
+          "auto_repair_business"
         ],
         "targetActivities": [
-          "knowledge_work",
-          "client_meetings",
-          "collaboration",
-          "administrative_operations"
+          "education",
+          "training",
+          "walk_in_service",
+          "vehicle_storage"
         ],
-        "missingRepresentativeRoles": [],
-        "missingOperationalCategories": [],
-        "currentRepresentativeRoles": [
-          "suburban_office_campus",
-          "transit_oriented_office_environment",
-          "professional_office_environment",
-          "downtown_class_a_office",
-          "government_office_environment",
-          "creative_office_environment"
+        "missingRepresentativeRoles": [
+          "education_environment",
+          "automotive_service_environment",
+          "institutional_environment"
         ],
-        "currentOperationalCategories": [
-          "market_presence",
+        "missingOperationalCategories": [
+          "access_loading",
           "parking_vehicles",
-          "location_workforce",
-          "configuration",
-          "infrastructure"
+          "infrastructure",
+          "market_presence",
+          "outdoor_special_use"
         ],
-        "existingRepresentativeBuildings": [
-          {
-            "name": "2100 Powell St",
-            "path": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
-            "role": "suburban_office_campus",
-            "confidence": "editorially_supported"
-          },
-          {
-            "name": "2140 Shattuck Ave",
-            "path": "/commercial-real-estate/building/CA/berkeley/2140-shattuck-ave/",
-            "role": "transit_oriented_office_environment",
-            "confidence": "editorially_supported"
-          },
-          {
-            "name": "2150 Shattuck Ave",
-            "path": "/commercial-real-estate/building/CA/berkeley/2150-shattuck-ave/",
-            "role": "transit_oriented_office_environment",
-            "confidence": "editorially_supported"
-          },
-          {
-            "name": "2030 Addison St",
-            "path": "/commercial-real-estate/building/CA/berkeley/2030-addison-st/",
-            "role": "professional_office_environment",
-            "confidence": "district_inferred"
-          },
-          {
-            "name": "2040 Bancroft Way",
-            "path": "/commercial-real-estate/building/CA/berkeley/2040-bancroft-way/",
-            "role": "downtown_class_a_office",
-            "confidence": "district_inferred"
-          },
-          {
-            "name": "2070 Allston Way",
-            "path": "/commercial-real-estate/building/CA/berkeley/2070-allston-way/",
-            "role": "downtown_class_a_office",
-            "confidence": "district_inferred"
-          }
-        ],
+        "currentRepresentativeRoles": [],
+        "currentOperationalCategories": [],
+        "existingRepresentativeBuildings": [],
         "districtCandidates": [],
         "expectedBuildingRange": "use Publisher task scope",
         "dependencies": [
@@ -16690,8 +16597,11 @@
           "Representative Building intelligence QA passes"
         ],
         "blockingEcosystemReadiness": false,
-        "alternativeSprint": null,
-        "codexPrompt": "Implement Publisher ecosystem sprint for East Bay: East Bay Office Ecosystem District Foundation\n\nFramework:\n- Businesses search for places where their operations can succeed, not for property types.\n- Use the Commercial Ecosystem Framework and canonical taxonomy.\n- Do not change recommendation rankings, Search Profile questions, or public page design.\n\nTarget ecosystem: Office (office)\nMetro relevance: Core\nCurrent readiness: Partial\nSprint family: Ecosystem District Foundation\n\nCurrent layer coverage:\n- districts: missing\n- recommendations: missing\n- representativeBuildings: developed\n- buildingBriefs: developed\n- subtypes: developed\n- archetypes: developed\n- activities: developed\n- editorialReview: developed\n\nKnown gaps:\n- Ecosystem appears only as a secondary district expression.\n\nTarget subtypes:\n- downtown_office, professional_office, creative_office, executive_office, suburban_office\nTarget archetypes:\n- professional_office, law_firm, accounting_firm, financial_services_firm, consulting_firm, marketing_agency\nTarget business activities:\n- knowledge_work, client_meetings, collaboration, administrative_operations\nMissing representative roles:\n- none identified\nMissing operational categories:\n- none identified\nExisting representative buildings:\n- 2100 Powell St (suburban_office_campus); 2140 Shattuck Ave (transit_oriented_office_environment); 2150 Shattuck Ave (transit_oriented_office_environment); 2030 Addison St (professional_office_environment); 2040 Bancroft Way (downtown_class_a_office); 2070 Allston Way (downtown_class_a_office)\nDistrict candidates:\n- review required\n\nDependencies:\n- Ecosystem classification\n- District foundation\n- Recommendation foundation\n- Representative Building foundation\n- Building Brief migration after canonical records exist\n\nCompletion criteria:\n- Validated district ecosystem classification\n- Representative Building coverage across the most important subtypes\n- Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus\n- Building Brief migration only after canonical records and district association exist\n- Publisher ecosystem QA passes without hard errors\n- Every target representative role has at least one source-supported building or is explicitly marked research required\n- Target operational categories are represented without asserting unverified property features\n- Representative Building intelligence QA passes\n\nGuardrails:\n- Do not invent districts, buildings, tenants, availability, rents, or unsupported facts.\n- Do not deepen office-only coverage when the target ecosystem is different.\n- Do not treat taxonomy compatibility as proof that a property has a feature.\n- Validate loading, power, parking, yards, lab, food, medical, and permitted-use claims before authoring them as facts.\n- Do not recommend Building Brief migration before canonical representative buildings exist.\n- Regenerate Publisher snapshots and run ecosystem readiness QA.\n\nVerification:\n- npm run publisher:snapshot\n- npm run publisher:report\n- npm run build\n- node scripts/qa-commercial-ecosystem-foundation.js\n- node scripts/qa-publisher-ecosystem-readiness.js\n- node scripts/qa-representative-building-intelligence.js"
+        "alternativeSprint": {
+          "title": "East Bay Office Building Brief Migration",
+          "whyNotFirst": "Office work remains useful, but the target ecosystem has a higher strategic gap based on current readiness."
+        },
+        "codexPrompt": "Implement Publisher ecosystem sprint for East Bay: East Bay Special Purpose Ecosystem District Foundation\n\nFramework:\n- Businesses search for places where their operations can succeed, not for property types.\n- Use the Commercial Ecosystem Framework and canonical taxonomy.\n- Do not change recommendation rankings, Search Profile questions, or public page design.\n\nTarget ecosystem: Special Purpose (special_purpose)\nMetro relevance: Secondary\nCurrent readiness: Partial\nSprint family: Ecosystem District Foundation\n\nCurrent layer coverage:\n- districts: missing\n- recommendations: missing\n- representativeBuildings: missing\n- buildingBriefs: missing\n- subtypes: developed\n- archetypes: developed\n- activities: developed\n- editorialReview: developed\n\nKnown gaps:\n- Ecosystem appears only as a secondary district expression.\n\nTarget subtypes:\n- education, nonprofit, religious, automotive, self_storage\nTarget archetypes:\n- education_provider, training_center, childcare_provider, nonprofit_office, auto_repair_business\nTarget business activities:\n- education, training, walk_in_service, vehicle_storage\nMissing representative roles:\n- education_environment, automotive_service_environment, institutional_environment\nMissing operational categories:\n- access_loading, parking_vehicles, infrastructure, market_presence, outdoor_special_use\nExisting representative buildings:\n- none\nDistrict candidates:\n- review required\n\nDependencies:\n- Ecosystem classification\n- District foundation\n- Recommendation foundation\n- Representative Building foundation\n- Building Brief migration after canonical records exist\n\nCompletion criteria:\n- Validated district ecosystem classification\n- Representative Building coverage across the most important subtypes\n- Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus\n- Building Brief migration only after canonical records and district association exist\n- Publisher ecosystem QA passes without hard errors\n- Every target representative role has at least one source-supported building or is explicitly marked research required\n- Target operational categories are represented without asserting unverified property features\n- Representative Building intelligence QA passes\n\nGuardrails:\n- Do not invent districts, buildings, tenants, availability, rents, or unsupported facts.\n- Do not deepen office-only coverage when the target ecosystem is different.\n- Do not treat taxonomy compatibility as proof that a property has a feature.\n- Validate loading, power, parking, yards, lab, food, medical, and permitted-use claims before authoring them as facts.\n- Do not recommend Building Brief migration before canonical representative buildings exist.\n- Regenerate Publisher snapshots and run ecosystem readiness QA.\n\nVerification:\n- npm run publisher:snapshot\n- npm run publisher:report\n- npm run build\n- node scripts/qa-commercial-ecosystem-foundation.js\n- node scripts/qa-publisher-ecosystem-readiness.js\n- node scripts/qa-representative-building-intelligence.js"
       },
       "gaps": [
         {
@@ -18183,7 +18093,7 @@
     {
       "metroId": "sacramento",
       "metroName": "Sacramento",
-      "generatedAt": "2026-08-13T08:22:17-07:00",
+      "generatedAt": "2026-08-13T08:36:11-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 98,
@@ -26829,7 +26739,7 @@
     {
       "metroId": "san-diego",
       "metroName": "San Diego",
-      "generatedAt": "2026-08-13T08:22:17-07:00",
+      "generatedAt": "2026-08-13T08:36:11-07:00",
       "currentState": {
         "readinessStatus": "Expansion Ready",
         "overallScore": 84,
@@ -36365,7 +36275,7 @@
     {
       "metroId": "orange-county",
       "metroName": "Orange County",
-      "generatedAt": "2026-08-13T08:22:17-07:00",
+      "generatedAt": "2026-08-13T08:36:11-07:00",
       "currentState": {
         "readinessStatus": "Expansion Ready",
         "overallScore": 84,
@@ -45170,7 +45080,7 @@
     {
       "metroId": "denver",
       "metroName": "Denver",
-      "generatedAt": "2026-08-13T08:22:17-07:00",
+      "generatedAt": "2026-08-13T08:36:11-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 97,
@@ -52877,7 +52787,7 @@
     {
       "metroId": "seattle",
       "metroName": "Seattle",
-      "generatedAt": "2026-08-13T08:22:17-07:00",
+      "generatedAt": "2026-08-13T08:36:11-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 94,
@@ -58403,7 +58313,7 @@
     {
       "metroId": "san-francisco",
       "metroName": "San Francisco",
-      "generatedAt": "2026-08-13T08:22:17-07:00",
+      "generatedAt": "2026-08-13T08:36:11-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 96,
@@ -58464,9 +58374,9 @@
           "office": {
             "id": "office",
             "label": "Office",
-            "districtCount": 6,
-            "secondaryDistrictCount": 16,
-            "recommendationNodeCount": 6,
+            "districtCount": 7,
+            "secondaryDistrictCount": 15,
+            "recommendationNodeCount": 7,
             "representativeBuildingCount": 77,
             "buildingBriefCount": 37,
             "status": "Developed",
@@ -58500,6 +58410,11 @@
                 "slug": "south-beach",
                 "label": "South Beach",
                 "path": "/commercial-real-estate/CA/san-francisco/south-beach/"
+              },
+              {
+                "slug": "downtown-berkeley",
+                "label": "Downtown Berkeley",
+                "path": "/commercial-real-estate/CA/berkeley/downtown-berkeley/"
               }
             ],
             "subtypes": {
@@ -58509,7 +58424,14 @@
               "professional_office": 9,
               "office_campus": 2,
               "research_development": 2,
-              "suburban_office": 1
+              "suburban_office": 1,
+              "downtown_retail": 1,
+              "neighborhood_retail": 1,
+              "service_retail": 1,
+              "education": 1,
+              "nonprofit": 1,
+              "childcare": 1,
+              "institutional": 1
             },
             "archetypes": {
               "biotech_company": 3,
@@ -58522,19 +58444,24 @@
               "consulting_firm": 4,
               "professional_office": 7,
               "general_contractor": 2,
+              "wellness_practice": 1,
               "nonprofit_office": 1,
               "education_provider": 1,
               "training_center": 2,
+              "childcare_provider": 1,
               "medical_practice": 1
             },
             "activities": {
               "product_development": 9,
               "collaboration": 10,
               "knowledge_work": 15,
-              "customer_showroom": 2,
+              "customer_showroom": 3,
               "client_meetings": 5,
               "administrative_operations": 4,
               "research": 1,
+              "walk_in_retail": 1,
+              "walk_in_service": 1,
+              "education": 1,
               "training": 1
             },
             "reviewRequiredDistricts": [],
@@ -58915,9 +58842,9 @@
           "retail": {
             "id": "retail",
             "label": "Retail",
-            "districtCount": 7,
-            "secondaryDistrictCount": 6,
-            "recommendationNodeCount": 7,
+            "districtCount": 6,
+            "secondaryDistrictCount": 7,
+            "recommendationNodeCount": 6,
             "representativeBuildingCount": 14,
             "buildingBriefCount": 2,
             "status": "Developed",
@@ -58948,27 +58875,18 @@
                 "path": "/commercial-real-estate/CA/san-mateo/downtown-san-mateo/"
               },
               {
-                "slug": "downtown-berkeley",
-                "label": "Downtown Berkeley",
-                "path": "/commercial-real-estate/CA/berkeley/downtown-berkeley/"
-              },
-              {
                 "slug": "jack-london-square",
                 "label": "Jack London Square",
                 "path": "/commercial-real-estate/CA/oakland/jack-london-square/"
               }
             ],
             "subtypes": {
-              "professional_office": 5,
+              "professional_office": 4,
               "neighborhood_retail": 6,
               "showroom_retail": 1,
               "creative_office": 2,
               "downtown_retail": 1,
               "service_retail": 2,
-              "education": 1,
-              "nonprofit": 1,
-              "childcare": 1,
-              "institutional": 1,
               "lifestyle_retail": 1,
               "food_beverage": 1,
               "visitor_serving": 1,
@@ -58979,13 +58897,8 @@
               "professional_office": 6,
               "wellness_practice": 7,
               "creative_studio": 3,
-              "law_firm": 1,
-              "consulting_firm": 1,
-              "nonprofit_office": 1,
-              "education_provider": 1,
-              "training_center": 2,
-              "childcare_provider": 1,
               "food_producer": 1,
+              "training_center": 1,
               "physical_therapy_practice": 1
             },
             "activities": {
@@ -58993,11 +58906,8 @@
               "walk_in_retail": 6,
               "walk_in_service": 8,
               "collaboration": 1,
-              "knowledge_work": 4,
-              "client_meetings": 2,
-              "administrative_operations": 1,
-              "education": 1,
-              "training": 1,
+              "knowledge_work": 3,
+              "client_meetings": 1,
               "food_preparation": 1,
               "hospitality_service": 1
             },
@@ -59484,23 +59394,23 @@
           "creative_office": 12,
           "downtown_office": 3,
           "executive_office": 1,
-          "professional_office": 17,
+          "professional_office": 16,
           "office_campus": 3,
           "research_development": 12,
           "suburban_office": 2,
+          "downtown_retail": 2,
+          "neighborhood_retail": 7,
+          "service_retail": 3,
+          "education": 2,
+          "nonprofit": 2,
+          "childcare": 2,
+          "institutional": 2,
           "flex": 9,
           "small_bay_industrial": 5,
           "warehouse": 2,
           "manufacturing": 1,
           "life_science_office": 4,
-          "neighborhood_retail": 6,
           "showroom_retail": 1,
-          "downtown_retail": 1,
-          "service_retail": 2,
-          "education": 2,
-          "nonprofit": 2,
-          "childcare": 2,
-          "institutional": 2,
           "lifestyle_retail": 1,
           "food_beverage": 2,
           "visitor_serving": 2,
@@ -59514,20 +59424,20 @@
         "activityCoverage": {
           "product_development": 23,
           "collaboration": 19,
-          "knowledge_work": 24,
-          "customer_showroom": 14,
-          "client_meetings": 7,
-          "administrative_operations": 8,
+          "knowledge_work": 23,
+          "customer_showroom": 15,
+          "client_meetings": 6,
+          "administrative_operations": 7,
           "research": 11,
-          "training": 3,
+          "walk_in_retail": 7,
+          "walk_in_service": 11,
+          "education": 2,
+          "training": 2,
           "light_manufacturing": 9,
           "receiving": 5,
           "shipping": 5,
           "storage": 5,
           "service_dispatch": 5,
-          "walk_in_retail": 6,
-          "walk_in_service": 10,
-          "education": 2,
           "food_preparation": 2,
           "hospitality_service": 2,
           "healthcare_delivery": 1
@@ -59538,21 +59448,21 @@
           "startup": 24,
           "creative_studio": 19,
           "marketing_agency": 16,
-          "law_firm": 3,
+          "law_firm": 2,
           "financial_services_firm": 1,
-          "consulting_firm": 6,
+          "consulting_firm": 5,
           "professional_office": 14,
           "general_contractor": 7,
-          "nonprofit_office": 3,
-          "education_provider": 3,
-          "training_center": 5,
+          "wellness_practice": 9,
+          "nonprofit_office": 2,
+          "education_provider": 2,
+          "training_center": 4,
+          "childcare_provider": 2,
           "medical_practice": 2,
           "light_manufacturer": 7,
           "cabinet_shop": 5,
           "distributor": 5,
           "ecommerce_fulfillment_business": 5,
-          "wellness_practice": 8,
-          "childcare_provider": 2,
           "food_producer": 2,
           "physical_therapy_practice": 2,
           "outpatient_clinic": 1
@@ -59623,14 +59533,14 @@
               "editorialReview": "developed"
             },
             "counts": {
-              "districts": 6,
-              "secondaryDistricts": 16,
-              "recommendations": 6,
+              "districts": 7,
+              "secondaryDistricts": 15,
+              "recommendations": 7,
               "representativeBuildings": 77,
               "buildingBriefs": 37,
-              "subtypes": 7,
-              "archetypes": 14,
-              "activities": 8,
+              "subtypes": 14,
+              "archetypes": 16,
+              "activities": 11,
               "reviewRequiredDistricts": 0,
               "representativeRoles": 7,
               "operationalCategories": 5,
@@ -59642,7 +59552,7 @@
             "blockingCodes": [],
             "strategicPriority": 2,
             "evidence": [
-              "6 primary districts and 16 secondary districts.",
+              "7 primary districts and 15 secondary districts.",
               "77 Representative Buildings and 37 Building Briefs.",
               "7 representative roles and 5 operational categories are covered."
             ],
@@ -60038,14 +59948,14 @@
               "editorialReview": "developed"
             },
             "counts": {
-              "districts": 7,
-              "secondaryDistricts": 6,
-              "recommendations": 7,
+              "districts": 6,
+              "secondaryDistricts": 7,
+              "recommendations": 6,
               "representativeBuildings": 14,
               "buildingBriefs": 2,
-              "subtypes": 14,
-              "archetypes": 12,
-              "activities": 11,
+              "subtypes": 10,
+              "archetypes": 7,
+              "activities": 8,
               "reviewRequiredDistricts": 0,
               "representativeRoles": 3,
               "operationalCategories": 2,
@@ -60057,7 +59967,7 @@
             "blockingCodes": [],
             "strategicPriority": 5,
             "evidence": [
-              "7 primary districts and 6 secondary districts.",
+              "6 primary districts and 7 secondary districts.",
               "14 Representative Buildings and 2 Building Briefs.",
               "3 representative roles and 2 operational categories are covered."
             ],
@@ -72673,7 +72583,7 @@
     {
       "metroId": "east-bay",
       "metroName": "East Bay",
-      "generatedAt": "2026-08-13T08:22:17-07:00",
+      "generatedAt": "2026-08-13T08:36:11-07:00",
       "currentState": {
         "readinessStatus": "Editorially Developed",
         "overallScore": 74,
@@ -72721,8 +72631,8 @@
         },
         "ecosystems": {
           "count": 7,
-          "developed": 4,
-          "partial": 3,
+          "developed": 5,
+          "partial": 2,
           "thin": 0,
           "missing": 0,
           "reviewRequired": 0,
@@ -72734,17 +72644,30 @@
           "office": {
             "id": "office",
             "label": "Office",
-            "districtCount": 0,
-            "secondaryDistrictCount": 5,
-            "recommendationNodeCount": 0,
+            "districtCount": 1,
+            "secondaryDistrictCount": 4,
+            "recommendationNodeCount": 1,
             "representativeBuildingCount": 12,
             "buildingBriefCount": 12,
-            "status": "Partial",
-            "districts": [],
+            "status": "Developed",
+            "districts": [
+              {
+                "slug": "downtown-berkeley",
+                "label": "Downtown Berkeley",
+                "path": "/commercial-real-estate/CA/berkeley/downtown-berkeley/"
+              }
+            ],
             "subtypes": {
               "suburban_office": 1,
               "office_campus": 1,
               "professional_office": 3,
+              "downtown_retail": 1,
+              "neighborhood_retail": 1,
+              "service_retail": 1,
+              "education": 1,
+              "nonprofit": 1,
+              "childcare": 1,
+              "institutional": 1,
               "creative_office": 1
             },
             "archetypes": {
@@ -72753,11 +72676,13 @@
               "startup": 2,
               "research_company": 2,
               "biotech_company": 1,
+              "wellness_practice": 1,
               "marketing_agency": 2,
               "law_firm": 1,
               "nonprofit_office": 1,
               "education_provider": 1,
               "training_center": 2,
+              "childcare_provider": 1,
               "creative_studio": 2,
               "medical_practice": 1
             },
@@ -72766,7 +72691,11 @@
               "collaboration": 2,
               "administrative_operations": 3,
               "product_development": 2,
+              "walk_in_retail": 1,
+              "walk_in_service": 1,
+              "customer_showroom": 1,
               "client_meetings": 2,
+              "education": 1,
               "training": 1
             },
             "reviewRequiredDistricts": [],
@@ -73114,18 +73043,13 @@
           "retail": {
             "id": "retail",
             "label": "Retail",
-            "districtCount": 2,
-            "secondaryDistrictCount": 1,
-            "recommendationNodeCount": 2,
+            "districtCount": 1,
+            "secondaryDistrictCount": 2,
+            "recommendationNodeCount": 1,
             "representativeBuildingCount": 2,
             "buildingBriefCount": 2,
             "status": "Developed",
             "districts": [
-              {
-                "slug": "downtown-berkeley",
-                "label": "Downtown Berkeley",
-                "path": "/commercial-real-estate/CA/berkeley/downtown-berkeley/"
-              },
               {
                 "slug": "jack-london-square",
                 "label": "Jack London Square",
@@ -73136,12 +73060,8 @@
               "downtown_retail": 1,
               "neighborhood_retail": 2,
               "service_retail": 2,
-              "professional_office": 2,
-              "education": 1,
-              "nonprofit": 1,
-              "childcare": 1,
-              "institutional": 1,
               "lifestyle_retail": 1,
+              "professional_office": 1,
               "food_beverage": 1,
               "visitor_serving": 1,
               "event_hospitality": 1
@@ -73150,25 +73070,17 @@
               "wellness_practice": 3,
               "marketing_agency": 2,
               "professional_office": 2,
-              "law_firm": 1,
-              "consulting_firm": 1,
-              "nonprofit_office": 1,
-              "education_provider": 1,
-              "training_center": 2,
-              "childcare_provider": 1,
               "creative_studio": 1,
               "food_producer": 1,
+              "training_center": 1,
               "physical_therapy_practice": 1
             },
             "activities": {
               "walk_in_retail": 2,
               "walk_in_service": 3,
               "customer_showroom": 2,
-              "knowledge_work": 2,
-              "client_meetings": 2,
-              "administrative_operations": 1,
-              "education": 1,
-              "training": 1,
+              "knowledge_work": 1,
+              "client_meetings": 1,
               "food_preparation": 1,
               "hospitality_service": 1
             },
@@ -73573,7 +73485,14 @@
         "subtypeCoverage": {
           "suburban_office": 2,
           "office_campus": 2,
-          "professional_office": 6,
+          "professional_office": 5,
+          "downtown_retail": 2,
+          "neighborhood_retail": 3,
+          "service_retail": 3,
+          "education": 2,
+          "nonprofit": 2,
+          "childcare": 2,
+          "institutional": 2,
           "creative_office": 2,
           "small_bay_industrial": 5,
           "warehouse": 3,
@@ -73582,13 +73501,6 @@
           "research_development": 4,
           "contractor_service": 1,
           "life_science_office": 3,
-          "downtown_retail": 1,
-          "neighborhood_retail": 2,
-          "service_retail": 2,
-          "education": 2,
-          "nonprofit": 2,
-          "childcare": 2,
-          "institutional": 2,
           "lifestyle_retail": 1,
           "food_beverage": 2,
           "visitor_serving": 2,
@@ -73600,37 +73512,39 @@
           "innovation_campus": 1
         },
         "activityCoverage": {
-          "knowledge_work": 8,
+          "knowledge_work": 7,
           "collaboration": 5,
-          "administrative_operations": 7,
+          "administrative_operations": 6,
           "product_development": 6,
-          "client_meetings": 4,
-          "training": 3,
+          "walk_in_retail": 3,
+          "walk_in_service": 6,
+          "customer_showroom": 3,
+          "client_meetings": 3,
+          "education": 2,
+          "training": 2,
           "receiving": 4,
           "shipping": 4,
           "storage": 4,
           "service_dispatch": 4,
           "light_manufacturing": 4,
           "research": 4,
-          "walk_in_retail": 2,
-          "walk_in_service": 5,
-          "customer_showroom": 2,
-          "education": 2,
           "food_preparation": 2,
           "hospitality_service": 2,
           "healthcare_delivery": 1
         },
         "archetypeCoverage": {
           "professional_office": 6,
-          "consulting_firm": 4,
+          "consulting_firm": 3,
           "startup": 6,
           "research_company": 6,
           "biotech_company": 2,
+          "wellness_practice": 5,
           "marketing_agency": 4,
-          "law_firm": 2,
-          "nonprofit_office": 3,
-          "education_provider": 3,
-          "training_center": 5,
+          "law_firm": 1,
+          "nonprofit_office": 2,
+          "education_provider": 2,
+          "training_center": 4,
+          "childcare_provider": 2,
           "creative_studio": 4,
           "medical_practice": 2,
           "general_contractor": 4,
@@ -73639,8 +73553,6 @@
           "distributor": 4,
           "ecommerce_fulfillment_business": 4,
           "building_services_company": 1,
-          "wellness_practice": 4,
-          "childcare_provider": 2,
           "food_producer": 2,
           "physical_therapy_practice": 2,
           "outpatient_clinic": 1
@@ -73650,8 +73562,8 @@
         "underrepresentedEcosystems": [],
         "summary": {
           "ecosystemCount": 7,
-          "developedCount": 4,
-          "partialCount": 3,
+          "developedCount": 5,
+          "partialCount": 2,
           "thinCount": 0,
           "missingCount": 0,
           "reviewRequiredDistrictCount": 0
@@ -73702,8 +73614,8 @@
             "readinessState": "partial",
             "readinessLabel": "Partial",
             "layers": {
-              "districts": "missing",
-              "recommendations": "missing",
+              "districts": "partial",
+              "recommendations": "partial",
               "representativeBuildings": "developed",
               "buildingBriefs": "developed",
               "subtypes": "developed",
@@ -73712,28 +73624,26 @@
               "editorialReview": "developed"
             },
             "counts": {
-              "districts": 0,
-              "secondaryDistricts": 5,
-              "recommendations": 0,
+              "districts": 1,
+              "secondaryDistricts": 4,
+              "recommendations": 1,
               "representativeBuildings": 12,
               "buildingBriefs": 12,
-              "subtypes": 4,
-              "archetypes": 12,
-              "activities": 6,
+              "subtypes": 11,
+              "archetypes": 14,
+              "activities": 10,
               "reviewRequiredDistricts": 0,
               "representativeRoles": 6,
               "operationalCategories": 5,
               "operationalCharacteristics": 15,
               "reviewRequiredRepresentativeBuildings": 0
             },
-            "gaps": [
-              "Ecosystem appears only as a secondary district expression."
-            ],
+            "gaps": [],
             "blocking": false,
             "blockingCodes": [],
             "strategicPriority": 2,
             "evidence": [
-              "0 primary districts and 5 secondary districts.",
+              "1 primary districts and 4 secondary districts.",
               "12 Representative Buildings and 12 Building Briefs.",
               "6 representative roles and 5 operational categories are covered."
             ],
@@ -74104,8 +74014,8 @@
             "readinessState": "strong",
             "readinessLabel": "Strong",
             "layers": {
-              "districts": "developed",
-              "recommendations": "developed",
+              "districts": "strong",
+              "recommendations": "strong",
               "representativeBuildings": "strong",
               "buildingBriefs": "developed",
               "subtypes": "developed",
@@ -74114,14 +74024,14 @@
               "editorialReview": "developed"
             },
             "counts": {
-              "districts": 2,
-              "secondaryDistricts": 1,
-              "recommendations": 2,
+              "districts": 1,
+              "secondaryDistricts": 2,
+              "recommendations": 1,
               "representativeBuildings": 2,
               "buildingBriefs": 2,
-              "subtypes": 12,
-              "archetypes": 12,
-              "activities": 10,
+              "subtypes": 8,
+              "archetypes": 7,
+              "activities": 7,
               "reviewRequiredDistricts": 0,
               "representativeRoles": 2,
               "operationalCategories": 2,
@@ -74133,7 +74043,7 @@
             "blockingCodes": [],
             "strategicPriority": 5,
             "evidence": [
-              "2 primary districts and 1 secondary districts.",
+              "1 primary districts and 2 secondary districts.",
               "2 Representative Buildings and 2 Building Briefs.",
               "2 representative roles and 2 operational categories are covered."
             ],
@@ -74680,32 +74590,6 @@
         ],
         "gaps": [
           {
-            "id": "ecosystem:office:ecosystem_secondary_only",
-            "code": "ecosystem_secondary_only",
-            "label": "Ecosystem Secondary Only",
-            "severity": "low",
-            "layer": "districts",
-            "ecosystemId": "office",
-            "ecosystemLabel": "Office",
-            "relevance": "core",
-            "readinessState": "partial",
-            "rationale": "Ecosystem appears only as secondary context.",
-            "evidence": [
-              "0 primary districts and 5 secondary districts.",
-              "12 Representative Buildings and 12 Building Briefs.",
-              "6 representative roles and 5 operational categories are covered."
-            ],
-            "recommendedSprintFamily": "Ecosystem District Foundation",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
             "id": "ecosystem:hospitality:ecosystem_secondary_only",
             "code": "ecosystem_secondary_only",
             "label": "Ecosystem Secondary Only",
@@ -74800,32 +74684,6 @@
       },
       "ecosystemGaps": [
         {
-          "id": "ecosystem:office:ecosystem_secondary_only",
-          "code": "ecosystem_secondary_only",
-          "label": "Ecosystem Secondary Only",
-          "severity": "low",
-          "layer": "districts",
-          "ecosystemId": "office",
-          "ecosystemLabel": "Office",
-          "relevance": "core",
-          "readinessState": "partial",
-          "rationale": "Ecosystem appears only as secondary context.",
-          "evidence": [
-            "0 primary districts and 5 secondary districts.",
-            "12 Representative Buildings and 12 Building Briefs.",
-            "6 representative roles and 5 operational categories are covered."
-          ],
-          "recommendedSprintFamily": "Ecosystem District Foundation",
-          "completionCriteria": [
-            "Validated district ecosystem classification",
-            "Representative Building coverage across the most important subtypes",
-            "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-            "Building Brief migration only after canonical records and district association exist",
-            "Publisher ecosystem QA passes without hard errors"
-          ],
-          "blocksEcosystemReadiness": false
-        },
-        {
           "id": "ecosystem:special_purpose:ecosystem_secondary_only",
           "code": "ecosystem_secondary_only",
           "label": "Ecosystem Secondary Only",
@@ -74902,23 +74760,23 @@
         }
       ],
       "recommendedEcosystemSprint": {
-        "title": "East Bay Office Ecosystem District Foundation",
-        "objective": "Improve East Bay commercial balance by advancing Office from Partial toward stronger ecosystem readiness.",
-        "ecosystemId": "office",
-        "ecosystemLabel": "Office",
-        "relevance": "core",
-        "relevanceLabel": "Core",
+        "title": "East Bay Special Purpose Ecosystem District Foundation",
+        "objective": "Improve East Bay commercial balance by advancing Special Purpose from Partial toward stronger ecosystem readiness.",
+        "ecosystemId": "special_purpose",
+        "ecosystemLabel": "Special Purpose",
+        "relevance": "secondary",
+        "relevanceLabel": "Secondary",
         "readinessState": "partial",
         "readinessLabel": "Partial",
         "sprintFamily": "Ecosystem District Foundation",
-        "rationale": "Office is Core for East Bay and is currently Partial. Ecosystem appears only as secondary context.",
+        "rationale": "Special Purpose is Secondary for East Bay and is currently Partial. Ecosystem appears only as secondary context.",
         "gapCode": "ecosystem_secondary_only",
-        "priorityScore": 66,
+        "priorityScore": 32,
         "layers": {
           "districts": "missing",
           "recommendations": "missing",
-          "representativeBuildings": "developed",
-          "buildingBriefs": "developed",
+          "representativeBuildings": "missing",
+          "buildingBriefs": "missing",
           "subtypes": "developed",
           "archetypes": "developed",
           "activities": "developed",
@@ -74926,98 +74784,57 @@
         },
         "counts": {
           "districts": 0,
-          "secondaryDistricts": 5,
+          "secondaryDistricts": 1,
           "recommendations": 0,
-          "representativeBuildings": 12,
-          "buildingBriefs": 12,
+          "representativeBuildings": 0,
+          "buildingBriefs": 0,
           "subtypes": 4,
-          "archetypes": 12,
-          "activities": 6,
+          "archetypes": 4,
+          "activities": 4,
           "reviewRequiredDistricts": 0,
-          "representativeRoles": 6,
-          "operationalCategories": 5,
-          "operationalCharacteristics": 15,
+          "representativeRoles": 0,
+          "operationalCategories": 0,
+          "operationalCharacteristics": 0,
           "reviewRequiredRepresentativeBuildings": 0
         },
         "gaps": [
           "Ecosystem appears only as a secondary district expression."
         ],
         "targetSubtypes": [
-          "downtown_office",
-          "professional_office",
-          "creative_office",
-          "executive_office",
-          "suburban_office"
+          "education",
+          "nonprofit",
+          "religious",
+          "automotive",
+          "self_storage"
         ],
         "targetArchetypes": [
-          "professional_office",
-          "law_firm",
-          "accounting_firm",
-          "financial_services_firm",
-          "consulting_firm",
-          "marketing_agency"
+          "education_provider",
+          "training_center",
+          "childcare_provider",
+          "nonprofit_office",
+          "auto_repair_business"
         ],
         "targetActivities": [
-          "knowledge_work",
-          "client_meetings",
-          "collaboration",
-          "administrative_operations"
+          "education",
+          "training",
+          "walk_in_service",
+          "vehicle_storage"
         ],
-        "missingRepresentativeRoles": [],
-        "missingOperationalCategories": [],
-        "currentRepresentativeRoles": [
-          "suburban_office_campus",
-          "transit_oriented_office_environment",
-          "professional_office_environment",
-          "downtown_class_a_office",
-          "government_office_environment",
-          "creative_office_environment"
+        "missingRepresentativeRoles": [
+          "education_environment",
+          "automotive_service_environment",
+          "institutional_environment"
         ],
-        "currentOperationalCategories": [
-          "market_presence",
+        "missingOperationalCategories": [
+          "access_loading",
           "parking_vehicles",
-          "location_workforce",
-          "configuration",
-          "infrastructure"
+          "infrastructure",
+          "market_presence",
+          "outdoor_special_use"
         ],
-        "existingRepresentativeBuildings": [
-          {
-            "name": "2100 Powell St",
-            "path": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
-            "role": "suburban_office_campus",
-            "confidence": "editorially_supported"
-          },
-          {
-            "name": "2140 Shattuck Ave",
-            "path": "/commercial-real-estate/building/CA/berkeley/2140-shattuck-ave/",
-            "role": "transit_oriented_office_environment",
-            "confidence": "editorially_supported"
-          },
-          {
-            "name": "2150 Shattuck Ave",
-            "path": "/commercial-real-estate/building/CA/berkeley/2150-shattuck-ave/",
-            "role": "transit_oriented_office_environment",
-            "confidence": "editorially_supported"
-          },
-          {
-            "name": "2030 Addison St",
-            "path": "/commercial-real-estate/building/CA/berkeley/2030-addison-st/",
-            "role": "professional_office_environment",
-            "confidence": "district_inferred"
-          },
-          {
-            "name": "2040 Bancroft Way",
-            "path": "/commercial-real-estate/building/CA/berkeley/2040-bancroft-way/",
-            "role": "downtown_class_a_office",
-            "confidence": "district_inferred"
-          },
-          {
-            "name": "2070 Allston Way",
-            "path": "/commercial-real-estate/building/CA/berkeley/2070-allston-way/",
-            "role": "downtown_class_a_office",
-            "confidence": "district_inferred"
-          }
-        ],
+        "currentRepresentativeRoles": [],
+        "currentOperationalCategories": [],
+        "existingRepresentativeBuildings": [],
         "districtCandidates": [],
         "expectedBuildingRange": "use Publisher task scope",
         "dependencies": [
@@ -75038,8 +74855,11 @@
           "Representative Building intelligence QA passes"
         ],
         "blockingEcosystemReadiness": false,
-        "alternativeSprint": null,
-        "codexPrompt": "Implement Publisher ecosystem sprint for East Bay: East Bay Office Ecosystem District Foundation\n\nFramework:\n- Businesses search for places where their operations can succeed, not for property types.\n- Use the Commercial Ecosystem Framework and canonical taxonomy.\n- Do not change recommendation rankings, Search Profile questions, or public page design.\n\nTarget ecosystem: Office (office)\nMetro relevance: Core\nCurrent readiness: Partial\nSprint family: Ecosystem District Foundation\n\nCurrent layer coverage:\n- districts: missing\n- recommendations: missing\n- representativeBuildings: developed\n- buildingBriefs: developed\n- subtypes: developed\n- archetypes: developed\n- activities: developed\n- editorialReview: developed\n\nKnown gaps:\n- Ecosystem appears only as a secondary district expression.\n\nTarget subtypes:\n- downtown_office, professional_office, creative_office, executive_office, suburban_office\nTarget archetypes:\n- professional_office, law_firm, accounting_firm, financial_services_firm, consulting_firm, marketing_agency\nTarget business activities:\n- knowledge_work, client_meetings, collaboration, administrative_operations\nMissing representative roles:\n- none identified\nMissing operational categories:\n- none identified\nExisting representative buildings:\n- 2100 Powell St (suburban_office_campus); 2140 Shattuck Ave (transit_oriented_office_environment); 2150 Shattuck Ave (transit_oriented_office_environment); 2030 Addison St (professional_office_environment); 2040 Bancroft Way (downtown_class_a_office); 2070 Allston Way (downtown_class_a_office)\nDistrict candidates:\n- review required\n\nDependencies:\n- Ecosystem classification\n- District foundation\n- Recommendation foundation\n- Representative Building foundation\n- Building Brief migration after canonical records exist\n\nCompletion criteria:\n- Validated district ecosystem classification\n- Representative Building coverage across the most important subtypes\n- Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus\n- Building Brief migration only after canonical records and district association exist\n- Publisher ecosystem QA passes without hard errors\n- Every target representative role has at least one source-supported building or is explicitly marked research required\n- Target operational categories are represented without asserting unverified property features\n- Representative Building intelligence QA passes\n\nGuardrails:\n- Do not invent districts, buildings, tenants, availability, rents, or unsupported facts.\n- Do not deepen office-only coverage when the target ecosystem is different.\n- Do not treat taxonomy compatibility as proof that a property has a feature.\n- Validate loading, power, parking, yards, lab, food, medical, and permitted-use claims before authoring them as facts.\n- Do not recommend Building Brief migration before canonical representative buildings exist.\n- Regenerate Publisher snapshots and run ecosystem readiness QA.\n\nVerification:\n- npm run publisher:snapshot\n- npm run publisher:report\n- npm run build\n- node scripts/qa-commercial-ecosystem-foundation.js\n- node scripts/qa-publisher-ecosystem-readiness.js\n- node scripts/qa-representative-building-intelligence.js"
+        "alternativeSprint": {
+          "title": "East Bay Office Building Brief Migration",
+          "whyNotFirst": "Office work remains useful, but the target ecosystem has a higher strategic gap based on current readiness."
+        },
+        "codexPrompt": "Implement Publisher ecosystem sprint for East Bay: East Bay Special Purpose Ecosystem District Foundation\n\nFramework:\n- Businesses search for places where their operations can succeed, not for property types.\n- Use the Commercial Ecosystem Framework and canonical taxonomy.\n- Do not change recommendation rankings, Search Profile questions, or public page design.\n\nTarget ecosystem: Special Purpose (special_purpose)\nMetro relevance: Secondary\nCurrent readiness: Partial\nSprint family: Ecosystem District Foundation\n\nCurrent layer coverage:\n- districts: missing\n- recommendations: missing\n- representativeBuildings: missing\n- buildingBriefs: missing\n- subtypes: developed\n- archetypes: developed\n- activities: developed\n- editorialReview: developed\n\nKnown gaps:\n- Ecosystem appears only as a secondary district expression.\n\nTarget subtypes:\n- education, nonprofit, religious, automotive, self_storage\nTarget archetypes:\n- education_provider, training_center, childcare_provider, nonprofit_office, auto_repair_business\nTarget business activities:\n- education, training, walk_in_service, vehicle_storage\nMissing representative roles:\n- education_environment, automotive_service_environment, institutional_environment\nMissing operational categories:\n- access_loading, parking_vehicles, infrastructure, market_presence, outdoor_special_use\nExisting representative buildings:\n- none\nDistrict candidates:\n- review required\n\nDependencies:\n- Ecosystem classification\n- District foundation\n- Recommendation foundation\n- Representative Building foundation\n- Building Brief migration after canonical records exist\n\nCompletion criteria:\n- Validated district ecosystem classification\n- Representative Building coverage across the most important subtypes\n- Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus\n- Building Brief migration only after canonical records and district association exist\n- Publisher ecosystem QA passes without hard errors\n- Every target representative role has at least one source-supported building or is explicitly marked research required\n- Target operational categories are represented without asserting unverified property features\n- Representative Building intelligence QA passes\n\nGuardrails:\n- Do not invent districts, buildings, tenants, availability, rents, or unsupported facts.\n- Do not deepen office-only coverage when the target ecosystem is different.\n- Do not treat taxonomy compatibility as proof that a property has a feature.\n- Validate loading, power, parking, yards, lab, food, medical, and permitted-use claims before authoring them as facts.\n- Do not recommend Building Brief migration before canonical representative buildings exist.\n- Regenerate Publisher snapshots and run ecosystem readiness QA.\n\nVerification:\n- npm run publisher:snapshot\n- npm run publisher:report\n- npm run build\n- node scripts/qa-commercial-ecosystem-foundation.js\n- node scripts/qa-publisher-ecosystem-readiness.js\n- node scripts/qa-representative-building-intelligence.js"
       },
       "gaps": [
         {
@@ -76531,7 +76351,7 @@
     {
       "metroId": "sacramento",
       "metroName": "Sacramento",
-      "generatedAt": "2026-08-13T08:22:17-07:00",
+      "generatedAt": "2026-08-13T08:36:11-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 98,
@@ -85177,7 +84997,7 @@
     {
       "metroId": "san-diego",
       "metroName": "San Diego",
-      "generatedAt": "2026-08-13T08:22:17-07:00",
+      "generatedAt": "2026-08-13T08:36:11-07:00",
       "currentState": {
         "readinessStatus": "Expansion Ready",
         "overallScore": 84,
@@ -94713,7 +94533,7 @@
     {
       "metroId": "orange-county",
       "metroName": "Orange County",
-      "generatedAt": "2026-08-13T08:22:17-07:00",
+      "generatedAt": "2026-08-13T08:36:11-07:00",
       "currentState": {
         "readinessStatus": "Expansion Ready",
         "overallScore": 84,
@@ -103518,7 +103338,7 @@
     {
       "metroId": "denver",
       "metroName": "Denver",
-      "generatedAt": "2026-08-13T08:22:17-07:00",
+      "generatedAt": "2026-08-13T08:36:11-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 97,

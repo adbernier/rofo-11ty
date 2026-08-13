@@ -1533,13 +1533,13 @@ Object.entries(industrialQuestionPrompts).forEach(([slug, questionsToValidate]) 
       { slug: "west-berkeley", label: "West Berkeley", reason: "More industrial, maker, and research-support space.", relationshipType: "more_creative" },
     ] },
     commercialEcosystem: {
-      primary: "retail",
-      secondary: ["office", "special_purpose"],
+      primary: "office",
+      secondary: ["retail", "special_purpose"],
       subtypes: ["downtown_retail", "neighborhood_retail", "service_retail", "professional_office", "education", "nonprofit", "childcare", "institutional"],
       activities: ["walk_in_retail", "walk_in_service", "customer_showroom", "knowledge_work", "client_meetings", "administrative_operations", "education", "training"],
       archetypes: ["wellness_practice", "marketing_agency", "professional_office", "law_firm", "consulting_firm", "nonprofit_office", "education_provider", "training_center", "childcare_provider"],
       confidence: "high",
-      reviewNotes: ["Special Purpose is secondary and limited to Downtown Berkeley's UC Berkeley-adjacent education, training, nonprofit, civic, and childcare/service context; this does not imply any specific building is licensed or suitable for school, childcare, religious, automotive, self-storage, or other specialized use without property-level validation."],
+      reviewNotes: ["Office is the primary district expression based on Downtown Berkeley's BART-oriented professional, civic, and university-adjacent commercial context, its existing office representative buildings, and the strong covered Commercial Market Discovery finding; Retail remains a material secondary expression.", "Special Purpose is secondary and limited to Downtown Berkeley's UC Berkeley-adjacent education, training, nonprofit, civic, and childcare/service context; this does not imply any specific building is licensed or suitable for school, childcare, religious, automotive, self-storage, or other specialized use without property-level validation."],
     },
   },
   {
