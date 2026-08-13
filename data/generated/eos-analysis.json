@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-13T07:26:39-07:00",
+  "generatedAt": "2026-08-13T07:46:28-07:00",
   "eosVersion": "editorial-operating-system-v2.2.4",
   "sourceSystems": [
     "Publisher",
@@ -14,7 +14,7 @@
   ],
   "commercialKnowledgeIntelligence": {
     "schemaVersion": "eos-commercial-knowledge-intelligence-v1",
-    "generatedAt": "2026-08-13T07:26:39-07:00",
+    "generatedAt": "2026-08-13T07:46:28-07:00",
     "sourceSystems": [
       "Editor-controlled strategic priorities",
       "Google Search Console Search Analytics API",
@@ -186553,7 +186553,7 @@
       "displayedBy": "Mission Control",
       "status": "Validated",
       "validationStatus": "PASS",
-      "latestValidation": "2026-08-13T07:26:39-07:00",
+      "latestValidation": "2026-08-13T07:46:28-07:00",
       "markets": [
         {
           "marketId": "east-bay",
@@ -187224,7 +187224,7 @@
         "Low": 2
       },
       "deferredCandidates": 69,
-      "latestValidation": "2026-08-13T07:26:39-07:00",
+      "latestValidation": "2026-08-13T07:46:28-07:00",
       "errors": [],
       "warnings": [],
       "source": {
@@ -197693,66 +197693,6 @@
             "eligibleForExecution": true
           },
           {
-            "portfolioId": "portfolio:east-bay:building-profiles:emeryville-commercial-core:office",
-            "portfolioTitle": "Emeryville Commercial Core Office Portfolio",
-            "marketId": "east-bay",
-            "marketName": "East Bay",
-            "sourcePublisherMetroId": "east-bay",
-            "sourcePublisherMetroName": "East Bay",
-            "programId": "building_profiles",
-            "campaignId": "east-bay:building_profiles:completion-campaign",
-            "districtId": "emeryville-commercial-core",
-            "districtName": "Emeryville Commercial Core",
-            "districtPath": "/commercial-real-estate/CA/emeryville/emeryville-commercial-core/",
-            "ecosystem": "office",
-            "ecosystemLabel": "Office",
-            "workItems": [
-              {
-                "id": "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
-                "title": "2100 Powell St Building Profile",
-                "buildingName": "2100 Powell St",
-                "buildingPath": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
-                "sourceTaskId": "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
-                "reason": "Representative building has not migrated to the canonical Building Brief journey."
-              },
-              {
-                "id": "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st",
-                "title": "2200 Powell St Building Profile",
-                "buildingName": "2200 Powell St",
-                "buildingPath": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
-                "sourceTaskId": "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st",
-                "reason": "Representative building has not migrated to the canonical Building Brief journey."
-              }
-            ],
-            "workItemCount": 2,
-            "completedCount": 0,
-            "remainingCount": 2,
-            "missionSize": {
-              "id": "small",
-              "label": "Small",
-              "reviewWindow": "30-60 minutes",
-              "maximumWorkItems": 3
-            },
-            "estimatedReviewability": "Small: 30-60 minutes",
-            "groupingRationale": [
-              "Grouped by operational market, canonical district, ecosystem, source-data path, and Building Brief validation path.",
-              "2 Building Profile work items can be authored or migrated consistently in one reviewable SER."
-            ],
-            "splitRationale": [
-              "No split required; portfolio stays within the configured mission-size upper bound."
-            ],
-            "sourceOverlap": [
-              "_data/buildingPages.js",
-              "_data/commercialBuildingIntelligence.js"
-            ],
-            "validationPath": [
-              "node scripts/qa-building-brief-depth.js",
-              "node scripts/qa-eos.js"
-            ],
-            "confidence": "High",
-            "eligibleForExecution": true
-          },
-          {
             "portfolioId": "portfolio:orange-county:building-profiles:irvine-business-complex:office",
             "portfolioTitle": "Irvine Business Complex Office Portfolio",
             "marketId": "orange-county",
@@ -199903,6 +199843,22 @@
             "fallbackReason": "Duplicate building candidate; first canonical task is used in the portfolio."
           },
           {
+            "id": "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
+            "title": "Author a Building Brief for this representative building.",
+            "marketId": "east-bay",
+            "marketName": "East Bay",
+            "buildingPath": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
+            "fallbackReason": "Fewer than two compatible Building Profile work items share the same market, district, and ecosystem."
+          },
+          {
+            "id": "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st",
+            "title": "Author a Building Brief for this representative building.",
+            "marketId": "east-bay",
+            "marketName": "East Bay",
+            "buildingPath": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
+            "fallbackReason": "Fewer than two compatible Building Profile work items share the same market, district, and ecosystem."
+          },
+          {
             "id": "publisher:orange-county:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-lake-forest-22722-lambert-st",
             "title": "Author a Building Brief for this representative building.",
             "marketId": "orange-county",
@@ -200484,10 +200440,10 @@
           }
         ],
         "summary": {
-          "portfolios": 37,
-          "executablePortfolios": 37,
-          "hiddenWorkItems": 121,
-          "ungroupedItems": 87,
+          "portfolios": 36,
+          "executablePortfolios": 36,
+          "hiddenWorkItems": 119,
+          "ungroupedItems": 89,
           "maximumPortfolioSize": 12,
           "targetPortfolioRange": "8-12 buildings when source and validation paths are coherent; smaller portfolios remain valid when fewer buildings remain."
         }
@@ -201934,81 +201890,6 @@
             "confidence": "High"
           },
           {
-            "evidenceMissionId": "district-building-evidence:east-bay:emeryville-commercial-core",
-            "marketId": "east-bay",
-            "marketName": "East Bay",
-            "programId": "commercial_market_evidence",
-            "campaignId": "east-bay:commercial_market_evidence:completion-campaign",
-            "districtId": "emeryville-commercial-core",
-            "districtName": "Emeryville Commercial Core",
-            "districtPath": "/commercial-real-estate/CA/emeryville/emeryville-commercial-core/",
-            "cmeStatus": "Complete",
-            "collectionId": "emeryville-commercial-core-commercial-market-evidence",
-            "evidenceRecordCount": 5,
-            "evidenceProfileCoverage": {
-              "completed": 0,
-              "target": 0,
-              "missing": 0,
-              "label": "0 / 0"
-            },
-            "supportingProfileCoverage": {
-              "completed": 0,
-              "target": 2,
-              "missing": 2,
-              "label": "0 / 2"
-            },
-            "unresolvedBuildingItems": 0,
-            "validationStatus": "Requires validation",
-            "districtMissionStatus": "In Progress",
-            "workItems": [
-              {
-                "id": "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
-                "title": "2100 Powell St Building Profile",
-                "category": "buildingBriefs",
-                "categoryLabel": "Building Profiles",
-                "reason": "Supporting Building Profile work materially strengthens district explanation.",
-                "buildingName": "2100 Powell St",
-                "buildingPath": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
-                "suggestedModule": {
-                  "id": "publisher",
-                  "label": "Publisher"
-                }
-              },
-              {
-                "id": "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st",
-                "title": "2200 Powell St Building Profile",
-                "category": "buildingBriefs",
-                "categoryLabel": "Building Profiles",
-                "reason": "Supporting Building Profile work materially strengthens district explanation.",
-                "buildingName": "2200 Powell St",
-                "buildingPath": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
-                "suggestedModule": {
-                  "id": "publisher",
-                  "label": "Publisher"
-                }
-              }
-            ],
-            "workItemCount": 3,
-            "deferredWorkItems": [],
-            "missionSize": {
-              "id": "small",
-              "label": "Small",
-              "reviewWindow": "30-60 minutes",
-              "maximumWorkItems": 3
-            },
-            "eligibleForExecution": true,
-            "executionReadiness": "Queued",
-            "groupingRationale": [
-              "Commercial Market Evidence and selected Building Profiles share district research context, source paths, and validation flow.",
-              "Existing Commercial Market Evidence collection remains intact; mission focuses on validating the collection and completing selected evidence Building Profiles.",
-              "Evidence records remain hidden Work Items; Building Profile content stays in Commercial Building Intelligence."
-            ],
-            "splitRationale": [
-              "No split required; district building evidence stays within the configured mission-size upper bound."
-            ],
-            "confidence": "High"
-          },
-          {
             "evidenceMissionId": "district-building-evidence:east-bay:oakland-medical-campuses",
             "marketId": "east-bay",
             "marketName": "East Bay",
@@ -202132,6 +202013,54 @@
               "target": 10,
               "missing": 0,
               "label": "10 / 10"
+            },
+            "supportingProfileCoverage": {
+              "completed": 0,
+              "target": 0,
+              "missing": 0,
+              "label": "No supporting profile work selected"
+            },
+            "unresolvedBuildingItems": 0,
+            "validationStatus": "Requires validation",
+            "districtMissionStatus": "Complete",
+            "workItems": [],
+            "workItemCount": 0,
+            "deferredWorkItems": [],
+            "missionSize": {
+              "id": "small",
+              "label": "Small",
+              "reviewWindow": "30-60 minutes",
+              "maximumWorkItems": 3
+            },
+            "eligibleForExecution": false,
+            "executionReadiness": "Complete",
+            "groupingRationale": [
+              "Commercial Market Evidence and selected Building Profiles share district research context, source paths, and validation flow.",
+              "Existing Commercial Market Evidence collection remains intact; mission focuses on validating the collection and completing selected evidence Building Profiles.",
+              "Evidence records remain hidden Work Items; Building Profile content stays in Commercial Building Intelligence."
+            ],
+            "splitRationale": [
+              "No split required; district building evidence stays within the configured mission-size upper bound."
+            ],
+            "confidence": "High"
+          },
+          {
+            "evidenceMissionId": "district-building-evidence:east-bay:emeryville-commercial-core",
+            "marketId": "east-bay",
+            "marketName": "East Bay",
+            "programId": "commercial_market_evidence",
+            "campaignId": "east-bay:commercial_market_evidence:completion-campaign",
+            "districtId": "emeryville-commercial-core",
+            "districtName": "Emeryville Commercial Core",
+            "districtPath": "/commercial-real-estate/CA/emeryville/emeryville-commercial-core/",
+            "cmeStatus": "Complete",
+            "collectionId": "emeryville-commercial-core-commercial-market-evidence",
+            "evidenceRecordCount": 5,
+            "evidenceProfileCoverage": {
+              "completed": 0,
+              "target": 0,
+              "missing": 0,
+              "label": "0 / 0"
             },
             "supportingProfileCoverage": {
               "completed": 0,
@@ -208362,11 +208291,11 @@
         ],
         "summary": {
           "districts": 95,
-          "executableDistrictMissions": 76,
-          "completedDistricts": 19,
-          "inProgressDistricts": 9,
+          "executableDistrictMissions": 75,
+          "completedDistricts": 20,
+          "inProgressDistricts": 8,
           "missingCollections": 67,
-          "hiddenWorkItems": 257,
+          "hiddenWorkItems": 254,
           "unresolvedBuildingItems": 0
         }
       }
@@ -213185,24 +213114,24 @@
                     "EOS health signals."
                   ]
                 },
-                "currentConstraint": "District foundation exists, but Representative Buildings are missing.",
+                "currentConstraint": "Representative Buildings exist, but Building Brief depth is missing.",
                 "nextInitiativeId": "east-bay:publisher:life-science-readiness",
-                "nextMissionId": "mission:east-bay:east-bay-life-science-ecosystem-representative-building-foundation",
+                "nextMissionId": "mission:east-bay:east-bay-life-science-ecosystem-building-brief-migration",
                 "initiativeIds": [
                   "east-bay:publisher:life-science-readiness",
                   "east-bay:publisher:recommendation-readiness",
                   "east-bay:publisher:comparison-graph"
                 ],
                 "missionIds": [
-                  "mission:east-bay:east-bay-life-science-ecosystem-representative-building-foundation",
+                  "mission:east-bay:east-bay-life-science-ecosystem-building-brief-migration",
                   "mission:east-bay:add-or-update-recommendation-qa-documentation-for-this-metro",
                   "mission:east-bay:add-meaningful-comparewith-relationships-to-nearby-or-decision-adjacent-districts"
                 ],
                 "missionCount": 3,
-                "workItemCount": 8,
+                "workItemCount": 10,
                 "workItems": {
                   "hiddenByDefault": true,
-                  "count": 8
+                  "count": 10
                 },
                 "sizingStrategy": "Publisher missions bundle the largest coherent readiness constraint that can be validated in one SER.",
                 "reviewabilityPrinciple": "Campaigns are not executable. They advance through Missions sized to remain reviewable inside one SER.",
@@ -213215,9 +213144,9 @@
             ],
             "campaignId": "east-bay:publisher:completion-campaign",
             "nextCampaignId": "east-bay:publisher:completion-campaign",
-            "currentConstraint": "District foundation exists, but Representative Buildings are missing.",
+            "currentConstraint": "Representative Buildings exist, but Building Brief depth is missing.",
             "nextInitiativeId": "east-bay:publisher:life-science-readiness",
-            "nextMissionId": "mission:east-bay:east-bay-life-science-ecosystem-representative-building-foundation",
+            "nextMissionId": "mission:east-bay:east-bay-life-science-ecosystem-building-brief-migration",
             "initiatives": [
               {
                 "id": "east-bay:publisher:life-science-readiness",
@@ -213227,7 +213156,7 @@
                 "programLabel": "Publisher",
                 "title": "East Bay Life Science Readiness",
                 "scope": "Life Science",
-                "objective": "East Bay Life Science Ecosystem Representative Building Foundation",
+                "objective": "Complete the related East Bay Life Science opportunities as one bounded mission.",
                 "status": "Next",
                 "currentStage": "Next",
                 "progress": {
@@ -213240,10 +213169,10 @@
                     "EOS mission queue."
                   ]
                 },
-                "currentConstraint": "District foundation exists, but Representative Buildings are missing.",
-                "nextMissionId": "mission:east-bay:east-bay-life-science-ecosystem-representative-building-foundation",
+                "currentConstraint": "Representative Buildings exist, but Building Brief depth is missing.",
+                "nextMissionId": "mission:east-bay:east-bay-life-science-ecosystem-building-brief-migration",
                 "remainingMilestones": [
-                  "District foundation exists, but Representative Buildings are missing."
+                  "Representative Buildings exist, but Building Brief depth is missing."
                 ],
                 "confidence": "Medium",
                 "sourceEvidence": [
@@ -213253,8 +213182,8 @@
                 "readOnly": false,
                 "missions": [
                   {
-                    "id": "mission:east-bay:east-bay-life-science-ecosystem-representative-building-foundation",
-                    "title": "East Bay Life Science Ecosystem Representative Building Foundation",
+                    "id": "mission:east-bay:east-bay-life-science-ecosystem-building-brief-migration",
+                    "title": "East Bay Life Science Ecosystem Completion",
                     "marketId": "east-bay",
                     "marketName": "East Bay",
                     "programId": "publisher",
@@ -213266,34 +213195,36 @@
                     "portfolioId": "",
                     "districtId": "",
                     "districtName": "",
-                    "objective": "East Bay Life Science Ecosystem Representative Building Foundation",
-                    "currentConstraint": "District foundation exists, but Representative Buildings are missing.",
+                    "objective": "Complete the related East Bay Life Science opportunities as one bounded mission.",
+                    "currentConstraint": "Representative Buildings exist, but Building Brief depth is missing.",
                     "expectedImpact": "High",
-                    "estimatedEffort": "Small",
+                    "estimatedEffort": "Medium",
                     "missionSize": {
-                      "id": "small",
-                      "label": "Small",
-                      "reviewWindow": "30-60 minutes",
-                      "maximumWorkItems": 3
+                      "id": "standard",
+                      "label": "Standard",
+                      "reviewWindow": "60-120 minutes",
+                      "maximumWorkItems": 8
                     },
                     "missionClass": "Readiness Blocker",
                     "confidence": "Medium",
                     "priorityScore": 100,
-                    "executionPacketRef": "portfolioQueues.missionQueue:mission:east-bay:east-bay-life-science-ecosystem-representative-building-foundation",
+                    "executionPacketRef": "portfolioQueues.missionQueue:mission:east-bay:east-bay-life-science-ecosystem-building-brief-migration",
                     "executionPacketAvailable": true,
                     "componentStatuses": null,
                     "workItems": {
                       "hiddenByDefault": true,
-                      "count": 1,
+                      "count": 3,
                       "includedOpportunityIds": [
-                        "ecosystem:east-bay:life_science"
+                        "ecosystem:east-bay:life_science",
+                        "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
+                        "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st"
                       ],
                       "deferredWorkItemIds": [
                         "field-mode-summary:east-bay",
                         "publisher:east-bay:comparisonGraph:orphan district comparison:antioch-east-18th-industrial",
                         "publisher:east-bay:recommendationReadiness:missing recommendation QA status:east-bay",
-                        "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
-                        "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st"
+                        "publisher:east-bay:representativeBuildings:district missing representative buildings:antioch-east-18th-industrial",
+                        "publisher:east-bay:comparisonGraph:one-way comparison:hayward-industrial-north-san-jose"
                       ]
                     }
                   }
@@ -213504,14 +213435,14 @@
                     "Commercial Location Knowledge Graph district nodes."
                   ]
                 },
-                "currentConstraint": "Emeryville Commercial Core Commercial Market Evidence is complete, but selected evidence Building Profiles remain incomplete.",
-                "nextInitiativeId": "east-bay:commercial_market_evidence:emeryville-commercial-core",
-                "nextMissionId": "mission:east-bay:district-building-evidence:emeryville-commercial-core",
+                "currentConstraint": "Oakland Medical Campuses lacks a Commercial Market Evidence collection and selected evidence Building Profiles.",
+                "nextInitiativeId": "east-bay:commercial_market_evidence:oakland-medical-campuses",
+                "nextMissionId": "mission:east-bay:district-building-evidence:oakland-medical-campuses",
                 "initiativeIds": [
-                  "east-bay:commercial_market_evidence:emeryville-commercial-core",
                   "east-bay:commercial_market_evidence:oakland-medical-campuses",
                   "east-bay:commercial_market_evidence:antioch-east-18th-industrial",
                   "east-bay:commercial_market_evidence:downtown-berkeley",
+                  "east-bay:commercial_market_evidence:emeryville-commercial-core",
                   "east-bay:commercial_market_evidence:hayward-industrial",
                   "east-bay:commercial_market_evidence:jack-london-square",
                   "east-bay:commercial_market_evidence:union-city-industrial",
@@ -213519,88 +213450,12 @@
                   "east-bay:commercial_market_evidence:west-berkeley"
                 ],
                 "missionIds": [
-                  "mission:east-bay:district-building-evidence:emeryville-commercial-core",
                   "mission:east-bay:district-building-evidence:oakland-medical-campuses"
                 ],
-                "missionCount": 2,
-                "workItemCount": 4,
+                "missionCount": 1,
+                "workItemCount": 1,
                 "districtBuildingEvidence": {
                   "districts": [
-                    {
-                      "evidenceMissionId": "district-building-evidence:east-bay:emeryville-commercial-core",
-                      "marketId": "east-bay",
-                      "marketName": "East Bay",
-                      "programId": "commercial_market_evidence",
-                      "campaignId": "east-bay:commercial_market_evidence:completion-campaign",
-                      "districtId": "emeryville-commercial-core",
-                      "districtName": "Emeryville Commercial Core",
-                      "districtPath": "/commercial-real-estate/CA/emeryville/emeryville-commercial-core/",
-                      "cmeStatus": "Complete",
-                      "collectionId": "emeryville-commercial-core-commercial-market-evidence",
-                      "evidenceRecordCount": 5,
-                      "evidenceProfileCoverage": {
-                        "completed": 0,
-                        "target": 0,
-                        "missing": 0,
-                        "label": "0 / 0"
-                      },
-                      "supportingProfileCoverage": {
-                        "completed": 0,
-                        "target": 2,
-                        "missing": 2,
-                        "label": "0 / 2"
-                      },
-                      "unresolvedBuildingItems": 0,
-                      "validationStatus": "Requires validation",
-                      "districtMissionStatus": "In Progress",
-                      "workItems": [
-                        {
-                          "id": "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
-                          "title": "2100 Powell St Building Profile",
-                          "category": "buildingBriefs",
-                          "categoryLabel": "Building Profiles",
-                          "reason": "Supporting Building Profile work materially strengthens district explanation.",
-                          "buildingName": "2100 Powell St",
-                          "buildingPath": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
-                          "suggestedModule": {
-                            "id": "publisher",
-                            "label": "Publisher"
-                          }
-                        },
-                        {
-                          "id": "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st",
-                          "title": "2200 Powell St Building Profile",
-                          "category": "buildingBriefs",
-                          "categoryLabel": "Building Profiles",
-                          "reason": "Supporting Building Profile work materially strengthens district explanation.",
-                          "buildingName": "2200 Powell St",
-                          "buildingPath": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
-                          "suggestedModule": {
-                            "id": "publisher",
-                            "label": "Publisher"
-                          }
-                        }
-                      ],
-                      "workItemCount": 3,
-                      "deferredWorkItems": [],
-                      "missionSize": {
-                        "id": "small",
-                        "label": "Small",
-                        "reviewWindow": "30-60 minutes",
-                        "maximumWorkItems": 3
-                      },
-                      "eligibleForExecution": true,
-                      "executionReadiness": "Queued",
-                      "groupingRationale": [
-                        "Commercial Market Evidence and selected Building Profiles share district research context, source paths, and validation flow.",
-                        "Existing Commercial Market Evidence collection remains intact; mission focuses on validating the collection and completing selected evidence Building Profiles.",
-                        "Evidence records remain hidden Work Items; Building Profile content stays in Commercial Building Intelligence."
-                      ],
-                      "splitRationale": [
-                        "No split required; district building evidence stays within the configured mission-size upper bound."
-                      ],
-                      "confidence": "High"
-                    },
                     {
                       "evidenceMissionId": "district-building-evidence:east-bay:oakland-medical-campuses",
                       "marketId": "east-bay",
@@ -213725,6 +213580,54 @@
                         "target": 10,
                         "missing": 0,
                         "label": "10 / 10"
+                      },
+                      "supportingProfileCoverage": {
+                        "completed": 0,
+                        "target": 0,
+                        "missing": 0,
+                        "label": "No supporting profile work selected"
+                      },
+                      "unresolvedBuildingItems": 0,
+                      "validationStatus": "Requires validation",
+                      "districtMissionStatus": "Complete",
+                      "workItems": [],
+                      "workItemCount": 0,
+                      "deferredWorkItems": [],
+                      "missionSize": {
+                        "id": "small",
+                        "label": "Small",
+                        "reviewWindow": "30-60 minutes",
+                        "maximumWorkItems": 3
+                      },
+                      "eligibleForExecution": false,
+                      "executionReadiness": "Complete",
+                      "groupingRationale": [
+                        "Commercial Market Evidence and selected Building Profiles share district research context, source paths, and validation flow.",
+                        "Existing Commercial Market Evidence collection remains intact; mission focuses on validating the collection and completing selected evidence Building Profiles.",
+                        "Evidence records remain hidden Work Items; Building Profile content stays in Commercial Building Intelligence."
+                      ],
+                      "splitRationale": [
+                        "No split required; district building evidence stays within the configured mission-size upper bound."
+                      ],
+                      "confidence": "High"
+                    },
+                    {
+                      "evidenceMissionId": "district-building-evidence:east-bay:emeryville-commercial-core",
+                      "marketId": "east-bay",
+                      "marketName": "East Bay",
+                      "programId": "commercial_market_evidence",
+                      "campaignId": "east-bay:commercial_market_evidence:completion-campaign",
+                      "districtId": "emeryville-commercial-core",
+                      "districtName": "Emeryville Commercial Core",
+                      "districtPath": "/commercial-real-estate/CA/emeryville/emeryville-commercial-core/",
+                      "cmeStatus": "Complete",
+                      "collectionId": "emeryville-commercial-core-commercial-market-evidence",
+                      "evidenceRecordCount": 5,
+                      "evidenceProfileCoverage": {
+                        "completed": 0,
+                        "target": 0,
+                        "missing": 0,
+                        "label": "0 / 0"
                       },
                       "supportingProfileCoverage": {
                         "completed": 0,
@@ -213997,16 +213900,16 @@
                       "confidence": "High"
                     }
                   ],
-                  "executableDistrictMissionCount": 2,
-                  "completeDistrictCount": 7,
-                  "inProgressDistrictCount": 1,
+                  "executableDistrictMissionCount": 1,
+                  "completeDistrictCount": 8,
+                  "inProgressDistrictCount": 0,
                   "missingDistrictCount": 1,
-                  "hiddenWorkItemCount": 4,
+                  "hiddenWorkItemCount": 1,
                   "unresolvedBuildingItemCount": 0
                 },
                 "workItems": {
                   "hiddenByDefault": true,
-                  "count": 4
+                  "count": 1
                 },
                 "sizingStrategy": "District Building Evidence missions combine Commercial Market Evidence and selected Building Profiles when both share one district workflow. Evidence records and building Work Items stay hidden inside one reviewable SER.",
                 "reviewabilityPrinciple": "Campaigns are not executable. They advance through Missions sized to remain reviewable inside one SER.",
@@ -214018,119 +213921,10 @@
             ],
             "campaignId": "east-bay:commercial_market_evidence:completion-campaign",
             "nextCampaignId": "east-bay:commercial_market_evidence:completion-campaign",
-            "currentConstraint": "Emeryville Commercial Core Commercial Market Evidence is complete, but selected evidence Building Profiles remain incomplete.",
-            "nextInitiativeId": "east-bay:commercial_market_evidence:emeryville-commercial-core",
-            "nextMissionId": "mission:east-bay:district-building-evidence:emeryville-commercial-core",
+            "currentConstraint": "Oakland Medical Campuses lacks a Commercial Market Evidence collection and selected evidence Building Profiles.",
+            "nextInitiativeId": "east-bay:commercial_market_evidence:oakland-medical-campuses",
+            "nextMissionId": "mission:east-bay:district-building-evidence:oakland-medical-campuses",
             "initiatives": [
-              {
-                "id": "east-bay:commercial_market_evidence:emeryville-commercial-core",
-                "districtId": "emeryville-commercial-core",
-                "marketId": "east-bay",
-                "marketName": "East Bay",
-                "programId": "commercial_market_evidence",
-                "programLabel": "Commercial Market Evidence",
-                "title": "Emeryville Commercial Core Building Evidence",
-                "scope": "Emeryville Commercial Core",
-                "objective": "Complete selected evidence Building Profiles for the existing Emeryville Commercial Core Commercial Market Evidence collection.",
-                "status": "Next",
-                "currentStage": "In Progress",
-                "progress": {
-                  "unit": "District Building Evidence",
-                  "completed": 0,
-                  "target": 0,
-                  "label": "Profiles 0 / 0",
-                  "statusLabel": "Next",
-                  "sourceEvidence": [
-                    "Commercial Market Evidence collection registry.",
-                    "Building Profile coverage for selected evidence records."
-                  ]
-                },
-                "currentConstraint": "Emeryville Commercial Core Commercial Market Evidence is complete, but selected evidence Building Profiles remain incomplete.",
-                "nextMissionId": "mission:east-bay:district-building-evidence:emeryville-commercial-core",
-                "missionRef": "portfolioQueues.missionQueue:mission:east-bay:district-building-evidence:emeryville-commercial-core",
-                "executionPacketRef": "portfolioQueues.missionQueue:mission:east-bay:district-building-evidence:emeryville-commercial-core",
-                "remainingMilestones": [
-                  "Selected evidence Building Profiles",
-                  "CME validator",
-                  "Building Brief depth QA"
-                ],
-                "confidence": "High",
-                "sourceEvidence": [
-                  "Commercial Market Evidence collection registry.",
-                  "Building Profile coverage for selected evidence records."
-                ],
-                "readOnly": false,
-                "completionEvidence": "emeryville-commercial-core-commercial-market-evidence",
-                "orderingRank": 1,
-                "orderingRationale": [
-                  "Existing Commercial Market Evidence collection has selected evidence buildings that still need Building Profiles."
-                ],
-                "workItems": {
-                  "hiddenByDefault": true,
-                  "count": 3
-                },
-                "missions": [
-                  {
-                    "id": "mission:east-bay:district-building-evidence:emeryville-commercial-core",
-                    "title": "Complete Emeryville Commercial Core Building Evidence",
-                    "marketId": "east-bay",
-                    "marketName": "East Bay",
-                    "programId": "commercial_market_evidence",
-                    "programLabel": "Commercial Market Evidence",
-                    "campaignId": "east-bay:commercial_market_evidence:completion-campaign",
-                    "campaignTitle": "East Bay Building Evidence Completion",
-                    "initiativeId": "east-bay:commercial_market_evidence:emeryville-commercial-core",
-                    "initiativeTitle": "Emeryville Commercial Core Building Evidence",
-                    "portfolioId": "district-building-evidence:east-bay:emeryville-commercial-core",
-                    "districtId": "emeryville-commercial-core",
-                    "districtName": "Emeryville Commercial Core",
-                    "objective": "Complete the remaining Emeryville Commercial Core selected evidence Building Profiles while preserving the existing Commercial Market Evidence collection.",
-                    "currentConstraint": "Emeryville Commercial Core Commercial Market Evidence is complete, but selected evidence Building Profiles remain incomplete.",
-                    "expectedImpact": "Medium",
-                    "estimatedEffort": "Small",
-                    "missionSize": {
-                      "id": "small",
-                      "label": "Small",
-                      "reviewWindow": "30-60 minutes",
-                      "maximumWorkItems": 3
-                    },
-                    "missionClass": "Meaningful Depth Improvement",
-                    "confidence": "High",
-                    "priorityScore": 80,
-                    "executionPacketRef": "portfolioQueues.missionQueue:mission:east-bay:district-building-evidence:emeryville-commercial-core",
-                    "executionPacketAvailable": true,
-                    "componentStatuses": {
-                      "commercialMarketEvidence": "Complete",
-                      "evidenceRecordCount": 5,
-                      "evidenceBuildingProfiles": {
-                        "completed": 0,
-                        "target": 0,
-                        "missing": 0,
-                        "label": "0 / 0"
-                      },
-                      "supportingBuildingProfiles": {
-                        "completed": 0,
-                        "target": 2,
-                        "missing": 2,
-                        "label": "0 / 2"
-                      },
-                      "unresolvedBuildingItems": 0,
-                      "validationStatus": "Requires validation",
-                      "districtBuildingEvidence": "In Progress"
-                    },
-                    "workItems": {
-                      "hiddenByDefault": true,
-                      "count": 3,
-                      "includedOpportunityIds": [
-                        "commercial-market-evidence:emeryville-commercial-core:validation",
-                        "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
-                        "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st"
-                      ],
-                      "deferredWorkItemIds": []
-                    }
-                  }
-                ]
-              },
               {
                 "id": "east-bay:commercial_market_evidence:oakland-medical-campuses",
                 "districtId": "oakland-medical-campuses",
@@ -214141,14 +213935,14 @@
                 "title": "Oakland Medical Campuses Building Evidence",
                 "scope": "Oakland Medical Campuses",
                 "objective": "Create the Oakland Medical Campuses Commercial Market Evidence collection and required selected Building Profiles.",
-                "status": "Queued",
-                "currentStage": "Queued",
+                "status": "Next",
+                "currentStage": "Next",
                 "progress": {
                   "unit": "Collection",
                   "completed": 0,
                   "target": 1,
-                  "label": "Queued",
-                  "statusLabel": "Queued",
+                  "label": "Next",
+                  "statusLabel": "Next",
                   "sourceEvidence": [
                     "Commercial Market Evidence expansion ordering."
                   ]
@@ -214327,6 +214121,51 @@
                 ],
                 "readOnly": true,
                 "completionEvidence": "downtown-berkeley-commercial-market-evidence",
+                "orderingRank": null,
+                "orderingRationale": [
+                  "Existing Commercial Market Evidence collection."
+                ],
+                "workItems": {
+                  "hiddenByDefault": true,
+                  "count": 0
+                },
+                "missions": []
+              },
+              {
+                "id": "east-bay:commercial_market_evidence:emeryville-commercial-core",
+                "districtId": "emeryville-commercial-core",
+                "marketId": "east-bay",
+                "marketName": "East Bay",
+                "programId": "commercial_market_evidence",
+                "programLabel": "Commercial Market Evidence",
+                "title": "Emeryville Commercial Core Collection",
+                "scope": "Emeryville Commercial Core",
+                "objective": "Maintain the completed Emeryville Commercial Core Commercial Market Evidence collection.",
+                "status": "Complete",
+                "currentStage": "Complete",
+                "progress": {
+                  "unit": "Collection",
+                  "completed": 1,
+                  "target": 1,
+                  "label": "Complete",
+                  "statusLabel": "Complete",
+                  "sourceEvidence": [
+                    "Commercial Market Evidence collection registry.",
+                    "Building Profile coverage for selected evidence records."
+                  ]
+                },
+                "currentConstraint": "Collection exists.",
+                "nextMissionId": "",
+                "missionRef": "",
+                "executionPacketRef": "",
+                "remainingMilestones": [],
+                "confidence": "High",
+                "sourceEvidence": [
+                  "Commercial Market Evidence collection registry.",
+                  "Building Profile coverage for selected evidence records."
+                ],
+                "readOnly": true,
+                "completionEvidence": "emeryville-commercial-core-commercial-market-evidence",
                 "orderingRank": null,
                 "orderingRationale": [
                   "Existing Commercial Market Evidence collection."
@@ -214617,13 +214456,13 @@
                 ],
                 "missionIds": [],
                 "missionCount": 0,
-                "workItemCount": 2,
-                "resolvedPortfolioCount": 1,
-                "estimatedMissionsRemaining": "1 resolved missions plus 2 ungrouped items",
-                "ungroupedItemCount": 2,
+                "workItemCount": 0,
+                "resolvedPortfolioCount": 0,
+                "estimatedMissionsRemaining": "0 resolved missions plus 4 ungrouped items",
+                "ungroupedItemCount": 4,
                 "workItems": {
                   "hiddenByDefault": true,
-                  "count": 2
+                  "count": 0
                 },
                 "sizingStrategy": "Building Profiles use portfolio missions. A Large mission may include up to 12 hidden Building Brief work items when the source files and QA path overlap.",
                 "reviewabilityPrinciple": "Campaigns are not executable. They advance through Missions sized to remain reviewable inside one SER.",
@@ -215472,8 +215311,8 @@
         ],
         "nextMissions": [
           {
-            "id": "mission:east-bay:east-bay-life-science-ecosystem-representative-building-foundation",
-            "title": "East Bay Life Science Ecosystem Representative Building Foundation",
+            "id": "mission:east-bay:east-bay-life-science-ecosystem-building-brief-migration",
+            "title": "East Bay Life Science Ecosystem Completion",
             "marketId": "east-bay",
             "marketName": "East Bay",
             "programId": "publisher",
@@ -215485,34 +215324,36 @@
             "portfolioId": "",
             "districtId": "",
             "districtName": "",
-            "objective": "East Bay Life Science Ecosystem Representative Building Foundation",
-            "currentConstraint": "District foundation exists, but Representative Buildings are missing.",
+            "objective": "Complete the related East Bay Life Science opportunities as one bounded mission.",
+            "currentConstraint": "Representative Buildings exist, but Building Brief depth is missing.",
             "expectedImpact": "High",
-            "estimatedEffort": "Small",
+            "estimatedEffort": "Medium",
             "missionSize": {
-              "id": "small",
-              "label": "Small",
-              "reviewWindow": "30-60 minutes",
-              "maximumWorkItems": 3
+              "id": "standard",
+              "label": "Standard",
+              "reviewWindow": "60-120 minutes",
+              "maximumWorkItems": 8
             },
             "missionClass": "Readiness Blocker",
             "confidence": "Medium",
             "priorityScore": 100,
-            "executionPacketRef": "portfolioQueues.missionQueue:mission:east-bay:east-bay-life-science-ecosystem-representative-building-foundation",
+            "executionPacketRef": "portfolioQueues.missionQueue:mission:east-bay:east-bay-life-science-ecosystem-building-brief-migration",
             "executionPacketAvailable": true,
             "componentStatuses": null,
             "workItems": {
               "hiddenByDefault": true,
-              "count": 1,
+              "count": 3,
               "includedOpportunityIds": [
-                "ecosystem:east-bay:life_science"
+                "ecosystem:east-bay:life_science",
+                "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
+                "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st"
               ],
               "deferredWorkItemIds": [
                 "field-mode-summary:east-bay",
                 "publisher:east-bay:comparisonGraph:orphan district comparison:antioch-east-18th-industrial",
                 "publisher:east-bay:recommendationReadiness:missing recommendation QA status:east-bay",
-                "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
-                "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st"
+                "publisher:east-bay:representativeBuildings:district missing representative buildings:antioch-east-18th-industrial",
+                "publisher:east-bay:comparisonGraph:one-way comparison:hayward-industrial-north-san-jose"
               ]
             }
           },
@@ -238256,24 +238097,24 @@
             "EOS health signals."
           ]
         },
-        "currentConstraint": "District foundation exists, but Representative Buildings are missing.",
+        "currentConstraint": "Representative Buildings exist, but Building Brief depth is missing.",
         "nextInitiativeId": "east-bay:publisher:life-science-readiness",
-        "nextMissionId": "mission:east-bay:east-bay-life-science-ecosystem-representative-building-foundation",
+        "nextMissionId": "mission:east-bay:east-bay-life-science-ecosystem-building-brief-migration",
         "initiativeIds": [
           "east-bay:publisher:life-science-readiness",
           "east-bay:publisher:recommendation-readiness",
           "east-bay:publisher:comparison-graph"
         ],
         "missionIds": [
-          "mission:east-bay:east-bay-life-science-ecosystem-representative-building-foundation",
+          "mission:east-bay:east-bay-life-science-ecosystem-building-brief-migration",
           "mission:east-bay:add-or-update-recommendation-qa-documentation-for-this-metro",
           "mission:east-bay:add-meaningful-comparewith-relationships-to-nearby-or-decision-adjacent-districts"
         ],
         "missionCount": 3,
-        "workItemCount": 8,
+        "workItemCount": 10,
         "workItems": {
           "hiddenByDefault": true,
-          "count": 8
+          "count": 10
         },
         "sizingStrategy": "Publisher missions bundle the largest coherent readiness constraint that can be validated in one SER.",
         "reviewabilityPrinciple": "Campaigns are not executable. They advance through Missions sized to remain reviewable inside one SER.",
@@ -238288,7 +238129,7 @@
           "east-bay:publisher:comparison-graph"
         ],
         "missions": [
-          "mission:east-bay:east-bay-life-science-ecosystem-representative-building-foundation",
+          "mission:east-bay:east-bay-life-science-ecosystem-building-brief-migration",
           "mission:east-bay:add-or-update-recommendation-qa-documentation-for-this-metro",
           "mission:east-bay:add-meaningful-comparewith-relationships-to-nearby-or-decision-adjacent-districts"
         ]
@@ -238314,14 +238155,14 @@
             "Commercial Location Knowledge Graph district nodes."
           ]
         },
-        "currentConstraint": "Emeryville Commercial Core Commercial Market Evidence is complete, but selected evidence Building Profiles remain incomplete.",
-        "nextInitiativeId": "east-bay:commercial_market_evidence:emeryville-commercial-core",
-        "nextMissionId": "mission:east-bay:district-building-evidence:emeryville-commercial-core",
+        "currentConstraint": "Oakland Medical Campuses lacks a Commercial Market Evidence collection and selected evidence Building Profiles.",
+        "nextInitiativeId": "east-bay:commercial_market_evidence:oakland-medical-campuses",
+        "nextMissionId": "mission:east-bay:district-building-evidence:oakland-medical-campuses",
         "initiativeIds": [
-          "east-bay:commercial_market_evidence:emeryville-commercial-core",
           "east-bay:commercial_market_evidence:oakland-medical-campuses",
           "east-bay:commercial_market_evidence:antioch-east-18th-industrial",
           "east-bay:commercial_market_evidence:downtown-berkeley",
+          "east-bay:commercial_market_evidence:emeryville-commercial-core",
           "east-bay:commercial_market_evidence:hayward-industrial",
           "east-bay:commercial_market_evidence:jack-london-square",
           "east-bay:commercial_market_evidence:union-city-industrial",
@@ -238329,88 +238170,12 @@
           "east-bay:commercial_market_evidence:west-berkeley"
         ],
         "missionIds": [
-          "mission:east-bay:district-building-evidence:emeryville-commercial-core",
           "mission:east-bay:district-building-evidence:oakland-medical-campuses"
         ],
-        "missionCount": 2,
-        "workItemCount": 4,
+        "missionCount": 1,
+        "workItemCount": 1,
         "districtBuildingEvidence": {
           "districts": [
-            {
-              "evidenceMissionId": "district-building-evidence:east-bay:emeryville-commercial-core",
-              "marketId": "east-bay",
-              "marketName": "East Bay",
-              "programId": "commercial_market_evidence",
-              "campaignId": "east-bay:commercial_market_evidence:completion-campaign",
-              "districtId": "emeryville-commercial-core",
-              "districtName": "Emeryville Commercial Core",
-              "districtPath": "/commercial-real-estate/CA/emeryville/emeryville-commercial-core/",
-              "cmeStatus": "Complete",
-              "collectionId": "emeryville-commercial-core-commercial-market-evidence",
-              "evidenceRecordCount": 5,
-              "evidenceProfileCoverage": {
-                "completed": 0,
-                "target": 0,
-                "missing": 0,
-                "label": "0 / 0"
-              },
-              "supportingProfileCoverage": {
-                "completed": 0,
-                "target": 2,
-                "missing": 2,
-                "label": "0 / 2"
-              },
-              "unresolvedBuildingItems": 0,
-              "validationStatus": "Requires validation",
-              "districtMissionStatus": "In Progress",
-              "workItems": [
-                {
-                  "id": "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
-                  "title": "2100 Powell St Building Profile",
-                  "category": "buildingBriefs",
-                  "categoryLabel": "Building Profiles",
-                  "reason": "Supporting Building Profile work materially strengthens district explanation.",
-                  "buildingName": "2100 Powell St",
-                  "buildingPath": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
-                  "suggestedModule": {
-                    "id": "publisher",
-                    "label": "Publisher"
-                  }
-                },
-                {
-                  "id": "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st",
-                  "title": "2200 Powell St Building Profile",
-                  "category": "buildingBriefs",
-                  "categoryLabel": "Building Profiles",
-                  "reason": "Supporting Building Profile work materially strengthens district explanation.",
-                  "buildingName": "2200 Powell St",
-                  "buildingPath": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
-                  "suggestedModule": {
-                    "id": "publisher",
-                    "label": "Publisher"
-                  }
-                }
-              ],
-              "workItemCount": 3,
-              "deferredWorkItems": [],
-              "missionSize": {
-                "id": "small",
-                "label": "Small",
-                "reviewWindow": "30-60 minutes",
-                "maximumWorkItems": 3
-              },
-              "eligibleForExecution": true,
-              "executionReadiness": "Queued",
-              "groupingRationale": [
-                "Commercial Market Evidence and selected Building Profiles share district research context, source paths, and validation flow.",
-                "Existing Commercial Market Evidence collection remains intact; mission focuses on validating the collection and completing selected evidence Building Profiles.",
-                "Evidence records remain hidden Work Items; Building Profile content stays in Commercial Building Intelligence."
-              ],
-              "splitRationale": [
-                "No split required; district building evidence stays within the configured mission-size upper bound."
-              ],
-              "confidence": "High"
-            },
             {
               "evidenceMissionId": "district-building-evidence:east-bay:oakland-medical-campuses",
               "marketId": "east-bay",
@@ -238535,6 +238300,54 @@
                 "target": 10,
                 "missing": 0,
                 "label": "10 / 10"
+              },
+              "supportingProfileCoverage": {
+                "completed": 0,
+                "target": 0,
+                "missing": 0,
+                "label": "No supporting profile work selected"
+              },
+              "unresolvedBuildingItems": 0,
+              "validationStatus": "Requires validation",
+              "districtMissionStatus": "Complete",
+              "workItems": [],
+              "workItemCount": 0,
+              "deferredWorkItems": [],
+              "missionSize": {
+                "id": "small",
+                "label": "Small",
+                "reviewWindow": "30-60 minutes",
+                "maximumWorkItems": 3
+              },
+              "eligibleForExecution": false,
+              "executionReadiness": "Complete",
+              "groupingRationale": [
+                "Commercial Market Evidence and selected Building Profiles share district research context, source paths, and validation flow.",
+                "Existing Commercial Market Evidence collection remains intact; mission focuses on validating the collection and completing selected evidence Building Profiles.",
+                "Evidence records remain hidden Work Items; Building Profile content stays in Commercial Building Intelligence."
+              ],
+              "splitRationale": [
+                "No split required; district building evidence stays within the configured mission-size upper bound."
+              ],
+              "confidence": "High"
+            },
+            {
+              "evidenceMissionId": "district-building-evidence:east-bay:emeryville-commercial-core",
+              "marketId": "east-bay",
+              "marketName": "East Bay",
+              "programId": "commercial_market_evidence",
+              "campaignId": "east-bay:commercial_market_evidence:completion-campaign",
+              "districtId": "emeryville-commercial-core",
+              "districtName": "Emeryville Commercial Core",
+              "districtPath": "/commercial-real-estate/CA/emeryville/emeryville-commercial-core/",
+              "cmeStatus": "Complete",
+              "collectionId": "emeryville-commercial-core-commercial-market-evidence",
+              "evidenceRecordCount": 5,
+              "evidenceProfileCoverage": {
+                "completed": 0,
+                "target": 0,
+                "missing": 0,
+                "label": "0 / 0"
               },
               "supportingProfileCoverage": {
                 "completed": 0,
@@ -238807,16 +238620,16 @@
               "confidence": "High"
             }
           ],
-          "executableDistrictMissionCount": 2,
-          "completeDistrictCount": 7,
-          "inProgressDistrictCount": 1,
+          "executableDistrictMissionCount": 1,
+          "completeDistrictCount": 8,
+          "inProgressDistrictCount": 0,
           "missingDistrictCount": 1,
-          "hiddenWorkItemCount": 4,
+          "hiddenWorkItemCount": 1,
           "unresolvedBuildingItemCount": 0
         },
         "workItems": {
           "hiddenByDefault": true,
-          "count": 4
+          "count": 1
         },
         "sizingStrategy": "District Building Evidence missions combine Commercial Market Evidence and selected Building Profiles when both share one district workflow. Evidence records and building Work Items stay hidden inside one reviewable SER.",
         "reviewabilityPrinciple": "Campaigns are not executable. They advance through Missions sized to remain reviewable inside one SER.",
@@ -238825,10 +238638,10 @@
           "Commercial Location Knowledge Graph district nodes."
         ],
         "initiatives": [
-          "east-bay:commercial_market_evidence:emeryville-commercial-core",
           "east-bay:commercial_market_evidence:oakland-medical-campuses",
           "east-bay:commercial_market_evidence:antioch-east-18th-industrial",
           "east-bay:commercial_market_evidence:downtown-berkeley",
+          "east-bay:commercial_market_evidence:emeryville-commercial-core",
           "east-bay:commercial_market_evidence:hayward-industrial",
           "east-bay:commercial_market_evidence:jack-london-square",
           "east-bay:commercial_market_evidence:union-city-industrial",
@@ -238836,7 +238649,6 @@
           "east-bay:commercial_market_evidence:west-berkeley"
         ],
         "missions": [
-          "mission:east-bay:district-building-evidence:emeryville-commercial-core",
           "mission:east-bay:district-building-evidence:oakland-medical-campuses"
         ]
       },
@@ -238868,13 +238680,13 @@
         ],
         "missionIds": [],
         "missionCount": 0,
-        "workItemCount": 2,
-        "resolvedPortfolioCount": 1,
-        "estimatedMissionsRemaining": "1 resolved missions plus 2 ungrouped items",
-        "ungroupedItemCount": 2,
+        "workItemCount": 0,
+        "resolvedPortfolioCount": 0,
+        "estimatedMissionsRemaining": "0 resolved missions plus 4 ungrouped items",
+        "ungroupedItemCount": 4,
         "workItems": {
           "hiddenByDefault": true,
-          "count": 2
+          "count": 0
         },
         "sizingStrategy": "Building Profiles use portfolio missions. A Large mission may include up to 12 hidden Building Brief work items when the source files and QA path overlap.",
         "reviewabilityPrinciple": "Campaigns are not executable. They advance through Missions sized to remain reviewable inside one SER.",
@@ -249261,7 +249073,7 @@
         "programLabel": "Publisher",
         "title": "East Bay Life Science Readiness",
         "scope": "Life Science",
-        "objective": "East Bay Life Science Ecosystem Representative Building Foundation",
+        "objective": "Complete the related East Bay Life Science opportunities as one bounded mission.",
         "status": "Next",
         "currentStage": "Next",
         "progress": {
@@ -249274,10 +249086,10 @@
             "EOS mission queue."
           ]
         },
-        "currentConstraint": "District foundation exists, but Representative Buildings are missing.",
-        "nextMissionId": "mission:east-bay:east-bay-life-science-ecosystem-representative-building-foundation",
+        "currentConstraint": "Representative Buildings exist, but Building Brief depth is missing.",
+        "nextMissionId": "mission:east-bay:east-bay-life-science-ecosystem-building-brief-migration",
         "remainingMilestones": [
-          "District foundation exists, but Representative Buildings are missing."
+          "Representative Buildings exist, but Building Brief depth is missing."
         ],
         "confidence": "Medium",
         "sourceEvidence": [
@@ -249286,7 +249098,7 @@
         ],
         "readOnly": false,
         "missions": [
-          "mission:east-bay:east-bay-life-science-ecosystem-representative-building-foundation"
+          "mission:east-bay:east-bay-life-science-ecosystem-building-brief-migration"
         ],
         "campaignId": "east-bay:publisher:completion-campaign"
       },
@@ -249365,58 +249177,6 @@
         "campaignId": "east-bay:publisher:completion-campaign"
       },
       {
-        "id": "east-bay:commercial_market_evidence:emeryville-commercial-core",
-        "districtId": "emeryville-commercial-core",
-        "marketId": "east-bay",
-        "marketName": "East Bay",
-        "programId": "commercial_market_evidence",
-        "programLabel": "Commercial Market Evidence",
-        "title": "Emeryville Commercial Core Building Evidence",
-        "scope": "Emeryville Commercial Core",
-        "objective": "Complete selected evidence Building Profiles for the existing Emeryville Commercial Core Commercial Market Evidence collection.",
-        "status": "Next",
-        "currentStage": "In Progress",
-        "progress": {
-          "unit": "District Building Evidence",
-          "completed": 0,
-          "target": 0,
-          "label": "Profiles 0 / 0",
-          "statusLabel": "Next",
-          "sourceEvidence": [
-            "Commercial Market Evidence collection registry.",
-            "Building Profile coverage for selected evidence records."
-          ]
-        },
-        "currentConstraint": "Emeryville Commercial Core Commercial Market Evidence is complete, but selected evidence Building Profiles remain incomplete.",
-        "nextMissionId": "mission:east-bay:district-building-evidence:emeryville-commercial-core",
-        "missionRef": "portfolioQueues.missionQueue:mission:east-bay:district-building-evidence:emeryville-commercial-core",
-        "executionPacketRef": "portfolioQueues.missionQueue:mission:east-bay:district-building-evidence:emeryville-commercial-core",
-        "remainingMilestones": [
-          "Selected evidence Building Profiles",
-          "CME validator",
-          "Building Brief depth QA"
-        ],
-        "confidence": "High",
-        "sourceEvidence": [
-          "Commercial Market Evidence collection registry.",
-          "Building Profile coverage for selected evidence records."
-        ],
-        "readOnly": false,
-        "completionEvidence": "emeryville-commercial-core-commercial-market-evidence",
-        "orderingRank": 1,
-        "orderingRationale": [
-          "Existing Commercial Market Evidence collection has selected evidence buildings that still need Building Profiles."
-        ],
-        "workItems": {
-          "hiddenByDefault": true,
-          "count": 3
-        },
-        "missions": [
-          "mission:east-bay:district-building-evidence:emeryville-commercial-core"
-        ],
-        "campaignId": "east-bay:commercial_market_evidence:completion-campaign"
-      },
-      {
         "id": "east-bay:commercial_market_evidence:oakland-medical-campuses",
         "districtId": "oakland-medical-campuses",
         "marketId": "east-bay",
@@ -249426,14 +249186,14 @@
         "title": "Oakland Medical Campuses Building Evidence",
         "scope": "Oakland Medical Campuses",
         "objective": "Create the Oakland Medical Campuses Commercial Market Evidence collection and required selected Building Profiles.",
-        "status": "Queued",
-        "currentStage": "Queued",
+        "status": "Next",
+        "currentStage": "Next",
         "progress": {
           "unit": "Collection",
           "completed": 0,
           "target": 1,
-          "label": "Queued",
-          "statusLabel": "Queued",
+          "label": "Next",
+          "statusLabel": "Next",
           "sourceEvidence": [
             "Commercial Market Evidence expansion ordering."
           ]
@@ -249556,6 +249316,52 @@
         ],
         "readOnly": true,
         "completionEvidence": "downtown-berkeley-commercial-market-evidence",
+        "orderingRank": null,
+        "orderingRationale": [
+          "Existing Commercial Market Evidence collection."
+        ],
+        "workItems": {
+          "hiddenByDefault": true,
+          "count": 0
+        },
+        "missions": [],
+        "campaignId": "east-bay:commercial_market_evidence:completion-campaign"
+      },
+      {
+        "id": "east-bay:commercial_market_evidence:emeryville-commercial-core",
+        "districtId": "emeryville-commercial-core",
+        "marketId": "east-bay",
+        "marketName": "East Bay",
+        "programId": "commercial_market_evidence",
+        "programLabel": "Commercial Market Evidence",
+        "title": "Emeryville Commercial Core Collection",
+        "scope": "Emeryville Commercial Core",
+        "objective": "Maintain the completed Emeryville Commercial Core Commercial Market Evidence collection.",
+        "status": "Complete",
+        "currentStage": "Complete",
+        "progress": {
+          "unit": "Collection",
+          "completed": 1,
+          "target": 1,
+          "label": "Complete",
+          "statusLabel": "Complete",
+          "sourceEvidence": [
+            "Commercial Market Evidence collection registry.",
+            "Building Profile coverage for selected evidence records."
+          ]
+        },
+        "currentConstraint": "Collection exists.",
+        "nextMissionId": "",
+        "missionRef": "",
+        "executionPacketRef": "",
+        "remainingMilestones": [],
+        "confidence": "High",
+        "sourceEvidence": [
+          "Commercial Market Evidence collection registry.",
+          "Building Profile coverage for selected evidence records."
+        ],
+        "readOnly": true,
+        "completionEvidence": "emeryville-commercial-core-commercial-market-evidence",
         "orderingRank": null,
         "orderingRationale": [
           "Existing Commercial Market Evidence collection."
@@ -256330,8 +256136,8 @@
         }
       },
       {
-        "id": "mission:east-bay:east-bay-life-science-ecosystem-representative-building-foundation",
-        "title": "East Bay Life Science Ecosystem Representative Building Foundation",
+        "id": "mission:east-bay:east-bay-life-science-ecosystem-building-brief-migration",
+        "title": "East Bay Life Science Ecosystem Completion",
         "marketId": "east-bay",
         "marketName": "East Bay",
         "programId": "publisher",
@@ -256343,34 +256149,36 @@
         "portfolioId": "",
         "districtId": "",
         "districtName": "",
-        "objective": "East Bay Life Science Ecosystem Representative Building Foundation",
-        "currentConstraint": "District foundation exists, but Representative Buildings are missing.",
+        "objective": "Complete the related East Bay Life Science opportunities as one bounded mission.",
+        "currentConstraint": "Representative Buildings exist, but Building Brief depth is missing.",
         "expectedImpact": "High",
-        "estimatedEffort": "Small",
+        "estimatedEffort": "Medium",
         "missionSize": {
-          "id": "small",
-          "label": "Small",
-          "reviewWindow": "30-60 minutes",
-          "maximumWorkItems": 3
+          "id": "standard",
+          "label": "Standard",
+          "reviewWindow": "60-120 minutes",
+          "maximumWorkItems": 8
         },
         "missionClass": "Readiness Blocker",
         "confidence": "Medium",
         "priorityScore": 100,
-        "executionPacketRef": "portfolioQueues.missionQueue:mission:east-bay:east-bay-life-science-ecosystem-representative-building-foundation",
+        "executionPacketRef": "portfolioQueues.missionQueue:mission:east-bay:east-bay-life-science-ecosystem-building-brief-migration",
         "executionPacketAvailable": true,
         "componentStatuses": null,
         "workItems": {
           "hiddenByDefault": true,
-          "count": 1,
+          "count": 3,
           "includedOpportunityIds": [
-            "ecosystem:east-bay:life_science"
+            "ecosystem:east-bay:life_science",
+            "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
+            "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st"
           ],
           "deferredWorkItemIds": [
             "field-mode-summary:east-bay",
             "publisher:east-bay:comparisonGraph:orphan district comparison:antioch-east-18th-industrial",
             "publisher:east-bay:recommendationReadiness:missing recommendation QA status:east-bay",
-            "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
-            "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st"
+            "publisher:east-bay:representativeBuildings:district missing representative buildings:antioch-east-18th-industrial",
+            "publisher:east-bay:comparisonGraph:one-way comparison:hayward-industrial-north-san-jose"
           ]
         }
       },
@@ -256459,65 +256267,6 @@
           "deferredWorkItemIds": [
             "field-mode-summary:east-bay"
           ]
-        }
-      },
-      {
-        "id": "mission:east-bay:district-building-evidence:emeryville-commercial-core",
-        "title": "Complete Emeryville Commercial Core Building Evidence",
-        "marketId": "east-bay",
-        "marketName": "East Bay",
-        "programId": "commercial_market_evidence",
-        "programLabel": "Commercial Market Evidence",
-        "campaignId": "east-bay:commercial_market_evidence:completion-campaign",
-        "campaignTitle": "East Bay Building Evidence Completion",
-        "initiativeId": "east-bay:commercial_market_evidence:emeryville-commercial-core",
-        "initiativeTitle": "Emeryville Commercial Core Building Evidence",
-        "portfolioId": "district-building-evidence:east-bay:emeryville-commercial-core",
-        "districtId": "emeryville-commercial-core",
-        "districtName": "Emeryville Commercial Core",
-        "objective": "Complete the remaining Emeryville Commercial Core selected evidence Building Profiles while preserving the existing Commercial Market Evidence collection.",
-        "currentConstraint": "Emeryville Commercial Core Commercial Market Evidence is complete, but selected evidence Building Profiles remain incomplete.",
-        "expectedImpact": "Medium",
-        "estimatedEffort": "Small",
-        "missionSize": {
-          "id": "small",
-          "label": "Small",
-          "reviewWindow": "30-60 minutes",
-          "maximumWorkItems": 3
-        },
-        "missionClass": "Meaningful Depth Improvement",
-        "confidence": "High",
-        "priorityScore": 80,
-        "executionPacketRef": "portfolioQueues.missionQueue:mission:east-bay:district-building-evidence:emeryville-commercial-core",
-        "executionPacketAvailable": true,
-        "componentStatuses": {
-          "commercialMarketEvidence": "Complete",
-          "evidenceRecordCount": 5,
-          "evidenceBuildingProfiles": {
-            "completed": 0,
-            "target": 0,
-            "missing": 0,
-            "label": "0 / 0"
-          },
-          "supportingBuildingProfiles": {
-            "completed": 0,
-            "target": 2,
-            "missing": 2,
-            "label": "0 / 2"
-          },
-          "unresolvedBuildingItems": 0,
-          "validationStatus": "Requires validation",
-          "districtBuildingEvidence": "In Progress"
-        },
-        "workItems": {
-          "hiddenByDefault": true,
-          "count": 3,
-          "includedOpportunityIds": [
-            "commercial-market-evidence:emeryville-commercial-core:validation",
-            "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
-            "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st"
-          ],
-          "deferredWorkItemIds": []
         }
       },
       {
@@ -260528,7 +260277,7 @@
       "programsPerMarket": 7,
       "campaigns": 70,
       "initiatives": 157,
-      "missions": 87
+      "missions": 86
     },
     "note": "Additive projection for Mission Control v2. Campaigns optimize editorial throughput while preserving Publisher scoring, execution packet compatibility, and hidden Work Items."
   },
@@ -260808,7 +260557,7 @@
     "openWorkItems": 316,
     "humanOnlyWorkItems": 7,
     "autonomousCandidates": 100,
-    "topWorkItem": "East Bay Life Science Ecosystem Representative Building Foundation"
+    "topWorkItem": "East Bay Life Science Ecosystem Completion"
   },
   "metros": [
     {
@@ -261108,7 +260857,7 @@
         "source": "publisher"
       },
       "commercialEcosystemCoverage": {
-        "score": 70,
+        "score": 74,
         "state": "partial",
         "label": "Partial",
         "relevantEcosystems": [
@@ -261120,9 +260869,7 @@
           "hospitality",
           "special_purpose"
         ],
-        "blockingEcosystems": [
-          "life_science"
-        ],
+        "blockingEcosystems": [],
         "balance": {
           "state": "balanced",
           "label": "Balanced",
@@ -261247,12 +260994,12 @@
         "commercialEcosystem": {
           "id": "commercialEcosystem",
           "label": "Commercial Ecosystem Coverage",
-          "score": 70,
+          "score": 74,
           "state": {
             "id": "improving",
             "label": "Improving"
           },
-          "note": "Industrial & Flex, Retail coverage is strong or developed. Office is Partial; Life Science is Thin.",
+          "note": "Industrial & Flex, Retail coverage is strong or developed. Office is Partial; Life Science is Partial.",
           "source": "publisher"
         },
         "photography": {
@@ -261320,7 +261067,7 @@
       "examples": [
         "Antioch East 18th Industrial",
         "East Bay Building Brief Migration Sprint",
-        "East Bay Life Science Ecosystem Representative Building Foundation"
+        "East Bay Life Science Ecosystem Building Brief Migration"
       ],
       "source": {
         "publisherStatus": "Editorially Developed",
@@ -263081,8 +262828,8 @@
   "portfolioQueues": {
     "todaysRecommendedWork": [
       {
-        "id": "mission:east-bay:east-bay-life-science-ecosystem-representative-building-foundation",
-        "title": "East Bay Life Science Ecosystem Representative Building Foundation",
+        "id": "mission:east-bay:east-bay-life-science-ecosystem-building-brief-migration",
+        "title": "East Bay Life Science Ecosystem Completion",
         "marketId": "east-bay",
         "marketName": "East Bay",
         "programId": "publisher",
@@ -263097,15 +262844,39 @@
         "ecosystemId": "life_science",
         "workstream": "Commercial Ecosystem",
         "includedOpportunityIds": [
-          "ecosystem:east-bay:life_science"
+          "ecosystem:east-bay:life_science",
+          "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
+          "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st"
         ],
         "includedTasks": [
           {
             "id": "ecosystem:east-bay:life_science",
-            "title": "East Bay Life Science Ecosystem Representative Building Foundation",
+            "title": "East Bay Life Science Ecosystem Building Brief Migration",
             "category": "commercialEcosystem",
             "categoryLabel": "Commercial Ecosystem",
-            "reason": "District foundation exists, but Representative Buildings are missing.",
+            "reason": "Representative Buildings exist, but Building Brief depth is missing.",
+            "suggestedModule": {
+              "id": "publisher",
+              "label": "Publisher"
+            }
+          },
+          {
+            "id": "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
+            "title": "Author a Building Brief for this representative building.",
+            "category": "buildingBriefs",
+            "categoryLabel": "Building Briefs",
+            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+            "suggestedModule": {
+              "id": "publisher",
+              "label": "Publisher"
+            }
+          },
+          {
+            "id": "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st",
+            "title": "Author a Building Brief for this representative building.",
+            "category": "buildingBriefs",
+            "categoryLabel": "Building Briefs",
+            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
             "suggestedModule": {
               "id": "publisher",
               "label": "Publisher"
@@ -263141,8 +262912,8 @@
             }
           },
           {
-            "id": "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
-            "title": "Author a Building Brief for this representative building.",
+            "id": "publisher:east-bay:representativeBuildings:district missing representative buildings:antioch-east-18th-industrial",
+            "title": "Curate representative buildings that explain this district.",
             "reason": "Outside this mission's bounded product layer or ecosystem scope.",
             "suggestedModule": {
               "id": "publisher",
@@ -263150,45 +262921,50 @@
             }
           },
           {
-            "id": "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st",
-            "title": "Author a Building Brief for this representative building.",
+            "id": "publisher:east-bay:comparisonGraph:one-way comparison:hayward-industrial-north-san-jose",
+            "title": "Review whether the comparison should be reciprocal.",
             "reason": "Outside this mission's bounded product layer or ecosystem scope.",
             "suggestedModule": {
-              "id": "publisher",
-              "label": "Publisher"
+              "id": "knowledgeGraph",
+              "label": "Knowledge Graph"
             }
           }
         ],
-        "objective": "East Bay Life Science Ecosystem Representative Building Foundation",
+        "objective": "Complete the related East Bay Life Science opportunities as one bounded mission.",
         "reason": [
-          "1 related opportunity share metro, source, and validation paths.",
-          "District foundation exists, but Representative Buildings are missing.",
+          "3 related opportunities share metro, source, and validation paths.",
+          "Representative Buildings exist, but Building Brief depth is missing.",
           "Ecosystem readiness: Partial",
           "Commercial balance: Balanced"
         ],
         "expectedImpact": "High",
-        "estimatedEffort": "Small",
+        "estimatedEffort": "Medium",
         "missionSize": {
-          "id": "small",
-          "label": "Small",
-          "reviewWindow": "30-60 minutes",
-          "maximumWorkItems": 3
+          "id": "standard",
+          "label": "Standard",
+          "reviewWindow": "60-120 minutes",
+          "maximumWorkItems": 8
         },
-        "impactEffortClass": "High Impact / Small Effort",
+        "impactEffortClass": "High Impact / Medium Effort",
         "missionClass": "Readiness Blocker",
-        "currentConstraint": "District foundation exists, but Representative Buildings are missing.",
+        "currentConstraint": "Representative Buildings exist, but Building Brief depth is missing.",
         "completionCriteria": [
           "The cited measurable gap is closed or explicitly reclassified.",
           "Existing Publisher, EOS, and relevant QA checks pass.",
           "No production recommendation rankings change unless a separate approved sprint requires it.",
-          "Ecosystem readiness evidence changes according to deterministic Publisher rules."
+          "Ecosystem readiness evidence changes according to deterministic Publisher rules.",
+          "Building Brief gating and URLs remain stable."
         ],
         "relevantFiles": [
           "_data/commercialEcosystemTaxonomy.js",
           "_data/locationKnowledgeGraph.js",
           "docs/commercial-ecosystem-data-model.md",
           "data/generated/publisher-analysis.json",
-          "data/generated/eos-analysis.json"
+          "data/generated/eos-analysis.json",
+          "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
+          "_data/buildingPages.js",
+          "_data/commercialBuildingIntelligence.js",
+          "/commercial-real-estate/building/CA/emeryville/2200-powell-st/"
         ],
         "dependencies": [
           "Canonical ecosystem metadata",
@@ -263198,6 +262974,7 @@
           "node scripts/qa-eos.js",
           "node scripts/qa-publisher-expansion-planner.js",
           "node scripts/qa-publisher-ecosystem-readiness.js",
+          "node scripts/qa-building-brief-depth.js",
           "npm run publisher:snapshot",
           "npm run build",
           "git diff --check"
@@ -263230,13 +263007,13 @@
         },
         "rationale": [
           "Bundled because the included work affects the same metro and overlapping Publisher/EOS validation path.",
-          "Kept as a single mission because no safe related work should be bundled.",
+          "This avoids separate snapshot, QA, build, SER, and review cycles for tightly related gaps.",
           "Deferred work is explicit so unrelated scope does not leak into the mission."
         ],
         "why": [
-          "Current constraint: District foundation exists, but Representative Buildings are missing.",
+          "Current constraint: Representative Buildings exist, but Building Brief depth is missing.",
           "Expected impact is high based on readiness, foundation, or multi-gap evidence.",
-          "Small mission size keeps the packet inside a 30-60 minutes review window."
+          "Standard mission size keeps the packet inside a 60-120 minutes review window."
         ],
         "source": {
           "system": "EOS",
@@ -263245,22 +263022,44 @@
           ]
         },
         "executionPacket": {
-          "objective": "East Bay Life Science Ecosystem Representative Building Foundation",
+          "objective": "Complete the related East Bay Life Science opportunities as one bounded mission.",
           "reason": [
-            "1 related opportunity share metro, source, and validation paths.",
-            "District foundation exists, but Representative Buildings are missing.",
+            "3 related opportunities share metro, source, and validation paths.",
+            "Representative Buildings exist, but Building Brief depth is missing.",
             "Ecosystem readiness: Partial",
             "Commercial balance: Balanced"
           ],
           "currentHealth": "64% Needs Attention",
-          "currentConstraint": "District foundation exists, but Representative Buildings are missing.",
+          "currentConstraint": "Representative Buildings exist, but Building Brief depth is missing.",
           "includedTasks": [
             {
               "id": "ecosystem:east-bay:life_science",
-              "title": "East Bay Life Science Ecosystem Representative Building Foundation",
+              "title": "East Bay Life Science Ecosystem Building Brief Migration",
               "category": "commercialEcosystem",
               "categoryLabel": "Commercial Ecosystem",
-              "reason": "District foundation exists, but Representative Buildings are missing.",
+              "reason": "Representative Buildings exist, but Building Brief depth is missing.",
+              "suggestedModule": {
+                "id": "publisher",
+                "label": "Publisher"
+              }
+            },
+            {
+              "id": "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
+              "title": "Author a Building Brief for this representative building.",
+              "category": "buildingBriefs",
+              "categoryLabel": "Building Briefs",
+              "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+              "suggestedModule": {
+                "id": "publisher",
+                "label": "Publisher"
+              }
+            },
+            {
+              "id": "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st",
+              "title": "Author a Building Brief for this representative building.",
+              "category": "buildingBriefs",
+              "categoryLabel": "Building Briefs",
+              "reason": "Representative building has not migrated to the canonical Building Brief journey.",
               "suggestedModule": {
                 "id": "publisher",
                 "label": "Publisher"
@@ -263296,8 +263095,8 @@
               }
             },
             {
-              "id": "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
-              "title": "Author a Building Brief for this representative building.",
+              "id": "publisher:east-bay:representativeBuildings:district missing representative buildings:antioch-east-18th-industrial",
+              "title": "Curate representative buildings that explain this district.",
               "reason": "Outside this mission's bounded product layer or ecosystem scope.",
               "suggestedModule": {
                 "id": "publisher",
@@ -263305,27 +263104,27 @@
               }
             },
             {
-              "id": "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st",
-              "title": "Author a Building Brief for this representative building.",
+              "id": "publisher:east-bay:comparisonGraph:one-way comparison:hayward-industrial-north-san-jose",
+              "title": "Review whether the comparison should be reciprocal.",
               "reason": "Outside this mission's bounded product layer or ecosystem scope.",
               "suggestedModule": {
-                "id": "publisher",
-                "label": "Publisher"
+                "id": "knowledgeGraph",
+                "label": "Knowledge Graph"
               }
             }
           ],
           "reasonForBundling": [
             "Bundled because the included work affects the same metro and overlapping Publisher/EOS validation path.",
-            "Kept as a single mission because no safe related work should be bundled.",
+            "This avoids separate snapshot, QA, build, SER, and review cycles for tightly related gaps.",
             "Deferred work is explicit so unrelated scope does not leak into the mission."
           ],
           "expectedImpact": "High",
-          "estimatedEffort": "Small",
+          "estimatedEffort": "Medium",
           "missionSize": {
-            "id": "small",
-            "label": "Small",
-            "reviewWindow": "30-60 minutes",
-            "maximumWorkItems": 3
+            "id": "standard",
+            "label": "Standard",
+            "reviewWindow": "60-120 minutes",
+            "maximumWorkItems": 8
           },
           "missionClass": "Readiness Blocker",
           "files": [
@@ -263333,7 +263132,11 @@
             "_data/locationKnowledgeGraph.js",
             "docs/commercial-ecosystem-data-model.md",
             "data/generated/publisher-analysis.json",
-            "data/generated/eos-analysis.json"
+            "data/generated/eos-analysis.json",
+            "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
+            "_data/buildingPages.js",
+            "_data/commercialBuildingIntelligence.js",
+            "/commercial-real-estate/building/CA/emeryville/2200-powell-st/"
           ],
           "dependencies": [
             "Canonical ecosystem metadata",
@@ -263343,7 +263146,8 @@
             "The cited measurable gap is closed or explicitly reclassified.",
             "Existing Publisher, EOS, and relevant QA checks pass.",
             "No production recommendation rankings change unless a separate approved sprint requires it.",
-            "Ecosystem readiness evidence changes according to deterministic Publisher rules."
+            "Ecosystem readiness evidence changes according to deterministic Publisher rules.",
+            "Building Brief gating and URLs remain stable."
           ],
           "expectedDeliverables": [
             "Completed included opportunities or explicit reclassification for each included gap",
@@ -263355,6 +263159,7 @@
             "node scripts/qa-eos.js",
             "node scripts/qa-publisher-expansion-planner.js",
             "node scripts/qa-publisher-ecosystem-readiness.js",
+            "node scripts/qa-building-brief-depth.js",
             "npm run publisher:snapshot",
             "npm run build",
             "git diff --check"
@@ -265872,8 +265677,8 @@
     ],
     "missionQueue": [
       {
-        "id": "mission:east-bay:east-bay-life-science-ecosystem-representative-building-foundation",
-        "title": "East Bay Life Science Ecosystem Representative Building Foundation",
+        "id": "mission:east-bay:east-bay-life-science-ecosystem-building-brief-migration",
+        "title": "East Bay Life Science Ecosystem Completion",
         "marketId": "east-bay",
         "marketName": "East Bay",
         "programId": "publisher",
@@ -265888,15 +265693,39 @@
         "ecosystemId": "life_science",
         "workstream": "Commercial Ecosystem",
         "includedOpportunityIds": [
-          "ecosystem:east-bay:life_science"
+          "ecosystem:east-bay:life_science",
+          "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
+          "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st"
         ],
         "includedTasks": [
           {
             "id": "ecosystem:east-bay:life_science",
-            "title": "East Bay Life Science Ecosystem Representative Building Foundation",
+            "title": "East Bay Life Science Ecosystem Building Brief Migration",
             "category": "commercialEcosystem",
             "categoryLabel": "Commercial Ecosystem",
-            "reason": "District foundation exists, but Representative Buildings are missing.",
+            "reason": "Representative Buildings exist, but Building Brief depth is missing.",
+            "suggestedModule": {
+              "id": "publisher",
+              "label": "Publisher"
+            }
+          },
+          {
+            "id": "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
+            "title": "Author a Building Brief for this representative building.",
+            "category": "buildingBriefs",
+            "categoryLabel": "Building Briefs",
+            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+            "suggestedModule": {
+              "id": "publisher",
+              "label": "Publisher"
+            }
+          },
+          {
+            "id": "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st",
+            "title": "Author a Building Brief for this representative building.",
+            "category": "buildingBriefs",
+            "categoryLabel": "Building Briefs",
+            "reason": "Representative building has not migrated to the canonical Building Brief journey.",
             "suggestedModule": {
               "id": "publisher",
               "label": "Publisher"
@@ -265932,8 +265761,8 @@
             }
           },
           {
-            "id": "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
-            "title": "Author a Building Brief for this representative building.",
+            "id": "publisher:east-bay:representativeBuildings:district missing representative buildings:antioch-east-18th-industrial",
+            "title": "Curate representative buildings that explain this district.",
             "reason": "Outside this mission's bounded product layer or ecosystem scope.",
             "suggestedModule": {
               "id": "publisher",
@@ -265941,45 +265770,50 @@
             }
           },
           {
-            "id": "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st",
-            "title": "Author a Building Brief for this representative building.",
+            "id": "publisher:east-bay:comparisonGraph:one-way comparison:hayward-industrial-north-san-jose",
+            "title": "Review whether the comparison should be reciprocal.",
             "reason": "Outside this mission's bounded product layer or ecosystem scope.",
             "suggestedModule": {
-              "id": "publisher",
-              "label": "Publisher"
+              "id": "knowledgeGraph",
+              "label": "Knowledge Graph"
             }
           }
         ],
-        "objective": "East Bay Life Science Ecosystem Representative Building Foundation",
+        "objective": "Complete the related East Bay Life Science opportunities as one bounded mission.",
         "reason": [
-          "1 related opportunity share metro, source, and validation paths.",
-          "District foundation exists, but Representative Buildings are missing.",
+          "3 related opportunities share metro, source, and validation paths.",
+          "Representative Buildings exist, but Building Brief depth is missing.",
           "Ecosystem readiness: Partial",
           "Commercial balance: Balanced"
         ],
         "expectedImpact": "High",
-        "estimatedEffort": "Small",
+        "estimatedEffort": "Medium",
         "missionSize": {
-          "id": "small",
-          "label": "Small",
-          "reviewWindow": "30-60 minutes",
-          "maximumWorkItems": 3
+          "id": "standard",
+          "label": "Standard",
+          "reviewWindow": "60-120 minutes",
+          "maximumWorkItems": 8
         },
-        "impactEffortClass": "High Impact / Small Effort",
+        "impactEffortClass": "High Impact / Medium Effort",
         "missionClass": "Readiness Blocker",
-        "currentConstraint": "District foundation exists, but Representative Buildings are missing.",
+        "currentConstraint": "Representative Buildings exist, but Building Brief depth is missing.",
         "completionCriteria": [
           "The cited measurable gap is closed or explicitly reclassified.",
           "Existing Publisher, EOS, and relevant QA checks pass.",
           "No production recommendation rankings change unless a separate approved sprint requires it.",
-          "Ecosystem readiness evidence changes according to deterministic Publisher rules."
+          "Ecosystem readiness evidence changes according to deterministic Publisher rules.",
+          "Building Brief gating and URLs remain stable."
         ],
         "relevantFiles": [
           "_data/commercialEcosystemTaxonomy.js",
           "_data/locationKnowledgeGraph.js",
           "docs/commercial-ecosystem-data-model.md",
           "data/generated/publisher-analysis.json",
-          "data/generated/eos-analysis.json"
+          "data/generated/eos-analysis.json",
+          "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
+          "_data/buildingPages.js",
+          "_data/commercialBuildingIntelligence.js",
+          "/commercial-real-estate/building/CA/emeryville/2200-powell-st/"
         ],
         "dependencies": [
           "Canonical ecosystem metadata",
@@ -265989,6 +265823,7 @@
           "node scripts/qa-eos.js",
           "node scripts/qa-publisher-expansion-planner.js",
           "node scripts/qa-publisher-ecosystem-readiness.js",
+          "node scripts/qa-building-brief-depth.js",
           "npm run publisher:snapshot",
           "npm run build",
           "git diff --check"
@@ -266021,13 +265856,13 @@
         },
         "rationale": [
           "Bundled because the included work affects the same metro and overlapping Publisher/EOS validation path.",
-          "Kept as a single mission because no safe related work should be bundled.",
+          "This avoids separate snapshot, QA, build, SER, and review cycles for tightly related gaps.",
           "Deferred work is explicit so unrelated scope does not leak into the mission."
         ],
         "why": [
-          "Current constraint: District foundation exists, but Representative Buildings are missing.",
+          "Current constraint: Representative Buildings exist, but Building Brief depth is missing.",
           "Expected impact is high based on readiness, foundation, or multi-gap evidence.",
-          "Small mission size keeps the packet inside a 30-60 minutes review window."
+          "Standard mission size keeps the packet inside a 60-120 minutes review window."
         ],
         "source": {
           "system": "EOS",
@@ -266036,22 +265871,44 @@
           ]
         },
         "executionPacket": {
-          "objective": "East Bay Life Science Ecosystem Representative Building Foundation",
+          "objective": "Complete the related East Bay Life Science opportunities as one bounded mission.",
           "reason": [
-            "1 related opportunity share metro, source, and validation paths.",
-            "District foundation exists, but Representative Buildings are missing.",
+            "3 related opportunities share metro, source, and validation paths.",
+            "Representative Buildings exist, but Building Brief depth is missing.",
             "Ecosystem readiness: Partial",
             "Commercial balance: Balanced"
           ],
           "currentHealth": "64% Needs Attention",
-          "currentConstraint": "District foundation exists, but Representative Buildings are missing.",
+          "currentConstraint": "Representative Buildings exist, but Building Brief depth is missing.",
           "includedTasks": [
             {
               "id": "ecosystem:east-bay:life_science",
-              "title": "East Bay Life Science Ecosystem Representative Building Foundation",
+              "title": "East Bay Life Science Ecosystem Building Brief Migration",
               "category": "commercialEcosystem",
               "categoryLabel": "Commercial Ecosystem",
-              "reason": "District foundation exists, but Representative Buildings are missing.",
+              "reason": "Representative Buildings exist, but Building Brief depth is missing.",
+              "suggestedModule": {
+                "id": "publisher",
+                "label": "Publisher"
+              }
+            },
+            {
+              "id": "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
+              "title": "Author a Building Brief for this representative building.",
+              "category": "buildingBriefs",
+              "categoryLabel": "Building Briefs",
+              "reason": "Representative building has not migrated to the canonical Building Brief journey.",
+              "suggestedModule": {
+                "id": "publisher",
+                "label": "Publisher"
+              }
+            },
+            {
+              "id": "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st",
+              "title": "Author a Building Brief for this representative building.",
+              "category": "buildingBriefs",
+              "categoryLabel": "Building Briefs",
+              "reason": "Representative building has not migrated to the canonical Building Brief journey.",
               "suggestedModule": {
                 "id": "publisher",
                 "label": "Publisher"
@@ -266087,8 +265944,8 @@
               }
             },
             {
-              "id": "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
-              "title": "Author a Building Brief for this representative building.",
+              "id": "publisher:east-bay:representativeBuildings:district missing representative buildings:antioch-east-18th-industrial",
+              "title": "Curate representative buildings that explain this district.",
               "reason": "Outside this mission's bounded product layer or ecosystem scope.",
               "suggestedModule": {
                 "id": "publisher",
@@ -266096,27 +265953,27 @@
               }
             },
             {
-              "id": "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st",
-              "title": "Author a Building Brief for this representative building.",
+              "id": "publisher:east-bay:comparisonGraph:one-way comparison:hayward-industrial-north-san-jose",
+              "title": "Review whether the comparison should be reciprocal.",
               "reason": "Outside this mission's bounded product layer or ecosystem scope.",
               "suggestedModule": {
-                "id": "publisher",
-                "label": "Publisher"
+                "id": "knowledgeGraph",
+                "label": "Knowledge Graph"
               }
             }
           ],
           "reasonForBundling": [
             "Bundled because the included work affects the same metro and overlapping Publisher/EOS validation path.",
-            "Kept as a single mission because no safe related work should be bundled.",
+            "This avoids separate snapshot, QA, build, SER, and review cycles for tightly related gaps.",
             "Deferred work is explicit so unrelated scope does not leak into the mission."
           ],
           "expectedImpact": "High",
-          "estimatedEffort": "Small",
+          "estimatedEffort": "Medium",
           "missionSize": {
-            "id": "small",
-            "label": "Small",
-            "reviewWindow": "30-60 minutes",
-            "maximumWorkItems": 3
+            "id": "standard",
+            "label": "Standard",
+            "reviewWindow": "60-120 minutes",
+            "maximumWorkItems": 8
           },
           "missionClass": "Readiness Blocker",
           "files": [
@@ -266124,7 +265981,11 @@
             "_data/locationKnowledgeGraph.js",
             "docs/commercial-ecosystem-data-model.md",
             "data/generated/publisher-analysis.json",
-            "data/generated/eos-analysis.json"
+            "data/generated/eos-analysis.json",
+            "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
+            "_data/buildingPages.js",
+            "_data/commercialBuildingIntelligence.js",
+            "/commercial-real-estate/building/CA/emeryville/2200-powell-st/"
           ],
           "dependencies": [
             "Canonical ecosystem metadata",
@@ -266134,7 +265995,8 @@
             "The cited measurable gap is closed or explicitly reclassified.",
             "Existing Publisher, EOS, and relevant QA checks pass.",
             "No production recommendation rankings change unless a separate approved sprint requires it.",
-            "Ecosystem readiness evidence changes according to deterministic Publisher rules."
+            "Ecosystem readiness evidence changes according to deterministic Publisher rules.",
+            "Building Brief gating and URLs remain stable."
           ],
           "expectedDeliverables": [
             "Completed included opportunities or explicit reclassification for each included gap",
@@ -266146,6 +266008,7 @@
             "node scripts/qa-eos.js",
             "node scripts/qa-publisher-expansion-planner.js",
             "node scripts/qa-publisher-ecosystem-readiness.js",
+            "node scripts/qa-building-brief-depth.js",
             "npm run publisher:snapshot",
             "npm run build",
             "git diff --check"
@@ -277731,409 +277594,6 @@
                 "id": "publisher:sacramento:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-folsom-600-coolidge-dr",
                 "name": "600 Coolidge Dr",
                 "path": "/commercial-real-estate/building/CA/folsom/600-coolidge-dr/"
-              }
-            ]
-          }
-        }
-      },
-      {
-        "id": "mission:east-bay:district-building-evidence:emeryville-commercial-core",
-        "title": "Complete Emeryville Commercial Core Building Evidence",
-        "marketId": "east-bay",
-        "marketName": "East Bay",
-        "programId": "commercial_market_evidence",
-        "programLabel": "Commercial Market Evidence",
-        "campaignId": "east-bay:commercial_market_evidence:completion-campaign",
-        "campaignTitle": "East Bay Building Evidence Completion",
-        "initiativeId": "east-bay:commercial_market_evidence:emeryville-commercial-core",
-        "initiativeTitle": "Emeryville Commercial Core Building Evidence",
-        "portfolioId": "district-building-evidence:east-bay:emeryville-commercial-core",
-        "metroId": "east-bay",
-        "metroName": "East Bay",
-        "ecosystem": "Building Evidence",
-        "ecosystemId": "",
-        "districtId": "emeryville-commercial-core",
-        "districtName": "Emeryville Commercial Core",
-        "workstream": "District Building Evidence",
-        "includedOpportunityIds": [
-          "commercial-market-evidence:emeryville-commercial-core:validation",
-          "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
-          "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st"
-        ],
-        "includedTasks": [
-          {
-            "id": "commercial-market-evidence:emeryville-commercial-core:validation",
-            "title": "Emeryville Commercial Core Commercial Market Evidence validation",
-            "category": "commercialMarketEvidence",
-            "categoryLabel": "Commercial Market Evidence",
-            "reason": "Existing evidence references must remain accurate while related Building Profiles are completed.",
-            "suggestedModule": {
-              "id": "commercialMarketEvidence",
-              "label": "Commercial Market Evidence"
-            }
-          },
-          {
-            "id": "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
-            "title": "2100 Powell St Building Profile",
-            "category": "buildingBriefs",
-            "categoryLabel": "Building Profiles",
-            "reason": "Supporting Building Profile work materially strengthens district explanation.",
-            "buildingName": "2100 Powell St",
-            "buildingPath": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
-            "suggestedModule": {
-              "id": "publisher",
-              "label": "Publisher"
-            }
-          },
-          {
-            "id": "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st",
-            "title": "2200 Powell St Building Profile",
-            "category": "buildingBriefs",
-            "categoryLabel": "Building Profiles",
-            "reason": "Supporting Building Profile work materially strengthens district explanation.",
-            "buildingName": "2200 Powell St",
-            "buildingPath": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
-            "suggestedModule": {
-              "id": "publisher",
-              "label": "Publisher"
-            }
-          }
-        ],
-        "deferredTasks": [],
-        "objective": "Complete the remaining Emeryville Commercial Core selected evidence Building Profiles while preserving the existing Commercial Market Evidence collection.",
-        "reason": [
-          "Emeryville Commercial Core already has a Commercial Market Evidence collection.",
-          "Evidence Building Profiles: 0 / 0.",
-          "Supporting Building Profiles: 0 / 2.",
-          "2 selected Building Profile work items are included in this bounded Mission."
-        ],
-        "expectedImpact": "Medium",
-        "estimatedEffort": "Small",
-        "missionSize": {
-          "id": "small",
-          "label": "Small",
-          "reviewWindow": "30-60 minutes",
-          "maximumWorkItems": 3
-        },
-        "impactEffortClass": "Medium Impact / Small Effort / District Building Evidence",
-        "missionClass": "Meaningful Depth Improvement",
-        "currentConstraint": "Emeryville Commercial Core Commercial Market Evidence is complete, but selected evidence Building Profiles remain incomplete.",
-        "completionCriteria": [
-          "Commercial Market Evidence and Building Profiles remain separate source systems and measurements.",
-          "Existing Commercial Market Evidence collection is validated and not rewritten unless validation identifies a real issue.",
-          "Selected evidence buildings resolve to adequate canonical Building Profiles or explicit remaining Work Items.",
-          "Building Profiles avoid unsupported leasing, tenant, lab, medical, or infrastructure claims.",
-          "CME validator, Building Brief depth QA, Publisher snapshot, EOS QA, and build pass.",
-          "Publisher scoring, recommendation rankings, public URLs, and Mission Control planning logic remain stable unless measured source coverage legitimately changes."
-        ],
-        "relevantFiles": [
-          "docs/product/rofo-master-plan.md",
-          "docs/editorial-operating-system.md",
-          "docs/mission-control-v2-operating-model.md",
-          "docs/commercial-market-evidence.md",
-          "docs/commercial-market-evidence-financial-district.md",
-          "docs/eos-portfolio-resolver.md",
-          "docs/rofo-publisher.md",
-          "docs/building-page-standard.md",
-          "_data/locationKnowledgeGraph.js",
-          "_data/commercialMarketEvidence.js",
-          "_data/commercialBuildingIntelligence.js",
-          "_data/representativeBuildingIntelligence.js",
-          "data/commercial-market-evidence/east-bay/emeryville-commercial-core.js",
-          "scripts/qa-commercial-market-evidence.js",
-          "scripts/qa-building-brief-depth.js",
-          "data/generated/publisher-analysis.json",
-          "data/generated/eos-analysis.json",
-          "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
-          "/commercial-real-estate/building/CA/emeryville/2200-powell-st/"
-        ],
-        "dependencies": [
-          "Commercial Market Evidence architecture",
-          "Financial District canonical collection standard",
-          "Knowledge Graph district identity",
-          "Representative building and Commercial Building Intelligence evidence",
-          "Building Profile editorial standard",
-          "Publisher Building Brief depth analysis"
-        ],
-        "qaCommands": [
-          "node scripts/qa-commercial-market-evidence.js",
-          "node scripts/qa-building-brief-depth.js",
-          "npm run publisher:snapshot",
-          "node scripts/qa-eos.js",
-          "npm run build",
-          "git diff --check"
-        ],
-        "requiredReview": true,
-        "confidence": "High",
-        "priorityScore": 80,
-        "priorityStars": 4,
-        "automationLevel": {
-          "id": "review_required",
-          "label": "Review Required",
-          "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
-        },
-        "lifecycleState": {
-          "id": "ready",
-          "label": "Ready"
-        },
-        "status": "Ready",
-        "queueType": "editorial",
-        "operatingLane": {
-          "id": "editorial",
-          "label": "Editorial",
-          "description": "Commercial judgment, building profiles, handbook guidance, and public editorial depth."
-        },
-        "category": "mission",
-        "categoryLabel": "Mission",
-        "suggestedModule": {
-          "id": "commercialMarketEvidence",
-          "label": "Commercial Market Evidence"
-        },
-        "rationale": [
-          "Commercial Market Evidence and selected Building Profiles share district research context, source paths, and validation flow.",
-          "Existing Commercial Market Evidence collection remains intact; mission focuses on validating the collection and completing selected evidence Building Profiles.",
-          "Evidence records remain hidden Work Items; Building Profile content stays in Commercial Building Intelligence.",
-          "No split required; district building evidence stays within the configured mission-size upper bound."
-        ],
-        "why": [
-          "Commercial Market Evidence and Building Profiles are separate data products but one district research workflow.",
-          "CME collection already exists, so this catch-up Mission focuses on selected evidence Building Profiles and collection validation.",
-          "One district Mission avoids detached Commence Work actions for evidence selection and Building Profile migration."
-        ],
-        "source": {
-          "system": "EOS Portfolio Resolver",
-          "resolverId": "district-building-evidence-resolver-v1",
-          "includedSystems": [
-            "Commercial Market Evidence",
-            "Building Profiles",
-            "Publisher",
-            "Commercial Building Intelligence"
-          ]
-        },
-        "componentStatuses": {
-          "commercialMarketEvidence": "Complete",
-          "evidenceRecordCount": 5,
-          "evidenceBuildingProfiles": {
-            "completed": 0,
-            "target": 0,
-            "missing": 0,
-            "label": "0 / 0"
-          },
-          "supportingBuildingProfiles": {
-            "completed": 0,
-            "target": 2,
-            "missing": 2,
-            "label": "0 / 2"
-          },
-          "unresolvedBuildingItems": 0,
-          "validationStatus": "Requires validation",
-          "districtBuildingEvidence": "In Progress"
-        },
-        "workItems": {
-          "hiddenByDefault": true,
-          "count": 3,
-          "buildings": [
-            {
-              "id": "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
-              "name": "2100 Powell St",
-              "path": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/"
-            },
-            {
-              "id": "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st",
-              "name": "2200 Powell St",
-              "path": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/"
-            }
-          ]
-        },
-        "executionPacket": {
-          "objective": "Complete the remaining Emeryville Commercial Core selected evidence Building Profiles while preserving the existing Commercial Market Evidence collection.",
-          "reason": [
-            "Emeryville Commercial Core already has a Commercial Market Evidence collection.",
-            "Evidence Building Profiles: 0 / 0.",
-            "Supporting Building Profiles: 0 / 2.",
-            "2 selected Building Profile work items are included in this bounded Mission."
-          ],
-          "currentHealth": "64% Needs Attention",
-          "currentConstraint": "Emeryville Commercial Core Commercial Market Evidence is complete, but selected evidence Building Profiles remain incomplete.",
-          "includedTasks": [
-            {
-              "id": "commercial-market-evidence:emeryville-commercial-core:validation",
-              "title": "Emeryville Commercial Core Commercial Market Evidence validation",
-              "category": "commercialMarketEvidence",
-              "categoryLabel": "Commercial Market Evidence",
-              "reason": "Existing evidence references must remain accurate while related Building Profiles are completed.",
-              "suggestedModule": {
-                "id": "commercialMarketEvidence",
-                "label": "Commercial Market Evidence"
-              }
-            },
-            {
-              "id": "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
-              "title": "2100 Powell St Building Profile",
-              "category": "buildingBriefs",
-              "categoryLabel": "Building Profiles",
-              "reason": "Supporting Building Profile work materially strengthens district explanation.",
-              "buildingName": "2100 Powell St",
-              "buildingPath": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
-              "suggestedModule": {
-                "id": "publisher",
-                "label": "Publisher"
-              }
-            },
-            {
-              "id": "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st",
-              "title": "2200 Powell St Building Profile",
-              "category": "buildingBriefs",
-              "categoryLabel": "Building Profiles",
-              "reason": "Supporting Building Profile work materially strengthens district explanation.",
-              "buildingName": "2200 Powell St",
-              "buildingPath": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
-              "suggestedModule": {
-                "id": "publisher",
-                "label": "Publisher"
-              }
-            }
-          ],
-          "deferredTasks": [],
-          "reasonForBundling": [
-            "Commercial Market Evidence and selected Building Profiles share district research context, source paths, and validation flow.",
-            "Existing Commercial Market Evidence collection remains intact; mission focuses on validating the collection and completing selected evidence Building Profiles.",
-            "Evidence records remain hidden Work Items; Building Profile content stays in Commercial Building Intelligence.",
-            "No split required; district building evidence stays within the configured mission-size upper bound."
-          ],
-          "expectedImpact": "Medium",
-          "estimatedEffort": "Small",
-          "missionSize": {
-            "id": "small",
-            "label": "Small",
-            "reviewWindow": "30-60 minutes",
-            "maximumWorkItems": 3
-          },
-          "missionClass": "Meaningful Depth Improvement",
-          "files": [
-            "docs/product/rofo-master-plan.md",
-            "docs/editorial-operating-system.md",
-            "docs/mission-control-v2-operating-model.md",
-            "docs/commercial-market-evidence.md",
-            "docs/commercial-market-evidence-financial-district.md",
-            "docs/eos-portfolio-resolver.md",
-            "docs/rofo-publisher.md",
-            "docs/building-page-standard.md",
-            "_data/locationKnowledgeGraph.js",
-            "_data/commercialMarketEvidence.js",
-            "_data/commercialBuildingIntelligence.js",
-            "_data/representativeBuildingIntelligence.js",
-            "data/commercial-market-evidence/east-bay/emeryville-commercial-core.js",
-            "scripts/qa-commercial-market-evidence.js",
-            "scripts/qa-building-brief-depth.js",
-            "data/generated/publisher-analysis.json",
-            "data/generated/eos-analysis.json",
-            "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
-            "/commercial-real-estate/building/CA/emeryville/2200-powell-st/"
-          ],
-          "dependencies": [
-            "Commercial Market Evidence architecture",
-            "Financial District canonical collection standard",
-            "Knowledge Graph district identity",
-            "Representative building and Commercial Building Intelligence evidence",
-            "Building Profile editorial standard",
-            "Publisher Building Brief depth analysis"
-          ],
-          "acceptanceCriteria": [
-            "Commercial Market Evidence and Building Profiles remain separate source systems and measurements.",
-            "Existing Commercial Market Evidence collection is validated and not rewritten unless validation identifies a real issue.",
-            "Selected evidence buildings resolve to adequate canonical Building Profiles or explicit remaining Work Items.",
-            "Building Profiles avoid unsupported leasing, tenant, lab, medical, or infrastructure claims.",
-            "CME validator, Building Brief depth QA, Publisher snapshot, EOS QA, and build pass.",
-            "Publisher scoring, recommendation rankings, public URLs, and Mission Control planning logic remain stable unless measured source coverage legitimately changes."
-          ],
-          "expectedDeliverables": [
-            "Commercial Market Evidence work completed or validated without unnecessary regeneration",
-            "Selected evidence Building Profiles completed or explicitly deferred",
-            "Commercial Market Evidence validator and Building Brief depth QA pass",
-            "Publisher and EOS snapshots regenerated",
-            "Per-component and per-building outcomes reported in SER v1"
-          ],
-          "qaCommands": [
-            "node scripts/qa-commercial-market-evidence.js",
-            "node scripts/qa-building-brief-depth.js",
-            "npm run publisher:snapshot",
-            "node scripts/qa-eos.js",
-            "npm run build",
-            "git diff --check"
-          ],
-          "requiredReview": true,
-          "automationLevel": {
-            "id": "review_required",
-            "label": "Review Required",
-            "description": "EOS can prepare or structure the work, but a human editor must approve judgments or evidence."
-          },
-          "providers": [
-            {
-              "id": "manual",
-              "label": "Manual",
-              "description": "A human uses the execution packet as a checklist and updates EOS externally."
-            },
-            {
-              "id": "codex",
-              "label": "Codex",
-              "description": "A future execution provider can consume the packet and return work for review."
-            }
-          ],
-          "handoff": [
-            {
-              "id": "engineering",
-              "label": "Engineering",
-              "description": "Prepare source files, schema, generated data, or implementation scope."
-            },
-            {
-              "id": "execution",
-              "label": "Execution / Field Mode",
-              "description": "Execute the work manually, through Field Mode, or through a future provider."
-            },
-            {
-              "id": "qa",
-              "label": "QA",
-              "description": "Run deterministic validation and return exceptions to review."
-            },
-            {
-              "id": "publish",
-              "label": "Publish",
-              "description": "Regenerate snapshots/build and publish through the existing deployment workflow."
-            }
-          ],
-          "componentStatuses": {
-            "commercialMarketEvidence": "Complete",
-            "evidenceRecordCount": 5,
-            "evidenceBuildingProfiles": {
-              "completed": 0,
-              "target": 0,
-              "missing": 0,
-              "label": "0 / 0"
-            },
-            "supportingBuildingProfiles": {
-              "completed": 0,
-              "target": 2,
-              "missing": 2,
-              "label": "0 / 2"
-            },
-            "unresolvedBuildingItems": 0,
-            "validationStatus": "Requires validation",
-            "districtBuildingEvidence": "In Progress"
-          },
-          "workItems": {
-            "hiddenByDefault": true,
-            "count": 3,
-            "buildings": [
-              {
-                "id": "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2100-powell-st",
-                "name": "2100 Powell St",
-                "path": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/"
-              },
-              {
-                "id": "publisher:east-bay:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-emeryville-2200-powell-st",
-                "name": "2200 Powell St",
-                "path": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/"
               }
             ]
           }
@@ -302382,7 +301842,7 @@
         "id": "ecosystem:east-bay:life_science",
         "metroId": "east-bay",
         "metroName": "East Bay",
-        "title": "East Bay Life Science Ecosystem Representative Building Foundation",
+        "title": "East Bay Life Science Ecosystem Building Brief Migration",
         "itemName": "Life Science",
         "priorityScore": 78,
         "priorityStars": 4,
@@ -302413,14 +301873,14 @@
         "categoryLabel": "Commercial Ecosystem",
         "ecosystemId": "life_science",
         "ecosystemLabel": "Life Science",
-        "sprintFamily": "Ecosystem Representative Building Foundation",
-        "gapCode": "ecosystem_representative_building_gap",
+        "sprintFamily": "Ecosystem Building Brief Migration",
+        "gapCode": "ecosystem_building_brief_gap",
         "suggestedModule": {
           "id": "publisher",
           "label": "Publisher"
         },
         "why": [
-          "District foundation exists, but Representative Buildings are missing.",
+          "Representative Buildings exist, but Building Brief depth is missing.",
           "Ecosystem readiness: Partial",
           "Commercial balance: Balanced"
         ],
@@ -302430,9 +301890,9 @@
           "adminUrl": ""
         },
         "executionPacket": {
-          "objective": "East Bay Life Science Ecosystem Representative Building Foundation",
+          "objective": "East Bay Life Science Ecosystem Building Brief Migration",
           "reason": [
-            "District foundation exists, but Representative Buildings are missing.",
+            "Representative Buildings exist, but Building Brief depth is missing.",
             "Ecosystem readiness: Partial",
             "Commercial balance: Balanced"
           ],
@@ -340887,19 +340347,19 @@
     "reviewQueue": [],
     "opportunityInventory": {
       "total": 316,
-      "missions": 87,
+      "missions": 86,
       "resolvedPortfolioMissions": 0,
       "byQueue": {
         "editorial": 316,
-        "missions": 87,
+        "missions": 86,
         "resolvedPortfolioMissions": 0,
         "expansion": 4,
         "fieldMode": 7,
         "review": 0,
-        "programMissions": 76
+        "programMissions": 75
       },
       "hiddenFromHomepage": 316,
-      "programMissions": 76
+      "programMissions": 75
     }
   },
   "workQueue": [
@@ -341740,7 +341200,7 @@
       "id": "ecosystem:east-bay:life_science",
       "metroId": "east-bay",
       "metroName": "East Bay",
-      "title": "East Bay Life Science Ecosystem Representative Building Foundation",
+      "title": "East Bay Life Science Ecosystem Building Brief Migration",
       "itemName": "Life Science",
       "priorityScore": 78,
       "priorityStars": 4,
@@ -341771,14 +341231,14 @@
       "categoryLabel": "Commercial Ecosystem",
       "ecosystemId": "life_science",
       "ecosystemLabel": "Life Science",
-      "sprintFamily": "Ecosystem Representative Building Foundation",
-      "gapCode": "ecosystem_representative_building_gap",
+      "sprintFamily": "Ecosystem Building Brief Migration",
+      "gapCode": "ecosystem_building_brief_gap",
       "suggestedModule": {
         "id": "publisher",
         "label": "Publisher"
       },
       "why": [
-        "District foundation exists, but Representative Buildings are missing.",
+        "Representative Buildings exist, but Building Brief depth is missing.",
         "Ecosystem readiness: Partial",
         "Commercial balance: Balanced"
       ],
@@ -341788,9 +341248,9 @@
         "adminUrl": ""
       },
       "executionPacket": {
-        "objective": "East Bay Life Science Ecosystem Representative Building Foundation",
+        "objective": "East Bay Life Science Ecosystem Building Brief Migration",
         "reason": [
-          "District foundation exists, but Representative Buildings are missing.",
+          "Representative Buildings exist, but Building Brief depth is missing.",
           "Ecosystem readiness: Partial",
           "Commercial balance: Balanced"
         ],

@@ -167,6 +167,9 @@ const ECOSYSTEM_READINESS = {
       medical: [
         "medical_office_environment",
       ],
+      life_science: [
+        "life_science_campus",
+      ],
     },
     denver: {
       office: [
@@ -224,6 +227,7 @@ const ECOSYSTEM_READINESS = {
       industrial_flex: ["access_loading", "configuration", "parking_vehicles", "location_workforce"],
       retail: ["market_presence", "configuration", "parking_vehicles"],
       medical: ["parking_vehicles", "configuration", "market_presence", "location_workforce"],
+      life_science: ["market_presence", "location_workforce"],
     },
     seattle: {
       office: ["market_presence", "configuration", "parking_vehicles", "location_workforce"],

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-13T07:26:39-07:00",
+  "generatedAt": "2026-08-13T07:46:28-07:00",
   "rulesVersion": "publisher-rules-v1",
   "plannerVersion": "publisher-expansion-planner-v1",
   "defaultMode": "balanced",
@@ -55,7 +55,7 @@
     {
       "metroId": "san-francisco",
       "metroName": "San Francisco",
-      "generatedAt": "2026-08-13T07:26:39-07:00",
+      "generatedAt": "2026-08-13T07:46:28-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 96,
@@ -119,7 +119,7 @@
             "districtCount": 6,
             "secondaryDistrictCount": 16,
             "recommendationNodeCount": 6,
-            "representativeBuildingCount": 78,
+            "representativeBuildingCount": 77,
             "buildingBriefCount": 36,
             "status": "Developed",
             "districts": [
@@ -198,12 +198,12 @@
               "ecosystemId": "office",
               "state": "strong",
               "stateLabel": "Strong",
-              "buildingCount": 78,
-              "explicitCount": 4,
+              "buildingCount": 77,
+              "explicitCount": 3,
               "inheritedOnlyCount": 65,
               "reviewRequiredCount": 0,
               "rolesCovered": {
-                "suburban_office_campus": 3,
+                "suburban_office_campus": 2,
                 "transit_oriented_office_environment": 4,
                 "professional_office_environment": 7,
                 "downtown_class_a_office": 4,
@@ -212,19 +212,19 @@
                 "executive_office_environment": 13
               },
               "subtypesCovered": {
-                "suburban_office": 2,
-                "office_campus": 2,
-                "professional_office": 25,
+                "suburban_office": 1,
+                "office_campus": 1,
+                "professional_office": 24,
                 "downtown_office": 40,
                 "creative_office": 50,
                 "executive_office": 16
               },
               "activityCoverage": {
-                "knowledge_work": 78,
-                "collaboration": 53,
-                "administrative_operations": 31,
-                "research": 5,
-                "product_development": 49,
+                "knowledge_work": 77,
+                "collaboration": 52,
+                "administrative_operations": 30,
+                "research": 4,
+                "product_development": 48,
                 "client_meetings": 49,
                 "walk_in_retail": 14,
                 "walk_in_service": 18,
@@ -236,14 +236,14 @@
                 "light_manufacturing": 6
               },
               "archetypeCoverage": {
-                "professional_office": 78,
-                "consulting_firm": 76,
-                "startup": 64,
-                "research_company": 11,
-                "biotech_company": 2,
-                "law_firm": 78,
-                "accounting_firm": 69,
-                "financial_services_firm": 67,
+                "professional_office": 77,
+                "consulting_firm": 75,
+                "startup": 63,
+                "research_company": 10,
+                "biotech_company": 1,
+                "law_firm": 77,
+                "accounting_firm": 68,
+                "financial_services_firm": 66,
                 "nonprofit_office": 9,
                 "wellness_practice": 14,
                 "marketing_agency": 67,
@@ -253,16 +253,16 @@
                 "food_producer": 2
               },
               "operationalCharacteristicsCovered": {
-                "campus_environment": 3,
-                "surface_parking": 3,
-                "suburban_access": 3,
-                "large_floorplates": 5,
-                "professional_image": 31,
+                "campus_environment": 2,
+                "surface_parking": 2,
+                "suburban_access": 2,
+                "professional_image": 30,
                 "transit_access": 8,
                 "walkability": 50,
                 "structured_parking": 6,
                 "private_office_layout": 20,
                 "customer_parking": 7,
+                "large_floorplates": 4,
                 "urban_core_access": 1,
                 "enhanced_security": 14,
                 "creative_environment": 46,
@@ -270,10 +270,10 @@
                 "flexible_suite_sizes": 46
               },
               "operationalCategoriesCovered": {
-                "market_presence": 80,
-                "parking_vehicles": 16,
-                "location_workforce": 62,
-                "configuration": 117,
+                "market_presence": 78,
+                "parking_vehicles": 15,
+                "location_workforce": 61,
+                "configuration": 116,
                 "infrastructure": 14
               },
               "missingRoles": [
@@ -286,12 +286,6 @@
               "highestPriorityMissingRole": "small_tenant_office_environment",
               "highestPriorityMissingOperationalCategory": "access_loading",
               "exampleBuildings": [
-                {
-                  "name": "2200 Powell St",
-                  "path": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
-                  "role": "suburban_office_campus",
-                  "confidence": "editorially_supported"
-                },
                 {
                   "name": "2100 Powell St",
                   "path": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
@@ -319,6 +313,12 @@
                 {
                   "name": "2040 Bancroft Way",
                   "path": "/commercial-real-estate/building/CA/berkeley/2040-bancroft-way/",
+                  "role": "downtown_class_a_office",
+                  "confidence": "district_inferred"
+                },
+                {
+                  "name": "2070 Allston Way",
+                  "path": "/commercial-real-estate/building/CA/berkeley/2070-allston-way/",
                   "role": "downtown_class_a_office",
                   "confidence": "district_inferred"
                 }
@@ -874,7 +874,7 @@
             "districtCount": 2,
             "secondaryDistrictCount": 4,
             "recommendationNodeCount": 2,
-            "representativeBuildingCount": 14,
+            "representativeBuildingCount": 15,
             "buildingBriefCount": 5,
             "status": "Developed",
             "districts": [
@@ -922,37 +922,40 @@
               "ecosystemId": "life_science",
               "state": "strong",
               "stateLabel": "Strong",
-              "buildingCount": 14,
-              "explicitCount": 4,
+              "buildingCount": 15,
+              "explicitCount": 5,
               "inheritedOnlyCount": 10,
               "reviewRequiredCount": 0,
               "rolesCovered": {
-                "life_science_campus": 11,
+                "life_science_campus": 12,
                 "biotech_research_environment": 1,
                 "research_lab_environment": 2
               },
               "subtypesCovered": {
-                "life_science_office": 14,
-                "innovation_campus": 14,
+                "innovation_campus": 15,
+                "life_science_office": 15,
                 "biotech_research": 2,
                 "research_lab": 4
               },
               "activityCoverage": {
-                "research": 14,
-                "product_development": 14,
-                "collaboration": 14,
-                "knowledge_work": 14
+                "research": 15,
+                "product_development": 15,
+                "collaboration": 15,
+                "administrative_operations": 1,
+                "knowledge_work": 15
               },
               "archetypeCoverage": {
-                "biotech_company": 14,
-                "research_company": 14,
-                "startup": 14
+                "research_company": 15,
+                "biotech_company": 15,
+                "startup": 15,
+                "professional_office": 1,
+                "consulting_firm": 1
               },
               "operationalCharacteristicsCovered": {
-                "campus_environment": 14,
-                "research_compatible": 11,
-                "transit_access": 12,
-                "enhanced_security": 11,
+                "campus_environment": 15,
+                "transit_access": 13,
+                "research_compatible": 12,
+                "enhanced_security": 12,
                 "lab_infrastructure": 4,
                 "wet_lab_potential": 3,
                 "backup_power": 1,
@@ -961,10 +964,10 @@
                 "high_power": 2
               },
               "operationalCategoriesCovered": {
-                "market_presence": 14,
-                "outdoor_special_use": 11,
-                "location_workforce": 12,
-                "infrastructure": 24,
+                "market_presence": 15,
+                "location_workforce": 13,
+                "outdoor_special_use": 12,
+                "infrastructure": 25,
                 "configuration": 4
               },
               "missingRoles": [],
@@ -972,6 +975,12 @@
               "highestPriorityMissingRole": "",
               "highestPriorityMissingOperationalCategory": "",
               "exampleBuildings": [
+                {
+                  "name": "2200 Powell St",
+                  "path": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
+                  "role": "life_science_campus",
+                  "confidence": "editorially_supported"
+                },
                 {
                   "name": "Chase Center",
                   "path": "/commercial-real-estate/building/CA/san-francisco/1-warriors-way/",
@@ -999,12 +1008,6 @@
                 {
                   "name": "The Exchange",
                   "path": "/commercial-real-estate/building/CA/san-francisco/1800-owens-st/",
-                  "role": "life_science_campus",
-                  "confidence": "district_inferred"
-                },
-                {
-                  "name": "UCSF Medical Center at Mission Bay",
-                  "path": "/commercial-real-estate/building/CA/san-francisco/1825-4th-st/",
                   "role": "life_science_campus",
                   "confidence": "district_inferred"
                 }
@@ -1275,7 +1278,7 @@
               "districts": 6,
               "secondaryDistricts": 16,
               "recommendations": 6,
-              "representativeBuildings": 78,
+              "representativeBuildings": 77,
               "buildingBriefs": 36,
               "subtypes": 7,
               "archetypes": 14,
@@ -1292,7 +1295,7 @@
             "strategicPriority": 2,
             "evidence": [
               "6 primary districts and 16 secondary districts.",
-              "78 Representative Buildings and 36 Building Briefs.",
+              "77 Representative Buildings and 36 Building Briefs.",
               "7 representative roles and 5 operational categories are covered."
             ],
             "targetSubtypes": [
@@ -1320,8 +1323,8 @@
               "ecosystemId": "office",
               "state": "strong",
               "stateLabel": "Strong",
-              "buildingCount": 78,
-              "explicitCount": 4,
+              "buildingCount": 77,
+              "explicitCount": 3,
               "inheritedOnlyCount": 65,
               "reviewRequiredCount": 0,
               "rolesCovered": [
@@ -1378,13 +1381,13 @@
                 "campus_environment",
                 "surface_parking",
                 "suburban_access",
-                "large_floorplates",
                 "professional_image",
                 "transit_access",
                 "walkability",
                 "structured_parking",
                 "private_office_layout",
                 "customer_parking",
+                "large_floorplates",
                 "urban_core_access",
                 "enhanced_security",
                 "creative_environment",
@@ -1408,12 +1411,6 @@
               "highestPriorityMissingRole": "small_tenant_office_environment",
               "highestPriorityMissingOperationalCategory": "access_loading",
               "exampleBuildings": [
-                {
-                  "name": "2200 Powell St",
-                  "path": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
-                  "role": "suburban_office_campus",
-                  "confidence": "editorially_supported"
-                },
                 {
                   "name": "2100 Powell St",
                   "path": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
@@ -1441,6 +1438,12 @@
                 {
                   "name": "2040 Bancroft Way",
                   "path": "/commercial-real-estate/building/CA/berkeley/2040-bancroft-way/",
+                  "role": "downtown_class_a_office",
+                  "confidence": "district_inferred"
+                },
+                {
+                  "name": "2070 Allston Way",
+                  "path": "/commercial-real-estate/building/CA/berkeley/2070-allston-way/",
                   "role": "downtown_class_a_office",
                   "confidence": "district_inferred"
                 }
@@ -1999,7 +2002,7 @@
               "districts": 2,
               "secondaryDistricts": 4,
               "recommendations": 2,
-              "representativeBuildings": 14,
+              "representativeBuildings": 15,
               "buildingBriefs": 5,
               "subtypes": 7,
               "archetypes": 5,
@@ -2016,7 +2019,7 @@
             "strategicPriority": 4,
             "evidence": [
               "2 primary districts and 4 secondary districts.",
-              "14 Representative Buildings and 5 Building Briefs.",
+              "15 Representative Buildings and 5 Building Briefs.",
               "3 representative roles and 5 operational categories are covered."
             ],
             "targetSubtypes": [
@@ -2041,8 +2044,8 @@
               "ecosystemId": "life_science",
               "state": "strong",
               "stateLabel": "Strong",
-              "buildingCount": 14,
-              "explicitCount": 4,
+              "buildingCount": 15,
+              "explicitCount": 5,
               "inheritedOnlyCount": 10,
               "reviewRequiredCount": 0,
               "rolesCovered": [
@@ -2051,8 +2054,8 @@
                 "research_lab_environment"
               ],
               "subtypesCovered": [
-                "life_science_office",
                 "innovation_campus",
+                "life_science_office",
                 "biotech_research",
                 "research_lab"
               ],
@@ -2060,17 +2063,20 @@
                 "research",
                 "product_development",
                 "collaboration",
+                "administrative_operations",
                 "knowledge_work"
               ],
               "archetypeCoverage": [
-                "biotech_company",
                 "research_company",
-                "startup"
+                "biotech_company",
+                "startup",
+                "professional_office",
+                "consulting_firm"
               ],
               "operationalCharacteristicsCovered": [
                 "campus_environment",
-                "research_compatible",
                 "transit_access",
+                "research_compatible",
                 "enhanced_security",
                 "lab_infrastructure",
                 "wet_lab_potential",
@@ -2081,8 +2087,8 @@
               ],
               "operationalCategoriesCovered": [
                 "market_presence",
-                "outdoor_special_use",
                 "location_workforce",
+                "outdoor_special_use",
                 "infrastructure",
                 "configuration"
               ],
@@ -2091,6 +2097,12 @@
               "highestPriorityMissingRole": "",
               "highestPriorityMissingOperationalCategory": "",
               "exampleBuildings": [
+                {
+                  "name": "2200 Powell St",
+                  "path": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
+                  "role": "life_science_campus",
+                  "confidence": "editorially_supported"
+                },
                 {
                   "name": "Chase Center",
                   "path": "/commercial-real-estate/building/CA/san-francisco/1-warriors-way/",
@@ -2118,12 +2130,6 @@
                 {
                   "name": "The Exchange",
                   "path": "/commercial-real-estate/building/CA/san-francisco/1800-owens-st/",
-                  "role": "life_science_campus",
-                  "confidence": "district_inferred"
-                },
-                {
-                  "name": "UCSF Medical Center at Mission Bay",
-                  "path": "/commercial-real-estate/building/CA/san-francisco/1825-4th-st/",
                   "role": "life_science_campus",
                   "confidence": "district_inferred"
                 }
@@ -14515,7 +14521,7 @@
     {
       "metroId": "east-bay",
       "metroName": "East Bay",
-      "generatedAt": "2026-08-13T07:26:39-07:00",
+      "generatedAt": "2026-08-13T07:46:28-07:00",
       "currentState": {
         "readinessStatus": "Editorially Developed",
         "overallScore": 74,
@@ -14564,8 +14570,8 @@
         "ecosystems": {
           "count": 7,
           "developed": 3,
-          "partial": 3,
-          "thin": 1,
+          "partial": 4,
+          "thin": 0,
           "missing": 0,
           "reviewRequired": 0,
           "note": "Ecosystem coverage is reported for planning context and does not change Publisher readiness scoring in v1."
@@ -14579,7 +14585,7 @@
             "districtCount": 0,
             "secondaryDistrictCount": 5,
             "recommendationNodeCount": 0,
-            "representativeBuildingCount": 13,
+            "representativeBuildingCount": 12,
             "buildingBriefCount": 11,
             "status": "Partial",
             "districts": [],
@@ -14622,12 +14628,12 @@
               "ecosystemId": "office",
               "state": "strong",
               "stateLabel": "Strong",
-              "buildingCount": 13,
-              "explicitCount": 4,
+              "buildingCount": 12,
+              "explicitCount": 3,
               "inheritedOnlyCount": 0,
               "reviewRequiredCount": 0,
               "rolesCovered": {
-                "suburban_office_campus": 2,
+                "suburban_office_campus": 1,
                 "transit_oriented_office_environment": 2,
                 "professional_office_environment": 3,
                 "downtown_class_a_office": 4,
@@ -14635,18 +14641,18 @@
                 "creative_office_environment": 1
               },
               "subtypesCovered": {
-                "suburban_office": 2,
-                "office_campus": 2,
-                "professional_office": 13,
+                "suburban_office": 1,
+                "office_campus": 1,
+                "professional_office": 12,
                 "downtown_office": 3,
                 "creative_office": 1
               },
               "activityCoverage": {
-                "knowledge_work": 13,
-                "collaboration": 3,
-                "administrative_operations": 12,
-                "research": 2,
-                "product_development": 3,
+                "knowledge_work": 12,
+                "collaboration": 2,
+                "administrative_operations": 11,
+                "research": 1,
+                "product_development": 2,
                 "client_meetings": 11,
                 "walk_in_retail": 11,
                 "walk_in_service": 11,
@@ -14657,14 +14663,14 @@
                 "hospitality_service": 1
               },
               "archetypeCoverage": {
-                "professional_office": 13,
-                "consulting_firm": 11,
-                "startup": 2,
-                "research_company": 2,
-                "biotech_company": 2,
-                "law_firm": 13,
-                "accounting_firm": 4,
-                "financial_services_firm": 2,
+                "professional_office": 12,
+                "consulting_firm": 10,
+                "startup": 1,
+                "research_company": 1,
+                "biotech_company": 1,
+                "law_firm": 12,
+                "accounting_firm": 3,
+                "financial_services_firm": 1,
                 "nonprofit_office": 9,
                 "wellness_practice": 11,
                 "marketing_agency": 11,
@@ -14674,16 +14680,16 @@
                 "food_producer": 2
               },
               "operationalCharacteristicsCovered": {
-                "campus_environment": 2,
-                "surface_parking": 2,
-                "suburban_access": 2,
-                "large_floorplates": 5,
-                "professional_image": 12,
+                "campus_environment": 1,
+                "surface_parking": 1,
+                "suburban_access": 1,
+                "professional_image": 11,
                 "transit_access": 6,
                 "walkability": 3,
                 "structured_parking": 6,
                 "private_office_layout": 3,
                 "customer_parking": 3,
+                "large_floorplates": 4,
                 "urban_core_access": 1,
                 "enhanced_security": 1,
                 "creative_environment": 1,
@@ -14691,10 +14697,10 @@
                 "flexible_suite_sizes": 1
               },
               "operationalCategoriesCovered": {
-                "market_presence": 15,
-                "parking_vehicles": 11,
-                "location_workforce": 12,
-                "configuration": 10,
+                "market_presence": 13,
+                "parking_vehicles": 10,
+                "location_workforce": 11,
+                "configuration": 9,
                 "infrastructure": 1
               },
               "missingRoles": [],
@@ -14702,12 +14708,6 @@
               "highestPriorityMissingRole": "",
               "highestPriorityMissingOperationalCategory": "",
               "exampleBuildings": [
-                {
-                  "name": "2200 Powell St",
-                  "path": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
-                  "role": "suburban_office_campus",
-                  "confidence": "editorially_supported"
-                },
                 {
                   "name": "2100 Powell St",
                   "path": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
@@ -14735,6 +14735,12 @@
                 {
                   "name": "2040 Bancroft Way",
                   "path": "/commercial-real-estate/building/CA/berkeley/2040-bancroft-way/",
+                  "role": "downtown_class_a_office",
+                  "confidence": "district_inferred"
+                },
+                {
+                  "name": "2070 Allston Way",
+                  "path": "/commercial-real-estate/building/CA/berkeley/2070-allston-way/",
                   "role": "downtown_class_a_office",
                   "confidence": "district_inferred"
                 }
@@ -15200,9 +15206,9 @@
             "districtCount": 1,
             "secondaryDistrictCount": 1,
             "recommendationNodeCount": 1,
-            "representativeBuildingCount": 0,
+            "representativeBuildingCount": 1,
             "buildingBriefCount": 0,
-            "status": "Thin",
+            "status": "Partial",
             "districts": [
               {
                 "slug": "emeryville-commercial-core",
@@ -15241,33 +15247,57 @@
             ],
             "representativeBuildingIntelligence": {
               "ecosystemId": "life_science",
-              "state": "missing",
-              "stateLabel": "Missing",
-              "buildingCount": 0,
-              "explicitCount": 0,
+              "state": "strong",
+              "stateLabel": "Strong",
+              "buildingCount": 1,
+              "explicitCount": 1,
               "inheritedOnlyCount": 0,
               "reviewRequiredCount": 0,
-              "rolesCovered": {},
-              "subtypesCovered": {},
-              "activityCoverage": {},
-              "archetypeCoverage": {},
-              "operationalCharacteristicsCovered": {},
-              "operationalCategoriesCovered": {},
-              "missingRoles": [
-                "research_lab_environment",
-                "life_science_campus",
-                "biotech_research_environment"
-              ],
-              "missingOperationalCategories": [
-                "configuration",
-                "infrastructure",
-                "market_presence",
-                "location_workforce",
-                "outdoor_special_use"
-              ],
-              "highestPriorityMissingRole": "research_lab_environment",
-              "highestPriorityMissingOperationalCategory": "configuration",
-              "exampleBuildings": []
+              "rolesCovered": {
+                "life_science_campus": 1
+              },
+              "subtypesCovered": {
+                "innovation_campus": 1,
+                "life_science_office": 1
+              },
+              "activityCoverage": {
+                "research": 1,
+                "product_development": 1,
+                "collaboration": 1,
+                "administrative_operations": 1,
+                "knowledge_work": 1
+              },
+              "archetypeCoverage": {
+                "research_company": 1,
+                "biotech_company": 1,
+                "startup": 1,
+                "professional_office": 1,
+                "consulting_firm": 1
+              },
+              "operationalCharacteristicsCovered": {
+                "campus_environment": 1,
+                "transit_access": 1,
+                "research_compatible": 1,
+                "enhanced_security": 1
+              },
+              "operationalCategoriesCovered": {
+                "market_presence": 1,
+                "location_workforce": 1,
+                "outdoor_special_use": 1,
+                "infrastructure": 1
+              },
+              "missingRoles": [],
+              "missingOperationalCategories": [],
+              "highestPriorityMissingRole": "",
+              "highestPriorityMissingOperationalCategory": "",
+              "exampleBuildings": [
+                {
+                  "name": "2200 Powell St",
+                  "path": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
+                  "role": "life_science_campus",
+                  "confidence": "editorially_supported"
+                }
+              ]
             }
           },
           "hospitality": {
@@ -15465,20 +15495,12 @@
         },
         "missingPrimaryEcosystemDistricts": [],
         "reviewRequiredDistricts": [],
-        "underrepresentedEcosystems": [
-          {
-            "id": "life_science",
-            "label": "Life Science",
-            "status": "Thin",
-            "districtCount": 1,
-            "representativeBuildingCount": 0
-          }
-        ],
+        "underrepresentedEcosystems": [],
         "summary": {
           "ecosystemCount": 7,
           "developedCount": 3,
-          "partialCount": 3,
-          "thinCount": 1,
+          "partialCount": 4,
+          "thinCount": 0,
           "missingCount": 0,
           "reviewRequiredDistrictCount": 0
         }
@@ -15506,7 +15528,7 @@
         "label": "Partial",
         "rationale": [
           "Industrial & Flex, Retail coverage is strong or developed.",
-          "Office is Partial; Life Science is Thin."
+          "Office is Partial; Life Science is Partial."
         ],
         "passed": false,
         "relevantEcosystems": [
@@ -15518,9 +15540,7 @@
           "hospitality",
           "special_purpose"
         ],
-        "blockingEcosystems": [
-          "life_science"
-        ],
+        "blockingEcosystems": [],
         "evaluations": [
           {
             "ecosystemId": "office",
@@ -15543,7 +15563,7 @@
               "districts": 0,
               "secondaryDistricts": 5,
               "recommendations": 0,
-              "representativeBuildings": 13,
+              "representativeBuildings": 12,
               "buildingBriefs": 11,
               "subtypes": 4,
               "archetypes": 12,
@@ -15562,7 +15582,7 @@
             "strategicPriority": 2,
             "evidence": [
               "0 primary districts and 5 secondary districts.",
-              "13 Representative Buildings and 11 Building Briefs.",
+              "12 Representative Buildings and 11 Building Briefs.",
               "6 representative roles and 5 operational categories are covered."
             ],
             "targetSubtypes": [
@@ -15590,8 +15610,8 @@
               "ecosystemId": "office",
               "state": "strong",
               "stateLabel": "Strong",
-              "buildingCount": 13,
-              "explicitCount": 4,
+              "buildingCount": 12,
+              "explicitCount": 3,
               "inheritedOnlyCount": 0,
               "reviewRequiredCount": 0,
               "rolesCovered": [
@@ -15645,13 +15665,13 @@
                 "campus_environment",
                 "surface_parking",
                 "suburban_access",
-                "large_floorplates",
                 "professional_image",
                 "transit_access",
                 "walkability",
                 "structured_parking",
                 "private_office_layout",
                 "customer_parking",
+                "large_floorplates",
                 "urban_core_access",
                 "enhanced_security",
                 "creative_environment",
@@ -15670,12 +15690,6 @@
               "highestPriorityMissingRole": "",
               "highestPriorityMissingOperationalCategory": "",
               "exampleBuildings": [
-                {
-                  "name": "2200 Powell St",
-                  "path": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
-                  "role": "suburban_office_campus",
-                  "confidence": "editorially_supported"
-                },
                 {
                   "name": "2100 Powell St",
                   "path": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
@@ -15703,6 +15717,12 @@
                 {
                   "name": "2040 Bancroft Way",
                   "path": "/commercial-real-estate/building/CA/berkeley/2040-bancroft-way/",
+                  "role": "downtown_class_a_office",
+                  "confidence": "district_inferred"
+                },
+                {
+                  "name": "2070 Allston Way",
+                  "path": "/commercial-real-estate/building/CA/berkeley/2070-allston-way/",
                   "role": "downtown_class_a_office",
                   "confidence": "district_inferred"
                 }
@@ -16200,12 +16220,12 @@
             "label": "Life Science",
             "relevance": "important",
             "relevanceLabel": "Important",
-            "readinessState": "thin",
-            "readinessLabel": "Thin",
+            "readinessState": "partial",
+            "readinessLabel": "Partial",
             "layers": {
               "districts": "strong",
               "recommendations": "strong",
-              "representativeBuildings": "missing",
+              "representativeBuildings": "partial",
               "buildingBriefs": "missing",
               "subtypes": "developed",
               "archetypes": "developed",
@@ -16216,26 +16236,27 @@
               "districts": 1,
               "secondaryDistricts": 1,
               "recommendations": 1,
-              "representativeBuildings": 0,
+              "representativeBuildings": 1,
               "buildingBriefs": 0,
               "subtypes": 7,
               "archetypes": 5,
               "activities": 5,
               "reviewRequiredDistricts": 0,
-              "representativeRoles": 0,
-              "operationalCategories": 0,
-              "operationalCharacteristics": 0,
+              "representativeRoles": 1,
+              "operationalCategories": 4,
+              "operationalCharacteristics": 4,
               "reviewRequiredRepresentativeBuildings": 0
             },
             "gaps": [
-              "Representative Building coverage is missing for this ecosystem."
+              "Building Brief coverage is missing for this ecosystem."
             ],
             "blocking": false,
             "blockingCodes": [],
             "strategicPriority": 4,
             "evidence": [
               "1 primary districts and 1 secondary districts.",
-              "0 Representative Buildings and 0 Building Briefs."
+              "1 Representative Buildings and 0 Building Briefs.",
+              "1 representative roles and 4 operational categories are covered."
             ],
             "targetSubtypes": [
               "research_lab",
@@ -16257,33 +16278,57 @@
             ],
             "representativeBuildingIntelligence": {
               "ecosystemId": "life_science",
-              "state": "missing",
-              "stateLabel": "Missing",
-              "buildingCount": 0,
-              "explicitCount": 0,
+              "state": "strong",
+              "stateLabel": "Strong",
+              "buildingCount": 1,
+              "explicitCount": 1,
               "inheritedOnlyCount": 0,
               "reviewRequiredCount": 0,
-              "rolesCovered": [],
-              "subtypesCovered": [],
-              "activityCoverage": [],
-              "archetypeCoverage": [],
-              "operationalCharacteristicsCovered": [],
-              "operationalCategoriesCovered": [],
-              "missingRoles": [
-                "research_lab_environment",
-                "life_science_campus",
-                "biotech_research_environment"
+              "rolesCovered": [
+                "life_science_campus"
               ],
-              "missingOperationalCategories": [
-                "configuration",
-                "infrastructure",
+              "subtypesCovered": [
+                "innovation_campus",
+                "life_science_office"
+              ],
+              "activityCoverage": [
+                "research",
+                "product_development",
+                "collaboration",
+                "administrative_operations",
+                "knowledge_work"
+              ],
+              "archetypeCoverage": [
+                "research_company",
+                "biotech_company",
+                "startup",
+                "professional_office",
+                "consulting_firm"
+              ],
+              "operationalCharacteristicsCovered": [
+                "campus_environment",
+                "transit_access",
+                "research_compatible",
+                "enhanced_security"
+              ],
+              "operationalCategoriesCovered": [
                 "market_presence",
                 "location_workforce",
-                "outdoor_special_use"
+                "outdoor_special_use",
+                "infrastructure"
               ],
-              "highestPriorityMissingRole": "research_lab_environment",
-              "highestPriorityMissingOperationalCategory": "configuration",
-              "exampleBuildings": []
+              "missingRoles": [],
+              "missingOperationalCategories": [],
+              "highestPriorityMissingRole": "",
+              "highestPriorityMissingOperationalCategory": "",
+              "exampleBuildings": [
+                {
+                  "name": "2200 Powell St",
+                  "path": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
+                  "role": "life_science_campus",
+                  "confidence": "editorially_supported"
+                }
+              ]
             },
             "completionCriteria": [
               "Validated district ecosystem classification",
@@ -16497,7 +16542,7 @@
             "rationale": "Ecosystem appears only as secondary context.",
             "evidence": [
               "0 primary districts and 5 secondary districts.",
-              "13 Representative Buildings and 11 Building Briefs.",
+              "12 Representative Buildings and 11 Building Briefs.",
               "6 representative roles and 5 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem District Foundation",
@@ -16511,71 +16556,22 @@
             "blocksEcosystemReadiness": false
           },
           {
-            "id": "ecosystem:life_science:ecosystem_thin",
-            "code": "ecosystem_thin",
-            "label": "Ecosystem Thin",
+            "id": "ecosystem:life_science:ecosystem_building_brief_gap",
+            "code": "ecosystem_building_brief_gap",
+            "label": "Ecosystem Building Brief Gap",
             "severity": "medium",
-            "layer": "representativeBuildings",
+            "layer": "buildingBriefs",
             "ecosystemId": "life_science",
             "ecosystemLabel": "Life Science",
             "relevance": "important",
-            "readinessState": "thin",
-            "rationale": "Relevant ecosystem has district coverage but lacks enough representative-building or layer depth.",
+            "readinessState": "partial",
+            "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
             "evidence": [
               "1 primary districts and 1 secondary districts.",
-              "0 Representative Buildings and 0 Building Briefs."
+              "1 Representative Buildings and 0 Building Briefs.",
+              "1 representative roles and 4 operational categories are covered."
             ],
-            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:life_science:ecosystem_representative_building_gap",
-            "code": "ecosystem_representative_building_gap",
-            "label": "Ecosystem Representative Building Gap",
-            "severity": "medium",
-            "layer": "representativeBuildings",
-            "ecosystemId": "life_science",
-            "ecosystemLabel": "Life Science",
-            "relevance": "important",
-            "readinessState": "thin",
-            "rationale": "District foundation exists, but Representative Buildings are missing.",
-            "evidence": [
-              "1 primary districts and 1 secondary districts.",
-              "0 Representative Buildings and 0 Building Briefs."
-            ],
-            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:life_science:representative_role_thin",
-            "code": "representative_role_thin",
-            "label": "Representative Role Thin",
-            "severity": "low",
-            "layer": "representativeBuildingIntelligence",
-            "ecosystemId": "life_science",
-            "ecosystemLabel": "Life Science",
-            "relevance": "important",
-            "readinessState": "thin",
-            "rationale": "Representative role coverage is too narrow for this ecosystem.",
-            "evidence": [
-              "1 primary districts and 1 secondary districts.",
-              "0 Representative Buildings and 0 Building Briefs."
-            ],
-            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
+            "recommendedSprintFamily": "Ecosystem Building Brief Migration",
             "completionCriteria": [
               "Validated district ecosystem classification",
               "Representative Building coverage across the most important subtypes",
@@ -16680,46 +16676,22 @@
       },
       "ecosystemGaps": [
         {
-          "id": "ecosystem:life_science:ecosystem_representative_building_gap",
-          "code": "ecosystem_representative_building_gap",
-          "label": "Ecosystem Representative Building Gap",
+          "id": "ecosystem:life_science:ecosystem_building_brief_gap",
+          "code": "ecosystem_building_brief_gap",
+          "label": "Ecosystem Building Brief Gap",
           "severity": "medium",
-          "layer": "representativeBuildings",
+          "layer": "buildingBriefs",
           "ecosystemId": "life_science",
           "ecosystemLabel": "Life Science",
           "relevance": "important",
-          "readinessState": "thin",
-          "rationale": "District foundation exists, but Representative Buildings are missing.",
+          "readinessState": "partial",
+          "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
           "evidence": [
             "1 primary districts and 1 secondary districts.",
-            "0 Representative Buildings and 0 Building Briefs."
+            "1 Representative Buildings and 0 Building Briefs.",
+            "1 representative roles and 4 operational categories are covered."
           ],
-          "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-          "completionCriteria": [
-            "Validated district ecosystem classification",
-            "Representative Building coverage across the most important subtypes",
-            "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-            "Building Brief migration only after canonical records and district association exist",
-            "Publisher ecosystem QA passes without hard errors"
-          ],
-          "blocksEcosystemReadiness": false
-        },
-        {
-          "id": "ecosystem:life_science:ecosystem_thin",
-          "code": "ecosystem_thin",
-          "label": "Ecosystem Thin",
-          "severity": "medium",
-          "layer": "representativeBuildings",
-          "ecosystemId": "life_science",
-          "ecosystemLabel": "Life Science",
-          "relevance": "important",
-          "readinessState": "thin",
-          "rationale": "Relevant ecosystem has district coverage but lacks enough representative-building or layer depth.",
-          "evidence": [
-            "1 primary districts and 1 secondary districts.",
-            "0 Representative Buildings and 0 Building Briefs."
-          ],
-          "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
+          "recommendedSprintFamily": "Ecosystem Building Brief Migration",
           "completionCriteria": [
             "Validated district ecosystem classification",
             "Representative Building coverage across the most important subtypes",
@@ -16742,35 +16714,10 @@
           "rationale": "Ecosystem appears only as secondary context.",
           "evidence": [
             "0 primary districts and 5 secondary districts.",
-            "13 Representative Buildings and 11 Building Briefs.",
+            "12 Representative Buildings and 11 Building Briefs.",
             "6 representative roles and 5 operational categories are covered."
           ],
           "recommendedSprintFamily": "Ecosystem District Foundation",
-          "completionCriteria": [
-            "Validated district ecosystem classification",
-            "Representative Building coverage across the most important subtypes",
-            "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-            "Building Brief migration only after canonical records and district association exist",
-            "Publisher ecosystem QA passes without hard errors"
-          ],
-          "blocksEcosystemReadiness": false
-        },
-        {
-          "id": "ecosystem:life_science:representative_role_thin",
-          "code": "representative_role_thin",
-          "label": "Representative Role Thin",
-          "severity": "low",
-          "layer": "representativeBuildingIntelligence",
-          "ecosystemId": "life_science",
-          "ecosystemLabel": "Life Science",
-          "relevance": "important",
-          "readinessState": "thin",
-          "rationale": "Representative role coverage is too narrow for this ecosystem.",
-          "evidence": [
-            "1 primary districts and 1 secondary districts.",
-            "0 Representative Buildings and 0 Building Briefs."
-          ],
-          "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
           "completionCriteria": [
             "Validated district ecosystem classification",
             "Representative Building coverage across the most important subtypes",
@@ -16857,22 +16804,22 @@
         }
       ],
       "recommendedEcosystemSprint": {
-        "title": "East Bay Life Science Ecosystem Representative Building Foundation",
-        "objective": "Improve East Bay commercial balance by advancing Life Science from Thin toward stronger ecosystem readiness.",
+        "title": "East Bay Life Science Ecosystem Building Brief Migration",
+        "objective": "Improve East Bay commercial balance by advancing Life Science from Partial toward stronger ecosystem readiness.",
         "ecosystemId": "life_science",
         "ecosystemLabel": "Life Science",
         "relevance": "important",
         "relevanceLabel": "Important",
-        "readinessState": "thin",
-        "readinessLabel": "Thin",
-        "sprintFamily": "Ecosystem Representative Building Foundation",
-        "rationale": "Life Science is Important for East Bay and is currently Thin. District foundation exists, but Representative Buildings are missing.",
-        "gapCode": "ecosystem_representative_building_gap",
+        "readinessState": "partial",
+        "readinessLabel": "Partial",
+        "sprintFamily": "Ecosystem Building Brief Migration",
+        "rationale": "Life Science is Important for East Bay and is currently Partial. Representative Buildings exist, but Building Brief depth is missing.",
+        "gapCode": "ecosystem_building_brief_gap",
         "priorityScore": 75,
         "layers": {
           "districts": "strong",
           "recommendations": "strong",
-          "representativeBuildings": "missing",
+          "representativeBuildings": "partial",
           "buildingBriefs": "missing",
           "subtypes": "developed",
           "archetypes": "developed",
@@ -16883,19 +16830,19 @@
           "districts": 1,
           "secondaryDistricts": 1,
           "recommendations": 1,
-          "representativeBuildings": 0,
+          "representativeBuildings": 1,
           "buildingBriefs": 0,
           "subtypes": 7,
           "archetypes": 5,
           "activities": 5,
           "reviewRequiredDistricts": 0,
-          "representativeRoles": 0,
-          "operationalCategories": 0,
-          "operationalCharacteristics": 0,
+          "representativeRoles": 1,
+          "operationalCategories": 4,
+          "operationalCharacteristics": 4,
           "reviewRequiredRepresentativeBuildings": 0
         },
         "gaps": [
-          "Representative Building coverage is missing for this ecosystem."
+          "Building Brief coverage is missing for this ecosystem."
         ],
         "targetSubtypes": [
           "research_lab",
@@ -16915,21 +16862,25 @@
           "collaboration",
           "administrative_operations"
         ],
-        "missingRepresentativeRoles": [
-          "research_lab_environment",
-          "life_science_campus",
-          "biotech_research_environment"
+        "missingRepresentativeRoles": [],
+        "missingOperationalCategories": [],
+        "currentRepresentativeRoles": [
+          "life_science_campus"
         ],
-        "missingOperationalCategories": [
-          "configuration",
-          "infrastructure",
+        "currentOperationalCategories": [
           "market_presence",
           "location_workforce",
-          "outdoor_special_use"
+          "outdoor_special_use",
+          "infrastructure"
         ],
-        "currentRepresentativeRoles": [],
-        "currentOperationalCategories": [],
-        "existingRepresentativeBuildings": [],
+        "existingRepresentativeBuildings": [
+          {
+            "name": "2200 Powell St",
+            "path": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
+            "role": "life_science_campus",
+            "confidence": "editorially_supported"
+          }
+        ],
         "districtCandidates": [
           {
             "slug": "emeryville-commercial-core",
@@ -16937,7 +16888,7 @@
             "path": "/commercial-real-estate/CA/emeryville/emeryville-commercial-core/"
           }
         ],
-        "expectedBuildingRange": "8-15 source-supported representative buildings, selected for role and subtype breadth rather than raw count",
+        "expectedBuildingRange": "use Publisher task scope",
         "dependencies": [
           "Ecosystem classification",
           "District foundation",
@@ -16960,7 +16911,7 @@
           "title": "East Bay Office Building Brief Migration",
           "whyNotFirst": "Office work remains useful, but the target ecosystem has a higher strategic gap based on current readiness."
         },
-        "codexPrompt": "Implement Publisher ecosystem sprint for East Bay: East Bay Life Science Ecosystem Representative Building Foundation\n\nFramework:\n- Businesses search for places where their operations can succeed, not for property types.\n- Use the Commercial Ecosystem Framework and canonical taxonomy.\n- Do not change recommendation rankings, Search Profile questions, or public page design.\n\nTarget ecosystem: Life Science (life_science)\nMetro relevance: Important\nCurrent readiness: Thin\nSprint family: Ecosystem Representative Building Foundation\n\nCurrent layer coverage:\n- districts: strong\n- recommendations: strong\n- representativeBuildings: missing\n- buildingBriefs: missing\n- subtypes: developed\n- archetypes: developed\n- activities: developed\n- editorialReview: developed\n\nKnown gaps:\n- Representative Building coverage is missing for this ecosystem.\n\nTarget subtypes:\n- research_lab, wet_lab, life_science_office, biotech_research, innovation_campus\nTarget archetypes:\n- research_company, biotech_company, startup\nTarget business activities:\n- research, product_development, collaboration, administrative_operations\nMissing representative roles:\n- research_lab_environment, life_science_campus, biotech_research_environment\nMissing operational categories:\n- configuration, infrastructure, market_presence, location_workforce, outdoor_special_use\nExisting representative buildings:\n- none\nDistrict candidates:\n- Emeryville Commercial Core\n\nDependencies:\n- Ecosystem classification\n- District foundation\n- Recommendation foundation\n- Representative Building foundation\n- Building Brief migration after canonical records exist\n\nCompletion criteria:\n- Validated district ecosystem classification\n- Representative Building coverage across the most important subtypes\n- Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus\n- Building Brief migration only after canonical records and district association exist\n- Publisher ecosystem QA passes without hard errors\n- Every target representative role has at least one source-supported building or is explicitly marked research required\n- Target operational categories are represented without asserting unverified property features\n- Representative Building intelligence QA passes\n\nGuardrails:\n- Do not invent districts, buildings, tenants, availability, rents, or unsupported facts.\n- Do not deepen office-only coverage when the target ecosystem is different.\n- Do not treat taxonomy compatibility as proof that a property has a feature.\n- Validate loading, power, parking, yards, lab, food, medical, and permitted-use claims before authoring them as facts.\n- Do not recommend Building Brief migration before canonical representative buildings exist.\n- Regenerate Publisher snapshots and run ecosystem readiness QA.\n\nVerification:\n- npm run publisher:snapshot\n- npm run publisher:report\n- npm run build\n- node scripts/qa-commercial-ecosystem-foundation.js\n- node scripts/qa-publisher-ecosystem-readiness.js\n- node scripts/qa-representative-building-intelligence.js"
+        "codexPrompt": "Implement Publisher ecosystem sprint for East Bay: East Bay Life Science Ecosystem Building Brief Migration\n\nFramework:\n- Businesses search for places where their operations can succeed, not for property types.\n- Use the Commercial Ecosystem Framework and canonical taxonomy.\n- Do not change recommendation rankings, Search Profile questions, or public page design.\n\nTarget ecosystem: Life Science (life_science)\nMetro relevance: Important\nCurrent readiness: Partial\nSprint family: Ecosystem Building Brief Migration\n\nCurrent layer coverage:\n- districts: strong\n- recommendations: strong\n- representativeBuildings: partial\n- buildingBriefs: missing\n- subtypes: developed\n- archetypes: developed\n- activities: developed\n- editorialReview: developed\n\nKnown gaps:\n- Building Brief coverage is missing for this ecosystem.\n\nTarget subtypes:\n- research_lab, wet_lab, life_science_office, biotech_research, innovation_campus\nTarget archetypes:\n- research_company, biotech_company, startup\nTarget business activities:\n- research, product_development, collaboration, administrative_operations\nMissing representative roles:\n- none identified\nMissing operational categories:\n- none identified\nExisting representative buildings:\n- 2200 Powell St (life_science_campus)\nDistrict candidates:\n- Emeryville Commercial Core\n\nDependencies:\n- Ecosystem classification\n- District foundation\n- Recommendation foundation\n- Representative Building foundation\n- Building Brief migration after canonical records exist\n\nCompletion criteria:\n- Validated district ecosystem classification\n- Representative Building coverage across the most important subtypes\n- Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus\n- Building Brief migration only after canonical records and district association exist\n- Publisher ecosystem QA passes without hard errors\n- Every target representative role has at least one source-supported building or is explicitly marked research required\n- Target operational categories are represented without asserting unverified property features\n- Representative Building intelligence QA passes\n\nGuardrails:\n- Do not invent districts, buildings, tenants, availability, rents, or unsupported facts.\n- Do not deepen office-only coverage when the target ecosystem is different.\n- Do not treat taxonomy compatibility as proof that a property has a feature.\n- Validate loading, power, parking, yards, lab, food, medical, and permitted-use claims before authoring them as facts.\n- Do not recommend Building Brief migration before canonical representative buildings exist.\n- Regenerate Publisher snapshots and run ecosystem readiness QA.\n\nVerification:\n- npm run publisher:snapshot\n- npm run publisher:report\n- npm run build\n- node scripts/qa-commercial-ecosystem-foundation.js\n- node scripts/qa-publisher-ecosystem-readiness.js\n- node scripts/qa-representative-building-intelligence.js"
       },
       "gaps": [
         {
@@ -18820,7 +18771,7 @@
     {
       "metroId": "sacramento",
       "metroName": "Sacramento",
-      "generatedAt": "2026-08-13T07:26:39-07:00",
+      "generatedAt": "2026-08-13T07:46:28-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 98,
@@ -27466,7 +27417,7 @@
     {
       "metroId": "san-diego",
       "metroName": "San Diego",
-      "generatedAt": "2026-08-13T07:26:39-07:00",
+      "generatedAt": "2026-08-13T07:46:28-07:00",
       "currentState": {
         "readinessStatus": "Expansion Ready",
         "overallScore": 84,
@@ -37002,7 +36953,7 @@
     {
       "metroId": "orange-county",
       "metroName": "Orange County",
-      "generatedAt": "2026-08-13T07:26:39-07:00",
+      "generatedAt": "2026-08-13T07:46:28-07:00",
       "currentState": {
         "readinessStatus": "Expansion Ready",
         "overallScore": 84,
@@ -45807,7 +45758,7 @@
     {
       "metroId": "denver",
       "metroName": "Denver",
-      "generatedAt": "2026-08-13T07:26:39-07:00",
+      "generatedAt": "2026-08-13T07:46:28-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 97,
@@ -53514,7 +53465,7 @@
     {
       "metroId": "seattle",
       "metroName": "Seattle",
-      "generatedAt": "2026-08-13T07:26:39-07:00",
+      "generatedAt": "2026-08-13T07:46:28-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 94,
@@ -59040,7 +58991,7 @@
     {
       "metroId": "san-francisco",
       "metroName": "San Francisco",
-      "generatedAt": "2026-08-13T07:26:39-07:00",
+      "generatedAt": "2026-08-13T07:46:28-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 96,
@@ -59104,7 +59055,7 @@
             "districtCount": 6,
             "secondaryDistrictCount": 16,
             "recommendationNodeCount": 6,
-            "representativeBuildingCount": 78,
+            "representativeBuildingCount": 77,
             "buildingBriefCount": 36,
             "status": "Developed",
             "districts": [
@@ -59183,12 +59134,12 @@
               "ecosystemId": "office",
               "state": "strong",
               "stateLabel": "Strong",
-              "buildingCount": 78,
-              "explicitCount": 4,
+              "buildingCount": 77,
+              "explicitCount": 3,
               "inheritedOnlyCount": 65,
               "reviewRequiredCount": 0,
               "rolesCovered": {
-                "suburban_office_campus": 3,
+                "suburban_office_campus": 2,
                 "transit_oriented_office_environment": 4,
                 "professional_office_environment": 7,
                 "downtown_class_a_office": 4,
@@ -59197,19 +59148,19 @@
                 "executive_office_environment": 13
               },
               "subtypesCovered": {
-                "suburban_office": 2,
-                "office_campus": 2,
-                "professional_office": 25,
+                "suburban_office": 1,
+                "office_campus": 1,
+                "professional_office": 24,
                 "downtown_office": 40,
                 "creative_office": 50,
                 "executive_office": 16
               },
               "activityCoverage": {
-                "knowledge_work": 78,
-                "collaboration": 53,
-                "administrative_operations": 31,
-                "research": 5,
-                "product_development": 49,
+                "knowledge_work": 77,
+                "collaboration": 52,
+                "administrative_operations": 30,
+                "research": 4,
+                "product_development": 48,
                 "client_meetings": 49,
                 "walk_in_retail": 14,
                 "walk_in_service": 18,
@@ -59221,14 +59172,14 @@
                 "light_manufacturing": 6
               },
               "archetypeCoverage": {
-                "professional_office": 78,
-                "consulting_firm": 76,
-                "startup": 64,
-                "research_company": 11,
-                "biotech_company": 2,
-                "law_firm": 78,
-                "accounting_firm": 69,
-                "financial_services_firm": 67,
+                "professional_office": 77,
+                "consulting_firm": 75,
+                "startup": 63,
+                "research_company": 10,
+                "biotech_company": 1,
+                "law_firm": 77,
+                "accounting_firm": 68,
+                "financial_services_firm": 66,
                 "nonprofit_office": 9,
                 "wellness_practice": 14,
                 "marketing_agency": 67,
@@ -59238,16 +59189,16 @@
                 "food_producer": 2
               },
               "operationalCharacteristicsCovered": {
-                "campus_environment": 3,
-                "surface_parking": 3,
-                "suburban_access": 3,
-                "large_floorplates": 5,
-                "professional_image": 31,
+                "campus_environment": 2,
+                "surface_parking": 2,
+                "suburban_access": 2,
+                "professional_image": 30,
                 "transit_access": 8,
                 "walkability": 50,
                 "structured_parking": 6,
                 "private_office_layout": 20,
                 "customer_parking": 7,
+                "large_floorplates": 4,
                 "urban_core_access": 1,
                 "enhanced_security": 14,
                 "creative_environment": 46,
@@ -59255,10 +59206,10 @@
                 "flexible_suite_sizes": 46
               },
               "operationalCategoriesCovered": {
-                "market_presence": 80,
-                "parking_vehicles": 16,
-                "location_workforce": 62,
-                "configuration": 117,
+                "market_presence": 78,
+                "parking_vehicles": 15,
+                "location_workforce": 61,
+                "configuration": 116,
                 "infrastructure": 14
               },
               "missingRoles": [
@@ -59271,12 +59222,6 @@
               "highestPriorityMissingRole": "small_tenant_office_environment",
               "highestPriorityMissingOperationalCategory": "access_loading",
               "exampleBuildings": [
-                {
-                  "name": "2200 Powell St",
-                  "path": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
-                  "role": "suburban_office_campus",
-                  "confidence": "editorially_supported"
-                },
                 {
                   "name": "2100 Powell St",
                   "path": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
@@ -59304,6 +59249,12 @@
                 {
                   "name": "2040 Bancroft Way",
                   "path": "/commercial-real-estate/building/CA/berkeley/2040-bancroft-way/",
+                  "role": "downtown_class_a_office",
+                  "confidence": "district_inferred"
+                },
+                {
+                  "name": "2070 Allston Way",
+                  "path": "/commercial-real-estate/building/CA/berkeley/2070-allston-way/",
                   "role": "downtown_class_a_office",
                   "confidence": "district_inferred"
                 }
@@ -59859,7 +59810,7 @@
             "districtCount": 2,
             "secondaryDistrictCount": 4,
             "recommendationNodeCount": 2,
-            "representativeBuildingCount": 14,
+            "representativeBuildingCount": 15,
             "buildingBriefCount": 5,
             "status": "Developed",
             "districts": [
@@ -59907,37 +59858,40 @@
               "ecosystemId": "life_science",
               "state": "strong",
               "stateLabel": "Strong",
-              "buildingCount": 14,
-              "explicitCount": 4,
+              "buildingCount": 15,
+              "explicitCount": 5,
               "inheritedOnlyCount": 10,
               "reviewRequiredCount": 0,
               "rolesCovered": {
-                "life_science_campus": 11,
+                "life_science_campus": 12,
                 "biotech_research_environment": 1,
                 "research_lab_environment": 2
               },
               "subtypesCovered": {
-                "life_science_office": 14,
-                "innovation_campus": 14,
+                "innovation_campus": 15,
+                "life_science_office": 15,
                 "biotech_research": 2,
                 "research_lab": 4
               },
               "activityCoverage": {
-                "research": 14,
-                "product_development": 14,
-                "collaboration": 14,
-                "knowledge_work": 14
+                "research": 15,
+                "product_development": 15,
+                "collaboration": 15,
+                "administrative_operations": 1,
+                "knowledge_work": 15
               },
               "archetypeCoverage": {
-                "biotech_company": 14,
-                "research_company": 14,
-                "startup": 14
+                "research_company": 15,
+                "biotech_company": 15,
+                "startup": 15,
+                "professional_office": 1,
+                "consulting_firm": 1
               },
               "operationalCharacteristicsCovered": {
-                "campus_environment": 14,
-                "research_compatible": 11,
-                "transit_access": 12,
-                "enhanced_security": 11,
+                "campus_environment": 15,
+                "transit_access": 13,
+                "research_compatible": 12,
+                "enhanced_security": 12,
                 "lab_infrastructure": 4,
                 "wet_lab_potential": 3,
                 "backup_power": 1,
@@ -59946,10 +59900,10 @@
                 "high_power": 2
               },
               "operationalCategoriesCovered": {
-                "market_presence": 14,
-                "outdoor_special_use": 11,
-                "location_workforce": 12,
-                "infrastructure": 24,
+                "market_presence": 15,
+                "location_workforce": 13,
+                "outdoor_special_use": 12,
+                "infrastructure": 25,
                 "configuration": 4
               },
               "missingRoles": [],
@@ -59957,6 +59911,12 @@
               "highestPriorityMissingRole": "",
               "highestPriorityMissingOperationalCategory": "",
               "exampleBuildings": [
+                {
+                  "name": "2200 Powell St",
+                  "path": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
+                  "role": "life_science_campus",
+                  "confidence": "editorially_supported"
+                },
                 {
                   "name": "Chase Center",
                   "path": "/commercial-real-estate/building/CA/san-francisco/1-warriors-way/",
@@ -59984,12 +59944,6 @@
                 {
                   "name": "The Exchange",
                   "path": "/commercial-real-estate/building/CA/san-francisco/1800-owens-st/",
-                  "role": "life_science_campus",
-                  "confidence": "district_inferred"
-                },
-                {
-                  "name": "UCSF Medical Center at Mission Bay",
-                  "path": "/commercial-real-estate/building/CA/san-francisco/1825-4th-st/",
                   "role": "life_science_campus",
                   "confidence": "district_inferred"
                 }
@@ -60260,7 +60214,7 @@
               "districts": 6,
               "secondaryDistricts": 16,
               "recommendations": 6,
-              "representativeBuildings": 78,
+              "representativeBuildings": 77,
               "buildingBriefs": 36,
               "subtypes": 7,
               "archetypes": 14,
@@ -60277,7 +60231,7 @@
             "strategicPriority": 2,
             "evidence": [
               "6 primary districts and 16 secondary districts.",
-              "78 Representative Buildings and 36 Building Briefs.",
+              "77 Representative Buildings and 36 Building Briefs.",
               "7 representative roles and 5 operational categories are covered."
             ],
             "targetSubtypes": [
@@ -60305,8 +60259,8 @@
               "ecosystemId": "office",
               "state": "strong",
               "stateLabel": "Strong",
-              "buildingCount": 78,
-              "explicitCount": 4,
+              "buildingCount": 77,
+              "explicitCount": 3,
               "inheritedOnlyCount": 65,
               "reviewRequiredCount": 0,
               "rolesCovered": [
@@ -60363,13 +60317,13 @@
                 "campus_environment",
                 "surface_parking",
                 "suburban_access",
-                "large_floorplates",
                 "professional_image",
                 "transit_access",
                 "walkability",
                 "structured_parking",
                 "private_office_layout",
                 "customer_parking",
+                "large_floorplates",
                 "urban_core_access",
                 "enhanced_security",
                 "creative_environment",
@@ -60393,12 +60347,6 @@
               "highestPriorityMissingRole": "small_tenant_office_environment",
               "highestPriorityMissingOperationalCategory": "access_loading",
               "exampleBuildings": [
-                {
-                  "name": "2200 Powell St",
-                  "path": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
-                  "role": "suburban_office_campus",
-                  "confidence": "editorially_supported"
-                },
                 {
                   "name": "2100 Powell St",
                   "path": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
@@ -60426,6 +60374,12 @@
                 {
                   "name": "2040 Bancroft Way",
                   "path": "/commercial-real-estate/building/CA/berkeley/2040-bancroft-way/",
+                  "role": "downtown_class_a_office",
+                  "confidence": "district_inferred"
+                },
+                {
+                  "name": "2070 Allston Way",
+                  "path": "/commercial-real-estate/building/CA/berkeley/2070-allston-way/",
                   "role": "downtown_class_a_office",
                   "confidence": "district_inferred"
                 }
@@ -60984,7 +60938,7 @@
               "districts": 2,
               "secondaryDistricts": 4,
               "recommendations": 2,
-              "representativeBuildings": 14,
+              "representativeBuildings": 15,
               "buildingBriefs": 5,
               "subtypes": 7,
               "archetypes": 5,
@@ -61001,7 +60955,7 @@
             "strategicPriority": 4,
             "evidence": [
               "2 primary districts and 4 secondary districts.",
-              "14 Representative Buildings and 5 Building Briefs.",
+              "15 Representative Buildings and 5 Building Briefs.",
               "3 representative roles and 5 operational categories are covered."
             ],
             "targetSubtypes": [
@@ -61026,8 +60980,8 @@
               "ecosystemId": "life_science",
               "state": "strong",
               "stateLabel": "Strong",
-              "buildingCount": 14,
-              "explicitCount": 4,
+              "buildingCount": 15,
+              "explicitCount": 5,
               "inheritedOnlyCount": 10,
               "reviewRequiredCount": 0,
               "rolesCovered": [
@@ -61036,8 +60990,8 @@
                 "research_lab_environment"
               ],
               "subtypesCovered": [
-                "life_science_office",
                 "innovation_campus",
+                "life_science_office",
                 "biotech_research",
                 "research_lab"
               ],
@@ -61045,17 +60999,20 @@
                 "research",
                 "product_development",
                 "collaboration",
+                "administrative_operations",
                 "knowledge_work"
               ],
               "archetypeCoverage": [
-                "biotech_company",
                 "research_company",
-                "startup"
+                "biotech_company",
+                "startup",
+                "professional_office",
+                "consulting_firm"
               ],
               "operationalCharacteristicsCovered": [
                 "campus_environment",
-                "research_compatible",
                 "transit_access",
+                "research_compatible",
                 "enhanced_security",
                 "lab_infrastructure",
                 "wet_lab_potential",
@@ -61066,8 +61023,8 @@
               ],
               "operationalCategoriesCovered": [
                 "market_presence",
-                "outdoor_special_use",
                 "location_workforce",
+                "outdoor_special_use",
                 "infrastructure",
                 "configuration"
               ],
@@ -61076,6 +61033,12 @@
               "highestPriorityMissingRole": "",
               "highestPriorityMissingOperationalCategory": "",
               "exampleBuildings": [
+                {
+                  "name": "2200 Powell St",
+                  "path": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
+                  "role": "life_science_campus",
+                  "confidence": "editorially_supported"
+                },
                 {
                   "name": "Chase Center",
                   "path": "/commercial-real-estate/building/CA/san-francisco/1-warriors-way/",
@@ -61103,12 +61066,6 @@
                 {
                   "name": "The Exchange",
                   "path": "/commercial-real-estate/building/CA/san-francisco/1800-owens-st/",
-                  "role": "life_science_campus",
-                  "confidence": "district_inferred"
-                },
-                {
-                  "name": "UCSF Medical Center at Mission Bay",
-                  "path": "/commercial-real-estate/building/CA/san-francisco/1825-4th-st/",
                   "role": "life_science_campus",
                   "confidence": "district_inferred"
                 }
@@ -73500,7 +73457,7 @@
     {
       "metroId": "east-bay",
       "metroName": "East Bay",
-      "generatedAt": "2026-08-13T07:26:39-07:00",
+      "generatedAt": "2026-08-13T07:46:28-07:00",
       "currentState": {
         "readinessStatus": "Editorially Developed",
         "overallScore": 74,
@@ -73549,8 +73506,8 @@
         "ecosystems": {
           "count": 7,
           "developed": 3,
-          "partial": 3,
-          "thin": 1,
+          "partial": 4,
+          "thin": 0,
           "missing": 0,
           "reviewRequired": 0,
           "note": "Ecosystem coverage is reported for planning context and does not change Publisher readiness scoring in v1."
@@ -73564,7 +73521,7 @@
             "districtCount": 0,
             "secondaryDistrictCount": 5,
             "recommendationNodeCount": 0,
-            "representativeBuildingCount": 13,
+            "representativeBuildingCount": 12,
             "buildingBriefCount": 11,
             "status": "Partial",
             "districts": [],
@@ -73607,12 +73564,12 @@
               "ecosystemId": "office",
               "state": "strong",
               "stateLabel": "Strong",
-              "buildingCount": 13,
-              "explicitCount": 4,
+              "buildingCount": 12,
+              "explicitCount": 3,
               "inheritedOnlyCount": 0,
               "reviewRequiredCount": 0,
               "rolesCovered": {
-                "suburban_office_campus": 2,
+                "suburban_office_campus": 1,
                 "transit_oriented_office_environment": 2,
                 "professional_office_environment": 3,
                 "downtown_class_a_office": 4,
@@ -73620,18 +73577,18 @@
                 "creative_office_environment": 1
               },
               "subtypesCovered": {
-                "suburban_office": 2,
-                "office_campus": 2,
-                "professional_office": 13,
+                "suburban_office": 1,
+                "office_campus": 1,
+                "professional_office": 12,
                 "downtown_office": 3,
                 "creative_office": 1
               },
               "activityCoverage": {
-                "knowledge_work": 13,
-                "collaboration": 3,
-                "administrative_operations": 12,
-                "research": 2,
-                "product_development": 3,
+                "knowledge_work": 12,
+                "collaboration": 2,
+                "administrative_operations": 11,
+                "research": 1,
+                "product_development": 2,
                 "client_meetings": 11,
                 "walk_in_retail": 11,
                 "walk_in_service": 11,
@@ -73642,14 +73599,14 @@
                 "hospitality_service": 1
               },
               "archetypeCoverage": {
-                "professional_office": 13,
-                "consulting_firm": 11,
-                "startup": 2,
-                "research_company": 2,
-                "biotech_company": 2,
-                "law_firm": 13,
-                "accounting_firm": 4,
-                "financial_services_firm": 2,
+                "professional_office": 12,
+                "consulting_firm": 10,
+                "startup": 1,
+                "research_company": 1,
+                "biotech_company": 1,
+                "law_firm": 12,
+                "accounting_firm": 3,
+                "financial_services_firm": 1,
                 "nonprofit_office": 9,
                 "wellness_practice": 11,
                 "marketing_agency": 11,
@@ -73659,16 +73616,16 @@
                 "food_producer": 2
               },
               "operationalCharacteristicsCovered": {
-                "campus_environment": 2,
-                "surface_parking": 2,
-                "suburban_access": 2,
-                "large_floorplates": 5,
-                "professional_image": 12,
+                "campus_environment": 1,
+                "surface_parking": 1,
+                "suburban_access": 1,
+                "professional_image": 11,
                 "transit_access": 6,
                 "walkability": 3,
                 "structured_parking": 6,
                 "private_office_layout": 3,
                 "customer_parking": 3,
+                "large_floorplates": 4,
                 "urban_core_access": 1,
                 "enhanced_security": 1,
                 "creative_environment": 1,
@@ -73676,10 +73633,10 @@
                 "flexible_suite_sizes": 1
               },
               "operationalCategoriesCovered": {
-                "market_presence": 15,
-                "parking_vehicles": 11,
-                "location_workforce": 12,
-                "configuration": 10,
+                "market_presence": 13,
+                "parking_vehicles": 10,
+                "location_workforce": 11,
+                "configuration": 9,
                 "infrastructure": 1
               },
               "missingRoles": [],
@@ -73687,12 +73644,6 @@
               "highestPriorityMissingRole": "",
               "highestPriorityMissingOperationalCategory": "",
               "exampleBuildings": [
-                {
-                  "name": "2200 Powell St",
-                  "path": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
-                  "role": "suburban_office_campus",
-                  "confidence": "editorially_supported"
-                },
                 {
                   "name": "2100 Powell St",
                   "path": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
@@ -73720,6 +73671,12 @@
                 {
                   "name": "2040 Bancroft Way",
                   "path": "/commercial-real-estate/building/CA/berkeley/2040-bancroft-way/",
+                  "role": "downtown_class_a_office",
+                  "confidence": "district_inferred"
+                },
+                {
+                  "name": "2070 Allston Way",
+                  "path": "/commercial-real-estate/building/CA/berkeley/2070-allston-way/",
                   "role": "downtown_class_a_office",
                   "confidence": "district_inferred"
                 }
@@ -74185,9 +74142,9 @@
             "districtCount": 1,
             "secondaryDistrictCount": 1,
             "recommendationNodeCount": 1,
-            "representativeBuildingCount": 0,
+            "representativeBuildingCount": 1,
             "buildingBriefCount": 0,
-            "status": "Thin",
+            "status": "Partial",
             "districts": [
               {
                 "slug": "emeryville-commercial-core",
@@ -74226,33 +74183,57 @@
             ],
             "representativeBuildingIntelligence": {
               "ecosystemId": "life_science",
-              "state": "missing",
-              "stateLabel": "Missing",
-              "buildingCount": 0,
-              "explicitCount": 0,
+              "state": "strong",
+              "stateLabel": "Strong",
+              "buildingCount": 1,
+              "explicitCount": 1,
               "inheritedOnlyCount": 0,
               "reviewRequiredCount": 0,
-              "rolesCovered": {},
-              "subtypesCovered": {},
-              "activityCoverage": {},
-              "archetypeCoverage": {},
-              "operationalCharacteristicsCovered": {},
-              "operationalCategoriesCovered": {},
-              "missingRoles": [
-                "research_lab_environment",
-                "life_science_campus",
-                "biotech_research_environment"
-              ],
-              "missingOperationalCategories": [
-                "configuration",
-                "infrastructure",
-                "market_presence",
-                "location_workforce",
-                "outdoor_special_use"
-              ],
-              "highestPriorityMissingRole": "research_lab_environment",
-              "highestPriorityMissingOperationalCategory": "configuration",
-              "exampleBuildings": []
+              "rolesCovered": {
+                "life_science_campus": 1
+              },
+              "subtypesCovered": {
+                "innovation_campus": 1,
+                "life_science_office": 1
+              },
+              "activityCoverage": {
+                "research": 1,
+                "product_development": 1,
+                "collaboration": 1,
+                "administrative_operations": 1,
+                "knowledge_work": 1
+              },
+              "archetypeCoverage": {
+                "research_company": 1,
+                "biotech_company": 1,
+                "startup": 1,
+                "professional_office": 1,
+                "consulting_firm": 1
+              },
+              "operationalCharacteristicsCovered": {
+                "campus_environment": 1,
+                "transit_access": 1,
+                "research_compatible": 1,
+                "enhanced_security": 1
+              },
+              "operationalCategoriesCovered": {
+                "market_presence": 1,
+                "location_workforce": 1,
+                "outdoor_special_use": 1,
+                "infrastructure": 1
+              },
+              "missingRoles": [],
+              "missingOperationalCategories": [],
+              "highestPriorityMissingRole": "",
+              "highestPriorityMissingOperationalCategory": "",
+              "exampleBuildings": [
+                {
+                  "name": "2200 Powell St",
+                  "path": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
+                  "role": "life_science_campus",
+                  "confidence": "editorially_supported"
+                }
+              ]
             }
           },
           "hospitality": {
@@ -74450,20 +74431,12 @@
         },
         "missingPrimaryEcosystemDistricts": [],
         "reviewRequiredDistricts": [],
-        "underrepresentedEcosystems": [
-          {
-            "id": "life_science",
-            "label": "Life Science",
-            "status": "Thin",
-            "districtCount": 1,
-            "representativeBuildingCount": 0
-          }
-        ],
+        "underrepresentedEcosystems": [],
         "summary": {
           "ecosystemCount": 7,
           "developedCount": 3,
-          "partialCount": 3,
-          "thinCount": 1,
+          "partialCount": 4,
+          "thinCount": 0,
           "missingCount": 0,
           "reviewRequiredDistrictCount": 0
         }
@@ -74491,7 +74464,7 @@
         "label": "Partial",
         "rationale": [
           "Industrial & Flex, Retail coverage is strong or developed.",
-          "Office is Partial; Life Science is Thin."
+          "Office is Partial; Life Science is Partial."
         ],
         "passed": false,
         "relevantEcosystems": [
@@ -74503,9 +74476,7 @@
           "hospitality",
           "special_purpose"
         ],
-        "blockingEcosystems": [
-          "life_science"
-        ],
+        "blockingEcosystems": [],
         "evaluations": [
           {
             "ecosystemId": "office",
@@ -74528,7 +74499,7 @@
               "districts": 0,
               "secondaryDistricts": 5,
               "recommendations": 0,
-              "representativeBuildings": 13,
+              "representativeBuildings": 12,
               "buildingBriefs": 11,
               "subtypes": 4,
               "archetypes": 12,
@@ -74547,7 +74518,7 @@
             "strategicPriority": 2,
             "evidence": [
               "0 primary districts and 5 secondary districts.",
-              "13 Representative Buildings and 11 Building Briefs.",
+              "12 Representative Buildings and 11 Building Briefs.",
               "6 representative roles and 5 operational categories are covered."
             ],
             "targetSubtypes": [
@@ -74575,8 +74546,8 @@
               "ecosystemId": "office",
               "state": "strong",
               "stateLabel": "Strong",
-              "buildingCount": 13,
-              "explicitCount": 4,
+              "buildingCount": 12,
+              "explicitCount": 3,
               "inheritedOnlyCount": 0,
               "reviewRequiredCount": 0,
               "rolesCovered": [
@@ -74630,13 +74601,13 @@
                 "campus_environment",
                 "surface_parking",
                 "suburban_access",
-                "large_floorplates",
                 "professional_image",
                 "transit_access",
                 "walkability",
                 "structured_parking",
                 "private_office_layout",
                 "customer_parking",
+                "large_floorplates",
                 "urban_core_access",
                 "enhanced_security",
                 "creative_environment",
@@ -74655,12 +74626,6 @@
               "highestPriorityMissingRole": "",
               "highestPriorityMissingOperationalCategory": "",
               "exampleBuildings": [
-                {
-                  "name": "2200 Powell St",
-                  "path": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
-                  "role": "suburban_office_campus",
-                  "confidence": "editorially_supported"
-                },
                 {
                   "name": "2100 Powell St",
                   "path": "/commercial-real-estate/building/CA/emeryville/2100-powell-st/",
@@ -74688,6 +74653,12 @@
                 {
                   "name": "2040 Bancroft Way",
                   "path": "/commercial-real-estate/building/CA/berkeley/2040-bancroft-way/",
+                  "role": "downtown_class_a_office",
+                  "confidence": "district_inferred"
+                },
+                {
+                  "name": "2070 Allston Way",
+                  "path": "/commercial-real-estate/building/CA/berkeley/2070-allston-way/",
                   "role": "downtown_class_a_office",
                   "confidence": "district_inferred"
                 }
@@ -75185,12 +75156,12 @@
             "label": "Life Science",
             "relevance": "important",
             "relevanceLabel": "Important",
-            "readinessState": "thin",
-            "readinessLabel": "Thin",
+            "readinessState": "partial",
+            "readinessLabel": "Partial",
             "layers": {
               "districts": "strong",
               "recommendations": "strong",
-              "representativeBuildings": "missing",
+              "representativeBuildings": "partial",
               "buildingBriefs": "missing",
               "subtypes": "developed",
               "archetypes": "developed",
@@ -75201,26 +75172,27 @@
               "districts": 1,
               "secondaryDistricts": 1,
               "recommendations": 1,
-              "representativeBuildings": 0,
+              "representativeBuildings": 1,
               "buildingBriefs": 0,
               "subtypes": 7,
               "archetypes": 5,
               "activities": 5,
               "reviewRequiredDistricts": 0,
-              "representativeRoles": 0,
-              "operationalCategories": 0,
-              "operationalCharacteristics": 0,
+              "representativeRoles": 1,
+              "operationalCategories": 4,
+              "operationalCharacteristics": 4,
               "reviewRequiredRepresentativeBuildings": 0
             },
             "gaps": [
-              "Representative Building coverage is missing for this ecosystem."
+              "Building Brief coverage is missing for this ecosystem."
             ],
             "blocking": false,
             "blockingCodes": [],
             "strategicPriority": 4,
             "evidence": [
               "1 primary districts and 1 secondary districts.",
-              "0 Representative Buildings and 0 Building Briefs."
+              "1 Representative Buildings and 0 Building Briefs.",
+              "1 representative roles and 4 operational categories are covered."
             ],
             "targetSubtypes": [
               "research_lab",
@@ -75242,33 +75214,57 @@
             ],
             "representativeBuildingIntelligence": {
               "ecosystemId": "life_science",
-              "state": "missing",
-              "stateLabel": "Missing",
-              "buildingCount": 0,
-              "explicitCount": 0,
+              "state": "strong",
+              "stateLabel": "Strong",
+              "buildingCount": 1,
+              "explicitCount": 1,
               "inheritedOnlyCount": 0,
               "reviewRequiredCount": 0,
-              "rolesCovered": [],
-              "subtypesCovered": [],
-              "activityCoverage": [],
-              "archetypeCoverage": [],
-              "operationalCharacteristicsCovered": [],
-              "operationalCategoriesCovered": [],
-              "missingRoles": [
-                "research_lab_environment",
-                "life_science_campus",
-                "biotech_research_environment"
+              "rolesCovered": [
+                "life_science_campus"
               ],
-              "missingOperationalCategories": [
-                "configuration",
-                "infrastructure",
+              "subtypesCovered": [
+                "innovation_campus",
+                "life_science_office"
+              ],
+              "activityCoverage": [
+                "research",
+                "product_development",
+                "collaboration",
+                "administrative_operations",
+                "knowledge_work"
+              ],
+              "archetypeCoverage": [
+                "research_company",
+                "biotech_company",
+                "startup",
+                "professional_office",
+                "consulting_firm"
+              ],
+              "operationalCharacteristicsCovered": [
+                "campus_environment",
+                "transit_access",
+                "research_compatible",
+                "enhanced_security"
+              ],
+              "operationalCategoriesCovered": [
                 "market_presence",
                 "location_workforce",
-                "outdoor_special_use"
+                "outdoor_special_use",
+                "infrastructure"
               ],
-              "highestPriorityMissingRole": "research_lab_environment",
-              "highestPriorityMissingOperationalCategory": "configuration",
-              "exampleBuildings": []
+              "missingRoles": [],
+              "missingOperationalCategories": [],
+              "highestPriorityMissingRole": "",
+              "highestPriorityMissingOperationalCategory": "",
+              "exampleBuildings": [
+                {
+                  "name": "2200 Powell St",
+                  "path": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
+                  "role": "life_science_campus",
+                  "confidence": "editorially_supported"
+                }
+              ]
             },
             "completionCriteria": [
               "Validated district ecosystem classification",
@@ -75482,7 +75478,7 @@
             "rationale": "Ecosystem appears only as secondary context.",
             "evidence": [
               "0 primary districts and 5 secondary districts.",
-              "13 Representative Buildings and 11 Building Briefs.",
+              "12 Representative Buildings and 11 Building Briefs.",
               "6 representative roles and 5 operational categories are covered."
             ],
             "recommendedSprintFamily": "Ecosystem District Foundation",
@@ -75496,71 +75492,22 @@
             "blocksEcosystemReadiness": false
           },
           {
-            "id": "ecosystem:life_science:ecosystem_thin",
-            "code": "ecosystem_thin",
-            "label": "Ecosystem Thin",
+            "id": "ecosystem:life_science:ecosystem_building_brief_gap",
+            "code": "ecosystem_building_brief_gap",
+            "label": "Ecosystem Building Brief Gap",
             "severity": "medium",
-            "layer": "representativeBuildings",
+            "layer": "buildingBriefs",
             "ecosystemId": "life_science",
             "ecosystemLabel": "Life Science",
             "relevance": "important",
-            "readinessState": "thin",
-            "rationale": "Relevant ecosystem has district coverage but lacks enough representative-building or layer depth.",
+            "readinessState": "partial",
+            "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
             "evidence": [
               "1 primary districts and 1 secondary districts.",
-              "0 Representative Buildings and 0 Building Briefs."
+              "1 Representative Buildings and 0 Building Briefs.",
+              "1 representative roles and 4 operational categories are covered."
             ],
-            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:life_science:ecosystem_representative_building_gap",
-            "code": "ecosystem_representative_building_gap",
-            "label": "Ecosystem Representative Building Gap",
-            "severity": "medium",
-            "layer": "representativeBuildings",
-            "ecosystemId": "life_science",
-            "ecosystemLabel": "Life Science",
-            "relevance": "important",
-            "readinessState": "thin",
-            "rationale": "District foundation exists, but Representative Buildings are missing.",
-            "evidence": [
-              "1 primary districts and 1 secondary districts.",
-              "0 Representative Buildings and 0 Building Briefs."
-            ],
-            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:life_science:representative_role_thin",
-            "code": "representative_role_thin",
-            "label": "Representative Role Thin",
-            "severity": "low",
-            "layer": "representativeBuildingIntelligence",
-            "ecosystemId": "life_science",
-            "ecosystemLabel": "Life Science",
-            "relevance": "important",
-            "readinessState": "thin",
-            "rationale": "Representative role coverage is too narrow for this ecosystem.",
-            "evidence": [
-              "1 primary districts and 1 secondary districts.",
-              "0 Representative Buildings and 0 Building Briefs."
-            ],
-            "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
+            "recommendedSprintFamily": "Ecosystem Building Brief Migration",
             "completionCriteria": [
               "Validated district ecosystem classification",
               "Representative Building coverage across the most important subtypes",
@@ -75665,46 +75612,22 @@
       },
       "ecosystemGaps": [
         {
-          "id": "ecosystem:life_science:ecosystem_representative_building_gap",
-          "code": "ecosystem_representative_building_gap",
-          "label": "Ecosystem Representative Building Gap",
+          "id": "ecosystem:life_science:ecosystem_building_brief_gap",
+          "code": "ecosystem_building_brief_gap",
+          "label": "Ecosystem Building Brief Gap",
           "severity": "medium",
-          "layer": "representativeBuildings",
+          "layer": "buildingBriefs",
           "ecosystemId": "life_science",
           "ecosystemLabel": "Life Science",
           "relevance": "important",
-          "readinessState": "thin",
-          "rationale": "District foundation exists, but Representative Buildings are missing.",
+          "readinessState": "partial",
+          "rationale": "Representative Buildings exist, but Building Brief depth is missing.",
           "evidence": [
             "1 primary districts and 1 secondary districts.",
-            "0 Representative Buildings and 0 Building Briefs."
+            "1 Representative Buildings and 0 Building Briefs.",
+            "1 representative roles and 4 operational categories are covered."
           ],
-          "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-          "completionCriteria": [
-            "Validated district ecosystem classification",
-            "Representative Building coverage across the most important subtypes",
-            "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-            "Building Brief migration only after canonical records and district association exist",
-            "Publisher ecosystem QA passes without hard errors"
-          ],
-          "blocksEcosystemReadiness": false
-        },
-        {
-          "id": "ecosystem:life_science:ecosystem_thin",
-          "code": "ecosystem_thin",
-          "label": "Ecosystem Thin",
-          "severity": "medium",
-          "layer": "representativeBuildings",
-          "ecosystemId": "life_science",
-          "ecosystemLabel": "Life Science",
-          "relevance": "important",
-          "readinessState": "thin",
-          "rationale": "Relevant ecosystem has district coverage but lacks enough representative-building or layer depth.",
-          "evidence": [
-            "1 primary districts and 1 secondary districts.",
-            "0 Representative Buildings and 0 Building Briefs."
-          ],
-          "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
+          "recommendedSprintFamily": "Ecosystem Building Brief Migration",
           "completionCriteria": [
             "Validated district ecosystem classification",
             "Representative Building coverage across the most important subtypes",
@@ -75727,35 +75650,10 @@
           "rationale": "Ecosystem appears only as secondary context.",
           "evidence": [
             "0 primary districts and 5 secondary districts.",
-            "13 Representative Buildings and 11 Building Briefs.",
+            "12 Representative Buildings and 11 Building Briefs.",
             "6 representative roles and 5 operational categories are covered."
           ],
           "recommendedSprintFamily": "Ecosystem District Foundation",
-          "completionCriteria": [
-            "Validated district ecosystem classification",
-            "Representative Building coverage across the most important subtypes",
-            "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-            "Building Brief migration only after canonical records and district association exist",
-            "Publisher ecosystem QA passes without hard errors"
-          ],
-          "blocksEcosystemReadiness": false
-        },
-        {
-          "id": "ecosystem:life_science:representative_role_thin",
-          "code": "representative_role_thin",
-          "label": "Representative Role Thin",
-          "severity": "low",
-          "layer": "representativeBuildingIntelligence",
-          "ecosystemId": "life_science",
-          "ecosystemLabel": "Life Science",
-          "relevance": "important",
-          "readinessState": "thin",
-          "rationale": "Representative role coverage is too narrow for this ecosystem.",
-          "evidence": [
-            "1 primary districts and 1 secondary districts.",
-            "0 Representative Buildings and 0 Building Briefs."
-          ],
-          "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
           "completionCriteria": [
             "Validated district ecosystem classification",
             "Representative Building coverage across the most important subtypes",
@@ -75842,22 +75740,22 @@
         }
       ],
       "recommendedEcosystemSprint": {
-        "title": "East Bay Life Science Ecosystem Representative Building Foundation",
-        "objective": "Improve East Bay commercial balance by advancing Life Science from Thin toward stronger ecosystem readiness.",
+        "title": "East Bay Life Science Ecosystem Building Brief Migration",
+        "objective": "Improve East Bay commercial balance by advancing Life Science from Partial toward stronger ecosystem readiness.",
         "ecosystemId": "life_science",
         "ecosystemLabel": "Life Science",
         "relevance": "important",
         "relevanceLabel": "Important",
-        "readinessState": "thin",
-        "readinessLabel": "Thin",
-        "sprintFamily": "Ecosystem Representative Building Foundation",
-        "rationale": "Life Science is Important for East Bay and is currently Thin. District foundation exists, but Representative Buildings are missing.",
-        "gapCode": "ecosystem_representative_building_gap",
+        "readinessState": "partial",
+        "readinessLabel": "Partial",
+        "sprintFamily": "Ecosystem Building Brief Migration",
+        "rationale": "Life Science is Important for East Bay and is currently Partial. Representative Buildings exist, but Building Brief depth is missing.",
+        "gapCode": "ecosystem_building_brief_gap",
         "priorityScore": 75,
         "layers": {
           "districts": "strong",
           "recommendations": "strong",
-          "representativeBuildings": "missing",
+          "representativeBuildings": "partial",
           "buildingBriefs": "missing",
           "subtypes": "developed",
           "archetypes": "developed",
@@ -75868,19 +75766,19 @@
           "districts": 1,
           "secondaryDistricts": 1,
           "recommendations": 1,
-          "representativeBuildings": 0,
+          "representativeBuildings": 1,
           "buildingBriefs": 0,
           "subtypes": 7,
           "archetypes": 5,
           "activities": 5,
           "reviewRequiredDistricts": 0,
-          "representativeRoles": 0,
-          "operationalCategories": 0,
-          "operationalCharacteristics": 0,
+          "representativeRoles": 1,
+          "operationalCategories": 4,
+          "operationalCharacteristics": 4,
           "reviewRequiredRepresentativeBuildings": 0
         },
         "gaps": [
-          "Representative Building coverage is missing for this ecosystem."
+          "Building Brief coverage is missing for this ecosystem."
         ],
         "targetSubtypes": [
           "research_lab",
@@ -75900,21 +75798,25 @@
           "collaboration",
           "administrative_operations"
         ],
-        "missingRepresentativeRoles": [
-          "research_lab_environment",
-          "life_science_campus",
-          "biotech_research_environment"
+        "missingRepresentativeRoles": [],
+        "missingOperationalCategories": [],
+        "currentRepresentativeRoles": [
+          "life_science_campus"
         ],
-        "missingOperationalCategories": [
-          "configuration",
-          "infrastructure",
+        "currentOperationalCategories": [
           "market_presence",
           "location_workforce",
-          "outdoor_special_use"
+          "outdoor_special_use",
+          "infrastructure"
         ],
-        "currentRepresentativeRoles": [],
-        "currentOperationalCategories": [],
-        "existingRepresentativeBuildings": [],
+        "existingRepresentativeBuildings": [
+          {
+            "name": "2200 Powell St",
+            "path": "/commercial-real-estate/building/CA/emeryville/2200-powell-st/",
+            "role": "life_science_campus",
+            "confidence": "editorially_supported"
+          }
+        ],
         "districtCandidates": [
           {
             "slug": "emeryville-commercial-core",
@@ -75922,7 +75824,7 @@
             "path": "/commercial-real-estate/CA/emeryville/emeryville-commercial-core/"
           }
         ],
-        "expectedBuildingRange": "8-15 source-supported representative buildings, selected for role and subtype breadth rather than raw count",
+        "expectedBuildingRange": "use Publisher task scope",
         "dependencies": [
           "Ecosystem classification",
           "District foundation",
@@ -75945,7 +75847,7 @@
           "title": "East Bay Office Building Brief Migration",
           "whyNotFirst": "Office work remains useful, but the target ecosystem has a higher strategic gap based on current readiness."
         },
-        "codexPrompt": "Implement Publisher ecosystem sprint for East Bay: East Bay Life Science Ecosystem Representative Building Foundation\n\nFramework:\n- Businesses search for places where their operations can succeed, not for property types.\n- Use the Commercial Ecosystem Framework and canonical taxonomy.\n- Do not change recommendation rankings, Search Profile questions, or public page design.\n\nTarget ecosystem: Life Science (life_science)\nMetro relevance: Important\nCurrent readiness: Thin\nSprint family: Ecosystem Representative Building Foundation\n\nCurrent layer coverage:\n- districts: strong\n- recommendations: strong\n- representativeBuildings: missing\n- buildingBriefs: missing\n- subtypes: developed\n- archetypes: developed\n- activities: developed\n- editorialReview: developed\n\nKnown gaps:\n- Representative Building coverage is missing for this ecosystem.\n\nTarget subtypes:\n- research_lab, wet_lab, life_science_office, biotech_research, innovation_campus\nTarget archetypes:\n- research_company, biotech_company, startup\nTarget business activities:\n- research, product_development, collaboration, administrative_operations\nMissing representative roles:\n- research_lab_environment, life_science_campus, biotech_research_environment\nMissing operational categories:\n- configuration, infrastructure, market_presence, location_workforce, outdoor_special_use\nExisting representative buildings:\n- none\nDistrict candidates:\n- Emeryville Commercial Core\n\nDependencies:\n- Ecosystem classification\n- District foundation\n- Recommendation foundation\n- Representative Building foundation\n- Building Brief migration after canonical records exist\n\nCompletion criteria:\n- Validated district ecosystem classification\n- Representative Building coverage across the most important subtypes\n- Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus\n- Building Brief migration only after canonical records and district association exist\n- Publisher ecosystem QA passes without hard errors\n- Every target representative role has at least one source-supported building or is explicitly marked research required\n- Target operational categories are represented without asserting unverified property features\n- Representative Building intelligence QA passes\n\nGuardrails:\n- Do not invent districts, buildings, tenants, availability, rents, or unsupported facts.\n- Do not deepen office-only coverage when the target ecosystem is different.\n- Do not treat taxonomy compatibility as proof that a property has a feature.\n- Validate loading, power, parking, yards, lab, food, medical, and permitted-use claims before authoring them as facts.\n- Do not recommend Building Brief migration before canonical representative buildings exist.\n- Regenerate Publisher snapshots and run ecosystem readiness QA.\n\nVerification:\n- npm run publisher:snapshot\n- npm run publisher:report\n- npm run build\n- node scripts/qa-commercial-ecosystem-foundation.js\n- node scripts/qa-publisher-ecosystem-readiness.js\n- node scripts/qa-representative-building-intelligence.js"
+        "codexPrompt": "Implement Publisher ecosystem sprint for East Bay: East Bay Life Science Ecosystem Building Brief Migration\n\nFramework:\n- Businesses search for places where their operations can succeed, not for property types.\n- Use the Commercial Ecosystem Framework and canonical taxonomy.\n- Do not change recommendation rankings, Search Profile questions, or public page design.\n\nTarget ecosystem: Life Science (life_science)\nMetro relevance: Important\nCurrent readiness: Partial\nSprint family: Ecosystem Building Brief Migration\n\nCurrent layer coverage:\n- districts: strong\n- recommendations: strong\n- representativeBuildings: partial\n- buildingBriefs: missing\n- subtypes: developed\n- archetypes: developed\n- activities: developed\n- editorialReview: developed\n\nKnown gaps:\n- Building Brief coverage is missing for this ecosystem.\n\nTarget subtypes:\n- research_lab, wet_lab, life_science_office, biotech_research, innovation_campus\nTarget archetypes:\n- research_company, biotech_company, startup\nTarget business activities:\n- research, product_development, collaboration, administrative_operations\nMissing representative roles:\n- none identified\nMissing operational categories:\n- none identified\nExisting representative buildings:\n- 2200 Powell St (life_science_campus)\nDistrict candidates:\n- Emeryville Commercial Core\n\nDependencies:\n- Ecosystem classification\n- District foundation\n- Recommendation foundation\n- Representative Building foundation\n- Building Brief migration after canonical records exist\n\nCompletion criteria:\n- Validated district ecosystem classification\n- Representative Building coverage across the most important subtypes\n- Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus\n- Building Brief migration only after canonical records and district association exist\n- Publisher ecosystem QA passes without hard errors\n- Every target representative role has at least one source-supported building or is explicitly marked research required\n- Target operational categories are represented without asserting unverified property features\n- Representative Building intelligence QA passes\n\nGuardrails:\n- Do not invent districts, buildings, tenants, availability, rents, or unsupported facts.\n- Do not deepen office-only coverage when the target ecosystem is different.\n- Do not treat taxonomy compatibility as proof that a property has a feature.\n- Validate loading, power, parking, yards, lab, food, medical, and permitted-use claims before authoring them as facts.\n- Do not recommend Building Brief migration before canonical representative buildings exist.\n- Regenerate Publisher snapshots and run ecosystem readiness QA.\n\nVerification:\n- npm run publisher:snapshot\n- npm run publisher:report\n- npm run build\n- node scripts/qa-commercial-ecosystem-foundation.js\n- node scripts/qa-publisher-ecosystem-readiness.js\n- node scripts/qa-representative-building-intelligence.js"
       },
       "gaps": [
         {
@@ -77805,7 +77707,7 @@
     {
       "metroId": "sacramento",
       "metroName": "Sacramento",
-      "generatedAt": "2026-08-13T07:26:39-07:00",
+      "generatedAt": "2026-08-13T07:46:28-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 98,
@@ -86451,7 +86353,7 @@
     {
       "metroId": "san-diego",
       "metroName": "San Diego",
-      "generatedAt": "2026-08-13T07:26:39-07:00",
+      "generatedAt": "2026-08-13T07:46:28-07:00",
       "currentState": {
         "readinessStatus": "Expansion Ready",
         "overallScore": 84,
@@ -95987,7 +95889,7 @@
     {
       "metroId": "orange-county",
       "metroName": "Orange County",
-      "generatedAt": "2026-08-13T07:26:39-07:00",
+      "generatedAt": "2026-08-13T07:46:28-07:00",
       "currentState": {
         "readinessStatus": "Expansion Ready",
         "overallScore": 84,
@@ -104792,7 +104694,7 @@
     {
       "metroId": "denver",
       "metroName": "Denver",
-      "generatedAt": "2026-08-13T07:26:39-07:00",
+      "generatedAt": "2026-08-13T07:46:28-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 97,
