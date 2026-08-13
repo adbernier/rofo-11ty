@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-13T09:08:14-07:00",
+  "generatedAt": "2026-08-13T10:27:31-07:00",
   "rulesVersion": "publisher-rules-v1",
   "plannerVersion": "publisher-expansion-planner-v1",
   "defaultMode": "balanced",
@@ -55,12 +55,12 @@
     {
       "metroId": "san-francisco",
       "metroName": "San Francisco",
-      "generatedAt": "2026-08-13T09:08:14-07:00",
+      "generatedAt": "2026-08-13T10:27:31-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
-        "overallScore": 96,
+        "overallScore": 95,
         "recommendationScore": 97,
-        "editorialScore": 91,
+        "editorialScore": 90,
         "publishingScore": 100,
         "buildingScore": 56,
         "comparisonScore": 100,
@@ -75,19 +75,19 @@
           "status": 100
         },
         "districts": {
-          "count": 25,
+          "count": 27,
           "score": 98
         },
         "recommendationNodes": {
-          "count": 25,
-          "score": 93
+          "count": 27,
+          "score": 94
         },
         "comparisons": {
           "score": 100
         },
         "representativeBuildings": {
           "count": 158,
-          "score": 74
+          "score": 69
         },
         "buildingBriefs": {
           "count": 89,
@@ -117,7 +117,7 @@
             "id": "office",
             "label": "Office",
             "districtCount": 7,
-            "secondaryDistrictCount": 15,
+            "secondaryDistrictCount": 16,
             "recommendationNodeCount": 7,
             "representativeBuildingCount": 77,
             "buildingBriefCount": 37,
@@ -177,15 +177,15 @@
             },
             "archetypes": {
               "biotech_company": 3,
-              "research_company": 8,
+              "research_company": 9,
               "startup": 10,
-              "creative_studio": 9,
+              "creative_studio": 10,
               "marketing_agency": 8,
               "law_firm": 2,
               "financial_services_firm": 1,
               "consulting_firm": 4,
               "professional_office": 7,
-              "general_contractor": 2,
+              "general_contractor": 3,
               "wellness_practice": 1,
               "nonprofit_office": 1,
               "education_provider": 1,
@@ -194,8 +194,8 @@
               "medical_practice": 1
             },
             "activities": {
-              "product_development": 9,
-              "collaboration": 10,
+              "product_development": 10,
+              "collaboration": 11,
               "knowledge_work": 15,
               "customer_showroom": 3,
               "client_meetings": 5,
@@ -345,9 +345,9 @@
           "industrial_flex": {
             "id": "industrial_flex",
             "label": "Industrial & Flex",
-            "districtCount": 9,
+            "districtCount": 11,
             "secondaryDistrictCount": 6,
-            "recommendationNodeCount": 9,
+            "recommendationNodeCount": 11,
             "representativeBuildingCount": 51,
             "buildingBriefCount": 43,
             "status": "Developed",
@@ -383,6 +383,16 @@
                 "path": "/commercial-real-estate/CA/fremont/warm-springs-innovation-district/"
               },
               {
+                "slug": "bayview-industrial",
+                "label": "Bayview Industrial",
+                "path": "/commercial-real-estate/CA/san-francisco/bayview-industrial/"
+              },
+              {
+                "slug": "central-waterfront",
+                "label": "Central Waterfront",
+                "path": "/commercial-real-estate/CA/san-francisco/central-waterfront/"
+              },
+              {
                 "slug": "dogpatch",
                 "label": "Dogpatch",
                 "path": "/commercial-real-estate/CA/san-francisco/dogpatch/"
@@ -399,43 +409,52 @@
               }
             ],
             "subtypes": {
-              "research_development": 9,
-              "flex": 8,
+              "research_development": 10,
+              "flex": 10,
               "professional_office": 2,
-              "small_bay_industrial": 5,
-              "warehouse": 2,
+              "small_bay_industrial": 6,
+              "warehouse": 3,
               "manufacturing": 1,
+              "distribution": 1,
+              "contractor_service": 1,
+              "last_mile_logistics": 1,
+              "light_manufacturing": 2,
               "creative_office": 2,
               "life_science_office": 1
             },
             "archetypes": {
               "startup": 8,
-              "creative_studio": 7,
-              "research_company": 7,
-              "light_manufacturer": 7,
-              "general_contractor": 5,
-              "cabinet_shop": 5,
-              "distributor": 5,
-              "ecommerce_fulfillment_business": 5
+              "creative_studio": 8,
+              "research_company": 8,
+              "light_manufacturer": 9,
+              "general_contractor": 7,
+              "cabinet_shop": 6,
+              "distributor": 6,
+              "ecommerce_fulfillment_business": 6,
+              "wholesaler": 1,
+              "building_services_company": 1,
+              "food_producer": 1
             },
             "activities": {
-              "product_development": 8,
+              "product_development": 9,
               "customer_showroom": 4,
               "research": 5,
-              "light_manufacturing": 9,
+              "light_manufacturing": 11,
               "knowledge_work": 3,
-              "receiving": 5,
-              "shipping": 5,
-              "storage": 5,
-              "service_dispatch": 5,
-              "collaboration": 3
+              "receiving": 7,
+              "shipping": 6,
+              "storage": 6,
+              "service_dispatch": 7,
+              "distribution": 1,
+              "food_production": 1,
+              "assembly": 1,
+              "collaboration": 4
             },
             "reviewRequiredDistricts": [],
             "notableSubtypeGaps": [
-              "distribution",
-              "light_manufacturing",
-              "contractor_service",
-              "contractor_yard"
+              "contractor_yard",
+              "showroom_flex",
+              "food_production"
             ],
             "representativeBuildingIntelligence": {
               "ecosystemId": "industrial_flex",
@@ -1138,7 +1157,7 @@
           "executive_office": 1,
           "professional_office": 16,
           "office_campus": 3,
-          "research_development": 12,
+          "research_development": 13,
           "suburban_office": 2,
           "downtown_retail": 2,
           "neighborhood_retail": 7,
@@ -1147,10 +1166,14 @@
           "nonprofit": 2,
           "childcare": 2,
           "institutional": 2,
-          "flex": 9,
-          "small_bay_industrial": 5,
-          "warehouse": 2,
+          "flex": 11,
+          "small_bay_industrial": 6,
+          "warehouse": 3,
           "manufacturing": 1,
+          "distribution": 1,
+          "contractor_service": 1,
+          "last_mile_logistics": 1,
+          "light_manufacturing": 2,
           "life_science_office": 4,
           "showroom_retail": 1,
           "lifestyle_retail": 1,
@@ -1164,8 +1187,8 @@
           "innovation_campus": 2
         },
         "activityCoverage": {
-          "product_development": 23,
-          "collaboration": 19,
+          "product_development": 25,
+          "collaboration": 21,
           "knowledge_work": 23,
           "customer_showroom": 15,
           "client_meetings": 6,
@@ -1175,37 +1198,42 @@
           "walk_in_service": 11,
           "education": 2,
           "training": 2,
-          "light_manufacturing": 9,
-          "receiving": 5,
-          "shipping": 5,
-          "storage": 5,
-          "service_dispatch": 5,
+          "light_manufacturing": 11,
+          "receiving": 7,
+          "shipping": 6,
+          "storage": 6,
+          "service_dispatch": 7,
+          "distribution": 1,
+          "food_production": 1,
+          "assembly": 1,
           "food_preparation": 2,
           "hospitality_service": 2,
           "healthcare_delivery": 1
         },
         "archetypeCoverage": {
           "biotech_company": 6,
-          "research_company": 21,
+          "research_company": 23,
           "startup": 24,
-          "creative_studio": 19,
+          "creative_studio": 21,
           "marketing_agency": 16,
           "law_firm": 2,
           "financial_services_firm": 1,
           "consulting_firm": 5,
           "professional_office": 14,
-          "general_contractor": 7,
+          "general_contractor": 10,
           "wellness_practice": 9,
           "nonprofit_office": 2,
           "education_provider": 2,
           "training_center": 4,
           "childcare_provider": 2,
           "medical_practice": 2,
-          "light_manufacturer": 7,
-          "cabinet_shop": 5,
-          "distributor": 5,
-          "ecommerce_fulfillment_business": 5,
-          "food_producer": 2,
+          "light_manufacturer": 9,
+          "cabinet_shop": 6,
+          "distributor": 6,
+          "ecommerce_fulfillment_business": 6,
+          "wholesaler": 1,
+          "building_services_company": 1,
+          "food_producer": 3,
           "physical_therapy_practice": 2,
           "outpatient_clinic": 1
         },
@@ -1225,17 +1253,17 @@
         "state": "developed",
         "label": "Developed",
         "rationale": [
-          "25 district nodes are available for the metro.",
+          "27 district nodes are available for the metro.",
           "District coverage is mature enough for expansion planning.",
           "District comparison relationships are meaningfully developed.",
           "Recommendation QA indicates Compass Ready status."
         ],
         "passed": true,
         "metrics": {
-          "districtCount": 25,
+          "districtCount": 27,
           "districtCoverageScore": 98,
           "comparisonGraphScore": 100,
-          "recommendationReadinessScore": 93
+          "recommendationReadinessScore": 94
         }
       },
       "ecosystemReadiness": {
@@ -1276,7 +1304,7 @@
             },
             "counts": {
               "districts": 7,
-              "secondaryDistricts": 15,
+              "secondaryDistricts": 16,
               "recommendations": 7,
               "representativeBuildings": 77,
               "buildingBriefs": 37,
@@ -1294,7 +1322,7 @@
             "blockingCodes": [],
             "strategicPriority": 2,
             "evidence": [
-              "7 primary districts and 15 secondary districts.",
+              "7 primary districts and 16 secondary districts.",
               "77 Representative Buildings and 37 Building Briefs.",
               "7 representative roles and 5 operational categories are covered."
             ],
@@ -1475,14 +1503,14 @@
               "editorialReview": "developed"
             },
             "counts": {
-              "districts": 9,
+              "districts": 11,
               "secondaryDistricts": 6,
-              "recommendations": 9,
+              "recommendations": 11,
               "representativeBuildings": 51,
               "buildingBriefs": 43,
-              "subtypes": 8,
-              "archetypes": 8,
-              "activities": 10,
+              "subtypes": 12,
+              "archetypes": 11,
+              "activities": 13,
               "reviewRequiredDistricts": 0,
               "representativeRoles": 7,
               "operationalCategories": 6,
@@ -1494,7 +1522,7 @@
             "blockingCodes": [],
             "strategicPriority": 1,
             "evidence": [
-              "9 primary districts and 6 secondary districts.",
+              "11 primary districts and 6 secondary districts.",
               "51 Representative Buildings and 43 Building Briefs.",
               "7 representative roles and 6 operational categories are covered."
             ],
@@ -6253,6 +6281,102 @@
           }
         },
         {
+          "id": "gap:san-francisco:representativeBuildings:district missing representative buildings:bayview-industrial",
+          "metroId": "san-francisco",
+          "metroName": "San Francisco",
+          "category": "representativeBuildings",
+          "categoryLabel": "Representative Buildings",
+          "gapType": "representativeBuilding",
+          "gapLabel": "Representative-Building Gap",
+          "code": "district-missing-representative-buildings",
+          "taskType": "district missing representative buildings",
+          "affectedType": "building-or-district",
+          "itemName": "Bayview Industrial",
+          "sourceId": "bayview-industrial",
+          "publicUrl": "/commercial-real-estate/CA/san-francisco/bayview-industrial/",
+          "adminUrl": "",
+          "severity": "medium",
+          "description": "District lacks representative building examples.",
+          "reason": "District has no representative building examples.",
+          "suggestedNextAction": "Curate representative buildings that explain this district.",
+          "confidence": "Research required",
+          "automationCandidate": true,
+          "priorityFactors": {
+            "userValue": 5,
+            "recommendationImpact": 3,
+            "coverageUnlock": 5,
+            "seoValue": 4,
+            "estimatedEffort": 4,
+            "dependencyRisk": 3
+          },
+          "blockedBy": [],
+          "unlocks": [
+            "Building Brief migration",
+            "recommendation representative-building module"
+          ],
+          "prerequisite": [
+            "district commercial identity"
+          ],
+          "followUp": [
+            "author initial Building Briefs after canonical records exist"
+          ],
+          "priorityScore": 74,
+          "modeScores": {
+            "balanced": 74,
+            "recommendation": 72,
+            "editorial": 79,
+            "building": 86
+          }
+        },
+        {
+          "id": "gap:san-francisco:representativeBuildings:district missing representative buildings:central-waterfront",
+          "metroId": "san-francisco",
+          "metroName": "San Francisco",
+          "category": "representativeBuildings",
+          "categoryLabel": "Representative Buildings",
+          "gapType": "representativeBuilding",
+          "gapLabel": "Representative-Building Gap",
+          "code": "district-missing-representative-buildings",
+          "taskType": "district missing representative buildings",
+          "affectedType": "building-or-district",
+          "itemName": "Central Waterfront",
+          "sourceId": "central-waterfront",
+          "publicUrl": "/commercial-real-estate/CA/san-francisco/central-waterfront/",
+          "adminUrl": "",
+          "severity": "medium",
+          "description": "District lacks representative building examples.",
+          "reason": "District has no representative building examples.",
+          "suggestedNextAction": "Curate representative buildings that explain this district.",
+          "confidence": "Research required",
+          "automationCandidate": true,
+          "priorityFactors": {
+            "userValue": 5,
+            "recommendationImpact": 3,
+            "coverageUnlock": 5,
+            "seoValue": 4,
+            "estimatedEffort": 4,
+            "dependencyRisk": 3
+          },
+          "blockedBy": [],
+          "unlocks": [
+            "Building Brief migration",
+            "recommendation representative-building module"
+          ],
+          "prerequisite": [
+            "district commercial identity"
+          ],
+          "followUp": [
+            "author initial Building Briefs after canonical records exist"
+          ],
+          "priorityScore": 74,
+          "modeScores": {
+            "balanced": 74,
+            "recommendation": 72,
+            "editorial": 79,
+            "building": 86
+          }
+        },
+        {
           "id": "gap:san-francisco:representativeBuildings:district missing representative buildings:downtown-redwood-city",
           "metroId": "san-francisco",
           "metroName": "San Francisco",
@@ -6490,6 +6614,100 @@
             "recommendation": 72,
             "editorial": 79,
             "building": 86
+          }
+        },
+        {
+          "id": "gap:san-francisco:comparisonGraph:one-way comparison:bayview-industrial-hayward-industrial",
+          "metroId": "san-francisco",
+          "metroName": "San Francisco",
+          "category": "comparisonGraph",
+          "categoryLabel": "Comparison Graph",
+          "gapType": "comparison",
+          "gapLabel": "Comparison Gap",
+          "code": "one-way-comparison",
+          "taskType": "one-way comparison",
+          "affectedType": "relationship",
+          "itemName": "Bayview Industrial -> Hayward Industrial",
+          "sourceId": "bayview-industrial:hayward-industrial",
+          "publicUrl": "/commercial-real-estate/CA/san-francisco/bayview-industrial/",
+          "adminUrl": "",
+          "severity": "low",
+          "description": "Comparison relationship may need reciprocal treatment.",
+          "reason": "Comparison relationship is not reciprocated.",
+          "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+          "confidence": "Review recommended",
+          "automationCandidate": true,
+          "priorityFactors": {
+            "userValue": 4,
+            "recommendationImpact": 5,
+            "coverageUnlock": 3,
+            "seoValue": 3,
+            "estimatedEffort": 2,
+            "dependencyRisk": 2
+          },
+          "blockedBy": [],
+          "unlocks": [
+            "stronger recommendation alternatives"
+          ],
+          "prerequisite": [
+            "district identity"
+          ],
+          "followUp": [
+            "recommendation QA scenario coverage"
+          ],
+          "priorityScore": 66,
+          "modeScores": {
+            "balanced": 66,
+            "recommendation": 72,
+            "editorial": 68,
+            "building": 73
+          }
+        },
+        {
+          "id": "gap:san-francisco:comparisonGraph:one-way comparison:bayview-industrial-union-city-industrial",
+          "metroId": "san-francisco",
+          "metroName": "San Francisco",
+          "category": "comparisonGraph",
+          "categoryLabel": "Comparison Graph",
+          "gapType": "comparison",
+          "gapLabel": "Comparison Gap",
+          "code": "one-way-comparison",
+          "taskType": "one-way comparison",
+          "affectedType": "relationship",
+          "itemName": "Bayview Industrial -> Union City Industrial",
+          "sourceId": "bayview-industrial:union-city-industrial",
+          "publicUrl": "/commercial-real-estate/CA/san-francisco/bayview-industrial/",
+          "adminUrl": "",
+          "severity": "low",
+          "description": "Comparison relationship may need reciprocal treatment.",
+          "reason": "Comparison relationship is not reciprocated.",
+          "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+          "confidence": "Review recommended",
+          "automationCandidate": true,
+          "priorityFactors": {
+            "userValue": 4,
+            "recommendationImpact": 5,
+            "coverageUnlock": 3,
+            "seoValue": 3,
+            "estimatedEffort": 2,
+            "dependencyRisk": 2
+          },
+          "blockedBy": [],
+          "unlocks": [
+            "stronger recommendation alternatives"
+          ],
+          "prerequisite": [
+            "district identity"
+          ],
+          "followUp": [
+            "recommendation QA scenario coverage"
+          ],
+          "priorityScore": 66,
+          "modeScores": {
+            "balanced": 66,
+            "recommendation": 72,
+            "editorial": 68,
+            "building": 73
           }
         },
         {
@@ -7211,6 +7429,53 @@
           "itemName": "Oakland Medical Campuses -> Jack London Square",
           "sourceId": "oakland-medical-campuses:jack-london-square",
           "publicUrl": "/commercial-real-estate/CA/oakland/oakland-medical-campuses/",
+          "adminUrl": "",
+          "severity": "low",
+          "description": "Comparison relationship may need reciprocal treatment.",
+          "reason": "Comparison relationship is not reciprocated.",
+          "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+          "confidence": "Review recommended",
+          "automationCandidate": true,
+          "priorityFactors": {
+            "userValue": 4,
+            "recommendationImpact": 5,
+            "coverageUnlock": 3,
+            "seoValue": 3,
+            "estimatedEffort": 2,
+            "dependencyRisk": 2
+          },
+          "blockedBy": [],
+          "unlocks": [
+            "stronger recommendation alternatives"
+          ],
+          "prerequisite": [
+            "district identity"
+          ],
+          "followUp": [
+            "recommendation QA scenario coverage"
+          ],
+          "priorityScore": 66,
+          "modeScores": {
+            "balanced": 66,
+            "recommendation": 72,
+            "editorial": 68,
+            "building": 73
+          }
+        },
+        {
+          "id": "gap:san-francisco:comparisonGraph:one-way comparison:potrero-hill-central-waterfront",
+          "metroId": "san-francisco",
+          "metroName": "San Francisco",
+          "category": "comparisonGraph",
+          "categoryLabel": "Comparison Graph",
+          "gapType": "comparison",
+          "gapLabel": "Comparison Gap",
+          "code": "one-way-comparison",
+          "taskType": "one-way comparison",
+          "affectedType": "relationship",
+          "itemName": "Potrero Hill -> Central Waterfront",
+          "sourceId": "potrero-hill:central-waterfront",
+          "publicUrl": "/commercial-real-estate/CA/san-francisco/potrero-hill/",
           "adminUrl": "",
           "severity": "low",
           "description": "Comparison relationship may need reciprocal treatment.",
@@ -11223,6 +11488,102 @@
           }
         },
         {
+          "id": "gap:san-francisco:representativeBuildings:district missing representative buildings:bayview-industrial",
+          "metroId": "san-francisco",
+          "metroName": "San Francisco",
+          "category": "representativeBuildings",
+          "categoryLabel": "Representative Buildings",
+          "gapType": "representativeBuilding",
+          "gapLabel": "Representative-Building Gap",
+          "code": "district-missing-representative-buildings",
+          "taskType": "district missing representative buildings",
+          "affectedType": "building-or-district",
+          "itemName": "Bayview Industrial",
+          "sourceId": "bayview-industrial",
+          "publicUrl": "/commercial-real-estate/CA/san-francisco/bayview-industrial/",
+          "adminUrl": "",
+          "severity": "medium",
+          "description": "District lacks representative building examples.",
+          "reason": "District has no representative building examples.",
+          "suggestedNextAction": "Curate representative buildings that explain this district.",
+          "confidence": "Research required",
+          "automationCandidate": true,
+          "priorityFactors": {
+            "userValue": 5,
+            "recommendationImpact": 3,
+            "coverageUnlock": 5,
+            "seoValue": 4,
+            "estimatedEffort": 4,
+            "dependencyRisk": 3
+          },
+          "blockedBy": [],
+          "unlocks": [
+            "Building Brief migration",
+            "recommendation representative-building module"
+          ],
+          "prerequisite": [
+            "district commercial identity"
+          ],
+          "followUp": [
+            "author initial Building Briefs after canonical records exist"
+          ],
+          "priorityScore": 74,
+          "modeScores": {
+            "balanced": 74,
+            "recommendation": 72,
+            "editorial": 79,
+            "building": 86
+          }
+        },
+        {
+          "id": "gap:san-francisco:representativeBuildings:district missing representative buildings:central-waterfront",
+          "metroId": "san-francisco",
+          "metroName": "San Francisco",
+          "category": "representativeBuildings",
+          "categoryLabel": "Representative Buildings",
+          "gapType": "representativeBuilding",
+          "gapLabel": "Representative-Building Gap",
+          "code": "district-missing-representative-buildings",
+          "taskType": "district missing representative buildings",
+          "affectedType": "building-or-district",
+          "itemName": "Central Waterfront",
+          "sourceId": "central-waterfront",
+          "publicUrl": "/commercial-real-estate/CA/san-francisco/central-waterfront/",
+          "adminUrl": "",
+          "severity": "medium",
+          "description": "District lacks representative building examples.",
+          "reason": "District has no representative building examples.",
+          "suggestedNextAction": "Curate representative buildings that explain this district.",
+          "confidence": "Research required",
+          "automationCandidate": true,
+          "priorityFactors": {
+            "userValue": 5,
+            "recommendationImpact": 3,
+            "coverageUnlock": 5,
+            "seoValue": 4,
+            "estimatedEffort": 4,
+            "dependencyRisk": 3
+          },
+          "blockedBy": [],
+          "unlocks": [
+            "Building Brief migration",
+            "recommendation representative-building module"
+          ],
+          "prerequisite": [
+            "district commercial identity"
+          ],
+          "followUp": [
+            "author initial Building Briefs after canonical records exist"
+          ],
+          "priorityScore": 74,
+          "modeScores": {
+            "balanced": 74,
+            "recommendation": 72,
+            "editorial": 79,
+            "building": 86
+          }
+        },
+        {
           "id": "gap:san-francisco:representativeBuildings:district missing representative buildings:downtown-redwood-city",
           "metroId": "san-francisco",
           "metroName": "San Francisco",
@@ -11552,6 +11913,100 @@
             "recommendation": 78,
             "editorial": 72,
             "building": 80
+          }
+        },
+        {
+          "id": "gap:san-francisco:comparisonGraph:one-way comparison:bayview-industrial-hayward-industrial",
+          "metroId": "san-francisco",
+          "metroName": "San Francisco",
+          "category": "comparisonGraph",
+          "categoryLabel": "Comparison Graph",
+          "gapType": "comparison",
+          "gapLabel": "Comparison Gap",
+          "code": "one-way-comparison",
+          "taskType": "one-way comparison",
+          "affectedType": "relationship",
+          "itemName": "Bayview Industrial -> Hayward Industrial",
+          "sourceId": "bayview-industrial:hayward-industrial",
+          "publicUrl": "/commercial-real-estate/CA/san-francisco/bayview-industrial/",
+          "adminUrl": "",
+          "severity": "low",
+          "description": "Comparison relationship may need reciprocal treatment.",
+          "reason": "Comparison relationship is not reciprocated.",
+          "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+          "confidence": "Review recommended",
+          "automationCandidate": true,
+          "priorityFactors": {
+            "userValue": 4,
+            "recommendationImpact": 5,
+            "coverageUnlock": 3,
+            "seoValue": 3,
+            "estimatedEffort": 2,
+            "dependencyRisk": 2
+          },
+          "blockedBy": [],
+          "unlocks": [
+            "stronger recommendation alternatives"
+          ],
+          "prerequisite": [
+            "district identity"
+          ],
+          "followUp": [
+            "recommendation QA scenario coverage"
+          ],
+          "priorityScore": 66,
+          "modeScores": {
+            "balanced": 66,
+            "recommendation": 72,
+            "editorial": 68,
+            "building": 73
+          }
+        },
+        {
+          "id": "gap:san-francisco:comparisonGraph:one-way comparison:bayview-industrial-union-city-industrial",
+          "metroId": "san-francisco",
+          "metroName": "San Francisco",
+          "category": "comparisonGraph",
+          "categoryLabel": "Comparison Graph",
+          "gapType": "comparison",
+          "gapLabel": "Comparison Gap",
+          "code": "one-way-comparison",
+          "taskType": "one-way comparison",
+          "affectedType": "relationship",
+          "itemName": "Bayview Industrial -> Union City Industrial",
+          "sourceId": "bayview-industrial:union-city-industrial",
+          "publicUrl": "/commercial-real-estate/CA/san-francisco/bayview-industrial/",
+          "adminUrl": "",
+          "severity": "low",
+          "description": "Comparison relationship may need reciprocal treatment.",
+          "reason": "Comparison relationship is not reciprocated.",
+          "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+          "confidence": "Review recommended",
+          "automationCandidate": true,
+          "priorityFactors": {
+            "userValue": 4,
+            "recommendationImpact": 5,
+            "coverageUnlock": 3,
+            "seoValue": 3,
+            "estimatedEffort": 2,
+            "dependencyRisk": 2
+          },
+          "blockedBy": [],
+          "unlocks": [
+            "stronger recommendation alternatives"
+          ],
+          "prerequisite": [
+            "district identity"
+          ],
+          "followUp": [
+            "recommendation QA scenario coverage"
+          ],
+          "priorityScore": 66,
+          "modeScores": {
+            "balanced": 66,
+            "recommendation": 72,
+            "editorial": 68,
+            "building": 73
           }
         },
         {
@@ -12307,6 +12762,53 @@
           }
         },
         {
+          "id": "gap:san-francisco:comparisonGraph:one-way comparison:potrero-hill-central-waterfront",
+          "metroId": "san-francisco",
+          "metroName": "San Francisco",
+          "category": "comparisonGraph",
+          "categoryLabel": "Comparison Graph",
+          "gapType": "comparison",
+          "gapLabel": "Comparison Gap",
+          "code": "one-way-comparison",
+          "taskType": "one-way comparison",
+          "affectedType": "relationship",
+          "itemName": "Potrero Hill -> Central Waterfront",
+          "sourceId": "potrero-hill:central-waterfront",
+          "publicUrl": "/commercial-real-estate/CA/san-francisco/potrero-hill/",
+          "adminUrl": "",
+          "severity": "low",
+          "description": "Comparison relationship may need reciprocal treatment.",
+          "reason": "Comparison relationship is not reciprocated.",
+          "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+          "confidence": "Review recommended",
+          "automationCandidate": true,
+          "priorityFactors": {
+            "userValue": 4,
+            "recommendationImpact": 5,
+            "coverageUnlock": 3,
+            "seoValue": 3,
+            "estimatedEffort": 2,
+            "dependencyRisk": 2
+          },
+          "blockedBy": [],
+          "unlocks": [
+            "stronger recommendation alternatives"
+          ],
+          "prerequisite": [
+            "district identity"
+          ],
+          "followUp": [
+            "recommendation QA scenario coverage"
+          ],
+          "priorityScore": 66,
+          "modeScores": {
+            "balanced": 66,
+            "recommendation": 72,
+            "editorial": 68,
+            "building": 73
+          }
+        },
+        {
           "id": "gap:san-francisco:comparisonGraph:one-way comparison:potrero-hill-mission-bay",
           "metroId": "san-francisco",
           "metroName": "San Francisco",
@@ -12723,7 +13225,7 @@
         "modeLabel": "Balanced Expansion",
         "title": "San Francisco Building Brief Migration Sprint",
         "objective": "Improve San Francisco expansion readiness by completing the highest-value Building Briefs, District Coverage, Representative Buildings work without creating unsupported content.",
-        "rationale": "Selected from 103 deterministic Publisher gaps using balanced expansion weighting.",
+        "rationale": "Selected from 108 deterministic Publisher gaps using balanced expansion weighting.",
         "tasks": [
           {
             "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-1-henry-adams-st",
@@ -12896,6 +13398,40 @@
             ]
           },
           {
+            "id": "gap:san-francisco:representativeBuildings:district missing representative buildings:bayview-industrial",
+            "category": "representativeBuildings",
+            "categoryLabel": "Representative Buildings",
+            "gapType": "representativeBuilding",
+            "itemName": "Bayview Industrial",
+            "sourceId": "bayview-industrial",
+            "publicUrl": "/commercial-real-estate/CA/san-francisco/bayview-industrial/",
+            "priorityScore": 74,
+            "confidence": "Research required",
+            "suggestedNextAction": "Curate representative buildings that explain this district.",
+            "blockedBy": [],
+            "unlocks": [
+              "Building Brief migration",
+              "recommendation representative-building module"
+            ]
+          },
+          {
+            "id": "gap:san-francisco:representativeBuildings:district missing representative buildings:central-waterfront",
+            "category": "representativeBuildings",
+            "categoryLabel": "Representative Buildings",
+            "gapType": "representativeBuilding",
+            "itemName": "Central Waterfront",
+            "sourceId": "central-waterfront",
+            "publicUrl": "/commercial-real-estate/CA/san-francisco/central-waterfront/",
+            "priorityScore": 74,
+            "confidence": "Research required",
+            "suggestedNextAction": "Curate representative buildings that explain this district.",
+            "blockedBy": [],
+            "unlocks": [
+              "Building Brief migration",
+              "recommendation representative-building module"
+            ]
+          },
+          {
             "id": "gap:san-francisco:representativeBuildings:district missing representative buildings:downtown-redwood-city",
             "category": "representativeBuildings",
             "categoryLabel": "Representative Buildings",
@@ -12937,40 +13473,6 @@
             "itemName": "North Bayshore",
             "sourceId": "north-bayshore",
             "publicUrl": "/commercial-real-estate/CA/mountain-view/north-bayshore/",
-            "priorityScore": 74,
-            "confidence": "Research required",
-            "suggestedNextAction": "Curate representative buildings that explain this district.",
-            "blockedBy": [],
-            "unlocks": [
-              "Building Brief migration",
-              "recommendation representative-building module"
-            ]
-          },
-          {
-            "id": "gap:san-francisco:representativeBuildings:district missing representative buildings:north-san-jose",
-            "category": "representativeBuildings",
-            "categoryLabel": "Representative Buildings",
-            "gapType": "representativeBuilding",
-            "itemName": "North San Jose",
-            "sourceId": "north-san-jose",
-            "publicUrl": "/commercial-real-estate/CA/san-jose/north-san-jose/",
-            "priorityScore": 74,
-            "confidence": "Research required",
-            "suggestedNextAction": "Curate representative buildings that explain this district.",
-            "blockedBy": [],
-            "unlocks": [
-              "Building Brief migration",
-              "recommendation representative-building module"
-            ]
-          },
-          {
-            "id": "gap:san-francisco:representativeBuildings:district missing representative buildings:stanford-research-park",
-            "category": "representativeBuildings",
-            "categoryLabel": "Representative Buildings",
-            "gapType": "representativeBuilding",
-            "itemName": "Stanford Research Park",
-            "sourceId": "stanford-research-park",
-            "publicUrl": "/commercial-real-estate/CA/palo-alto/stanford-research-park/",
             "priorityScore": 74,
             "confidence": "Research required",
             "suggestedNextAction": "Curate representative buildings that explain this district.",
@@ -13039,7 +13541,7 @@
           "No live availability claims.",
           "No creation of placeholder pages."
         ],
-        "codexPrompt": "Implement Publisher recommended sprint for San Francisco: San Francisco Building Brief Migration Sprint\n\nMode: Balanced Expansion\nObjective: Improve San Francisco expansion readiness by completing the highest-value Building Briefs, District Coverage, Representative Buildings work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 1 Henry Adams St, 1 Warriors Way, 100 Pine St, 1000 16th St, 1000 Brannan St, 1000 Sansome St, 101 Henry Adams St, 101 Lytton Ave\n- Comparisons: none named\n\nTasks:\n- [Ready] Building Briefs: 1 Henry Adams St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1 Warriors Way - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 100 Pine St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1000 16th St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1000 Brannan St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1000 Sansome St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 101 Henry Adams St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 101 Lytton Ave - Author a Building Brief for this representative building.\n- [Ready] District Coverage: North San Jose - Add decision-oriented best-fit and tradeoff fields.\n- [Ready] District Coverage: Stanford Research Park - Add decision-oriented best-fit and tradeoff fields.\n- [Research required] Representative Buildings: Downtown Redwood City - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Downtown San Mateo - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: North Bayshore - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: North San Jose - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Stanford Research Park - Curate representative buildings that explain this district.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
+        "codexPrompt": "Implement Publisher recommended sprint for San Francisco: San Francisco Building Brief Migration Sprint\n\nMode: Balanced Expansion\nObjective: Improve San Francisco expansion readiness by completing the highest-value Building Briefs, District Coverage, Representative Buildings work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 1 Henry Adams St, 1 Warriors Way, 100 Pine St, 1000 16th St, 1000 Brannan St, 1000 Sansome St, 101 Henry Adams St, 101 Lytton Ave\n- Comparisons: none named\n\nTasks:\n- [Ready] Building Briefs: 1 Henry Adams St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1 Warriors Way - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 100 Pine St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1000 16th St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1000 Brannan St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1000 Sansome St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 101 Henry Adams St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 101 Lytton Ave - Author a Building Brief for this representative building.\n- [Ready] District Coverage: North San Jose - Add decision-oriented best-fit and tradeoff fields.\n- [Ready] District Coverage: Stanford Research Park - Add decision-oriented best-fit and tradeoff fields.\n- [Research required] Representative Buildings: Bayview Industrial - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Central Waterfront - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Downtown Redwood City - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Downtown San Mateo - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: North Bayshore - Curate representative buildings that explain this district.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
       },
       "plansByMode": {
         "balanced": {
@@ -13047,7 +13549,7 @@
           "modeLabel": "Balanced Expansion",
           "title": "San Francisco Building Brief Migration Sprint",
           "objective": "Improve San Francisco expansion readiness by completing the highest-value Building Briefs, District Coverage, Representative Buildings work without creating unsupported content.",
-          "rationale": "Selected from 103 deterministic Publisher gaps using balanced expansion weighting.",
+          "rationale": "Selected from 108 deterministic Publisher gaps using balanced expansion weighting.",
           "tasks": [
             {
               "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-1-henry-adams-st",
@@ -13220,6 +13722,40 @@
               ]
             },
             {
+              "id": "gap:san-francisco:representativeBuildings:district missing representative buildings:bayview-industrial",
+              "category": "representativeBuildings",
+              "categoryLabel": "Representative Buildings",
+              "gapType": "representativeBuilding",
+              "itemName": "Bayview Industrial",
+              "sourceId": "bayview-industrial",
+              "publicUrl": "/commercial-real-estate/CA/san-francisco/bayview-industrial/",
+              "priorityScore": 74,
+              "confidence": "Research required",
+              "suggestedNextAction": "Curate representative buildings that explain this district.",
+              "blockedBy": [],
+              "unlocks": [
+                "Building Brief migration",
+                "recommendation representative-building module"
+              ]
+            },
+            {
+              "id": "gap:san-francisco:representativeBuildings:district missing representative buildings:central-waterfront",
+              "category": "representativeBuildings",
+              "categoryLabel": "Representative Buildings",
+              "gapType": "representativeBuilding",
+              "itemName": "Central Waterfront",
+              "sourceId": "central-waterfront",
+              "publicUrl": "/commercial-real-estate/CA/san-francisco/central-waterfront/",
+              "priorityScore": 74,
+              "confidence": "Research required",
+              "suggestedNextAction": "Curate representative buildings that explain this district.",
+              "blockedBy": [],
+              "unlocks": [
+                "Building Brief migration",
+                "recommendation representative-building module"
+              ]
+            },
+            {
               "id": "gap:san-francisco:representativeBuildings:district missing representative buildings:downtown-redwood-city",
               "category": "representativeBuildings",
               "categoryLabel": "Representative Buildings",
@@ -13261,40 +13797,6 @@
               "itemName": "North Bayshore",
               "sourceId": "north-bayshore",
               "publicUrl": "/commercial-real-estate/CA/mountain-view/north-bayshore/",
-              "priorityScore": 74,
-              "confidence": "Research required",
-              "suggestedNextAction": "Curate representative buildings that explain this district.",
-              "blockedBy": [],
-              "unlocks": [
-                "Building Brief migration",
-                "recommendation representative-building module"
-              ]
-            },
-            {
-              "id": "gap:san-francisco:representativeBuildings:district missing representative buildings:north-san-jose",
-              "category": "representativeBuildings",
-              "categoryLabel": "Representative Buildings",
-              "gapType": "representativeBuilding",
-              "itemName": "North San Jose",
-              "sourceId": "north-san-jose",
-              "publicUrl": "/commercial-real-estate/CA/san-jose/north-san-jose/",
-              "priorityScore": 74,
-              "confidence": "Research required",
-              "suggestedNextAction": "Curate representative buildings that explain this district.",
-              "blockedBy": [],
-              "unlocks": [
-                "Building Brief migration",
-                "recommendation representative-building module"
-              ]
-            },
-            {
-              "id": "gap:san-francisco:representativeBuildings:district missing representative buildings:stanford-research-park",
-              "category": "representativeBuildings",
-              "categoryLabel": "Representative Buildings",
-              "gapType": "representativeBuilding",
-              "itemName": "Stanford Research Park",
-              "sourceId": "stanford-research-park",
-              "publicUrl": "/commercial-real-estate/CA/palo-alto/stanford-research-park/",
               "priorityScore": 74,
               "confidence": "Research required",
               "suggestedNextAction": "Curate representative buildings that explain this district.",
@@ -13363,14 +13865,14 @@
             "No live availability claims.",
             "No creation of placeholder pages."
           ],
-          "codexPrompt": "Implement Publisher recommended sprint for San Francisco: San Francisco Building Brief Migration Sprint\n\nMode: Balanced Expansion\nObjective: Improve San Francisco expansion readiness by completing the highest-value Building Briefs, District Coverage, Representative Buildings work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 1 Henry Adams St, 1 Warriors Way, 100 Pine St, 1000 16th St, 1000 Brannan St, 1000 Sansome St, 101 Henry Adams St, 101 Lytton Ave\n- Comparisons: none named\n\nTasks:\n- [Ready] Building Briefs: 1 Henry Adams St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1 Warriors Way - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 100 Pine St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1000 16th St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1000 Brannan St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1000 Sansome St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 101 Henry Adams St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 101 Lytton Ave - Author a Building Brief for this representative building.\n- [Ready] District Coverage: North San Jose - Add decision-oriented best-fit and tradeoff fields.\n- [Ready] District Coverage: Stanford Research Park - Add decision-oriented best-fit and tradeoff fields.\n- [Research required] Representative Buildings: Downtown Redwood City - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Downtown San Mateo - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: North Bayshore - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: North San Jose - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Stanford Research Park - Curate representative buildings that explain this district.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
+          "codexPrompt": "Implement Publisher recommended sprint for San Francisco: San Francisco Building Brief Migration Sprint\n\nMode: Balanced Expansion\nObjective: Improve San Francisco expansion readiness by completing the highest-value Building Briefs, District Coverage, Representative Buildings work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 1 Henry Adams St, 1 Warriors Way, 100 Pine St, 1000 16th St, 1000 Brannan St, 1000 Sansome St, 101 Henry Adams St, 101 Lytton Ave\n- Comparisons: none named\n\nTasks:\n- [Ready] Building Briefs: 1 Henry Adams St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1 Warriors Way - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 100 Pine St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1000 16th St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1000 Brannan St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1000 Sansome St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 101 Henry Adams St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 101 Lytton Ave - Author a Building Brief for this representative building.\n- [Ready] District Coverage: North San Jose - Add decision-oriented best-fit and tradeoff fields.\n- [Ready] District Coverage: Stanford Research Park - Add decision-oriented best-fit and tradeoff fields.\n- [Research required] Representative Buildings: Bayview Industrial - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Central Waterfront - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Downtown Redwood City - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Downtown San Mateo - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: North Bayshore - Curate representative buildings that explain this district.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
         },
         "recommendation": {
           "mode": "recommendation",
           "modeLabel": "Recommendation Readiness",
           "title": "San Francisco Recommendation Readiness Sprint",
           "objective": "Improve San Francisco expansion readiness by completing the highest-value Recommendation Readiness, Comparison Graph, District Coverage work without creating unsupported content.",
-          "rationale": "Selected from 103 deterministic Publisher gaps using recommendation readiness weighting.",
+          "rationale": "Selected from 108 deterministic Publisher gaps using recommendation readiness weighting.",
           "tasks": [
             {
               "id": "gap:san-francisco:recommendationReadiness:missing explainability fields:north-san-jose",
@@ -13404,6 +13906,38 @@
               "unlocks": [
                 "Compass readiness confidence",
                 "Distribution Ready gate clearance"
+              ]
+            },
+            {
+              "id": "gap:san-francisco:comparisonGraph:one-way comparison:bayview-industrial-hayward-industrial",
+              "category": "comparisonGraph",
+              "categoryLabel": "Comparison Graph",
+              "gapType": "comparison",
+              "itemName": "Bayview Industrial -> Hayward Industrial",
+              "sourceId": "bayview-industrial:hayward-industrial",
+              "publicUrl": "/commercial-real-estate/CA/san-francisco/bayview-industrial/",
+              "priorityScore": 72,
+              "confidence": "Review recommended",
+              "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+              "blockedBy": [],
+              "unlocks": [
+                "stronger recommendation alternatives"
+              ]
+            },
+            {
+              "id": "gap:san-francisco:comparisonGraph:one-way comparison:bayview-industrial-union-city-industrial",
+              "category": "comparisonGraph",
+              "categoryLabel": "Comparison Graph",
+              "gapType": "comparison",
+              "itemName": "Bayview Industrial -> Union City Industrial",
+              "sourceId": "bayview-industrial:union-city-industrial",
+              "publicUrl": "/commercial-real-estate/CA/san-francisco/bayview-industrial/",
+              "priorityScore": 72,
+              "confidence": "Review recommended",
+              "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+              "blockedBy": [],
+              "unlocks": [
+                "stronger recommendation alternatives"
               ]
             },
             {
@@ -13471,38 +14005,6 @@
               ]
             },
             {
-              "id": "gap:san-francisco:comparisonGraph:one-way comparison:downtown-palo-alto-north-bayshore",
-              "category": "comparisonGraph",
-              "categoryLabel": "Comparison Graph",
-              "gapType": "comparison",
-              "itemName": "Downtown Palo Alto -> North Bayshore",
-              "sourceId": "downtown-palo-alto:north-bayshore",
-              "publicUrl": "/commercial-real-estate/CA/palo-alto/downtown-palo-alto/",
-              "priorityScore": 72,
-              "confidence": "Review recommended",
-              "suggestedNextAction": "Review whether the comparison should be reciprocal.",
-              "blockedBy": [],
-              "unlocks": [
-                "stronger recommendation alternatives"
-              ]
-            },
-            {
-              "id": "gap:san-francisco:comparisonGraph:one-way comparison:downtown-redwood-city-north-bayshore",
-              "category": "comparisonGraph",
-              "categoryLabel": "Comparison Graph",
-              "gapType": "comparison",
-              "itemName": "Downtown Redwood City -> North Bayshore",
-              "sourceId": "downtown-redwood-city:north-bayshore",
-              "publicUrl": "/commercial-real-estate/CA/redwood-city/downtown-redwood-city/",
-              "priorityScore": 72,
-              "confidence": "Review recommended",
-              "suggestedNextAction": "Review whether the comparison should be reciprocal.",
-              "blockedBy": [],
-              "unlocks": [
-                "stronger recommendation alternatives"
-              ]
-            },
-            {
               "id": "gap:san-francisco:districtCoverage:missing decision positioning:north-san-jose",
               "category": "districtCoverage",
               "categoryLabel": "District Coverage",
@@ -13534,6 +14036,40 @@
               "unlocks": [
                 "district comparison content",
                 "representative-building selection"
+              ]
+            },
+            {
+              "id": "gap:san-francisco:representativeBuildings:district missing representative buildings:bayview-industrial",
+              "category": "representativeBuildings",
+              "categoryLabel": "Representative Buildings",
+              "gapType": "representativeBuilding",
+              "itemName": "Bayview Industrial",
+              "sourceId": "bayview-industrial",
+              "publicUrl": "/commercial-real-estate/CA/san-francisco/bayview-industrial/",
+              "priorityScore": 72,
+              "confidence": "Research required",
+              "suggestedNextAction": "Curate representative buildings that explain this district.",
+              "blockedBy": [],
+              "unlocks": [
+                "Building Brief migration",
+                "recommendation representative-building module"
+              ]
+            },
+            {
+              "id": "gap:san-francisco:representativeBuildings:district missing representative buildings:central-waterfront",
+              "category": "representativeBuildings",
+              "categoryLabel": "Representative Buildings",
+              "gapType": "representativeBuilding",
+              "itemName": "Central Waterfront",
+              "sourceId": "central-waterfront",
+              "publicUrl": "/commercial-real-estate/CA/san-francisco/central-waterfront/",
+              "priorityScore": 72,
+              "confidence": "Research required",
+              "suggestedNextAction": "Curate representative buildings that explain this district.",
+              "blockedBy": [],
+              "unlocks": [
+                "Building Brief migration",
+                "recommendation representative-building module"
               ]
             },
             {
@@ -13578,40 +14114,6 @@
               "itemName": "North Bayshore",
               "sourceId": "north-bayshore",
               "publicUrl": "/commercial-real-estate/CA/mountain-view/north-bayshore/",
-              "priorityScore": 72,
-              "confidence": "Research required",
-              "suggestedNextAction": "Curate representative buildings that explain this district.",
-              "blockedBy": [],
-              "unlocks": [
-                "Building Brief migration",
-                "recommendation representative-building module"
-              ]
-            },
-            {
-              "id": "gap:san-francisco:representativeBuildings:district missing representative buildings:north-san-jose",
-              "category": "representativeBuildings",
-              "categoryLabel": "Representative Buildings",
-              "gapType": "representativeBuilding",
-              "itemName": "North San Jose",
-              "sourceId": "north-san-jose",
-              "publicUrl": "/commercial-real-estate/CA/san-jose/north-san-jose/",
-              "priorityScore": 72,
-              "confidence": "Research required",
-              "suggestedNextAction": "Curate representative buildings that explain this district.",
-              "blockedBy": [],
-              "unlocks": [
-                "Building Brief migration",
-                "recommendation representative-building module"
-              ]
-            },
-            {
-              "id": "gap:san-francisco:representativeBuildings:district missing representative buildings:stanford-research-park",
-              "category": "representativeBuildings",
-              "categoryLabel": "Representative Buildings",
-              "gapType": "representativeBuilding",
-              "itemName": "Stanford Research Park",
-              "sourceId": "stanford-research-park",
-              "publicUrl": "/commercial-real-estate/CA/palo-alto/stanford-research-park/",
               "priorityScore": 72,
               "confidence": "Research required",
               "suggestedNextAction": "Curate representative buildings that explain this district.",
@@ -13669,14 +14171,14 @@
             "No live availability claims.",
             "No creation of placeholder pages."
           ],
-          "codexPrompt": "Implement Publisher recommended sprint for San Francisco: San Francisco Recommendation Readiness Sprint\n\nMode: Recommendation Readiness\nObjective: Improve San Francisco expansion readiness by completing the highest-value Recommendation Readiness, Comparison Graph, District Coverage work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: none named\n- Comparisons: Design District -> Potrero Hill; Design District -> SoMa; Dogpatch -> Mission Bay; Dogpatch -> Showplace Square; Downtown Palo Alto -> North Bayshore; Downtown Redwood City -> North Bayshore\n\nTasks:\n- [Ready] Recommendation Readiness: North San Jose - Add explainability fields used by recommendations and Location Briefs.\n- [Ready] Recommendation Readiness: Stanford Research Park - Add explainability fields used by recommendations and Location Briefs.\n- [Review recommended] Comparison Graph: Design District -> Potrero Hill - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Design District -> SoMa - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Dogpatch -> Mission Bay - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Dogpatch -> Showplace Square - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Downtown Palo Alto -> North Bayshore - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Downtown Redwood City -> North Bayshore - Review whether the comparison should be reciprocal.\n- [Ready] District Coverage: North San Jose - Add decision-oriented best-fit and tradeoff fields.\n- [Ready] District Coverage: Stanford Research Park - Add decision-oriented best-fit and tradeoff fields.\n- [Research required] Representative Buildings: Downtown Redwood City - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Downtown San Mateo - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: North Bayshore - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: North San Jose - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Stanford Research Park - Curate representative buildings that explain this district.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
+          "codexPrompt": "Implement Publisher recommended sprint for San Francisco: San Francisco Recommendation Readiness Sprint\n\nMode: Recommendation Readiness\nObjective: Improve San Francisco expansion readiness by completing the highest-value Recommendation Readiness, Comparison Graph, District Coverage work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: none named\n- Comparisons: Bayview Industrial -> Hayward Industrial; Bayview Industrial -> Union City Industrial; Design District -> Potrero Hill; Design District -> SoMa; Dogpatch -> Mission Bay; Dogpatch -> Showplace Square\n\nTasks:\n- [Ready] Recommendation Readiness: North San Jose - Add explainability fields used by recommendations and Location Briefs.\n- [Ready] Recommendation Readiness: Stanford Research Park - Add explainability fields used by recommendations and Location Briefs.\n- [Review recommended] Comparison Graph: Bayview Industrial -> Hayward Industrial - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Bayview Industrial -> Union City Industrial - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Design District -> Potrero Hill - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Design District -> SoMa - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Dogpatch -> Mission Bay - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Dogpatch -> Showplace Square - Review whether the comparison should be reciprocal.\n- [Ready] District Coverage: North San Jose - Add decision-oriented best-fit and tradeoff fields.\n- [Ready] District Coverage: Stanford Research Park - Add decision-oriented best-fit and tradeoff fields.\n- [Research required] Representative Buildings: Bayview Industrial - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Central Waterfront - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Downtown Redwood City - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Downtown San Mateo - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: North Bayshore - Curate representative buildings that explain this district.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
         },
         "editorial": {
           "mode": "editorial",
           "modeLabel": "Editorial Depth",
           "title": "San Francisco District Editorial Foundation Sprint",
           "objective": "Improve San Francisco expansion readiness by completing the highest-value District Coverage, Building Briefs, Representative Buildings work without creating unsupported content.",
-          "rationale": "Selected from 103 deterministic Publisher gaps using editorial depth weighting.",
+          "rationale": "Selected from 108 deterministic Publisher gaps using editorial depth weighting.",
           "tasks": [
             {
               "id": "gap:san-francisco:districtCoverage:missing decision positioning:north-san-jose",
@@ -13883,6 +14385,40 @@
               ]
             },
             {
+              "id": "gap:san-francisco:representativeBuildings:district missing representative buildings:bayview-industrial",
+              "category": "representativeBuildings",
+              "categoryLabel": "Representative Buildings",
+              "gapType": "representativeBuilding",
+              "itemName": "Bayview Industrial",
+              "sourceId": "bayview-industrial",
+              "publicUrl": "/commercial-real-estate/CA/san-francisco/bayview-industrial/",
+              "priorityScore": 79,
+              "confidence": "Research required",
+              "suggestedNextAction": "Curate representative buildings that explain this district.",
+              "blockedBy": [],
+              "unlocks": [
+                "Building Brief migration",
+                "recommendation representative-building module"
+              ]
+            },
+            {
+              "id": "gap:san-francisco:representativeBuildings:district missing representative buildings:central-waterfront",
+              "category": "representativeBuildings",
+              "categoryLabel": "Representative Buildings",
+              "gapType": "representativeBuilding",
+              "itemName": "Central Waterfront",
+              "sourceId": "central-waterfront",
+              "publicUrl": "/commercial-real-estate/CA/san-francisco/central-waterfront/",
+              "priorityScore": 79,
+              "confidence": "Research required",
+              "suggestedNextAction": "Curate representative buildings that explain this district.",
+              "blockedBy": [],
+              "unlocks": [
+                "Building Brief migration",
+                "recommendation representative-building module"
+              ]
+            },
+            {
               "id": "gap:san-francisco:representativeBuildings:district missing representative buildings:downtown-redwood-city",
               "category": "representativeBuildings",
               "categoryLabel": "Representative Buildings",
@@ -13890,40 +14426,6 @@
               "itemName": "Downtown Redwood City",
               "sourceId": "downtown-redwood-city",
               "publicUrl": "/commercial-real-estate/CA/redwood-city/downtown-redwood-city/",
-              "priorityScore": 79,
-              "confidence": "Research required",
-              "suggestedNextAction": "Curate representative buildings that explain this district.",
-              "blockedBy": [],
-              "unlocks": [
-                "Building Brief migration",
-                "recommendation representative-building module"
-              ]
-            },
-            {
-              "id": "gap:san-francisco:representativeBuildings:district missing representative buildings:downtown-san-mateo",
-              "category": "representativeBuildings",
-              "categoryLabel": "Representative Buildings",
-              "gapType": "representativeBuilding",
-              "itemName": "Downtown San Mateo",
-              "sourceId": "downtown-san-mateo",
-              "publicUrl": "/commercial-real-estate/CA/san-mateo/downtown-san-mateo/",
-              "priorityScore": 79,
-              "confidence": "Research required",
-              "suggestedNextAction": "Curate representative buildings that explain this district.",
-              "blockedBy": [],
-              "unlocks": [
-                "Building Brief migration",
-                "recommendation representative-building module"
-              ]
-            },
-            {
-              "id": "gap:san-francisco:representativeBuildings:district missing representative buildings:north-bayshore",
-              "category": "representativeBuildings",
-              "categoryLabel": "Representative Buildings",
-              "gapType": "representativeBuilding",
-              "itemName": "North Bayshore",
-              "sourceId": "north-bayshore",
-              "publicUrl": "/commercial-real-estate/CA/mountain-view/north-bayshore/",
               "priorityScore": 79,
               "confidence": "Research required",
               "suggestedNextAction": "Curate representative buildings that explain this district.",
@@ -13994,15 +14496,49 @@
             "No live availability claims.",
             "No creation of placeholder pages."
           ],
-          "codexPrompt": "Implement Publisher recommended sprint for San Francisco: San Francisco District Editorial Foundation Sprint\n\nMode: Editorial Depth\nObjective: Improve San Francisco expansion readiness by completing the highest-value District Coverage, Building Briefs, Representative Buildings work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 1 Henry Adams St, 1 Warriors Way, 100 Pine St, 1000 16th St, 1000 Brannan St, 1000 Sansome St, 101 Henry Adams St, 101 Lytton Ave, 121 Spear St, 140 New Montgomery St\n- Comparisons: none named\n\nTasks:\n- [Ready] District Coverage: North San Jose - Add decision-oriented best-fit and tradeoff fields.\n- [Ready] District Coverage: Stanford Research Park - Add decision-oriented best-fit and tradeoff fields.\n- [Ready] Building Briefs: 1 Henry Adams St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1 Warriors Way - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 100 Pine St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1000 16th St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1000 Brannan St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1000 Sansome St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 101 Henry Adams St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 101 Lytton Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 121 Spear St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 140 New Montgomery St - Author a Building Brief for this representative building.\n- [Research required] Representative Buildings: Downtown Redwood City - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Downtown San Mateo - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: North Bayshore - Curate representative buildings that explain this district.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
+          "codexPrompt": "Implement Publisher recommended sprint for San Francisco: San Francisco District Editorial Foundation Sprint\n\nMode: Editorial Depth\nObjective: Improve San Francisco expansion readiness by completing the highest-value District Coverage, Building Briefs, Representative Buildings work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 1 Henry Adams St, 1 Warriors Way, 100 Pine St, 1000 16th St, 1000 Brannan St, 1000 Sansome St, 101 Henry Adams St, 101 Lytton Ave, 121 Spear St, 140 New Montgomery St\n- Comparisons: none named\n\nTasks:\n- [Ready] District Coverage: North San Jose - Add decision-oriented best-fit and tradeoff fields.\n- [Ready] District Coverage: Stanford Research Park - Add decision-oriented best-fit and tradeoff fields.\n- [Ready] Building Briefs: 1 Henry Adams St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1 Warriors Way - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 100 Pine St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1000 16th St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1000 Brannan St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1000 Sansome St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 101 Henry Adams St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 101 Lytton Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 121 Spear St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 140 New Montgomery St - Author a Building Brief for this representative building.\n- [Research required] Representative Buildings: Bayview Industrial - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Central Waterfront - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Downtown Redwood City - Curate representative buildings that explain this district.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
         },
         "building": {
           "mode": "building",
           "modeLabel": "Building Depth",
           "title": "San Francisco Representative Building Foundation Sprint",
           "objective": "Improve San Francisco expansion readiness by completing the highest-value Representative Buildings, Building Briefs work without creating unsupported content.",
-          "rationale": "Selected from 103 deterministic Publisher gaps using building depth weighting.",
+          "rationale": "Selected from 108 deterministic Publisher gaps using building depth weighting.",
           "tasks": [
+            {
+              "id": "gap:san-francisco:representativeBuildings:district missing representative buildings:bayview-industrial",
+              "category": "representativeBuildings",
+              "categoryLabel": "Representative Buildings",
+              "gapType": "representativeBuilding",
+              "itemName": "Bayview Industrial",
+              "sourceId": "bayview-industrial",
+              "publicUrl": "/commercial-real-estate/CA/san-francisco/bayview-industrial/",
+              "priorityScore": 86,
+              "confidence": "Research required",
+              "suggestedNextAction": "Curate representative buildings that explain this district.",
+              "blockedBy": [],
+              "unlocks": [
+                "Building Brief migration",
+                "recommendation representative-building module"
+              ]
+            },
+            {
+              "id": "gap:san-francisco:representativeBuildings:district missing representative buildings:central-waterfront",
+              "category": "representativeBuildings",
+              "categoryLabel": "Representative Buildings",
+              "gapType": "representativeBuilding",
+              "itemName": "Central Waterfront",
+              "sourceId": "central-waterfront",
+              "publicUrl": "/commercial-real-estate/CA/san-francisco/central-waterfront/",
+              "priorityScore": 86,
+              "confidence": "Research required",
+              "suggestedNextAction": "Curate representative buildings that explain this district.",
+              "blockedBy": [],
+              "unlocks": [
+                "Building Brief migration",
+                "recommendation representative-building module"
+              ]
+            },
             {
               "id": "gap:san-francisco:representativeBuildings:district missing representative buildings:downtown-redwood-city",
               "category": "representativeBuildings",
@@ -14223,40 +14759,6 @@
                 "Building Brief page depth",
                 "recommendation representative-building card eligibility"
               ]
-            },
-            {
-              "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-121-spear-st",
-              "category": "buildingBriefs",
-              "categoryLabel": "Building Briefs",
-              "gapType": "representativeBuilding",
-              "itemName": "121 Spear St",
-              "sourceId": "/commercial-real-estate/building/CA/san-francisco/121-spear-st/",
-              "publicUrl": "/commercial-real-estate/building/CA/san-francisco/121-spear-st/",
-              "priorityScore": 91,
-              "confidence": "Ready",
-              "suggestedNextAction": "Author a Building Brief for this representative building.",
-              "blockedBy": [],
-              "unlocks": [
-                "Building Brief page depth",
-                "recommendation representative-building card eligibility"
-              ]
-            },
-            {
-              "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-140-new-montgomery-st",
-              "category": "buildingBriefs",
-              "categoryLabel": "Building Briefs",
-              "gapType": "representativeBuilding",
-              "itemName": "140 New Montgomery St",
-              "sourceId": "/commercial-real-estate/building/CA/san-francisco/140-new-montgomery-st/",
-              "publicUrl": "/commercial-real-estate/building/CA/san-francisco/140-new-montgomery-st/",
-              "priorityScore": 91,
-              "confidence": "Ready",
-              "suggestedNextAction": "Author a Building Brief for this representative building.",
-              "blockedBy": [],
-              "unlocks": [
-                "Building Brief page depth",
-                "recommendation representative-building card eligibility"
-              ]
             }
           ],
           "dataTasks": [
@@ -14265,8 +14767,8 @@
             "Curate representative buildings that explain this district.",
             "Curate representative buildings that explain this district.",
             "Curate representative buildings that explain this district.",
-            "Author a Building Brief for this representative building.",
-            "Author a Building Brief for this representative building.",
+            "Curate representative buildings that explain this district.",
+            "Curate representative buildings that explain this district.",
             "Author a Building Brief for this representative building.",
             "Author a Building Brief for this representative building.",
             "Author a Building Brief for this representative building.",
@@ -14277,8 +14779,6 @@
             "Author a Building Brief for this representative building."
           ],
           "contentTasks": [
-            "Author a Building Brief for this representative building.",
-            "Author a Building Brief for this representative building.",
             "Author a Building Brief for this representative building.",
             "Author a Building Brief for this representative building.",
             "Author a Building Brief for this representative building.",
@@ -14306,8 +14806,8 @@
           "expectedCoverageImprovements": {
             "districtTasks": 0,
             "comparisonTasks": 0,
-            "representativeBuildingTasks": 5,
-            "buildingBriefTasks": 10,
+            "representativeBuildingTasks": 7,
+            "buildingBriefTasks": 8,
             "recommendationTasks": 0
           },
           "exclusions": [
@@ -14316,7 +14816,7 @@
             "No live availability claims.",
             "No creation of placeholder pages."
           ],
-          "codexPrompt": "Implement Publisher recommended sprint for San Francisco: San Francisco Representative Building Foundation Sprint\n\nMode: Building Depth\nObjective: Improve San Francisco expansion readiness by completing the highest-value Representative Buildings, Building Briefs work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 1 Henry Adams St, 1 Warriors Way, 100 Pine St, 1000 16th St, 1000 Brannan St, 1000 Sansome St, 101 Henry Adams St, 101 Lytton Ave, 121 Spear St, 140 New Montgomery St\n- Comparisons: none named\n\nTasks:\n- [Research required] Representative Buildings: Downtown Redwood City - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Downtown San Mateo - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: North Bayshore - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: North San Jose - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Stanford Research Park - Curate representative buildings that explain this district.\n- [Ready] Building Briefs: 1 Henry Adams St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1 Warriors Way - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 100 Pine St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1000 16th St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1000 Brannan St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1000 Sansome St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 101 Henry Adams St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 101 Lytton Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 121 Spear St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 140 New Montgomery St - Author a Building Brief for this representative building.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
+          "codexPrompt": "Implement Publisher recommended sprint for San Francisco: San Francisco Representative Building Foundation Sprint\n\nMode: Building Depth\nObjective: Improve San Francisco expansion readiness by completing the highest-value Representative Buildings, Building Briefs work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 1 Henry Adams St, 1 Warriors Way, 100 Pine St, 1000 16th St, 1000 Brannan St, 1000 Sansome St, 101 Henry Adams St, 101 Lytton Ave\n- Comparisons: none named\n\nTasks:\n- [Research required] Representative Buildings: Bayview Industrial - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Central Waterfront - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Downtown Redwood City - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Downtown San Mateo - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: North Bayshore - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: North San Jose - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Stanford Research Park - Curate representative buildings that explain this district.\n- [Ready] Building Briefs: 1 Henry Adams St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1 Warriors Way - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 100 Pine St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1000 16th St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1000 Brannan St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1000 Sansome St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 101 Henry Adams St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 101 Lytton Ave - Author a Building Brief for this representative building.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
         }
       },
       "blockers": [],
@@ -14325,7 +14825,7 @@
     {
       "metroId": "east-bay",
       "metroName": "East Bay",
-      "generatedAt": "2026-08-13T09:08:14-07:00",
+      "generatedAt": "2026-08-13T10:27:31-07:00",
       "currentState": {
         "readinessStatus": "Editorially Developed",
         "overallScore": 74,
@@ -18093,7 +18593,7 @@
     {
       "metroId": "sacramento",
       "metroName": "Sacramento",
-      "generatedAt": "2026-08-13T09:08:14-07:00",
+      "generatedAt": "2026-08-13T10:27:31-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 98,
@@ -26739,7 +27239,7 @@
     {
       "metroId": "san-diego",
       "metroName": "San Diego",
-      "generatedAt": "2026-08-13T09:08:14-07:00",
+      "generatedAt": "2026-08-13T10:27:31-07:00",
       "currentState": {
         "readinessStatus": "Expansion Ready",
         "overallScore": 84,
@@ -36275,7 +36775,7 @@
     {
       "metroId": "orange-county",
       "metroName": "Orange County",
-      "generatedAt": "2026-08-13T09:08:14-07:00",
+      "generatedAt": "2026-08-13T10:27:31-07:00",
       "currentState": {
         "readinessStatus": "Expansion Ready",
         "overallScore": 84,
@@ -45080,7 +45580,7 @@
     {
       "metroId": "denver",
       "metroName": "Denver",
-      "generatedAt": "2026-08-13T09:08:14-07:00",
+      "generatedAt": "2026-08-13T10:27:31-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 97,
@@ -52787,7 +53287,7 @@
     {
       "metroId": "seattle",
       "metroName": "Seattle",
-      "generatedAt": "2026-08-13T09:08:14-07:00",
+      "generatedAt": "2026-08-13T10:27:31-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 94,
@@ -58313,12 +58813,12 @@
     {
       "metroId": "san-francisco",
       "metroName": "San Francisco",
-      "generatedAt": "2026-08-13T09:08:14-07:00",
+      "generatedAt": "2026-08-13T10:27:31-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
-        "overallScore": 96,
+        "overallScore": 95,
         "recommendationScore": 97,
-        "editorialScore": 91,
+        "editorialScore": 90,
         "publishingScore": 100,
         "buildingScore": 56,
         "comparisonScore": 100,
@@ -58333,19 +58833,19 @@
           "status": 100
         },
         "districts": {
-          "count": 25,
+          "count": 27,
           "score": 98
         },
         "recommendationNodes": {
-          "count": 25,
-          "score": 93
+          "count": 27,
+          "score": 94
         },
         "comparisons": {
           "score": 100
         },
         "representativeBuildings": {
           "count": 158,
-          "score": 74
+          "score": 69
         },
         "buildingBriefs": {
           "count": 89,
@@ -58375,7 +58875,7 @@
             "id": "office",
             "label": "Office",
             "districtCount": 7,
-            "secondaryDistrictCount": 15,
+            "secondaryDistrictCount": 16,
             "recommendationNodeCount": 7,
             "representativeBuildingCount": 77,
             "buildingBriefCount": 37,
@@ -58435,15 +58935,15 @@
             },
             "archetypes": {
               "biotech_company": 3,
-              "research_company": 8,
+              "research_company": 9,
               "startup": 10,
-              "creative_studio": 9,
+              "creative_studio": 10,
               "marketing_agency": 8,
               "law_firm": 2,
               "financial_services_firm": 1,
               "consulting_firm": 4,
               "professional_office": 7,
-              "general_contractor": 2,
+              "general_contractor": 3,
               "wellness_practice": 1,
               "nonprofit_office": 1,
               "education_provider": 1,
@@ -58452,8 +58952,8 @@
               "medical_practice": 1
             },
             "activities": {
-              "product_development": 9,
-              "collaboration": 10,
+              "product_development": 10,
+              "collaboration": 11,
               "knowledge_work": 15,
               "customer_showroom": 3,
               "client_meetings": 5,
@@ -58603,9 +59103,9 @@
           "industrial_flex": {
             "id": "industrial_flex",
             "label": "Industrial & Flex",
-            "districtCount": 9,
+            "districtCount": 11,
             "secondaryDistrictCount": 6,
-            "recommendationNodeCount": 9,
+            "recommendationNodeCount": 11,
             "representativeBuildingCount": 51,
             "buildingBriefCount": 43,
             "status": "Developed",
@@ -58641,6 +59141,16 @@
                 "path": "/commercial-real-estate/CA/fremont/warm-springs-innovation-district/"
               },
               {
+                "slug": "bayview-industrial",
+                "label": "Bayview Industrial",
+                "path": "/commercial-real-estate/CA/san-francisco/bayview-industrial/"
+              },
+              {
+                "slug": "central-waterfront",
+                "label": "Central Waterfront",
+                "path": "/commercial-real-estate/CA/san-francisco/central-waterfront/"
+              },
+              {
                 "slug": "dogpatch",
                 "label": "Dogpatch",
                 "path": "/commercial-real-estate/CA/san-francisco/dogpatch/"
@@ -58657,43 +59167,52 @@
               }
             ],
             "subtypes": {
-              "research_development": 9,
-              "flex": 8,
+              "research_development": 10,
+              "flex": 10,
               "professional_office": 2,
-              "small_bay_industrial": 5,
-              "warehouse": 2,
+              "small_bay_industrial": 6,
+              "warehouse": 3,
               "manufacturing": 1,
+              "distribution": 1,
+              "contractor_service": 1,
+              "last_mile_logistics": 1,
+              "light_manufacturing": 2,
               "creative_office": 2,
               "life_science_office": 1
             },
             "archetypes": {
               "startup": 8,
-              "creative_studio": 7,
-              "research_company": 7,
-              "light_manufacturer": 7,
-              "general_contractor": 5,
-              "cabinet_shop": 5,
-              "distributor": 5,
-              "ecommerce_fulfillment_business": 5
+              "creative_studio": 8,
+              "research_company": 8,
+              "light_manufacturer": 9,
+              "general_contractor": 7,
+              "cabinet_shop": 6,
+              "distributor": 6,
+              "ecommerce_fulfillment_business": 6,
+              "wholesaler": 1,
+              "building_services_company": 1,
+              "food_producer": 1
             },
             "activities": {
-              "product_development": 8,
+              "product_development": 9,
               "customer_showroom": 4,
               "research": 5,
-              "light_manufacturing": 9,
+              "light_manufacturing": 11,
               "knowledge_work": 3,
-              "receiving": 5,
-              "shipping": 5,
-              "storage": 5,
-              "service_dispatch": 5,
-              "collaboration": 3
+              "receiving": 7,
+              "shipping": 6,
+              "storage": 6,
+              "service_dispatch": 7,
+              "distribution": 1,
+              "food_production": 1,
+              "assembly": 1,
+              "collaboration": 4
             },
             "reviewRequiredDistricts": [],
             "notableSubtypeGaps": [
-              "distribution",
-              "light_manufacturing",
-              "contractor_service",
-              "contractor_yard"
+              "contractor_yard",
+              "showroom_flex",
+              "food_production"
             ],
             "representativeBuildingIntelligence": {
               "ecosystemId": "industrial_flex",
@@ -59396,7 +59915,7 @@
           "executive_office": 1,
           "professional_office": 16,
           "office_campus": 3,
-          "research_development": 12,
+          "research_development": 13,
           "suburban_office": 2,
           "downtown_retail": 2,
           "neighborhood_retail": 7,
@@ -59405,10 +59924,14 @@
           "nonprofit": 2,
           "childcare": 2,
           "institutional": 2,
-          "flex": 9,
-          "small_bay_industrial": 5,
-          "warehouse": 2,
+          "flex": 11,
+          "small_bay_industrial": 6,
+          "warehouse": 3,
           "manufacturing": 1,
+          "distribution": 1,
+          "contractor_service": 1,
+          "last_mile_logistics": 1,
+          "light_manufacturing": 2,
           "life_science_office": 4,
           "showroom_retail": 1,
           "lifestyle_retail": 1,
@@ -59422,8 +59945,8 @@
           "innovation_campus": 2
         },
         "activityCoverage": {
-          "product_development": 23,
-          "collaboration": 19,
+          "product_development": 25,
+          "collaboration": 21,
           "knowledge_work": 23,
           "customer_showroom": 15,
           "client_meetings": 6,
@@ -59433,37 +59956,42 @@
           "walk_in_service": 11,
           "education": 2,
           "training": 2,
-          "light_manufacturing": 9,
-          "receiving": 5,
-          "shipping": 5,
-          "storage": 5,
-          "service_dispatch": 5,
+          "light_manufacturing": 11,
+          "receiving": 7,
+          "shipping": 6,
+          "storage": 6,
+          "service_dispatch": 7,
+          "distribution": 1,
+          "food_production": 1,
+          "assembly": 1,
           "food_preparation": 2,
           "hospitality_service": 2,
           "healthcare_delivery": 1
         },
         "archetypeCoverage": {
           "biotech_company": 6,
-          "research_company": 21,
+          "research_company": 23,
           "startup": 24,
-          "creative_studio": 19,
+          "creative_studio": 21,
           "marketing_agency": 16,
           "law_firm": 2,
           "financial_services_firm": 1,
           "consulting_firm": 5,
           "professional_office": 14,
-          "general_contractor": 7,
+          "general_contractor": 10,
           "wellness_practice": 9,
           "nonprofit_office": 2,
           "education_provider": 2,
           "training_center": 4,
           "childcare_provider": 2,
           "medical_practice": 2,
-          "light_manufacturer": 7,
-          "cabinet_shop": 5,
-          "distributor": 5,
-          "ecommerce_fulfillment_business": 5,
-          "food_producer": 2,
+          "light_manufacturer": 9,
+          "cabinet_shop": 6,
+          "distributor": 6,
+          "ecommerce_fulfillment_business": 6,
+          "wholesaler": 1,
+          "building_services_company": 1,
+          "food_producer": 3,
           "physical_therapy_practice": 2,
           "outpatient_clinic": 1
         },
@@ -59483,17 +60011,17 @@
         "state": "developed",
         "label": "Developed",
         "rationale": [
-          "25 district nodes are available for the metro.",
+          "27 district nodes are available for the metro.",
           "District coverage is mature enough for expansion planning.",
           "District comparison relationships are meaningfully developed.",
           "Recommendation QA indicates Compass Ready status."
         ],
         "passed": true,
         "metrics": {
-          "districtCount": 25,
+          "districtCount": 27,
           "districtCoverageScore": 98,
           "comparisonGraphScore": 100,
-          "recommendationReadinessScore": 93
+          "recommendationReadinessScore": 94
         }
       },
       "ecosystemReadiness": {
@@ -59534,7 +60062,7 @@
             },
             "counts": {
               "districts": 7,
-              "secondaryDistricts": 15,
+              "secondaryDistricts": 16,
               "recommendations": 7,
               "representativeBuildings": 77,
               "buildingBriefs": 37,
@@ -59552,7 +60080,7 @@
             "blockingCodes": [],
             "strategicPriority": 2,
             "evidence": [
-              "7 primary districts and 15 secondary districts.",
+              "7 primary districts and 16 secondary districts.",
               "77 Representative Buildings and 37 Building Briefs.",
               "7 representative roles and 5 operational categories are covered."
             ],
@@ -59733,14 +60261,14 @@
               "editorialReview": "developed"
             },
             "counts": {
-              "districts": 9,
+              "districts": 11,
               "secondaryDistricts": 6,
-              "recommendations": 9,
+              "recommendations": 11,
               "representativeBuildings": 51,
               "buildingBriefs": 43,
-              "subtypes": 8,
-              "archetypes": 8,
-              "activities": 10,
+              "subtypes": 12,
+              "archetypes": 11,
+              "activities": 13,
               "reviewRequiredDistricts": 0,
               "representativeRoles": 7,
               "operationalCategories": 6,
@@ -59752,7 +60280,7 @@
             "blockingCodes": [],
             "strategicPriority": 1,
             "evidence": [
-              "9 primary districts and 6 secondary districts.",
+              "11 primary districts and 6 secondary districts.",
               "51 Representative Buildings and 43 Building Briefs.",
               "7 representative roles and 6 operational categories are covered."
             ],
@@ -64511,6 +65039,102 @@
           }
         },
         {
+          "id": "gap:san-francisco:representativeBuildings:district missing representative buildings:bayview-industrial",
+          "metroId": "san-francisco",
+          "metroName": "San Francisco",
+          "category": "representativeBuildings",
+          "categoryLabel": "Representative Buildings",
+          "gapType": "representativeBuilding",
+          "gapLabel": "Representative-Building Gap",
+          "code": "district-missing-representative-buildings",
+          "taskType": "district missing representative buildings",
+          "affectedType": "building-or-district",
+          "itemName": "Bayview Industrial",
+          "sourceId": "bayview-industrial",
+          "publicUrl": "/commercial-real-estate/CA/san-francisco/bayview-industrial/",
+          "adminUrl": "",
+          "severity": "medium",
+          "description": "District lacks representative building examples.",
+          "reason": "District has no representative building examples.",
+          "suggestedNextAction": "Curate representative buildings that explain this district.",
+          "confidence": "Research required",
+          "automationCandidate": true,
+          "priorityFactors": {
+            "userValue": 5,
+            "recommendationImpact": 3,
+            "coverageUnlock": 5,
+            "seoValue": 4,
+            "estimatedEffort": 4,
+            "dependencyRisk": 3
+          },
+          "blockedBy": [],
+          "unlocks": [
+            "Building Brief migration",
+            "recommendation representative-building module"
+          ],
+          "prerequisite": [
+            "district commercial identity"
+          ],
+          "followUp": [
+            "author initial Building Briefs after canonical records exist"
+          ],
+          "priorityScore": 74,
+          "modeScores": {
+            "balanced": 74,
+            "recommendation": 72,
+            "editorial": 79,
+            "building": 86
+          }
+        },
+        {
+          "id": "gap:san-francisco:representativeBuildings:district missing representative buildings:central-waterfront",
+          "metroId": "san-francisco",
+          "metroName": "San Francisco",
+          "category": "representativeBuildings",
+          "categoryLabel": "Representative Buildings",
+          "gapType": "representativeBuilding",
+          "gapLabel": "Representative-Building Gap",
+          "code": "district-missing-representative-buildings",
+          "taskType": "district missing representative buildings",
+          "affectedType": "building-or-district",
+          "itemName": "Central Waterfront",
+          "sourceId": "central-waterfront",
+          "publicUrl": "/commercial-real-estate/CA/san-francisco/central-waterfront/",
+          "adminUrl": "",
+          "severity": "medium",
+          "description": "District lacks representative building examples.",
+          "reason": "District has no representative building examples.",
+          "suggestedNextAction": "Curate representative buildings that explain this district.",
+          "confidence": "Research required",
+          "automationCandidate": true,
+          "priorityFactors": {
+            "userValue": 5,
+            "recommendationImpact": 3,
+            "coverageUnlock": 5,
+            "seoValue": 4,
+            "estimatedEffort": 4,
+            "dependencyRisk": 3
+          },
+          "blockedBy": [],
+          "unlocks": [
+            "Building Brief migration",
+            "recommendation representative-building module"
+          ],
+          "prerequisite": [
+            "district commercial identity"
+          ],
+          "followUp": [
+            "author initial Building Briefs after canonical records exist"
+          ],
+          "priorityScore": 74,
+          "modeScores": {
+            "balanced": 74,
+            "recommendation": 72,
+            "editorial": 79,
+            "building": 86
+          }
+        },
+        {
           "id": "gap:san-francisco:representativeBuildings:district missing representative buildings:downtown-redwood-city",
           "metroId": "san-francisco",
           "metroName": "San Francisco",
@@ -64748,6 +65372,100 @@
             "recommendation": 72,
             "editorial": 79,
             "building": 86
+          }
+        },
+        {
+          "id": "gap:san-francisco:comparisonGraph:one-way comparison:bayview-industrial-hayward-industrial",
+          "metroId": "san-francisco",
+          "metroName": "San Francisco",
+          "category": "comparisonGraph",
+          "categoryLabel": "Comparison Graph",
+          "gapType": "comparison",
+          "gapLabel": "Comparison Gap",
+          "code": "one-way-comparison",
+          "taskType": "one-way comparison",
+          "affectedType": "relationship",
+          "itemName": "Bayview Industrial -> Hayward Industrial",
+          "sourceId": "bayview-industrial:hayward-industrial",
+          "publicUrl": "/commercial-real-estate/CA/san-francisco/bayview-industrial/",
+          "adminUrl": "",
+          "severity": "low",
+          "description": "Comparison relationship may need reciprocal treatment.",
+          "reason": "Comparison relationship is not reciprocated.",
+          "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+          "confidence": "Review recommended",
+          "automationCandidate": true,
+          "priorityFactors": {
+            "userValue": 4,
+            "recommendationImpact": 5,
+            "coverageUnlock": 3,
+            "seoValue": 3,
+            "estimatedEffort": 2,
+            "dependencyRisk": 2
+          },
+          "blockedBy": [],
+          "unlocks": [
+            "stronger recommendation alternatives"
+          ],
+          "prerequisite": [
+            "district identity"
+          ],
+          "followUp": [
+            "recommendation QA scenario coverage"
+          ],
+          "priorityScore": 66,
+          "modeScores": {
+            "balanced": 66,
+            "recommendation": 72,
+            "editorial": 68,
+            "building": 73
+          }
+        },
+        {
+          "id": "gap:san-francisco:comparisonGraph:one-way comparison:bayview-industrial-union-city-industrial",
+          "metroId": "san-francisco",
+          "metroName": "San Francisco",
+          "category": "comparisonGraph",
+          "categoryLabel": "Comparison Graph",
+          "gapType": "comparison",
+          "gapLabel": "Comparison Gap",
+          "code": "one-way-comparison",
+          "taskType": "one-way comparison",
+          "affectedType": "relationship",
+          "itemName": "Bayview Industrial -> Union City Industrial",
+          "sourceId": "bayview-industrial:union-city-industrial",
+          "publicUrl": "/commercial-real-estate/CA/san-francisco/bayview-industrial/",
+          "adminUrl": "",
+          "severity": "low",
+          "description": "Comparison relationship may need reciprocal treatment.",
+          "reason": "Comparison relationship is not reciprocated.",
+          "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+          "confidence": "Review recommended",
+          "automationCandidate": true,
+          "priorityFactors": {
+            "userValue": 4,
+            "recommendationImpact": 5,
+            "coverageUnlock": 3,
+            "seoValue": 3,
+            "estimatedEffort": 2,
+            "dependencyRisk": 2
+          },
+          "blockedBy": [],
+          "unlocks": [
+            "stronger recommendation alternatives"
+          ],
+          "prerequisite": [
+            "district identity"
+          ],
+          "followUp": [
+            "recommendation QA scenario coverage"
+          ],
+          "priorityScore": 66,
+          "modeScores": {
+            "balanced": 66,
+            "recommendation": 72,
+            "editorial": 68,
+            "building": 73
           }
         },
         {
@@ -65469,6 +66187,53 @@
           "itemName": "Oakland Medical Campuses -> Jack London Square",
           "sourceId": "oakland-medical-campuses:jack-london-square",
           "publicUrl": "/commercial-real-estate/CA/oakland/oakland-medical-campuses/",
+          "adminUrl": "",
+          "severity": "low",
+          "description": "Comparison relationship may need reciprocal treatment.",
+          "reason": "Comparison relationship is not reciprocated.",
+          "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+          "confidence": "Review recommended",
+          "automationCandidate": true,
+          "priorityFactors": {
+            "userValue": 4,
+            "recommendationImpact": 5,
+            "coverageUnlock": 3,
+            "seoValue": 3,
+            "estimatedEffort": 2,
+            "dependencyRisk": 2
+          },
+          "blockedBy": [],
+          "unlocks": [
+            "stronger recommendation alternatives"
+          ],
+          "prerequisite": [
+            "district identity"
+          ],
+          "followUp": [
+            "recommendation QA scenario coverage"
+          ],
+          "priorityScore": 66,
+          "modeScores": {
+            "balanced": 66,
+            "recommendation": 72,
+            "editorial": 68,
+            "building": 73
+          }
+        },
+        {
+          "id": "gap:san-francisco:comparisonGraph:one-way comparison:potrero-hill-central-waterfront",
+          "metroId": "san-francisco",
+          "metroName": "San Francisco",
+          "category": "comparisonGraph",
+          "categoryLabel": "Comparison Graph",
+          "gapType": "comparison",
+          "gapLabel": "Comparison Gap",
+          "code": "one-way-comparison",
+          "taskType": "one-way comparison",
+          "affectedType": "relationship",
+          "itemName": "Potrero Hill -> Central Waterfront",
+          "sourceId": "potrero-hill:central-waterfront",
+          "publicUrl": "/commercial-real-estate/CA/san-francisco/potrero-hill/",
           "adminUrl": "",
           "severity": "low",
           "description": "Comparison relationship may need reciprocal treatment.",
@@ -69481,6 +70246,102 @@
           }
         },
         {
+          "id": "gap:san-francisco:representativeBuildings:district missing representative buildings:bayview-industrial",
+          "metroId": "san-francisco",
+          "metroName": "San Francisco",
+          "category": "representativeBuildings",
+          "categoryLabel": "Representative Buildings",
+          "gapType": "representativeBuilding",
+          "gapLabel": "Representative-Building Gap",
+          "code": "district-missing-representative-buildings",
+          "taskType": "district missing representative buildings",
+          "affectedType": "building-or-district",
+          "itemName": "Bayview Industrial",
+          "sourceId": "bayview-industrial",
+          "publicUrl": "/commercial-real-estate/CA/san-francisco/bayview-industrial/",
+          "adminUrl": "",
+          "severity": "medium",
+          "description": "District lacks representative building examples.",
+          "reason": "District has no representative building examples.",
+          "suggestedNextAction": "Curate representative buildings that explain this district.",
+          "confidence": "Research required",
+          "automationCandidate": true,
+          "priorityFactors": {
+            "userValue": 5,
+            "recommendationImpact": 3,
+            "coverageUnlock": 5,
+            "seoValue": 4,
+            "estimatedEffort": 4,
+            "dependencyRisk": 3
+          },
+          "blockedBy": [],
+          "unlocks": [
+            "Building Brief migration",
+            "recommendation representative-building module"
+          ],
+          "prerequisite": [
+            "district commercial identity"
+          ],
+          "followUp": [
+            "author initial Building Briefs after canonical records exist"
+          ],
+          "priorityScore": 74,
+          "modeScores": {
+            "balanced": 74,
+            "recommendation": 72,
+            "editorial": 79,
+            "building": 86
+          }
+        },
+        {
+          "id": "gap:san-francisco:representativeBuildings:district missing representative buildings:central-waterfront",
+          "metroId": "san-francisco",
+          "metroName": "San Francisco",
+          "category": "representativeBuildings",
+          "categoryLabel": "Representative Buildings",
+          "gapType": "representativeBuilding",
+          "gapLabel": "Representative-Building Gap",
+          "code": "district-missing-representative-buildings",
+          "taskType": "district missing representative buildings",
+          "affectedType": "building-or-district",
+          "itemName": "Central Waterfront",
+          "sourceId": "central-waterfront",
+          "publicUrl": "/commercial-real-estate/CA/san-francisco/central-waterfront/",
+          "adminUrl": "",
+          "severity": "medium",
+          "description": "District lacks representative building examples.",
+          "reason": "District has no representative building examples.",
+          "suggestedNextAction": "Curate representative buildings that explain this district.",
+          "confidence": "Research required",
+          "automationCandidate": true,
+          "priorityFactors": {
+            "userValue": 5,
+            "recommendationImpact": 3,
+            "coverageUnlock": 5,
+            "seoValue": 4,
+            "estimatedEffort": 4,
+            "dependencyRisk": 3
+          },
+          "blockedBy": [],
+          "unlocks": [
+            "Building Brief migration",
+            "recommendation representative-building module"
+          ],
+          "prerequisite": [
+            "district commercial identity"
+          ],
+          "followUp": [
+            "author initial Building Briefs after canonical records exist"
+          ],
+          "priorityScore": 74,
+          "modeScores": {
+            "balanced": 74,
+            "recommendation": 72,
+            "editorial": 79,
+            "building": 86
+          }
+        },
+        {
           "id": "gap:san-francisco:representativeBuildings:district missing representative buildings:downtown-redwood-city",
           "metroId": "san-francisco",
           "metroName": "San Francisco",
@@ -69810,6 +70671,100 @@
             "recommendation": 78,
             "editorial": 72,
             "building": 80
+          }
+        },
+        {
+          "id": "gap:san-francisco:comparisonGraph:one-way comparison:bayview-industrial-hayward-industrial",
+          "metroId": "san-francisco",
+          "metroName": "San Francisco",
+          "category": "comparisonGraph",
+          "categoryLabel": "Comparison Graph",
+          "gapType": "comparison",
+          "gapLabel": "Comparison Gap",
+          "code": "one-way-comparison",
+          "taskType": "one-way comparison",
+          "affectedType": "relationship",
+          "itemName": "Bayview Industrial -> Hayward Industrial",
+          "sourceId": "bayview-industrial:hayward-industrial",
+          "publicUrl": "/commercial-real-estate/CA/san-francisco/bayview-industrial/",
+          "adminUrl": "",
+          "severity": "low",
+          "description": "Comparison relationship may need reciprocal treatment.",
+          "reason": "Comparison relationship is not reciprocated.",
+          "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+          "confidence": "Review recommended",
+          "automationCandidate": true,
+          "priorityFactors": {
+            "userValue": 4,
+            "recommendationImpact": 5,
+            "coverageUnlock": 3,
+            "seoValue": 3,
+            "estimatedEffort": 2,
+            "dependencyRisk": 2
+          },
+          "blockedBy": [],
+          "unlocks": [
+            "stronger recommendation alternatives"
+          ],
+          "prerequisite": [
+            "district identity"
+          ],
+          "followUp": [
+            "recommendation QA scenario coverage"
+          ],
+          "priorityScore": 66,
+          "modeScores": {
+            "balanced": 66,
+            "recommendation": 72,
+            "editorial": 68,
+            "building": 73
+          }
+        },
+        {
+          "id": "gap:san-francisco:comparisonGraph:one-way comparison:bayview-industrial-union-city-industrial",
+          "metroId": "san-francisco",
+          "metroName": "San Francisco",
+          "category": "comparisonGraph",
+          "categoryLabel": "Comparison Graph",
+          "gapType": "comparison",
+          "gapLabel": "Comparison Gap",
+          "code": "one-way-comparison",
+          "taskType": "one-way comparison",
+          "affectedType": "relationship",
+          "itemName": "Bayview Industrial -> Union City Industrial",
+          "sourceId": "bayview-industrial:union-city-industrial",
+          "publicUrl": "/commercial-real-estate/CA/san-francisco/bayview-industrial/",
+          "adminUrl": "",
+          "severity": "low",
+          "description": "Comparison relationship may need reciprocal treatment.",
+          "reason": "Comparison relationship is not reciprocated.",
+          "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+          "confidence": "Review recommended",
+          "automationCandidate": true,
+          "priorityFactors": {
+            "userValue": 4,
+            "recommendationImpact": 5,
+            "coverageUnlock": 3,
+            "seoValue": 3,
+            "estimatedEffort": 2,
+            "dependencyRisk": 2
+          },
+          "blockedBy": [],
+          "unlocks": [
+            "stronger recommendation alternatives"
+          ],
+          "prerequisite": [
+            "district identity"
+          ],
+          "followUp": [
+            "recommendation QA scenario coverage"
+          ],
+          "priorityScore": 66,
+          "modeScores": {
+            "balanced": 66,
+            "recommendation": 72,
+            "editorial": 68,
+            "building": 73
           }
         },
         {
@@ -70565,6 +71520,53 @@
           }
         },
         {
+          "id": "gap:san-francisco:comparisonGraph:one-way comparison:potrero-hill-central-waterfront",
+          "metroId": "san-francisco",
+          "metroName": "San Francisco",
+          "category": "comparisonGraph",
+          "categoryLabel": "Comparison Graph",
+          "gapType": "comparison",
+          "gapLabel": "Comparison Gap",
+          "code": "one-way-comparison",
+          "taskType": "one-way comparison",
+          "affectedType": "relationship",
+          "itemName": "Potrero Hill -> Central Waterfront",
+          "sourceId": "potrero-hill:central-waterfront",
+          "publicUrl": "/commercial-real-estate/CA/san-francisco/potrero-hill/",
+          "adminUrl": "",
+          "severity": "low",
+          "description": "Comparison relationship may need reciprocal treatment.",
+          "reason": "Comparison relationship is not reciprocated.",
+          "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+          "confidence": "Review recommended",
+          "automationCandidate": true,
+          "priorityFactors": {
+            "userValue": 4,
+            "recommendationImpact": 5,
+            "coverageUnlock": 3,
+            "seoValue": 3,
+            "estimatedEffort": 2,
+            "dependencyRisk": 2
+          },
+          "blockedBy": [],
+          "unlocks": [
+            "stronger recommendation alternatives"
+          ],
+          "prerequisite": [
+            "district identity"
+          ],
+          "followUp": [
+            "recommendation QA scenario coverage"
+          ],
+          "priorityScore": 66,
+          "modeScores": {
+            "balanced": 66,
+            "recommendation": 72,
+            "editorial": 68,
+            "building": 73
+          }
+        },
+        {
           "id": "gap:san-francisco:comparisonGraph:one-way comparison:potrero-hill-mission-bay",
           "metroId": "san-francisco",
           "metroName": "San Francisco",
@@ -70981,7 +71983,7 @@
         "modeLabel": "Balanced Expansion",
         "title": "San Francisco Building Brief Migration Sprint",
         "objective": "Improve San Francisco expansion readiness by completing the highest-value Building Briefs, District Coverage, Representative Buildings work without creating unsupported content.",
-        "rationale": "Selected from 103 deterministic Publisher gaps using balanced expansion weighting.",
+        "rationale": "Selected from 108 deterministic Publisher gaps using balanced expansion weighting.",
         "tasks": [
           {
             "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-1-henry-adams-st",
@@ -71154,6 +72156,40 @@
             ]
           },
           {
+            "id": "gap:san-francisco:representativeBuildings:district missing representative buildings:bayview-industrial",
+            "category": "representativeBuildings",
+            "categoryLabel": "Representative Buildings",
+            "gapType": "representativeBuilding",
+            "itemName": "Bayview Industrial",
+            "sourceId": "bayview-industrial",
+            "publicUrl": "/commercial-real-estate/CA/san-francisco/bayview-industrial/",
+            "priorityScore": 74,
+            "confidence": "Research required",
+            "suggestedNextAction": "Curate representative buildings that explain this district.",
+            "blockedBy": [],
+            "unlocks": [
+              "Building Brief migration",
+              "recommendation representative-building module"
+            ]
+          },
+          {
+            "id": "gap:san-francisco:representativeBuildings:district missing representative buildings:central-waterfront",
+            "category": "representativeBuildings",
+            "categoryLabel": "Representative Buildings",
+            "gapType": "representativeBuilding",
+            "itemName": "Central Waterfront",
+            "sourceId": "central-waterfront",
+            "publicUrl": "/commercial-real-estate/CA/san-francisco/central-waterfront/",
+            "priorityScore": 74,
+            "confidence": "Research required",
+            "suggestedNextAction": "Curate representative buildings that explain this district.",
+            "blockedBy": [],
+            "unlocks": [
+              "Building Brief migration",
+              "recommendation representative-building module"
+            ]
+          },
+          {
             "id": "gap:san-francisco:representativeBuildings:district missing representative buildings:downtown-redwood-city",
             "category": "representativeBuildings",
             "categoryLabel": "Representative Buildings",
@@ -71195,40 +72231,6 @@
             "itemName": "North Bayshore",
             "sourceId": "north-bayshore",
             "publicUrl": "/commercial-real-estate/CA/mountain-view/north-bayshore/",
-            "priorityScore": 74,
-            "confidence": "Research required",
-            "suggestedNextAction": "Curate representative buildings that explain this district.",
-            "blockedBy": [],
-            "unlocks": [
-              "Building Brief migration",
-              "recommendation representative-building module"
-            ]
-          },
-          {
-            "id": "gap:san-francisco:representativeBuildings:district missing representative buildings:north-san-jose",
-            "category": "representativeBuildings",
-            "categoryLabel": "Representative Buildings",
-            "gapType": "representativeBuilding",
-            "itemName": "North San Jose",
-            "sourceId": "north-san-jose",
-            "publicUrl": "/commercial-real-estate/CA/san-jose/north-san-jose/",
-            "priorityScore": 74,
-            "confidence": "Research required",
-            "suggestedNextAction": "Curate representative buildings that explain this district.",
-            "blockedBy": [],
-            "unlocks": [
-              "Building Brief migration",
-              "recommendation representative-building module"
-            ]
-          },
-          {
-            "id": "gap:san-francisco:representativeBuildings:district missing representative buildings:stanford-research-park",
-            "category": "representativeBuildings",
-            "categoryLabel": "Representative Buildings",
-            "gapType": "representativeBuilding",
-            "itemName": "Stanford Research Park",
-            "sourceId": "stanford-research-park",
-            "publicUrl": "/commercial-real-estate/CA/palo-alto/stanford-research-park/",
             "priorityScore": 74,
             "confidence": "Research required",
             "suggestedNextAction": "Curate representative buildings that explain this district.",
@@ -71297,7 +72299,7 @@
           "No live availability claims.",
           "No creation of placeholder pages."
         ],
-        "codexPrompt": "Implement Publisher recommended sprint for San Francisco: San Francisco Building Brief Migration Sprint\n\nMode: Balanced Expansion\nObjective: Improve San Francisco expansion readiness by completing the highest-value Building Briefs, District Coverage, Representative Buildings work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 1 Henry Adams St, 1 Warriors Way, 100 Pine St, 1000 16th St, 1000 Brannan St, 1000 Sansome St, 101 Henry Adams St, 101 Lytton Ave\n- Comparisons: none named\n\nTasks:\n- [Ready] Building Briefs: 1 Henry Adams St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1 Warriors Way - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 100 Pine St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1000 16th St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1000 Brannan St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1000 Sansome St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 101 Henry Adams St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 101 Lytton Ave - Author a Building Brief for this representative building.\n- [Ready] District Coverage: North San Jose - Add decision-oriented best-fit and tradeoff fields.\n- [Ready] District Coverage: Stanford Research Park - Add decision-oriented best-fit and tradeoff fields.\n- [Research required] Representative Buildings: Downtown Redwood City - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Downtown San Mateo - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: North Bayshore - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: North San Jose - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Stanford Research Park - Curate representative buildings that explain this district.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
+        "codexPrompt": "Implement Publisher recommended sprint for San Francisco: San Francisco Building Brief Migration Sprint\n\nMode: Balanced Expansion\nObjective: Improve San Francisco expansion readiness by completing the highest-value Building Briefs, District Coverage, Representative Buildings work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 1 Henry Adams St, 1 Warriors Way, 100 Pine St, 1000 16th St, 1000 Brannan St, 1000 Sansome St, 101 Henry Adams St, 101 Lytton Ave\n- Comparisons: none named\n\nTasks:\n- [Ready] Building Briefs: 1 Henry Adams St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1 Warriors Way - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 100 Pine St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1000 16th St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1000 Brannan St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1000 Sansome St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 101 Henry Adams St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 101 Lytton Ave - Author a Building Brief for this representative building.\n- [Ready] District Coverage: North San Jose - Add decision-oriented best-fit and tradeoff fields.\n- [Ready] District Coverage: Stanford Research Park - Add decision-oriented best-fit and tradeoff fields.\n- [Research required] Representative Buildings: Bayview Industrial - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Central Waterfront - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Downtown Redwood City - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Downtown San Mateo - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: North Bayshore - Curate representative buildings that explain this district.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
       },
       "plansByMode": {
         "balanced": {
@@ -71305,7 +72307,7 @@
           "modeLabel": "Balanced Expansion",
           "title": "San Francisco Building Brief Migration Sprint",
           "objective": "Improve San Francisco expansion readiness by completing the highest-value Building Briefs, District Coverage, Representative Buildings work without creating unsupported content.",
-          "rationale": "Selected from 103 deterministic Publisher gaps using balanced expansion weighting.",
+          "rationale": "Selected from 108 deterministic Publisher gaps using balanced expansion weighting.",
           "tasks": [
             {
               "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-1-henry-adams-st",
@@ -71478,6 +72480,40 @@
               ]
             },
             {
+              "id": "gap:san-francisco:representativeBuildings:district missing representative buildings:bayview-industrial",
+              "category": "representativeBuildings",
+              "categoryLabel": "Representative Buildings",
+              "gapType": "representativeBuilding",
+              "itemName": "Bayview Industrial",
+              "sourceId": "bayview-industrial",
+              "publicUrl": "/commercial-real-estate/CA/san-francisco/bayview-industrial/",
+              "priorityScore": 74,
+              "confidence": "Research required",
+              "suggestedNextAction": "Curate representative buildings that explain this district.",
+              "blockedBy": [],
+              "unlocks": [
+                "Building Brief migration",
+                "recommendation representative-building module"
+              ]
+            },
+            {
+              "id": "gap:san-francisco:representativeBuildings:district missing representative buildings:central-waterfront",
+              "category": "representativeBuildings",
+              "categoryLabel": "Representative Buildings",
+              "gapType": "representativeBuilding",
+              "itemName": "Central Waterfront",
+              "sourceId": "central-waterfront",
+              "publicUrl": "/commercial-real-estate/CA/san-francisco/central-waterfront/",
+              "priorityScore": 74,
+              "confidence": "Research required",
+              "suggestedNextAction": "Curate representative buildings that explain this district.",
+              "blockedBy": [],
+              "unlocks": [
+                "Building Brief migration",
+                "recommendation representative-building module"
+              ]
+            },
+            {
               "id": "gap:san-francisco:representativeBuildings:district missing representative buildings:downtown-redwood-city",
               "category": "representativeBuildings",
               "categoryLabel": "Representative Buildings",
@@ -71519,40 +72555,6 @@
               "itemName": "North Bayshore",
               "sourceId": "north-bayshore",
               "publicUrl": "/commercial-real-estate/CA/mountain-view/north-bayshore/",
-              "priorityScore": 74,
-              "confidence": "Research required",
-              "suggestedNextAction": "Curate representative buildings that explain this district.",
-              "blockedBy": [],
-              "unlocks": [
-                "Building Brief migration",
-                "recommendation representative-building module"
-              ]
-            },
-            {
-              "id": "gap:san-francisco:representativeBuildings:district missing representative buildings:north-san-jose",
-              "category": "representativeBuildings",
-              "categoryLabel": "Representative Buildings",
-              "gapType": "representativeBuilding",
-              "itemName": "North San Jose",
-              "sourceId": "north-san-jose",
-              "publicUrl": "/commercial-real-estate/CA/san-jose/north-san-jose/",
-              "priorityScore": 74,
-              "confidence": "Research required",
-              "suggestedNextAction": "Curate representative buildings that explain this district.",
-              "blockedBy": [],
-              "unlocks": [
-                "Building Brief migration",
-                "recommendation representative-building module"
-              ]
-            },
-            {
-              "id": "gap:san-francisco:representativeBuildings:district missing representative buildings:stanford-research-park",
-              "category": "representativeBuildings",
-              "categoryLabel": "Representative Buildings",
-              "gapType": "representativeBuilding",
-              "itemName": "Stanford Research Park",
-              "sourceId": "stanford-research-park",
-              "publicUrl": "/commercial-real-estate/CA/palo-alto/stanford-research-park/",
               "priorityScore": 74,
               "confidence": "Research required",
               "suggestedNextAction": "Curate representative buildings that explain this district.",
@@ -71621,14 +72623,14 @@
             "No live availability claims.",
             "No creation of placeholder pages."
           ],
-          "codexPrompt": "Implement Publisher recommended sprint for San Francisco: San Francisco Building Brief Migration Sprint\n\nMode: Balanced Expansion\nObjective: Improve San Francisco expansion readiness by completing the highest-value Building Briefs, District Coverage, Representative Buildings work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 1 Henry Adams St, 1 Warriors Way, 100 Pine St, 1000 16th St, 1000 Brannan St, 1000 Sansome St, 101 Henry Adams St, 101 Lytton Ave\n- Comparisons: none named\n\nTasks:\n- [Ready] Building Briefs: 1 Henry Adams St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1 Warriors Way - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 100 Pine St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1000 16th St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1000 Brannan St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1000 Sansome St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 101 Henry Adams St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 101 Lytton Ave - Author a Building Brief for this representative building.\n- [Ready] District Coverage: North San Jose - Add decision-oriented best-fit and tradeoff fields.\n- [Ready] District Coverage: Stanford Research Park - Add decision-oriented best-fit and tradeoff fields.\n- [Research required] Representative Buildings: Downtown Redwood City - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Downtown San Mateo - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: North Bayshore - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: North San Jose - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Stanford Research Park - Curate representative buildings that explain this district.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
+          "codexPrompt": "Implement Publisher recommended sprint for San Francisco: San Francisco Building Brief Migration Sprint\n\nMode: Balanced Expansion\nObjective: Improve San Francisco expansion readiness by completing the highest-value Building Briefs, District Coverage, Representative Buildings work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 1 Henry Adams St, 1 Warriors Way, 100 Pine St, 1000 16th St, 1000 Brannan St, 1000 Sansome St, 101 Henry Adams St, 101 Lytton Ave\n- Comparisons: none named\n\nTasks:\n- [Ready] Building Briefs: 1 Henry Adams St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1 Warriors Way - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 100 Pine St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1000 16th St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1000 Brannan St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1000 Sansome St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 101 Henry Adams St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 101 Lytton Ave - Author a Building Brief for this representative building.\n- [Ready] District Coverage: North San Jose - Add decision-oriented best-fit and tradeoff fields.\n- [Ready] District Coverage: Stanford Research Park - Add decision-oriented best-fit and tradeoff fields.\n- [Research required] Representative Buildings: Bayview Industrial - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Central Waterfront - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Downtown Redwood City - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Downtown San Mateo - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: North Bayshore - Curate representative buildings that explain this district.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
         },
         "recommendation": {
           "mode": "recommendation",
           "modeLabel": "Recommendation Readiness",
           "title": "San Francisco Recommendation Readiness Sprint",
           "objective": "Improve San Francisco expansion readiness by completing the highest-value Recommendation Readiness, Comparison Graph, District Coverage work without creating unsupported content.",
-          "rationale": "Selected from 103 deterministic Publisher gaps using recommendation readiness weighting.",
+          "rationale": "Selected from 108 deterministic Publisher gaps using recommendation readiness weighting.",
           "tasks": [
             {
               "id": "gap:san-francisco:recommendationReadiness:missing explainability fields:north-san-jose",
@@ -71662,6 +72664,38 @@
               "unlocks": [
                 "Compass readiness confidence",
                 "Distribution Ready gate clearance"
+              ]
+            },
+            {
+              "id": "gap:san-francisco:comparisonGraph:one-way comparison:bayview-industrial-hayward-industrial",
+              "category": "comparisonGraph",
+              "categoryLabel": "Comparison Graph",
+              "gapType": "comparison",
+              "itemName": "Bayview Industrial -> Hayward Industrial",
+              "sourceId": "bayview-industrial:hayward-industrial",
+              "publicUrl": "/commercial-real-estate/CA/san-francisco/bayview-industrial/",
+              "priorityScore": 72,
+              "confidence": "Review recommended",
+              "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+              "blockedBy": [],
+              "unlocks": [
+                "stronger recommendation alternatives"
+              ]
+            },
+            {
+              "id": "gap:san-francisco:comparisonGraph:one-way comparison:bayview-industrial-union-city-industrial",
+              "category": "comparisonGraph",
+              "categoryLabel": "Comparison Graph",
+              "gapType": "comparison",
+              "itemName": "Bayview Industrial -> Union City Industrial",
+              "sourceId": "bayview-industrial:union-city-industrial",
+              "publicUrl": "/commercial-real-estate/CA/san-francisco/bayview-industrial/",
+              "priorityScore": 72,
+              "confidence": "Review recommended",
+              "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+              "blockedBy": [],
+              "unlocks": [
+                "stronger recommendation alternatives"
               ]
             },
             {
@@ -71729,38 +72763,6 @@
               ]
             },
             {
-              "id": "gap:san-francisco:comparisonGraph:one-way comparison:downtown-palo-alto-north-bayshore",
-              "category": "comparisonGraph",
-              "categoryLabel": "Comparison Graph",
-              "gapType": "comparison",
-              "itemName": "Downtown Palo Alto -> North Bayshore",
-              "sourceId": "downtown-palo-alto:north-bayshore",
-              "publicUrl": "/commercial-real-estate/CA/palo-alto/downtown-palo-alto/",
-              "priorityScore": 72,
-              "confidence": "Review recommended",
-              "suggestedNextAction": "Review whether the comparison should be reciprocal.",
-              "blockedBy": [],
-              "unlocks": [
-                "stronger recommendation alternatives"
-              ]
-            },
-            {
-              "id": "gap:san-francisco:comparisonGraph:one-way comparison:downtown-redwood-city-north-bayshore",
-              "category": "comparisonGraph",
-              "categoryLabel": "Comparison Graph",
-              "gapType": "comparison",
-              "itemName": "Downtown Redwood City -> North Bayshore",
-              "sourceId": "downtown-redwood-city:north-bayshore",
-              "publicUrl": "/commercial-real-estate/CA/redwood-city/downtown-redwood-city/",
-              "priorityScore": 72,
-              "confidence": "Review recommended",
-              "suggestedNextAction": "Review whether the comparison should be reciprocal.",
-              "blockedBy": [],
-              "unlocks": [
-                "stronger recommendation alternatives"
-              ]
-            },
-            {
               "id": "gap:san-francisco:districtCoverage:missing decision positioning:north-san-jose",
               "category": "districtCoverage",
               "categoryLabel": "District Coverage",
@@ -71792,6 +72794,40 @@
               "unlocks": [
                 "district comparison content",
                 "representative-building selection"
+              ]
+            },
+            {
+              "id": "gap:san-francisco:representativeBuildings:district missing representative buildings:bayview-industrial",
+              "category": "representativeBuildings",
+              "categoryLabel": "Representative Buildings",
+              "gapType": "representativeBuilding",
+              "itemName": "Bayview Industrial",
+              "sourceId": "bayview-industrial",
+              "publicUrl": "/commercial-real-estate/CA/san-francisco/bayview-industrial/",
+              "priorityScore": 72,
+              "confidence": "Research required",
+              "suggestedNextAction": "Curate representative buildings that explain this district.",
+              "blockedBy": [],
+              "unlocks": [
+                "Building Brief migration",
+                "recommendation representative-building module"
+              ]
+            },
+            {
+              "id": "gap:san-francisco:representativeBuildings:district missing representative buildings:central-waterfront",
+              "category": "representativeBuildings",
+              "categoryLabel": "Representative Buildings",
+              "gapType": "representativeBuilding",
+              "itemName": "Central Waterfront",
+              "sourceId": "central-waterfront",
+              "publicUrl": "/commercial-real-estate/CA/san-francisco/central-waterfront/",
+              "priorityScore": 72,
+              "confidence": "Research required",
+              "suggestedNextAction": "Curate representative buildings that explain this district.",
+              "blockedBy": [],
+              "unlocks": [
+                "Building Brief migration",
+                "recommendation representative-building module"
               ]
             },
             {
@@ -71836,40 +72872,6 @@
               "itemName": "North Bayshore",
               "sourceId": "north-bayshore",
               "publicUrl": "/commercial-real-estate/CA/mountain-view/north-bayshore/",
-              "priorityScore": 72,
-              "confidence": "Research required",
-              "suggestedNextAction": "Curate representative buildings that explain this district.",
-              "blockedBy": [],
-              "unlocks": [
-                "Building Brief migration",
-                "recommendation representative-building module"
-              ]
-            },
-            {
-              "id": "gap:san-francisco:representativeBuildings:district missing representative buildings:north-san-jose",
-              "category": "representativeBuildings",
-              "categoryLabel": "Representative Buildings",
-              "gapType": "representativeBuilding",
-              "itemName": "North San Jose",
-              "sourceId": "north-san-jose",
-              "publicUrl": "/commercial-real-estate/CA/san-jose/north-san-jose/",
-              "priorityScore": 72,
-              "confidence": "Research required",
-              "suggestedNextAction": "Curate representative buildings that explain this district.",
-              "blockedBy": [],
-              "unlocks": [
-                "Building Brief migration",
-                "recommendation representative-building module"
-              ]
-            },
-            {
-              "id": "gap:san-francisco:representativeBuildings:district missing representative buildings:stanford-research-park",
-              "category": "representativeBuildings",
-              "categoryLabel": "Representative Buildings",
-              "gapType": "representativeBuilding",
-              "itemName": "Stanford Research Park",
-              "sourceId": "stanford-research-park",
-              "publicUrl": "/commercial-real-estate/CA/palo-alto/stanford-research-park/",
               "priorityScore": 72,
               "confidence": "Research required",
               "suggestedNextAction": "Curate representative buildings that explain this district.",
@@ -71927,14 +72929,14 @@
             "No live availability claims.",
             "No creation of placeholder pages."
           ],
-          "codexPrompt": "Implement Publisher recommended sprint for San Francisco: San Francisco Recommendation Readiness Sprint\n\nMode: Recommendation Readiness\nObjective: Improve San Francisco expansion readiness by completing the highest-value Recommendation Readiness, Comparison Graph, District Coverage work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: none named\n- Comparisons: Design District -> Potrero Hill; Design District -> SoMa; Dogpatch -> Mission Bay; Dogpatch -> Showplace Square; Downtown Palo Alto -> North Bayshore; Downtown Redwood City -> North Bayshore\n\nTasks:\n- [Ready] Recommendation Readiness: North San Jose - Add explainability fields used by recommendations and Location Briefs.\n- [Ready] Recommendation Readiness: Stanford Research Park - Add explainability fields used by recommendations and Location Briefs.\n- [Review recommended] Comparison Graph: Design District -> Potrero Hill - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Design District -> SoMa - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Dogpatch -> Mission Bay - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Dogpatch -> Showplace Square - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Downtown Palo Alto -> North Bayshore - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Downtown Redwood City -> North Bayshore - Review whether the comparison should be reciprocal.\n- [Ready] District Coverage: North San Jose - Add decision-oriented best-fit and tradeoff fields.\n- [Ready] District Coverage: Stanford Research Park - Add decision-oriented best-fit and tradeoff fields.\n- [Research required] Representative Buildings: Downtown Redwood City - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Downtown San Mateo - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: North Bayshore - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: North San Jose - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Stanford Research Park - Curate representative buildings that explain this district.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
+          "codexPrompt": "Implement Publisher recommended sprint for San Francisco: San Francisco Recommendation Readiness Sprint\n\nMode: Recommendation Readiness\nObjective: Improve San Francisco expansion readiness by completing the highest-value Recommendation Readiness, Comparison Graph, District Coverage work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: none named\n- Comparisons: Bayview Industrial -> Hayward Industrial; Bayview Industrial -> Union City Industrial; Design District -> Potrero Hill; Design District -> SoMa; Dogpatch -> Mission Bay; Dogpatch -> Showplace Square\n\nTasks:\n- [Ready] Recommendation Readiness: North San Jose - Add explainability fields used by recommendations and Location Briefs.\n- [Ready] Recommendation Readiness: Stanford Research Park - Add explainability fields used by recommendations and Location Briefs.\n- [Review recommended] Comparison Graph: Bayview Industrial -> Hayward Industrial - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Bayview Industrial -> Union City Industrial - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Design District -> Potrero Hill - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Design District -> SoMa - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Dogpatch -> Mission Bay - Review whether the comparison should be reciprocal.\n- [Review recommended] Comparison Graph: Dogpatch -> Showplace Square - Review whether the comparison should be reciprocal.\n- [Ready] District Coverage: North San Jose - Add decision-oriented best-fit and tradeoff fields.\n- [Ready] District Coverage: Stanford Research Park - Add decision-oriented best-fit and tradeoff fields.\n- [Research required] Representative Buildings: Bayview Industrial - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Central Waterfront - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Downtown Redwood City - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Downtown San Mateo - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: North Bayshore - Curate representative buildings that explain this district.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
         },
         "editorial": {
           "mode": "editorial",
           "modeLabel": "Editorial Depth",
           "title": "San Francisco District Editorial Foundation Sprint",
           "objective": "Improve San Francisco expansion readiness by completing the highest-value District Coverage, Building Briefs, Representative Buildings work without creating unsupported content.",
-          "rationale": "Selected from 103 deterministic Publisher gaps using editorial depth weighting.",
+          "rationale": "Selected from 108 deterministic Publisher gaps using editorial depth weighting.",
           "tasks": [
             {
               "id": "gap:san-francisco:districtCoverage:missing decision positioning:north-san-jose",
@@ -72141,6 +73143,40 @@
               ]
             },
             {
+              "id": "gap:san-francisco:representativeBuildings:district missing representative buildings:bayview-industrial",
+              "category": "representativeBuildings",
+              "categoryLabel": "Representative Buildings",
+              "gapType": "representativeBuilding",
+              "itemName": "Bayview Industrial",
+              "sourceId": "bayview-industrial",
+              "publicUrl": "/commercial-real-estate/CA/san-francisco/bayview-industrial/",
+              "priorityScore": 79,
+              "confidence": "Research required",
+              "suggestedNextAction": "Curate representative buildings that explain this district.",
+              "blockedBy": [],
+              "unlocks": [
+                "Building Brief migration",
+                "recommendation representative-building module"
+              ]
+            },
+            {
+              "id": "gap:san-francisco:representativeBuildings:district missing representative buildings:central-waterfront",
+              "category": "representativeBuildings",
+              "categoryLabel": "Representative Buildings",
+              "gapType": "representativeBuilding",
+              "itemName": "Central Waterfront",
+              "sourceId": "central-waterfront",
+              "publicUrl": "/commercial-real-estate/CA/san-francisco/central-waterfront/",
+              "priorityScore": 79,
+              "confidence": "Research required",
+              "suggestedNextAction": "Curate representative buildings that explain this district.",
+              "blockedBy": [],
+              "unlocks": [
+                "Building Brief migration",
+                "recommendation representative-building module"
+              ]
+            },
+            {
               "id": "gap:san-francisco:representativeBuildings:district missing representative buildings:downtown-redwood-city",
               "category": "representativeBuildings",
               "categoryLabel": "Representative Buildings",
@@ -72148,40 +73184,6 @@
               "itemName": "Downtown Redwood City",
               "sourceId": "downtown-redwood-city",
               "publicUrl": "/commercial-real-estate/CA/redwood-city/downtown-redwood-city/",
-              "priorityScore": 79,
-              "confidence": "Research required",
-              "suggestedNextAction": "Curate representative buildings that explain this district.",
-              "blockedBy": [],
-              "unlocks": [
-                "Building Brief migration",
-                "recommendation representative-building module"
-              ]
-            },
-            {
-              "id": "gap:san-francisco:representativeBuildings:district missing representative buildings:downtown-san-mateo",
-              "category": "representativeBuildings",
-              "categoryLabel": "Representative Buildings",
-              "gapType": "representativeBuilding",
-              "itemName": "Downtown San Mateo",
-              "sourceId": "downtown-san-mateo",
-              "publicUrl": "/commercial-real-estate/CA/san-mateo/downtown-san-mateo/",
-              "priorityScore": 79,
-              "confidence": "Research required",
-              "suggestedNextAction": "Curate representative buildings that explain this district.",
-              "blockedBy": [],
-              "unlocks": [
-                "Building Brief migration",
-                "recommendation representative-building module"
-              ]
-            },
-            {
-              "id": "gap:san-francisco:representativeBuildings:district missing representative buildings:north-bayshore",
-              "category": "representativeBuildings",
-              "categoryLabel": "Representative Buildings",
-              "gapType": "representativeBuilding",
-              "itemName": "North Bayshore",
-              "sourceId": "north-bayshore",
-              "publicUrl": "/commercial-real-estate/CA/mountain-view/north-bayshore/",
               "priorityScore": 79,
               "confidence": "Research required",
               "suggestedNextAction": "Curate representative buildings that explain this district.",
@@ -72252,15 +73254,49 @@
             "No live availability claims.",
             "No creation of placeholder pages."
           ],
-          "codexPrompt": "Implement Publisher recommended sprint for San Francisco: San Francisco District Editorial Foundation Sprint\n\nMode: Editorial Depth\nObjective: Improve San Francisco expansion readiness by completing the highest-value District Coverage, Building Briefs, Representative Buildings work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 1 Henry Adams St, 1 Warriors Way, 100 Pine St, 1000 16th St, 1000 Brannan St, 1000 Sansome St, 101 Henry Adams St, 101 Lytton Ave, 121 Spear St, 140 New Montgomery St\n- Comparisons: none named\n\nTasks:\n- [Ready] District Coverage: North San Jose - Add decision-oriented best-fit and tradeoff fields.\n- [Ready] District Coverage: Stanford Research Park - Add decision-oriented best-fit and tradeoff fields.\n- [Ready] Building Briefs: 1 Henry Adams St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1 Warriors Way - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 100 Pine St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1000 16th St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1000 Brannan St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1000 Sansome St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 101 Henry Adams St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 101 Lytton Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 121 Spear St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 140 New Montgomery St - Author a Building Brief for this representative building.\n- [Research required] Representative Buildings: Downtown Redwood City - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Downtown San Mateo - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: North Bayshore - Curate representative buildings that explain this district.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
+          "codexPrompt": "Implement Publisher recommended sprint for San Francisco: San Francisco District Editorial Foundation Sprint\n\nMode: Editorial Depth\nObjective: Improve San Francisco expansion readiness by completing the highest-value District Coverage, Building Briefs, Representative Buildings work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 1 Henry Adams St, 1 Warriors Way, 100 Pine St, 1000 16th St, 1000 Brannan St, 1000 Sansome St, 101 Henry Adams St, 101 Lytton Ave, 121 Spear St, 140 New Montgomery St\n- Comparisons: none named\n\nTasks:\n- [Ready] District Coverage: North San Jose - Add decision-oriented best-fit and tradeoff fields.\n- [Ready] District Coverage: Stanford Research Park - Add decision-oriented best-fit and tradeoff fields.\n- [Ready] Building Briefs: 1 Henry Adams St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1 Warriors Way - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 100 Pine St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1000 16th St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1000 Brannan St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1000 Sansome St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 101 Henry Adams St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 101 Lytton Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 121 Spear St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 140 New Montgomery St - Author a Building Brief for this representative building.\n- [Research required] Representative Buildings: Bayview Industrial - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Central Waterfront - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Downtown Redwood City - Curate representative buildings that explain this district.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
         },
         "building": {
           "mode": "building",
           "modeLabel": "Building Depth",
           "title": "San Francisco Representative Building Foundation Sprint",
           "objective": "Improve San Francisco expansion readiness by completing the highest-value Representative Buildings, Building Briefs work without creating unsupported content.",
-          "rationale": "Selected from 103 deterministic Publisher gaps using building depth weighting.",
+          "rationale": "Selected from 108 deterministic Publisher gaps using building depth weighting.",
           "tasks": [
+            {
+              "id": "gap:san-francisco:representativeBuildings:district missing representative buildings:bayview-industrial",
+              "category": "representativeBuildings",
+              "categoryLabel": "Representative Buildings",
+              "gapType": "representativeBuilding",
+              "itemName": "Bayview Industrial",
+              "sourceId": "bayview-industrial",
+              "publicUrl": "/commercial-real-estate/CA/san-francisco/bayview-industrial/",
+              "priorityScore": 86,
+              "confidence": "Research required",
+              "suggestedNextAction": "Curate representative buildings that explain this district.",
+              "blockedBy": [],
+              "unlocks": [
+                "Building Brief migration",
+                "recommendation representative-building module"
+              ]
+            },
+            {
+              "id": "gap:san-francisco:representativeBuildings:district missing representative buildings:central-waterfront",
+              "category": "representativeBuildings",
+              "categoryLabel": "Representative Buildings",
+              "gapType": "representativeBuilding",
+              "itemName": "Central Waterfront",
+              "sourceId": "central-waterfront",
+              "publicUrl": "/commercial-real-estate/CA/san-francisco/central-waterfront/",
+              "priorityScore": 86,
+              "confidence": "Research required",
+              "suggestedNextAction": "Curate representative buildings that explain this district.",
+              "blockedBy": [],
+              "unlocks": [
+                "Building Brief migration",
+                "recommendation representative-building module"
+              ]
+            },
             {
               "id": "gap:san-francisco:representativeBuildings:district missing representative buildings:downtown-redwood-city",
               "category": "representativeBuildings",
@@ -72481,40 +73517,6 @@
                 "Building Brief page depth",
                 "recommendation representative-building card eligibility"
               ]
-            },
-            {
-              "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-121-spear-st",
-              "category": "buildingBriefs",
-              "categoryLabel": "Building Briefs",
-              "gapType": "representativeBuilding",
-              "itemName": "121 Spear St",
-              "sourceId": "/commercial-real-estate/building/CA/san-francisco/121-spear-st/",
-              "publicUrl": "/commercial-real-estate/building/CA/san-francisco/121-spear-st/",
-              "priorityScore": 91,
-              "confidence": "Ready",
-              "suggestedNextAction": "Author a Building Brief for this representative building.",
-              "blockedBy": [],
-              "unlocks": [
-                "Building Brief page depth",
-                "recommendation representative-building card eligibility"
-              ]
-            },
-            {
-              "id": "gap:san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-140-new-montgomery-st",
-              "category": "buildingBriefs",
-              "categoryLabel": "Building Briefs",
-              "gapType": "representativeBuilding",
-              "itemName": "140 New Montgomery St",
-              "sourceId": "/commercial-real-estate/building/CA/san-francisco/140-new-montgomery-st/",
-              "publicUrl": "/commercial-real-estate/building/CA/san-francisco/140-new-montgomery-st/",
-              "priorityScore": 91,
-              "confidence": "Ready",
-              "suggestedNextAction": "Author a Building Brief for this representative building.",
-              "blockedBy": [],
-              "unlocks": [
-                "Building Brief page depth",
-                "recommendation representative-building card eligibility"
-              ]
             }
           ],
           "dataTasks": [
@@ -72523,8 +73525,8 @@
             "Curate representative buildings that explain this district.",
             "Curate representative buildings that explain this district.",
             "Curate representative buildings that explain this district.",
-            "Author a Building Brief for this representative building.",
-            "Author a Building Brief for this representative building.",
+            "Curate representative buildings that explain this district.",
+            "Curate representative buildings that explain this district.",
             "Author a Building Brief for this representative building.",
             "Author a Building Brief for this representative building.",
             "Author a Building Brief for this representative building.",
@@ -72535,8 +73537,6 @@
             "Author a Building Brief for this representative building."
           ],
           "contentTasks": [
-            "Author a Building Brief for this representative building.",
-            "Author a Building Brief for this representative building.",
             "Author a Building Brief for this representative building.",
             "Author a Building Brief for this representative building.",
             "Author a Building Brief for this representative building.",
@@ -72564,8 +73564,8 @@
           "expectedCoverageImprovements": {
             "districtTasks": 0,
             "comparisonTasks": 0,
-            "representativeBuildingTasks": 5,
-            "buildingBriefTasks": 10,
+            "representativeBuildingTasks": 7,
+            "buildingBriefTasks": 8,
             "recommendationTasks": 0
           },
           "exclusions": [
@@ -72574,7 +73574,7 @@
             "No live availability claims.",
             "No creation of placeholder pages."
           ],
-          "codexPrompt": "Implement Publisher recommended sprint for San Francisco: San Francisco Representative Building Foundation Sprint\n\nMode: Building Depth\nObjective: Improve San Francisco expansion readiness by completing the highest-value Representative Buildings, Building Briefs work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 1 Henry Adams St, 1 Warriors Way, 100 Pine St, 1000 16th St, 1000 Brannan St, 1000 Sansome St, 101 Henry Adams St, 101 Lytton Ave, 121 Spear St, 140 New Montgomery St\n- Comparisons: none named\n\nTasks:\n- [Research required] Representative Buildings: Downtown Redwood City - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Downtown San Mateo - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: North Bayshore - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: North San Jose - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Stanford Research Park - Curate representative buildings that explain this district.\n- [Ready] Building Briefs: 1 Henry Adams St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1 Warriors Way - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 100 Pine St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1000 16th St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1000 Brannan St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1000 Sansome St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 101 Henry Adams St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 101 Lytton Ave - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 121 Spear St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 140 New Montgomery St - Author a Building Brief for this representative building.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
+          "codexPrompt": "Implement Publisher recommended sprint for San Francisco: San Francisco Representative Building Foundation Sprint\n\nMode: Building Depth\nObjective: Improve San Francisco expansion readiness by completing the highest-value Representative Buildings, Building Briefs work without creating unsupported content.\n\nScope:\n- Districts: none named\n- Buildings: 1 Henry Adams St, 1 Warriors Way, 100 Pine St, 1000 16th St, 1000 Brannan St, 1000 Sansome St, 101 Henry Adams St, 101 Lytton Ave\n- Comparisons: none named\n\nTasks:\n- [Research required] Representative Buildings: Bayview Industrial - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Central Waterfront - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Downtown Redwood City - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Downtown San Mateo - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: North Bayshore - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: North San Jose - Curate representative buildings that explain this district.\n- [Research required] Representative Buildings: Stanford Research Park - Curate representative buildings that explain this district.\n- [Ready] Building Briefs: 1 Henry Adams St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1 Warriors Way - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 100 Pine St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1000 16th St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1000 Brannan St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 1000 Sansome St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 101 Henry Adams St - Author a Building Brief for this representative building.\n- [Ready] Building Briefs: 101 Lytton Ave - Author a Building Brief for this representative building.\n\nRequirements:\n- Use existing repository data and canonical records only.\n- Do not invent district names, building names, canonical URLs, or availability claims.\n- Preserve existing Publisher scoring and run Publisher QA after changes.\n\nVerification:\n- node scripts/qa-publisher-expansion-planner.js\n- node scripts/run-recommendation-qa.js\n- node scripts/qa-building-brief-depth.js\n- node scripts/qa-recommendation-representative-buildings.js\n- git diff --check\n- npm run build\n\nDeliverables:\n- files changed\n- coverage gaps addressed\n- QA results\n- remaining blockers"
         }
       },
       "blockers": [],
@@ -72583,7 +73583,7 @@
     {
       "metroId": "east-bay",
       "metroName": "East Bay",
-      "generatedAt": "2026-08-13T09:08:14-07:00",
+      "generatedAt": "2026-08-13T10:27:31-07:00",
       "currentState": {
         "readinessStatus": "Editorially Developed",
         "overallScore": 74,
@@ -76351,7 +77351,7 @@
     {
       "metroId": "sacramento",
       "metroName": "Sacramento",
-      "generatedAt": "2026-08-13T09:08:14-07:00",
+      "generatedAt": "2026-08-13T10:27:31-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 98,
@@ -84997,7 +85997,7 @@
     {
       "metroId": "san-diego",
       "metroName": "San Diego",
-      "generatedAt": "2026-08-13T09:08:14-07:00",
+      "generatedAt": "2026-08-13T10:27:31-07:00",
       "currentState": {
         "readinessStatus": "Expansion Ready",
         "overallScore": 84,
@@ -94533,7 +95533,7 @@
     {
       "metroId": "orange-county",
       "metroName": "Orange County",
-      "generatedAt": "2026-08-13T09:08:14-07:00",
+      "generatedAt": "2026-08-13T10:27:31-07:00",
       "currentState": {
         "readinessStatus": "Expansion Ready",
         "overallScore": 84,
@@ -103338,7 +104338,7 @@
     {
       "metroId": "denver",
       "metroName": "Denver",
-      "generatedAt": "2026-08-13T09:08:14-07:00",
+      "generatedAt": "2026-08-13T10:27:31-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 97,
@@ -111046,8 +112046,8 @@
   "overview": {
     "metroCount": 7,
     "primaryMetroCount": 6,
-    "totalGaps": 281,
-    "totalPriorities": 281,
+    "totalGaps": 286,
+    "totalPriorities": 286,
     "topRecommendedSprint": {
       "metroId": "san-diego",
       "metroName": "San Diego",

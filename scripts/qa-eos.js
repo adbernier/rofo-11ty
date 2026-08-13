@@ -34,6 +34,8 @@ const MARKET_PROGRAMS = new Set(["publisher", "commercial_market_evidence", "bui
 const PORTFOLIO_RESOLUTION_SCHEMA_VERSION = "eos-portfolio-resolution-v1";
 const BUILDING_PROFILE_PORTFOLIO_MAX_ITEMS = 12;
 const SAN_FRANCISCO_CANONICAL_DISTRICTS = [
+  "bayview-industrial",
+  "central-waterfront",
   "design-district",
   "dogpatch",
   "financial-district",
@@ -45,6 +47,9 @@ const SAN_FRANCISCO_CANONICAL_DISTRICTS = [
   "soma",
   "south-beach",
 ];
+const SAN_FRANCISCO_CME_COMPLETE_DISTRICTS = SAN_FRANCISCO_CANONICAL_DISTRICTS.filter(
+  (districtId) => !["bayview-industrial", "central-waterfront"].includes(districtId)
+);
 
 function fail(message) {
   console.error(`EOS QA error: ${message}`);
@@ -606,16 +611,16 @@ if (!sanFranciscoCmeProgram) {
   fail("San Francisco must expose a Commercial Market Evidence Program.");
 } else {
   const cmeProgress = sanFranciscoCmeProgram.progress || {};
-  if (cmeProgress.completed !== SAN_FRANCISCO_CANONICAL_DISTRICTS.length || cmeProgress.target !== SAN_FRANCISCO_CANONICAL_DISTRICTS.length) {
-    fail(`San Francisco Commercial Market Evidence must measure all canonical districts; expected ${SAN_FRANCISCO_CANONICAL_DISTRICTS.length}/${SAN_FRANCISCO_CANONICAL_DISTRICTS.length}, got ${cmeProgress.completed}/${cmeProgress.target}.`);
+  if (cmeProgress.completed !== SAN_FRANCISCO_CME_COMPLETE_DISTRICTS.length || cmeProgress.target !== SAN_FRANCISCO_CANONICAL_DISTRICTS.length) {
+    fail(`San Francisco Commercial Market Evidence must measure the reconciled canonical inventory; expected ${SAN_FRANCISCO_CME_COMPLETE_DISTRICTS.length}/${SAN_FRANCISCO_CANONICAL_DISTRICTS.length}, got ${cmeProgress.completed}/${cmeProgress.target}.`);
   }
-  if (String(cmeProgress.statusLabel || "") !== "Complete") {
-    fail("San Francisco Commercial Market Evidence must report Complete when all canonical district collections exist.");
+  if (String(cmeProgress.statusLabel || "") !== "Partial") {
+    fail("San Francisco Commercial Market Evidence must report Partial while Bayview Industrial and Central Waterfront evidence remains deferred.");
   }
   const sfExistingCollections = (marketEvidenceExpansion.existingCollections || []).filter((district) => district.marketId === "san-francisco");
   const sfMissingCollections = (marketEvidenceExpansion.missingCollections || []).filter((district) => district.marketId === "san-francisco");
-  if (sfExistingCollections.length !== SAN_FRANCISCO_CANONICAL_DISTRICTS.length || sfMissingCollections.length !== 0) {
-    fail(`San Francisco CME denominator must be canonical district count; found ${sfExistingCollections.length} existing and ${sfMissingCollections.length} missing.`);
+  if (sfExistingCollections.length !== SAN_FRANCISCO_CME_COMPLETE_DISTRICTS.length || sfMissingCollections.length !== 2) {
+    fail(`San Francisco CME denominator must include the two reconciled evidence gaps; found ${sfExistingCollections.length} existing and ${sfMissingCollections.length} missing.`);
   }
   for (const districtId of SAN_FRANCISCO_CANONICAL_DISTRICTS) {
     const initiativeId = `san-francisco:commercial_market_evidence:${districtId}`;
