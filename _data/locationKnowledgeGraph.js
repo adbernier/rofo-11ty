@@ -1622,6 +1622,15 @@ Object.entries(industrialQuestionPrompts).forEach(([slug, questionsToValidate]) 
       { slug: "emeryville-commercial-core", label: "Emeryville Commercial Core", reason: "More business-park structure and East Bay office/life-science support context.", relationshipType: "better_parking" },
       { slug: "west-berkeley", label: "West Berkeley", reason: "More industrial and maker-oriented Berkeley setting.", relationshipType: "more_creative" },
     ] },
+    commercialEcosystem: {
+      primary: "retail",
+      secondary: ["office", "hospitality"],
+      subtypes: ["lifestyle_retail", "service_retail", "neighborhood_retail", "professional_office", "food_beverage", "visitor_serving", "event_hospitality"],
+      activities: ["walk_in_retail", "walk_in_service", "customer_showroom", "knowledge_work", "client_meetings", "food_preparation", "hospitality_service"],
+      archetypes: ["wellness_practice", "marketing_agency", "professional_office", "creative_studio", "food_producer", "training_center"],
+      confidence: "high",
+      reviewNotes: ["Hospitality is secondary and limited to Jack London Square's destination restaurant, visitor-facing, waterfront, and event-adjacent commercial context; this does not imply hotel, food-service infrastructure, liquor licensing, event permitting, or current hospitality availability without property-level validation."],
+    },
   },
   {
     slug: "oakland-medical-campuses",

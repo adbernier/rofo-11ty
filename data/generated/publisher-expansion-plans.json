@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-12T20:42:22-07:00",
+  "generatedAt": "2026-08-12T21:47:44-07:00",
   "rulesVersion": "publisher-rules-v1",
   "plannerVersion": "publisher-expansion-planner-v1",
   "defaultMode": "balanced",
@@ -55,7 +55,7 @@
     {
       "metroId": "san-francisco",
       "metroName": "San Francisco",
-      "generatedAt": "2026-08-12T20:42:22-07:00",
+      "generatedAt": "2026-08-12T21:47:44-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 96,
@@ -104,9 +104,9 @@
         "ecosystems": {
           "count": 7,
           "developed": 5,
-          "partial": 1,
+          "partial": 2,
           "thin": 0,
-          "missing": 1,
+          "missing": 0,
           "reviewRequired": 0,
           "note": "Ecosystem coverage is reported for planning context and does not change Publisher readiness scoring in v1."
         }
@@ -175,24 +175,24 @@
               "biotech_company": 3,
               "research_company": 8,
               "startup": 10,
-              "creative_studio": 8,
+              "creative_studio": 9,
               "marketing_agency": 8,
               "law_firm": 2,
               "financial_services_firm": 1,
               "consulting_firm": 4,
-              "professional_office": 6,
+              "professional_office": 7,
               "general_contractor": 2,
               "nonprofit_office": 1,
               "education_provider": 1,
-              "training_center": 1,
+              "training_center": 2,
               "medical_practice": 1
             },
             "activities": {
               "product_development": 9,
               "collaboration": 10,
-              "knowledge_work": 14,
+              "knowledge_work": 15,
               "customer_showroom": 2,
-              "client_meetings": 4,
+              "client_meetings": 5,
               "administrative_operations": 4,
               "research": 2,
               "training": 1
@@ -233,29 +233,32 @@
                 "administrative_operations": 31,
                 "research": 5,
                 "product_development": 49,
-                "client_meetings": 48,
+                "client_meetings": 49,
                 "walk_in_retail": 14,
                 "walk_in_service": 18,
                 "customer_showroom": 34,
                 "education": 9,
                 "training": 9,
+                "food_preparation": 2,
+                "hospitality_service": 1,
                 "light_manufacturing": 6
               },
               "archetypeCoverage": {
                 "professional_office": 78,
-                "consulting_firm": 78,
+                "consulting_firm": 76,
                 "startup": 64,
                 "research_company": 11,
                 "biotech_company": 2,
                 "law_firm": 78,
                 "accounting_firm": 69,
-                "financial_services_firm": 69,
+                "financial_services_firm": 67,
                 "nonprofit_office": 9,
                 "wellness_practice": 14,
                 "marketing_agency": 67,
                 "education_provider": 9,
-                "training_center": 9,
-                "creative_studio": 67
+                "training_center": 11,
+                "creative_studio": 67,
+                "food_producer": 2
               },
               "operationalCharacteristicsCovered": {
                 "campus_environment": 3,
@@ -621,23 +624,28 @@
               "showroom_retail": 1,
               "creative_office": 2,
               "downtown_retail": 1,
-              "service_retail": 1,
+              "service_retail": 2,
               "education": 1,
               "nonprofit": 1,
               "childcare": 1,
-              "institutional": 1
+              "institutional": 1,
+              "lifestyle_retail": 1,
+              "food_beverage": 1,
+              "visitor_serving": 1,
+              "event_hospitality": 1
             },
             "archetypes": {
               "marketing_agency": 8,
-              "professional_office": 5,
+              "professional_office": 6,
               "wellness_practice": 7,
-              "creative_studio": 2,
+              "creative_studio": 3,
               "law_firm": 1,
               "consulting_firm": 1,
               "nonprofit_office": 1,
               "education_provider": 1,
-              "training_center": 1,
+              "training_center": 2,
               "childcare_provider": 1,
+              "food_producer": 1,
               "physical_therapy_practice": 1
             },
             "activities": {
@@ -645,17 +653,18 @@
               "walk_in_retail": 6,
               "walk_in_service": 8,
               "collaboration": 1,
-              "knowledge_work": 3,
-              "client_meetings": 1,
+              "knowledge_work": 4,
+              "client_meetings": 2,
               "administrative_operations": 1,
               "education": 1,
-              "training": 1
+              "training": 1,
+              "food_preparation": 1,
+              "hospitality_service": 1
             },
             "reviewRequiredDistricts": [],
             "notableSubtypeGaps": [
               "shopping_center",
-              "power_center",
-              "lifestyle_retail"
+              "power_center"
             ],
             "representativeBuildingIntelligence": {
               "ecosystemId": "retail",
@@ -681,25 +690,26 @@
                 "walk_in_retail": 9,
                 "walk_in_service": 14,
                 "customer_showroom": 14,
-                "knowledge_work": 10,
-                "client_meetings": 1,
+                "knowledge_work": 11,
+                "client_meetings": 2,
                 "administrative_operations": 1,
                 "education": 1,
                 "training": 1,
                 "food_preparation": 1,
+                "hospitality_service": 1,
                 "collaboration": 5
               },
               "archetypeCoverage": {
                 "wellness_practice": 14,
                 "marketing_agency": 14,
-                "professional_office": 10,
+                "professional_office": 11,
                 "law_firm": 1,
                 "consulting_firm": 1,
                 "nonprofit_office": 1,
                 "education_provider": 1,
                 "training_center": 14,
-                "food_producer": 13,
-                "creative_studio": 9
+                "creative_studio": 10,
+                "food_producer": 13
               },
               "operationalCharacteristicsCovered": {
                 "street_visibility": 14,
@@ -1000,21 +1010,27 @@
             "id": "hospitality",
             "label": "Hospitality",
             "districtCount": 0,
-            "secondaryDistrictCount": 0,
+            "secondaryDistrictCount": 1,
             "recommendationNodeCount": 0,
             "representativeBuildingCount": 0,
             "buildingBriefCount": 0,
-            "status": "Missing",
+            "status": "Partial",
             "districts": [],
-            "subtypes": {},
-            "archetypes": {},
-            "activities": {},
+            "subtypes": {
+              "food_beverage": 1,
+              "visitor_serving": 1,
+              "event_hospitality": 1
+            },
+            "archetypes": {
+              "food_producer": 1
+            },
+            "activities": {
+              "food_preparation": 1,
+              "hospitality_service": 1
+            },
             "reviewRequiredDistricts": [],
             "notableSubtypeGaps": [
-              "hotel",
-              "food_beverage",
-              "event_hospitality",
-              "visitor_serving"
+              "hotel"
             ],
             "representativeBuildingIntelligence": {
               "ecosystemId": "hospitality",
@@ -1125,11 +1141,15 @@
           "neighborhood_retail": 6,
           "showroom_retail": 1,
           "downtown_retail": 1,
-          "service_retail": 1,
+          "service_retail": 2,
           "education": 2,
           "nonprofit": 2,
           "childcare": 2,
           "institutional": 2,
+          "lifestyle_retail": 1,
+          "food_beverage": 2,
+          "visitor_serving": 2,
+          "event_hospitality": 2,
           "medical_office": 1,
           "outpatient_clinic": 1,
           "wellness": 1,
@@ -1138,9 +1158,9 @@
         "activityCoverage": {
           "product_development": 23,
           "collaboration": 19,
-          "knowledge_work": 21,
+          "knowledge_work": 23,
           "customer_showroom": 14,
-          "client_meetings": 5,
+          "client_meetings": 7,
           "administrative_operations": 7,
           "research": 12,
           "training": 3,
@@ -1152,22 +1172,24 @@
           "walk_in_retail": 6,
           "walk_in_service": 10,
           "education": 2,
+          "food_preparation": 2,
+          "hospitality_service": 2,
           "healthcare_delivery": 1
         },
         "archetypeCoverage": {
           "biotech_company": 6,
           "research_company": 21,
           "startup": 24,
-          "creative_studio": 17,
+          "creative_studio": 19,
           "marketing_agency": 16,
           "law_firm": 3,
           "financial_services_firm": 1,
           "consulting_firm": 5,
-          "professional_office": 11,
+          "professional_office": 13,
           "general_contractor": 7,
           "nonprofit_office": 3,
           "education_provider": 3,
-          "training_center": 3,
+          "training_center": 5,
           "medical_practice": 2,
           "light_manufacturer": 7,
           "cabinet_shop": 5,
@@ -1175,26 +1197,19 @@
           "ecommerce_fulfillment_business": 5,
           "wellness_practice": 8,
           "childcare_provider": 2,
+          "food_producer": 2,
           "physical_therapy_practice": 2,
           "outpatient_clinic": 1
         },
         "missingPrimaryEcosystemDistricts": [],
         "reviewRequiredDistricts": [],
-        "underrepresentedEcosystems": [
-          {
-            "id": "hospitality",
-            "label": "Hospitality",
-            "status": "Missing",
-            "districtCount": 0,
-            "representativeBuildingCount": 0
-          }
-        ],
+        "underrepresentedEcosystems": [],
         "summary": {
           "ecosystemCount": 7,
           "developedCount": 5,
-          "partialCount": 1,
+          "partialCount": 2,
           "thinCount": 0,
-          "missingCount": 1,
+          "missingCount": 0,
           "reviewRequiredDistrictCount": 0
         }
       },
@@ -1333,6 +1348,8 @@
                 "customer_showroom",
                 "education",
                 "training",
+                "food_preparation",
+                "hospitality_service",
                 "light_manufacturing"
               ],
               "archetypeCoverage": [
@@ -1349,7 +1366,8 @@
                 "marketing_agency",
                 "education_provider",
                 "training_center",
-                "creative_studio"
+                "creative_studio",
+                "food_producer"
               ],
               "operationalCharacteristicsCovered": [
                 "campus_environment",
@@ -1669,9 +1687,9 @@
               "recommendations": 7,
               "representativeBuildings": 14,
               "buildingBriefs": 2,
-              "subtypes": 10,
-              "archetypes": 11,
-              "activities": 9,
+              "subtypes": 14,
+              "archetypes": 12,
+              "activities": 11,
               "reviewRequiredDistricts": 0,
               "representativeRoles": 3,
               "operationalCategories": 2,
@@ -1736,6 +1754,7 @@
                 "education",
                 "training",
                 "food_preparation",
+                "hospitality_service",
                 "collaboration"
               ],
               "archetypeCoverage": [
@@ -1747,8 +1766,8 @@
                 "nonprofit_office",
                 "education_provider",
                 "training_center",
-                "food_producer",
-                "creative_studio"
+                "creative_studio",
+                "food_producer"
               ],
               "operationalCharacteristicsCovered": [
                 "street_visibility",
@@ -2118,27 +2137,27 @@
             "label": "Hospitality",
             "relevance": "secondary",
             "relevanceLabel": "Secondary",
-            "readinessState": "missing",
-            "readinessLabel": "Missing",
+            "readinessState": "partial",
+            "readinessLabel": "Partial",
             "layers": {
               "districts": "missing",
               "recommendations": "missing",
               "representativeBuildings": "missing",
               "buildingBriefs": "missing",
-              "subtypes": "missing",
-              "archetypes": "missing",
-              "activities": "missing",
+              "subtypes": "developed",
+              "archetypes": "partial",
+              "activities": "strong",
               "editorialReview": "developed"
             },
             "counts": {
               "districts": 0,
-              "secondaryDistricts": 0,
+              "secondaryDistricts": 1,
               "recommendations": 0,
               "representativeBuildings": 0,
               "buildingBriefs": 0,
-              "subtypes": 0,
-              "archetypes": 0,
-              "activities": 0,
+              "subtypes": 3,
+              "archetypes": 1,
+              "activities": 2,
               "reviewRequiredDistricts": 0,
               "representativeRoles": 0,
               "operationalCategories": 0,
@@ -2146,16 +2165,13 @@
               "reviewRequiredRepresentativeBuildings": 0
             },
             "gaps": [
-              "No district coverage for this relevant ecosystem.",
-              "Subtype breadth is thin.",
-              "Business archetype coverage is thin.",
-              "Business activity coverage is thin."
+              "Ecosystem appears only as a secondary district expression."
             ],
             "blocking": false,
             "blockingCodes": [],
             "strategicPriority": 7,
             "evidence": [
-              "0 primary districts and 0 secondary districts.",
+              "0 primary districts and 1 secondary districts.",
               "0 Representative Buildings and 0 Building Briefs."
             ],
             "targetSubtypes": [
@@ -2386,96 +2402,21 @@
             "blocksEcosystemReadiness": false
           },
           {
-            "id": "ecosystem:hospitality:ecosystem_missing",
-            "code": "ecosystem_missing",
-            "label": "Ecosystem Missing",
-            "severity": "medium",
+            "id": "ecosystem:hospitality:ecosystem_secondary_only",
+            "code": "ecosystem_secondary_only",
+            "label": "Ecosystem Secondary Only",
+            "severity": "low",
             "layer": "districts",
             "ecosystemId": "hospitality",
             "ecosystemLabel": "Hospitality",
             "relevance": "secondary",
-            "readinessState": "missing",
-            "rationale": "Relevant ecosystem has no meaningful district coverage.",
+            "readinessState": "partial",
+            "rationale": "Ecosystem appears only as secondary context.",
             "evidence": [
-              "0 primary districts and 0 secondary districts.",
+              "0 primary districts and 1 secondary districts.",
               "0 Representative Buildings and 0 Building Briefs."
             ],
             "recommendedSprintFamily": "Ecosystem District Foundation",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:hospitality:ecosystem_subtype_gap",
-            "code": "ecosystem_subtype_gap",
-            "label": "Ecosystem Subtype Gap",
-            "severity": "medium",
-            "layer": "subtypes",
-            "ecosystemId": "hospitality",
-            "ecosystemLabel": "Hospitality",
-            "relevance": "secondary",
-            "readinessState": "missing",
-            "rationale": "Subtype breadth is too narrow for the ecosystem's relevance.",
-            "evidence": [
-              "0 primary districts and 0 secondary districts.",
-              "0 Representative Buildings and 0 Building Briefs."
-            ],
-            "recommendedSprintFamily": "Ecosystem Subtype Expansion",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:hospitality:ecosystem_archetype_gap",
-            "code": "ecosystem_archetype_gap",
-            "label": "Ecosystem Archetype Gap",
-            "severity": "low",
-            "layer": "archetypes",
-            "ecosystemId": "hospitality",
-            "ecosystemLabel": "Hospitality",
-            "relevance": "secondary",
-            "readinessState": "missing",
-            "rationale": "Business archetype coverage is too narrow.",
-            "evidence": [
-              "0 primary districts and 0 secondary districts.",
-              "0 Representative Buildings and 0 Building Briefs."
-            ],
-            "recommendedSprintFamily": "Archetype Coverage Expansion",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:hospitality:ecosystem_activity_gap",
-            "code": "ecosystem_activity_gap",
-            "label": "Ecosystem Activity Gap",
-            "severity": "low",
-            "layer": "activities",
-            "ecosystemId": "hospitality",
-            "ecosystemLabel": "Hospitality",
-            "relevance": "secondary",
-            "readinessState": "missing",
-            "rationale": "Business activity coverage is too narrow.",
-            "evidence": [
-              "0 primary districts and 0 secondary districts.",
-              "0 Representative Buildings and 0 Building Briefs."
-            ],
-            "recommendedSprintFamily": "Business Activity Coverage Review",
             "completionCriteria": [
               "Validated district ecosystem classification",
               "Representative Building coverage across the most important subtypes",
@@ -2571,56 +2512,6 @@
             "1 representative roles and 6 operational categories are covered."
           ],
           "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-          "completionCriteria": [
-            "Validated district ecosystem classification",
-            "Representative Building coverage across the most important subtypes",
-            "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-            "Building Brief migration only after canonical records and district association exist",
-            "Publisher ecosystem QA passes without hard errors"
-          ],
-          "blocksEcosystemReadiness": false
-        },
-        {
-          "id": "ecosystem:hospitality:ecosystem_missing",
-          "code": "ecosystem_missing",
-          "label": "Ecosystem Missing",
-          "severity": "medium",
-          "layer": "districts",
-          "ecosystemId": "hospitality",
-          "ecosystemLabel": "Hospitality",
-          "relevance": "secondary",
-          "readinessState": "missing",
-          "rationale": "Relevant ecosystem has no meaningful district coverage.",
-          "evidence": [
-            "0 primary districts and 0 secondary districts.",
-            "0 Representative Buildings and 0 Building Briefs."
-          ],
-          "recommendedSprintFamily": "Ecosystem District Foundation",
-          "completionCriteria": [
-            "Validated district ecosystem classification",
-            "Representative Building coverage across the most important subtypes",
-            "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-            "Building Brief migration only after canonical records and district association exist",
-            "Publisher ecosystem QA passes without hard errors"
-          ],
-          "blocksEcosystemReadiness": false
-        },
-        {
-          "id": "ecosystem:hospitality:ecosystem_subtype_gap",
-          "code": "ecosystem_subtype_gap",
-          "label": "Ecosystem Subtype Gap",
-          "severity": "medium",
-          "layer": "subtypes",
-          "ecosystemId": "hospitality",
-          "ecosystemLabel": "Hospitality",
-          "relevance": "secondary",
-          "readinessState": "missing",
-          "rationale": "Subtype breadth is too narrow for the ecosystem's relevance.",
-          "evidence": [
-            "0 primary districts and 0 secondary districts.",
-            "0 Representative Buildings and 0 Building Briefs."
-          ],
-          "recommendedSprintFamily": "Ecosystem Subtype Expansion",
           "completionCriteria": [
             "Validated district ecosystem classification",
             "Representative Building coverage across the most important subtypes",
@@ -2733,46 +2624,21 @@
           "blocksEcosystemReadiness": false
         },
         {
-          "id": "ecosystem:hospitality:ecosystem_activity_gap",
-          "code": "ecosystem_activity_gap",
-          "label": "Ecosystem Activity Gap",
+          "id": "ecosystem:hospitality:ecosystem_secondary_only",
+          "code": "ecosystem_secondary_only",
+          "label": "Ecosystem Secondary Only",
           "severity": "low",
-          "layer": "activities",
+          "layer": "districts",
           "ecosystemId": "hospitality",
           "ecosystemLabel": "Hospitality",
           "relevance": "secondary",
-          "readinessState": "missing",
-          "rationale": "Business activity coverage is too narrow.",
+          "readinessState": "partial",
+          "rationale": "Ecosystem appears only as secondary context.",
           "evidence": [
-            "0 primary districts and 0 secondary districts.",
+            "0 primary districts and 1 secondary districts.",
             "0 Representative Buildings and 0 Building Briefs."
           ],
-          "recommendedSprintFamily": "Business Activity Coverage Review",
-          "completionCriteria": [
-            "Validated district ecosystem classification",
-            "Representative Building coverage across the most important subtypes",
-            "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-            "Building Brief migration only after canonical records and district association exist",
-            "Publisher ecosystem QA passes without hard errors"
-          ],
-          "blocksEcosystemReadiness": false
-        },
-        {
-          "id": "ecosystem:hospitality:ecosystem_archetype_gap",
-          "code": "ecosystem_archetype_gap",
-          "label": "Ecosystem Archetype Gap",
-          "severity": "low",
-          "layer": "archetypes",
-          "ecosystemId": "hospitality",
-          "ecosystemLabel": "Hospitality",
-          "relevance": "secondary",
-          "readinessState": "missing",
-          "rationale": "Business archetype coverage is too narrow.",
-          "evidence": [
-            "0 primary districts and 0 secondary districts.",
-            "0 Representative Buildings and 0 Building Briefs."
-          ],
-          "recommendedSprintFamily": "Archetype Coverage Expansion",
+          "recommendedSprintFamily": "Ecosystem District Foundation",
           "completionCriteria": [
             "Validated district ecosystem classification",
             "Representative Building coverage across the most important subtypes",
@@ -14644,7 +14510,7 @@
     {
       "metroId": "east-bay",
       "metroName": "East Bay",
-      "generatedAt": "2026-08-12T20:42:22-07:00",
+      "generatedAt": "2026-08-12T21:47:44-07:00",
       "currentState": {
         "readinessStatus": "Editorially Developed",
         "overallScore": 74,
@@ -14693,9 +14559,9 @@
         "ecosystems": {
           "count": 7,
           "developed": 4,
-          "partial": 2,
+          "partial": 3,
           "thin": 0,
-          "missing": 1,
+          "missing": 0,
           "reviewRequired": 0,
           "note": "Ecosystem coverage is reported for planning context and does not change Publisher readiness scoring in v1."
         }
@@ -14729,7 +14595,7 @@
               "creative_office": 1
             },
             "archetypes": {
-              "professional_office": 2,
+              "professional_office": 3,
               "consulting_firm": 2,
               "startup": 2,
               "research_company": 2,
@@ -14738,17 +14604,17 @@
               "law_firm": 1,
               "nonprofit_office": 1,
               "education_provider": 1,
-              "training_center": 1,
-              "creative_studio": 1,
+              "training_center": 2,
+              "creative_studio": 2,
               "medical_practice": 1
             },
             "activities": {
-              "knowledge_work": 3,
+              "knowledge_work": 4,
               "collaboration": 2,
               "administrative_operations": 3,
               "research": 1,
               "product_development": 2,
-              "client_meetings": 1,
+              "client_meetings": 2,
               "training": 1
             },
             "reviewRequiredDistricts": [],
@@ -14787,28 +14653,31 @@
                 "administrative_operations": 12,
                 "research": 2,
                 "product_development": 3,
-                "client_meetings": 10,
+                "client_meetings": 11,
                 "walk_in_retail": 11,
                 "walk_in_service": 11,
                 "customer_showroom": 11,
                 "education": 9,
-                "training": 9
+                "training": 9,
+                "food_preparation": 2,
+                "hospitality_service": 1
               },
               "archetypeCoverage": {
                 "professional_office": 13,
-                "consulting_firm": 13,
+                "consulting_firm": 11,
                 "startup": 2,
                 "research_company": 2,
                 "biotech_company": 2,
                 "law_firm": 13,
                 "accounting_firm": 4,
-                "financial_services_firm": 4,
+                "financial_services_firm": 2,
                 "nonprofit_office": 9,
                 "wellness_practice": 11,
                 "marketing_agency": 11,
                 "education_provider": 9,
-                "training_center": 9,
-                "creative_studio": 2
+                "training_center": 11,
+                "creative_studio": 2,
+                "food_producer": 2
               },
               "operationalCharacteristicsCovered": {
                 "campus_environment": 2,
@@ -15114,40 +14983,47 @@
             "subtypes": {
               "downtown_retail": 1,
               "neighborhood_retail": 2,
-              "service_retail": 1,
+              "service_retail": 2,
               "professional_office": 2,
               "education": 1,
               "nonprofit": 1,
               "childcare": 1,
-              "institutional": 1
+              "institutional": 1,
+              "lifestyle_retail": 1,
+              "food_beverage": 1,
+              "visitor_serving": 1,
+              "event_hospitality": 1
             },
             "archetypes": {
               "wellness_practice": 3,
               "marketing_agency": 2,
-              "professional_office": 1,
+              "professional_office": 2,
               "law_firm": 1,
               "consulting_firm": 1,
               "nonprofit_office": 1,
               "education_provider": 1,
-              "training_center": 1,
+              "training_center": 2,
               "childcare_provider": 1,
+              "creative_studio": 1,
+              "food_producer": 1,
               "physical_therapy_practice": 1
             },
             "activities": {
               "walk_in_retail": 2,
               "walk_in_service": 3,
               "customer_showroom": 2,
-              "knowledge_work": 1,
-              "client_meetings": 1,
+              "knowledge_work": 2,
+              "client_meetings": 2,
               "administrative_operations": 1,
               "education": 1,
-              "training": 1
+              "training": 1,
+              "food_preparation": 1,
+              "hospitality_service": 1
             },
             "reviewRequiredDistricts": [],
             "notableSubtypeGaps": [
               "shopping_center",
               "power_center",
-              "lifestyle_retail",
               "showroom_retail"
             ],
             "representativeBuildingIntelligence": {
@@ -15172,22 +15048,24 @@
                 "walk_in_retail": 2,
                 "walk_in_service": 2,
                 "customer_showroom": 2,
-                "knowledge_work": 1,
-                "client_meetings": 1,
+                "knowledge_work": 2,
+                "client_meetings": 2,
                 "administrative_operations": 1,
                 "education": 1,
                 "training": 1,
-                "food_preparation": 1
+                "food_preparation": 1,
+                "hospitality_service": 1
               },
               "archetypeCoverage": {
                 "wellness_practice": 2,
                 "marketing_agency": 2,
-                "professional_office": 1,
+                "professional_office": 2,
                 "law_firm": 1,
                 "consulting_firm": 1,
                 "nonprofit_office": 1,
                 "education_provider": 1,
                 "training_center": 2,
+                "creative_studio": 1,
                 "food_producer": 1
               },
               "operationalCharacteristicsCovered": {
@@ -15387,21 +15265,27 @@
             "id": "hospitality",
             "label": "Hospitality",
             "districtCount": 0,
-            "secondaryDistrictCount": 0,
+            "secondaryDistrictCount": 1,
             "recommendationNodeCount": 0,
             "representativeBuildingCount": 0,
             "buildingBriefCount": 0,
-            "status": "Missing",
+            "status": "Partial",
             "districts": [],
-            "subtypes": {},
-            "archetypes": {},
-            "activities": {},
+            "subtypes": {
+              "food_beverage": 1,
+              "visitor_serving": 1,
+              "event_hospitality": 1
+            },
+            "archetypes": {
+              "food_producer": 1
+            },
+            "activities": {
+              "food_preparation": 1,
+              "hospitality_service": 1
+            },
             "reviewRequiredDistricts": [],
             "notableSubtypeGaps": [
-              "hotel",
-              "food_beverage",
-              "event_hospitality",
-              "visitor_serving"
+              "hotel"
             ],
             "representativeBuildingIntelligence": {
               "ecosystemId": "hospitality",
@@ -15510,23 +15394,27 @@
           "contractor_service": 1,
           "downtown_retail": 1,
           "neighborhood_retail": 2,
-          "service_retail": 1,
+          "service_retail": 2,
           "education": 2,
           "nonprofit": 2,
           "childcare": 2,
           "institutional": 2,
+          "lifestyle_retail": 1,
+          "food_beverage": 2,
+          "visitor_serving": 2,
+          "event_hospitality": 2,
           "medical_office": 1,
           "outpatient_clinic": 1,
           "wellness": 1,
           "hospital_adjacent": 1
         },
         "activityCoverage": {
-          "knowledge_work": 5,
+          "knowledge_work": 7,
           "collaboration": 5,
           "administrative_operations": 6,
           "research": 5,
           "product_development": 6,
-          "client_meetings": 2,
+          "client_meetings": 4,
           "training": 3,
           "receiving": 4,
           "shipping": 4,
@@ -15537,10 +15425,12 @@
           "walk_in_service": 5,
           "customer_showroom": 2,
           "education": 2,
+          "food_preparation": 2,
+          "hospitality_service": 2,
           "healthcare_delivery": 1
         },
         "archetypeCoverage": {
-          "professional_office": 3,
+          "professional_office": 5,
           "consulting_firm": 3,
           "startup": 6,
           "research_company": 6,
@@ -15549,8 +15439,8 @@
           "law_firm": 2,
           "nonprofit_office": 3,
           "education_provider": 3,
-          "training_center": 3,
-          "creative_studio": 2,
+          "training_center": 5,
+          "creative_studio": 4,
           "medical_practice": 2,
           "general_contractor": 4,
           "cabinet_shop": 3,
@@ -15560,26 +15450,19 @@
           "building_services_company": 1,
           "wellness_practice": 4,
           "childcare_provider": 2,
+          "food_producer": 2,
           "physical_therapy_practice": 2,
           "outpatient_clinic": 1
         },
         "missingPrimaryEcosystemDistricts": [],
         "reviewRequiredDistricts": [],
-        "underrepresentedEcosystems": [
-          {
-            "id": "hospitality",
-            "label": "Hospitality",
-            "status": "Missing",
-            "districtCount": 0,
-            "representativeBuildingCount": 0
-          }
-        ],
+        "underrepresentedEcosystems": [],
         "summary": {
           "ecosystemCount": 7,
           "developedCount": 4,
-          "partialCount": 2,
+          "partialCount": 3,
           "thinCount": 0,
-          "missingCount": 1,
+          "missingCount": 0,
           "reviewRequiredDistrictCount": 0
         }
       },
@@ -15716,7 +15599,9 @@
                 "walk_in_service",
                 "customer_showroom",
                 "education",
-                "training"
+                "training",
+                "food_preparation",
+                "hospitality_service"
               ],
               "archetypeCoverage": [
                 "professional_office",
@@ -15732,7 +15617,8 @@
                 "marketing_agency",
                 "education_provider",
                 "training_center",
-                "creative_studio"
+                "creative_studio",
+                "food_producer"
               ],
               "operationalCharacteristicsCovered": [
                 "campus_environment",
@@ -16040,9 +15926,9 @@
               "recommendations": 2,
               "representativeBuildings": 2,
               "buildingBriefs": 2,
-              "subtypes": 8,
-              "archetypes": 10,
-              "activities": 8,
+              "subtypes": 12,
+              "archetypes": 12,
+              "activities": 10,
               "reviewRequiredDistricts": 0,
               "representativeRoles": 2,
               "operationalCategories": 2,
@@ -16104,7 +15990,8 @@
                 "administrative_operations",
                 "education",
                 "training",
-                "food_preparation"
+                "food_preparation",
+                "hospitality_service"
               ],
               "archetypeCoverage": [
                 "wellness_practice",
@@ -16115,6 +16002,7 @@
                 "nonprofit_office",
                 "education_provider",
                 "training_center",
+                "creative_studio",
                 "food_producer"
               ],
               "operationalCharacteristicsCovered": [
@@ -16389,27 +16277,27 @@
             "label": "Hospitality",
             "relevance": "secondary",
             "relevanceLabel": "Secondary",
-            "readinessState": "missing",
-            "readinessLabel": "Missing",
+            "readinessState": "partial",
+            "readinessLabel": "Partial",
             "layers": {
               "districts": "missing",
               "recommendations": "missing",
               "representativeBuildings": "missing",
               "buildingBriefs": "missing",
-              "subtypes": "missing",
-              "archetypes": "missing",
-              "activities": "missing",
+              "subtypes": "developed",
+              "archetypes": "partial",
+              "activities": "strong",
               "editorialReview": "developed"
             },
             "counts": {
               "districts": 0,
-              "secondaryDistricts": 0,
+              "secondaryDistricts": 1,
               "recommendations": 0,
               "representativeBuildings": 0,
               "buildingBriefs": 0,
-              "subtypes": 0,
-              "archetypes": 0,
-              "activities": 0,
+              "subtypes": 3,
+              "archetypes": 1,
+              "activities": 2,
               "reviewRequiredDistricts": 0,
               "representativeRoles": 0,
               "operationalCategories": 0,
@@ -16417,16 +16305,13 @@
               "reviewRequiredRepresentativeBuildings": 0
             },
             "gaps": [
-              "No district coverage for this relevant ecosystem.",
-              "Subtype breadth is thin.",
-              "Business archetype coverage is thin.",
-              "Business activity coverage is thin."
+              "Ecosystem appears only as a secondary district expression."
             ],
             "blocking": false,
             "blockingCodes": [],
             "strategicPriority": 7,
             "evidence": [
-              "0 primary districts and 0 secondary districts.",
+              "0 primary districts and 1 secondary districts.",
               "0 Representative Buildings and 0 Building Briefs."
             ],
             "targetSubtypes": [
@@ -16629,96 +16514,21 @@
             "blocksEcosystemReadiness": false
           },
           {
-            "id": "ecosystem:hospitality:ecosystem_missing",
-            "code": "ecosystem_missing",
-            "label": "Ecosystem Missing",
-            "severity": "medium",
+            "id": "ecosystem:hospitality:ecosystem_secondary_only",
+            "code": "ecosystem_secondary_only",
+            "label": "Ecosystem Secondary Only",
+            "severity": "low",
             "layer": "districts",
             "ecosystemId": "hospitality",
             "ecosystemLabel": "Hospitality",
             "relevance": "secondary",
-            "readinessState": "missing",
-            "rationale": "Relevant ecosystem has no meaningful district coverage.",
+            "readinessState": "partial",
+            "rationale": "Ecosystem appears only as secondary context.",
             "evidence": [
-              "0 primary districts and 0 secondary districts.",
+              "0 primary districts and 1 secondary districts.",
               "0 Representative Buildings and 0 Building Briefs."
             ],
             "recommendedSprintFamily": "Ecosystem District Foundation",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:hospitality:ecosystem_subtype_gap",
-            "code": "ecosystem_subtype_gap",
-            "label": "Ecosystem Subtype Gap",
-            "severity": "medium",
-            "layer": "subtypes",
-            "ecosystemId": "hospitality",
-            "ecosystemLabel": "Hospitality",
-            "relevance": "secondary",
-            "readinessState": "missing",
-            "rationale": "Subtype breadth is too narrow for the ecosystem's relevance.",
-            "evidence": [
-              "0 primary districts and 0 secondary districts.",
-              "0 Representative Buildings and 0 Building Briefs."
-            ],
-            "recommendedSprintFamily": "Ecosystem Subtype Expansion",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:hospitality:ecosystem_archetype_gap",
-            "code": "ecosystem_archetype_gap",
-            "label": "Ecosystem Archetype Gap",
-            "severity": "low",
-            "layer": "archetypes",
-            "ecosystemId": "hospitality",
-            "ecosystemLabel": "Hospitality",
-            "relevance": "secondary",
-            "readinessState": "missing",
-            "rationale": "Business archetype coverage is too narrow.",
-            "evidence": [
-              "0 primary districts and 0 secondary districts.",
-              "0 Representative Buildings and 0 Building Briefs."
-            ],
-            "recommendedSprintFamily": "Archetype Coverage Expansion",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:hospitality:ecosystem_activity_gap",
-            "code": "ecosystem_activity_gap",
-            "label": "Ecosystem Activity Gap",
-            "severity": "low",
-            "layer": "activities",
-            "ecosystemId": "hospitality",
-            "ecosystemLabel": "Hospitality",
-            "relevance": "secondary",
-            "readinessState": "missing",
-            "rationale": "Business activity coverage is too narrow.",
-            "evidence": [
-              "0 primary districts and 0 secondary districts.",
-              "0 Representative Buildings and 0 Building Briefs."
-            ],
-            "recommendedSprintFamily": "Business Activity Coverage Review",
             "completionCriteria": [
               "Validated district ecosystem classification",
               "Representative Building coverage across the most important subtypes",
@@ -16797,56 +16607,6 @@
         "warnings": []
       },
       "ecosystemGaps": [
-        {
-          "id": "ecosystem:hospitality:ecosystem_missing",
-          "code": "ecosystem_missing",
-          "label": "Ecosystem Missing",
-          "severity": "medium",
-          "layer": "districts",
-          "ecosystemId": "hospitality",
-          "ecosystemLabel": "Hospitality",
-          "relevance": "secondary",
-          "readinessState": "missing",
-          "rationale": "Relevant ecosystem has no meaningful district coverage.",
-          "evidence": [
-            "0 primary districts and 0 secondary districts.",
-            "0 Representative Buildings and 0 Building Briefs."
-          ],
-          "recommendedSprintFamily": "Ecosystem District Foundation",
-          "completionCriteria": [
-            "Validated district ecosystem classification",
-            "Representative Building coverage across the most important subtypes",
-            "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-            "Building Brief migration only after canonical records and district association exist",
-            "Publisher ecosystem QA passes without hard errors"
-          ],
-          "blocksEcosystemReadiness": false
-        },
-        {
-          "id": "ecosystem:hospitality:ecosystem_subtype_gap",
-          "code": "ecosystem_subtype_gap",
-          "label": "Ecosystem Subtype Gap",
-          "severity": "medium",
-          "layer": "subtypes",
-          "ecosystemId": "hospitality",
-          "ecosystemLabel": "Hospitality",
-          "relevance": "secondary",
-          "readinessState": "missing",
-          "rationale": "Subtype breadth is too narrow for the ecosystem's relevance.",
-          "evidence": [
-            "0 primary districts and 0 secondary districts.",
-            "0 Representative Buildings and 0 Building Briefs."
-          ],
-          "recommendedSprintFamily": "Ecosystem Subtype Expansion",
-          "completionCriteria": [
-            "Validated district ecosystem classification",
-            "Representative Building coverage across the most important subtypes",
-            "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-            "Building Brief migration only after canonical records and district association exist",
-            "Publisher ecosystem QA passes without hard errors"
-          ],
-          "blocksEcosystemReadiness": false
-        },
         {
           "id": "ecosystem:life_science:ecosystem_secondary_only",
           "code": "ecosystem_secondary_only",
@@ -16948,46 +16708,21 @@
           "blocksEcosystemReadiness": false
         },
         {
-          "id": "ecosystem:hospitality:ecosystem_activity_gap",
-          "code": "ecosystem_activity_gap",
-          "label": "Ecosystem Activity Gap",
+          "id": "ecosystem:hospitality:ecosystem_secondary_only",
+          "code": "ecosystem_secondary_only",
+          "label": "Ecosystem Secondary Only",
           "severity": "low",
-          "layer": "activities",
+          "layer": "districts",
           "ecosystemId": "hospitality",
           "ecosystemLabel": "Hospitality",
           "relevance": "secondary",
-          "readinessState": "missing",
-          "rationale": "Business activity coverage is too narrow.",
+          "readinessState": "partial",
+          "rationale": "Ecosystem appears only as secondary context.",
           "evidence": [
-            "0 primary districts and 0 secondary districts.",
+            "0 primary districts and 1 secondary districts.",
             "0 Representative Buildings and 0 Building Briefs."
           ],
-          "recommendedSprintFamily": "Business Activity Coverage Review",
-          "completionCriteria": [
-            "Validated district ecosystem classification",
-            "Representative Building coverage across the most important subtypes",
-            "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-            "Building Brief migration only after canonical records and district association exist",
-            "Publisher ecosystem QA passes without hard errors"
-          ],
-          "blocksEcosystemReadiness": false
-        },
-        {
-          "id": "ecosystem:hospitality:ecosystem_archetype_gap",
-          "code": "ecosystem_archetype_gap",
-          "label": "Ecosystem Archetype Gap",
-          "severity": "low",
-          "layer": "archetypes",
-          "ecosystemId": "hospitality",
-          "ecosystemLabel": "Hospitality",
-          "relevance": "secondary",
-          "readinessState": "missing",
-          "rationale": "Business archetype coverage is too narrow.",
-          "evidence": [
-            "0 primary districts and 0 secondary districts.",
-            "0 Representative Buildings and 0 Building Briefs."
-          ],
-          "recommendedSprintFamily": "Archetype Coverage Expansion",
+          "recommendedSprintFamily": "Ecosystem District Foundation",
           "completionCriteria": [
             "Validated district ecosystem classification",
             "Representative Building coverage across the most important subtypes",
@@ -16999,37 +16734,37 @@
         }
       ],
       "recommendedEcosystemSprint": {
-        "title": "East Bay Hospitality Ecosystem District Foundation",
-        "objective": "Improve East Bay commercial balance by advancing Hospitality from Missing toward stronger ecosystem readiness.",
-        "ecosystemId": "hospitality",
-        "ecosystemLabel": "Hospitality",
-        "relevance": "secondary",
-        "relevanceLabel": "Secondary",
-        "readinessState": "missing",
-        "readinessLabel": "Missing",
+        "title": "East Bay Life Science Ecosystem District Foundation",
+        "objective": "Improve East Bay commercial balance by advancing Life Science from Partial toward stronger ecosystem readiness.",
+        "ecosystemId": "life_science",
+        "ecosystemLabel": "Life Science",
+        "relevance": "important",
+        "relevanceLabel": "Important",
+        "readinessState": "partial",
+        "readinessLabel": "Partial",
         "sprintFamily": "Ecosystem District Foundation",
-        "rationale": "Hospitality is Secondary for East Bay and is currently Missing. Relevant ecosystem has no meaningful district coverage.",
-        "gapCode": "ecosystem_missing",
-        "priorityScore": 54,
+        "rationale": "Life Science is Important for East Bay and is currently Partial. Ecosystem appears only as secondary context.",
+        "gapCode": "ecosystem_secondary_only",
+        "priorityScore": 50,
         "layers": {
           "districts": "missing",
           "recommendations": "missing",
           "representativeBuildings": "missing",
           "buildingBriefs": "missing",
-          "subtypes": "missing",
-          "archetypes": "missing",
-          "activities": "missing",
+          "subtypes": "developed",
+          "archetypes": "strong",
+          "activities": "strong",
           "editorialReview": "developed"
         },
         "counts": {
           "districts": 0,
-          "secondaryDistricts": 0,
+          "secondaryDistricts": 2,
           "recommendations": 0,
           "representativeBuildings": 0,
           "buildingBriefs": 0,
-          "subtypes": 0,
-          "archetypes": 0,
-          "activities": 0,
+          "subtypes": 2,
+          "archetypes": 3,
+          "activities": 3,
           "reviewRequiredDistricts": 0,
           "representativeRoles": 0,
           "operationalCategories": 0,
@@ -17037,31 +16772,37 @@
           "reviewRequiredRepresentativeBuildings": 0
         },
         "gaps": [
-          "No district coverage for this relevant ecosystem.",
-          "Subtype breadth is thin.",
-          "Business archetype coverage is thin.",
-          "Business activity coverage is thin."
+          "Ecosystem appears only as a secondary district expression."
         ],
         "targetSubtypes": [
-          "hotel",
-          "food_beverage",
-          "event_hospitality",
-          "visitor_serving"
+          "research_lab",
+          "wet_lab",
+          "life_science_office",
+          "biotech_research",
+          "innovation_campus"
         ],
         "targetArchetypes": [
-          "food_producer",
-          "training_center"
+          "research_company",
+          "biotech_company",
+          "startup"
         ],
         "targetActivities": [
-          "hospitality_service",
-          "food_preparation",
-          "walk_in_service"
+          "research",
+          "product_development",
+          "collaboration",
+          "administrative_operations"
         ],
-        "missingRepresentativeRoles": [],
+        "missingRepresentativeRoles": [
+          "research_lab_environment",
+          "life_science_campus",
+          "biotech_research_environment"
+        ],
         "missingOperationalCategories": [
-          "access_loading",
+          "configuration",
           "infrastructure",
-          "location_workforce"
+          "market_presence",
+          "location_workforce",
+          "outdoor_special_use"
         ],
         "currentRepresentativeRoles": [],
         "currentOperationalCategories": [],
@@ -17090,7 +16831,7 @@
           "title": "East Bay Office Building Brief Migration",
           "whyNotFirst": "Office work remains useful, but the target ecosystem has a higher strategic gap based on current readiness."
         },
-        "codexPrompt": "Implement Publisher ecosystem sprint for East Bay: East Bay Hospitality Ecosystem District Foundation\n\nFramework:\n- Businesses search for places where their operations can succeed, not for property types.\n- Use the Commercial Ecosystem Framework and canonical taxonomy.\n- Do not change recommendation rankings, Search Profile questions, or public page design.\n\nTarget ecosystem: Hospitality (hospitality)\nMetro relevance: Secondary\nCurrent readiness: Missing\nSprint family: Ecosystem District Foundation\n\nCurrent layer coverage:\n- districts: missing\n- recommendations: missing\n- representativeBuildings: missing\n- buildingBriefs: missing\n- subtypes: missing\n- archetypes: missing\n- activities: missing\n- editorialReview: developed\n\nKnown gaps:\n- No district coverage for this relevant ecosystem.\n- Subtype breadth is thin.\n- Business archetype coverage is thin.\n- Business activity coverage is thin.\n\nTarget subtypes:\n- hotel, food_beverage, event_hospitality, visitor_serving\nTarget archetypes:\n- food_producer, training_center\nTarget business activities:\n- hospitality_service, food_preparation, walk_in_service\nMissing representative roles:\n- none identified\nMissing operational categories:\n- access_loading, infrastructure, location_workforce\nExisting representative buildings:\n- none\nDistrict candidates:\n- review required\n\nDependencies:\n- Ecosystem classification\n- District foundation\n- Recommendation foundation\n- Representative Building foundation\n- Building Brief migration after canonical records exist\n\nCompletion criteria:\n- Validated district ecosystem classification\n- Representative Building coverage across the most important subtypes\n- Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus\n- Building Brief migration only after canonical records and district association exist\n- Publisher ecosystem QA passes without hard errors\n- Every target representative role has at least one source-supported building or is explicitly marked research required\n- Target operational categories are represented without asserting unverified property features\n- Representative Building intelligence QA passes\n\nGuardrails:\n- Do not invent districts, buildings, tenants, availability, rents, or unsupported facts.\n- Do not deepen office-only coverage when the target ecosystem is different.\n- Do not treat taxonomy compatibility as proof that a property has a feature.\n- Validate loading, power, parking, yards, lab, food, medical, and permitted-use claims before authoring them as facts.\n- Do not recommend Building Brief migration before canonical representative buildings exist.\n- Regenerate Publisher snapshots and run ecosystem readiness QA.\n\nVerification:\n- npm run publisher:snapshot\n- npm run publisher:report\n- npm run build\n- node scripts/qa-commercial-ecosystem-foundation.js\n- node scripts/qa-publisher-ecosystem-readiness.js\n- node scripts/qa-representative-building-intelligence.js"
+        "codexPrompt": "Implement Publisher ecosystem sprint for East Bay: East Bay Life Science Ecosystem District Foundation\n\nFramework:\n- Businesses search for places where their operations can succeed, not for property types.\n- Use the Commercial Ecosystem Framework and canonical taxonomy.\n- Do not change recommendation rankings, Search Profile questions, or public page design.\n\nTarget ecosystem: Life Science (life_science)\nMetro relevance: Important\nCurrent readiness: Partial\nSprint family: Ecosystem District Foundation\n\nCurrent layer coverage:\n- districts: missing\n- recommendations: missing\n- representativeBuildings: missing\n- buildingBriefs: missing\n- subtypes: developed\n- archetypes: strong\n- activities: strong\n- editorialReview: developed\n\nKnown gaps:\n- Ecosystem appears only as a secondary district expression.\n\nTarget subtypes:\n- research_lab, wet_lab, life_science_office, biotech_research, innovation_campus\nTarget archetypes:\n- research_company, biotech_company, startup\nTarget business activities:\n- research, product_development, collaboration, administrative_operations\nMissing representative roles:\n- research_lab_environment, life_science_campus, biotech_research_environment\nMissing operational categories:\n- configuration, infrastructure, market_presence, location_workforce, outdoor_special_use\nExisting representative buildings:\n- none\nDistrict candidates:\n- review required\n\nDependencies:\n- Ecosystem classification\n- District foundation\n- Recommendation foundation\n- Representative Building foundation\n- Building Brief migration after canonical records exist\n\nCompletion criteria:\n- Validated district ecosystem classification\n- Representative Building coverage across the most important subtypes\n- Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus\n- Building Brief migration only after canonical records and district association exist\n- Publisher ecosystem QA passes without hard errors\n- Every target representative role has at least one source-supported building or is explicitly marked research required\n- Target operational categories are represented without asserting unverified property features\n- Representative Building intelligence QA passes\n\nGuardrails:\n- Do not invent districts, buildings, tenants, availability, rents, or unsupported facts.\n- Do not deepen office-only coverage when the target ecosystem is different.\n- Do not treat taxonomy compatibility as proof that a property has a feature.\n- Validate loading, power, parking, yards, lab, food, medical, and permitted-use claims before authoring them as facts.\n- Do not recommend Building Brief migration before canonical representative buildings exist.\n- Regenerate Publisher snapshots and run ecosystem readiness QA.\n\nVerification:\n- npm run publisher:snapshot\n- npm run publisher:report\n- npm run build\n- node scripts/qa-commercial-ecosystem-foundation.js\n- node scripts/qa-publisher-ecosystem-readiness.js\n- node scripts/qa-representative-building-intelligence.js"
       },
       "gaps": [
         {
@@ -18950,7 +18691,7 @@
     {
       "metroId": "sacramento",
       "metroName": "Sacramento",
-      "generatedAt": "2026-08-12T20:42:22-07:00",
+      "generatedAt": "2026-08-12T21:47:44-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 98,
@@ -27596,7 +27337,7 @@
     {
       "metroId": "san-diego",
       "metroName": "San Diego",
-      "generatedAt": "2026-08-12T20:42:22-07:00",
+      "generatedAt": "2026-08-12T21:47:44-07:00",
       "currentState": {
         "readinessStatus": "Expansion Ready",
         "overallScore": 84,
@@ -37132,7 +36873,7 @@
     {
       "metroId": "orange-county",
       "metroName": "Orange County",
-      "generatedAt": "2026-08-12T20:42:22-07:00",
+      "generatedAt": "2026-08-12T21:47:44-07:00",
       "currentState": {
         "readinessStatus": "Expansion Ready",
         "overallScore": 84,
@@ -45937,7 +45678,7 @@
     {
       "metroId": "denver",
       "metroName": "Denver",
-      "generatedAt": "2026-08-12T20:42:22-07:00",
+      "generatedAt": "2026-08-12T21:47:44-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 97,
@@ -53644,7 +53385,7 @@
     {
       "metroId": "seattle",
       "metroName": "Seattle",
-      "generatedAt": "2026-08-12T20:42:22-07:00",
+      "generatedAt": "2026-08-12T21:47:44-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 94,
@@ -59170,7 +58911,7 @@
     {
       "metroId": "san-francisco",
       "metroName": "San Francisco",
-      "generatedAt": "2026-08-12T20:42:22-07:00",
+      "generatedAt": "2026-08-12T21:47:44-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 96,
@@ -59219,9 +58960,9 @@
         "ecosystems": {
           "count": 7,
           "developed": 5,
-          "partial": 1,
+          "partial": 2,
           "thin": 0,
-          "missing": 1,
+          "missing": 0,
           "reviewRequired": 0,
           "note": "Ecosystem coverage is reported for planning context and does not change Publisher readiness scoring in v1."
         }
@@ -59290,24 +59031,24 @@
               "biotech_company": 3,
               "research_company": 8,
               "startup": 10,
-              "creative_studio": 8,
+              "creative_studio": 9,
               "marketing_agency": 8,
               "law_firm": 2,
               "financial_services_firm": 1,
               "consulting_firm": 4,
-              "professional_office": 6,
+              "professional_office": 7,
               "general_contractor": 2,
               "nonprofit_office": 1,
               "education_provider": 1,
-              "training_center": 1,
+              "training_center": 2,
               "medical_practice": 1
             },
             "activities": {
               "product_development": 9,
               "collaboration": 10,
-              "knowledge_work": 14,
+              "knowledge_work": 15,
               "customer_showroom": 2,
-              "client_meetings": 4,
+              "client_meetings": 5,
               "administrative_operations": 4,
               "research": 2,
               "training": 1
@@ -59348,29 +59089,32 @@
                 "administrative_operations": 31,
                 "research": 5,
                 "product_development": 49,
-                "client_meetings": 48,
+                "client_meetings": 49,
                 "walk_in_retail": 14,
                 "walk_in_service": 18,
                 "customer_showroom": 34,
                 "education": 9,
                 "training": 9,
+                "food_preparation": 2,
+                "hospitality_service": 1,
                 "light_manufacturing": 6
               },
               "archetypeCoverage": {
                 "professional_office": 78,
-                "consulting_firm": 78,
+                "consulting_firm": 76,
                 "startup": 64,
                 "research_company": 11,
                 "biotech_company": 2,
                 "law_firm": 78,
                 "accounting_firm": 69,
-                "financial_services_firm": 69,
+                "financial_services_firm": 67,
                 "nonprofit_office": 9,
                 "wellness_practice": 14,
                 "marketing_agency": 67,
                 "education_provider": 9,
-                "training_center": 9,
-                "creative_studio": 67
+                "training_center": 11,
+                "creative_studio": 67,
+                "food_producer": 2
               },
               "operationalCharacteristicsCovered": {
                 "campus_environment": 3,
@@ -59736,23 +59480,28 @@
               "showroom_retail": 1,
               "creative_office": 2,
               "downtown_retail": 1,
-              "service_retail": 1,
+              "service_retail": 2,
               "education": 1,
               "nonprofit": 1,
               "childcare": 1,
-              "institutional": 1
+              "institutional": 1,
+              "lifestyle_retail": 1,
+              "food_beverage": 1,
+              "visitor_serving": 1,
+              "event_hospitality": 1
             },
             "archetypes": {
               "marketing_agency": 8,
-              "professional_office": 5,
+              "professional_office": 6,
               "wellness_practice": 7,
-              "creative_studio": 2,
+              "creative_studio": 3,
               "law_firm": 1,
               "consulting_firm": 1,
               "nonprofit_office": 1,
               "education_provider": 1,
-              "training_center": 1,
+              "training_center": 2,
               "childcare_provider": 1,
+              "food_producer": 1,
               "physical_therapy_practice": 1
             },
             "activities": {
@@ -59760,17 +59509,18 @@
               "walk_in_retail": 6,
               "walk_in_service": 8,
               "collaboration": 1,
-              "knowledge_work": 3,
-              "client_meetings": 1,
+              "knowledge_work": 4,
+              "client_meetings": 2,
               "administrative_operations": 1,
               "education": 1,
-              "training": 1
+              "training": 1,
+              "food_preparation": 1,
+              "hospitality_service": 1
             },
             "reviewRequiredDistricts": [],
             "notableSubtypeGaps": [
               "shopping_center",
-              "power_center",
-              "lifestyle_retail"
+              "power_center"
             ],
             "representativeBuildingIntelligence": {
               "ecosystemId": "retail",
@@ -59796,25 +59546,26 @@
                 "walk_in_retail": 9,
                 "walk_in_service": 14,
                 "customer_showroom": 14,
-                "knowledge_work": 10,
-                "client_meetings": 1,
+                "knowledge_work": 11,
+                "client_meetings": 2,
                 "administrative_operations": 1,
                 "education": 1,
                 "training": 1,
                 "food_preparation": 1,
+                "hospitality_service": 1,
                 "collaboration": 5
               },
               "archetypeCoverage": {
                 "wellness_practice": 14,
                 "marketing_agency": 14,
-                "professional_office": 10,
+                "professional_office": 11,
                 "law_firm": 1,
                 "consulting_firm": 1,
                 "nonprofit_office": 1,
                 "education_provider": 1,
                 "training_center": 14,
-                "food_producer": 13,
-                "creative_studio": 9
+                "creative_studio": 10,
+                "food_producer": 13
               },
               "operationalCharacteristicsCovered": {
                 "street_visibility": 14,
@@ -60115,21 +59866,27 @@
             "id": "hospitality",
             "label": "Hospitality",
             "districtCount": 0,
-            "secondaryDistrictCount": 0,
+            "secondaryDistrictCount": 1,
             "recommendationNodeCount": 0,
             "representativeBuildingCount": 0,
             "buildingBriefCount": 0,
-            "status": "Missing",
+            "status": "Partial",
             "districts": [],
-            "subtypes": {},
-            "archetypes": {},
-            "activities": {},
+            "subtypes": {
+              "food_beverage": 1,
+              "visitor_serving": 1,
+              "event_hospitality": 1
+            },
+            "archetypes": {
+              "food_producer": 1
+            },
+            "activities": {
+              "food_preparation": 1,
+              "hospitality_service": 1
+            },
             "reviewRequiredDistricts": [],
             "notableSubtypeGaps": [
-              "hotel",
-              "food_beverage",
-              "event_hospitality",
-              "visitor_serving"
+              "hotel"
             ],
             "representativeBuildingIntelligence": {
               "ecosystemId": "hospitality",
@@ -60240,11 +59997,15 @@
           "neighborhood_retail": 6,
           "showroom_retail": 1,
           "downtown_retail": 1,
-          "service_retail": 1,
+          "service_retail": 2,
           "education": 2,
           "nonprofit": 2,
           "childcare": 2,
           "institutional": 2,
+          "lifestyle_retail": 1,
+          "food_beverage": 2,
+          "visitor_serving": 2,
+          "event_hospitality": 2,
           "medical_office": 1,
           "outpatient_clinic": 1,
           "wellness": 1,
@@ -60253,9 +60014,9 @@
         "activityCoverage": {
           "product_development": 23,
           "collaboration": 19,
-          "knowledge_work": 21,
+          "knowledge_work": 23,
           "customer_showroom": 14,
-          "client_meetings": 5,
+          "client_meetings": 7,
           "administrative_operations": 7,
           "research": 12,
           "training": 3,
@@ -60267,22 +60028,24 @@
           "walk_in_retail": 6,
           "walk_in_service": 10,
           "education": 2,
+          "food_preparation": 2,
+          "hospitality_service": 2,
           "healthcare_delivery": 1
         },
         "archetypeCoverage": {
           "biotech_company": 6,
           "research_company": 21,
           "startup": 24,
-          "creative_studio": 17,
+          "creative_studio": 19,
           "marketing_agency": 16,
           "law_firm": 3,
           "financial_services_firm": 1,
           "consulting_firm": 5,
-          "professional_office": 11,
+          "professional_office": 13,
           "general_contractor": 7,
           "nonprofit_office": 3,
           "education_provider": 3,
-          "training_center": 3,
+          "training_center": 5,
           "medical_practice": 2,
           "light_manufacturer": 7,
           "cabinet_shop": 5,
@@ -60290,26 +60053,19 @@
           "ecommerce_fulfillment_business": 5,
           "wellness_practice": 8,
           "childcare_provider": 2,
+          "food_producer": 2,
           "physical_therapy_practice": 2,
           "outpatient_clinic": 1
         },
         "missingPrimaryEcosystemDistricts": [],
         "reviewRequiredDistricts": [],
-        "underrepresentedEcosystems": [
-          {
-            "id": "hospitality",
-            "label": "Hospitality",
-            "status": "Missing",
-            "districtCount": 0,
-            "representativeBuildingCount": 0
-          }
-        ],
+        "underrepresentedEcosystems": [],
         "summary": {
           "ecosystemCount": 7,
           "developedCount": 5,
-          "partialCount": 1,
+          "partialCount": 2,
           "thinCount": 0,
-          "missingCount": 1,
+          "missingCount": 0,
           "reviewRequiredDistrictCount": 0
         }
       },
@@ -60448,6 +60204,8 @@
                 "customer_showroom",
                 "education",
                 "training",
+                "food_preparation",
+                "hospitality_service",
                 "light_manufacturing"
               ],
               "archetypeCoverage": [
@@ -60464,7 +60222,8 @@
                 "marketing_agency",
                 "education_provider",
                 "training_center",
-                "creative_studio"
+                "creative_studio",
+                "food_producer"
               ],
               "operationalCharacteristicsCovered": [
                 "campus_environment",
@@ -60784,9 +60543,9 @@
               "recommendations": 7,
               "representativeBuildings": 14,
               "buildingBriefs": 2,
-              "subtypes": 10,
-              "archetypes": 11,
-              "activities": 9,
+              "subtypes": 14,
+              "archetypes": 12,
+              "activities": 11,
               "reviewRequiredDistricts": 0,
               "representativeRoles": 3,
               "operationalCategories": 2,
@@ -60851,6 +60610,7 @@
                 "education",
                 "training",
                 "food_preparation",
+                "hospitality_service",
                 "collaboration"
               ],
               "archetypeCoverage": [
@@ -60862,8 +60622,8 @@
                 "nonprofit_office",
                 "education_provider",
                 "training_center",
-                "food_producer",
-                "creative_studio"
+                "creative_studio",
+                "food_producer"
               ],
               "operationalCharacteristicsCovered": [
                 "street_visibility",
@@ -61233,27 +60993,27 @@
             "label": "Hospitality",
             "relevance": "secondary",
             "relevanceLabel": "Secondary",
-            "readinessState": "missing",
-            "readinessLabel": "Missing",
+            "readinessState": "partial",
+            "readinessLabel": "Partial",
             "layers": {
               "districts": "missing",
               "recommendations": "missing",
               "representativeBuildings": "missing",
               "buildingBriefs": "missing",
-              "subtypes": "missing",
-              "archetypes": "missing",
-              "activities": "missing",
+              "subtypes": "developed",
+              "archetypes": "partial",
+              "activities": "strong",
               "editorialReview": "developed"
             },
             "counts": {
               "districts": 0,
-              "secondaryDistricts": 0,
+              "secondaryDistricts": 1,
               "recommendations": 0,
               "representativeBuildings": 0,
               "buildingBriefs": 0,
-              "subtypes": 0,
-              "archetypes": 0,
-              "activities": 0,
+              "subtypes": 3,
+              "archetypes": 1,
+              "activities": 2,
               "reviewRequiredDistricts": 0,
               "representativeRoles": 0,
               "operationalCategories": 0,
@@ -61261,16 +61021,13 @@
               "reviewRequiredRepresentativeBuildings": 0
             },
             "gaps": [
-              "No district coverage for this relevant ecosystem.",
-              "Subtype breadth is thin.",
-              "Business archetype coverage is thin.",
-              "Business activity coverage is thin."
+              "Ecosystem appears only as a secondary district expression."
             ],
             "blocking": false,
             "blockingCodes": [],
             "strategicPriority": 7,
             "evidence": [
-              "0 primary districts and 0 secondary districts.",
+              "0 primary districts and 1 secondary districts.",
               "0 Representative Buildings and 0 Building Briefs."
             ],
             "targetSubtypes": [
@@ -61501,96 +61258,21 @@
             "blocksEcosystemReadiness": false
           },
           {
-            "id": "ecosystem:hospitality:ecosystem_missing",
-            "code": "ecosystem_missing",
-            "label": "Ecosystem Missing",
-            "severity": "medium",
+            "id": "ecosystem:hospitality:ecosystem_secondary_only",
+            "code": "ecosystem_secondary_only",
+            "label": "Ecosystem Secondary Only",
+            "severity": "low",
             "layer": "districts",
             "ecosystemId": "hospitality",
             "ecosystemLabel": "Hospitality",
             "relevance": "secondary",
-            "readinessState": "missing",
-            "rationale": "Relevant ecosystem has no meaningful district coverage.",
+            "readinessState": "partial",
+            "rationale": "Ecosystem appears only as secondary context.",
             "evidence": [
-              "0 primary districts and 0 secondary districts.",
+              "0 primary districts and 1 secondary districts.",
               "0 Representative Buildings and 0 Building Briefs."
             ],
             "recommendedSprintFamily": "Ecosystem District Foundation",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:hospitality:ecosystem_subtype_gap",
-            "code": "ecosystem_subtype_gap",
-            "label": "Ecosystem Subtype Gap",
-            "severity": "medium",
-            "layer": "subtypes",
-            "ecosystemId": "hospitality",
-            "ecosystemLabel": "Hospitality",
-            "relevance": "secondary",
-            "readinessState": "missing",
-            "rationale": "Subtype breadth is too narrow for the ecosystem's relevance.",
-            "evidence": [
-              "0 primary districts and 0 secondary districts.",
-              "0 Representative Buildings and 0 Building Briefs."
-            ],
-            "recommendedSprintFamily": "Ecosystem Subtype Expansion",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:hospitality:ecosystem_archetype_gap",
-            "code": "ecosystem_archetype_gap",
-            "label": "Ecosystem Archetype Gap",
-            "severity": "low",
-            "layer": "archetypes",
-            "ecosystemId": "hospitality",
-            "ecosystemLabel": "Hospitality",
-            "relevance": "secondary",
-            "readinessState": "missing",
-            "rationale": "Business archetype coverage is too narrow.",
-            "evidence": [
-              "0 primary districts and 0 secondary districts.",
-              "0 Representative Buildings and 0 Building Briefs."
-            ],
-            "recommendedSprintFamily": "Archetype Coverage Expansion",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:hospitality:ecosystem_activity_gap",
-            "code": "ecosystem_activity_gap",
-            "label": "Ecosystem Activity Gap",
-            "severity": "low",
-            "layer": "activities",
-            "ecosystemId": "hospitality",
-            "ecosystemLabel": "Hospitality",
-            "relevance": "secondary",
-            "readinessState": "missing",
-            "rationale": "Business activity coverage is too narrow.",
-            "evidence": [
-              "0 primary districts and 0 secondary districts.",
-              "0 Representative Buildings and 0 Building Briefs."
-            ],
-            "recommendedSprintFamily": "Business Activity Coverage Review",
             "completionCriteria": [
               "Validated district ecosystem classification",
               "Representative Building coverage across the most important subtypes",
@@ -61686,56 +61368,6 @@
             "1 representative roles and 6 operational categories are covered."
           ],
           "recommendedSprintFamily": "Ecosystem Representative Building Foundation",
-          "completionCriteria": [
-            "Validated district ecosystem classification",
-            "Representative Building coverage across the most important subtypes",
-            "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-            "Building Brief migration only after canonical records and district association exist",
-            "Publisher ecosystem QA passes without hard errors"
-          ],
-          "blocksEcosystemReadiness": false
-        },
-        {
-          "id": "ecosystem:hospitality:ecosystem_missing",
-          "code": "ecosystem_missing",
-          "label": "Ecosystem Missing",
-          "severity": "medium",
-          "layer": "districts",
-          "ecosystemId": "hospitality",
-          "ecosystemLabel": "Hospitality",
-          "relevance": "secondary",
-          "readinessState": "missing",
-          "rationale": "Relevant ecosystem has no meaningful district coverage.",
-          "evidence": [
-            "0 primary districts and 0 secondary districts.",
-            "0 Representative Buildings and 0 Building Briefs."
-          ],
-          "recommendedSprintFamily": "Ecosystem District Foundation",
-          "completionCriteria": [
-            "Validated district ecosystem classification",
-            "Representative Building coverage across the most important subtypes",
-            "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-            "Building Brief migration only after canonical records and district association exist",
-            "Publisher ecosystem QA passes without hard errors"
-          ],
-          "blocksEcosystemReadiness": false
-        },
-        {
-          "id": "ecosystem:hospitality:ecosystem_subtype_gap",
-          "code": "ecosystem_subtype_gap",
-          "label": "Ecosystem Subtype Gap",
-          "severity": "medium",
-          "layer": "subtypes",
-          "ecosystemId": "hospitality",
-          "ecosystemLabel": "Hospitality",
-          "relevance": "secondary",
-          "readinessState": "missing",
-          "rationale": "Subtype breadth is too narrow for the ecosystem's relevance.",
-          "evidence": [
-            "0 primary districts and 0 secondary districts.",
-            "0 Representative Buildings and 0 Building Briefs."
-          ],
-          "recommendedSprintFamily": "Ecosystem Subtype Expansion",
           "completionCriteria": [
             "Validated district ecosystem classification",
             "Representative Building coverage across the most important subtypes",
@@ -61848,46 +61480,21 @@
           "blocksEcosystemReadiness": false
         },
         {
-          "id": "ecosystem:hospitality:ecosystem_activity_gap",
-          "code": "ecosystem_activity_gap",
-          "label": "Ecosystem Activity Gap",
+          "id": "ecosystem:hospitality:ecosystem_secondary_only",
+          "code": "ecosystem_secondary_only",
+          "label": "Ecosystem Secondary Only",
           "severity": "low",
-          "layer": "activities",
+          "layer": "districts",
           "ecosystemId": "hospitality",
           "ecosystemLabel": "Hospitality",
           "relevance": "secondary",
-          "readinessState": "missing",
-          "rationale": "Business activity coverage is too narrow.",
+          "readinessState": "partial",
+          "rationale": "Ecosystem appears only as secondary context.",
           "evidence": [
-            "0 primary districts and 0 secondary districts.",
+            "0 primary districts and 1 secondary districts.",
             "0 Representative Buildings and 0 Building Briefs."
           ],
-          "recommendedSprintFamily": "Business Activity Coverage Review",
-          "completionCriteria": [
-            "Validated district ecosystem classification",
-            "Representative Building coverage across the most important subtypes",
-            "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-            "Building Brief migration only after canonical records and district association exist",
-            "Publisher ecosystem QA passes without hard errors"
-          ],
-          "blocksEcosystemReadiness": false
-        },
-        {
-          "id": "ecosystem:hospitality:ecosystem_archetype_gap",
-          "code": "ecosystem_archetype_gap",
-          "label": "Ecosystem Archetype Gap",
-          "severity": "low",
-          "layer": "archetypes",
-          "ecosystemId": "hospitality",
-          "ecosystemLabel": "Hospitality",
-          "relevance": "secondary",
-          "readinessState": "missing",
-          "rationale": "Business archetype coverage is too narrow.",
-          "evidence": [
-            "0 primary districts and 0 secondary districts.",
-            "0 Representative Buildings and 0 Building Briefs."
-          ],
-          "recommendedSprintFamily": "Archetype Coverage Expansion",
+          "recommendedSprintFamily": "Ecosystem District Foundation",
           "completionCriteria": [
             "Validated district ecosystem classification",
             "Representative Building coverage across the most important subtypes",
@@ -73759,7 +73366,7 @@
     {
       "metroId": "east-bay",
       "metroName": "East Bay",
-      "generatedAt": "2026-08-12T20:42:22-07:00",
+      "generatedAt": "2026-08-12T21:47:44-07:00",
       "currentState": {
         "readinessStatus": "Editorially Developed",
         "overallScore": 74,
@@ -73808,9 +73415,9 @@
         "ecosystems": {
           "count": 7,
           "developed": 4,
-          "partial": 2,
+          "partial": 3,
           "thin": 0,
-          "missing": 1,
+          "missing": 0,
           "reviewRequired": 0,
           "note": "Ecosystem coverage is reported for planning context and does not change Publisher readiness scoring in v1."
         }
@@ -73844,7 +73451,7 @@
               "creative_office": 1
             },
             "archetypes": {
-              "professional_office": 2,
+              "professional_office": 3,
               "consulting_firm": 2,
               "startup": 2,
               "research_company": 2,
@@ -73853,17 +73460,17 @@
               "law_firm": 1,
               "nonprofit_office": 1,
               "education_provider": 1,
-              "training_center": 1,
-              "creative_studio": 1,
+              "training_center": 2,
+              "creative_studio": 2,
               "medical_practice": 1
             },
             "activities": {
-              "knowledge_work": 3,
+              "knowledge_work": 4,
               "collaboration": 2,
               "administrative_operations": 3,
               "research": 1,
               "product_development": 2,
-              "client_meetings": 1,
+              "client_meetings": 2,
               "training": 1
             },
             "reviewRequiredDistricts": [],
@@ -73902,28 +73509,31 @@
                 "administrative_operations": 12,
                 "research": 2,
                 "product_development": 3,
-                "client_meetings": 10,
+                "client_meetings": 11,
                 "walk_in_retail": 11,
                 "walk_in_service": 11,
                 "customer_showroom": 11,
                 "education": 9,
-                "training": 9
+                "training": 9,
+                "food_preparation": 2,
+                "hospitality_service": 1
               },
               "archetypeCoverage": {
                 "professional_office": 13,
-                "consulting_firm": 13,
+                "consulting_firm": 11,
                 "startup": 2,
                 "research_company": 2,
                 "biotech_company": 2,
                 "law_firm": 13,
                 "accounting_firm": 4,
-                "financial_services_firm": 4,
+                "financial_services_firm": 2,
                 "nonprofit_office": 9,
                 "wellness_practice": 11,
                 "marketing_agency": 11,
                 "education_provider": 9,
-                "training_center": 9,
-                "creative_studio": 2
+                "training_center": 11,
+                "creative_studio": 2,
+                "food_producer": 2
               },
               "operationalCharacteristicsCovered": {
                 "campus_environment": 2,
@@ -74229,40 +73839,47 @@
             "subtypes": {
               "downtown_retail": 1,
               "neighborhood_retail": 2,
-              "service_retail": 1,
+              "service_retail": 2,
               "professional_office": 2,
               "education": 1,
               "nonprofit": 1,
               "childcare": 1,
-              "institutional": 1
+              "institutional": 1,
+              "lifestyle_retail": 1,
+              "food_beverage": 1,
+              "visitor_serving": 1,
+              "event_hospitality": 1
             },
             "archetypes": {
               "wellness_practice": 3,
               "marketing_agency": 2,
-              "professional_office": 1,
+              "professional_office": 2,
               "law_firm": 1,
               "consulting_firm": 1,
               "nonprofit_office": 1,
               "education_provider": 1,
-              "training_center": 1,
+              "training_center": 2,
               "childcare_provider": 1,
+              "creative_studio": 1,
+              "food_producer": 1,
               "physical_therapy_practice": 1
             },
             "activities": {
               "walk_in_retail": 2,
               "walk_in_service": 3,
               "customer_showroom": 2,
-              "knowledge_work": 1,
-              "client_meetings": 1,
+              "knowledge_work": 2,
+              "client_meetings": 2,
               "administrative_operations": 1,
               "education": 1,
-              "training": 1
+              "training": 1,
+              "food_preparation": 1,
+              "hospitality_service": 1
             },
             "reviewRequiredDistricts": [],
             "notableSubtypeGaps": [
               "shopping_center",
               "power_center",
-              "lifestyle_retail",
               "showroom_retail"
             ],
             "representativeBuildingIntelligence": {
@@ -74287,22 +73904,24 @@
                 "walk_in_retail": 2,
                 "walk_in_service": 2,
                 "customer_showroom": 2,
-                "knowledge_work": 1,
-                "client_meetings": 1,
+                "knowledge_work": 2,
+                "client_meetings": 2,
                 "administrative_operations": 1,
                 "education": 1,
                 "training": 1,
-                "food_preparation": 1
+                "food_preparation": 1,
+                "hospitality_service": 1
               },
               "archetypeCoverage": {
                 "wellness_practice": 2,
                 "marketing_agency": 2,
-                "professional_office": 1,
+                "professional_office": 2,
                 "law_firm": 1,
                 "consulting_firm": 1,
                 "nonprofit_office": 1,
                 "education_provider": 1,
                 "training_center": 2,
+                "creative_studio": 1,
                 "food_producer": 1
               },
               "operationalCharacteristicsCovered": {
@@ -74502,21 +74121,27 @@
             "id": "hospitality",
             "label": "Hospitality",
             "districtCount": 0,
-            "secondaryDistrictCount": 0,
+            "secondaryDistrictCount": 1,
             "recommendationNodeCount": 0,
             "representativeBuildingCount": 0,
             "buildingBriefCount": 0,
-            "status": "Missing",
+            "status": "Partial",
             "districts": [],
-            "subtypes": {},
-            "archetypes": {},
-            "activities": {},
+            "subtypes": {
+              "food_beverage": 1,
+              "visitor_serving": 1,
+              "event_hospitality": 1
+            },
+            "archetypes": {
+              "food_producer": 1
+            },
+            "activities": {
+              "food_preparation": 1,
+              "hospitality_service": 1
+            },
             "reviewRequiredDistricts": [],
             "notableSubtypeGaps": [
-              "hotel",
-              "food_beverage",
-              "event_hospitality",
-              "visitor_serving"
+              "hotel"
             ],
             "representativeBuildingIntelligence": {
               "ecosystemId": "hospitality",
@@ -74625,23 +74250,27 @@
           "contractor_service": 1,
           "downtown_retail": 1,
           "neighborhood_retail": 2,
-          "service_retail": 1,
+          "service_retail": 2,
           "education": 2,
           "nonprofit": 2,
           "childcare": 2,
           "institutional": 2,
+          "lifestyle_retail": 1,
+          "food_beverage": 2,
+          "visitor_serving": 2,
+          "event_hospitality": 2,
           "medical_office": 1,
           "outpatient_clinic": 1,
           "wellness": 1,
           "hospital_adjacent": 1
         },
         "activityCoverage": {
-          "knowledge_work": 5,
+          "knowledge_work": 7,
           "collaboration": 5,
           "administrative_operations": 6,
           "research": 5,
           "product_development": 6,
-          "client_meetings": 2,
+          "client_meetings": 4,
           "training": 3,
           "receiving": 4,
           "shipping": 4,
@@ -74652,10 +74281,12 @@
           "walk_in_service": 5,
           "customer_showroom": 2,
           "education": 2,
+          "food_preparation": 2,
+          "hospitality_service": 2,
           "healthcare_delivery": 1
         },
         "archetypeCoverage": {
-          "professional_office": 3,
+          "professional_office": 5,
           "consulting_firm": 3,
           "startup": 6,
           "research_company": 6,
@@ -74664,8 +74295,8 @@
           "law_firm": 2,
           "nonprofit_office": 3,
           "education_provider": 3,
-          "training_center": 3,
-          "creative_studio": 2,
+          "training_center": 5,
+          "creative_studio": 4,
           "medical_practice": 2,
           "general_contractor": 4,
           "cabinet_shop": 3,
@@ -74675,26 +74306,19 @@
           "building_services_company": 1,
           "wellness_practice": 4,
           "childcare_provider": 2,
+          "food_producer": 2,
           "physical_therapy_practice": 2,
           "outpatient_clinic": 1
         },
         "missingPrimaryEcosystemDistricts": [],
         "reviewRequiredDistricts": [],
-        "underrepresentedEcosystems": [
-          {
-            "id": "hospitality",
-            "label": "Hospitality",
-            "status": "Missing",
-            "districtCount": 0,
-            "representativeBuildingCount": 0
-          }
-        ],
+        "underrepresentedEcosystems": [],
         "summary": {
           "ecosystemCount": 7,
           "developedCount": 4,
-          "partialCount": 2,
+          "partialCount": 3,
           "thinCount": 0,
-          "missingCount": 1,
+          "missingCount": 0,
           "reviewRequiredDistrictCount": 0
         }
       },
@@ -74831,7 +74455,9 @@
                 "walk_in_service",
                 "customer_showroom",
                 "education",
-                "training"
+                "training",
+                "food_preparation",
+                "hospitality_service"
               ],
               "archetypeCoverage": [
                 "professional_office",
@@ -74847,7 +74473,8 @@
                 "marketing_agency",
                 "education_provider",
                 "training_center",
-                "creative_studio"
+                "creative_studio",
+                "food_producer"
               ],
               "operationalCharacteristicsCovered": [
                 "campus_environment",
@@ -75155,9 +74782,9 @@
               "recommendations": 2,
               "representativeBuildings": 2,
               "buildingBriefs": 2,
-              "subtypes": 8,
-              "archetypes": 10,
-              "activities": 8,
+              "subtypes": 12,
+              "archetypes": 12,
+              "activities": 10,
               "reviewRequiredDistricts": 0,
               "representativeRoles": 2,
               "operationalCategories": 2,
@@ -75219,7 +74846,8 @@
                 "administrative_operations",
                 "education",
                 "training",
-                "food_preparation"
+                "food_preparation",
+                "hospitality_service"
               ],
               "archetypeCoverage": [
                 "wellness_practice",
@@ -75230,6 +74858,7 @@
                 "nonprofit_office",
                 "education_provider",
                 "training_center",
+                "creative_studio",
                 "food_producer"
               ],
               "operationalCharacteristicsCovered": [
@@ -75504,27 +75133,27 @@
             "label": "Hospitality",
             "relevance": "secondary",
             "relevanceLabel": "Secondary",
-            "readinessState": "missing",
-            "readinessLabel": "Missing",
+            "readinessState": "partial",
+            "readinessLabel": "Partial",
             "layers": {
               "districts": "missing",
               "recommendations": "missing",
               "representativeBuildings": "missing",
               "buildingBriefs": "missing",
-              "subtypes": "missing",
-              "archetypes": "missing",
-              "activities": "missing",
+              "subtypes": "developed",
+              "archetypes": "partial",
+              "activities": "strong",
               "editorialReview": "developed"
             },
             "counts": {
               "districts": 0,
-              "secondaryDistricts": 0,
+              "secondaryDistricts": 1,
               "recommendations": 0,
               "representativeBuildings": 0,
               "buildingBriefs": 0,
-              "subtypes": 0,
-              "archetypes": 0,
-              "activities": 0,
+              "subtypes": 3,
+              "archetypes": 1,
+              "activities": 2,
               "reviewRequiredDistricts": 0,
               "representativeRoles": 0,
               "operationalCategories": 0,
@@ -75532,16 +75161,13 @@
               "reviewRequiredRepresentativeBuildings": 0
             },
             "gaps": [
-              "No district coverage for this relevant ecosystem.",
-              "Subtype breadth is thin.",
-              "Business archetype coverage is thin.",
-              "Business activity coverage is thin."
+              "Ecosystem appears only as a secondary district expression."
             ],
             "blocking": false,
             "blockingCodes": [],
             "strategicPriority": 7,
             "evidence": [
-              "0 primary districts and 0 secondary districts.",
+              "0 primary districts and 1 secondary districts.",
               "0 Representative Buildings and 0 Building Briefs."
             ],
             "targetSubtypes": [
@@ -75744,96 +75370,21 @@
             "blocksEcosystemReadiness": false
           },
           {
-            "id": "ecosystem:hospitality:ecosystem_missing",
-            "code": "ecosystem_missing",
-            "label": "Ecosystem Missing",
-            "severity": "medium",
+            "id": "ecosystem:hospitality:ecosystem_secondary_only",
+            "code": "ecosystem_secondary_only",
+            "label": "Ecosystem Secondary Only",
+            "severity": "low",
             "layer": "districts",
             "ecosystemId": "hospitality",
             "ecosystemLabel": "Hospitality",
             "relevance": "secondary",
-            "readinessState": "missing",
-            "rationale": "Relevant ecosystem has no meaningful district coverage.",
+            "readinessState": "partial",
+            "rationale": "Ecosystem appears only as secondary context.",
             "evidence": [
-              "0 primary districts and 0 secondary districts.",
+              "0 primary districts and 1 secondary districts.",
               "0 Representative Buildings and 0 Building Briefs."
             ],
             "recommendedSprintFamily": "Ecosystem District Foundation",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:hospitality:ecosystem_subtype_gap",
-            "code": "ecosystem_subtype_gap",
-            "label": "Ecosystem Subtype Gap",
-            "severity": "medium",
-            "layer": "subtypes",
-            "ecosystemId": "hospitality",
-            "ecosystemLabel": "Hospitality",
-            "relevance": "secondary",
-            "readinessState": "missing",
-            "rationale": "Subtype breadth is too narrow for the ecosystem's relevance.",
-            "evidence": [
-              "0 primary districts and 0 secondary districts.",
-              "0 Representative Buildings and 0 Building Briefs."
-            ],
-            "recommendedSprintFamily": "Ecosystem Subtype Expansion",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:hospitality:ecosystem_archetype_gap",
-            "code": "ecosystem_archetype_gap",
-            "label": "Ecosystem Archetype Gap",
-            "severity": "low",
-            "layer": "archetypes",
-            "ecosystemId": "hospitality",
-            "ecosystemLabel": "Hospitality",
-            "relevance": "secondary",
-            "readinessState": "missing",
-            "rationale": "Business archetype coverage is too narrow.",
-            "evidence": [
-              "0 primary districts and 0 secondary districts.",
-              "0 Representative Buildings and 0 Building Briefs."
-            ],
-            "recommendedSprintFamily": "Archetype Coverage Expansion",
-            "completionCriteria": [
-              "Validated district ecosystem classification",
-              "Representative Building coverage across the most important subtypes",
-              "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-              "Building Brief migration only after canonical records and district association exist",
-              "Publisher ecosystem QA passes without hard errors"
-            ],
-            "blocksEcosystemReadiness": false
-          },
-          {
-            "id": "ecosystem:hospitality:ecosystem_activity_gap",
-            "code": "ecosystem_activity_gap",
-            "label": "Ecosystem Activity Gap",
-            "severity": "low",
-            "layer": "activities",
-            "ecosystemId": "hospitality",
-            "ecosystemLabel": "Hospitality",
-            "relevance": "secondary",
-            "readinessState": "missing",
-            "rationale": "Business activity coverage is too narrow.",
-            "evidence": [
-              "0 primary districts and 0 secondary districts.",
-              "0 Representative Buildings and 0 Building Briefs."
-            ],
-            "recommendedSprintFamily": "Business Activity Coverage Review",
             "completionCriteria": [
               "Validated district ecosystem classification",
               "Representative Building coverage across the most important subtypes",
@@ -75912,56 +75463,6 @@
         "warnings": []
       },
       "ecosystemGaps": [
-        {
-          "id": "ecosystem:hospitality:ecosystem_missing",
-          "code": "ecosystem_missing",
-          "label": "Ecosystem Missing",
-          "severity": "medium",
-          "layer": "districts",
-          "ecosystemId": "hospitality",
-          "ecosystemLabel": "Hospitality",
-          "relevance": "secondary",
-          "readinessState": "missing",
-          "rationale": "Relevant ecosystem has no meaningful district coverage.",
-          "evidence": [
-            "0 primary districts and 0 secondary districts.",
-            "0 Representative Buildings and 0 Building Briefs."
-          ],
-          "recommendedSprintFamily": "Ecosystem District Foundation",
-          "completionCriteria": [
-            "Validated district ecosystem classification",
-            "Representative Building coverage across the most important subtypes",
-            "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-            "Building Brief migration only after canonical records and district association exist",
-            "Publisher ecosystem QA passes without hard errors"
-          ],
-          "blocksEcosystemReadiness": false
-        },
-        {
-          "id": "ecosystem:hospitality:ecosystem_subtype_gap",
-          "code": "ecosystem_subtype_gap",
-          "label": "Ecosystem Subtype Gap",
-          "severity": "medium",
-          "layer": "subtypes",
-          "ecosystemId": "hospitality",
-          "ecosystemLabel": "Hospitality",
-          "relevance": "secondary",
-          "readinessState": "missing",
-          "rationale": "Subtype breadth is too narrow for the ecosystem's relevance.",
-          "evidence": [
-            "0 primary districts and 0 secondary districts.",
-            "0 Representative Buildings and 0 Building Briefs."
-          ],
-          "recommendedSprintFamily": "Ecosystem Subtype Expansion",
-          "completionCriteria": [
-            "Validated district ecosystem classification",
-            "Representative Building coverage across the most important subtypes",
-            "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-            "Building Brief migration only after canonical records and district association exist",
-            "Publisher ecosystem QA passes without hard errors"
-          ],
-          "blocksEcosystemReadiness": false
-        },
         {
           "id": "ecosystem:life_science:ecosystem_secondary_only",
           "code": "ecosystem_secondary_only",
@@ -76063,46 +75564,21 @@
           "blocksEcosystemReadiness": false
         },
         {
-          "id": "ecosystem:hospitality:ecosystem_activity_gap",
-          "code": "ecosystem_activity_gap",
-          "label": "Ecosystem Activity Gap",
+          "id": "ecosystem:hospitality:ecosystem_secondary_only",
+          "code": "ecosystem_secondary_only",
+          "label": "Ecosystem Secondary Only",
           "severity": "low",
-          "layer": "activities",
+          "layer": "districts",
           "ecosystemId": "hospitality",
           "ecosystemLabel": "Hospitality",
           "relevance": "secondary",
-          "readinessState": "missing",
-          "rationale": "Business activity coverage is too narrow.",
+          "readinessState": "partial",
+          "rationale": "Ecosystem appears only as secondary context.",
           "evidence": [
-            "0 primary districts and 0 secondary districts.",
+            "0 primary districts and 1 secondary districts.",
             "0 Representative Buildings and 0 Building Briefs."
           ],
-          "recommendedSprintFamily": "Business Activity Coverage Review",
-          "completionCriteria": [
-            "Validated district ecosystem classification",
-            "Representative Building coverage across the most important subtypes",
-            "Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus",
-            "Building Brief migration only after canonical records and district association exist",
-            "Publisher ecosystem QA passes without hard errors"
-          ],
-          "blocksEcosystemReadiness": false
-        },
-        {
-          "id": "ecosystem:hospitality:ecosystem_archetype_gap",
-          "code": "ecosystem_archetype_gap",
-          "label": "Ecosystem Archetype Gap",
-          "severity": "low",
-          "layer": "archetypes",
-          "ecosystemId": "hospitality",
-          "ecosystemLabel": "Hospitality",
-          "relevance": "secondary",
-          "readinessState": "missing",
-          "rationale": "Business archetype coverage is too narrow.",
-          "evidence": [
-            "0 primary districts and 0 secondary districts.",
-            "0 Representative Buildings and 0 Building Briefs."
-          ],
-          "recommendedSprintFamily": "Archetype Coverage Expansion",
+          "recommendedSprintFamily": "Ecosystem District Foundation",
           "completionCriteria": [
             "Validated district ecosystem classification",
             "Representative Building coverage across the most important subtypes",
@@ -76114,37 +75590,37 @@
         }
       ],
       "recommendedEcosystemSprint": {
-        "title": "East Bay Hospitality Ecosystem District Foundation",
-        "objective": "Improve East Bay commercial balance by advancing Hospitality from Missing toward stronger ecosystem readiness.",
-        "ecosystemId": "hospitality",
-        "ecosystemLabel": "Hospitality",
-        "relevance": "secondary",
-        "relevanceLabel": "Secondary",
-        "readinessState": "missing",
-        "readinessLabel": "Missing",
+        "title": "East Bay Life Science Ecosystem District Foundation",
+        "objective": "Improve East Bay commercial balance by advancing Life Science from Partial toward stronger ecosystem readiness.",
+        "ecosystemId": "life_science",
+        "ecosystemLabel": "Life Science",
+        "relevance": "important",
+        "relevanceLabel": "Important",
+        "readinessState": "partial",
+        "readinessLabel": "Partial",
         "sprintFamily": "Ecosystem District Foundation",
-        "rationale": "Hospitality is Secondary for East Bay and is currently Missing. Relevant ecosystem has no meaningful district coverage.",
-        "gapCode": "ecosystem_missing",
-        "priorityScore": 54,
+        "rationale": "Life Science is Important for East Bay and is currently Partial. Ecosystem appears only as secondary context.",
+        "gapCode": "ecosystem_secondary_only",
+        "priorityScore": 50,
         "layers": {
           "districts": "missing",
           "recommendations": "missing",
           "representativeBuildings": "missing",
           "buildingBriefs": "missing",
-          "subtypes": "missing",
-          "archetypes": "missing",
-          "activities": "missing",
+          "subtypes": "developed",
+          "archetypes": "strong",
+          "activities": "strong",
           "editorialReview": "developed"
         },
         "counts": {
           "districts": 0,
-          "secondaryDistricts": 0,
+          "secondaryDistricts": 2,
           "recommendations": 0,
           "representativeBuildings": 0,
           "buildingBriefs": 0,
-          "subtypes": 0,
-          "archetypes": 0,
-          "activities": 0,
+          "subtypes": 2,
+          "archetypes": 3,
+          "activities": 3,
           "reviewRequiredDistricts": 0,
           "representativeRoles": 0,
           "operationalCategories": 0,
@@ -76152,31 +75628,37 @@
           "reviewRequiredRepresentativeBuildings": 0
         },
         "gaps": [
-          "No district coverage for this relevant ecosystem.",
-          "Subtype breadth is thin.",
-          "Business archetype coverage is thin.",
-          "Business activity coverage is thin."
+          "Ecosystem appears only as a secondary district expression."
         ],
         "targetSubtypes": [
-          "hotel",
-          "food_beverage",
-          "event_hospitality",
-          "visitor_serving"
+          "research_lab",
+          "wet_lab",
+          "life_science_office",
+          "biotech_research",
+          "innovation_campus"
         ],
         "targetArchetypes": [
-          "food_producer",
-          "training_center"
+          "research_company",
+          "biotech_company",
+          "startup"
         ],
         "targetActivities": [
-          "hospitality_service",
-          "food_preparation",
-          "walk_in_service"
+          "research",
+          "product_development",
+          "collaboration",
+          "administrative_operations"
         ],
-        "missingRepresentativeRoles": [],
+        "missingRepresentativeRoles": [
+          "research_lab_environment",
+          "life_science_campus",
+          "biotech_research_environment"
+        ],
         "missingOperationalCategories": [
-          "access_loading",
+          "configuration",
           "infrastructure",
-          "location_workforce"
+          "market_presence",
+          "location_workforce",
+          "outdoor_special_use"
         ],
         "currentRepresentativeRoles": [],
         "currentOperationalCategories": [],
@@ -76205,7 +75687,7 @@
           "title": "East Bay Office Building Brief Migration",
           "whyNotFirst": "Office work remains useful, but the target ecosystem has a higher strategic gap based on current readiness."
         },
-        "codexPrompt": "Implement Publisher ecosystem sprint for East Bay: East Bay Hospitality Ecosystem District Foundation\n\nFramework:\n- Businesses search for places where their operations can succeed, not for property types.\n- Use the Commercial Ecosystem Framework and canonical taxonomy.\n- Do not change recommendation rankings, Search Profile questions, or public page design.\n\nTarget ecosystem: Hospitality (hospitality)\nMetro relevance: Secondary\nCurrent readiness: Missing\nSprint family: Ecosystem District Foundation\n\nCurrent layer coverage:\n- districts: missing\n- recommendations: missing\n- representativeBuildings: missing\n- buildingBriefs: missing\n- subtypes: missing\n- archetypes: missing\n- activities: missing\n- editorialReview: developed\n\nKnown gaps:\n- No district coverage for this relevant ecosystem.\n- Subtype breadth is thin.\n- Business archetype coverage is thin.\n- Business activity coverage is thin.\n\nTarget subtypes:\n- hotel, food_beverage, event_hospitality, visitor_serving\nTarget archetypes:\n- food_producer, training_center\nTarget business activities:\n- hospitality_service, food_preparation, walk_in_service\nMissing representative roles:\n- none identified\nMissing operational categories:\n- access_loading, infrastructure, location_workforce\nExisting representative buildings:\n- none\nDistrict candidates:\n- review required\n\nDependencies:\n- Ecosystem classification\n- District foundation\n- Recommendation foundation\n- Representative Building foundation\n- Building Brief migration after canonical records exist\n\nCompletion criteria:\n- Validated district ecosystem classification\n- Representative Building coverage across the most important subtypes\n- Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus\n- Building Brief migration only after canonical records and district association exist\n- Publisher ecosystem QA passes without hard errors\n- Every target representative role has at least one source-supported building or is explicitly marked research required\n- Target operational categories are represented without asserting unverified property features\n- Representative Building intelligence QA passes\n\nGuardrails:\n- Do not invent districts, buildings, tenants, availability, rents, or unsupported facts.\n- Do not deepen office-only coverage when the target ecosystem is different.\n- Do not treat taxonomy compatibility as proof that a property has a feature.\n- Validate loading, power, parking, yards, lab, food, medical, and permitted-use claims before authoring them as facts.\n- Do not recommend Building Brief migration before canonical representative buildings exist.\n- Regenerate Publisher snapshots and run ecosystem readiness QA.\n\nVerification:\n- npm run publisher:snapshot\n- npm run publisher:report\n- npm run build\n- node scripts/qa-commercial-ecosystem-foundation.js\n- node scripts/qa-publisher-ecosystem-readiness.js\n- node scripts/qa-representative-building-intelligence.js"
+        "codexPrompt": "Implement Publisher ecosystem sprint for East Bay: East Bay Life Science Ecosystem District Foundation\n\nFramework:\n- Businesses search for places where their operations can succeed, not for property types.\n- Use the Commercial Ecosystem Framework and canonical taxonomy.\n- Do not change recommendation rankings, Search Profile questions, or public page design.\n\nTarget ecosystem: Life Science (life_science)\nMetro relevance: Important\nCurrent readiness: Partial\nSprint family: Ecosystem District Foundation\n\nCurrent layer coverage:\n- districts: missing\n- recommendations: missing\n- representativeBuildings: missing\n- buildingBriefs: missing\n- subtypes: developed\n- archetypes: strong\n- activities: strong\n- editorialReview: developed\n\nKnown gaps:\n- Ecosystem appears only as a secondary district expression.\n\nTarget subtypes:\n- research_lab, wet_lab, life_science_office, biotech_research, innovation_campus\nTarget archetypes:\n- research_company, biotech_company, startup\nTarget business activities:\n- research, product_development, collaboration, administrative_operations\nMissing representative roles:\n- research_lab_environment, life_science_campus, biotech_research_environment\nMissing operational categories:\n- configuration, infrastructure, market_presence, location_workforce, outdoor_special_use\nExisting representative buildings:\n- none\nDistrict candidates:\n- review required\n\nDependencies:\n- Ecosystem classification\n- District foundation\n- Recommendation foundation\n- Representative Building foundation\n- Building Brief migration after canonical records exist\n\nCompletion criteria:\n- Validated district ecosystem classification\n- Representative Building coverage across the most important subtypes\n- Representative Building intelligence covers roles, business activities, archetypes, and operational validation focus\n- Building Brief migration only after canonical records and district association exist\n- Publisher ecosystem QA passes without hard errors\n- Every target representative role has at least one source-supported building or is explicitly marked research required\n- Target operational categories are represented without asserting unverified property features\n- Representative Building intelligence QA passes\n\nGuardrails:\n- Do not invent districts, buildings, tenants, availability, rents, or unsupported facts.\n- Do not deepen office-only coverage when the target ecosystem is different.\n- Do not treat taxonomy compatibility as proof that a property has a feature.\n- Validate loading, power, parking, yards, lab, food, medical, and permitted-use claims before authoring them as facts.\n- Do not recommend Building Brief migration before canonical representative buildings exist.\n- Regenerate Publisher snapshots and run ecosystem readiness QA.\n\nVerification:\n- npm run publisher:snapshot\n- npm run publisher:report\n- npm run build\n- node scripts/qa-commercial-ecosystem-foundation.js\n- node scripts/qa-publisher-ecosystem-readiness.js\n- node scripts/qa-representative-building-intelligence.js"
       },
       "gaps": [
         {
@@ -78065,7 +77547,7 @@
     {
       "metroId": "sacramento",
       "metroName": "Sacramento",
-      "generatedAt": "2026-08-12T20:42:22-07:00",
+      "generatedAt": "2026-08-12T21:47:44-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 98,
@@ -86711,7 +86193,7 @@
     {
       "metroId": "san-diego",
       "metroName": "San Diego",
-      "generatedAt": "2026-08-12T20:42:22-07:00",
+      "generatedAt": "2026-08-12T21:47:44-07:00",
       "currentState": {
         "readinessStatus": "Expansion Ready",
         "overallScore": 84,
@@ -96247,7 +95729,7 @@
     {
       "metroId": "orange-county",
       "metroName": "Orange County",
-      "generatedAt": "2026-08-12T20:42:22-07:00",
+      "generatedAt": "2026-08-12T21:47:44-07:00",
       "currentState": {
         "readinessStatus": "Expansion Ready",
         "overallScore": 84,
@@ -105052,7 +104534,7 @@
     {
       "metroId": "denver",
       "metroName": "Denver",
-      "generatedAt": "2026-08-12T20:42:22-07:00",
+      "generatedAt": "2026-08-12T21:47:44-07:00",
       "currentState": {
         "readinessStatus": "Distribution Ready",
         "overallScore": 97,

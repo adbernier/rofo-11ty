@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-12T20:42:22-07:00",
+  "generatedAt": "2026-08-12T21:47:44-07:00",
   "eosVersion": "editorial-operating-system-v2.2.4",
   "sourceSystems": [
     "Publisher",
@@ -14,7 +14,7 @@
   ],
   "commercialKnowledgeIntelligence": {
     "schemaVersion": "eos-commercial-knowledge-intelligence-v1",
-    "generatedAt": "2026-08-12T20:42:22-07:00",
+    "generatedAt": "2026-08-12T21:47:44-07:00",
     "sourceSystems": [
       "Editor-controlled strategic priorities",
       "Google Search Console Search Analytics API",
@@ -15226,7 +15226,7 @@
       "displayedBy": "Mission Control",
       "status": "Validated",
       "validationStatus": "PASS",
-      "latestValidation": "2026-08-12T20:42:22-07:00",
+      "latestValidation": "2026-08-12T21:47:44-07:00",
       "markets": [
         {
           "marketId": "east-bay",
@@ -15897,7 +15897,7 @@
         "Low": 2
       },
       "deferredCandidates": 69,
-      "latestValidation": "2026-08-12T20:42:22-07:00",
+      "latestValidation": "2026-08-12T21:47:44-07:00",
       "errors": [],
       "warnings": [],
       "source": {
@@ -39602,21 +39602,20 @@
           "label": "Needs Attention"
         },
         "overallEditorialHealth": {
-          "score": 63,
+          "score": 64,
           "state": {
             "id": "needs_attention",
             "label": "Needs Attention"
           },
           "label": "Needs Attention",
           "rationale": [
-            "Commercial Ecosystem Coverage: Industrial & Flex, Retail coverage is strong or developed. Office is Partial; Life Science is Partial.",
             "Photography Coverage: Runtime Field Mode photo counts are not connected to EOS yet; v1 treats photo coverage as a human planning signal.",
             "Recommendation Coverage: Authoritative Recommendation QA is not independently scoped or verified for this market yet."
           ]
         },
         "knowledgeReadiness": {
           "label": "Developed",
-          "score": 73,
+          "score": 74,
           "interpretation": "EOS interpretation from Publisher, Compass, Knowledge Graph, Building Profile, and QA signals.",
           "sourceSignals": [
             "districtCoverage",
@@ -39648,16 +39647,16 @@
               "target": null,
               "label": "74% Publisher Confidence",
               "statusLabel": "Editorially Developed",
-              "currentConstraint": "Commercial Ecosystem Coverage: Industrial & Flex, Retail coverage is strong or developed. Office is Partial; Life Science is Partial.",
+              "currentConstraint": "Photography Coverage: Runtime Field Mode photo counts are not connected to EOS yet; v1 treats photo coverage as a human planning signal.",
               "sourceEvidence": [
                 "Publisher score.",
                 "Publisher readiness status.",
                 "EOS health signals."
               ]
             },
-            "currentConstraint": "Relevant ecosystem has no meaningful district coverage.",
-            "nextMissionId": "mission:east-bay:east-bay-hospitality-ecosystem-district-foundation",
-            "nextInitiativeId": "east-bay:publisher:hospitality-readiness",
+            "currentConstraint": "Ecosystem appears only as secondary context.",
+            "nextMissionId": "mission:east-bay:east-bay-life-science-ecosystem-district-foundation",
+            "nextInitiativeId": "east-bay:publisher:life-science-readiness",
             "campaigns": [
               {
                 "id": "east-bay:publisher:completion-campaign",
@@ -39669,14 +39668,14 @@
                   "target": null,
                   "label": "74% Publisher Confidence",
                   "statusLabel": "Editorially Developed",
-                  "currentConstraint": "Commercial Ecosystem Coverage: Industrial & Flex, Retail coverage is strong or developed. Office is Partial; Life Science is Partial.",
+                  "currentConstraint": "Photography Coverage: Runtime Field Mode photo counts are not connected to EOS yet; v1 treats photo coverage as a human planning signal.",
                   "sourceEvidence": [
                     "Publisher score.",
                     "Publisher readiness status.",
                     "EOS health signals."
                   ]
                 },
-                "currentConstraint": "Relevant ecosystem has no meaningful district coverage.",
+                "currentConstraint": "Ecosystem appears only as secondary context.",
                 "missionCount": 3,
                 "workItemCount": 8,
                 "sizingStrategy": "Publisher missions bundle the largest coherent readiness constraint that can be validated in one SER."
@@ -39684,19 +39683,19 @@
             ],
             "initiatives": [
               {
-                "id": "east-bay:publisher:hospitality-readiness",
-                "title": "East Bay Hospitality Readiness",
+                "id": "east-bay:publisher:life-science-readiness",
+                "title": "East Bay Life Science Readiness",
                 "status": "Next",
                 "currentStage": "Next",
-                "currentConstraint": "Relevant ecosystem has no meaningful district coverage.",
-                "objective": "East Bay Hospitality Ecosystem District Foundation",
-                "nextMissionId": "mission:east-bay:east-bay-hospitality-ecosystem-district-foundation",
+                "currentConstraint": "Ecosystem appears only as secondary context.",
+                "objective": "East Bay Life Science Ecosystem District Foundation",
+                "nextMissionId": "mission:east-bay:east-bay-life-science-ecosystem-district-foundation",
                 "missions": [
                   {
-                    "id": "mission:east-bay:east-bay-hospitality-ecosystem-district-foundation",
-                    "title": "East Bay Hospitality Ecosystem District Foundation",
+                    "id": "mission:east-bay:east-bay-life-science-ecosystem-district-foundation",
+                    "title": "East Bay Life Science Ecosystem District Foundation",
                     "programLabel": "Publisher",
-                    "currentConstraint": "Relevant ecosystem has no meaningful district coverage.",
+                    "currentConstraint": "Ecosystem appears only as secondary context.",
                     "expectedImpact": "High",
                     "estimatedEffort": "Small",
                     "missionSize": {
@@ -40969,10 +40968,10 @@
         ],
         "nextMissions": [
           {
-            "id": "mission:east-bay:east-bay-hospitality-ecosystem-district-foundation",
-            "title": "East Bay Hospitality Ecosystem District Foundation",
+            "id": "mission:east-bay:east-bay-life-science-ecosystem-district-foundation",
+            "title": "East Bay Life Science Ecosystem District Foundation",
             "programLabel": "Publisher",
-            "currentConstraint": "Relevant ecosystem has no meaningful district coverage.",
+            "currentConstraint": "Ecosystem appears only as secondary context.",
             "expectedImpact": "High",
             "estimatedEffort": "Small",
             "missionSize": {
@@ -48596,20 +48595,19 @@
           "label": "Improving"
         },
         "overallEditorialHealth": {
-          "score": 78,
+          "score": 79,
           "state": {
             "id": "improving",
             "label": "Improving"
           },
           "label": "Improving",
           "rationale": [
-            "Commercial Ecosystem Coverage: Office, Industrial & Flex, Retail coverage is strong or developed. Medical is Partial; Life Science is Partial.",
             "Photography Coverage: Runtime Field Mode photo counts are not connected to EOS yet; v1 treats photo coverage as a human planning signal."
           ]
         },
         "knowledgeReadiness": {
           "label": "Strong",
-          "score": 88,
+          "score": 90,
           "interpretation": "EOS interpretation from Publisher, Compass, Knowledge Graph, Building Profile, and QA signals.",
           "sourceSignals": [
             "districtCoverage",
@@ -48641,7 +48639,7 @@
               "target": null,
               "label": "96% Publisher Confidence",
               "statusLabel": "Distribution Ready",
-              "currentConstraint": "Commercial Ecosystem Coverage: Office, Industrial & Flex, Retail coverage is strong or developed. Medical is Partial; Life Science is Partial.",
+              "currentConstraint": "Photography Coverage: Runtime Field Mode photo counts are not connected to EOS yet; v1 treats photo coverage as a human planning signal.",
               "sourceEvidence": [
                 "Publisher score.",
                 "Publisher readiness status.",
@@ -48662,7 +48660,7 @@
                   "target": null,
                   "label": "96% Publisher Confidence",
                   "statusLabel": "Distribution Ready",
-                  "currentConstraint": "Commercial Ecosystem Coverage: Office, Industrial & Flex, Retail coverage is strong or developed. Medical is Partial; Life Science is Partial.",
+                  "currentConstraint": "Photography Coverage: Runtime Field Mode photo counts are not connected to EOS yet; v1 treats photo coverage as a human planning signal.",
                   "sourceEvidence": [
                     "Publisher score.",
                     "Publisher readiness status.",
@@ -55163,23 +55161,23 @@
           "target": null,
           "label": "74% Publisher Confidence",
           "statusLabel": "Editorially Developed",
-          "currentConstraint": "Commercial Ecosystem Coverage: Industrial & Flex, Retail coverage is strong or developed. Office is Partial; Life Science is Partial.",
+          "currentConstraint": "Photography Coverage: Runtime Field Mode photo counts are not connected to EOS yet; v1 treats photo coverage as a human planning signal.",
           "sourceEvidence": [
             "Publisher score.",
             "Publisher readiness status.",
             "EOS health signals."
           ]
         },
-        "currentConstraint": "Relevant ecosystem has no meaningful district coverage.",
-        "nextInitiativeId": "east-bay:publisher:hospitality-readiness",
-        "nextMissionId": "mission:east-bay:east-bay-hospitality-ecosystem-district-foundation",
+        "currentConstraint": "Ecosystem appears only as secondary context.",
+        "nextInitiativeId": "east-bay:publisher:life-science-readiness",
+        "nextMissionId": "mission:east-bay:east-bay-life-science-ecosystem-district-foundation",
         "initiativeIds": [
-          "east-bay:publisher:hospitality-readiness",
+          "east-bay:publisher:life-science-readiness",
           "east-bay:publisher:recommendation-readiness",
           "east-bay:publisher:comparison-graph"
         ],
         "missionIds": [
-          "mission:east-bay:east-bay-hospitality-ecosystem-district-foundation",
+          "mission:east-bay:east-bay-life-science-ecosystem-district-foundation",
           "mission:east-bay:add-or-update-recommendation-qa-documentation-for-this-metro",
           "mission:east-bay:add-meaningful-comparewith-relationships-to-nearby-or-decision-adjacent-districts"
         ],
@@ -55197,12 +55195,12 @@
           "EOS health signals."
         ],
         "initiatives": [
-          "east-bay:publisher:hospitality-readiness",
+          "east-bay:publisher:life-science-readiness",
           "east-bay:publisher:recommendation-readiness",
           "east-bay:publisher:comparison-graph"
         ],
         "missions": [
-          "mission:east-bay:east-bay-hospitality-ecosystem-district-foundation",
+          "mission:east-bay:east-bay-life-science-ecosystem-district-foundation",
           "mission:east-bay:add-or-update-recommendation-qa-documentation-for-this-metro",
           "mission:east-bay:add-meaningful-comparewith-relationships-to-nearby-or-decision-adjacent-districts"
         ]
@@ -61496,7 +61494,7 @@
           "target": null,
           "label": "96% Publisher Confidence",
           "statusLabel": "Distribution Ready",
-          "currentConstraint": "Commercial Ecosystem Coverage: Office, Industrial & Flex, Retail coverage is strong or developed. Medical is Partial; Life Science is Partial.",
+          "currentConstraint": "Photography Coverage: Runtime Field Mode photo counts are not connected to EOS yet; v1 treats photo coverage as a human planning signal.",
           "sourceEvidence": [
             "Publisher score.",
             "Publisher readiness status.",
@@ -66168,14 +66166,14 @@
         "campaignId": "denver:market_discovery:completion-campaign"
       },
       {
-        "id": "east-bay:publisher:hospitality-readiness",
+        "id": "east-bay:publisher:life-science-readiness",
         "marketId": "east-bay",
         "marketName": "East Bay",
         "programId": "publisher",
         "programLabel": "Publisher",
-        "title": "East Bay Hospitality Readiness",
-        "scope": "Hospitality",
-        "objective": "East Bay Hospitality Ecosystem District Foundation",
+        "title": "East Bay Life Science Readiness",
+        "scope": "Life Science",
+        "objective": "East Bay Life Science Ecosystem District Foundation",
         "status": "Next",
         "currentStage": "Next",
         "progress": {
@@ -66188,10 +66186,10 @@
             "EOS mission queue."
           ]
         },
-        "currentConstraint": "Relevant ecosystem has no meaningful district coverage.",
-        "nextMissionId": "mission:east-bay:east-bay-hospitality-ecosystem-district-foundation",
+        "currentConstraint": "Ecosystem appears only as secondary context.",
+        "nextMissionId": "mission:east-bay:east-bay-life-science-ecosystem-district-foundation",
         "remainingMilestones": [
-          "Relevant ecosystem has no meaningful district coverage."
+          "Ecosystem appears only as secondary context."
         ],
         "confidence": "Medium",
         "sourceEvidence": [
@@ -66200,7 +66198,7 @@
         ],
         "readOnly": false,
         "missions": [
-          "mission:east-bay:east-bay-hospitality-ecosystem-district-foundation"
+          "mission:east-bay:east-bay-life-science-ecosystem-district-foundation"
         ],
         "campaignId": "east-bay:publisher:completion-campaign"
       },
@@ -73244,21 +73242,21 @@
         }
       },
       {
-        "id": "mission:east-bay:east-bay-hospitality-ecosystem-district-foundation",
-        "title": "East Bay Hospitality Ecosystem District Foundation",
+        "id": "mission:east-bay:east-bay-life-science-ecosystem-district-foundation",
+        "title": "East Bay Life Science Ecosystem District Foundation",
         "marketId": "east-bay",
         "marketName": "East Bay",
         "programId": "publisher",
         "programLabel": "Publisher",
         "campaignId": "east-bay:publisher:completion-campaign",
         "campaignTitle": "East Bay Publisher Completion",
-        "initiativeId": "east-bay:publisher:hospitality-readiness",
-        "initiativeTitle": "East Bay Hospitality Readiness",
+        "initiativeId": "east-bay:publisher:life-science-readiness",
+        "initiativeTitle": "East Bay Life Science Readiness",
         "portfolioId": "",
         "districtId": "",
         "districtName": "",
-        "objective": "East Bay Hospitality Ecosystem District Foundation",
-        "currentConstraint": "Relevant ecosystem has no meaningful district coverage.",
+        "objective": "East Bay Life Science Ecosystem District Foundation",
+        "currentConstraint": "Ecosystem appears only as secondary context.",
         "expectedImpact": "High",
         "estimatedEffort": "Small",
         "missionSize": {
@@ -73270,14 +73268,14 @@
         "missionClass": "Readiness Blocker",
         "confidence": "Medium",
         "priorityScore": 100,
-        "executionPacketRef": "portfolioQueues.missionQueue:mission:east-bay:east-bay-hospitality-ecosystem-district-foundation",
+        "executionPacketRef": "portfolioQueues.missionQueue:mission:east-bay:east-bay-life-science-ecosystem-district-foundation",
         "executionPacketAvailable": true,
         "componentStatuses": null,
         "workItems": {
           "hiddenByDefault": true,
           "count": 1,
           "includedOpportunityIds": [
-            "ecosystem:east-bay:hospitality"
+            "ecosystem:east-bay:life_science"
           ],
           "deferredWorkItemIds": [
             "field-mode-summary:east-bay",
@@ -77719,7 +77717,7 @@
     "openWorkItems": 316,
     "humanOnlyWorkItems": 7,
     "autonomousCandidates": 100,
-    "topWorkItem": "East Bay Hospitality Ecosystem District Foundation"
+    "topWorkItem": "East Bay Life Science Ecosystem District Foundation"
   },
   "metros": [
     {
@@ -77730,20 +77728,19 @@
         "label": "Improving"
       },
       "overallEditorialHealth": {
-        "score": 78,
+        "score": 79,
         "state": {
           "id": "improving",
           "label": "Improving"
         },
         "label": "Improving",
         "rationale": [
-          "Commercial Ecosystem Coverage: Office, Industrial & Flex, Retail coverage is strong or developed. Medical is Partial; Life Science is Partial.",
           "Photography Coverage: Runtime Field Mode photo counts are not connected to EOS yet; v1 treats photo coverage as a human planning signal."
         ]
       },
       "investmentScore": {
-        "score": 54,
-        "label": "54/100",
+        "score": 53,
+        "label": "53/100",
         "rationale": [
           "Existing foundation from Publisher score.",
           "Editorial leverage based on remaining health gap.",
@@ -77762,7 +77759,7 @@
         "source": "publisher"
       },
       "commercialEcosystemCoverage": {
-        "score": 69,
+        "score": 78,
         "state": "partial",
         "label": "Partial",
         "relevantEcosystems": [
@@ -77786,7 +77783,7 @@
       },
       "knowledgeReadiness": {
         "label": "Strong",
-        "score": 88,
+        "score": 90,
         "interpretation": "EOS interpretation from Publisher, Compass, Knowledge Graph, Building Profile, and QA signals.",
         "sourceSignals": [
           "districtCoverage",
@@ -77899,7 +77896,7 @@
         "commercialEcosystem": {
           "id": "commercialEcosystem",
           "label": "Commercial Ecosystem Coverage",
-          "score": 69,
+          "score": 78,
           "state": {
             "id": "improving",
             "label": "Improving"
@@ -77988,14 +77985,13 @@
         "label": "Needs Attention"
       },
       "overallEditorialHealth": {
-        "score": 63,
+        "score": 64,
         "state": {
           "id": "needs_attention",
           "label": "Needs Attention"
         },
         "label": "Needs Attention",
         "rationale": [
-          "Commercial Ecosystem Coverage: Industrial & Flex, Retail coverage is strong or developed. Office is Partial; Life Science is Partial.",
           "Photography Coverage: Runtime Field Mode photo counts are not connected to EOS yet; v1 treats photo coverage as a human planning signal.",
           "Recommendation Coverage: Authoritative Recommendation QA is not independently scoped or verified for this market yet."
         ]
@@ -78021,7 +78017,7 @@
         "source": "publisher"
       },
       "commercialEcosystemCoverage": {
-        "score": 65,
+        "score": 74,
         "state": "partial",
         "label": "Partial",
         "relevantEcosystems": [
@@ -78045,7 +78041,7 @@
       },
       "knowledgeReadiness": {
         "label": "Developed",
-        "score": 73,
+        "score": 74,
         "interpretation": "EOS interpretation from Publisher, Compass, Knowledge Graph, Building Profile, and QA signals.",
         "sourceSignals": [
           "districtCoverage",
@@ -78158,10 +78154,10 @@
         "commercialEcosystem": {
           "id": "commercialEcosystem",
           "label": "Commercial Ecosystem Coverage",
-          "score": 65,
+          "score": 74,
           "state": {
-            "id": "needs_attention",
-            "label": "Needs Attention"
+            "id": "improving",
+            "label": "Improving"
           },
           "note": "Industrial & Flex, Retail coverage is strong or developed. Office is Partial; Life Science is Partial.",
           "source": "publisher"
@@ -78231,7 +78227,7 @@
       "examples": [
         "Antioch East 18th Industrial",
         "East Bay Building Brief Migration Sprint",
-        "East Bay Hospitality Ecosystem District Foundation"
+        "East Bay Life Science Ecosystem District Foundation"
       ],
       "source": {
         "publisherStatus": "Editorially Developed",
@@ -79992,31 +79988,31 @@
   "portfolioQueues": {
     "todaysRecommendedWork": [
       {
-        "id": "mission:east-bay:east-bay-hospitality-ecosystem-district-foundation",
-        "title": "East Bay Hospitality Ecosystem District Foundation",
+        "id": "mission:east-bay:east-bay-life-science-ecosystem-district-foundation",
+        "title": "East Bay Life Science Ecosystem District Foundation",
         "marketId": "east-bay",
         "marketName": "East Bay",
         "programId": "publisher",
         "programLabel": "Publisher",
         "campaignId": "east-bay:publisher:completion-campaign",
         "campaignTitle": "East Bay Publisher Completion",
-        "initiativeId": "east-bay:publisher:hospitality-readiness",
-        "initiativeTitle": "East Bay Hospitality Readiness",
+        "initiativeId": "east-bay:publisher:life-science-readiness",
+        "initiativeTitle": "East Bay Life Science Readiness",
         "metroId": "east-bay",
         "metroName": "East Bay",
-        "ecosystem": "Hospitality",
-        "ecosystemId": "hospitality",
+        "ecosystem": "Life Science",
+        "ecosystemId": "life_science",
         "workstream": "Commercial Ecosystem",
         "includedOpportunityIds": [
-          "ecosystem:east-bay:hospitality"
+          "ecosystem:east-bay:life_science"
         ],
         "includedTasks": [
           {
-            "id": "ecosystem:east-bay:hospitality",
-            "title": "East Bay Hospitality Ecosystem District Foundation",
+            "id": "ecosystem:east-bay:life_science",
+            "title": "East Bay Life Science Ecosystem District Foundation",
             "category": "commercialEcosystem",
             "categoryLabel": "Commercial Ecosystem",
-            "reason": "Relevant ecosystem has no meaningful district coverage.",
+            "reason": "Ecosystem appears only as secondary context.",
             "suggestedModule": {
               "id": "publisher",
               "label": "Publisher"
@@ -80043,10 +80039,10 @@
             }
           }
         ],
-        "objective": "East Bay Hospitality Ecosystem District Foundation",
+        "objective": "East Bay Life Science Ecosystem District Foundation",
         "reason": [
           "1 related opportunity share metro, source, and validation paths.",
-          "Relevant ecosystem has no meaningful district coverage.",
+          "Ecosystem appears only as secondary context.",
           "Ecosystem readiness: Partial",
           "Commercial balance: Balanced"
         ],
@@ -80060,7 +80056,7 @@
         },
         "impactEffortClass": "High Impact / Small Effort",
         "missionClass": "Readiness Blocker",
-        "currentConstraint": "Relevant ecosystem has no meaningful district coverage.",
+        "currentConstraint": "Ecosystem appears only as secondary context.",
         "completionCriteria": [
           "The cited measurable gap is closed or explicitly reclassified.",
           "Existing Publisher, EOS, and relevant QA checks pass.",
@@ -80118,7 +80114,7 @@
           "Deferred work is explicit so unrelated scope does not leak into the mission."
         ],
         "why": [
-          "Current constraint: Relevant ecosystem has no meaningful district coverage.",
+          "Current constraint: Ecosystem appears only as secondary context.",
           "Expected impact is high based on readiness, foundation, or multi-gap evidence.",
           "Small mission size keeps the packet inside a 30-60 minutes review window."
         ],
@@ -80129,22 +80125,22 @@
           ]
         },
         "executionPacket": {
-          "objective": "East Bay Hospitality Ecosystem District Foundation",
+          "objective": "East Bay Life Science Ecosystem District Foundation",
           "reason": [
             "1 related opportunity share metro, source, and validation paths.",
-            "Relevant ecosystem has no meaningful district coverage.",
+            "Ecosystem appears only as secondary context.",
             "Ecosystem readiness: Partial",
             "Commercial balance: Balanced"
           ],
-          "currentHealth": "63% Needs Attention",
-          "currentConstraint": "Relevant ecosystem has no meaningful district coverage.",
+          "currentHealth": "64% Needs Attention",
+          "currentConstraint": "Ecosystem appears only as secondary context.",
           "includedTasks": [
             {
-              "id": "ecosystem:east-bay:hospitality",
-              "title": "East Bay Hospitality Ecosystem District Foundation",
+              "id": "ecosystem:east-bay:life_science",
+              "title": "East Bay Life Science Ecosystem District Foundation",
               "category": "commercialEcosystem",
               "categoryLabel": "Commercial Ecosystem",
-              "reason": "Relevant ecosystem has no meaningful district coverage.",
+              "reason": "Ecosystem appears only as secondary context.",
               "suggestedModule": {
                 "id": "publisher",
                 "label": "Publisher"
@@ -80389,7 +80385,7 @@
             "Task type: missing recommendation QA status",
             "Publisher severity: high"
           ],
-          "currentHealth": "63% Needs Attention",
+          "currentHealth": "64% Needs Attention",
           "currentConstraint": "Authoritative recommendation QA status was not found.",
           "includedTasks": [
             {
@@ -80669,7 +80665,7 @@
             "Ecosystem readiness: Partial",
             "Commercial balance: Balanced"
           ],
-          "currentHealth": "78% Improving",
+          "currentHealth": "79% Improving",
           "currentConstraint": "Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
           "includedTasks": [
             {
@@ -82729,20 +82725,20 @@
     ],
     "missionQueue": [
       {
-        "id": "mission:east-bay:east-bay-hospitality-ecosystem-district-foundation",
-        "title": "East Bay Hospitality Ecosystem District Foundation",
+        "id": "mission:east-bay:east-bay-life-science-ecosystem-district-foundation",
+        "title": "East Bay Life Science Ecosystem District Foundation",
         "marketId": "east-bay",
         "marketName": "East Bay",
         "programId": "publisher",
         "programLabel": "Publisher",
         "campaignId": "east-bay:publisher:completion-campaign",
         "campaignTitle": "East Bay Publisher Completion",
-        "initiativeId": "east-bay:publisher:hospitality-readiness",
-        "initiativeTitle": "East Bay Hospitality Readiness",
+        "initiativeId": "east-bay:publisher:life-science-readiness",
+        "initiativeTitle": "East Bay Life Science Readiness",
         "metroId": "east-bay",
         "metroName": "East Bay",
-        "ecosystem": "Hospitality",
-        "ecosystemId": "hospitality",
+        "ecosystem": "Life Science",
+        "ecosystemId": "life_science",
         "expectedImpact": "High",
         "estimatedEffort": "Small",
         "missionSize": {
@@ -82753,7 +82749,7 @@
         },
         "impactEffortClass": "High Impact / Small Effort",
         "missionClass": "Readiness Blocker",
-        "currentConstraint": "Relevant ecosystem has no meaningful district coverage.",
+        "currentConstraint": "Ecosystem appears only as secondary context.",
         "dependencies": [
           "Canonical ecosystem metadata",
           "Publisher ecosystem readiness analysis"
@@ -82793,15 +82789,15 @@
           "label": "Publisher"
         },
         "why": [
-          "Current constraint: Relevant ecosystem has no meaningful district coverage.",
+          "Current constraint: Ecosystem appears only as secondary context.",
           "Expected impact is high based on readiness, foundation, or multi-gap evidence.",
           "Small mission size keeps the packet inside a 30-60 minutes review window."
         ],
         "includedTasks": [
           {
-            "id": "ecosystem:east-bay:hospitality",
-            "title": "East Bay Hospitality Ecosystem District Foundation",
-            "reason": "Relevant ecosystem has no meaningful district coverage."
+            "id": "ecosystem:east-bay:life_science",
+            "title": "East Bay Life Science Ecosystem District Foundation",
+            "reason": "Ecosystem appears only as secondary context."
           }
         ],
         "deferredTasks": [
@@ -82817,20 +82813,20 @@
           }
         ],
         "executionPacket": {
-          "objective": "East Bay Hospitality Ecosystem District Foundation",
+          "objective": "East Bay Life Science Ecosystem District Foundation",
           "reason": [
             "1 related opportunity share metro, source, and validation paths.",
-            "Relevant ecosystem has no meaningful district coverage.",
+            "Ecosystem appears only as secondary context.",
             "Ecosystem readiness: Partial",
             "Commercial balance: Balanced"
           ],
-          "currentHealth": "63% Needs Attention",
-          "currentConstraint": "Relevant ecosystem has no meaningful district coverage.",
+          "currentHealth": "64% Needs Attention",
+          "currentConstraint": "Ecosystem appears only as secondary context.",
           "includedTasks": [
             {
-              "id": "ecosystem:east-bay:hospitality",
-              "title": "East Bay Hospitality Ecosystem District Foundation",
-              "reason": "Relevant ecosystem has no meaningful district coverage."
+              "id": "ecosystem:east-bay:life_science",
+              "title": "East Bay Life Science Ecosystem District Foundation",
+              "reason": "Ecosystem appears only as secondary context."
             }
           ],
           "deferredTasks": [
@@ -83020,7 +83016,7 @@
             "Task type: missing recommendation QA status",
             "Publisher severity: high"
           ],
-          "currentHealth": "63% Needs Attention",
+          "currentHealth": "64% Needs Attention",
           "currentConstraint": "Authoritative recommendation QA status was not found.",
           "includedTasks": [
             {
@@ -83229,7 +83225,7 @@
             "Ecosystem readiness: Partial",
             "Commercial balance: Balanced"
           ],
-          "currentHealth": "78% Improving",
+          "currentHealth": "79% Improving",
           "currentConstraint": "Representative Buildings lack sufficient role, activity, archetype, or operational intelligence.",
           "includedTasks": [
             {
@@ -85570,7 +85566,7 @@
             "Supporting Building Profiles will be selected only when they materially strengthen district explanation.",
             "9 selected Building Profile work items are included in this bounded Mission."
           ],
-          "currentHealth": "78% Improving",
+          "currentHealth": "79% Improving",
           "currentConstraint": "Design District Commercial Market Evidence is complete, but selected evidence Building Profiles remain incomplete.",
           "includedTasks": [
             {
@@ -85998,7 +85994,7 @@
             "Supporting Building Profiles will be selected only when they materially strengthen district explanation.",
             "9 selected Building Profile work items are included in this bounded Mission."
           ],
-          "currentHealth": "78% Improving",
+          "currentHealth": "79% Improving",
           "currentConstraint": "South Beach Commercial Market Evidence is complete, but selected evidence Building Profiles remain incomplete.",
           "includedTasks": [
             {
@@ -86743,7 +86739,7 @@
             "Supporting Building Profiles will be selected only when they materially strengthen district explanation.",
             "8 selected Building Profile work items are included in this bounded Mission."
           ],
-          "currentHealth": "78% Improving",
+          "currentHealth": "79% Improving",
           "currentConstraint": "Mission Bay Commercial Market Evidence is complete, but selected evidence Building Profiles remain incomplete.",
           "includedTasks": [
             {
@@ -87152,7 +87148,7 @@
             "Supporting Building Profiles will be selected only when they materially strengthen district explanation.",
             "8 selected Building Profile work items are included in this bounded Mission."
           ],
-          "currentHealth": "78% Improving",
+          "currentHealth": "79% Improving",
           "currentConstraint": "Mission District Commercial Market Evidence is complete, but selected evidence Building Profiles remain incomplete.",
           "includedTasks": [
             {
@@ -87561,7 +87557,7 @@
             "Supporting Building Profiles will be selected only when they materially strengthen district explanation.",
             "8 selected Building Profile work items are included in this bounded Mission."
           ],
-          "currentHealth": "78% Improving",
+          "currentHealth": "79% Improving",
           "currentConstraint": "Potrero Hill Commercial Market Evidence is complete, but selected evidence Building Profiles remain incomplete.",
           "includedTasks": [
             {
@@ -88651,7 +88647,7 @@
             "Supporting Building Profiles will be selected only when they materially strengthen district explanation.",
             "7 selected Building Profile work items are included in this bounded Mission."
           ],
-          "currentHealth": "78% Improving",
+          "currentHealth": "79% Improving",
           "currentConstraint": "Jackson Square Commercial Market Evidence is complete, but selected evidence Building Profiles remain incomplete.",
           "includedTasks": [
             {
@@ -89041,7 +89037,7 @@
             "Supporting Building Profiles will be selected only when they materially strengthen district explanation.",
             "7 selected Building Profile work items are included in this bounded Mission."
           ],
-          "currentHealth": "78% Improving",
+          "currentHealth": "79% Improving",
           "currentConstraint": "Showplace Square Commercial Market Evidence is complete, but selected evidence Building Profiles remain incomplete.",
           "includedTasks": [
             {
@@ -89364,7 +89360,7 @@
             "Task type: orphan district comparison",
             "Publisher severity: high"
           ],
-          "currentHealth": "63% Needs Attention",
+          "currentHealth": "64% Needs Attention",
           "currentConstraint": "District has no comparison relationships.",
           "includedTasks": [
             {
@@ -89950,7 +89946,7 @@
             "Supporting Building Profiles will be selected only when they materially strengthen district explanation.",
             "4 selected Building Profile work items are included in this bounded Mission."
           ],
-          "currentHealth": "78% Improving",
+          "currentHealth": "79% Improving",
           "currentConstraint": "SoMa Commercial Market Evidence is complete, but selected evidence Building Profiles remain incomplete.",
           "includedTasks": [
             {
@@ -90898,7 +90894,7 @@
             "Supporting Building Profiles: 0 / 2.",
             "2 selected Building Profile work items are included in this bounded Mission."
           ],
-          "currentHealth": "63% Needs Attention",
+          "currentHealth": "64% Needs Attention",
           "currentConstraint": "Emeryville Commercial Core Commercial Market Evidence is complete, but selected evidence Building Profiles remain incomplete.",
           "includedTasks": [
             {
@@ -105226,7 +105222,7 @@
             "Supporting Building Profiles will be selected only when they materially strengthen district explanation.",
             "0 selected Building Profile work items are included in this bounded Mission."
           ],
-          "currentHealth": "63% Needs Attention",
+          "currentHealth": "64% Needs Attention",
           "currentConstraint": "Oakland Medical Campuses lacks a Commercial Market Evidence collection and selected evidence Building Profiles.",
           "includedTasks": [
             {
@@ -108905,12 +108901,12 @@
     ],
     "editorialQueue": [
       {
-        "id": "ecosystem:east-bay:hospitality",
-        "title": "East Bay Hospitality Ecosystem District Foundation",
+        "id": "ecosystem:east-bay:life_science",
+        "title": "East Bay Life Science Ecosystem District Foundation",
         "metroId": "east-bay",
         "metroName": "East Bay",
-        "ecosystemId": "hospitality",
-        "itemName": "Hospitality",
+        "ecosystemId": "life_science",
+        "itemName": "Life Science",
         "expectedEditorialImpact": "High",
         "estimatedEffort": "60-120 min",
         "dependencies": [
@@ -108943,20 +108939,20 @@
           "label": "Publisher"
         },
         "why": [
-          "Relevant ecosystem has no meaningful district coverage.",
+          "Ecosystem appears only as secondary context.",
           "Ecosystem readiness: Partial",
           "Commercial balance: Balanced"
         ],
         "includedTasks": [],
         "deferredTasks": [],
         "executionPacket": {
-          "objective": "East Bay Hospitality Ecosystem District Foundation",
+          "objective": "East Bay Life Science Ecosystem District Foundation",
           "reason": [
-            "Relevant ecosystem has no meaningful district coverage.",
+            "Ecosystem appears only as secondary context.",
             "Ecosystem readiness: Partial",
             "Commercial balance: Balanced"
           ],
-          "currentHealth": "63% Needs Attention",
+          "currentHealth": "64% Needs Attention",
           "includedTasks": [],
           "deferredTasks": [],
           "files": [
@@ -109460,7 +109456,7 @@
             "Ecosystem readiness: Partial",
             "Commercial balance: Balanced"
           ],
-          "currentHealth": "78% Improving",
+          "currentHealth": "79% Improving",
           "includedTasks": [],
           "deferredTasks": [],
           "files": [
@@ -109708,7 +109704,7 @@
             "Task type: orphan district comparison",
             "Publisher severity: high"
           ],
-          "currentHealth": "63% Needs Attention",
+          "currentHealth": "64% Needs Attention",
           "includedTasks": [],
           "deferredTasks": [],
           "files": [
@@ -109826,7 +109822,7 @@
             "Task type: missing recommendation QA status",
             "Publisher severity: high"
           ],
-          "currentHealth": "63% Needs Attention",
+          "currentHealth": "64% Needs Attention",
           "includedTasks": [],
           "deferredTasks": [],
           "files": [
@@ -113356,7 +113352,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "63% Needs Attention",
+          "currentHealth": "64% Needs Attention",
           "includedTasks": [],
           "deferredTasks": [],
           "files": [
@@ -113474,7 +113470,7 @@
             "Task type: representative building missing Building Brief",
             "Publisher severity: medium"
           ],
-          "currentHealth": "63% Needs Attention",
+          "currentHealth": "64% Needs Attention",
           "includedTasks": [],
           "deferredTasks": [],
           "files": [
@@ -113592,7 +113588,7 @@
             "Task type: district missing representative buildings",
             "Publisher severity: medium"
           ],
-          "currentHealth": "63% Needs Attention",
+          "currentHealth": "64% Needs Attention",
           "includedTasks": [],
           "deferredTasks": [],
           "files": [
@@ -121526,7 +121522,7 @@
           "Field Mode requires a human to capture Rofo-owned photos.",
           "A real city, district, or building photo improves public editorial trust without changing recommendations."
         ],
-        "currentHealth": "63% Needs Attention",
+        "currentHealth": "64% Needs Attention",
         "includedTasks": [],
         "deferredTasks": [],
         "files": [
@@ -121998,7 +121994,7 @@
           "Field Mode requires a human to capture Rofo-owned photos.",
           "A real city, district, or building photo improves public editorial trust without changing recommendations."
         ],
-        "currentHealth": "78% Improving",
+        "currentHealth": "79% Improving",
         "includedTasks": [],
         "deferredTasks": [],
         "files": [
@@ -122184,12 +122180,12 @@
       }
     },
     {
-      "id": "ecosystem:east-bay:hospitality",
-      "title": "East Bay Hospitality Ecosystem District Foundation",
+      "id": "ecosystem:east-bay:life_science",
+      "title": "East Bay Life Science Ecosystem District Foundation",
       "metroId": "east-bay",
       "metroName": "East Bay",
-      "ecosystemId": "hospitality",
-      "itemName": "Hospitality",
+      "ecosystemId": "life_science",
+      "itemName": "Life Science",
       "expectedEditorialImpact": "High",
       "estimatedEffort": "60-120 min",
       "dependencies": [
@@ -122222,20 +122218,20 @@
         "label": "Publisher"
       },
       "why": [
-        "Relevant ecosystem has no meaningful district coverage.",
+        "Ecosystem appears only as secondary context.",
         "Ecosystem readiness: Partial",
         "Commercial balance: Balanced"
       ],
       "includedTasks": [],
       "deferredTasks": [],
       "executionPacket": {
-        "objective": "East Bay Hospitality Ecosystem District Foundation",
+        "objective": "East Bay Life Science Ecosystem District Foundation",
         "reason": [
-          "Relevant ecosystem has no meaningful district coverage.",
+          "Ecosystem appears only as secondary context.",
           "Ecosystem readiness: Partial",
           "Commercial balance: Balanced"
         ],
-        "currentHealth": "63% Needs Attention",
+        "currentHealth": "64% Needs Attention",
         "includedTasks": [],
         "deferredTasks": [],
         "files": [
@@ -122739,7 +122735,7 @@
           "Ecosystem readiness: Partial",
           "Commercial balance: Balanced"
         ],
-        "currentHealth": "78% Improving",
+        "currentHealth": "79% Improving",
         "includedTasks": [],
         "deferredTasks": [],
         "files": [
@@ -122987,7 +122983,7 @@
           "Task type: orphan district comparison",
           "Publisher severity: high"
         ],
-        "currentHealth": "63% Needs Attention",
+        "currentHealth": "64% Needs Attention",
         "includedTasks": [],
         "deferredTasks": [],
         "files": [
@@ -123105,7 +123101,7 @@
           "Task type: missing recommendation QA status",
           "Publisher severity: high"
         ],
-        "currentHealth": "63% Needs Attention",
+        "currentHealth": "64% Needs Attention",
         "includedTasks": [],
         "deferredTasks": [],
         "files": [
@@ -124531,7 +124527,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "63% Needs Attention",
+        "currentHealth": "64% Needs Attention",
         "includedTasks": [],
         "deferredTasks": [],
         "files": [
@@ -124649,7 +124645,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "63% Needs Attention",
+        "currentHealth": "64% Needs Attention",
         "includedTasks": [],
         "deferredTasks": [],
         "files": [
@@ -124767,7 +124763,7 @@
           "Task type: district missing representative buildings",
           "Publisher severity: medium"
         ],
-        "currentHealth": "63% Needs Attention",
+        "currentHealth": "64% Needs Attention",
         "includedTasks": [],
         "deferredTasks": [],
         "files": [
@@ -126532,7 +126528,7 @@
           "Task type: missing explainability fields",
           "Publisher severity: medium"
         ],
-        "currentHealth": "78% Improving",
+        "currentHealth": "79% Improving",
         "includedTasks": [],
         "deferredTasks": [],
         "files": [
@@ -126649,7 +126645,7 @@
           "Task type: missing explainability fields",
           "Publisher severity: medium"
         ],
-        "currentHealth": "78% Improving",
+        "currentHealth": "79% Improving",
         "includedTasks": [],
         "deferredTasks": [],
         "files": [
@@ -126766,7 +126762,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "78% Improving",
+        "currentHealth": "79% Improving",
         "includedTasks": [],
         "deferredTasks": [],
         "files": [
@@ -126884,7 +126880,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "78% Improving",
+        "currentHealth": "79% Improving",
         "includedTasks": [],
         "deferredTasks": [],
         "files": [
@@ -127002,7 +126998,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "78% Improving",
+        "currentHealth": "79% Improving",
         "includedTasks": [],
         "deferredTasks": [],
         "files": [
@@ -127120,7 +127116,7 @@
           "Task type: representative building missing Building Brief",
           "Publisher severity: medium"
         ],
-        "currentHealth": "78% Improving",
+        "currentHealth": "79% Improving",
         "includedTasks": [],
         "deferredTasks": [],
         "files": [
@@ -127946,7 +127942,7 @@
           "Task type: one-way comparison",
           "Publisher severity: low"
         ],
-        "currentHealth": "63% Needs Attention",
+        "currentHealth": "64% Needs Attention",
         "includedTasks": [],
         "deferredTasks": [],
         "files": [
