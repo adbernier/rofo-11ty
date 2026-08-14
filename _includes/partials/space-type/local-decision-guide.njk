@@ -1,5 +1,5 @@
 {% if entry.localDecisionGuide %}
-  <section class="content-card space-type-local-decision" aria-labelledby="space-type-local-decision-heading">
+  <section class="content-card space-type-local-decision"{% if entry.localDecisionGuide.experimentId %} data-experiment="{{ entry.localDecisionGuide.experimentId }}"{% endif %} aria-labelledby="space-type-local-decision-heading">
     <div class="eyebrow">{{ entry.localDecisionGuide.eyebrow }}</div>
     <h2 id="space-type-local-decision-heading">{{ entry.localDecisionGuide.title }}</h2>
     <p>{{ entry.localDecisionGuide.introduction }}</p>
@@ -22,6 +22,14 @@
       {% endfor %}
     </div>
 
+    {% if entry.localDecisionGuide.representativeEnvironment %}
+      <div class="neighborhood-decision-guidance">
+        <div class="eyebrow">{{ entry.localDecisionGuide.representativeEnvironment.label }}</div>
+        <h3><a href="{{ entry.localDecisionGuide.representativeEnvironment.path }}">{{ entry.localDecisionGuide.representativeEnvironment.name }}</a></h3>
+        <p>{{ entry.localDecisionGuide.representativeEnvironment.summary }}</p>
+      </div>
+    {% endif %}
+
     <div class="neighborhood-decision-guidance">
       <h3>What to verify before comparing spaces</h3>
       <ul>
@@ -30,5 +38,12 @@
     </div>
 
     <p class="semantic-footnote">District guidance explains operating patterns, not current availability or verified capability in a particular suite.</p>
+
+    {% if entry.localDecisionGuide.recommendation %}
+      <div class="neighborhood-decision-guidance">
+        <p><strong>{{ entry.localDecisionGuide.recommendation.prompt }}</strong></p>
+        <a class="btn-primary" href="{{ entry.localDecisionGuide.recommendation.path }}">{{ entry.localDecisionGuide.recommendation.label }}</a>
+      </div>
+    {% endif %}
   </section>
 {% endif %}

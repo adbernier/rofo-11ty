@@ -3,6 +3,7 @@ const spaceTypes = require("./spaceTypes");
 const buildings = require("./buildings.js");
 const { getRoutingCandidates } = require("./leadRouting.js");
 const sfIndustrialFlexPublicDecision = require("./sfIndustrialFlexPublicDecision.js");
+const tempeIndustrialPublicDecision = require("./tempeIndustrialPublicDecision.js");
 
 function slugify(value) {
   return String(value || "")
@@ -193,6 +194,10 @@ module.exports = cities.flatMap((city) => {
               : normalizedTypeSlug === "flex-space"
               ? sfIndustrialFlexPublicDecision.flex
               : null
+            : normalizedCitySlug === "tempe" &&
+              normalizedStateAbbr === "az" &&
+              normalizedTypeSlug === "industrial-space"
+            ? tempeIndustrialPublicDecision
             : null,
       };
     })
