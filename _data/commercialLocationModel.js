@@ -1,4 +1,50 @@
 const districts = {
+  "/commercial-real-estate/CA/antioch/antioch-east-18th-industrial/": {
+    primary_archetype: "east_contra_costa_service_industrial",
+    secondary_archetypes: ["local_warehouse_contractor_district", "selective_office_warehouse"],
+    commercial_thesis:
+      "Antioch East 18th Industrial is a foundation-stage East Contra Costa industrial area for local-serving warehouse, storage, contractor, service-dispatch, and selective office/warehouse requirements. District fit can narrow the search, but it does not establish the capabilities or availability of any specific property.",
+    best_fit_businesses: [
+      "Contractor and service-industrial operations focused on an East Contra Costa customer or service territory",
+      "Smaller warehouse, storage, receiving, shipping, or dispatch requirements",
+      "Selective office/warehouse users that prioritize practical operating utility over office image",
+    ],
+    poor_fit_businesses: [
+      "Large regional distribution requirements that need a broader Bay Area logistics position",
+      "Specialized manufacturing users before power, use permissions, and building capability are verified",
+      "Technical flex or R&D users that need a more established engineering or campus environment",
+    ],
+    decision_guidance: [
+      "Confirm that East Contra Costa is the right customer, workforce, and service geography for the operation.",
+      "Verify loading, truck circulation, yard or outdoor storage, vehicle storage, power, parking, permitted use, and building format property by property.",
+      "Check the office-to-warehouse ratio, suite condition, and current availability before treating a specific space as a fit.",
+    ],
+    handbook_topics: [
+      {
+        title: "Choosing the Right Commercial Location",
+        url: "/commercial-real-estate/lease-guide/choosing-the-right-commercial-location/",
+        reason: "Use service territory, workforce geography, and operating reach to test whether Antioch belongs in the search.",
+      },
+      {
+        title: "How to Compare Commercial Spaces",
+        url: "/commercial-real-estate/lease-guide/how-to-compare-commercial-spaces/",
+        reason: "Compare property capability and total operating fit after the district has been narrowed.",
+      },
+    ],
+    compare_with: [],
+    warehouse_flex_profile: {
+      industrial_orientation: "local_service_industrial",
+      truck_access: "medium",
+      highway_access: "medium",
+      port_airport_access: "unknown",
+      loading_likelihood: "unknown",
+      yard_parking_likelihood: "unknown",
+      building_format: ["warehouse", "small_bay_industrial", "office_warehouse"],
+      tenant_fit: ["contractor", "service_industrial", "storage", "service_dispatch"],
+    },
+    confidence_level: "medium",
+    review_status: "foundation",
+  },
   "/commercial-real-estate/CA/san-francisco/soma/": {
     primary_archetype: "adaptive_warehouse_office_district",
     secondary_archetypes: ["mixed_use_startup_district", "central_city_creative_office"],
@@ -11025,6 +11071,9 @@ Object.assign(districts, {
 });
 
 const archetypeLabels = {
+  east_contra_costa_service_industrial: "East Contra Costa service-industrial area",
+  local_warehouse_contractor_district: "Local warehouse and contractor operations",
+  selective_office_warehouse: "Selective office / warehouse",
   sf_city_serving_industrial_district: "City-serving industrial district",
   warehouse_distribution_market: "Warehouse and distribution market",
   contractor_service_industrial: "Contractor and service-industrial market",

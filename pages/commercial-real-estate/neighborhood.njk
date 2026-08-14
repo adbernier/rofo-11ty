@@ -8,7 +8,7 @@ pagination:
 permalink: "{{ neighborhood.canonical_neighborhood_path }}"
 eleventyComputed:
   title: "{{ neighborhood.name }} Commercial Real Estate | {{ neighborhood.city }}, {{ neighborhood.state_abbr }} | Rofo"
-  description: "Understand why businesses consider {{ neighborhood.meta_context_label or ((neighborhood.display_name_with_article or neighborhood.name) + ', ' + neighborhood.city) | safe }}. Compare tradeoffs, nearby alternatives, and representative buildings before narrowing the search."
+  description: "{{ neighborhood.meta_description or ('Understand why businesses consider ' + (neighborhood.meta_context_label or ((neighborhood.display_name_with_article or neighborhood.name) + ', ' + neighborhood.city)) + '. Compare tradeoffs, nearby alternatives, and representative buildings before narrowing the search.') }}"
   canonical: "{{ metadata.siteUrl }}{{ neighborhood.canonical_neighborhood_path }}"
   robots: "{% if neighborhood.noindex %}noindex,follow{% endif %}"
 ---
@@ -223,7 +223,7 @@ eleventyComputed:
             <div class="neighborhood-card-grid neighborhood-card-grid--compact">
               <div class="neighborhood-mini-card">
                 <h3>Representative setting</h3>
-                <p>Selected examples of the local commercial environment</p>
+                <p>{% if neighborhood.foundation_without_buildings %}District-level operating context; property capability requires separate validation{% else %}Selected examples of the local commercial environment{% endif %}</p>
               </div>
               <div class="neighborhood-mini-card">
                 <h3>Space types</h3>

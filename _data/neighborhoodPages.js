@@ -7290,6 +7290,39 @@ const sfEditorialDistrictPages = sfEditorialDistrictDefinitions.map(sfEditorialD
 
 const searchLedFoundationPages = [
   {
+    name: "Antioch East 18th Industrial",
+    slug: "antioch-east-18th-industrial",
+    city: "Antioch",
+    state_abbr: "CA",
+    city_slug: "antioch",
+    canonical_neighborhood_path: "/commercial-real-estate/CA/antioch/antioch-east-18th-industrial/",
+    centroid_lat: "",
+    centroid_lng: "",
+    radius: "",
+    geometry_quality: "search_led_foundation_v1",
+    approximate_building_count: 0,
+    approximate_space_types: ["industrial", "flex"],
+    approximate_semantic_signals: ["Local Service Industrial", "Warehouse and Storage", "Contractor Operations", "Office / Warehouse"],
+    representative_buildings: [],
+    commercial_area_id: "antioch-east-18th-industrial",
+    commercial_area_type: "industrial_area",
+    commercial_area_type_label: "industrial area",
+    commercial_profile: ["industrial", "warehouse", "contractor_service", "flex"],
+    source_confidence: "medium",
+    source_types: ["commercial_market_evidence", "commercial_location_knowledge_graph"],
+    meta_description: "Understand when Antioch East 18th Industrial may fit local warehouse, contractor, service-industrial, storage, dispatch, or office/warehouse needs—and what to validate at a specific property.",
+    foundation_without_buildings: true,
+    public_market_evidence_record_ids: ["antioch-east-18th-industrial-foundation"],
+    suppress_nearby_neighborhoods: true,
+    noindex: false,
+    prototype: false,
+    public_review: false,
+    public_phase_1: false,
+    public_phase_2: true,
+    public_search_led_foundation_v1: true,
+    city_nav_priority: 2,
+  },
+  {
     name: "Indianapolis Airport Logistics",
     slug: "indianapolis-airport-logistics",
     city: "Indianapolis",
@@ -7609,6 +7642,13 @@ for (const page of allPages) {
   page.commercial_location_model =
     commercialLocationModel.byPath[page.canonical_neighborhood_path] || null;
   page.commercial_market_evidence = commercialMarketEvidenceByDistrict.get(page.slug) || null;
+  if (page.commercial_market_evidence && page.public_market_evidence_record_ids?.length) {
+    const publicRecordIds = new Set(page.public_market_evidence_record_ids);
+    page.commercial_market_evidence = {
+      ...page.commercial_market_evidence,
+      records: page.commercial_market_evidence.records.filter((record) => publicRecordIds.has(record.id)),
+    };
+  }
   const canonicalBuildingIntelligence =
     commercialBuildingIntelligence.byDistrictPath[page.canonical_neighborhood_path] || [];
   if (canonicalBuildingIntelligence.length) {
