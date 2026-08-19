@@ -581,3 +581,23 @@ eleventyComputed:
     })();
   </script>
 {% endif %}
+<script>
+  (function () {
+    var storageKey = "rofoLocationBriefV2Return";
+    try {
+      var context = JSON.parse(sessionStorage.getItem(storageKey) || "null");
+      if (!context || !/^\/(?:operator\/location-brief-v2|location-brief)\/LB2-[A-F0-9]{24}$/i.test(context.url || "")) return;
+      var shell = document.querySelector(".neighborhood-public .city-shell");
+      if (!shell) return;
+      var container = document.createElement("div");
+      var link = document.createElement("a");
+      container.className = "location-brief-return";
+      link.href = context.url;
+      link.textContent = "← " + (context.label || "Back to my Location Brief");
+      container.appendChild(link);
+      shell.insertBefore(container, shell.firstChild);
+    } catch (error) {
+      // Public district content and canonical behavior remain unchanged without private return context.
+    }
+  })();
+</script>

@@ -1311,6 +1311,41 @@ Object.entries(industrialQuestionPrompts).forEach(([slug, questionsToValidate]) 
       ],
     },
   },
+  {
+    slug: "presidio",
+    label: "Presidio",
+    type: "district",
+    city: "San Francisco",
+    state: "CA",
+    path: "/commercial-real-estate/CA/san-francisco/presidio/",
+    confidence: "medium",
+    recommendationEligible: false,
+    shadowRecommendationEligible: true,
+    operationalMarketId: "san-francisco",
+    operationalMarketName: "San Francisco",
+    sourceGeographyIds: ["sf-presidio"],
+    aliases: ["The Presidio", "Presidio of San Francisco"],
+    spaceTypeFit: {
+      office: fit("good", "Good selective fit for organizations and creative office users that value a campus-like historic setting, northern San Francisco access, and a quieter alternative to downtown.", ["creative office users", "nonprofits and foundations", "institutional and mission-driven organizations"], ["not a conventional downtown office core", "regional transit and building availability require separate validation"]),
+      retail: fit("limited", "Limited destination-oriented visitor and service retail fit rather than a conventional neighborhood shopping environment.", ["visitor-serving uses", "destination services"], ["not a dense street-retail district", "operating and leasing constraints are location-specific"]),
+    },
+    attributes: businessAttrs({ transit: "medium", parking: "medium", walkability: "medium", freewayAccess: "high", executiveImage: "medium", customerAccess: "medium", expansionFlexibility: "low", talentAccess: "medium", visibility: "low", amenities: "medium", costPosition: "unknown", creativeEnvironment: "high" }),
+    bestFor: ["creative office users", "nonprofits and foundations", "organizations seeking campus character"],
+    tradeoffs: ["less direct regional transit than downtown", "inventory and tenant eligibility are specialized", "building-level parking and access vary"],
+    strengths: ["historic campus setting", "northern San Francisco position", "Golden Gate Bridge adjacency", "open-space identity"],
+    questionsToValidate: ["Does northern driving access matter more than downtown regional transit?", "Is a campus-like setting appropriate for clients and employees?", "Does current Presidio inventory support the requirement?"],
+    relationships: { compareWith: [
+      { slug: "marina-district", label: "Marina District", reason: "More neighborhood retail and service visibility.", relationshipType: "similar" },
+      { slug: "jackson-square", label: "Jackson Square", reason: "More downtown-adjacent boutique office access.", relationshipType: "more_executive" },
+      { slug: "richmond-district", label: "Richmond District", reason: "More neighborhood-commercial and west-side customer context.", relationshipType: "similar" },
+    ] },
+    commercialGeography: {
+      canonicalDistrict: true,
+      eligibility: "shadow_only",
+      publicSourceId: "sf-presidio",
+      identityReconciliation: "Reuses the existing Presidio public/editorial object and route; no duplicate geography or public-route change.",
+    },
+  },
 ].forEach((card) => mergeKnowledgeCard(graph, card));
 
 [

@@ -1,0 +1,127 @@
+---
+layout: base.njk
+permalink: /prototype/requirement-v1/
+eleventyExcludeFromCollections: true
+robots: noindex,nofollow
+title: "Rofo Requirement v1 Private Prototype"
+description: "Private evaluation prototype for deterministic commercial real-estate Requirement Intelligence."
+---
+
+<link rel="stylesheet" href="/assets/requirement-prototype.css">
+
+<main class="requirement-prototype" data-requirement-prototype>
+  <script type="application/json" data-requirement-markets>{{ commercialGeography.markets | dump | safe }}</script>
+  <script type="application/json" data-requirement-districts>{{ requirementPrototypeDistrictGeography | dump | safe }}</script>
+  <script type="application/json" data-sf-office-recommendation-model>{{ sfOfficeRecommendationModel | dump | safe }}</script>
+  <script type="application/json" data-sf-access-foundation>{{ sfAccessFoundationV0 | dump | safe }}</script>
+  <script type="application/json" data-sf-office-composition-foundation>{{ sfOfficeCompositionFoundation | dump | safe }}</script>
+  <header class="requirement-prototype__header">
+    <div>
+      <p class="requirement-prototype__eyebrow">Private prototype · Session-local · No leads</p>
+      <h1>Build a useful Location Requirement.</h1>
+      <p>Answer a short sequence of practical business questions. Rofo will derive the location implications.</p>
+    </div>
+    <div class="requirement-prototype__header-actions">
+      <button type="button" data-toggle-understanding>What Rofo understands</button>
+      <button type="button" data-export-requirement>Export JSON</button>
+      <button type="button" data-reset-requirement>Reset</button>
+    </div>
+  </header>
+
+  <nav class="requirement-prototype__scenarios" aria-label="Prototype scenarios">
+    <span>Load a test case:</span>
+    <div data-scenario-buttons></div>
+  </nav>
+
+  <section class="requirement-understanding" data-understanding hidden>
+    <p class="requirement-prototype__eyebrow">What Rofo understands</p>
+    <div data-understanding-summary></div>
+  </section>
+
+  <section class="requirement-interview" data-interview aria-live="polite">
+    <div class="requirement-interview__orientation">
+      <span data-stage-label>Understanding the business</span>
+      <span data-question-position></span>
+    </div>
+    <div class="requirement-question" data-question-card>
+      <p class="requirement-prototype__eyebrow" data-question-kicker>Business activities</p>
+      <h2 data-question-prompt>What happens at this location?</h2>
+      <p class="requirement-question__help requirement-question__help--visible" data-question-visible-help hidden></p>
+      <div class="requirement-answer" data-answer-control></div>
+      <details class="requirement-question__why" data-question-help hidden>
+        <summary>Why this matters</summary>
+        <p></p>
+      </details>
+      <p class="requirement-question__error" data-question-error hidden></p>
+      <div class="requirement-question__actions">
+        <button type="button" data-back-question>Back</button>
+        <button class="requirement-button requirement-button--primary" type="button" data-continue-question disabled>Continue</button>
+        <button type="button" data-finish-early>Review what we know</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="requirement-complete" data-requirement-complete hidden>
+    <header>
+      <p class="requirement-prototype__eyebrow">Your standalone Requirement</p>
+      <h2 data-requirement-title>Commercial real-estate Requirement</h2>
+      <p>This Location Requirement captures the facts Rofo can use to reason about where the business should locate. Property-search details can be added later.</p>
+    </header>
+    <div class="requirement-readiness-summary" data-readiness-summary></div>
+    <div class="requirement-summary-grid" data-requirement-summary></div>
+    <div class="requirement-complete__actions">
+      <button class="requirement-button requirement-button--primary" type="button" data-view-recommendations>See my location recommendations</button>
+      <button type="button" data-refine-requirement>Continue refining</button>
+      <button type="button" data-export-requirement>Export JSON</button>
+    </div>
+  </section>
+
+  <section class="requirement-preview" data-recommendation-preview hidden>
+    <header>
+      <p class="requirement-prototype__eyebrow">Private Location Intelligence preview</p>
+      <h2 data-preview-heading>Your recommended starting points</h2>
+      <p data-preview-intro>These recommendations use the current San Francisco Office model without changing its ranking logic.</p>
+    </header>
+    <div data-preview-results></div>
+    <div data-candidate-comparisons></div>
+    <div class="requirement-complete__actions">
+      <button type="button" data-back-to-requirement>Edit my search</button>
+      <button type="button" data-export-requirement>Export JSON</button>
+    </div>
+  </section>
+
+  <details class="requirement-debug" data-debug-panel>
+    <summary>Evaluator/debug mode</summary>
+    <div class="requirement-debug__meta" data-debug-meta></div>
+    <section>
+      <h3>What Location Intelligence used</h3>
+      <div data-preview-coverage></div>
+    </section>
+    <section>
+      <h3>Access Intelligence shadow comparison</h3>
+      <div data-access-shadow></div>
+    </section>
+    <section>
+      <h3>Private recommendation composition</h3>
+      <div data-composition-debug></div>
+    </section>
+    <details>
+      <summary>Canonical Requirement criteria</summary>
+      <div class="requirement-criteria" data-requirement-criteria></div>
+    </details>
+    <pre data-debug-json></pre>
+  </details>
+</main>
+
+<script src="/js/requirement-prototype-scenarios.js" defer></script>
+<script src="/js/recommendations/normalize-sf-office-profile.js" defer></script>
+<script src="/js/recommendations/sf-office-recommendation-resolver.js" defer></script>
+<script src="/js/requirements/requirement-to-sf-office-recommendation.js" defer></script>
+<script src="/js/requirements/requirement-location-intelligence-preview.js" defer></script>
+<script src="/js/access/access-intelligence-schema.js" defer></script>
+<script src="/js/access/requirement-access-profile.js" defer></script>
+<script src="/js/access/access-fit-evaluator.js" defer></script>
+<script src="/js/access/access-shadow-evaluator.js" defer></script>
+<script src="/js/recommendations/private-location-composition.js" defer></script>
+<script src="/js/recommendations/private-recommendation-readiness.js" defer></script>
+<script type="module" src="/js/requirement-prototype.js"></script>

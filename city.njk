@@ -189,20 +189,15 @@ eleventyComputed:
 
               <h1>Commercial Real Estate in {{ city.city }}, {{ city.state_abbr }}</h1>
 
-              <p class="lead">
-                Before comparing {{ city.city }} listings, make sure the search is focused on the right commercial areas. Start with the business requirements, review an initial location analysis, and decide what to evaluate next.
-              </p>
-
-              <div class="hero-actions">
-                <a class="btn-primary" href="/find-locations/?city={{ city.city | urlencode }}&state={{ city.state_abbr }}&source=city_hero">
-                  Start Your Search
-                </a>
-                {% if isSanFranciscoDecisionJourney %}
-                  <a class="city-decision-hero__secondary" href="/example-location-brief/">
-                    See an Example Location Brief
-                  </a>
-                {% endif %}
-              </div>
+              {% set recommendationPromptContext = {
+                "context_type": "city",
+                "city": city.city,
+                "state": city.state_abbr,
+                "context_label": city.city,
+                "page_url": page.url
+              } %}
+              {% include "partials/shared/recommendation-prompt-card.njk" %}
+              {% set recommendationPromptContext = null %}
 
               <nav class="city-decision-anchor-nav" aria-label="{{ city.city }} commercial real estate guide">
                 {% if hasAreaChapter %}<a href="#city-commercial-areas-heading">Explore Areas</a>{% endif %}

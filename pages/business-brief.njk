@@ -54,6 +54,18 @@ eleventyComputed:
         </div>
       </header>
 
+      {% set recommendationPromptContext = {
+        "context_type": "business_brief",
+        "city": brief.market.marketName,
+        "state": brief.market.stateAbbr or "CA",
+        "context_label": brief.archetype.label,
+        "default_space_type": brief.propertyTypeLabel,
+        "business_archetype": brief.archetype.shortLabel or brief.archetype.label,
+        "page_url": page.url
+      } %}
+      {% include "partials/shared/recommendation-prompt-card.njk" %}
+      {% set recommendationPromptContext = null %}
+
       {% if isHeld %}
         <section class="city-card business-brief-review-note" aria-labelledby="business-brief-review-heading">
           <div class="eyebrow">Editorial Status</div>

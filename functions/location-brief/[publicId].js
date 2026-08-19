@@ -9,6 +9,8 @@ import {
   spaceSummary,
   trackLocationBriefEvent,
 } from "../api/location-brief/_shared.js";
+import { getBriefBundle as getLocationBriefV2Bundle, ownsBrief as ownsLocationBriefV2, privateHtml } from "../api/location-brief-v2/_shared.js";
+import { renderLocationBriefV2Page } from "../operator/location-brief-v2/[publicId].js";
 
 function formatDate(value) {
   if (!value) return "";
@@ -289,8 +291,16 @@ function renderPage(brief) {
 </html>`;
 }
 
-export async function onRequestGet({ params, env }) {
+export async function onRequestGet({ request, params, env }) {
   const publicId = String(params.publicId || "").trim().toUpperCase();
+  if (/^LB2-[A-F0-9]{24}$/.test(publicId)) {
+    let bundle;
+    try { bundle = await getLocationBriefV2Bundle(env, publicId, false); }
+    catch { return privateHtml("Your Location Brief is temporarily unavailable. Please try again.", 503); }
+    if (!bundle) return privateHtml("Location Brief not found.", 404);
+    const owner = await ownsLocationBriefV2(request, bundle.brief);
+    return privateHtml(renderLocationBriefV2Page(bundle, owner, false, { publicExperience: true }));
+  }
   if (!/^LB-[A-Z0-9]{6,12}$/.test(publicId)) {
     return htmlResponse("Location Brief not found.", 404);
   }

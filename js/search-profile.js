@@ -210,6 +210,11 @@
     const locationA = cleanLocationLabel(params.get("locationA") || "");
     const locationB = cleanLocationLabel(params.get("locationB") || "");
     const spaceType = normalizeQuerySpaceType(params.get("spaceType") || "");
+    const locationBrief = /^LB2-[A-F0-9]{24}$/i.test(params.get("locationBrief") || "") ? params.get("locationBrief").toUpperCase() : "";
+    const entrySource = String(params.get("entrySource") || "").trim();
+    const entrySourcePath = String(params.get("entrySourcePath") || "").trim();
+    const entryDistrict = String(params.get("entryDistrict") || "").trim();
+    const businessArchetype = String(params.get("businessArchetype") || "").trim();
     const locations = [];
 
     if (locationA) {
@@ -233,6 +238,8 @@
       hasContext: Boolean(cleanLocations.length || spaceType || source || sourcePath),
       source,
       sourcePath,
+      locationBrief,
+      entrySource, entrySourcePath, entryDistrict, businessArchetype,
       locations: cleanLocations,
       spaceType,
     };
@@ -826,6 +833,11 @@
         ...(targetProfile.sourceContext || {}),
         recommendationEntrySource: recommendationEntryContext.source || "",
         recommendationEntrySourcePath: recommendationEntryContext.sourcePath || "",
+        locationBriefV2PublicId: recommendationEntryContext.locationBrief || "",
+        vNextEntrySource: recommendationEntryContext.entrySource || "",
+        vNextEntrySourcePath: recommendationEntryContext.entrySourcePath || "",
+        vNextEntryDistrict: recommendationEntryContext.entryDistrict || "",
+        vNextBusinessArchetype: recommendationEntryContext.businessArchetype || "",
       },
     };
 
@@ -1433,7 +1445,7 @@
       landing_page: leadAttribution.landing_page || "",
       referring_page: leadAttribution.referrer || "",
       entry_page_type: leadAttribution.entry_page_type || "",
-      entry_district: leadAttribution.entry_district || "",
+      entry_district: recommendationEntryContext.entryDistrict || leadAttribution.entry_district || "",
       entry_city: leadAttribution.entry_city || "",
       entry_comparison: leadAttribution.entry_comparison || "",
       entry_ecosystem: leadAttribution.entry_ecosystem || "",
@@ -1510,6 +1522,11 @@
       location_decision_primary_archetype: root.dataset.profilePrimaryArchetype || "",
       location_decision_compared_districts: root.dataset.profileComparedDistricts || "",
       location_decision_business_use_case: summary.spaceType || "",
+      location_brief_v2_public_id: recommendationEntryContext.locationBrief || "",
+      location_brief_v2_url: recommendationEntryContext.locationBrief ? `${window.location.origin}/location-brief/${encodeURIComponent(recommendationEntryContext.locationBrief)}` : "",
+      location_brief_v2_entry_source: recommendationEntryContext.entrySource || "",
+      location_brief_v2_entry_source_path: recommendationEntryContext.entrySourcePath || "",
+      location_brief_v2_business_archetype: recommendationEntryContext.businessArchetype || "",
       _gotcha: "",
       company_website: "",
       human_check: "on",
@@ -2163,6 +2180,7 @@
       profile.contact.lead_id = result.id || "";
       finishSubmission();
       trackSearchProfileEvent("search_profile_submitted");
+      if (recommendationEntryContext.locationBrief) trackSearchProfileEvent("vnext_commercial_request_submitted", { dedupe: false });
       saveRecommendationContext();
       window.setTimeout(() => {
         window.location.assign(recommendationsUrl);

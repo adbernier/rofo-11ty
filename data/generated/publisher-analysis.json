@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-13T11:25:02-07:00",
-  "sourceCommit": "8f7949a3c614455d2577d3a39ac336eb91f47b65",
+  "generatedAt": "2026-08-13T22:41:40-07:00",
+  "sourceCommit": "933e317e2a923ebdc6ba7b36ad9680923b7fc20c",
   "geography": {
     "schemaVersion": "commercial-geography-summary-v1",
     "hierarchy": [
@@ -77,7 +77,7 @@
         "publisherMetroName": "San Francisco",
         "publicRoute": "/commercial-real-estate/CA/san-francisco/",
         "implementationNote": "",
-        "districtCount": 12,
+        "districtCount": 13,
         "publisherCompatibility": {
           "metroId": "san-francisco",
           "metroName": "San Francisco"
@@ -452,8 +452,8 @@
       }
     ],
     "districtOwnershipSummary": {
-      "districtCount": 118,
-      "resolvedDistricts": 118,
+      "districtCount": 119,
+      "resolvedDistricts": 119,
       "unresolvedDistricts": 0,
       "duplicateAssignments": 0,
       "recommendationEligibleDistricts": 118
@@ -806,6 +806,18 @@
         "marketName": "San Francisco",
         "recommendationEligible": true,
         "publicRoute": "/commercial-real-estate/CA/san-francisco/mission-district/"
+      },
+      {
+        "districtId": "presidio",
+        "districtName": "Presidio",
+        "city": "San Francisco",
+        "state": "CA",
+        "regionId": "bay-area",
+        "regionName": "Bay Area",
+        "marketId": "san-francisco",
+        "marketName": "San Francisco",
+        "recommendationEligible": false,
+        "publicRoute": "/commercial-real-estate/CA/san-francisco/presidio/"
       },
       {
         "districtId": "downtown-san-mateo",
@@ -2277,7 +2289,7 @@
       "Low": 2
     },
     "deferredCandidates": 73,
-    "latestValidation": "2026-08-13T11:25:02-07:00",
+    "latestValidation": "2026-08-13T22:41:40-07:00",
     "errors": [],
     "warnings": [],
     "source": {
@@ -2287,15 +2299,15 @@
     "scoringImpact": "None. Reporting only; Publisher scoring and readiness calculations are unchanged."
   },
   "analysis": {
-    "generatedAt": "2026-08-13T11:25:02-07:00",
+    "generatedAt": "2026-08-13T22:41:40-07:00",
     "rulesVersion": "publisher-rules-v1",
     "overview": {
       "compassReadyCount": 5,
-      "averageScore": 89,
-      "criticalIssues": 0,
-      "queuedTasks": 286,
+      "averageScore": 86,
+      "criticalIssues": 4,
+      "queuedTasks": 292,
       "closestToDistributionReady": "Sacramento",
-      "largestCriticalGap": "None"
+      "largestCriticalGap": "San Francisco"
     },
     "metros": [
       {
@@ -2311,17 +2323,17 @@
           "reportPath": "/docs/recommendation-qa/san-francisco-pilot/",
           "notes": "San Francisco pilot scenarios produce differentiated, graph-backed market paths across core San Francisco office, life-science/growth, creative office, boutique executive office, Palo Alto executive/startup, Redwood City Peninsula midpoint office, North Bayshore technology campus, and Moffett Park R&D profiles. Remaining node-level explainability refinements should continue as editorial maturity work, not a Compass QA blocker."
         },
-        "readinessStatus": "Distribution Ready",
+        "readinessStatus": "Editorially Developed",
         "dimensions": {
           "compassReadiness": {
             "key": "compassReadiness",
             "label": "Compass Readiness",
-            "score": 97,
+            "score": 93,
             "status": "passed",
             "explanation": "8 QA scenarios; graph, comparisons, and explainability determine recommendation readiness.",
             "completed": {
-              "districts": 27,
-              "comparisons": 76,
+              "districts": 28,
+              "comparisons": 79,
               "qaScenarios": 8
             },
             "targets": {
@@ -2333,11 +2345,11 @@
           "editorialCoverage": {
             "key": "editorialCoverage",
             "label": "Editorial Coverage",
-            "score": 90,
+            "score": 89,
             "status": "",
-            "explanation": "27 of 27 districts have substantive descriptions; 158 representative buildings and 89 Building Briefs are available.",
+            "explanation": "28 of 28 districts have substantive descriptions; 158 representative buildings and 89 Building Briefs are available.",
             "completed": {
-              "districtsWithDescriptions": 27,
+              "districtsWithDescriptions": 28,
               "representativeBuildings": 158,
               "buildingBriefs": 89
             },
@@ -2352,45 +2364,52 @@
           "publishingReadiness": {
             "key": "publishingReadiness",
             "label": "Publishing Readiness",
-            "score": 100,
+            "score": 84,
             "status": "",
             "explanation": "Measures public route availability, resolvable links, QA authority, and critical route or graph errors.",
             "completed": {
               "cityPage": 1,
-              "districtPages": 27,
-              "internalLinks": 271
+              "districtPages": 28,
+              "internalLinks": 272
             },
             "targets": {
-              "districtPages": 27,
-              "internalLinks": 271
+              "districtPages": 28,
+              "internalLinks": 272
             },
             "blockers": [],
-            "topOpportunity": "Maintain public route integrity."
+            "topOpportunity": "Resolve critical broken references."
           }
         },
-        "rawOverallScore": 95,
-        "scoreCapReasons": [],
+        "rawOverallScore": 89,
+        "scoreCapReasons": [
+          {
+            "cap": 79,
+            "code": "critical-reference-overall-cap",
+            "reason": "Critical broken references or graph errors are present."
+          }
+        ],
         "dimensionCaps": [],
-        "overallScore": 95,
-        "score": 95,
+        "overallScore": 79,
+        "score": 79,
         "cityPath": "/commercial-real-estate/CA/san-francisco/",
-        "districtCount": 27,
+        "districtCount": 28,
         "representativeBuildingCount": 158,
         "buildingBriefCount": 89,
         "geographicReadiness": {
-          "state": "developed",
-          "label": "Developed",
+          "state": "strong",
+          "label": "Strong",
           "rationale": [
-            "27 district nodes are available for the metro.",
+            "28 district nodes are available for the metro.",
             "District coverage is mature enough for expansion planning.",
             "District comparison relationships are meaningfully developed.",
-            "Recommendation QA indicates Compass Ready status."
+            "Recommendation QA indicates Compass Ready status.",
+            "4 severe graph or public-route issues remain."
           ],
           "passed": true,
           "metrics": {
-            "districtCount": 27,
+            "districtCount": 28,
             "districtCoverageScore": 98,
-            "comparisonGraphScore": 100,
+            "comparisonGraphScore": 80,
             "recommendationReadinessScore": 94
           }
         },
@@ -2431,13 +2450,13 @@
                 "editorialReview": "developed"
               },
               "counts": {
-                "districts": 7,
+                "districts": 8,
                 "secondaryDistricts": 16,
-                "recommendations": 7,
+                "recommendations": 8,
                 "representativeBuildings": 77,
                 "buildingBriefs": 37,
                 "subtypes": 14,
-                "archetypes": 16,
+                "archetypes": 17,
                 "activities": 11,
                 "reviewRequiredDistricts": 0,
                 "representativeRoles": 7,
@@ -2450,7 +2469,7 @@
               "blockingCodes": [],
               "strategicPriority": 2,
               "evidence": [
-                "7 primary districts and 16 secondary districts.",
+                "8 primary districts and 16 secondary districts.",
                 "77 Representative Buildings and 37 Building Briefs.",
                 "7 representative roles and 5 operational categories are covered."
               ],
@@ -3666,9 +3685,9 @@
             "office": {
               "id": "office",
               "label": "Office",
-              "districtCount": 7,
+              "districtCount": 8,
               "secondaryDistrictCount": 16,
-              "recommendationNodeCount": 7,
+              "recommendationNodeCount": 8,
               "representativeBuildingCount": 77,
               "buildingBriefCount": 37,
               "status": "Developed",
@@ -3704,6 +3723,11 @@
                   "path": "/commercial-real-estate/CA/san-francisco/south-beach/"
                 },
                 {
+                  "slug": "presidio",
+                  "label": "Presidio",
+                  "path": "/commercial-real-estate/CA/san-francisco/presidio/"
+                },
+                {
                   "slug": "downtown-berkeley",
                   "label": "Downtown Berkeley",
                   "path": "/commercial-real-estate/CA/berkeley/downtown-berkeley/"
@@ -3713,7 +3737,7 @@
                 "creative_office": 8,
                 "downtown_office": 3,
                 "executive_office": 1,
-                "professional_office": 9,
+                "professional_office": 10,
                 "office_campus": 2,
                 "research_development": 2,
                 "suburban_office": 1,
@@ -3728,14 +3752,15 @@
               "archetypes": {
                 "biotech_company": 3,
                 "research_company": 9,
-                "startup": 10,
+                "startup": 11,
                 "creative_studio": 10,
                 "marketing_agency": 8,
-                "law_firm": 2,
+                "law_firm": 3,
                 "financial_services_firm": 1,
-                "consulting_firm": 4,
-                "professional_office": 7,
+                "consulting_firm": 5,
+                "professional_office": 8,
                 "general_contractor": 3,
+                "accounting_firm": 1,
                 "wellness_practice": 1,
                 "nonprofit_office": 1,
                 "education_provider": 1,
@@ -3745,11 +3770,11 @@
               },
               "activities": {
                 "product_development": 10,
-                "collaboration": 11,
-                "knowledge_work": 15,
+                "collaboration": 12,
+                "knowledge_work": 16,
                 "customer_showroom": 3,
-                "client_meetings": 5,
-                "administrative_operations": 4,
+                "client_meetings": 6,
+                "administrative_operations": 5,
                 "research": 1,
                 "walk_in_retail": 1,
                 "walk_in_service": 1,
@@ -4705,7 +4730,7 @@
             "creative_office": 12,
             "downtown_office": 3,
             "executive_office": 1,
-            "professional_office": 16,
+            "professional_office": 17,
             "office_campus": 3,
             "research_development": 13,
             "suburban_office": 2,
@@ -4738,11 +4763,11 @@
           },
           "activityCoverage": {
             "product_development": 25,
-            "collaboration": 21,
-            "knowledge_work": 23,
+            "collaboration": 22,
+            "knowledge_work": 24,
             "customer_showroom": 15,
-            "client_meetings": 6,
-            "administrative_operations": 7,
+            "client_meetings": 7,
+            "administrative_operations": 8,
             "research": 11,
             "walk_in_retail": 7,
             "walk_in_service": 11,
@@ -4763,14 +4788,15 @@
           "archetypeCoverage": {
             "biotech_company": 6,
             "research_company": 23,
-            "startup": 24,
+            "startup": 25,
             "creative_studio": 21,
             "marketing_agency": 16,
-            "law_firm": 2,
+            "law_firm": 3,
             "financial_services_firm": 1,
-            "consulting_firm": 5,
-            "professional_office": 14,
+            "consulting_firm": 6,
+            "professional_office": 15,
             "general_contractor": 10,
+            "accounting_firm": 1,
             "wellness_practice": 9,
             "nonprofit_office": 2,
             "education_provider": 2,
@@ -4958,8 +4984,8 @@
         "readinessGates": {
           "geographic": {
             "passed": true,
-            "state": "developed",
-            "label": "Developed"
+            "state": "strong",
+            "label": "Strong"
           },
           "ecosystem": {
             "passed": false,
@@ -4983,7 +5009,16 @@
             "Publisher ecosystem QA passes without hard errors"
           ]
         },
-        "gateBlockers": [],
+        "gateBlockers": [
+          {
+            "gate": "distribution-ready",
+            "severity": "critical",
+            "code": "critical-reference-error",
+            "message": "Critical broken references or graph errors are present.",
+            "sourceId": "san-francisco",
+            "relatedTaskId": ""
+          }
+        ],
         "categories": {
           "metroFoundation": {
             "key": "metroFoundation",
@@ -4999,8 +5034,8 @@
             "key": "districtCoverage",
             "label": "District Coverage",
             "score": 98,
-            "completed": 106,
-            "total": 108,
+            "completed": 110,
+            "total": 112,
             "missing": 2,
             "explanation": "Public district pages, substantive descriptions, structured qualities, and decision positioning.",
             "issues": [
@@ -5047,11 +5082,11 @@
           "comparisonGraph": {
             "key": "comparisonGraph",
             "label": "Comparison Graph",
-            "score": 100,
-            "completed": 54,
-            "total": 54,
+            "score": 80,
+            "completed": 56,
+            "total": 56,
             "missing": 0,
-            "explanation": "76 graph comparison relationships; target is at least 2 useful comparisons per district in v1.",
+            "explanation": "79 graph comparison relationships; target is at least 2 useful comparisons per district in v1.",
             "issues": [
               {
                 "id": "san-francisco:comparisonGraph:one-way comparison:mission-bay-north-bayshore",
@@ -5472,6 +5507,63 @@
                 "readinessState": ""
               },
               {
+                "id": "san-francisco:comparisonGraph:unresolved comparison:presidio-marina-district",
+                "code": "unresolved-comparison",
+                "metroId": "san-francisco",
+                "metroName": "San Francisco",
+                "category": "comparisonGraph",
+                "categoryLabel": "Comparison Graph",
+                "taskType": "unresolved comparison",
+                "itemName": "Presidio -> marina-district",
+                "severity": "critical",
+                "priority": 100,
+                "reason": "Comparison target does not resolve to a location graph node.",
+                "sourceId": "presidio:marina-district",
+                "publicUrl": "/commercial-real-estate/CA/san-francisco/presidio/",
+                "adminUrl": "",
+                "suggestedNextAction": "Fix or remove the unresolved comparison target.",
+                "automationCandidate": false,
+                "readinessState": ""
+              },
+              {
+                "id": "san-francisco:comparisonGraph:one-way comparison:presidio-jackson-square",
+                "code": "one-way-comparison",
+                "metroId": "san-francisco",
+                "metroName": "San Francisco",
+                "category": "comparisonGraph",
+                "categoryLabel": "Comparison Graph",
+                "taskType": "one-way comparison",
+                "itemName": "Presidio -> Jackson Square",
+                "severity": "low",
+                "priority": 15,
+                "reason": "Comparison relationship is not reciprocated.",
+                "sourceId": "presidio:jackson-square",
+                "publicUrl": "/commercial-real-estate/CA/san-francisco/presidio/",
+                "adminUrl": "",
+                "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+                "automationCandidate": true,
+                "readinessState": ""
+              },
+              {
+                "id": "san-francisco:comparisonGraph:unresolved comparison:presidio-richmond-district",
+                "code": "unresolved-comparison",
+                "metroId": "san-francisco",
+                "metroName": "San Francisco",
+                "category": "comparisonGraph",
+                "categoryLabel": "Comparison Graph",
+                "taskType": "unresolved comparison",
+                "itemName": "Presidio -> richmond-district",
+                "severity": "critical",
+                "priority": 100,
+                "reason": "Comparison target does not resolve to a location graph node.",
+                "sourceId": "presidio:richmond-district",
+                "publicUrl": "/commercial-real-estate/CA/san-francisco/presidio/",
+                "adminUrl": "",
+                "suggestedNextAction": "Fix or remove the unresolved comparison target.",
+                "automationCandidate": false,
+                "readinessState": ""
+              },
+              {
                 "id": "san-francisco:comparisonGraph:one-way comparison:downtown-san-mateo-downtown-palo-alto",
                 "code": "one-way-comparison",
                 "metroId": "san-francisco",
@@ -5552,10 +5644,10 @@
           "representativeBuildings": {
             "key": "representativeBuildings",
             "label": "Representative Buildings",
-            "score": 69,
+            "score": 66,
             "completed": 37,
-            "total": 54,
-            "missing": 17,
+            "total": 56,
+            "missing": 19,
             "explanation": "158 representative building relationships; v1 target is 3 per covered district.",
             "issues": [
               {
@@ -5667,6 +5759,25 @@
                 "reason": "District has no representative building examples.",
                 "sourceId": "central-waterfront",
                 "publicUrl": "/commercial-real-estate/CA/san-francisco/central-waterfront/",
+                "adminUrl": "",
+                "suggestedNextAction": "Curate representative buildings that explain this district.",
+                "automationCandidate": true,
+                "readinessState": ""
+              },
+              {
+                "id": "san-francisco:representativeBuildings:district missing representative buildings:presidio",
+                "code": "district-no-reps",
+                "metroId": "san-francisco",
+                "metroName": "San Francisco",
+                "category": "representativeBuildings",
+                "categoryLabel": "Representative Buildings",
+                "taskType": "district missing representative buildings",
+                "itemName": "Presidio",
+                "severity": "medium",
+                "priority": 40,
+                "reason": "District has no representative building examples.",
+                "sourceId": "presidio",
+                "publicUrl": "/commercial-real-estate/CA/san-francisco/presidio/",
                 "adminUrl": "",
                 "suggestedNextAction": "Curate representative buildings that explain this district.",
                 "automationCandidate": true,
@@ -7019,8 +7130,8 @@
             "key": "recommendationReadiness",
             "label": "Recommendation Readiness",
             "score": 94,
-            "completed": 29,
-            "total": 31,
+            "completed": 30,
+            "total": 32,
             "missing": 2,
             "explanation": "8 QA scenarios; last QA 2026-07-26.",
             "issues": [
@@ -7068,8 +7179,8 @@
             "key": "editorialQuality",
             "label": "Editorial Quality",
             "score": 98,
-            "completed": 114,
-            "total": 116,
+            "completed": 115,
+            "total": 117,
             "missing": 2,
             "explanation": "Deterministic scan for placeholders, unsupported generated phrasing, and style-guide avoid phrases.",
             "issues": [
@@ -7116,15 +7227,130 @@
           "internalLinking": {
             "key": "internalLinking",
             "label": "Internal Linking",
-            "score": 100,
-            "completed": 271,
-            "total": 271,
+            "score": 80,
+            "completed": 272,
+            "total": 272,
             "missing": 0,
             "explanation": "Checks public city, district, building, and comparison references that Publisher can resolve from generated data.",
-            "issues": []
+            "issues": [
+              {
+                "id": "san-francisco:internalLinking:unresolved internal reference:presidio-marina-district",
+                "code": "broken-district-link",
+                "metroId": "san-francisco",
+                "metroName": "San Francisco",
+                "category": "internalLinking",
+                "categoryLabel": "Internal Linking",
+                "taskType": "unresolved internal reference",
+                "itemName": "Presidio -> marina-district",
+                "severity": "critical",
+                "priority": 100,
+                "reason": "District comparison target cannot be resolved.",
+                "sourceId": "presidio:marina-district",
+                "publicUrl": "/commercial-real-estate/CA/san-francisco/presidio/",
+                "adminUrl": "",
+                "suggestedNextAction": "Fix the broken comparison reference.",
+                "automationCandidate": false,
+                "readinessState": ""
+              },
+              {
+                "id": "san-francisco:internalLinking:unresolved internal reference:presidio-richmond-district",
+                "code": "broken-district-link",
+                "metroId": "san-francisco",
+                "metroName": "San Francisco",
+                "category": "internalLinking",
+                "categoryLabel": "Internal Linking",
+                "taskType": "unresolved internal reference",
+                "itemName": "Presidio -> richmond-district",
+                "severity": "critical",
+                "priority": 100,
+                "reason": "District comparison target cannot be resolved.",
+                "sourceId": "presidio:richmond-district",
+                "publicUrl": "/commercial-real-estate/CA/san-francisco/presidio/",
+                "adminUrl": "",
+                "suggestedNextAction": "Fix the broken comparison reference.",
+                "automationCandidate": false,
+                "readinessState": ""
+              }
+            ]
           }
         },
         "queue": [
+          {
+            "id": "san-francisco:comparisonGraph:unresolved comparison:presidio-marina-district",
+            "code": "unresolved-comparison",
+            "metroId": "san-francisco",
+            "metroName": "San Francisco",
+            "category": "comparisonGraph",
+            "categoryLabel": "Comparison Graph",
+            "taskType": "unresolved comparison",
+            "itemName": "Presidio -> marina-district",
+            "severity": "critical",
+            "priority": 100,
+            "reason": "Comparison target does not resolve to a location graph node.",
+            "sourceId": "presidio:marina-district",
+            "publicUrl": "/commercial-real-estate/CA/san-francisco/presidio/",
+            "adminUrl": "",
+            "suggestedNextAction": "Fix or remove the unresolved comparison target.",
+            "automationCandidate": false,
+            "readinessState": ""
+          },
+          {
+            "id": "san-francisco:comparisonGraph:unresolved comparison:presidio-richmond-district",
+            "code": "unresolved-comparison",
+            "metroId": "san-francisco",
+            "metroName": "San Francisco",
+            "category": "comparisonGraph",
+            "categoryLabel": "Comparison Graph",
+            "taskType": "unresolved comparison",
+            "itemName": "Presidio -> richmond-district",
+            "severity": "critical",
+            "priority": 100,
+            "reason": "Comparison target does not resolve to a location graph node.",
+            "sourceId": "presidio:richmond-district",
+            "publicUrl": "/commercial-real-estate/CA/san-francisco/presidio/",
+            "adminUrl": "",
+            "suggestedNextAction": "Fix or remove the unresolved comparison target.",
+            "automationCandidate": false,
+            "readinessState": ""
+          },
+          {
+            "id": "san-francisco:internalLinking:unresolved internal reference:presidio-marina-district",
+            "code": "broken-district-link",
+            "metroId": "san-francisco",
+            "metroName": "San Francisco",
+            "category": "internalLinking",
+            "categoryLabel": "Internal Linking",
+            "taskType": "unresolved internal reference",
+            "itemName": "Presidio -> marina-district",
+            "severity": "critical",
+            "priority": 100,
+            "reason": "District comparison target cannot be resolved.",
+            "sourceId": "presidio:marina-district",
+            "publicUrl": "/commercial-real-estate/CA/san-francisco/presidio/",
+            "adminUrl": "",
+            "suggestedNextAction": "Fix the broken comparison reference.",
+            "automationCandidate": false,
+            "readinessState": ""
+          },
+          {
+            "id": "san-francisco:internalLinking:unresolved internal reference:presidio-richmond-district",
+            "code": "broken-district-link",
+            "metroId": "san-francisco",
+            "metroName": "San Francisco",
+            "category": "internalLinking",
+            "categoryLabel": "Internal Linking",
+            "taskType": "unresolved internal reference",
+            "itemName": "Presidio -> richmond-district",
+            "severity": "critical",
+            "priority": 100,
+            "reason": "District comparison target cannot be resolved.",
+            "sourceId": "presidio:richmond-district",
+            "publicUrl": "/commercial-real-estate/CA/san-francisco/presidio/",
+            "adminUrl": "",
+            "suggestedNextAction": "Fix the broken comparison reference.",
+            "automationCandidate": false,
+            "readinessState": ""
+          },
           {
             "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-1-henry-adams-st",
             "code": "missing-brief",
@@ -8589,6 +8815,25 @@
             "readinessState": ""
           },
           {
+            "id": "san-francisco:representativeBuildings:district missing representative buildings:presidio",
+            "code": "district-no-reps",
+            "metroId": "san-francisco",
+            "metroName": "San Francisco",
+            "category": "representativeBuildings",
+            "categoryLabel": "Representative Buildings",
+            "taskType": "district missing representative buildings",
+            "itemName": "Presidio",
+            "severity": "medium",
+            "priority": 40,
+            "reason": "District has no representative building examples.",
+            "sourceId": "presidio",
+            "publicUrl": "/commercial-real-estate/CA/san-francisco/presidio/",
+            "adminUrl": "",
+            "suggestedNextAction": "Curate representative buildings that explain this district.",
+            "automationCandidate": true,
+            "readinessState": ""
+          },
+          {
             "id": "san-francisco:representativeBuildings:district missing representative buildings:stanford-research-park",
             "code": "district-no-reps",
             "metroId": "san-francisco",
@@ -8988,6 +9233,25 @@
             "readinessState": ""
           },
           {
+            "id": "san-francisco:comparisonGraph:one-way comparison:presidio-jackson-square",
+            "code": "one-way-comparison",
+            "metroId": "san-francisco",
+            "metroName": "San Francisco",
+            "category": "comparisonGraph",
+            "categoryLabel": "Comparison Graph",
+            "taskType": "one-way comparison",
+            "itemName": "Presidio -> Jackson Square",
+            "severity": "low",
+            "priority": 15,
+            "reason": "Comparison relationship is not reciprocated.",
+            "sourceId": "presidio:jackson-square",
+            "publicUrl": "/commercial-real-estate/CA/san-francisco/presidio/",
+            "adminUrl": "",
+            "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+            "automationCandidate": true,
+            "readinessState": ""
+          },
+          {
             "id": "san-francisco:comparisonGraph:one-way comparison:showplace-square-soma",
             "code": "one-way-comparison",
             "metroId": "san-francisco",
@@ -9179,22 +9443,22 @@
           }
         ],
         "recommendedNextAction": {
-          "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-1-henry-adams-st",
-          "code": "missing-brief",
+          "id": "san-francisco:comparisonGraph:unresolved comparison:presidio-marina-district",
+          "code": "unresolved-comparison",
           "metroId": "san-francisco",
           "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "taskType": "representative building missing Building Brief",
-          "itemName": "1 Henry Adams St",
-          "severity": "medium",
-          "priority": 40,
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "sourceId": "/commercial-real-estate/building/CA/san-francisco/1-henry-adams-st/",
-          "publicUrl": "/commercial-real-estate/building/CA/san-francisco/1-henry-adams-st/",
+          "category": "comparisonGraph",
+          "categoryLabel": "Comparison Graph",
+          "taskType": "unresolved comparison",
+          "itemName": "Presidio -> marina-district",
+          "severity": "critical",
+          "priority": 100,
+          "reason": "Comparison target does not resolve to a location graph node.",
+          "sourceId": "presidio:marina-district",
+          "publicUrl": "/commercial-real-estate/CA/san-francisco/presidio/",
           "adminUrl": "",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "automationCandidate": true,
+          "suggestedNextAction": "Fix or remove the unresolved comparison target.",
+          "automationCandidate": false,
           "readinessState": ""
         }
       },
@@ -34659,17 +34923,17 @@
           "reportPath": "/docs/recommendation-qa/san-francisco-pilot/",
           "notes": "San Francisco pilot scenarios produce differentiated, graph-backed market paths across core San Francisco office, life-science/growth, creative office, boutique executive office, Palo Alto executive/startup, Redwood City Peninsula midpoint office, North Bayshore technology campus, and Moffett Park R&D profiles. Remaining node-level explainability refinements should continue as editorial maturity work, not a Compass QA blocker."
         },
-        "readinessStatus": "Distribution Ready",
+        "readinessStatus": "Editorially Developed",
         "dimensions": {
           "compassReadiness": {
             "key": "compassReadiness",
             "label": "Compass Readiness",
-            "score": 97,
+            "score": 93,
             "status": "passed",
             "explanation": "8 QA scenarios; graph, comparisons, and explainability determine recommendation readiness.",
             "completed": {
-              "districts": 27,
-              "comparisons": 76,
+              "districts": 28,
+              "comparisons": 79,
               "qaScenarios": 8
             },
             "targets": {
@@ -34681,11 +34945,11 @@
           "editorialCoverage": {
             "key": "editorialCoverage",
             "label": "Editorial Coverage",
-            "score": 90,
+            "score": 89,
             "status": "",
-            "explanation": "27 of 27 districts have substantive descriptions; 158 representative buildings and 89 Building Briefs are available.",
+            "explanation": "28 of 28 districts have substantive descriptions; 158 representative buildings and 89 Building Briefs are available.",
             "completed": {
-              "districtsWithDescriptions": 27,
+              "districtsWithDescriptions": 28,
               "representativeBuildings": 158,
               "buildingBriefs": 89
             },
@@ -34700,45 +34964,52 @@
           "publishingReadiness": {
             "key": "publishingReadiness",
             "label": "Publishing Readiness",
-            "score": 100,
+            "score": 84,
             "status": "",
             "explanation": "Measures public route availability, resolvable links, QA authority, and critical route or graph errors.",
             "completed": {
               "cityPage": 1,
-              "districtPages": 27,
-              "internalLinks": 271
+              "districtPages": 28,
+              "internalLinks": 272
             },
             "targets": {
-              "districtPages": 27,
-              "internalLinks": 271
+              "districtPages": 28,
+              "internalLinks": 272
             },
             "blockers": [],
-            "topOpportunity": "Maintain public route integrity."
+            "topOpportunity": "Resolve critical broken references."
           }
         },
-        "rawOverallScore": 95,
-        "scoreCapReasons": [],
+        "rawOverallScore": 89,
+        "scoreCapReasons": [
+          {
+            "cap": 79,
+            "code": "critical-reference-overall-cap",
+            "reason": "Critical broken references or graph errors are present."
+          }
+        ],
         "dimensionCaps": [],
-        "overallScore": 95,
-        "score": 95,
+        "overallScore": 79,
+        "score": 79,
         "cityPath": "/commercial-real-estate/CA/san-francisco/",
-        "districtCount": 27,
+        "districtCount": 28,
         "representativeBuildingCount": 158,
         "buildingBriefCount": 89,
         "geographicReadiness": {
-          "state": "developed",
-          "label": "Developed",
+          "state": "strong",
+          "label": "Strong",
           "rationale": [
-            "27 district nodes are available for the metro.",
+            "28 district nodes are available for the metro.",
             "District coverage is mature enough for expansion planning.",
             "District comparison relationships are meaningfully developed.",
-            "Recommendation QA indicates Compass Ready status."
+            "Recommendation QA indicates Compass Ready status.",
+            "4 severe graph or public-route issues remain."
           ],
           "passed": true,
           "metrics": {
-            "districtCount": 27,
+            "districtCount": 28,
             "districtCoverageScore": 98,
-            "comparisonGraphScore": 100,
+            "comparisonGraphScore": 80,
             "recommendationReadinessScore": 94
           }
         },
@@ -34779,13 +35050,13 @@
                 "editorialReview": "developed"
               },
               "counts": {
-                "districts": 7,
+                "districts": 8,
                 "secondaryDistricts": 16,
-                "recommendations": 7,
+                "recommendations": 8,
                 "representativeBuildings": 77,
                 "buildingBriefs": 37,
                 "subtypes": 14,
-                "archetypes": 16,
+                "archetypes": 17,
                 "activities": 11,
                 "reviewRequiredDistricts": 0,
                 "representativeRoles": 7,
@@ -34798,7 +35069,7 @@
               "blockingCodes": [],
               "strategicPriority": 2,
               "evidence": [
-                "7 primary districts and 16 secondary districts.",
+                "8 primary districts and 16 secondary districts.",
                 "77 Representative Buildings and 37 Building Briefs.",
                 "7 representative roles and 5 operational categories are covered."
               ],
@@ -36014,9 +36285,9 @@
             "office": {
               "id": "office",
               "label": "Office",
-              "districtCount": 7,
+              "districtCount": 8,
               "secondaryDistrictCount": 16,
-              "recommendationNodeCount": 7,
+              "recommendationNodeCount": 8,
               "representativeBuildingCount": 77,
               "buildingBriefCount": 37,
               "status": "Developed",
@@ -36052,6 +36323,11 @@
                   "path": "/commercial-real-estate/CA/san-francisco/south-beach/"
                 },
                 {
+                  "slug": "presidio",
+                  "label": "Presidio",
+                  "path": "/commercial-real-estate/CA/san-francisco/presidio/"
+                },
+                {
                   "slug": "downtown-berkeley",
                   "label": "Downtown Berkeley",
                   "path": "/commercial-real-estate/CA/berkeley/downtown-berkeley/"
@@ -36061,7 +36337,7 @@
                 "creative_office": 8,
                 "downtown_office": 3,
                 "executive_office": 1,
-                "professional_office": 9,
+                "professional_office": 10,
                 "office_campus": 2,
                 "research_development": 2,
                 "suburban_office": 1,
@@ -36076,14 +36352,15 @@
               "archetypes": {
                 "biotech_company": 3,
                 "research_company": 9,
-                "startup": 10,
+                "startup": 11,
                 "creative_studio": 10,
                 "marketing_agency": 8,
-                "law_firm": 2,
+                "law_firm": 3,
                 "financial_services_firm": 1,
-                "consulting_firm": 4,
-                "professional_office": 7,
+                "consulting_firm": 5,
+                "professional_office": 8,
                 "general_contractor": 3,
+                "accounting_firm": 1,
                 "wellness_practice": 1,
                 "nonprofit_office": 1,
                 "education_provider": 1,
@@ -36093,11 +36370,11 @@
               },
               "activities": {
                 "product_development": 10,
-                "collaboration": 11,
-                "knowledge_work": 15,
+                "collaboration": 12,
+                "knowledge_work": 16,
                 "customer_showroom": 3,
-                "client_meetings": 5,
-                "administrative_operations": 4,
+                "client_meetings": 6,
+                "administrative_operations": 5,
                 "research": 1,
                 "walk_in_retail": 1,
                 "walk_in_service": 1,
@@ -37053,7 +37330,7 @@
             "creative_office": 12,
             "downtown_office": 3,
             "executive_office": 1,
-            "professional_office": 16,
+            "professional_office": 17,
             "office_campus": 3,
             "research_development": 13,
             "suburban_office": 2,
@@ -37086,11 +37363,11 @@
           },
           "activityCoverage": {
             "product_development": 25,
-            "collaboration": 21,
-            "knowledge_work": 23,
+            "collaboration": 22,
+            "knowledge_work": 24,
             "customer_showroom": 15,
-            "client_meetings": 6,
-            "administrative_operations": 7,
+            "client_meetings": 7,
+            "administrative_operations": 8,
             "research": 11,
             "walk_in_retail": 7,
             "walk_in_service": 11,
@@ -37111,14 +37388,15 @@
           "archetypeCoverage": {
             "biotech_company": 6,
             "research_company": 23,
-            "startup": 24,
+            "startup": 25,
             "creative_studio": 21,
             "marketing_agency": 16,
-            "law_firm": 2,
+            "law_firm": 3,
             "financial_services_firm": 1,
-            "consulting_firm": 5,
-            "professional_office": 14,
+            "consulting_firm": 6,
+            "professional_office": 15,
             "general_contractor": 10,
+            "accounting_firm": 1,
             "wellness_practice": 9,
             "nonprofit_office": 2,
             "education_provider": 2,
@@ -37306,8 +37584,8 @@
         "readinessGates": {
           "geographic": {
             "passed": true,
-            "state": "developed",
-            "label": "Developed"
+            "state": "strong",
+            "label": "Strong"
           },
           "ecosystem": {
             "passed": false,
@@ -37331,7 +37609,16 @@
             "Publisher ecosystem QA passes without hard errors"
           ]
         },
-        "gateBlockers": [],
+        "gateBlockers": [
+          {
+            "gate": "distribution-ready",
+            "severity": "critical",
+            "code": "critical-reference-error",
+            "message": "Critical broken references or graph errors are present.",
+            "sourceId": "san-francisco",
+            "relatedTaskId": ""
+          }
+        ],
         "categories": {
           "metroFoundation": {
             "key": "metroFoundation",
@@ -37347,8 +37634,8 @@
             "key": "districtCoverage",
             "label": "District Coverage",
             "score": 98,
-            "completed": 106,
-            "total": 108,
+            "completed": 110,
+            "total": 112,
             "missing": 2,
             "explanation": "Public district pages, substantive descriptions, structured qualities, and decision positioning.",
             "issues": [
@@ -37395,11 +37682,11 @@
           "comparisonGraph": {
             "key": "comparisonGraph",
             "label": "Comparison Graph",
-            "score": 100,
-            "completed": 54,
-            "total": 54,
+            "score": 80,
+            "completed": 56,
+            "total": 56,
             "missing": 0,
-            "explanation": "76 graph comparison relationships; target is at least 2 useful comparisons per district in v1.",
+            "explanation": "79 graph comparison relationships; target is at least 2 useful comparisons per district in v1.",
             "issues": [
               {
                 "id": "san-francisco:comparisonGraph:one-way comparison:mission-bay-north-bayshore",
@@ -37820,6 +38107,63 @@
                 "readinessState": ""
               },
               {
+                "id": "san-francisco:comparisonGraph:unresolved comparison:presidio-marina-district",
+                "code": "unresolved-comparison",
+                "metroId": "san-francisco",
+                "metroName": "San Francisco",
+                "category": "comparisonGraph",
+                "categoryLabel": "Comparison Graph",
+                "taskType": "unresolved comparison",
+                "itemName": "Presidio -> marina-district",
+                "severity": "critical",
+                "priority": 100,
+                "reason": "Comparison target does not resolve to a location graph node.",
+                "sourceId": "presidio:marina-district",
+                "publicUrl": "/commercial-real-estate/CA/san-francisco/presidio/",
+                "adminUrl": "",
+                "suggestedNextAction": "Fix or remove the unresolved comparison target.",
+                "automationCandidate": false,
+                "readinessState": ""
+              },
+              {
+                "id": "san-francisco:comparisonGraph:one-way comparison:presidio-jackson-square",
+                "code": "one-way-comparison",
+                "metroId": "san-francisco",
+                "metroName": "San Francisco",
+                "category": "comparisonGraph",
+                "categoryLabel": "Comparison Graph",
+                "taskType": "one-way comparison",
+                "itemName": "Presidio -> Jackson Square",
+                "severity": "low",
+                "priority": 15,
+                "reason": "Comparison relationship is not reciprocated.",
+                "sourceId": "presidio:jackson-square",
+                "publicUrl": "/commercial-real-estate/CA/san-francisco/presidio/",
+                "adminUrl": "",
+                "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+                "automationCandidate": true,
+                "readinessState": ""
+              },
+              {
+                "id": "san-francisco:comparisonGraph:unresolved comparison:presidio-richmond-district",
+                "code": "unresolved-comparison",
+                "metroId": "san-francisco",
+                "metroName": "San Francisco",
+                "category": "comparisonGraph",
+                "categoryLabel": "Comparison Graph",
+                "taskType": "unresolved comparison",
+                "itemName": "Presidio -> richmond-district",
+                "severity": "critical",
+                "priority": 100,
+                "reason": "Comparison target does not resolve to a location graph node.",
+                "sourceId": "presidio:richmond-district",
+                "publicUrl": "/commercial-real-estate/CA/san-francisco/presidio/",
+                "adminUrl": "",
+                "suggestedNextAction": "Fix or remove the unresolved comparison target.",
+                "automationCandidate": false,
+                "readinessState": ""
+              },
+              {
                 "id": "san-francisco:comparisonGraph:one-way comparison:downtown-san-mateo-downtown-palo-alto",
                 "code": "one-way-comparison",
                 "metroId": "san-francisco",
@@ -37900,10 +38244,10 @@
           "representativeBuildings": {
             "key": "representativeBuildings",
             "label": "Representative Buildings",
-            "score": 69,
+            "score": 66,
             "completed": 37,
-            "total": 54,
-            "missing": 17,
+            "total": 56,
+            "missing": 19,
             "explanation": "158 representative building relationships; v1 target is 3 per covered district.",
             "issues": [
               {
@@ -38015,6 +38359,25 @@
                 "reason": "District has no representative building examples.",
                 "sourceId": "central-waterfront",
                 "publicUrl": "/commercial-real-estate/CA/san-francisco/central-waterfront/",
+                "adminUrl": "",
+                "suggestedNextAction": "Curate representative buildings that explain this district.",
+                "automationCandidate": true,
+                "readinessState": ""
+              },
+              {
+                "id": "san-francisco:representativeBuildings:district missing representative buildings:presidio",
+                "code": "district-no-reps",
+                "metroId": "san-francisco",
+                "metroName": "San Francisco",
+                "category": "representativeBuildings",
+                "categoryLabel": "Representative Buildings",
+                "taskType": "district missing representative buildings",
+                "itemName": "Presidio",
+                "severity": "medium",
+                "priority": 40,
+                "reason": "District has no representative building examples.",
+                "sourceId": "presidio",
+                "publicUrl": "/commercial-real-estate/CA/san-francisco/presidio/",
                 "adminUrl": "",
                 "suggestedNextAction": "Curate representative buildings that explain this district.",
                 "automationCandidate": true,
@@ -39367,8 +39730,8 @@
             "key": "recommendationReadiness",
             "label": "Recommendation Readiness",
             "score": 94,
-            "completed": 29,
-            "total": 31,
+            "completed": 30,
+            "total": 32,
             "missing": 2,
             "explanation": "8 QA scenarios; last QA 2026-07-26.",
             "issues": [
@@ -39416,8 +39779,8 @@
             "key": "editorialQuality",
             "label": "Editorial Quality",
             "score": 98,
-            "completed": 114,
-            "total": 116,
+            "completed": 115,
+            "total": 117,
             "missing": 2,
             "explanation": "Deterministic scan for placeholders, unsupported generated phrasing, and style-guide avoid phrases.",
             "issues": [
@@ -39464,15 +39827,130 @@
           "internalLinking": {
             "key": "internalLinking",
             "label": "Internal Linking",
-            "score": 100,
-            "completed": 271,
-            "total": 271,
+            "score": 80,
+            "completed": 272,
+            "total": 272,
             "missing": 0,
             "explanation": "Checks public city, district, building, and comparison references that Publisher can resolve from generated data.",
-            "issues": []
+            "issues": [
+              {
+                "id": "san-francisco:internalLinking:unresolved internal reference:presidio-marina-district",
+                "code": "broken-district-link",
+                "metroId": "san-francisco",
+                "metroName": "San Francisco",
+                "category": "internalLinking",
+                "categoryLabel": "Internal Linking",
+                "taskType": "unresolved internal reference",
+                "itemName": "Presidio -> marina-district",
+                "severity": "critical",
+                "priority": 100,
+                "reason": "District comparison target cannot be resolved.",
+                "sourceId": "presidio:marina-district",
+                "publicUrl": "/commercial-real-estate/CA/san-francisco/presidio/",
+                "adminUrl": "",
+                "suggestedNextAction": "Fix the broken comparison reference.",
+                "automationCandidate": false,
+                "readinessState": ""
+              },
+              {
+                "id": "san-francisco:internalLinking:unresolved internal reference:presidio-richmond-district",
+                "code": "broken-district-link",
+                "metroId": "san-francisco",
+                "metroName": "San Francisco",
+                "category": "internalLinking",
+                "categoryLabel": "Internal Linking",
+                "taskType": "unresolved internal reference",
+                "itemName": "Presidio -> richmond-district",
+                "severity": "critical",
+                "priority": 100,
+                "reason": "District comparison target cannot be resolved.",
+                "sourceId": "presidio:richmond-district",
+                "publicUrl": "/commercial-real-estate/CA/san-francisco/presidio/",
+                "adminUrl": "",
+                "suggestedNextAction": "Fix the broken comparison reference.",
+                "automationCandidate": false,
+                "readinessState": ""
+              }
+            ]
           }
         },
         "queue": [
+          {
+            "id": "san-francisco:comparisonGraph:unresolved comparison:presidio-marina-district",
+            "code": "unresolved-comparison",
+            "metroId": "san-francisco",
+            "metroName": "San Francisco",
+            "category": "comparisonGraph",
+            "categoryLabel": "Comparison Graph",
+            "taskType": "unresolved comparison",
+            "itemName": "Presidio -> marina-district",
+            "severity": "critical",
+            "priority": 100,
+            "reason": "Comparison target does not resolve to a location graph node.",
+            "sourceId": "presidio:marina-district",
+            "publicUrl": "/commercial-real-estate/CA/san-francisco/presidio/",
+            "adminUrl": "",
+            "suggestedNextAction": "Fix or remove the unresolved comparison target.",
+            "automationCandidate": false,
+            "readinessState": ""
+          },
+          {
+            "id": "san-francisco:comparisonGraph:unresolved comparison:presidio-richmond-district",
+            "code": "unresolved-comparison",
+            "metroId": "san-francisco",
+            "metroName": "San Francisco",
+            "category": "comparisonGraph",
+            "categoryLabel": "Comparison Graph",
+            "taskType": "unresolved comparison",
+            "itemName": "Presidio -> richmond-district",
+            "severity": "critical",
+            "priority": 100,
+            "reason": "Comparison target does not resolve to a location graph node.",
+            "sourceId": "presidio:richmond-district",
+            "publicUrl": "/commercial-real-estate/CA/san-francisco/presidio/",
+            "adminUrl": "",
+            "suggestedNextAction": "Fix or remove the unresolved comparison target.",
+            "automationCandidate": false,
+            "readinessState": ""
+          },
+          {
+            "id": "san-francisco:internalLinking:unresolved internal reference:presidio-marina-district",
+            "code": "broken-district-link",
+            "metroId": "san-francisco",
+            "metroName": "San Francisco",
+            "category": "internalLinking",
+            "categoryLabel": "Internal Linking",
+            "taskType": "unresolved internal reference",
+            "itemName": "Presidio -> marina-district",
+            "severity": "critical",
+            "priority": 100,
+            "reason": "District comparison target cannot be resolved.",
+            "sourceId": "presidio:marina-district",
+            "publicUrl": "/commercial-real-estate/CA/san-francisco/presidio/",
+            "adminUrl": "",
+            "suggestedNextAction": "Fix the broken comparison reference.",
+            "automationCandidate": false,
+            "readinessState": ""
+          },
+          {
+            "id": "san-francisco:internalLinking:unresolved internal reference:presidio-richmond-district",
+            "code": "broken-district-link",
+            "metroId": "san-francisco",
+            "metroName": "San Francisco",
+            "category": "internalLinking",
+            "categoryLabel": "Internal Linking",
+            "taskType": "unresolved internal reference",
+            "itemName": "Presidio -> richmond-district",
+            "severity": "critical",
+            "priority": 100,
+            "reason": "District comparison target cannot be resolved.",
+            "sourceId": "presidio:richmond-district",
+            "publicUrl": "/commercial-real-estate/CA/san-francisco/presidio/",
+            "adminUrl": "",
+            "suggestedNextAction": "Fix the broken comparison reference.",
+            "automationCandidate": false,
+            "readinessState": ""
+          },
           {
             "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-1-henry-adams-st",
             "code": "missing-brief",
@@ -40937,6 +41415,25 @@
             "readinessState": ""
           },
           {
+            "id": "san-francisco:representativeBuildings:district missing representative buildings:presidio",
+            "code": "district-no-reps",
+            "metroId": "san-francisco",
+            "metroName": "San Francisco",
+            "category": "representativeBuildings",
+            "categoryLabel": "Representative Buildings",
+            "taskType": "district missing representative buildings",
+            "itemName": "Presidio",
+            "severity": "medium",
+            "priority": 40,
+            "reason": "District has no representative building examples.",
+            "sourceId": "presidio",
+            "publicUrl": "/commercial-real-estate/CA/san-francisco/presidio/",
+            "adminUrl": "",
+            "suggestedNextAction": "Curate representative buildings that explain this district.",
+            "automationCandidate": true,
+            "readinessState": ""
+          },
+          {
             "id": "san-francisco:representativeBuildings:district missing representative buildings:stanford-research-park",
             "code": "district-no-reps",
             "metroId": "san-francisco",
@@ -41336,6 +41833,25 @@
             "readinessState": ""
           },
           {
+            "id": "san-francisco:comparisonGraph:one-way comparison:presidio-jackson-square",
+            "code": "one-way-comparison",
+            "metroId": "san-francisco",
+            "metroName": "San Francisco",
+            "category": "comparisonGraph",
+            "categoryLabel": "Comparison Graph",
+            "taskType": "one-way comparison",
+            "itemName": "Presidio -> Jackson Square",
+            "severity": "low",
+            "priority": 15,
+            "reason": "Comparison relationship is not reciprocated.",
+            "sourceId": "presidio:jackson-square",
+            "publicUrl": "/commercial-real-estate/CA/san-francisco/presidio/",
+            "adminUrl": "",
+            "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+            "automationCandidate": true,
+            "readinessState": ""
+          },
+          {
             "id": "san-francisco:comparisonGraph:one-way comparison:showplace-square-soma",
             "code": "one-way-comparison",
             "metroId": "san-francisco",
@@ -41527,22 +42043,22 @@
           }
         ],
         "recommendedNextAction": {
-          "id": "san-francisco:buildingBriefs:representative building missing Building Brief:commercial-real-estate-building-ca-san-francisco-1-henry-adams-st",
-          "code": "missing-brief",
+          "id": "san-francisco:comparisonGraph:unresolved comparison:presidio-marina-district",
+          "code": "unresolved-comparison",
           "metroId": "san-francisco",
           "metroName": "San Francisco",
-          "category": "buildingBriefs",
-          "categoryLabel": "Building Briefs",
-          "taskType": "representative building missing Building Brief",
-          "itemName": "1 Henry Adams St",
-          "severity": "medium",
-          "priority": 40,
-          "reason": "Representative building has not migrated to the canonical Building Brief journey.",
-          "sourceId": "/commercial-real-estate/building/CA/san-francisco/1-henry-adams-st/",
-          "publicUrl": "/commercial-real-estate/building/CA/san-francisco/1-henry-adams-st/",
+          "category": "comparisonGraph",
+          "categoryLabel": "Comparison Graph",
+          "taskType": "unresolved comparison",
+          "itemName": "Presidio -> marina-district",
+          "severity": "critical",
+          "priority": 100,
+          "reason": "Comparison target does not resolve to a location graph node.",
+          "sourceId": "presidio:marina-district",
+          "publicUrl": "/commercial-real-estate/CA/san-francisco/presidio/",
           "adminUrl": "",
-          "suggestedNextAction": "Author a Building Brief for this representative building.",
-          "automationCandidate": true,
+          "suggestedNextAction": "Fix or remove the unresolved comparison target.",
+          "automationCandidate": false,
           "readinessState": ""
         }
       },
@@ -66997,6 +67513,82 @@
     ],
     "primaryQueue": [
       {
+        "id": "san-francisco:comparisonGraph:unresolved comparison:presidio-marina-district",
+        "code": "unresolved-comparison",
+        "metroId": "san-francisco",
+        "metroName": "San Francisco",
+        "category": "comparisonGraph",
+        "categoryLabel": "Comparison Graph",
+        "taskType": "unresolved comparison",
+        "itemName": "Presidio -> marina-district",
+        "severity": "critical",
+        "priority": 100,
+        "reason": "Comparison target does not resolve to a location graph node.",
+        "sourceId": "presidio:marina-district",
+        "publicUrl": "/commercial-real-estate/CA/san-francisco/presidio/",
+        "adminUrl": "",
+        "suggestedNextAction": "Fix or remove the unresolved comparison target.",
+        "automationCandidate": false,
+        "readinessState": ""
+      },
+      {
+        "id": "san-francisco:comparisonGraph:unresolved comparison:presidio-richmond-district",
+        "code": "unresolved-comparison",
+        "metroId": "san-francisco",
+        "metroName": "San Francisco",
+        "category": "comparisonGraph",
+        "categoryLabel": "Comparison Graph",
+        "taskType": "unresolved comparison",
+        "itemName": "Presidio -> richmond-district",
+        "severity": "critical",
+        "priority": 100,
+        "reason": "Comparison target does not resolve to a location graph node.",
+        "sourceId": "presidio:richmond-district",
+        "publicUrl": "/commercial-real-estate/CA/san-francisco/presidio/",
+        "adminUrl": "",
+        "suggestedNextAction": "Fix or remove the unresolved comparison target.",
+        "automationCandidate": false,
+        "readinessState": ""
+      },
+      {
+        "id": "san-francisco:internalLinking:unresolved internal reference:presidio-marina-district",
+        "code": "broken-district-link",
+        "metroId": "san-francisco",
+        "metroName": "San Francisco",
+        "category": "internalLinking",
+        "categoryLabel": "Internal Linking",
+        "taskType": "unresolved internal reference",
+        "itemName": "Presidio -> marina-district",
+        "severity": "critical",
+        "priority": 100,
+        "reason": "District comparison target cannot be resolved.",
+        "sourceId": "presidio:marina-district",
+        "publicUrl": "/commercial-real-estate/CA/san-francisco/presidio/",
+        "adminUrl": "",
+        "suggestedNextAction": "Fix the broken comparison reference.",
+        "automationCandidate": false,
+        "readinessState": ""
+      },
+      {
+        "id": "san-francisco:internalLinking:unresolved internal reference:presidio-richmond-district",
+        "code": "broken-district-link",
+        "metroId": "san-francisco",
+        "metroName": "San Francisco",
+        "category": "internalLinking",
+        "categoryLabel": "Internal Linking",
+        "taskType": "unresolved internal reference",
+        "itemName": "Presidio -> richmond-district",
+        "severity": "critical",
+        "priority": 100,
+        "reason": "District comparison target cannot be resolved.",
+        "sourceId": "presidio:richmond-district",
+        "publicUrl": "/commercial-real-estate/CA/san-francisco/presidio/",
+        "adminUrl": "",
+        "suggestedNextAction": "Fix the broken comparison reference.",
+        "automationCandidate": false,
+        "readinessState": ""
+      },
+      {
         "id": "east-bay:comparisonGraph:orphan district comparison:antioch-east-18th-industrial",
         "code": "orphan-comparison",
         "metroId": "east-bay",
@@ -71076,6 +71668,25 @@
         "reason": "District has no representative building examples.",
         "sourceId": "north-san-jose",
         "publicUrl": "/commercial-real-estate/CA/san-jose/north-san-jose/",
+        "adminUrl": "",
+        "suggestedNextAction": "Curate representative buildings that explain this district.",
+        "automationCandidate": true,
+        "readinessState": ""
+      },
+      {
+        "id": "san-francisco:representativeBuildings:district missing representative buildings:presidio",
+        "code": "district-no-reps",
+        "metroId": "san-francisco",
+        "metroName": "San Francisco",
+        "category": "representativeBuildings",
+        "categoryLabel": "Representative Buildings",
+        "taskType": "district missing representative buildings",
+        "itemName": "Presidio",
+        "severity": "medium",
+        "priority": 40,
+        "reason": "District has no representative building examples.",
+        "sourceId": "presidio",
+        "publicUrl": "/commercial-real-estate/CA/san-francisco/presidio/",
         "adminUrl": "",
         "suggestedNextAction": "Curate representative buildings that explain this district.",
         "automationCandidate": true,
@@ -72241,6 +72852,25 @@
         "readinessState": ""
       },
       {
+        "id": "san-francisco:comparisonGraph:one-way comparison:presidio-jackson-square",
+        "code": "one-way-comparison",
+        "metroId": "san-francisco",
+        "metroName": "San Francisco",
+        "category": "comparisonGraph",
+        "categoryLabel": "Comparison Graph",
+        "taskType": "one-way comparison",
+        "itemName": "Presidio -> Jackson Square",
+        "severity": "low",
+        "priority": 15,
+        "reason": "Comparison relationship is not reciprocated.",
+        "sourceId": "presidio:jackson-square",
+        "publicUrl": "/commercial-real-estate/CA/san-francisco/presidio/",
+        "adminUrl": "",
+        "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+        "automationCandidate": true,
+        "readinessState": ""
+      },
+      {
         "id": "san-francisco:comparisonGraph:one-way comparison:showplace-square-soma",
         "code": "one-way-comparison",
         "metroId": "san-francisco",
@@ -72432,6 +73062,82 @@
       }
     ],
     "queue": [
+      {
+        "id": "san-francisco:comparisonGraph:unresolved comparison:presidio-marina-district",
+        "code": "unresolved-comparison",
+        "metroId": "san-francisco",
+        "metroName": "San Francisco",
+        "category": "comparisonGraph",
+        "categoryLabel": "Comparison Graph",
+        "taskType": "unresolved comparison",
+        "itemName": "Presidio -> marina-district",
+        "severity": "critical",
+        "priority": 100,
+        "reason": "Comparison target does not resolve to a location graph node.",
+        "sourceId": "presidio:marina-district",
+        "publicUrl": "/commercial-real-estate/CA/san-francisco/presidio/",
+        "adminUrl": "",
+        "suggestedNextAction": "Fix or remove the unresolved comparison target.",
+        "automationCandidate": false,
+        "readinessState": ""
+      },
+      {
+        "id": "san-francisco:comparisonGraph:unresolved comparison:presidio-richmond-district",
+        "code": "unresolved-comparison",
+        "metroId": "san-francisco",
+        "metroName": "San Francisco",
+        "category": "comparisonGraph",
+        "categoryLabel": "Comparison Graph",
+        "taskType": "unresolved comparison",
+        "itemName": "Presidio -> richmond-district",
+        "severity": "critical",
+        "priority": 100,
+        "reason": "Comparison target does not resolve to a location graph node.",
+        "sourceId": "presidio:richmond-district",
+        "publicUrl": "/commercial-real-estate/CA/san-francisco/presidio/",
+        "adminUrl": "",
+        "suggestedNextAction": "Fix or remove the unresolved comparison target.",
+        "automationCandidate": false,
+        "readinessState": ""
+      },
+      {
+        "id": "san-francisco:internalLinking:unresolved internal reference:presidio-marina-district",
+        "code": "broken-district-link",
+        "metroId": "san-francisco",
+        "metroName": "San Francisco",
+        "category": "internalLinking",
+        "categoryLabel": "Internal Linking",
+        "taskType": "unresolved internal reference",
+        "itemName": "Presidio -> marina-district",
+        "severity": "critical",
+        "priority": 100,
+        "reason": "District comparison target cannot be resolved.",
+        "sourceId": "presidio:marina-district",
+        "publicUrl": "/commercial-real-estate/CA/san-francisco/presidio/",
+        "adminUrl": "",
+        "suggestedNextAction": "Fix the broken comparison reference.",
+        "automationCandidate": false,
+        "readinessState": ""
+      },
+      {
+        "id": "san-francisco:internalLinking:unresolved internal reference:presidio-richmond-district",
+        "code": "broken-district-link",
+        "metroId": "san-francisco",
+        "metroName": "San Francisco",
+        "category": "internalLinking",
+        "categoryLabel": "Internal Linking",
+        "taskType": "unresolved internal reference",
+        "itemName": "Presidio -> richmond-district",
+        "severity": "critical",
+        "priority": 100,
+        "reason": "District comparison target cannot be resolved.",
+        "sourceId": "presidio:richmond-district",
+        "publicUrl": "/commercial-real-estate/CA/san-francisco/presidio/",
+        "adminUrl": "",
+        "suggestedNextAction": "Fix the broken comparison reference.",
+        "automationCandidate": false,
+        "readinessState": ""
+      },
       {
         "id": "east-bay:comparisonGraph:orphan district comparison:antioch-east-18th-industrial",
         "code": "orphan-comparison",
@@ -76512,6 +77218,25 @@
         "reason": "District has no representative building examples.",
         "sourceId": "north-san-jose",
         "publicUrl": "/commercial-real-estate/CA/san-jose/north-san-jose/",
+        "adminUrl": "",
+        "suggestedNextAction": "Curate representative buildings that explain this district.",
+        "automationCandidate": true,
+        "readinessState": ""
+      },
+      {
+        "id": "san-francisco:representativeBuildings:district missing representative buildings:presidio",
+        "code": "district-no-reps",
+        "metroId": "san-francisco",
+        "metroName": "San Francisco",
+        "category": "representativeBuildings",
+        "categoryLabel": "Representative Buildings",
+        "taskType": "district missing representative buildings",
+        "itemName": "Presidio",
+        "severity": "medium",
+        "priority": 40,
+        "reason": "District has no representative building examples.",
+        "sourceId": "presidio",
+        "publicUrl": "/commercial-real-estate/CA/san-francisco/presidio/",
         "adminUrl": "",
         "suggestedNextAction": "Curate representative buildings that explain this district.",
         "automationCandidate": true,
@@ -77867,6 +78592,25 @@
         "readinessState": ""
       },
       {
+        "id": "san-francisco:comparisonGraph:one-way comparison:presidio-jackson-square",
+        "code": "one-way-comparison",
+        "metroId": "san-francisco",
+        "metroName": "San Francisco",
+        "category": "comparisonGraph",
+        "categoryLabel": "Comparison Graph",
+        "taskType": "one-way comparison",
+        "itemName": "Presidio -> Jackson Square",
+        "severity": "low",
+        "priority": 15,
+        "reason": "Comparison relationship is not reciprocated.",
+        "sourceId": "presidio:jackson-square",
+        "publicUrl": "/commercial-real-estate/CA/san-francisco/presidio/",
+        "adminUrl": "",
+        "suggestedNextAction": "Review whether the comparison should be reciprocal.",
+        "automationCandidate": true,
+        "readinessState": ""
+      },
+      {
         "id": "san-francisco:comparisonGraph:one-way comparison:showplace-square-soma",
         "code": "one-way-comparison",
         "metroId": "san-francisco",
@@ -78681,7 +79425,7 @@
         "Low": 2
       },
       "deferredCandidates": 73,
-      "latestValidation": "2026-08-13T11:25:02-07:00",
+      "latestValidation": "2026-08-13T22:41:40-07:00",
       "errors": [],
       "warnings": [],
       "source": {
@@ -78765,7 +79509,7 @@
           "publisherMetroName": "San Francisco",
           "publicRoute": "/commercial-real-estate/CA/san-francisco/",
           "implementationNote": "",
-          "districtCount": 12,
+          "districtCount": 13,
           "publisherCompatibility": {
             "metroId": "san-francisco",
             "metroName": "San Francisco"
@@ -79140,8 +79884,8 @@
         }
       ],
       "districtOwnershipSummary": {
-        "districtCount": 118,
-        "resolvedDistricts": 118,
+        "districtCount": 119,
+        "resolvedDistricts": 119,
         "unresolvedDistricts": 0,
         "duplicateAssignments": 0,
         "recommendationEligibleDistricts": 118
@@ -79494,6 +80238,18 @@
           "marketName": "San Francisco",
           "recommendationEligible": true,
           "publicRoute": "/commercial-real-estate/CA/san-francisco/mission-district/"
+        },
+        {
+          "districtId": "presidio",
+          "districtName": "Presidio",
+          "city": "San Francisco",
+          "state": "CA",
+          "regionId": "bay-area",
+          "regionName": "Bay Area",
+          "marketId": "san-francisco",
+          "marketName": "San Francisco",
+          "recommendationEligible": false,
+          "publicRoute": "/commercial-real-estate/CA/san-francisco/presidio/"
         },
         {
           "districtId": "downtown-san-mateo",

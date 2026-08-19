@@ -229,6 +229,17 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy({
     "lib/recommendations/normalize-sf-office-profile.js": "js/recommendations/normalize-sf-office-profile.js",
     "lib/recommendations/sf-office-recommendation-resolver.js": "js/recommendations/sf-office-recommendation-resolver.js",
+    "lib/requirements/requirement-domain-v1.mjs": "js/requirements/requirement-domain-v1.mjs",
+    "lib/requirements/requirement-interview-v1.mjs": "js/requirements/requirement-interview-v1.mjs",
+    "lib/requirements/requirement-input-controls-v1.mjs": "js/requirements/requirement-input-controls-v1.mjs",
+    "lib/requirements/requirement-to-sf-office-recommendation.js": "js/requirements/requirement-to-sf-office-recommendation.js",
+    "lib/requirements/requirement-location-intelligence-preview.js": "js/requirements/requirement-location-intelligence-preview.js",
+    "lib/access/access-intelligence-schema.js": "js/access/access-intelligence-schema.js",
+    "lib/access/requirement-access-profile.js": "js/access/requirement-access-profile.js",
+    "lib/access/access-fit-evaluator.js": "js/access/access-fit-evaluator.js",
+    "lib/access/access-shadow-evaluator.js": "js/access/access-shadow-evaluator.js",
+    "lib/recommendations/private-location-composition.js": "js/recommendations/private-location-composition.js",
+    "lib/recommendations/private-recommendation-readiness.js": "js/recommendations/private-recommendation-readiness.js",
   });
   eleventyConfig.addPassthroughCopy("images");
   eleventyConfig.addPassthroughCopy("assets");

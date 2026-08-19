@@ -1,0 +1,47 @@
+const assert = require("node:assert/strict");
+const fs = require("node:fs");
+const path = require("node:path");
+
+const root = path.join(__dirname, "..");
+const read = (file) => fs.readFileSync(path.join(root, file), "utf8");
+const prompt = read("_includes/partials/shared/recommendation-prompt-card.njk");
+const district = read("pages/commercial-real-estate/neighborhood.njk");
+const spaceType = read("pages/space-type.njk");
+const marketGuide = read("pages/commercial-real-estate/market-guide.njk");
+const city = read("city.njk");
+const businessBrief = read("pages/business-brief.njk");
+const how = read("pages/how-rofo-works.njk");
+
+assert(prompt.includes("Find the \" + promptCity + \" locations that fit your business"));
+assert(prompt.includes("Is \" + promptDistrict + \" right for your business?"));
+assert(prompt.includes("Find the right \" + promptCity + \" \" + promptTypeLabel + \" location"));
+assert(prompt.includes("Find \" + promptCity + \" office locations that fit \" + promptBusinessIdentity"));
+assert(prompt.includes("Find commercial locations that fit your business"), "Unsupported markets need bounded fallback copy.");
+assert(prompt.includes("promptHasDistrictIntelligence"));
+assert(prompt.includes('promptCity == "San Francisco"'), "District-intelligence claim must remain capability-aware.");
+assert(prompt.includes('promptBase = "/location-requirement/" if promptHasDistrictIntelligence else "/find-locations/"'), "Capable SF entry surfaces must use the runtime-gated vNext entry while unsupported contexts retain the current flow.");
+assert(!prompt.includes("/operator/location-brief-v2/"));
+assert(prompt.includes("businessArchetype="));
+assert(prompt.includes("district="));
+assert(prompt.includes("sourcePath="));
+assert(prompt.includes('href="/how-rofo-works/"'));
+
+assert(district.includes('"context_type": "district"'));
+assert(district.includes('"neighborhood_name": neighborhood.name'));
+assert(spaceType.includes('"context_type": "space_type"'));
+assert(marketGuide.includes('"context_type": "market_guide"'));
+assert(city.includes('"context_type": "city"'));
+assert(!city.includes("Before comparing {{ city.city }} listings"));
+assert(businessBrief.includes('"context_type": "business_brief"'));
+assert(businessBrief.includes('"business_archetype": brief.archetype.shortLabel or brief.archetype.label'));
+assert.equal((district.match(/<h1/g) || []).length, 1, "District page must retain one H1.");
+assert.equal((spaceType.match(/<h1/g) || []).length, 0, "Space-type shell delegates its single H1 to the existing hero partial.");
+
+assert(how.includes("Tell us about your business"));
+assert(how.includes("We evaluate the market"));
+assert(how.includes("See locations and tradeoffs"));
+assert(how.includes("Recommendations are based on fit"));
+assert(how.includes("do not receive a ranking boost"));
+assert(how.includes("unsupported rankings"));
+
+console.log("Product education integration QA passed.");

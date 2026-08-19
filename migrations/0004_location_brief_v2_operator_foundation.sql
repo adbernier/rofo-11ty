@@ -1,0 +1,9 @@
+-- Operator-only Location Brief v2. Existing location_briefs v1 tables are untouched.
+create table if not exists location_briefs_v2 (id text primary key, public_id text not null unique, schema_version text not null, lifecycle_stage text not null, current_requirement_revision_id text, current_recommendation_snapshot_id text, entry_context_id text not null, owner_capability_hash text not null, created_at text not null, updated_at text not null, archived_at text);
+create table if not exists location_brief_v2_entry_contexts (id text primary key, brief_id text not null, context_json text not null, created_at text not null);
+create table if not exists location_brief_v2_requirement_revisions (id text primary key, brief_id text not null, revision_number integer not null, requirement_json text not null, changed_by text not null, created_at text not null, unique(brief_id, revision_number));
+create table if not exists location_brief_v2_recommendation_snapshots (id text primary key, brief_id text not null, requirement_revision_id text not null, readiness text not null, snapshot_json text not null, engine_version text not null, created_at text not null);
+create table if not exists location_brief_v2_candidates (id text primary key, brief_id text not null, canonical_district_id text not null, presentation_group_id text, source_identity text, provenance_json text not null, disposition text not null, created_at text not null, updated_at text not null, unique(brief_id, canonical_district_id));
+create index if not exists idx_location_briefs_v2_public on location_briefs_v2(public_id);
+create index if not exists idx_location_brief_v2_revisions on location_brief_v2_requirement_revisions(brief_id, revision_number);
+create index if not exists idx_location_brief_v2_snapshots on location_brief_v2_recommendation_snapshots(brief_id, created_at);

@@ -35,6 +35,13 @@ const ALLOWED_EVENTS = new Set([
   "live_market_investigation_confirmation_failed",
   "example_location_brief_viewed",
   "example_location_brief_cta_clicked",
+  "vnext_requirement_started",
+  "vnext_requirement_completed",
+  "vnext_brief_viewed",
+  "vnext_district_explored",
+  "vnext_requirement_edited",
+  "vnext_find_spaces_clicked",
+  "vnext_commercial_request_submitted",
 ]);
 
 const BOT_USER_AGENT_PATTERN = /googlebot|bingbot|ahrefs|semrush|dotbot|mj12bot|petalbot|facebookexternalhit|twitterbot|slackbot|linkedinbot|yandex|baiduspider|duckduckbot|applebot|gptbot|chatgpt-user|ccbot|bot\b|crawler|spider/i;

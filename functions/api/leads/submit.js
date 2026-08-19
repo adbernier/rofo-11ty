@@ -15,6 +15,7 @@ import {
   sha256,
   updateLeadStatus,
 } from "./_shared.js";
+import { commercialContextForBundle, getBriefBundle as getLocationBriefV2Bundle, ownsBrief as ownsLocationBriefV2 } from "../location-brief-v2/_shared.js";
 
 export async function onRequestPost({ request, env }) {
   let fields;
@@ -26,6 +27,19 @@ export async function onRequestPost({ request, env }) {
   }
 
   const lead = buildLeadPayload(fields, request);
+  if (/^LB2-[A-F0-9]{24}$/i.test(lead.location_brief_v2_public_id || "")) {
+    try {
+      const briefBundle = await getLocationBriefV2Bundle(env, lead.location_brief_v2_public_id, false);
+      if (briefBundle && await ownsLocationBriefV2(request, briefBundle.brief)) {
+        const context = commercialContextForBundle(briefBundle);
+        lead.location_brief_v2_context = context;
+        lead.location_brief_v2_url = `${new URL(request.url).origin}/location-brief/${briefBundle.brief.publicId}`;
+        lead.requirements = [lead.requirements, "", "Rofo Location Brief v2", JSON.stringify(context, null, 2)].filter(Boolean).join("\n");
+      }
+    } catch (error) {
+      console.warn("Unable to attach Location Brief v2 context to commercial request", error);
+    }
+  }
   const spam = detectLeadSpam(lead, fields);
 
   if (spam.isSpam) {

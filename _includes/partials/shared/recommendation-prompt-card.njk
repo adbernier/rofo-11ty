@@ -3,8 +3,10 @@
 {% set promptCity = promptContext.city or "" %}
 {% set promptState = promptContext.state or promptContext.state_abbr or "" %}
 {% set promptDistrict = promptContext.neighborhood_name or promptContext.district or "" %}
+{% set promptDistrictId = promptContext.neighborhood_slug or promptContext.district_id or "" %}
 {% set promptLabel = promptContext.context_label or promptDistrict or promptCity or "" %}
 {% set promptSpaceType = promptContext.default_space_type or "" %}
+{% set promptBusinessIdentity = promptContext.business_identity or promptContext.business_archetype or "" %}
 {% set promptSourcePath = page.url or promptContext.page_url or "" %}
 {% set promptComparisonA = "" %}
 {% set promptComparisonB = "" %}
@@ -14,17 +16,16 @@
 {% endif %}
 {% set promptIsIndustrial = (promptSpaceType | lower).includes("industrial") or (promptLabel | lower).includes("industrial") or (promptDistrict | lower).includes("industrial") %}
 
-{% if promptSource == "district" and promptDistrict %}
-  {% if promptIsIndustrial %}
-    {% set promptHeadline = "Is this the right industrial location for your operation?" %}
-    {% set promptBody = "Compare truck access, loading, freeway access, and nearby industrial alternatives." %}
-  {% else %}
-    {% set promptHeadline = "Is " + promptDistrict + " the right place for your business?" %}
-    {% set promptBody = "Compare " + promptDistrict + " with nearby districts and see where the search should start." %}
-  {% endif %}
-{% elseif promptSource == "city" and promptCity %}
-  {% set promptHeadline = "Find the right location in " + promptCity + "." %}
-  {% set promptBody = "Compare " + promptCity + " districts and see which locations fit your space needs." %}
+{% set promptHasDistrictIntelligence = promptCity == "San Francisco" and (not promptSpaceType or (promptSpaceType | lower).includes("office")) %}
+{% if promptSource == "business_brief" and promptCity and promptBusinessIdentity %}
+  {% set promptHeadline = "Find " + promptCity + " office locations that fit " + promptBusinessIdentity %}
+  {% set promptBody = "Rofo already understands the business context. Tell us a little about your team and location priorities, and we'll compare " + promptCity + " commercial districts to identify strong fits and tradeoffs." %}
+{% elseif promptSource == "district" and promptDistrict and promptHasDistrictIntelligence %}
+  {% set promptHeadline = "Is " + promptDistrict + " right for your business?" %}
+  {% set promptBody = "Rofo compares your needs with " + promptDistrict + " and other " + promptCity + " commercial areas to identify strong alternatives and explain the tradeoffs." %}
+{% elseif (promptSource == "city" or promptSource == "market_guide") and promptCity and promptHasDistrictIntelligence %}
+  {% set promptHeadline = "Find the " + promptCity + " locations that fit your business" %}
+  {% set promptBody = "Not sure where to look? Rofo compares your business, workforce, customers and location priorities against our intelligence on " + promptCity + " commercial districts to identify areas worth considering—and explain the tradeoffs." %}
 {% elseif promptSource == "comparison" %}
   {% set promptHeadline = "Which location is the better fit for your business?" %}
   {% if promptComparisonA and promptComparisonB %}
@@ -32,13 +33,13 @@
   {% else %}
     {% set promptBody = "Compare these locations and nearby alternatives based on your business." %}
   {% endif %}
-{% elseif promptSource == "space_type" %}
+{% elseif promptSource == "space_type" and promptHasDistrictIntelligence %}
   {% set promptTypeLabel = (promptSpaceType or "office") | lower %}
-  {% set promptHeadline = "Find the right market for your " + promptTypeLabel + " search." %}
-  {% set promptBody = "Enter where you are considering and see the markets and districts that fit your needs." %}
+  {% set promptHeadline = "Find the right " + promptCity + " " + promptTypeLabel + " location" %}
+  {% set promptBody = "Rofo compares your business, employee and customer geography, and location priorities across " + promptCity + " " + promptTypeLabel + " areas to identify places worth considering—and explain why." %}
 {% else %}
-  {% set promptHeadline = "Get location recommendations that fit your business." %}
-  {% set promptBody = "Enter the basics and see where the search should start." %}
+  {% set promptHeadline = "Find commercial locations that fit your business" %}
+  {% set promptBody = "Tell Rofo what you're looking for and we'll help organize the location and property requirements that matter for your search." %}
 {% endif %}
 
 {% set promptParams = [] %}
@@ -56,9 +57,14 @@
   {% set promptParams = (promptParams.push("locationB=" + (promptComparisonB | queryEncode)), promptParams) %}
 {% endif %}
 {% if promptSpaceType %}{% set promptParams = (promptParams.push("spaceType=" + (promptSpaceType | queryEncode)), promptParams) %}{% endif %}
+{% if promptBusinessIdentity %}{% set promptParams = (promptParams.push("businessArchetype=" + (promptBusinessIdentity | queryEncode)), promptParams) %}{% endif %}
 {% if promptSource %}{% set promptParams = (promptParams.push("source=" + (promptSource | queryEncode)), promptParams) %}{% endif %}
 {% if promptSourcePath %}{% set promptParams = (promptParams.push("sourcePath=" + (promptSourcePath | queryEncode)), promptParams) %}{% endif %}
-{% set promptHref = "/find-locations/" + ("?" + (promptParams | join("&")) if promptParams.length else "") %}
+{% if promptCity == "San Francisco" %}{% set promptParams = (promptParams.push("marketId=san-francisco"), promptParams) %}{% endif %}
+{% if promptDistrictId %}{% set promptParams = (promptParams.push("districtId=" + (promptDistrictId | queryEncode)), promptParams) %}{% endif %}
+{% set promptBase = "/location-requirement/" if promptHasDistrictIntelligence else "/find-locations/" %}
+{% if promptBase == "/location-requirement/" %}{% set promptParams = (promptParams.push("journey=new"), promptParams) %}{% endif %}
+{% set promptHref = promptBase + ("?" + (promptParams | join("&")) if promptParams.length else "") %}
 
 <section
   class="recommendation-prompt-card"
@@ -71,16 +77,16 @@
   aria-label="Get location recommendations"
 >
   <div class="recommendation-prompt-card__content">
-    <div class="recommendation-prompt-card__badge">Location advisor</div>
+    <div class="recommendation-prompt-card__badge">Location intelligence</div>
     <h2>{{ promptHeadline }}</h2>
     <p>{{ promptBody }}</p>
     <p class="recommendation-prompt-card__microcopy">Takes about 60 seconds.</p>
   </div>
   <div class="recommendation-prompt-card__actions">
     <a class="recommendation-prompt-card__button" href="{{ promptHref }}" data-recommendation-prompt-click>
-      Create My Location Brief
+      Get my recommendations <span aria-hidden="true">→</span>
     </a>
-    <a class="recommendation-prompt-card__example" href="/example-location-brief/">See an Example Brief</a>
+    <a class="recommendation-prompt-card__example" href="/how-rofo-works/">How Rofo works <span aria-hidden="true">→</span></a>
   </div>
 </section>
 
