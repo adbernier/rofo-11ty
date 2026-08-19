@@ -4260,7 +4260,10 @@ section.market-page--space-type .market-links a {
 }
 
 .recommendation-prompt-card__actions {
-  display: grid;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
   gap: 10px;
 }
 
@@ -4268,12 +4271,23 @@ section.market-page--space-type .market-links a {
   color: #1346d8;
   font-size: 0.88rem;
   font-weight: 750;
-  text-align: center;
+  text-align: left;
   text-decoration: none;
 }
 
 .recommendation-prompt-card__example:hover {
   text-decoration: underline;
+}
+
+@media (max-width: 640px) {
+  .recommendation-prompt-card__actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .recommendation-prompt-card__button {
+    width: 100%;
+  }
 }
 
 .find-locations-context-note {
