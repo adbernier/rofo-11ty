@@ -15,10 +15,10 @@ assert(operatorRoot.includes("locationBriefV2=new"), "Operator root must declare
 assert(!operatorRoot.includes("Canonical Requirement JSON"), "Operator root must not expose the fixture JSON seam.");
 assert(briefRenderer.includes("locationBriefV2=new"), "New search from a Brief must declare an explicit new-search intent.");
 assert(prototype.includes('const locationBriefV2Intent = ["new", "edit"].includes(requestedIntent)'));
-assert(prototype.indexOf("if (locationBriefV2Mode) clearPrototypePersistence()") < prototype.indexOf("let state = locationBriefV2Mode ? initialState() : restore()"), "Operator persistence must be cleared before interview construction.");
+assert(prototype.indexOf("if (locationBriefV2Mode) clearPrototypePersistence()") < prototype.indexOf("const restoredState = locationBriefV2Mode ? initialState() : restore()"), "Operator persistence must be cleared before interview construction.");
 assert(prototype.includes("sessionStorage.removeItem(SESSION_KEY)"));
 assert(prototype.includes("localStorage.removeItem(SESSION_KEY)"));
-assert(prototype.includes("let state = locationBriefV2Mode ? initialState() : restore()"), "Operator flows must bypass legacy restoration.");
+assert(prototype.includes("const restoredState = locationBriefV2Mode ? initialState() : restore()"), "Operator flows must bypass legacy restoration.");
 assert(prototype.includes("if (locationBriefV2Mode) return;"), "Operator state must not contaminate legacy prototype persistence.");
 
 assert(!prototypePage.includes("Save Location Brief v2"), "The manual persistence seam must be removed.");

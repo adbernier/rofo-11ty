@@ -232,6 +232,7 @@ module.exports = function(eleventyConfig) {
     "lib/requirements/requirement-domain-v1.mjs": "js/requirements/requirement-domain-v1.mjs",
     "lib/requirements/requirement-interview-v1.mjs": "js/requirements/requirement-interview-v1.mjs",
     "lib/requirements/requirement-input-controls-v1.mjs": "js/requirements/requirement-input-controls-v1.mjs",
+    "lib/requirements/requirement-entry-context-bootstrap.mjs": "js/requirements/requirement-entry-context-bootstrap.mjs",
     "lib/requirements/requirement-to-sf-office-recommendation.js": "js/requirements/requirement-to-sf-office-recommendation.js",
     "lib/requirements/requirement-location-intelligence-preview.js": "js/requirements/requirement-location-intelligence-preview.js",
     "lib/access/access-intelligence-schema.js": "js/access/access-intelligence-schema.js",

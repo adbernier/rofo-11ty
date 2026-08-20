@@ -10,6 +10,7 @@ import {
 } from "/js/requirements/requirement-interview-v1.mjs";
 import { updateCriterion } from "/js/requirements/requirement-domain-v1.mjs";
 import { canonicalMarketSuggestions, inputControlSpec } from "/js/requirements/requirement-input-controls-v1.mjs";
+import { seedTrustedEntryContext } from "/js/requirements/requirement-entry-context-bootstrap.mjs";
 
 const root = document.querySelector("[data-requirement-prototype]");
 if (root) {
@@ -39,7 +40,7 @@ if (root) {
     try { return JSON.parse(root.querySelector("[data-sf-office-composition-foundation]")?.textContent || "{}"); } catch (error) { return {}; }
   })();
   const elements = Object.fromEntries([
-    "scenario-buttons", "understanding", "understanding-summary", "search-summary", "search-summary-empty", "progress-bar", "interview", "stage-label", "question-position",
+    "scenario-buttons", "understanding", "understanding-summary", "search-summary", "search-summary-empty", "progress-bar", "requirement-loading", "interview", "stage-label", "question-position",
     "question-kicker", "question-prompt", "question-visible-help", "answer-control", "question-help", "question-error",
     "back-question", "continue-question", "finish-early", "requirement-complete", "requirement-title", "readiness-summary",
     "requirement-summary", "requirement-criteria", "recommendation-preview", "preview-heading", "preview-intro", "preview-results", "candidate-comparisons", "preview-coverage", "access-shadow", "composition-debug", "debug-meta", "debug-json",
@@ -64,8 +65,21 @@ if (root) {
     try { localStorage.removeItem(SESSION_KEY); } catch (error) { /* Clear compatible state from older prototype persistence. */ }
   }
 
+  const publicEntryContext = {
+    sourceType: query.get("source") || (publicExperience ? "public_requirement" : "operator_requirement_interview"),
+    sourcePath: query.get("sourcePath") || document.referrer || location.pathname,
+    marketId: query.get("marketId") || (/^san francisco$/i.test(query.get("city") || "") ? "san-francisco" : ""),
+    propertyType: /office/i.test(query.get("propertyType") || query.get("spaceType") || "") ? "office" : "",
+    candidateDistrictIds: [query.get("districtId") || ""].filter(Boolean),
+    candidateDistrictNames: [query.get("district") || ""].filter(Boolean),
+    businessIdentityId: query.get("businessIdentityId") || query.get("businessArchetype") || "",
+    campaign: query.get("campaign") || "", queryFamily: query.get("queryFamily") || "",
+    referrer: document.referrer || "", landingPage: location.href,
+  };
+
   if (locationBriefV2Mode) clearPrototypePersistence();
-  let state = locationBriefV2Mode ? initialState() : restore();
+  const restoredState = locationBriefV2Mode ? initialState() : restore();
+  let state = { ...restoredState, interview: seedTrustedEntryContext(restoredState.interview, { ...publicEntryContext, intent: publicExperience ? locationBriefV2Intent : "" }, districtGeography) };
   let locationBriefV2Context = { intent: locationBriefV2Intent, publicId: locationBriefV2PublicId, revisionNumber: null };
   const creationRequestId = publicExperience && locationBriefV2Intent === "new" && window.crypto?.randomUUID ? window.crypto.randomUUID() : "";
 
@@ -78,17 +92,6 @@ if (root) {
     if (locationBriefV2Mode) return;
     try { sessionStorage.setItem(SESSION_KEY, JSON.stringify({ ...state, sessionStateVersion: SESSION_STATE_VERSION })); } catch (error) { /* Never block the interview. */ }
   }
-
-  const publicEntryContext = {
-    sourceType: query.get("source") || (publicExperience ? "public_requirement" : "operator_requirement_interview"),
-    sourcePath: query.get("sourcePath") || document.referrer || location.pathname,
-    marketId: query.get("marketId") || (/^san francisco$/i.test(query.get("city") || "") ? "san-francisco" : ""),
-    propertyType: /office/i.test(query.get("propertyType") || query.get("spaceType") || "") ? "office" : "",
-    candidateDistrictIds: [query.get("districtId") || ""].filter(Boolean),
-    businessIdentityId: query.get("businessIdentityId") || query.get("businessArchetype") || "",
-    campaign: query.get("campaign") || "", queryFamily: query.get("queryFamily") || "",
-    referrer: document.referrer || "", landingPage: location.href,
-  };
 
   function entryContextFor(requirement) {
     return { ...publicEntryContext, sourceType: publicExperience ? publicEntryContext.sourceType : "operator_requirement_interview", sourcePath: publicEntryContext.sourcePath || location.pathname, marketId: requirement.locationLogic?.marketAnchor?.marketId || requirement.locationLogic?.marketAnchor?.geographyId || publicEntryContext.marketId, propertyType: requirement.propertyTypes?.[0] || publicEntryContext.propertyType, candidateDistrictIds: requirement.locationLogic?.specificPreference?.candidateDistrictIds || publicEntryContext.candidateDistrictIds };
@@ -173,9 +176,6 @@ if (root) {
         fallback.searchParams.set("spaceType", nextInterview.requirement.propertyTypes?.[0] || "");
         fallback.searchParams.set("source", publicEntryContext.sourceType || "vnext_ineligible");
         location.assign(fallback.toString()); return;
-      }
-      if (publicExperience && question.id === "foundation.property_context" && publicEntryContext.candidateDistrictIds.length) {
-        nextInterview = applyInterviewAnswer(nextInterview, "location.district_candidates", { districtIds: publicEntryContext.candidateDistrictIds });
       }
       const selection = selectNextQuestion(nextInterview);
       if (locationBriefV2Mode && selection.action === "READY" && question.id === "final.unusual") {
@@ -856,7 +856,8 @@ if (root) {
   root.querySelector("[data-back-to-requirement]").addEventListener("click", () => { state.interview = backInterview(state.interview); state.mode = "interview"; persist(); render(); });
 
   async function bootstrap() {
-    if (locationBriefV2Mode) root.querySelector(".requirement-prototype__scenarios").hidden = true;
+    const scenarioNav = root.querySelector(".requirement-prototype__scenarios");
+    if (locationBriefV2Mode && scenarioNav) scenarioNav.hidden = true;
     if (locationBriefV2Intent === "edit") {
       if (!/^LB2-[A-F0-9]{24}$/i.test(locationBriefV2PublicId)) { alert("A valid Location Brief v2 ID is required."); return; }
       try {
@@ -868,16 +869,12 @@ if (root) {
       } catch (error) { alert(error.message); return; }
     }
     if (publicExperience && locationBriefV2Intent === "new") {
-      let seeded = state.interview;
-      if (publicEntryContext.marketId === "san-francisco") seeded = applyInterviewAnswer(seeded, "location.anchor", { text: "San Francisco", market: { geographyId: "san-francisco", marketId: "san-francisco", marketName: "San Francisco", city: "San Francisco", state: "CA", displayName: "San Francisco" } });
-      if (publicEntryContext.propertyType === "office") seeded = applyInterviewAnswer(seeded, "foundation.property_context", { optionId: "office" });
-      if (publicEntryContext.propertyType === "office" && publicEntryContext.candidateDistrictIds.length) seeded = applyInterviewAnswer(seeded, "location.district_candidates", { districtIds: publicEntryContext.candidateDistrictIds });
       const businessMap = { design_creative: "design_creative", professional_services: "professional_services", technology: "technology", life_science: "life_science", nonprofit: "nonprofit", "Architecture, Design & Creative Services": "design_creative", "Financial & Professional Services": "professional_services", "Professional Services": "professional_services", "Technology & Product Companies": "technology", Technology: "technology", "Life Sciences & Research": "life_science", "Nonprofit & Mission-Driven Organizations": "nonprofit", Nonprofit: "nonprofit" };
       const businessOption = businessMap[publicEntryContext.businessIdentityId];
-      if (publicEntryContext.propertyType === "office" && businessOption) seeded = applyInterviewAnswer(seeded, "business.identity", { optionId: businessOption });
-      state = { interview: seeded, mode: "interview", draft: null };
+      if (publicEntryContext.propertyType === "office" && businessOption) state = { interview: applyInterviewAnswer(state.interview, "business.identity", { optionId: businessOption }), mode: "interview", draft: null };
       trackVNext("vnext_requirement_started");
     }
+    if (elements["requirement-loading"]) elements["requirement-loading"].hidden = true;
     render();
   }
 

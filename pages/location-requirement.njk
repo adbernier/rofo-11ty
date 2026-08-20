@@ -14,7 +14,8 @@ description: "Tell Rofo what matters to your business and see San Francisco offi
   <script type="application/json" data-sf-access-foundation>{{ sfAccessFoundationV0 | dump | safe }}</script>
   <script type="application/json" data-sf-office-composition-foundation>{{ sfOfficeCompositionFoundation | dump | safe }}</script>
   <header class="requirement-prototype__header"><div><p class="requirement-prototype__eyebrow">Location search</p><h1>Find locations that fit your business.</h1><p>Answer a short sequence of practical questions. Rofo will show useful alternatives and their tradeoffs.</p></div></header>
-  <section class="requirement-interview" data-interview aria-live="polite">
+  <section class="requirement-bootstrap" data-requirement-loading aria-live="polite">Preparing your location search…</section>
+  <section class="requirement-interview" data-interview aria-live="polite" hidden>
     <div class="requirement-interview__orientation"><span data-stage-label>Location search</span><span data-question-position></span></div>
     <div class="requirement-interview__progress" aria-label="Location search progress"><span data-progress-bar></span></div>
     <div class="requirement-interview__layout">

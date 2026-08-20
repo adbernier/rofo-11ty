@@ -43,6 +43,7 @@ assert(!requirementPage.includes("data-toggle-understanding"));
 assert(requirementPage.includes("data-search-summary"));
 assert(requirementPage.includes("Your search"));
 assert(requirementPage.includes("data-progress-bar"));
+assert(requirementPage.includes("data-requirement-loading") && requirementPage.includes("data-interview aria-live=\"polite\" hidden"), "The static first paint must be neutral until canonical bootstrap completes.");
 assert(requirementPage.includes("←</span> Previous"));
 assert(requirementStyles.includes("--accent:#1746cc"), "Production Requirement must use the established Rofo blue accent.");
 assert(requirementStyles.includes("grid-template-columns:minmax(0,1.7fr) minmax(250px,.7fr)"), "Desktop must provide question and search-summary columns.");
@@ -52,6 +53,9 @@ assert(requirementStyles.includes(".requirement-choice input{position:absolute;w
 const requirementClient = read("js/requirement-prototype.js");
 assert(requirementClient.includes("vnext_requirement_started"));
 assert(requirementClient.includes("vnext_requirement_completed"));
+assert(requirementClient.indexOf("const publicEntryContext") < requirementClient.indexOf("const restoredState"), "EntryContext must be parsed before the initial adaptive state is resolved.");
+assert(requirementClient.includes("seedTrustedEntryContext(restoredState.interview"));
+assert(requirementClient.includes('if (elements["requirement-loading"]) elements["requirement-loading"].hidden = true;'));
 assert(requirementClient.includes("fallback.searchParams.set"), "Unsupported property selections must fall back to the existing journey.");
 const createApi = read("functions/api/location-brief-v2/create.js");
 assert(createApi.includes("isSfOfficeRequirement"));
