@@ -73,8 +73,9 @@ const accounting = composer.composeLocationRecommendations(requirement("identity
 for (const result of [architecture, accounting]) {
   assert.equal(result.considered.filter((item) => group.memberDistrictIds.includes(item.districtId)).length, 1, "Members must render once.");
   assert(!result.considered.some((item) => item.districtId === "design-district"));
-  assert.equal(new Set(result.considered.map((item) => item.presentationGroupId).filter(Boolean)).size, 1);
+  assert(result.considered.some((item) => item.presentationGroupId === group.presentationGroupId));
 }
+assert.equal(new Set(groupsData.groups.flatMap((item) => item.memberDistrictIds)).size, groupsData.groups.flatMap((item) => item.memberDistrictIds).length, "A district identity cannot belong to multiple presentation groups.");
 
 const presented = architecture.considered.find((item) => item.presentationGroupId === group.presentationGroupId);
 const rawOwner = architecture.rawConsidered.find((item) => item.districtId === "showplace-square");

@@ -51,9 +51,9 @@ async function render(env, created, debug = false) {
   assert(!architectureHtml.includes("Design District</h3>") || architectureHtml.includes("Showplace Square / Design District</h3>"));
 
   const marin = await foundation.createBrief(env, requirement({ business: "Ordinary Office", origins: ["San Francisco", "Marin / North Bay"], clients: "Clients rarely or never visit", transit: "Public transit is helpful", parking: "Convenient parking is very important" }), { sourceType: "operator_requirement_interview", marketId: "san-francisco", propertyType: "office" });
-  const bounded = await render(env, marin);
-  assert(bounded.includes("<h2>Strong starting points</h2>")); assert(bounded.includes("Presidio"));
-  assert(!bounded.includes("BLOCKED_BY_INTELLIGENCE_GAP")); assert(!bounded.includes("coverage %"));
+  const marinHtml = await render(env, marin);
+  assert(marinHtml.includes("<h2>Recommended locations</h2>")); assert(marinHtml.includes("Presidio"));
+  assert(!marinHtml.includes("BLOCKED_BY_INTELLIGENCE_GAP")); assert(!marinHtml.includes("coverage %"));
 
   const medical = await foundation.createBrief(env, requirement({ business: "Medical private practice", property: "medical", origins: ["Marin / North Bay"], clients: "Patients visit regularly", customerOrigins: ["San Francisco", "Marin / North Bay"], transit: "Public transit is not important", parking: "Convenient parking is very important" }), { sourceType: "operator_requirement_interview", marketId: "san-francisco", propertyType: "medical" });
   const investigate = await render(env, medical);
@@ -86,52 +86,28 @@ async function render(env, created, debug = false) {
     clients: "Clients rarely or never visit", transit: "Public transit is helpful", parking: "Convenient parking is helpful",
   });
   const exactMission = await foundation.createBrief(env, exactMissionRequirement, { sourceType: "operator_requirement_interview", marketId: "san-francisco", propertyType: "office", candidateDistrictIds: ["mission-bay"] });
-  assert.equal(exactMission.snapshot.readiness, "INVESTIGATE");
-  assert.equal(exactMission.snapshot.shortlist.length, 0);
-  assert.equal(exactMission.snapshot.candidateAssessments[0].assessmentStatus, "PARTIALLY_SUPPORTED");
+  assert.equal(exactMission.snapshot.readiness, "FULL");
+  assert.equal(exactMission.snapshot.shortlist.length, 3);
+  assert.equal(exactMission.snapshot.candidateAssessments[0].assessmentStatus, "WELL_SUPPORTED");
   assert.equal(exactMission.snapshot.candidateAssessments[0].componentResult.office.band, "STRONG");
   assert.equal(exactMission.snapshot.candidateAssessments[0].componentResult.environment.band, "STRONG");
-  assert.equal(exactMission.snapshot.candidateAssessments[0].componentResult.accessComponent.band, "UNKNOWN");
-  assert(exactMission.snapshot.candidateAssessments[0].unknowns.some((item) => item.includes("has not yet established") && item.includes("Across the Bay Area / mixed")));
+  assert.equal(exactMission.snapshot.candidateAssessments[0].componentResult.accessComponent.treatment, "NO_DOMINANT_ACCESS_SOLUTION");
   assert(exactMission.snapshot.candidateAssessments[0].presentation.image);
   assert.equal(exactMission.snapshot.candidateAssessments[0].presentation.representativeBuildings.length, 3);
-  assert.equal(exactMission.snapshot.comparisonAlternatives.length, 1);
-  const comparisonAlternative = exactMission.snapshot.comparisonAlternatives[0];
-  assert.equal(comparisonAlternative.districtName, "SoMa", "Existing evidence and ordering should select SoMa for this fixture; selector must remain generic.");
-  assert.equal(comparisonAlternative.assessmentStatus, "PARTIALLY_SUPPORTED");
-  assert.equal(comparisonAlternative.componentResult.candidatePreference, false);
-  assert.equal(comparisonAlternative.componentResult.accessComponent.band, "UNKNOWN");
-  assert.equal(exactMission.snapshot.candidateAssessments[0].componentResult.accessComponent.band, "UNKNOWN");
-  assert(comparisonAlternative.differences.some((item) => item.id === "office_character"));
-  assert(comparisonAlternative.differences.some((item) => item.id === "parking"));
-  assert(comparisonAlternative.differences.some((item) => item.sharedUnknown && item.id === "employee_access_shared_unknown"));
-  assert(comparisonAlternative.selectionReason.includes("unchanged composition order"));
+  assert.equal(exactMission.snapshot.comparisonAlternatives.length, 0, "FULL guidance uses the unchanged shortlist comparison rather than candidate-led INVESTIGATE alternatives.");
   const exactHtml = await render(env, exactMission);
   assert(exactHtml.includes("Why it may fit your search"));
   assert(exactHtml.includes("Things to weigh"));
   assert(exactHtml.includes("Strong fit for ordinary office use"));
   assert(exactHtml.includes("modern and polished setting selected"));
-  assert(exactHtml.includes("has not yet established how well Mission Bay serves employees coming from Across the Bay Area / mixed"));
   assert(exactHtml.includes("mission-bay-streetscape.webp"));
   assert(exactHtml.includes("Representative buildings"));
   assert(exactHtml.includes('href="/commercial-real-estate/CA/san-francisco/mission-bay/"'));
-  assert(exactHtml.includes("Another area worth considering"));
-  assert.equal((exactHtml.match(/Another area worth considering/g) || []).length, 1);
-  assert(exactHtml.includes("Compare with Mission Bay"));
-  assert(exactHtml.includes('data-focus-panel="candidate"'));
-  assert(exactHtml.includes('data-focus-panel="alternative" hidden'));
-  assert(exactHtml.includes('data-focus-button="candidate"'));
-  assert(exactHtml.includes('data-focus-button="alternative"'));
-  assert(exactHtml.includes("soma-accepted-44353-1340b9d3f4f7.webp"));
-  assert(exactHtml.includes('href="/commercial-real-estate/CA/san-francisco/soma/"'));
+  assert(!exactHtml.includes("Another area worth considering"));
   assert(exactHtml.includes("How they differ"));
-  assert(exactHtml.includes("Not established for your mixed Bay Area workforce"));
   assert(!exactHtml.includes("Runner-up")); assert(!exactHtml.includes("Second best")); assert(!exactHtml.includes("Recommended alternative"));
   assert(!exactHtml.includes("A district shortlist would imply"));
-  assert(exactHtml.includes("Mission Bay is worth considering based on the business environment and Office fit you described"));
   assert(!exactHtml.includes("Employee access from Across the Bay Area / mixed."));
-  assert(exactHtml.includes("no single commute direction clearly determines the location"));
-  assert(exactHtml.indexOf("Area you're considering") < exactHtml.indexOf("What matters most"));
 
   const noCandidateSnapshot = foundation.calculateSnapshot(requirement({
     business: "Architecture, Design & Creative Services", environment: "Modern and energetic",
@@ -139,7 +115,8 @@ async function render(env, created, debug = false) {
     transit: "Public transit is helpful", parking: "Convenient parking is helpful",
   }));
   assert.equal(noCandidateSnapshot.readiness, exactMission.snapshot.readiness);
-  assert.deepEqual(noCandidateSnapshot.shortlist, exactMission.snapshot.shortlist);
+  const shortlistShape = (snapshot) => snapshot.shortlist.map((item) => ({ districtId: item.districtId, compositionBand: item.compositionBand, tieKey: item.tieKey }));
+  assert.deepEqual(shortlistShape(noCandidateSnapshot), shortlistShape(exactMission.snapshot));
   const scoredShape = (snapshot) => snapshot.plausibleUniverse.map((item) => ({ districtId: item.districtId, compositionBand: item.compositionBand, office: item.dimensions.propertyTypeFit.band, access: item.dimensions.accessIntelligence.band, environment: item.dimensions.businessEnvironment.band }));
   assert.deepEqual(scoredShape(noCandidateSnapshot), scoredShape(exactMission.snapshot), "Candidate selection must not affect component results or ordering inputs.");
   const sharedSource = fs.readFileSync(path.join(ROOT, "functions/api/location-brief-v2/_shared.js"), "utf8");

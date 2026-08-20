@@ -25,11 +25,11 @@ assert.equal(results.conventional.candidateComposition.shortlistDeferred, true, 
 assert.deepEqual(results.conventional.candidateComposition.shortlist, []);
 assert(results.conventional.evaluated.length >= 3);
 assert.equal(results.conventional.blockedByIntelligenceGap.length, 0);
-assert.equal(results.marin.readiness, gate.READINESS.BOUNDED);
+assert.equal(results.marin.readiness, gate.READINESS.FULL);
 assert(results.marin.plausibleCandidateUniverse.some((item) => item.districtId === "presidio"));
-assert(results.marin.blockedByIntelligenceGap.length > 0);
+assert.equal(results.marin.blockedByIntelligenceGap.length, 0);
 assert(results.marin.shortlist.length > 0);
-assert(results.marin.shortlist.every((item) => !results.marin.blockedByIntelligenceGap.some((blocked) => blocked.districtId === item.districtId)), "A blocked district must not survive into a BOUNDED shortlist.");
+assert(results.marin.shortlist.every((item) => !results.marin.blockedByIntelligenceGap.some((blocked) => blocked.districtId === item.districtId)), "A blocked district must not survive into a shortlist.");
 assert.equal(results.architecture.readiness, gate.READINESS.FULL);
 for (const id of ["showplace-square", "potrero-hill"]) assert(results.architecture.plausibleCandidateUniverse.some((item) => item.districtId === id));
 assert.equal(results.medical.readiness, gate.READINESS.INVESTIGATE);

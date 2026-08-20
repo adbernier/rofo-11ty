@@ -7,7 +7,7 @@ const recommendationPresentationGroups = require("./sfOfficeRecommendationPresen
 const districts = accessFoundation.districtProfiles.map((accessProfile) => {
   const knowledge = knowledgeGraph.find((item) => item.slug === accessProfile.districtId) || {};
   const production = recommendationModel.districts[accessProfile.districtId] || {};
-  const editorial = commercialLocationModel[knowledge.path] || {};
+  const editorial = commercialLocationModel.byPath?.[knowledge.path] || {};
   return {
     districtId: accessProfile.districtId,
     districtName: accessProfile.districtName,
@@ -19,6 +19,7 @@ const districts = accessFoundation.districtProfiles.map((accessProfile) => {
     strategyRole: production.strategyRole || editorial.commercial_thesis || knowledge.spaceTypeFit?.office?.summary || "",
     stableAttributes: production.stableAttributes || knowledge.attributes || {},
     ecosystems: production.ecosystems || knowledge.commercialEcosystem?.subtypes || [],
+    businessEnvironmentCharacteristics: knowledge.businessEnvironmentCharacteristics || [],
     bestFitBusinesses: editorial.best_fit_businesses || knowledge.bestFor || [],
     poorFitBusinesses: editorial.poor_fit_businesses || [],
     evidenceSources: [

@@ -87,7 +87,7 @@ const composer = require("../lib/recommendations/private-location-composition");
     assert.equal(result.selections.at(-1).submitLabel, "Show recommended locations");
     assert(!result.questions.some((id) => /growth/i.test(id)));
   }
-  assert.deepEqual(officeOnly.recommendation.shortlist.map((item) => item.districtId), ["jackson-square", "mission-district", "soma"]);
+  assert.deepEqual(officeOnly.recommendation.shortlist.map((item) => item.districtId), ["soma", "jackson-square", "mission-district"]);
   assert.equal(officeOnly.recommendation.shortlist.filter((item) => ["showplace-square", "design-district"].includes(item.districtId)).length <= 1, true);
 
   const classifications = {

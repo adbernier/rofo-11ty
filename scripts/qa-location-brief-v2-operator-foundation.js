@@ -60,7 +60,7 @@ function requirement(market = "san-francisco", business = "Accounting / professi
   await assert.rejects(() => foundation.reviseBrief(env, bundle, edited, 1), (error) => error.status === 409);
 
   const marin = await foundation.createBrief(env, requirement("san-francisco", "Ordinary Office", ["San Francisco", "Marin / North Bay"], "Convenient parking is very important"), contexts[2]);
-  assert.equal(marin.snapshot.readiness, "BOUNDED"); assert(marin.snapshot.shortlist.length > 0);
+  assert.equal(marin.snapshot.readiness, "FULL"); assert(marin.snapshot.shortlist.length > 0);
   const unsupported = await foundation.createBrief(env, requirement("fort-wayne"), { sourceType: "operator_blank" });
   assert.equal(unsupported.snapshot.readiness, "INVESTIGATE"); assert.equal(unsupported.snapshot.shortlist.length, 0);
 

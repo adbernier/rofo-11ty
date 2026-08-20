@@ -135,6 +135,34 @@ const evidence = [
     confidence: "HIGH", reviewStatus: "APPROVED", limitations: ["Canonical shadow identity does not add Presidio to production recommendation scoring or establish current office availability."],
   },
   {
+    evidenceId: "sf-access-evidence:powell-civic-bart",
+    claimType: "SYSTEM_SERVICE",
+    claim: "Official BART station information establishes Powell Street as the Union Square regional-rail gateway and Civic Center/UN Plaza as a combined BART and Muni Metro downtown station.",
+    source: { sourceType: "OFFICIAL_TRANSIT", reference: "https://www.bart.gov/stations/powl and https://www.bart.gov/stations/civc" },
+    confidence: "HIGH", reviewStatus: "APPROVED", limitations: ["Station access does not establish building-level walking distance or a district-wide commute time."],
+  },
+  {
+    evidenceId: "sf-access-evidence:hayes-transit-parking",
+    claimType: "DISTRICT_ACCESS_CHARACTERISTIC",
+    claim: "SFMTA's reviewed Hayes Valley parking and curb plan documents the neighborhood commercial core, local transit, active pickup/loading demand, and curb/parking pressure.",
+    source: { sourceType: "OFFICIAL_TRANSPORTATION", reference: "https://www.sfmta.com/projects/hayes-valley-parking-curb-management-plan and https://www.sfmta.com/projects/pay-or-permit-parking-expansion-project" },
+    confidence: "HIGH", reviewStatus: "APPROVED", limitations: ["The plan does not establish building parking supply or exact commute performance."],
+  },
+  {
+    evidenceId: "sf-access-evidence:marina-northern-access",
+    claimType: "DISTRICT_ACCESS_CHARACTERISTIC",
+    claim: "The Marina's northern location connects to the Golden Gate Bridge approach through the Lombard corridor and is served by SFMTA local transit; it has no direct BART or Caltrain station.",
+    source: { sourceType: "OFFICIAL_TRANSPORTATION", reference: "https://www.sfmta.com/routes/28-19th-avenue and https://www.goldengate.org/bridge/bridge-operations/" },
+    confidence: "MEDIUM", reviewStatus: "APPROVED", limitations: ["Structural orientation does not represent live congestion, parking availability, or a guaranteed North Bay commute."],
+  },
+  {
+    evidenceId: "sf-access-evidence:sf-core-regional-connections",
+    claimType: "GATEWAY_RELATIONSHIP",
+    claim: "Official regional rail and freeway systems reach San Francisco through BART, Caltrain, the Bay Bridge, US-101, and I-280; reviewed district relationships distinguish direct gateways from bounded local-transfer or local-street connections.",
+    source: { sourceType: "OFFICIAL_REGIONAL", reference: "https://www.bart.gov/stations, https://www.caltrain.com/stations-zones, https://mtc.ca.gov/operations/programs-projects/bridges/san-francisco-oakland-bay-bridge" },
+    confidence: "MEDIUM", reviewStatus: "APPROVED", limitations: ["Transfer relationships are qualitative and do not model schedules, congestion, or travel time."],
+  },
+  {
     evidenceId: "sf-access-evidence:creative-district-canonical",
     claimType: "CANONICAL_GEOGRAPHY",
     claim: "Design District, Showplace Square, and Potrero Hill are existing SF Knowledge Graph recommendation identities. Showplace Square is the canonical knowledge owner for the substantially overlapping Showplace Square / Design District geography; Design District remains a compatibility identity and public route, while Potrero Hill remains a separate bounded neighborhood identity.",
@@ -147,6 +175,13 @@ const evidence = [
     claim: "Official SFMTA material documents multiple Potrero Hill routes and local connections through the 16th Street corridor, including service linking Potrero Hill with Mission BART and Mission Bay; the official Showplace Square/Potrero Area Plan identifies 16th Street and north-south routes as the area's key transit corridors.",
     source: { sourceType: "OFFICIAL_LOCAL", reference: "https://www.sfmta.com/neighborhoods/potrero-hill, https://www.sfmta.com/routes/22-fillmore, https://www.sfmta.com/projects/55-dogpatch, and https://generalplan.sfplanning.org/Showplace_Square_Potrero.htm" },
     confidence: "HIGH", reviewStatus: "APPROVED", limitations: ["Service and walking quality vary by block; Potrero Hill grades and the Design District / Showplace overlap prevent a station-catchment claim."],
+  },
+  {
+    evidenceId: "sf-access-evidence:dogpatch-access",
+    claimType: "DISTRICT_ACCESS_CHARACTERISTIC",
+    claim: "Existing official SFMTA, SF Planning, SFCTA, and Caltrain evidence supports Dogpatch as a locally connected southeast district with a direct 22nd Street Caltrain relationship and structural I-280 / US-101 approach access.",
+    source: { sourceType: "OFFICIAL_LOCAL", reference: "https://www.sfmta.com/projects/55-dogpatch, https://generalplan.sfplanning.org/Showplace_Square_Potrero.htm, https://www.sfcta.org/projects/vision-zero-freeway-ramps-study, and https://www.caltrain.com/station/22nd-street" },
+    confidence: "HIGH", reviewStatus: "APPROVED", limitations: ["Access varies within Dogpatch; no live traffic, exact walk time, service frequency, or building parking is represented."],
   },
   {
     evidenceId: "sf-access-evidence:showplace-potrero-regional-connections",
@@ -204,6 +239,7 @@ const gateways = [
       edge({ districtId: "soma", rating: "STRONG", reviewStatus: approved, evidenceIds: ["sf-access-evidence:soma-caltrain"] }),
       edge({ districtId: "mission-bay", rating: "STRONG", reviewStatus: approved, evidenceIds: ["sf-access-evidence:mission-bay-caltrain"] }),
       edge({ districtId: "south-beach", rating: "GOOD", reviewStatus: approved, evidenceIds: ["sf-access-evidence:south-beach-caltrain"] }),
+      edge({ districtId: "dogpatch", rating: "GOOD", reviewStatus: approved, confidence: "HIGH", evidenceIds: ["sf-access-evidence:dogpatch-access"], limitations: ["The relationship is strongest around the 22nd Street station and does not establish a uniform district walk shed."] }),
       ...["design-district", "showplace-square", "potrero-hill"].map((districtId) => edge({ districtId, rating: "MODERATE", reviewStatus: approved, evidenceIds: ["sf-access-evidence:showplace-potrero-regional-connections"], limitations: ["Caltrain relevance varies by block and requires local travel; no uniform walkable station catchment is asserted."] })),
     ],
   },
@@ -237,6 +273,7 @@ const gateways = [
       edge({ districtId: "mission-bay", rating: "GOOD", reviewStatus: approved, evidenceIds: ["sf-access-evidence:peninsula-freeways-reviewed"] }),
       edge({ districtId: "south-beach", rating: "MODERATE", reviewStatus: approved, evidenceIds: ["sf-access-evidence:peninsula-freeways-reviewed"] }),
       edge({ districtId: "mission-district", rating: "GOOD", reviewStatus: approved, evidenceIds: ["sf-access-evidence:peninsula-freeways-reviewed"], limitations: ["The relationship is strongest near documented Mission/Potrero ramp geography, not uniformly across the district."] }),
+      edge({ districtId: "dogpatch", rating: "MODERATE", reviewStatus: approved, evidenceIds: ["sf-access-evidence:dogpatch-access", "sf-access-evidence:peninsula-freeways-reviewed"], limitations: ["Structural approach only; local routing and congestion remain unmodeled."] }),
       ...["design-district", "showplace-square", "potrero-hill"].map((districtId) => edge({ districtId, rating: "MODERATE", reviewStatus: approved, evidenceIds: ["sf-access-evidence:peninsula-freeways-reviewed", "sf-access-evidence:showplace-potrero-freeways"], limitations: ["Structural approach only; access varies across Showplace blocks and Potrero Hill topography."] })),
     ],
   },
@@ -248,20 +285,59 @@ const gateways = [
       edge({ districtId: "mission-bay", rating: "GOOD", reviewStatus: approved, evidenceIds: ["sf-access-evidence:peninsula-freeways-reviewed"] }),
       edge({ districtId: "south-beach", rating: "GOOD", reviewStatus: approved, evidenceIds: ["sf-access-evidence:peninsula-freeways-reviewed"] }),
       edge({ districtId: "mission-district", rating: "MODERATE", reviewStatus: approved, evidenceIds: ["sf-access-evidence:peninsula-freeways-reviewed"], limitations: ["Relevant only through documented Mission/Potrero ramp geography and local streets."] }),
+      edge({ districtId: "dogpatch", rating: "GOOD", reviewStatus: approved, confidence: "HIGH", evidenceIds: ["sf-access-evidence:dogpatch-access", "sf-access-evidence:peninsula-freeways-reviewed"], limitations: ["Structural district relationship only; no exact ramp or travel time is asserted."] }),
       ...["design-district", "showplace-square", "potrero-hill"].map((districtId) => edge({ districtId, rating: "MODERATE", reviewStatus: approved, evidenceIds: ["sf-access-evidence:peninsula-freeways-reviewed", "sf-access-evidence:showplace-potrero-freeways"], limitations: ["Structural approach only; no exact ramp, route, traffic, or district-wide uniformity is represented."] })),
     ],
   },
   {
     gatewayId: "sf-gateway:local-transit", marketId: "san-francisco", label: "Central San Francisco local transit", gatewayType: "BUS_NETWORK", modes: ["LOCAL_TRANSIT"], reviewStatus: approved, confidence: "MEDIUM",
     originRelationships: [edge({ originRegionId: "sf-origin:san-francisco", rating: "STRONG", reviewStatus: approved, evidenceIds: ["sf-access-evidence:local-transit"] })],
-    districtRelationships: ["financial-district", "soma", "mission-bay", "jackson-square", "south-beach", "mission-district"].map((districtId) => edge({ districtId, rating: "STRONG", reviewStatus: approved, evidenceIds: ["sf-access-evidence:local-transit"] })).concat(["design-district", "showplace-square", "potrero-hill"].map((districtId) => edge({ districtId, rating: "GOOD", reviewStatus: approved, evidenceIds: ["sf-access-evidence:showplace-potrero-local-transit"], limitations: ["Local transit is supported, but block-level walking, transfers, and Potrero Hill grades remain material friction."] })), [edge({ districtId: "presidio", rating: "GOOD", reviewStatus: approved, confidence: "HIGH", evidenceIds: ["sf-access-evidence:presidio-access"], limitations: ["Local access depends on bus/shuttle routes rather than rail service."] })]),
+    districtRelationships: ["financial-district", "soma", "mission-bay", "jackson-square", "south-beach", "mission-district"].map((districtId) => edge({ districtId, rating: "STRONG", reviewStatus: approved, evidenceIds: ["sf-access-evidence:local-transit"] })).concat(["design-district", "showplace-square", "potrero-hill"].map((districtId) => edge({ districtId, rating: "GOOD", reviewStatus: approved, evidenceIds: ["sf-access-evidence:showplace-potrero-local-transit"], limitations: ["Local transit is supported, but block-level walking, transfers, and Potrero Hill grades remain material friction."] })), [edge({ districtId: "dogpatch", rating: "GOOD", reviewStatus: approved, confidence: "HIGH", evidenceIds: ["sf-access-evidence:dogpatch-access"], limitations: ["Local transit coverage varies by block."] }), edge({ districtId: "presidio", rating: "GOOD", reviewStatus: approved, confidence: "HIGH", evidenceIds: ["sf-access-evidence:presidio-access"], limitations: ["Local access depends on bus/shuttle routes rather than rail service."] })]),
   },
   {
     gatewayId: "sf-gateway:central-street-network", marketId: "san-francisco", label: "Central San Francisco street network", gatewayType: "ACCESS_CORRIDOR", modes: ["DRIVING"], reviewStatus: approved, confidence: "MEDIUM",
     originRelationships: [edge({ originRegionId: "sf-origin:san-francisco", rating: "GOOD", reviewStatus: approved, evidenceIds: ["sf-access-evidence:central-driving"] })],
-    districtRelationships: ["financial-district", "soma", "mission-bay", "jackson-square", "south-beach", "mission-district"].map((districtId) => edge({ districtId, rating: "MODERATE", reviewStatus: approved, evidenceIds: ["sf-access-evidence:central-driving"] })).concat(["design-district", "showplace-square", "potrero-hill"].map((districtId) => edge({ districtId, rating: "MODERATE", reviewStatus: approved, evidenceIds: ["sf-access-evidence:central-driving", "sf-access-evidence:showplace-potrero-freeways"], limitations: ["Street access does not imply a fast commute; congestion, topography, and block conditions are not modeled."] })), [edge({ districtId: "presidio", rating: "GOOD", reviewStatus: approved, confidence: "HIGH", evidenceIds: ["sf-access-evidence:presidio-access"], limitations: ["Structural local access only; cross-city friction and live traffic are not modeled."] })]),
+    districtRelationships: ["financial-district", "soma", "mission-bay", "jackson-square", "south-beach", "mission-district"].map((districtId) => edge({ districtId, rating: "MODERATE", reviewStatus: approved, evidenceIds: ["sf-access-evidence:central-driving"] })).concat(["design-district", "showplace-square", "potrero-hill"].map((districtId) => edge({ districtId, rating: "MODERATE", reviewStatus: approved, evidenceIds: ["sf-access-evidence:central-driving", "sf-access-evidence:showplace-potrero-freeways"], limitations: ["Street access does not imply a fast commute; congestion, topography, and block conditions are not modeled."] })), [edge({ districtId: "dogpatch", rating: "MODERATE", reviewStatus: approved, evidenceIds: ["sf-access-evidence:dogpatch-access"], limitations: ["Street access does not imply a fast commute."] }), edge({ districtId: "presidio", rating: "GOOD", reviewStatus: approved, confidence: "HIGH", evidenceIds: ["sf-access-evidence:presidio-access"], limitations: ["Structural local access only; cross-city friction and live traffic are not modeled."] })]),
   },
 ];
+
+// Reviewed structural completion for the meaningful SF Office universe. These are
+// gateway-to-district facts, not Requirement-to-district recommendations.
+const addDistrictRelationships = (gatewayId, relationships, evidenceIds = ["sf-access-evidence:sf-core-regional-connections"]) => {
+  const gateway = gateways.find((item) => item.gatewayId === gatewayId);
+  for (const [districtId, rating] of Object.entries(relationships)) {
+    if (!gateway.districtRelationships.some((item) => item.districtId === districtId)) {
+      gateway.districtRelationships.push(edge({ districtId, rating, reviewStatus: approved, evidenceIds, limitations: ["Reviewed structural relationship only; exact route, transfer, congestion, and travel time remain outside the foundation."] }));
+    }
+  }
+};
+
+addDistrictRelationships("sf-gateway:bart", {
+  soma: "GOOD", "mission-bay": "MODERATE", "south-beach": "GOOD", dogpatch: "MODERATE", presidio: "WEAK",
+  "union-square": "STRONG", "civic-center": "STRONG", "hayes-valley": "GOOD", "marina-district": "WEAK",
+}, ["sf-access-evidence:powell-civic-bart", "sf-access-evidence:sf-core-regional-connections"]);
+addDistrictRelationships("sf-gateway:caltrain", {
+  "financial-district": "MODERATE", "jackson-square": "WEAK", "mission-district": "MODERATE", presidio: "WEAK",
+  "union-square": "MODERATE", "civic-center": "MODERATE", "hayes-valley": "MODERATE", "marina-district": "WEAK",
+});
+addDistrictRelationships("sf-gateway:golden-gate-bridge", {
+  "financial-district": "MODERATE", "jackson-square": "GOOD", soma: "WEAK", "mission-bay": "WEAK", "south-beach": "WEAK",
+  "mission-district": "WEAK", dogpatch: "WEAK", "showplace-square": "WEAK", "design-district": "WEAK", "potrero-hill": "WEAK",
+  "union-square": "MODERATE", "civic-center": "WEAK", "hayes-valley": "MODERATE", "marina-district": "GOOD",
+}, ["sf-access-evidence:golden-gate-structural", "sf-access-evidence:marina-northern-access"]);
+addDistrictRelationships("sf-gateway:bay-bridge", {
+  "financial-district": "GOOD", "jackson-square": "MODERATE", "mission-district": "MODERATE", dogpatch: "MODERATE", presidio: "WEAK",
+  "showplace-square": "MODERATE", "design-district": "MODERATE", "potrero-hill": "MODERATE",
+  "union-square": "MODERATE", "civic-center": "MODERATE", "hayes-valley": "MODERATE", "marina-district": "WEAK",
+}, ["sf-access-evidence:bay-bridge-structural", "sf-access-evidence:sf-core-regional-connections"]);
+addDistrictRelationships("sf-gateway:us-101", {
+  "financial-district": "MODERATE", "jackson-square": "WEAK", presidio: "WEAK", "union-square": "MODERATE", "civic-center": "MODERATE", "hayes-valley": "MODERATE", "marina-district": "WEAK",
+});
+addDistrictRelationships("sf-gateway:i-280", {
+  "financial-district": "MODERATE", "jackson-square": "WEAK", presidio: "WEAK", "union-square": "MODERATE", "civic-center": "MODERATE", "hayes-valley": "MODERATE", "marina-district": "WEAK",
+});
+addDistrictRelationships("sf-gateway:local-transit", { "union-square": "STRONG", "civic-center": "STRONG", "hayes-valley": "GOOD", "marina-district": "GOOD" });
+addDistrictRelationships("sf-gateway:central-street-network", { "union-square": "MODERATE", "civic-center": "MODERATE", "hayes-valley": "MODERATE", "marina-district": "GOOD" });
 
 const complete = (overrides = {}) => ({ originRegions: "SUFFICIENT", gateways: "SUFFICIENT", districtGeometry: "MISSING", originAccess: "PARTIAL", transit: "SUFFICIENT", driving: "PARTIAL", parking: "SUFFICIENT", ferry: "PARTIAL", explanations: "SUFFICIENT", ...overrides });
 const profile = (districtId, parkingEnvironment, options = {}) => {
@@ -299,10 +375,15 @@ const districtProfiles = [
   profile("jackson-square", "WEAK", { evidenceIds: ["sf-access-evidence:jackson-square-bart"], importantUnknowns: ["Reviewed direct regional driving approach", "Building parking and exact station walk"] }),
   profile("south-beach", "WEAK", { evidenceIds: ["sf-access-evidence:south-beach-caltrain", "sf-access-evidence:bay-bridge-structural", "sf-access-evidence:peninsula-freeways-reviewed"], importantUnknowns: ["Block-level approach relationship", "Building parking"] }),
   profile("mission-district", "WEAK", { startingDistrict: false, accessActivationEligible: true, evidenceIds: ["sf-access-evidence:mission-district-bart", "sf-access-evidence:peninsula-freeways-reviewed"], completeness: { districtGeometry: "PARTIAL" }, importantUnknowns: ["BART and freeway access vary within the district", "Office suitability remains a separate composition question"] }),
+  profile("dogpatch", "MODERATE", { startingDistrict: false, accessActivationEligible: true, recommendationEligible: true, confidence: "HIGH", parkingEvidenceIds: ["sf-access-evidence:parking-environment"], evidenceIds: ["sf-access-evidence:dogpatch-access", "sf-access-evidence:peninsula-freeways-reviewed"], completeness: { districtGeometry: "PARTIAL", originAccess: "PARTIAL", transit: "SUFFICIENT", driving: "PARTIAL", parking: "SUFFICIENT", ferry: "MISSING" }, importantUnknowns: ["North Bay access", "Block-level distance to 22nd Street Caltrain", "Building-specific parking and live traffic"] }),
   profile("presidio", "GOOD", { startingDistrict: false, accessActivationEligible: true, recommendationEligible: true, confidence: "HIGH", parkingEvidenceIds: ["sf-access-evidence:presidio-access"], evidenceIds: ["sf-access-evidence:presidio-canonical", "sf-access-evidence:golden-gate-structural", "sf-access-evidence:presidio-access"], completeness: { districtGeometry: "PARTIAL", ferry: "MISSING" }, importantUnknowns: ["Current Office inventory and tenant eligibility", "Building-specific parking allocation", "Travel time and traffic variability"] }),
-  profile("design-district", "MODERATE", { startingDistrict: false, accessActivationEligible: false, recommendationEligible: true, accessKnowledgeOwnerDistrictId: "showplace-square", accessKnowledgeTreatment: "PRESENTATION_COMPATIBILITY_REFERENCE", parkingEvidenceIds: ["sf-access-evidence:showplace-potrero-parking"], evidenceIds: ["sf-access-evidence:creative-district-canonical", "sf-access-evidence:showplace-potrero-local-transit", "sf-access-evidence:showplace-potrero-regional-connections", "sf-access-evidence:showplace-potrero-freeways", "sf-access-evidence:showplace-potrero-parking"], completeness: { districtGeometry: "PARTIAL", originAccess: "PARTIAL", transit: "SUFFICIENT", driving: "PARTIAL", parking: "SUFFICIENT", ferry: "MISSING" }, importantUnknowns: ["No independent Design District geometry; presentation-level Access uses Showplace Square as knowledge owner", "North Bay access", "Building-specific parking and exact transit walk"] }),
-  profile("showplace-square", "MODERATE", { startingDistrict: false, accessActivationEligible: false, recommendationEligible: true, parkingEvidenceIds: ["sf-access-evidence:showplace-potrero-parking"], evidenceIds: ["sf-access-evidence:creative-district-canonical", "sf-access-evidence:showplace-potrero-local-transit", "sf-access-evidence:showplace-potrero-regional-connections", "sf-access-evidence:showplace-potrero-freeways", "sf-access-evidence:showplace-potrero-parking"], completeness: { districtGeometry: "PARTIAL", originAccess: "PARTIAL", transit: "SUFFICIENT", driving: "PARTIAL", parking: "SUFFICIENT", ferry: "MISSING" }, importantUnknowns: ["Block-level access within the broader Showplace geography", "North Bay access", "Building-specific parking and exact transit walk"] }),
-  profile("potrero-hill", "MODERATE", { startingDistrict: false, accessActivationEligible: false, recommendationEligible: true, parkingEvidenceIds: ["sf-access-evidence:showplace-potrero-parking"], evidenceIds: ["sf-access-evidence:creative-district-canonical", "sf-access-evidence:showplace-potrero-local-transit", "sf-access-evidence:showplace-potrero-regional-connections", "sf-access-evidence:showplace-potrero-freeways", "sf-access-evidence:showplace-potrero-parking"], completeness: { districtGeometry: "PARTIAL", originAccess: "PARTIAL", transit: "SUFFICIENT", driving: "PARTIAL", parking: "SUFFICIENT", ferry: "MISSING" }, importantUnknowns: ["Access variation between the residential hill and eastern/base commercial edge", "North Bay access", "Building-specific parking and exact transit walk"] }),
+  profile("design-district", "MODERATE", { startingDistrict: false, accessActivationEligible: false, recommendationEligible: true, accessKnowledgeOwnerDistrictId: "showplace-square", accessKnowledgeTreatment: "PRESENTATION_COMPATIBILITY_REFERENCE", parkingEvidenceIds: ["sf-access-evidence:showplace-potrero-parking"], evidenceIds: ["sf-access-evidence:creative-district-canonical", "sf-access-evidence:showplace-potrero-local-transit", "sf-access-evidence:showplace-potrero-regional-connections", "sf-access-evidence:showplace-potrero-freeways", "sf-access-evidence:showplace-potrero-parking"], completeness: { districtGeometry: "PARTIAL", originAccess: "PARTIAL", transit: "SUFFICIENT", driving: "PARTIAL", parking: "SUFFICIENT", ferry: "MISSING" }, importantUnknowns: ["No independent Design District geometry; presentation-level Access uses Showplace Square as knowledge owner", "Building-specific parking and exact transit walk"] }),
+  profile("showplace-square", "MODERATE", { startingDistrict: false, accessActivationEligible: false, recommendationEligible: true, parkingEvidenceIds: ["sf-access-evidence:showplace-potrero-parking"], evidenceIds: ["sf-access-evidence:creative-district-canonical", "sf-access-evidence:showplace-potrero-local-transit", "sf-access-evidence:showplace-potrero-regional-connections", "sf-access-evidence:showplace-potrero-freeways", "sf-access-evidence:showplace-potrero-parking"], completeness: { districtGeometry: "PARTIAL", originAccess: "PARTIAL", transit: "SUFFICIENT", driving: "PARTIAL", parking: "SUFFICIENT", ferry: "MISSING" }, importantUnknowns: ["Block-level access within the broader Showplace geography", "Building-specific parking and exact transit walk"] }),
+  profile("potrero-hill", "MODERATE", { startingDistrict: false, accessActivationEligible: false, recommendationEligible: true, parkingEvidenceIds: ["sf-access-evidence:showplace-potrero-parking"], evidenceIds: ["sf-access-evidence:creative-district-canonical", "sf-access-evidence:showplace-potrero-local-transit", "sf-access-evidence:showplace-potrero-regional-connections", "sf-access-evidence:showplace-potrero-freeways", "sf-access-evidence:showplace-potrero-parking"], completeness: { districtGeometry: "PARTIAL", originAccess: "PARTIAL", transit: "SUFFICIENT", driving: "PARTIAL", parking: "SUFFICIENT", ferry: "MISSING" }, importantUnknowns: ["Access variation between the residential hill and eastern/base commercial edge", "Building-specific parking and exact transit walk"] }),
+  profile("union-square", "WEAK", { startingDistrict: false, recommendationEligible: true, evidenceIds: ["sf-access-evidence:powell-civic-bart", "sf-access-evidence:sf-core-regional-connections"], completeness: { districtGeometry: "PARTIAL", originAccess: "SUFFICIENT", driving: "SUFFICIENT" }, importantUnknowns: ["Building-level station walk", "Visitor mode and live curb conditions"] }),
+  profile("hayes-valley", "WEAK", { startingDistrict: false, recommendationEligible: true, evidenceIds: ["sf-access-evidence:hayes-transit-parking", "sf-access-evidence:sf-core-regional-connections"], completeness: { districtGeometry: "PARTIAL", originAccess: "SUFFICIENT", driving: "SUFFICIENT" }, importantUnknowns: ["Block-level transit transfer friction", "Building-specific parking"] }),
+  profile("marina-district", "MODERATE", { startingDistrict: false, accessActivationEligible: true, recommendationEligible: true, evidenceIds: ["sf-access-evidence:marina-northern-access", "sf-access-evidence:golden-gate-structural", "sf-access-evidence:sf-core-regional-connections"], completeness: { districtGeometry: "PARTIAL", originAccess: "SUFFICIENT", driving: "SUFFICIENT" }, importantUnknowns: ["Live Lombard and bridge congestion", "Building-specific parking", "Local transit transfer friction"] }),
+  profile("civic-center", "WEAK", { startingDistrict: false, recommendationEligible: true, evidenceIds: ["sf-access-evidence:powell-civic-bart", "sf-access-evidence:sf-core-regional-connections"], completeness: { districtGeometry: "PARTIAL", originAccess: "SUFFICIENT", driving: "SUFFICIENT" }, importantUnknowns: ["Block-level client experience", "Building parking and exact station walk"] }),
 ];
 
 // Origin access is derived from approved graph edges, never authored as Requirement→district rules.
@@ -319,6 +400,10 @@ for (const district of districtProfiles) {
     });
     return { originRegionId: origin.originRegionId, paths, overallRating: paths.length ? paths.sort((a, b) => ({ STRONG: 3, GOOD: 2, MODERATE: 1, WEAK: 0 }[b.rating] - { STRONG: 3, GOOD: 2, MODERATE: 1, WEAK: 0 }[a.rating]))[0].rating : "UNKNOWN" };
   });
+  if (district.originAccess.every((item) => item.overallRating !== "UNKNOWN")) {
+    district.completeness.originAccess = "SUFFICIENT";
+    district.completeness.driving = "SUFFICIENT";
+  }
 }
 
 module.exports = {
@@ -329,7 +414,7 @@ module.exports = {
   foundationLevel: "REVIEWED",
   reviewStatus: approved,
   confidence: "MEDIUM",
-  version: "sf-access-foundation:2026-08-creative-districts-v1",
+  version: "sf-access-foundation:2026-08-sf-office-coverage-v2",
   sourcePolicy: "Only APPROVED evidence and relationships may influence Access Fit. CANDIDATE and STALE records remain evaluator-visible but inert.",
   originRegions,
   gateways,

@@ -51,15 +51,15 @@ for (const id of TARGETS) {
   assert.equal(profile.parkingEnvironment, "MODERATE");
   assert.equal(profile.accessActivationEligible, false, "Access coverage must not activate the candidate by itself.");
   assert.equal(profile.completeness.transit, "SUFFICIENT");
-  assert.equal(profile.completeness.driving, "PARTIAL");
+  assert.equal(profile.completeness.driving, "SUFFICIENT");
   assert.equal(profile.completeness.ferry, "MISSING");
-  assert(profile.importantUnknowns.some((item) => /North Bay/.test(item)));
+  assert(!profile.importantUnknowns.some((item) => /North Bay access/.test(item)));
   profile.gatewayRelationships.forEach((edge) => {
     assert(edge.evidenceIds.length);
     assert(edge.limitations.length);
     edge.evidenceIds.forEach((evidenceId) => assert.equal(evidence.get(evidenceId).reviewStatus, "APPROVED"));
   });
-  assert.equal(profile.originAccess.find((item) => item.originRegionId === "sf-origin:north-bay").overallRating, "UNKNOWN");
+  assert.equal(profile.originAccess.find((item) => item.originRegionId === "sf-origin:north-bay").overallRating, "WEAK");
 }
 
 const architectureRequirement = requirement("creative-access-architecture", "Architecture / design firm");

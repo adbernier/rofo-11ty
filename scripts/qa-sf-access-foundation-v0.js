@@ -100,8 +100,8 @@ assert.equal(bPresidio.employeeCohortResults.find((item) => item.originRegionId 
 assert.equal(bPresidio.employeeCohortResults.find((item) => item.originRegionId === "sf-origin:north-bay").rating, "STRONG");
 results.B.access.districtResults.flatMap((item) => item.modeResults).forEach((mode) => assert(Math.abs(mode.parkingAdjustment || 0) <= 1, "Parking adjustment exceeded one ordinal band."));
 const bFinancial = results.B.access.districtResults.find((item) => item.districtId === "financial-district");
-assert.equal(bFinancial.employeeCohortResults.find((cohort) => cohort.originRegionId === "sf-origin:north-bay").rating, "UNKNOWN", "Parking must not create North Bay driving access where no reviewed gateway path exists.");
-assert(results.B.access.districtResults.some((item) => item.confidence === "MEDIUM" || item.confidence === "LOW" || item.confidence === "UNKNOWN"), "Unknown material evidence must lower confidence.");
+assert.equal(bFinancial.employeeCohortResults.find((cohort) => cohort.originRegionId === "sf-origin:north-bay").rating, "WEAK", "Reviewed cross-city northern access must remain a weak structural path rather than being improved by parking.");
+assert.equal(bFinancial.employeeCohortResults.find((cohort) => cohort.originRegionId === "sf-origin:north-bay").selectedGatewayId, "sf-gateway:golden-gate-bridge");
 assert(results.A.access.districtResults.every((item) => item.validationErrors.length === 0));
 
 // Candidate districts remain comparison context only.
@@ -129,7 +129,7 @@ const approvedGateway = (id) => foundation.gateways.find((item) => item.gatewayI
 ["sf-gateway:golden-gate-bridge", "sf-gateway:ferry", "sf-gateway:bay-bridge", "sf-gateway:us-101", "sf-gateway:i-280"].forEach((id) => assert.equal(approvedGateway(id).reviewStatus, "APPROVED", `${id} must be reviewed after enrichment.`));
 assert.equal(results.G.access.districtResults.find((item) => item.districtId === "soma").employeeCohortResults[0].selectedGatewayId, "sf-gateway:bay-bridge");
 assert(["sf-gateway:us-101", "sf-gateway:i-280"].includes(results.H.access.districtResults.find((item) => item.districtId === "mission-bay").employeeCohortResults[0].selectedGatewayId));
-assert.equal(results.F.access.districtResults.find((item) => item.districtId === "financial-district").overall, "UNKNOWN", "Ferry evidence must not be substituted for a transit-light driving cohort.");
+assert.equal(results.F.access.districtResults.find((item) => item.districtId === "financial-district").overall, "WEAK", "A transit-light cohort must use the reviewed weak bridge/street path rather than ferry evidence.");
 
 // Duplicate gateways cannot double-count because evaluation selects a bounded best path.
 const duplicateFoundation = JSON.parse(JSON.stringify(foundation));
