@@ -70,7 +70,7 @@ const requirement = {
   const getRequest = new Request(`https://rofo.com/property-requirement/${created.brief.publicId}`, { headers: { cookie } });
   const getResponse = await propertyStage.onRequestGet({ request: getRequest, env, params: { publicId: created.brief.publicId } });
   assert.equal(getResponse.status, 200);
-  assert.equal(getResponse.headers.get("referrer-policy"), "no-referrer", "The browser-contract fixture must retain the production response policy that causes an opaque form Origin.");
+  assert.equal(getResponse.headers.get("referrer-policy"), "same-origin", "The property form must retain a trustworthy same-origin navigation source instead of generating Origin: null.");
   const propertyHtml = await getResponse.text();
   assert(propertyHtml.includes("Tell us what you need in a space"));
   assert(propertyHtml.includes("How will you use the space?"));
@@ -140,26 +140,10 @@ const requirement = {
     body: new URLSearchParams({ draftRevision: "3", officePurposes: "client_meetings" }),
   });
   const opaqueOriginResponse = await propertyStage.onRequestPost({ request: opaqueOriginRequest, env, params: { publicId: created.brief.publicId } });
-  assert.equal(opaqueOriginResponse.status, 303, "The exact owned Chrome navigation observed in production must save despite its policy-generated opaque Origin.");
-  const opaqueOriginRecord = await env.LOCATION_BRIEFS_KV.get(`location-brief-v2:${created.brief.publicId}`, "json");
-  assert.equal(opaqueOriginRecord.propertyRequirementDraft.draftRevision, 4);
-  const opaqueCrossSiteRequest = new Request(`https://www.rofo.com/property-requirement/${created.brief.publicId}`, {
-    method: "POST", headers: { cookie, origin: "null", "sec-fetch-site": "cross-site", "sec-fetch-mode": "navigate", "sec-fetch-dest": "document", "content-type": "application/x-www-form-urlencoded" },
-    body: new URLSearchParams({ draftRevision: "4", officePurposes: "client_meetings" }),
-  });
-  const opaqueCrossSiteResponse = await propertyStage.onRequestPost({ request: opaqueCrossSiteRequest, env, params: { publicId: created.brief.publicId } });
-  assert.equal(opaqueCrossSiteResponse.status, 403, "Opaque cross-site requests must remain rejected.");
-  const opaqueCrossSiteHtml = await opaqueCrossSiteResponse.text();
-  assert(opaqueCrossSiteHtml.includes("We couldn&#39;t save that answer. Please try again."));
-  assert(!opaqueCrossSiteHtml.includes("Invalid request origin."), "Security details must not replace the recoverable property shell.");
-  for (const unsafeUrl of [`https://attacker.example/property-requirement/${created.brief.publicId}`, `https://www.rofo.com:444/property-requirement/${created.brief.publicId}`]) {
-    const unsafeOpaqueRequest = new Request(unsafeUrl, {
-      method: "POST", headers: { cookie, origin: "null", "sec-fetch-site": "same-origin", "sec-fetch-mode": "navigate", "sec-fetch-dest": "document", "content-type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams({ draftRevision: "4", officePurposes: "client_meetings" }),
-    });
-    const unsafeOpaqueResponse = await propertyStage.onRequestPost({ request: unsafeOpaqueRequest, env, params: { publicId: created.brief.publicId } });
-    assert.equal(unsafeOpaqueResponse.status, 403, `Opaque navigation must not authorize ${new URL(unsafeUrl).host}.`);
-  }
+  assert.equal(opaqueOriginResponse.status, 403, "An opaque Origin must remain rejected even when Sec-Fetch-Site claims same-origin.");
+  const opaqueOriginHtml = await opaqueOriginResponse.text();
+  assert(opaqueOriginHtml.includes("We couldn&#39;t save that answer. Please try again."));
+  assert(!opaqueOriginHtml.includes("Invalid request origin."), "Security details must not replace the recoverable property shell.");
   const nonOwnerResponse = await propertyStage.onRequestGet({ request: new Request(`https://rofo.com/property-requirement/${created.brief.publicId}`), env, params: { publicId: created.brief.publicId } });
   assert.equal(nonOwnerResponse.status, 403);
 

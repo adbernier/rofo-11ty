@@ -17,19 +17,7 @@ function render(bundle, draft, saved = false, saveError = "") {
   </style></head><body><main class="property-stage requirement-prototype"><header class="property-stage__header"><p class="requirement-prototype__eyebrow">Space search</p><h1>Tell us what you need in a space.</h1><p>A few more details will help Rofo narrow the available options.</p></header><div class="property-stage__layout"><form method="post" class="property-stage__card"><input type="hidden" name="draftRevision" value="${esc(draft?.draftRevision || 0)}"><h2>How will you use the space?</h2><p class="property-stage__help">Choose all that apply.</p>${saved ? `<p class="property-stage__saved">Your search is up to date.</p>` : ""}${saveError ? `<p class="property-stage__saved" role="alert">${esc(saveError)}</p>` : ""}<div class="requirement-choice-grid">${PURPOSES.map(([value, label]) => `<label class="requirement-choice"><input type="checkbox" name="officePurposes" value="${value}"${selected.has(value) ? " checked" : ""}><span>${label}</span></label>`).join("")}</div><div class="property-stage__actions"><a class="property-stage__back" href="${briefUrl}">← Back to my Location Brief</a><button class="requirement-button requirement-button--primary" type="submit">Continue</button></div></form>${renderSearchSummary(bundle, esc)}</div></main></body></html>`;
 }
 
-function ownedOpaqueProductionForm(request) {
-  const url = new URL(request.url);
-  return request.method === "POST"
-    && url.protocol === "https:"
-    && url.hostname === "www.rofo.com"
-    && !url.port
-    && request.headers.get("origin") === "null"
-    && !request.headers.get("referer")
-    && request.headers.get("sec-fetch-site") === "same-origin"
-    && request.headers.get("sec-fetch-mode") === "navigate"
-    && request.headers.get("sec-fetch-dest") === "document"
-    && /^application\/x-www-form-urlencoded(?:;|$)/i.test(request.headers.get("content-type") || "");
-}
+function propertyPage(body, status = 200) { return privateHtml(body, status, { "referrer-policy": "same-origin" }); }
 
 async function loadOwned(request, env, publicId) {
   if (!/^LB2-[A-F0-9]{24}$/i.test(publicId || "")) return { response: privateHtml("Location Brief not found.", 404) };
@@ -45,14 +33,14 @@ async function loadOwned(request, env, publicId) {
 export async function onRequestGet({ request, env, params }) {
   const loaded = await loadOwned(request, env, params.publicId); if (loaded.response) return loaded.response;
   const draft = await getPropertyRequirementDraft(env, loaded.bundle.brief);
-  return privateHtml(render(loaded.bundle, draft, new URL(request.url).searchParams.get("saved") === "1"));
+  return propertyPage(render(loaded.bundle, draft, new URL(request.url).searchParams.get("saved") === "1"));
 }
 
 export async function onRequestPost({ request, env, params }) {
   const loaded = await loadOwned(request, env, params.publicId); if (loaded.response) return loaded.response;
-  if (!sameOriginMutation(request) && !ownedOpaqueProductionForm(request)) {
+  if (!sameOriginMutation(request)) {
     const draft = await getPropertyRequirementDraft(env, loaded.bundle.brief);
-    return privateHtml(render(loaded.bundle, draft, false, "We couldn't save that answer. Please try again."), 403);
+    return propertyPage(render(loaded.bundle, draft, false, "We couldn't save that answer. Please try again."), 403);
   }
   const form = await request.formData();
   try {
