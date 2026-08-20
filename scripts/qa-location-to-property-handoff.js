@@ -120,9 +120,17 @@ const requirement = {
   const productionAliasResponse = await propertyStage.onRequestPost({ request: productionAliasRequest, env, params: { publicId: created.brief.publicId } });
   assert.equal(productionAliasResponse.status, 303, "A legitimate www.rofo.com form POST must survive the canonical-host request URL used by Pages.");
   assert(productionAliasResponse.headers.get("location").startsWith("https://www.rofo.com/"));
+  const originOmittedRequest = new Request(`https://www.rofo.com/property-requirement/${created.brief.publicId}`, {
+    method: "POST", headers: { cookie, "sec-fetch-site": "same-origin", "content-type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams({ draftRevision: "2", officePurposes: "client_meetings" }),
+  });
+  const originOmittedResponse = await propertyStage.onRequestPost({ request: originOmittedRequest, env, params: { publicId: created.brief.publicId } });
+  assert.equal(originOmittedResponse.status, 303, "The observed same-origin production form contract must not require an Origin header when Sec-Fetch-Site is browser-confirmed same-origin.");
+  const originOmittedRecord = await env.LOCATION_BRIEFS_KV.get(`location-brief-v2:${created.brief.publicId}`, "json");
+  assert.equal(originOmittedRecord.propertyRequirementDraft.draftRevision, 3);
   const crossOriginRequest = new Request(`https://rofo.com/property-requirement/${created.brief.publicId}`, {
     method: "POST", headers: { cookie, origin: "https://attacker.example", "content-type": "application/x-www-form-urlencoded" },
-    body: new URLSearchParams({ draftRevision: "2", officePurposes: "client_meetings" }),
+    body: new URLSearchParams({ draftRevision: "3", officePurposes: "client_meetings" }),
   });
   const crossOriginResponse = await propertyStage.onRequestPost({ request: crossOriginRequest, env, params: { publicId: created.brief.publicId } });
   assert.equal(crossOriginResponse.status, 403);

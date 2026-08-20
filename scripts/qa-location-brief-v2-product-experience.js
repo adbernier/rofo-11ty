@@ -2,6 +2,7 @@ const assert = require("node:assert/strict");
 const fs = require("node:fs");
 const os = require("node:os");
 const path = require("node:path");
+const vm = require("node:vm");
 const { execFileSync } = require("node:child_process");
 
 const ROOT = path.join(__dirname, "..");
@@ -51,6 +52,18 @@ async function render(env, created, debug = false) {
   assert(full.includes("Edit my search")); assert(full.includes("data-brief-explore"));
   assert(!full.includes(">FULL<")); assert(!full.includes("STRONG_FIT")); assert(!full.includes("GOOD_FIT"));
   assert(!full.includes("Requirement revision")); assert(!full.includes("Operator diagnostics")); assert(!full.includes("Canonical current Requirement"));
+  const inlineScript = full.match(/<script>([\s\S]*?)<\/script>/)?.[1] || "";
+  assert(inlineScript); assert.doesNotThrow(() => new Function(inlineScript), "The rendered Location Brief browser script must be valid JavaScript.");
+  assert(full.includes('<script src="/assets/location-brief-v2.js" defer data-cfasync="false"></script>'), "Focus behavior must use the production-safe external browser contract.");
+  const classList = (active = false) => ({ active, contains(name) { return name === "is-active" && this.active; }, toggle(name, value) { if (name === "is-active") this.active = value; } });
+  const panels = ["marina-district", "presidio", "jackson-square"].map((name, index) => ({ dataset: { focusPanel: name }, hidden: index !== 0 }));
+  const buttons = ["marina-district", "presidio", "jackson-square"].map((name, index) => ({ dataset: { focusButton: name }, classList: classList(index === 0), listeners: {}, addEventListener(type, fn) { this.listeners[type] = fn; }, setAttribute(name, value) { this[name] = value; }, click() { this.listeners.click(); } }));
+  const focusRoot = { dataset: {}, querySelectorAll(selector) { return selector === "[data-focus-panel]" ? panels : buttons; } };
+  const fakeDocument = { readyState: "complete", querySelectorAll(selector) { return selector.includes("data-location-focus-root") ? [focusRoot] : []; }, querySelector() { return null; } };
+  const browserSource = fs.readFileSync(path.join(ROOT, "assets/location-brief-v2.js"), "utf8");
+  const browserWindow = { document: fakeDocument }; vm.runInNewContext(browserSource, { window: browserWindow });
+  buttons[1].click(); assert.deepEqual(panels.map((panel) => panel.hidden), [true, false, true]); assert.equal(buttons[1].active || buttons[1].classList.active, true);
+  buttons[2].click(); assert.deepEqual(panels.map((panel) => panel.hidden), [true, true, false]); assert.equal(buttons[2].active || buttons[2].classList.active, true);
 
   const architecture = await foundation.createBrief(env, requirement({ business: "Architecture / design firm", origins: ["San Francisco"], clients: "Clients rarely or never visit" }), { sourceType: "operator_requirement_interview", marketId: "san-francisco", propertyType: "office" });
   const architectureHtml = await render(env, architecture);
@@ -130,9 +143,7 @@ async function render(env, created, debug = false) {
   const sharedSource = fs.readFileSync(path.join(ROOT, "functions/api/location-brief-v2/_shared.js"), "utf8");
   const comparisonSelectorSource = sharedSource.slice(sharedSource.indexOf("function comparisonAlternatives"), sharedSource.indexOf("export function calculateSnapshot"));
   assert(!comparisonSelectorSource.includes('"soma"')); assert(!comparisonSelectorSource.includes('"mission-bay"'), "Comparison selector must not hard-code districts.");
-  const rendererSource = fs.readFileSync(path.join(ROOT, "functions/operator/location-brief-v2/[publicId].js"), "utf8");
-  const focusScript = rendererSource.slice(rendererSource.indexOf("var root=document.querySelector('[data-comparison-focus-root]')"));
-  assert(!focusScript.includes("fetch(")); assert(!focusScript.includes("locationBriefV2=edit"));
+  assert(!browserSource.includes("fetch(")); assert(!browserSource.includes("locationBriefV2=edit"));
 
   const medicalCandidate = await foundation.createBrief(env, requirement({ business: "Medical private practice", property: "medical", candidates: ["mission-bay"], origins: ["Marin / North Bay"], customerOrigins: ["San Francisco", "Marin / North Bay"] }), { sourceType: "operator_requirement_interview", marketId: "san-francisco", propertyType: "medical", candidateDistrictIds: ["mission-bay"] });
   assert.equal(medicalCandidate.snapshot.candidateAssessments[0].assessmentStatus, "INSUFFICIENT");

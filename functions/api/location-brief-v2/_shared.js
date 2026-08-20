@@ -57,13 +57,19 @@ export function isSfOfficeEntryContext(input = {}) {
 }
 export function sameOriginMutation(request) {
   const origin = clean(request.headers.get("origin"), 500);
-  if (!origin) return ["localhost", "127.0.0.1"].includes(new URL(request.url).hostname);
-  try {
-    const submitted = new URL(origin); const requestUrl = new URL(request.url);
+  const requestUrl = new URL(request.url);
+  const local = ["localhost", "127.0.0.1"].includes(requestUrl.hostname);
+  const rofoHosts = new Set(["rofo.com", "www.rofo.com"]);
+  const matches = (source) => {
+    const submitted = new URL(source);
     if (submitted.origin === requestUrl.origin) return true;
-    const rofoHosts = new Set(["rofo.com", "www.rofo.com"]);
     return submitted.protocol === "https:" && requestUrl.protocol === "https:" && !submitted.port && !requestUrl.port && rofoHosts.has(submitted.hostname.toLowerCase()) && rofoHosts.has(requestUrl.hostname.toLowerCase());
-  } catch { return false; }
+  };
+  if (origin) { try { return matches(origin); } catch { return false; } }
+  const referer = clean(request.headers.get("referer"), 1000);
+  if (referer) { try { return matches(referer); } catch { return false; } }
+  if (local) return true;
+  return requestUrl.protocol === "https:" && !requestUrl.port && rofoHosts.has(requestUrl.hostname.toLowerCase()) && request.headers.get("sec-fetch-site") === "same-origin";
 }
 export function privateJson(body, status = 200, headers = {}) {
   return new Response(JSON.stringify(body), { status, headers: { "content-type": "application/json; charset=utf-8", "cache-control": "no-store, private", "x-robots-tag": "noindex, nofollow", "x-content-type-options": "nosniff", ...headers } });

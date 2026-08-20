@@ -24,7 +24,10 @@ assert.equal(foundation.isSfOfficeRequirement({ propertyTypes: ["office"], locat
 assert.equal(foundation.isSfOfficeRequirement({ propertyTypes: ["medical"], locationLogic: { marketAnchor: { marketId: "san-francisco" } } }), false);
 assert.equal(foundation.sameOriginMutation(new Request("https://rofo.com/api", { headers: { origin: "https://rofo.com" } })), true);
 assert.equal(foundation.sameOriginMutation(new Request("https://rofo.com/api", { headers: { origin: "https://www.rofo.com" } })), true, "Canonical and www production hosts must be treated as the same Rofo site.");
+assert.equal(foundation.sameOriginMutation(new Request("https://rofo.com/api", { headers: { referer: "https://www.rofo.com/property-requirement/LB2-TEST" } })), true, "A same-site production form navigation may use Referer when Origin is absent.");
+assert.equal(foundation.sameOriginMutation(new Request("https://www.rofo.com/api", { headers: { "sec-fetch-site": "same-origin" } })), true, "A browser-controlled same-origin navigation on a production Rofo host may omit Origin and Referer.");
 assert.equal(foundation.sameOriginMutation(new Request("https://preview-project.pages.dev/api", { headers: { origin: "https://preview-project.pages.dev" } })), true, "Pages preview writes should continue to use exact same-origin validation.");
+assert.equal(foundation.sameOriginMutation(new Request("https://preview-project.pages.dev/api", { headers: { "sec-fetch-site": "same-origin" } })), false, "Preview hosts require an exact Origin or Referer and do not receive the production-host fallback.");
 assert.equal(foundation.sameOriginMutation(new Request("https://rofo.com/api", { headers: { origin: "https://attacker.example" } })), false);
 assert.equal(foundation.sameOriginMutation(new Request("https://rofo.com/api", { headers: { origin: "https://www.rofo.com:444" } })), false, "The production alias must not permit a nonstandard cross-origin port.");
 

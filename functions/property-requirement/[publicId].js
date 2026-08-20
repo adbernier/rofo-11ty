@@ -41,6 +41,8 @@ export async function onRequestPost({ request, env, params }) {
   try {
     await savePropertyRequirementDraft(env, loaded.bundle, { officePurposes: form.getAll("officePurposes") }, Number(form.get("draftRevision") || 0));
   } catch (error) { return privateHtml(error.message || "Unable to save this detail.", error.status || 503); }
-  const responseOrigin = request.headers.get("origin") || new URL(request.url).origin;
+  let responseOrigin = request.headers.get("origin") || "";
+  if (!responseOrigin && request.headers.get("referer")) { try { responseOrigin = new URL(request.headers.get("referer")).origin; } catch {} }
+  if (!responseOrigin) responseOrigin = new URL(request.url).origin;
   return Response.redirect(`${responseOrigin}/property-requirement/${encodeURIComponent(loaded.bundle.brief.publicId)}?saved=1`, 303);
 }
