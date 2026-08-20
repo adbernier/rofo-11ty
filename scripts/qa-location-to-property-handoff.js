@@ -47,12 +47,23 @@ const requirement = {
   assert(publicHtml.includes("Locations worth investigating"));
   assert(publicHtml.includes("data-location-focus-root"));
   assert.equal((publicHtml.match(/data-focus-button=/g) || []).length, created.snapshot.shortlist.length);
+  created.snapshot.shortlist.forEach((item, index) => {
+    const start = publicHtml.indexOf(`data-focus-panel="${item.districtId}"`);
+    const nextItem = created.snapshot.shortlist[index + 1];
+    const end = nextItem ? publicHtml.indexOf(`data-focus-panel="${nextItem.districtId}"`, start + 1) : publicHtml.indexOf("</section>", start);
+    const panel = publicHtml.slice(start, end > start ? end : undefined);
+    assert(start >= 0, `${item.districtName} must have an interactive rich focus panel.`);
+    if (item.presentation?.image?.src) assert(panel.includes(item.presentation.image.src), `${item.districtName} must use its own approved image projection.`);
+    (item.presentation?.representativeBuildings || []).forEach((building) => assert(panel.includes(building.name), `${item.districtName} must use its own representative buildings when focused.`));
+  });
   assert(!publicHtml.includes("Recommended by Rofo"));
   assert(!publicHtml.includes("Alternative worth comparing"));
   assert(!/>\s*#(?:1|2|3)\s*</.test(publicHtml));
   assert(!publicHtml.includes("Areas you're considering"));
-  assert(publicHtml.includes("Now let&#39;s find the right space"));
-  assert(publicHtml.includes("Continue my search →"));
+  assert(publicHtml.includes("See available spaces in these locations"));
+  assert(publicHtml.includes("Continue →"));
+  assert(publicHtml.includes('class="requirement-search-summary"'));
+  assert(publicHtml.includes('class="requirement-search-summary__item"'));
   assert(publicHtml.includes(`/property-requirement/${created.brief.publicId}`));
   assert(!publicHtml.includes("/find-locations/"), "Eligible v2 continuation must not enter the legacy Business Profile flow.");
 
@@ -60,8 +71,9 @@ const requirement = {
   const getResponse = await propertyStage.onRequestGet({ request: getRequest, env, params: { publicId: created.brief.publicId } });
   assert.equal(getResponse.status, 200);
   const propertyHtml = await getResponse.text();
-  assert(propertyHtml.includes("Now let's find the right space"));
-  assert(propertyHtml.includes("What should this office help your team do?"));
+  assert(propertyHtml.includes("Tell us what you need in a space"));
+  assert(propertyHtml.includes("How will you use the space?"));
+  assert(propertyHtml.includes('class="requirement-search-summary"'));
   assert(propertyHtml.includes("Architecture, Design &amp; Creative Services"));
   assert(!propertyHtml.includes("Professional services"), "Canonical business identity must not pass through the legacy taxonomy.");
   assert(propertyHtml.includes("San Francisco"));
@@ -70,6 +82,8 @@ const requirement = {
   assert(propertyHtml.includes(`/location-brief/${created.brief.publicId}`));
   assert(!propertyHtml.includes("What kind of business"));
   assert(!propertyHtml.includes("Where do employees"));
+  assert(!propertyHtml.includes("First space question")); assert(!propertyHtml.includes("lead")); assert(!propertyHtml.includes("broker"));
+  assert(!propertyHtml.includes("Save and continue")); assert(propertyHtml.includes(">Continue</button>"));
 
   const before = await env.LOCATION_BRIEFS_KV.get(`location-brief-v2:${created.brief.publicId}`, "json");
   const postRequest = new Request(`https://rofo.com/property-requirement/${created.brief.publicId}`, {
@@ -97,6 +111,21 @@ const requirement = {
   });
   const staleResponse = await propertyStage.onRequestPost({ request: staleRequest, env, params: { publicId: created.brief.publicId } });
   assert.equal(staleResponse.status, 409);
+  const afterRetry = await env.LOCATION_BRIEFS_KV.get(`location-brief-v2:${created.brief.publicId}`, "json");
+  assert.equal(afterRetry.propertyRequirementDraft.draftRevision, 1, "A repeated stale submission must not create a duplicate draft revision.");
+  const productionAliasRequest = new Request(`https://rofo.com/property-requirement/${created.brief.publicId}`, {
+    method: "POST", headers: { cookie, origin: "https://www.rofo.com", "content-type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams({ draftRevision: "1", officePurposes: "quiet_focused_work" }),
+  });
+  const productionAliasResponse = await propertyStage.onRequestPost({ request: productionAliasRequest, env, params: { publicId: created.brief.publicId } });
+  assert.equal(productionAliasResponse.status, 303, "A legitimate www.rofo.com form POST must survive the canonical-host request URL used by Pages.");
+  assert(productionAliasResponse.headers.get("location").startsWith("https://www.rofo.com/"));
+  const crossOriginRequest = new Request(`https://rofo.com/property-requirement/${created.brief.publicId}`, {
+    method: "POST", headers: { cookie, origin: "https://attacker.example", "content-type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams({ draftRevision: "2", officePurposes: "client_meetings" }),
+  });
+  const crossOriginResponse = await propertyStage.onRequestPost({ request: crossOriginRequest, env, params: { publicId: created.brief.publicId } });
+  assert.equal(crossOriginResponse.status, 403);
   const nonOwnerResponse = await propertyStage.onRequestGet({ request: new Request(`https://rofo.com/property-requirement/${created.brief.publicId}`), env, params: { publicId: created.brief.publicId } });
   assert.equal(nonOwnerResponse.status, 403);
 

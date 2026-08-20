@@ -26,11 +26,27 @@ The rich focus reuses canonical district presentation, approved imagery, represe
 
 The first implemented property-stage question is:
 
-> What should this office help your team do?
+> How will you use the space?
 
 This asks for space-purpose priorities—client meetings, team collaboration, quiet focused work, or showroom/presentation—not facts already established for the location decision. It does not recollect market, property type, business identity, employee geography, environment preference, client frequency, transit, or parking.
 
 This sprint does not implement the full adaptive Property Requirement. Future work should review and sequence property-stage dimensions such as approximate size or capacity, growth, timing, economics, detailed storage and loading, layout/program, parking quantity, building characteristics, and specialized improvements.
+
+## Proposed short Office property sequence
+
+The target sequence should stay bounded to facts needed to investigate real options:
+
+1. How will you use the space? — implemented, multi-select.
+2. About how much space do you need, or how many people should it support? — essential; accept either clearly labeled input path rather than mixing units in one answer.
+3. When do you need the space? — essential for availability investigation.
+4. Are there any space or operating needs that would rule out an otherwise promising property? — optional exception capture, with known Location Requirement activities carried forward.
+5. What budget range should the search use? — useful before live property investigation when the production contract can handle it safely.
+
+Dedicated storage, loading, specialized improvements, and actual parking quantity should branch only from known activities or explicit needs. Detailed room counts, layout programming, amenity wishlists, legal/use diligence, and building-level verification belong in later broker or property diligence.
+
+District-level parking importance remains a Location Requirement signal: whether generally easier parking and driving should influence where to look. Actual spaces, reserved stalls, or parking quantity are Property Requirement facts and must not be inferred from the district preference.
+
+For Office, client origin is requested only after the user reports regular or occasional material visits. It is skipped when visits are rare, never, or irrelevant. Employee origin remains broadly applicable.
 
 ## Persistence
 
@@ -48,6 +64,8 @@ The draft does not overwrite the Location Requirement or mutate recommendation s
 ## Commercial boundary
 
 Opening the property stage and saving its first answer create no lead, OfficeFinder request, broker routing decision, email, contact record, or market-investigation submission. The explicit production commercial-assistance submission remains the commercial boundary.
+
+Production mutations use the shared same-origin guard. Exact origins remain required except for the explicit HTTPS `rofo.com` and `www.rofo.com` canonical-host pair. Preview domains retain exact-origin behavior; arbitrary cross-origin and user-supplied host aliases are rejected.
 
 ## Legacy compatibility
 

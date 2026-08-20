@@ -211,6 +211,13 @@ const criterion = (dimension, text, status = "PREFERRED", scope = "location", au
 
   const noClientOffice = engine.createSeededInterview({ id: "no-clients", requirement: { objective: { summary: "Open an office" }, propertyTypes: ["office"], activities: ["work", "meet_collaborate"], locationLogic: { summary: "Employee access", locations: ["San Francisco"], rationale: [] }, sizeCapacity: { summary: "20 people" }, criteria: [criterion("office.access.client_visits", "Clients rarely or never visit", "FLEXIBLE")] } });
   assert(!engine.eligibleQuestions(noClientOffice).some((item) => item.id === "customer.origins"), "customer geography must be suppressed when visits are rare.");
+  assert(engine.QUESTION_REGISTRY.find((item) => item.id === "foundation.objective").prompt === "What is your goal?", "Goal wording must remain consumer-facing without changing its resolver or values.");
+  assert(engine.QUESTION_REGISTRY.find((item) => item.id === "access.parking").prompt === "How important is it to be in an area where parking is generally easier?", "Location-stage parking must ask about district parking environment, not building parking quantity.");
+  const frequentClientOffice = engine.hydrateInterviewState(JSON.parse(JSON.stringify(noClientOffice)));
+  frequentClientOffice.requirement.activities = Array.from(new Set([...frequentClientOffice.requirement.activities, "host_visitors"]));
+  const clientCriterion = frequentClientOffice.requirement.criteria.find((item) => item.dimension === "office.access.client_visits");
+  clientCriterion.value.text = "Clients visit frequently";
+  assert(engine.eligibleQuestions(frequentClientOffice).some((item) => item.id === "customer.origins"), "customer geography must remain available when Office clients visit materially.");
 
   const ambiguous = engine.createSeededInterview({ id: "ambiguity", requirement: { objective: { summary: "Find customer-facing repair space" }, propertyTypes: ["retail_service"], activities: ["host_visitors", "sell_serve", "repair_service", "store"], locationLogic: { summary: "Customer geography", locations: ["Orlando"], rationale: [] }, sizeCapacity: { summary: "8,000 SF" } } });
   assert(engine.eligibleQuestions(ambiguous).some((item) => item.id === "property.ambiguity"), "material repair/storage evidence must surface property ambiguity.");

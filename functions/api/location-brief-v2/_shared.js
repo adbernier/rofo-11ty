@@ -58,7 +58,12 @@ export function isSfOfficeEntryContext(input = {}) {
 export function sameOriginMutation(request) {
   const origin = clean(request.headers.get("origin"), 500);
   if (!origin) return ["localhost", "127.0.0.1"].includes(new URL(request.url).hostname);
-  try { return new URL(origin).origin === new URL(request.url).origin; } catch { return false; }
+  try {
+    const submitted = new URL(origin); const requestUrl = new URL(request.url);
+    if (submitted.origin === requestUrl.origin) return true;
+    const rofoHosts = new Set(["rofo.com", "www.rofo.com"]);
+    return submitted.protocol === "https:" && requestUrl.protocol === "https:" && !submitted.port && !requestUrl.port && rofoHosts.has(submitted.hostname.toLowerCase()) && rofoHosts.has(requestUrl.hostname.toLowerCase());
+  } catch { return false; }
 }
 export function privateJson(body, status = 200, headers = {}) {
   return new Response(JSON.stringify(body), { status, headers: { "content-type": "application/json; charset=utf-8", "cache-control": "no-store, private", "x-robots-tag": "noindex, nofollow", "x-content-type-options": "nosniff", ...headers } });

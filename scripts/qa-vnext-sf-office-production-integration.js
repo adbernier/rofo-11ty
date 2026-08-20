@@ -23,7 +23,10 @@ assert.equal(foundation.isSfOfficeEntryContext({ marketId: "oakland", propertyTy
 assert.equal(foundation.isSfOfficeRequirement({ propertyTypes: ["office"], locationLogic: { marketAnchor: { marketId: "san-francisco" } } }), true);
 assert.equal(foundation.isSfOfficeRequirement({ propertyTypes: ["medical"], locationLogic: { marketAnchor: { marketId: "san-francisco" } } }), false);
 assert.equal(foundation.sameOriginMutation(new Request("https://rofo.com/api", { headers: { origin: "https://rofo.com" } })), true);
+assert.equal(foundation.sameOriginMutation(new Request("https://rofo.com/api", { headers: { origin: "https://www.rofo.com" } })), true, "Canonical and www production hosts must be treated as the same Rofo site.");
+assert.equal(foundation.sameOriginMutation(new Request("https://preview-project.pages.dev/api", { headers: { origin: "https://preview-project.pages.dev" } })), true, "Pages preview writes should continue to use exact same-origin validation.");
 assert.equal(foundation.sameOriginMutation(new Request("https://rofo.com/api", { headers: { origin: "https://attacker.example" } })), false);
+assert.equal(foundation.sameOriginMutation(new Request("https://rofo.com/api", { headers: { origin: "https://www.rofo.com:444" } })), false, "The production alias must not permit a nonstandard cross-origin port.");
 
 const entryRoute = read("functions/location-requirement/index.js");
 assert(entryRoute.includes("publicV2Enabled"));
@@ -32,6 +35,7 @@ assert(entryRoute.includes('new URL("/find-locations/"'));
 const requirementPage = read("pages/location-requirement.njk");
 const requirementStyles = read("assets/requirement-prototype.css");
 assert(requirementPage.includes("data-requirement-experience=\"public\""));
+assert(requirementPage.includes("Answer a few questions and see the locations that best fit your business."));
 assert(requirementPage.includes("Show recommended locations"));
 assert(!requirementPage.includes("Operator-only"));
 assert(!requirementPage.includes("Save Location Brief v2"));
