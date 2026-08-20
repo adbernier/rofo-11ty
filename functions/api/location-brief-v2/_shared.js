@@ -9,6 +9,7 @@ export const V2_SCHEMA_VERSION = "location-brief:v2";
 export const ENTRY_CONTEXT_VERSION = "entry-context:v1";
 export const REQUIREMENT_REVISION_VERSION = "requirement-revision:v1";
 export const SNAPSHOT_VERSION = "location-recommendation-snapshot:v1";
+export const PROPERTY_REQUIREMENT_DRAFT_VERSION = "property-requirement-draft:v1";
 export const OWNER_COOKIE = "rofo_lb_v2_owner";
 export const ENGINE_VERSION = readinessEngine.VERSION;
 export const PUBLIC_SF_OFFICE_FLAG = "LOCATION_BRIEF_V2_PUBLIC_SF_OFFICE_ENABLED";
@@ -233,6 +234,7 @@ export async function ensureV2Tables(database) {
     `create table if not exists location_brief_v2_candidates (id text primary key, brief_id text not null, canonical_district_id text not null, presentation_group_id text, source_identity text, provenance_json text not null, disposition text not null, created_at text not null, updated_at text not null, unique(brief_id, canonical_district_id))`,
     `create table if not exists location_brief_v2_intelligence_gaps (id text primary key, brief_id text not null, requirement_revision_id text not null, recommendation_snapshot_id text not null, market_id text not null, property_type text not null, district_id text not null, intelligence_dimension text not null, requirement_signal text, materiality text, blocking_status text, reason text, observed_at text not null)`,
     `create table if not exists location_brief_v2_creation_requests (request_id text primary key, public_id text not null, created_at text not null)`,
+    `create table if not exists location_brief_v2_property_requirement_drafts (brief_id text primary key, schema_version text not null, location_requirement_revision_id text not null, recommendation_snapshot_id text not null, draft_revision integer not null, answers_json text not null, created_at text not null, updated_at text not null)`,
   ];
   for (const sql of statements) await database.prepare(sql).run();
 }
@@ -363,6 +365,40 @@ export async function getBriefBundle(env, publicId, includeHistory = false) {
     return { brief: bundle.brief, entryContext: bundle.entryContext, currentRevision, currentSnapshot, candidates: bundle.candidates || [], ...(includeHistory ? { revisions: bundle.revisions, snapshots: bundle.snapshots } : {}) };
   }
   throw new Error("Missing Location Brief storage binding.");
+}
+
+export async function getPropertyRequirementDraft(env, brief) {
+  if (storageKind(env) === "d1") {
+    const database = db(env); await ensureV2Tables(database);
+    const row = await database.prepare(`select * from location_brief_v2_property_requirement_drafts where brief_id = ?`).bind(brief.id).first();
+    return row ? { briefId: row.brief_id, schemaVersion: row.schema_version, locationRequirementRevisionId: row.location_requirement_revision_id, recommendationSnapshotId: row.recommendation_snapshot_id, draftRevision: row.draft_revision, answers: JSON.parse(row.answers_json), createdAt: row.created_at, updatedAt: row.updated_at } : null;
+  }
+  const record = await kv(env).get(`location-brief-v2:${brief.publicId}`, "json");
+  return record?.propertyRequirementDraft || null;
+}
+
+export async function savePropertyRequirementDraft(env, bundle, answers, expectedDraftRevision = 0) {
+  const existing = await getPropertyRequirementDraft(env, bundle.brief);
+  if (Number(existing?.draftRevision || 0) !== Number(expectedDraftRevision || 0)) { const error = new Error("The property search changed in another session. Refresh before saving."); error.status = 409; throw error; }
+  const now = new Date().toISOString();
+  const allowedPurposes = ["client_meetings", "team_collaboration", "quiet_focused_work", "showroom_presentation"];
+  const officePurposes = cleanArray(answers?.officePurposes, 8).filter((item) => allowedPurposes.includes(item));
+  const draft = {
+    briefId: bundle.brief.id, schemaVersion: PROPERTY_REQUIREMENT_DRAFT_VERSION,
+    locationRequirementRevisionId: bundle.currentRevision.id, recommendationSnapshotId: bundle.currentSnapshot.id,
+    draftRevision: Number(existing?.draftRevision || 0) + 1, answers: { officePurposes },
+    createdAt: existing?.createdAt || now, updatedAt: now,
+  };
+  if (storageKind(env) === "d1") {
+    const database = db(env); await ensureV2Tables(database);
+    const result = await database.prepare(`insert into location_brief_v2_property_requirement_drafts values (?, ?, ?, ?, ?, ?, ?, ?) on conflict(brief_id) do update set schema_version=excluded.schema_version, location_requirement_revision_id=excluded.location_requirement_revision_id, recommendation_snapshot_id=excluded.recommendation_snapshot_id, draft_revision=excluded.draft_revision, answers_json=excluded.answers_json, updated_at=excluded.updated_at where location_brief_v2_property_requirement_drafts.draft_revision = ?`).bind(draft.briefId, draft.schemaVersion, draft.locationRequirementRevisionId, draft.recommendationSnapshotId, draft.draftRevision, JSON.stringify(draft.answers), draft.createdAt, draft.updatedAt, Number(expectedDraftRevision || 0)).run();
+    if (Number(result?.meta?.changes || 0) !== 1) { const error = new Error("The property search changed in another session. Refresh before saving."); error.status = 409; throw error; }
+  } else {
+    const store = kv(env); const key = `location-brief-v2:${bundle.brief.publicId}`; const record = await store.get(key, "json");
+    if (Number(record?.propertyRequirementDraft?.draftRevision || 0) !== Number(expectedDraftRevision || 0)) { const error = new Error("The property search changed in another session. Refresh before saving."); error.status = 409; throw error; }
+    record.propertyRequirementDraft = draft; await store.put(key, JSON.stringify(record));
+  }
+  return draft;
 }
 
 export async function reviseBrief(env, bundle, rawRequirement, expectedRevision, changedBy = "anonymous_operator") {

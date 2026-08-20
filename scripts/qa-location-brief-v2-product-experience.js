@@ -36,11 +36,15 @@ async function render(env, created, debug = false) {
   assert(full.includes("<h1>Your Location Brief</h1>"));
   assert(full.includes("Office · San Francisco"));
   assert(full.includes("<h2>Your search</h2>"));
-  assert(full.includes("<h2>Recommended locations</h2>"));
+  assert(full.includes("<h2>Locations worth investigating</h2>"));
   assert(full.includes("Why it fits")); assert(full.includes("Tradeoffs")); assert(full.includes("How they differ"));
-  assert(full.includes("Representative buildings"), "Primary recommendation should reuse canonical representative-building presentation.");
+  assert(full.includes("data-location-focus-root"));
+  assert.equal((full.match(/data-focus-button=/g) || []).length, conventional.snapshot.shortlist.length, "Every supported location should be a peer focus option.");
+  assert(full.includes("Representative buildings"), "Focused location should reuse canonical representative-building presentation.");
   assert(full.includes("These are representative examples, not current availability."));
-  assert(full.includes("Areas you're considering")); assert(full.includes("Find actual spaces"));
+  assert(!full.includes("Areas you're considering"), "An empty candidate section should be omitted.");
+  assert(full.includes("Now let&#39;s find the right space")); assert(full.includes("Continue my search"));
+  assert(!full.includes("Recommended by Rofo")); assert(!full.includes("Alternative worth comparing"));
   assert(full.includes("Edit my search")); assert(full.includes("data-brief-explore"));
   assert(!full.includes(">FULL<")); assert(!full.includes("STRONG_FIT")); assert(!full.includes("GOOD_FIT"));
   assert(!full.includes("Requirement revision")); assert(!full.includes("Operator diagnostics")); assert(!full.includes("Canonical current Requirement"));
@@ -52,13 +56,14 @@ async function render(env, created, debug = false) {
 
   const marin = await foundation.createBrief(env, requirement({ business: "Ordinary Office", origins: ["San Francisco", "Marin / North Bay"], clients: "Clients rarely or never visit", transit: "Public transit is helpful", parking: "Convenient parking is very important" }), { sourceType: "operator_requirement_interview", marketId: "san-francisco", propertyType: "office" });
   const marinHtml = await render(env, marin);
-  assert(marinHtml.includes("<h2>Recommended locations</h2>")); assert(marinHtml.includes("Presidio"));
+  assert(marinHtml.includes("<h2>Locations worth investigating</h2>")); assert(marinHtml.includes("Presidio"));
   assert(!marinHtml.includes("BLOCKED_BY_INTELLIGENCE_GAP")); assert(!marinHtml.includes("coverage %"));
 
   const medical = await foundation.createBrief(env, requirement({ business: "Medical private practice", property: "medical", origins: ["Marin / North Bay"], clients: "Patients visit regularly", customerOrigins: ["San Francisco", "Marin / North Bay"], transit: "Public transit is not important", parking: "Convenient parking is very important" }), { sourceType: "operator_requirement_interview", marketId: "san-francisco", propertyType: "medical" });
   const investigate = await render(env, medical);
-  assert(investigate.includes("<h2>What matters most</h2>")); assert(investigate.includes("Investigate available space"));
+  assert(investigate.includes("<h2>What matters most</h2>")); assert(investigate.includes("Continue my search"));
   assert(investigate.includes("Medical-compatible use")); assert(!investigate.includes('<article class="lb2-rec'));
+  assert(!investigate.includes(`/property-requirement/${medical.brief.publicId}`), "Medical must not enter the Office property-stage continuation.");
   assert(!investigate.includes("Technology"));
 
   const mission = await foundation.createBrief(env, requirement({ candidates: ["mission-bay"] }), { sourceType: "operator_requirement_interview", marketId: "san-francisco", propertyType: "office", candidateDistrictIds: ["mission-bay"] });
