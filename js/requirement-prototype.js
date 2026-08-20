@@ -39,7 +39,7 @@ if (root) {
     try { return JSON.parse(root.querySelector("[data-sf-office-composition-foundation]")?.textContent || "{}"); } catch (error) { return {}; }
   })();
   const elements = Object.fromEntries([
-    "scenario-buttons", "understanding", "understanding-summary", "interview", "stage-label", "question-position",
+    "scenario-buttons", "understanding", "understanding-summary", "search-summary", "search-summary-empty", "progress-bar", "interview", "stage-label", "question-position",
     "question-kicker", "question-prompt", "question-visible-help", "answer-control", "question-help", "question-error",
     "back-question", "continue-question", "finish-early", "requirement-complete", "requirement-title", "readiness-summary",
     "requirement-summary", "requirement-criteria", "recommendation-preview", "preview-heading", "preview-intro", "preview-results", "candidate-comparisons", "preview-coverage", "access-shadow", "composition-debug", "debug-meta", "debug-json",
@@ -420,9 +420,11 @@ if (root) {
     state.draft = question;
     elements["question-prompt"].textContent = question.prompt;
     elements["question-kicker"].textContent = question.decisionRelevance.length ? question.decisionRelevance.map((item) => item.replaceAll("_", " ")).join(" · ") : question.id === "final.unusual" ? "Final check" : "Requirement";
-    elements["question-position"].textContent = `${state.interview.history.length} answered`;
-    const stageLabels = { ORIENT: "Starting the search", USE: "Understanding the use", LOCATION: "Understanding location drivers", SCALE: "Understanding basic scale", FINAL: "Final location check" };
+    elements["question-position"].textContent = "Your search";
+    const stageLabels = { ORIENT: "Location search", USE: "Your business", LOCATION: "Location priorities", SCALE: "Space context", FINAL: "Final check" };
     elements["stage-label"].textContent = stageLabels[selection.stage] || "Location Requirement";
+    const stageProgress = { ORIENT: "18%", USE: "38%", LOCATION: "68%", SCALE: "84%", FINAL: "96%" };
+    if (elements["progress-bar"]) elements["progress-bar"].style.width = stageProgress[selection.stage] || "18%";
     const control = elements["answer-control"];
     control.replaceChildren();
     control.dataset.specialAnswer = "";
@@ -536,12 +538,23 @@ if (root) {
 
   function renderUnderstanding() {
     const target = elements["understanding-summary"];
-    target.replaceChildren();
-    summaryItems(state.interview.requirement).filter(([, content]) => content).forEach(([label, content]) => {
-      const row = node("p");
-      row.append(node("strong", "", `${label}: `), document.createTextNode(content));
-      target.append(row);
+    if (target) target.replaceChildren();
+    const searchTarget = elements["search-summary"];
+    if (searchTarget) searchTarget.replaceChildren();
+    const items = summaryItems(state.interview.requirement).filter(([, content]) => content);
+    items.forEach(([label, content]) => {
+      if (target) {
+        const row = node("p");
+        row.append(node("strong", "", `${label}: `), document.createTextNode(content));
+        target.append(row);
+      }
+      if (searchTarget) {
+        const row = node("div", "requirement-search-summary__item");
+        row.append(node("span", "", label), node("strong", "", content));
+        searchTarget.append(row);
+      }
     });
+    if (elements["search-summary-empty"]) elements["search-summary-empty"].hidden = Boolean(items.length);
   }
 
   function criterionValue(item) {
@@ -788,6 +801,7 @@ if (root) {
 
   function renderScenarios() {
     const target = elements["scenario-buttons"];
+    if (!target) return;
     target.replaceChildren();
     scenarios.forEach((scenario) => {
       const button = node("button", "", scenario.label);
@@ -822,11 +836,11 @@ if (root) {
     URL.revokeObjectURL(url);
   }
 
-  root.querySelector("[data-toggle-understanding]").addEventListener("click", () => { elements.understanding.hidden = !elements.understanding.hidden; });
+  root.querySelector("[data-toggle-understanding]")?.addEventListener("click", () => { elements.understanding.hidden = !elements.understanding.hidden; });
   root.querySelectorAll("[data-export-requirement]").forEach((button) => button.addEventListener("click", exportRequirement));
-  root.querySelector("[data-reset-requirement]").addEventListener("click", () => { state = initialState(); sessionStorage.removeItem(SESSION_KEY); render(); });
+  root.querySelector("[data-reset-requirement]")?.addEventListener("click", () => { state = initialState(); sessionStorage.removeItem(SESSION_KEY); render(); });
   elements["back-question"].addEventListener("click", () => { state.interview = backInterview(state.interview); persist(); render(); });
-  elements["finish-early"].addEventListener("click", () => { state.mode = "complete"; persist(); render(); });
+  elements["finish-early"]?.addEventListener("click", () => { state.mode = "complete"; persist(); render(); });
   root.querySelector("[data-refine-requirement]").addEventListener("click", () => { state.mode = "interview"; persist(); render(); });
   root.querySelector("[data-view-recommendations]").addEventListener("click", async () => {
     if (locationBriefV2Mode) {
