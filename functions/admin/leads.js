@@ -640,6 +640,7 @@ function renderProjectSnapshot(lead, market) {
   ].filter(Boolean).join(" - ");
   const customerLine = [lead.name, lead.company].filter(Boolean).join(" - ");
   const qualified = lead.qualification_status === "qualified_requirement";
+  const isVnext = lead.lead_type === "vnext_market_investigation";
   return `
     <section class="lead-ops-summary" aria-label="Lead Summary">
       <div class="lead-ops-summary__header">
@@ -654,7 +655,7 @@ function renderProjectSnapshot(lead, market) {
         ${field("Qualification", qualified ? "Qualified requirement" : "Incomplete legacy requirement", { showEmpty: true })}
         ${field("Business type", snapshot.businessType || lead.location_profile_business_type, { showEmpty: true })}
         ${field("Selected district", snapshot.selectedDistrict || lead.investigation_district, { showEmpty: true })}
-        ${field("Best Fits", topDistricts.join(", ") || lead.recommended_market_path, { showEmpty: true })}
+        ${isVnext ? field("Locations worth investigating", topDistricts.join(", ") || lead.recommended_market_path, { showEmpty: true }) : field("Best Fits", topDistricts.join(", ") || lead.recommended_market_path, { showEmpty: true })}
         ${field("Headcount", snapshot.headcount || lead.investigation_headcount, { showEmpty: true })}
         ${field("Approx. size", snapshot.approximateSize || lead.space_needed, { showEmpty: true })}
         ${field("Timing", snapshot.timing || lead.move_timing, { showEmpty: true })}
@@ -662,6 +663,10 @@ function renderProjectSnapshot(lead, market) {
         ${field("Email", lead.email, { showEmpty: true })}
         ${field("Phone", lead.phone)}
         ${field("Additional notes", snapshot.additionalNotes || lead.investigation_notes)}
+        ${isVnext ? field("Space use", lead.property_requirement_use, { showEmpty: true }) : ""}
+        ${isVnext ? field("Must-have space needs", lead.property_requirement_must_haves || "None", { showEmpty: true }) : ""}
+        ${isVnext ? field("Location Requirement revision", lead.location_requirement_revision_number, { showEmpty: true }) : ""}
+        ${isVnext ? field("Property Requirement revision", lead.property_requirement_revision, { showEmpty: true }) : ""}
         ${field("Internal alert", lead.internal_email_status || lead.investigation_internal_email_status)}
       </dl>
     </section>

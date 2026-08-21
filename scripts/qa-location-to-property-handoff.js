@@ -13,11 +13,13 @@ function bundle(source, output) {
 const foundation = bundle("functions/api/location-brief-v2/_shared.js", "shared.cjs");
 const renderer = bundle("functions/operator/location-brief-v2/[publicId].js", "renderer.cjs");
 const propertyStage = bundle("functions/property-requirement/[publicId].js", "property.cjs");
+const leadTools = bundle("functions/api/leads/_shared.js", "lead-shared.cjs");
 
 class MemoryKv {
   constructor() { this.values = new Map(); }
   async put(key, value) { this.values.set(key, value); }
   async get(key, type) { const value = this.values.get(key); return type === "json" && value ? JSON.parse(value) : value || null; }
+  async delete(key) { this.values.delete(key); }
 }
 const criterion = (dimension, raw) => ({ dimension, status: "PREFERRED", value: { text: Array.isArray(raw) ? "" : String(raw), number: null, boolean: null, list: Array.isArray(raw) ? raw : [] } });
 const requirement = {
@@ -36,7 +38,8 @@ const requirement = {
 };
 
 (async () => {
-  const env = { LOCATION_BRIEFS_KV: new MemoryKv() };
+  assert.equal(leadTools.normalizePhoneForOfficeFinder("+1 (415) 555-0198"), "415-555-0198", "A leading US country code must normalize without a false length failure.");
+  const env = { LOCATION_BRIEFS_KV: new MemoryKv() }; env.LEADS_KV = env.LOCATION_BRIEFS_KV;
   const created = await foundation.createBrief(env, requirement, { sourceType: "district", sourcePath: "/commercial-real-estate/CA/san-francisco/marina-district/", marketId: "san-francisco", propertyType: "office" });
   const cookie = created.setCookie.split(";")[0];
   const bundleState = await foundation.getBriefBundle(env, created.brief.publicId, true);
@@ -127,7 +130,23 @@ const requirement = {
   currentHtml = await renderCurrent(); assert(currentHtml.includes("Step 4 of 4")); assert(currentHtml.includes("must-have space needs")); assert(currentHtml.includes("None / no special requirements"));
   const finishResponse = await submit({ draftRevision: "3", questionId: "4", mustHaves: "dedicated_storage" }); assert.equal(finishResponse.status, 303);
   currentHtml = await renderCurrent(); assert(currentHtml.includes("Your space requirements are ready")); assert(currentHtml.includes("18 people")); assert(currentHtml.includes("3–6 months")); assert(currentHtml.includes("Dedicated storage")); assert(!currentHtml.includes(">Continue</button>"));
+  assert(currentHtml.includes("Ready to see what's available?")); assert(currentHtml.includes("Share my search with Rofo")); assert(currentHtml.includes('name="phone"')); assert(!currentHtml.includes('name="phone" autocomplete="tel" required'));
   const completedRecord = await env.LOCATION_BRIEFS_KV.get(`location-brief-v2:${created.brief.publicId}`, "json"); assert.equal(completedRecord.propertyRequirementDraft.draftRevision, 4); assert.equal(completedRecord.propertyRequirementDraft.answers.mustHavesReviewed, true);
+  assert.equal([...env.LEADS_KV.values.keys()].filter((key) => key.startsWith("lead:")).length, 0, "Completing the Location and Property Requirements must not create a lead.");
+  const shareResponse = await submit({ draftRevision: "4", questionId: "5", action: "share", human_check: "1", name: "Avery Morgan", email: "avery@rofo.com", phone: "" });
+  assert.equal(shareResponse.status, 303); assert(shareResponse.headers.get("location").includes("?shared=1"));
+  const leadKeys = [...env.LEADS_KV.values.keys()].filter((key) => key.startsWith("lead:")); assert.equal(leadKeys.length, 1, "Explicit Share must create exactly one existing-system lead.");
+  const leadRecord = await env.LEADS_KV.get(leadKeys[0], "json"); const lead = leadRecord.lead;
+  assert.equal(lead.lead_type, "vnext_market_investigation"); assert.equal(lead.business_type, "Architecture, Design & Creative Services"); assert.equal(lead.location_brief_public_id, created.brief.publicId);
+  assert.equal(lead.location_requirement_revision_id, created.revision.id); assert.equal(lead.recommendation_snapshot_id, created.snapshot.id); assert.equal(lead.property_requirement_revision, 4);
+  assert.equal(lead.phone, "", "Phone remains optional for the vNext handoff."); assert.equal(lead.qualification_status, "qualified_requirement");
+  assert.deepEqual(lead.location_brief_v2_context.recommendation.locationsWorthInvestigating, created.snapshot.shortlist.map((item) => item.districtName));
+  assert(lead.location_brief_v2_context.geographySemantics.includes("not hard constraints")); assert(lead.requirements.includes("Team collaboration")); assert(lead.requirements.includes("Dedicated storage"));
+  assert.equal(lead.officefinder_status, "officefinder_pending_approval"); assert(leadRecord.officefinder_payload.Comments.includes(`/location-brief/${created.brief.publicId}`));
+  const retryResponse = await submit({ draftRevision: "4", questionId: "5", action: "share", human_check: "1", name: "Avery Morgan", email: "avery@rofo.com", phone: "" });
+  assert.equal(retryResponse.status, 303); assert.equal([...env.LEADS_KV.values.keys()].filter((key) => key.startsWith("lead:")).length, 1, "A retry of the same completed draft must not create a duplicate lead.");
+  const sharedGet = await propertyStage.onRequestGet({ request: new Request(`https://rofo.com/property-requirement/${created.brief.publicId}?shared=1`, { headers: { cookie } }), env, params: { publicId: created.brief.publicId } });
+  const sharedHtml = await sharedGet.text(); assert(sharedHtml.includes("Your search has been shared with Rofo")); assert(sharedHtml.includes("can review")); assert(!/will contact|within \d+ (?:hours|days)/i.test(sharedHtml));
   const crossOriginRequest = new Request(`https://rofo.com/property-requirement/${created.brief.publicId}`, { method: "POST", headers: { cookie, origin: "https://attacker.example", "content-type": "application/x-www-form-urlencoded" }, body: new URLSearchParams({ draftRevision: "4", questionId: "4" }) });
   const crossOriginResponse = await propertyStage.onRequestPost({ request: crossOriginRequest, env, params: { publicId: created.brief.publicId } });
   assert.equal(crossOriginResponse.status, 403);
@@ -144,9 +163,14 @@ const requirement = {
   assert.equal(nonOwnerResponse.status, 403);
 
   const source = fs.readFileSync(path.join(ROOT, "functions/property-requirement/[publicId].js"), "utf8");
-  for (const forbidden of ["saveLead", "OfficeFinder", "resolveLeadRoute", "sendApprovalEmail", "sendTenantConfirmationEmail"]) assert(!source.includes(forbidden));
+  assert(source.indexOf('form.get("action") === "share"') < source.indexOf("await createCommercialRequest"), "Lead creation must be gated behind the explicit Share action.");
+  assert(source.includes("reserveCommercialRequest")); assert(source.includes("sendApprovalEmail")); assert(source.includes("sendTenantConfirmationEmail"));
   const migration = fs.readFileSync(path.join(ROOT, "migrations/0006_location_brief_v2_property_requirement_draft.sql"), "utf8");
   assert(migration.includes("location_brief_v2_property_requirement_drafts")); assert(!migration.includes("drop table"));
+  const commercialMigration = fs.readFileSync(path.join(ROOT, "migrations/0007_location_brief_v2_commercial_handoff.sql"), "utf8"); assert(commercialMigration.includes("location_brief_v2_commercial_requests")); assert(!commercialMigration.includes("drop table"));
+  const leadSharedSource = fs.readFileSync(path.join(ROOT, "functions/api/leads/_shared.js"), "utf8"); assert(leadSharedSource.includes('leadType === "vnext_market_investigation"')); assert(leadSharedSource.includes('["location_profile", "vnext_market_investigation"]'));
+  const adminSource = fs.readFileSync(path.join(ROOT, "functions/admin/leads.js"), "utf8"); assert(adminSource.includes("Locations worth investigating")); assert(adminSource.includes("property_requirement_use")); assert(adminSource.includes("property_requirement_must_haves"));
+  const analyticsSource = fs.readFileSync(path.join(ROOT, "functions/api/analytics/search-profile.js"), "utf8"); for (const event of ["property_requirement_completed", "share_search_viewed", "share_search_submitted", "commercial_request_created"]) assert(analyticsSource.includes(`"${event}"`));
   fs.rmSync(temp, { recursive: true, force: true });
   console.log("Location Brief to Property Requirement handoff QA passed.");
 })().catch((error) => { console.error(error); process.exit(1); });

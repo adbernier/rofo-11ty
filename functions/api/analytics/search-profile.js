@@ -42,6 +42,10 @@ const ALLOWED_EVENTS = new Set([
   "vnext_requirement_edited",
   "vnext_find_spaces_clicked",
   "vnext_commercial_request_submitted",
+  "property_requirement_completed",
+  "share_search_viewed",
+  "share_search_submitted",
+  "commercial_request_created",
 ]);
 
 const BOT_USER_AGENT_PATTERN = /googlebot|bingbot|ahrefs|semrush|dotbot|mj12bot|petalbot|facebookexternalhit|twitterbot|slackbot|linkedinbot|yandex|baiduspider|duckduckbot|applebot|gptbot|chatgpt-user|ccbot|bot\b|crawler|spider/i;

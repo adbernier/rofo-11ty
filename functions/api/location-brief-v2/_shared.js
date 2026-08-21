@@ -246,6 +246,7 @@ export async function ensureV2Tables(database) {
     `create table if not exists location_brief_v2_intelligence_gaps (id text primary key, brief_id text not null, requirement_revision_id text not null, recommendation_snapshot_id text not null, market_id text not null, property_type text not null, district_id text not null, intelligence_dimension text not null, requirement_signal text, materiality text, blocking_status text, reason text, observed_at text not null)`,
     `create table if not exists location_brief_v2_creation_requests (request_id text primary key, public_id text not null, created_at text not null)`,
     `create table if not exists location_brief_v2_property_requirement_drafts (brief_id text primary key, schema_version text not null, location_requirement_revision_id text not null, recommendation_snapshot_id text not null, draft_revision integer not null, answers_json text not null, created_at text not null, updated_at text not null)`,
+    `create table if not exists location_brief_v2_commercial_requests (brief_id text not null, property_draft_revision integer not null, request_hash text not null, lead_id text not null, status text not null, created_at text not null, updated_at text not null, primary key (brief_id, property_draft_revision))`,
   ];
   for (const sql of statements) await database.prepare(sql).run();
 }
@@ -301,16 +302,80 @@ export function commercialContextForBundle(bundle) {
     marketId: requirement.locationLogic?.marketAnchor?.marketId || requirement.locationLogic?.marketAnchor?.geographyId || "",
     propertyType: requirement.propertyTypes?.[0] || "",
     business: criterion("universal.business.type") || requirement.businessContext?.summary || "",
+    environment: criterion("office.environment.image"),
     employeeOrigins: criterion("universal.location.employee_origins"),
+    clientVisitFrequency: criterion("office.access.client_visits"),
     customerOrigins: criterion("universal.location.customer_origins"),
     transitImportance: criterion("universal.access.transit_importance"),
     parkingImportance: criterion("universal.access.parking_importance"),
     candidateDistrictIds: requirement.locationLogic?.specificPreference?.candidateDistrictIds || [],
+    candidateDistrictNames: (snapshot.candidateAssessments || []).map((item) => item.districtName).filter(Boolean),
     guidanceDistricts: (snapshot.shortlist || []).map((item) => item.districtName).filter(Boolean),
     readiness: snapshot.readiness || "",
     sourceType: bundle?.entryContext?.sourceType || "",
     sourcePath: bundle?.entryContext?.sourcePath || "",
+    requirementRevisionId: bundle?.currentRevision?.id || "",
+    requirementRevisionNumber: bundle?.currentRevision?.revisionNumber || 0,
+    recommendationSnapshotId: snapshot.id || "",
+    recommendationSnapshotVersion: snapshot.schemaVersion || "",
+    materialIntelligenceGaps: (snapshot.intelligenceGaps || []).filter((gap) => ["CORE", "MATERIAL"].includes(gap.materiality) || gap.blockingStatus === "BLOCKED").slice(0, 12).map((gap) => ({ districtId: gap.districtId, dimension: gap.intelligenceDimension, materiality: gap.materiality, blockingStatus: gap.blockingStatus, reason: gap.reason })),
   };
+}
+
+export async function reserveCommercialRequest(env, bundle, draft, requestHash, leadId) {
+  const revision = Number(draft?.draftRevision || 0);
+  if (!revision) throw new Error("A completed property requirement is required.");
+  const now = new Date().toISOString();
+  if (storageKind(env) === "d1") {
+    const database = db(env); await ensureV2Tables(database);
+    try {
+      await database.prepare(`insert into location_brief_v2_commercial_requests values (?, ?, ?, ?, ?, ?, ?)`).bind(bundle.brief.id, revision, clean(requestHash, 128), clean(leadId, 128), "reserved", now, now).run();
+      return { reserved: true, leadId };
+    } catch (error) {
+      if (!/unique|constraint/i.test(String(error?.message || ""))) throw error;
+      const existing = await database.prepare(`select lead_id, status from location_brief_v2_commercial_requests where brief_id = ? and property_draft_revision = ?`).bind(bundle.brief.id, revision).first();
+      return { reserved: false, leadId: existing?.lead_id || "", status: existing?.status || "" };
+    }
+  }
+  const store = kv(env); const key = `location-brief-v2-commercial:${bundle.brief.publicId}:${revision}`;
+  const existing = await store.get(key, "json");
+  if (existing) return { reserved: false, leadId: existing.leadId || "", status: existing.status || "" };
+  await store.put(key, JSON.stringify({ requestHash: clean(requestHash, 128), leadId, status: "reserved", createdAt: now, updatedAt: now }));
+  return { reserved: true, leadId };
+}
+
+export async function getCommercialRequest(env, bundle, draft) {
+  const revision = Number(draft?.draftRevision || 0); if (!revision) return null;
+  if (storageKind(env) === "d1") {
+    const database = db(env); await ensureV2Tables(database);
+    const row = await database.prepare(`select lead_id, status, created_at, updated_at from location_brief_v2_commercial_requests where brief_id = ? and property_draft_revision = ?`).bind(bundle.brief.id, revision).first();
+    return row ? { leadId: row.lead_id, status: row.status, createdAt: row.created_at, updatedAt: row.updated_at } : null;
+  }
+  return await kv(env).get(`location-brief-v2-commercial:${bundle.brief.publicId}:${revision}`, "json");
+}
+
+export async function completeCommercialRequest(env, bundle, draft, leadId) {
+  const revision = Number(draft?.draftRevision || 0); const now = new Date().toISOString();
+  if (storageKind(env) === "d1") {
+    const database = db(env); await ensureV2Tables(database);
+    await database.prepare(`update location_brief_v2_commercial_requests set status = ?, lead_id = ?, updated_at = ? where brief_id = ? and property_draft_revision = ?`).bind("created", leadId, now, bundle.brief.id, revision).run();
+    return;
+  }
+  const store = kv(env); const key = `location-brief-v2-commercial:${bundle.brief.publicId}:${revision}`;
+  const existing = await store.get(key, "json") || {};
+  await store.put(key, JSON.stringify({ ...existing, leadId, status: "created", updatedAt: now }));
+}
+
+export async function releaseCommercialRequest(env, bundle, draft, leadId) {
+  const revision = Number(draft?.draftRevision || 0);
+  if (storageKind(env) === "d1") {
+    const database = db(env); await ensureV2Tables(database);
+    await database.prepare(`delete from location_brief_v2_commercial_requests where brief_id = ? and property_draft_revision = ? and lead_id = ? and status = ?`).bind(bundle.brief.id, revision, leadId, "reserved").run();
+    return;
+  }
+  const store = kv(env); const key = `location-brief-v2-commercial:${bundle.brief.publicId}:${revision}`;
+  const existing = await store.get(key, "json");
+  if (existing?.leadId === leadId && existing?.status === "reserved") await store.delete(key);
 }
 
 function ids() { return { briefId: crypto.randomUUID(), publicId: `LB2-${randomToken(12).toUpperCase()}`, ownerToken: randomToken(32), entryId: crypto.randomUUID(), revisionId: crypto.randomUUID(), snapshotId: crypto.randomUUID() }; }

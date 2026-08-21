@@ -112,7 +112,7 @@ function getMarketName(lead) {
 
 function isLocationBriefLead(lead) {
   const leadType = normalizeField(lead && lead.lead_type);
-  return leadType === "location_brief" || leadType === "live_market_investigation" || normalizeField(lead && lead.source) === "location_brief";
+  return leadType === "location_brief" || leadType === "live_market_investigation" || leadType === "vnext_market_investigation" || normalizeField(lead && lead.source) === "location_brief";
 }
 
 export function buildLeadPayload(formFields, request) {
@@ -199,7 +199,7 @@ export function getMissingSubmitFields(lead) {
   const missing = [];
   if (!lead.name) missing.push("name");
   if (!lead.email) missing.push("email");
-  if (lead.lead_type !== "location_profile" && !lead.phone) missing.push("phone");
+  if (!["location_profile", "vnext_market_investigation"].includes(lead.lead_type) && !lead.phone) missing.push("phone");
   if (!lead.market && !lead.city) missing.push("market");
   return missing;
 }
@@ -326,6 +326,7 @@ function addSpamSignal(signals, score, reason) {
 export function detectLeadSpam(lead, rawFormFields = {}) {
   const signals = { score: 0, reasons: [] };
   const isLocationProfile = normalizeField(rawFormFields.lead_type || lead.lead_type) === "location_profile";
+  const isVnextInvestigation = normalizeField(rawFormFields.lead_type || lead.lead_type) === "vnext_market_investigation";
   const visibleValues = [
     lead.name,
     lead.email,
@@ -353,7 +354,7 @@ export function detectLeadSpam(lead, rawFormFields = {}) {
     addSpamSignal(signals, 50, "Invalid space type dropdown value");
   }
 
-  if (!isLocationProfile && isBadDropdownValue(submittedSize, EXPECTED_SPACE_NEEDED)) {
+  if (!isLocationProfile && !isVnextInvestigation && isBadDropdownValue(submittedSize, EXPECTED_SPACE_NEEDED)) {
     addSpamSignal(signals, 50, "Invalid space size dropdown value");
   }
 
@@ -370,7 +371,7 @@ export function detectLeadSpam(lead, rawFormFields = {}) {
   }
 
   if (!lead.phone) {
-    if (!isLocationProfile) {
+    if (!isLocationProfile && !isVnextInvestigation) {
       addSpamSignal(signals, 40, "Phone is missing, too short, or fake");
     }
   } else if (isFakePhone(lead.phone)) {
