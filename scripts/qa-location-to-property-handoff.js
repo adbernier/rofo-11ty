@@ -165,6 +165,7 @@ const requirement = {
   const source = fs.readFileSync(path.join(ROOT, "functions/property-requirement/[publicId].js"), "utf8");
   assert(source.indexOf('form.get("action") === "share"') < source.indexOf("await createCommercialRequest"), "Lead creation must be gated behind the explicit Share action.");
   assert(source.includes("reserveCommercialRequest")); assert(source.includes("sendApprovalEmail")); assert(source.includes("sendTenantConfirmationEmail"));
+  assert(source.includes('typeof waitUntil === "function"') && source.includes("waitUntil(deliver())"), "Post-persistence notifications should not block the production response.");
   const migration = fs.readFileSync(path.join(ROOT, "migrations/0006_location_brief_v2_property_requirement_draft.sql"), "utf8");
   assert(migration.includes("location_brief_v2_property_requirement_drafts")); assert(!migration.includes("drop table"));
   const commercialMigration = fs.readFileSync(path.join(ROOT, "migrations/0007_location_brief_v2_commercial_handoff.sql"), "utf8"); assert(commercialMigration.includes("location_brief_v2_commercial_requests")); assert(!commercialMigration.includes("drop table"));

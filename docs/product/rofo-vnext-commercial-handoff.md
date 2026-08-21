@@ -29,6 +29,8 @@ The OfficeFinder payload is prepared at lead creation but remains `officefinder_
 
 Internal notification and customer confirmation continue through the existing email functions. Confirmation language says Rofo or a local expert can review and follow up; it contains no response-time or availability guarantee.
 
+Lead persistence and idempotency completion remain synchronous. Google Sheets logging plus internal and customer email delivery run through the Pages Functions `waitUntil` lifecycle after persistence, preventing third-party delivery latency from blocking the user's confirmation response.
+
 ## Snapshot integrity and idempotency
 
 `location_brief_v2_commercial_requests` binds one commercial request to a Brief and Property Requirement draft revision. The record reserves the lead ID before lead persistence and prevents double-click, refresh, or browser retry from creating another lead. A materially edited Property Requirement produces a new draft revision and can follow the existing new-request policy.

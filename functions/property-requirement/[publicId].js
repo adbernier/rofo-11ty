@@ -57,7 +57,7 @@ function propertySummary(draft) {
   };
 }
 
-async function createCommercialRequest(request, env, bundle, draft, form) {
+async function createCommercialRequest(request, env, bundle, draft, form, waitUntil) {
   if (currentStep(draft) !== 5) { const error = new Error("Complete the space questions before sharing your search."); error.status = 409; throw error; }
   if (Number(form.get("draftRevision") || 0) !== Number(draft.draftRevision || 0)) { const error = new Error("This search changed in another session. Refresh before sharing."); error.status = 409; throw error; }
   const contact = { name: String(form.get("name") || "").trim(), email: String(form.get("email") || "").trim(), phone: String(form.get("phone") || "").trim() };
@@ -114,7 +114,7 @@ async function createCommercialRequest(request, env, bundle, draft, form) {
   try {
     await saveLead(env, record); await completeCommercialRequest(env, bundle, draft, leadId);
   } catch (error) { await releaseCommercialRequest(env, bundle, draft, leadId); throw error; }
-  if (!spam.isSpam) {
+  const deliver = async () => { if (!spam.isSpam) {
     try { await logLeadToGoogleSheets(env, record); } catch {}
     let updatedLead = record.lead;
     try {
@@ -126,7 +126,8 @@ async function createCommercialRequest(request, env, bundle, draft, form) {
       updatedLead = { ...updatedLead, tenant_confirmation_sent_at: confirmation.sent ? confirmation.sent_at : "", tenant_confirmation_error: confirmation.sent ? "" : confirmation.reason || "" };
     } catch (error) { updatedLead = { ...updatedLead, tenant_confirmation_error: error.message || "Confirmation email failed" }; }
     await updateLeadStatus(env, leadId, { status: record.status, lead: updatedLead });
-  }
+  }};
+  if (typeof waitUntil === "function") waitUntil(deliver()); else await deliver();
   return { submitted: true, duplicate: false, leadId, contact };
 }
 
@@ -148,14 +149,14 @@ export async function onRequestGet({ request, env, params }) {
   return propertyPage(render(loaded.bundle, draft, new URL(request.url).searchParams.get("saved") === "1", "", { submitted }));
 }
 
-export async function onRequestPost({ request, env, params }) {
+export async function onRequestPost({ request, env, params, waitUntil }) {
   const loaded = await loadOwned(request, env, params.publicId); if (loaded.response) return loaded.response;
   const existing = await getPropertyRequirementDraft(env, loaded.bundle.brief);
   if (!sameOriginMutation(request)) return propertyPage(render(loaded.bundle, existing, false, "We couldn't save that answer. Please try again."), 403);
   const form = await request.formData(); const step = Number(form.get("questionId") || currentStep(existing)); const answers = { ...(existing?.answers || {}) };
   if (form.get("action") === "share") {
     try {
-      await createCommercialRequest(request, env, loaded.bundle, existing, form);
+      await createCommercialRequest(request, env, loaded.bundle, existing, form, waitUntil);
       let responseOrigin = ""; try { responseOrigin = new URL(request.headers.get("origin") || "").origin; } catch {}
       if (!responseOrigin) responseOrigin = new URL(request.url).origin;
       return Response.redirect(`${responseOrigin}/property-requirement/${encodeURIComponent(loaded.bundle.brief.publicId)}?shared=1`, 303);
