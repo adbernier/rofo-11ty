@@ -1615,6 +1615,93 @@ function buildApprovalEmailText(record, urls, officeFinderMissing) {
   ].filter((line) => line !== "").join("\n");
 }
 
+function vnextCommercialContext(lead) {
+  const raw = lead && lead.location_brief_v2_context;
+  let value = raw;
+  if (typeof raw === "string") {
+    try {
+      value = JSON.parse(raw);
+    } catch {
+      value = null;
+    }
+  }
+  return value && value.schemaVersion === "vnext-commercial-context:v1" ? value : null;
+}
+
+function vnextDisplaySize(value) {
+  const raw = normalizeField(value);
+  const sqft = raw.match(/([\d,]+)\s*(?:sq\.?\s*ft|sqft|sf)\b/i);
+  if (sqft) return `${Number(sqft[1].replace(/,/g, "")).toLocaleString("en-US")} SF`;
+  return raw;
+}
+
+function vnextPropertyType(value) {
+  const raw = normalizeField(value).replace(/\s+space$/i, "");
+  return raw ? raw.replace(/^./, (character) => character.toUpperCase()) : "";
+}
+
+function vnextList(value, max = 8) {
+  return Array.isArray(value) ? value.map((item) => normalizeField(item)).filter(Boolean).slice(0, max) : [];
+}
+
+function vnextEmailProjection(lead, context) {
+  const location = context.locationRequirement || {};
+  const recommendation = context.recommendation || {};
+  const property = context.propertyRequirement || {};
+  const market = normalizeField(location.marketId) === "san-francisco" ? "San Francisco" : normalizeField(lead.market || lead.city || location.marketId);
+  const propertyType = vnextPropertyType(location.propertyType || lead.effective_space_type || lead.space_type);
+  const size = vnextDisplaySize(property.sizeLabel || lead.space_needed);
+  const requirement = /\bpeople\b/i.test(size) ? [propertyType, size ? `for ${size}` : ""].filter(Boolean).join(" ") : [size, propertyType].filter(Boolean).join(" ");
+  const timing = normalizeField(property.timingLabel || lead.move_timing);
+  const clientContext = normalizeField(location.clientVisitFrequency).replace(/^clients?\s+/i, "");
+  return {
+    market, propertyType, size, requirement, timing,
+    header: [requirement, market, timing].filter(Boolean).join(" · "),
+    business: normalizeField(location.business || lead.business_type || lead.location_profile_business_type),
+    locations: vnextList(recommendation.locationsWorthInvestigating, 3),
+    spaceUse: vnextList(property.purposes, 8),
+    mustHaves: vnextList(property.mustHaves, 8),
+    workforce: normalizeField(location.employeeOrigins),
+    clients: clientContext,
+    environment: normalizeField(location.environment),
+    briefUrl: normalizeField(lead.location_brief_url || lead.location_brief_v2_url),
+  };
+}
+
+export function buildVnextApprovalEmailText(record, dashboardUrl) {
+  const lead = record.lead || {}; const context = vnextCommercialContext(lead); if (!context) return "";
+  const value = vnextEmailProjection(lead, context);
+  return [
+    "ROFO LOCATION BRIEF", "", "NEW ROFO REQUIREMENT", value.header, value.business, "",
+    "LOCATION BRIEF", value.briefUrl || "(Location Brief URL unavailable)",
+    "Includes Rofo's location analysis, tradeoffs, representative buildings, and complete search context.", "",
+    "PROJECT SNAPSHOT",
+    value.locations.length ? `Locations to investigate: ${value.locations.join(" · ")}` : "",
+    value.requirement ? `Requirement: ${value.requirement}` : "", value.timing ? `Timing: ${value.timing}` : "",
+    value.business ? `Business: ${value.business}` : "", value.spaceUse.length ? `Space use: ${value.spaceUse.join(" · ")}` : "",
+    value.mustHaves.length ? `Must-haves: ${value.mustHaves.join(" · ")}` : "", value.workforce ? `Workforce: ${value.workforce}` : "",
+    value.clients ? `Clients: ${value.clients}` : "", value.environment ? `Environment: ${value.environment}` : "", "",
+    "CONTACT", `Name: ${lead.name}`, lead.company ? `Company: ${lead.company}` : "", `Email: ${lead.email}`, `Phone: ${lead.phone || "Not provided"}`, "",
+    "INVESTIGATION", "Review current and upcoming options in these locations while considering nearby alternatives that may also fit the requirement. Open the Location Brief for Rofo's location analysis, tradeoffs, and representative buildings.", "",
+    `Review Lead in Dashboard: ${dashboardUrl}`,
+  ].filter((line) => line !== "").join("\n");
+}
+
+export function buildVnextApprovalEmailHtml(record, dashboardUrl) {
+  const lead = record.lead || {}; const context = vnextCommercialContext(lead); if (!context) return "";
+  const value = vnextEmailProjection(lead, context);
+  const snapshotRows = [
+    ["Locations to investigate", value.locations.join(" · ")], ["Requirement", value.requirement], ["Timing", value.timing], ["Business", value.business],
+    ["Space use", value.spaceUse.join(" · ")], ["Must-haves", value.mustHaves.join(" · ")], ["Workforce", value.workforce], ["Clients", value.clients], ["Environment", value.environment],
+  ].filter(([, fieldValue]) => fieldValue).map(([label, fieldValue]) => buildEmailField(label, escapeHtml(fieldValue))).join("");
+  const contactRows = [
+    buildEmailField("Name", escapeHtml(lead.name)), lead.company ? buildEmailField("Company", escapeHtml(lead.company)) : "",
+    buildEmailField("Email", `<a href="mailto:${escapeHtml(lead.email)}" style="color:#2563eb;text-decoration:none;">${escapeHtml(lead.email)}</a>`),
+    buildEmailField("Phone", lead.phone ? `<a href="tel:${escapeHtml(lead.phone)}" style="color:#2563eb;text-decoration:none;">${escapeHtml(lead.phone)}</a>` : "Not provided"),
+  ].join("");
+  return `<!doctype html><html><body style="margin:0;padding:0;background:#f4f7fb;font-family:Arial,Helvetica,sans-serif;color:#0f172a;"><table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="width:100%;background:#f4f7fb;margin:0;padding:22px 12px;"><tr><td align="center"><table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="width:100%;max-width:620px;margin:0 auto;background:#ffffff;border-radius:14px;overflow:hidden;"><tr><td style="padding:24px;background:#123f8c;color:#ffffff;"><div style="font-size:12px;line-height:16px;text-transform:uppercase;letter-spacing:.08em;color:#bfdbfe;font-weight:700;">Rofo Location Brief</div><h1 style="margin:8px 0 8px;font-size:26px;line-height:32px;">New Rofo Requirement</h1>${value.header ? `<div style="font-size:17px;line-height:24px;font-weight:700;color:#ffffff;">${escapeHtml(value.header)}</div>` : ""}${value.business ? `<div style="margin-top:7px;font-size:15px;line-height:22px;color:#dbeafe;">${escapeHtml(value.business)}</div>` : ""}</td></tr><tr><td style="padding:20px 20px 24px;">${value.briefUrl ? `<a href="${escapeHtml(value.briefUrl)}" style="display:inline-block;padding:13px 18px;border-radius:8px;background:#1346d8;color:#ffffff;font-size:15px;line-height:20px;font-weight:800;text-decoration:none;">Open Location Brief →</a>` : ""}<p style="margin:10px 0 20px;color:#475569;font-size:13px;line-height:19px;">Includes Rofo's location analysis, tradeoffs, representative buildings, and complete search context.</p><div style="margin:0 0 20px;"><div style="margin:0 0 8px;color:#64748b;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;">Project Snapshot</div><table role="presentation" width="100%" cellspacing="0" cellpadding="0">${snapshotRows}</table></div><div style="margin:0 0 20px;padding-top:16px;border-top:1px solid #dbe5f2;"><div style="margin:0 0 8px;color:#64748b;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;">Contact</div><table role="presentation" width="100%" cellspacing="0" cellpadding="0">${contactRows}</table></div><div style="margin:0 0 20px;padding:15px;border-radius:10px;background:#f8fafc;"><div style="margin:0 0 7px;color:#64748b;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;">Investigation</div><p style="margin:0;color:#334155;font-size:14px;line-height:21px;">Review current and upcoming options in these locations while considering nearby alternatives that may also fit the requirement. Open the Location Brief for Rofo's location analysis, tradeoffs, and representative buildings.</p></div><a href="${escapeHtml(dashboardUrl)}" style="display:block;width:100%;box-sizing:border-box;padding:15px 18px;border-radius:8px;background:#14532d;color:#ffffff;font-size:16px;line-height:21px;font-weight:800;text-align:center;text-decoration:none;">Review Lead in Dashboard →</a></td></tr></table></td></tr></table></body></html>`;
+}
+
 export async function sendApprovalEmail(env, request, record, token) {
   if (record.status !== "pending") {
     return { sent: false, status: "not_attempted", reason: `Lead status ${record.status} does not send approval alerts` };
@@ -1656,7 +1743,7 @@ export async function sendApprovalEmail(env, request, record, token) {
   const alertKicker = locationBrief ? "Rofo Location Brief" : locationProfile ? "Rofo location profile" : "Rofo lead alert";
   const requirementRows = locationProfile ? buildLocationRequirementRows(lead) : "";
   const snapshotLines = projectSnapshotTextLines(snapshot);
-  const text = [
+  const legacyText = [
     locationBrief ? "NEW ROFO REQUIREMENT" : locationProfile ? "NEW LOCATION REQUIREMENT" : "NEW ROFO LEAD",
     "",
     locationBrief ? "A new Rofo requirement has been submitted." : "",
@@ -1699,7 +1786,7 @@ export async function sendApprovalEmail(env, request, record, token) {
     locationBrief ? "" : `Approve broker: ${approveBrokerUrl}`,
     locationBrief ? "" : `Reject: ${rejectUrl}`,
   ].filter((line) => line !== "").join("\n");
-  const html = `<!doctype html>
+  const legacyHtml = `<!doctype html>
 <html>
   <body style="margin:0;padding:0;background:#f4f7fb;font-family:Arial,Helvetica,sans-serif;color:#0f172a;">
     <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="width:100%;background:#f4f7fb;margin:0;padding:22px 12px;">
@@ -1764,6 +1851,9 @@ export async function sendApprovalEmail(env, request, record, token) {
     </table>
   </body>
 </html>`;
+  const vnextContext = vnextCommercialContext(lead);
+  const text = vnextContext ? buildVnextApprovalEmailText(record, dashboardUrl) : legacyText;
+  const html = vnextContext ? buildVnextApprovalEmailHtml(record, dashboardUrl) : legacyHtml;
 
   const response = await fetch("https://api.resend.com/emails", {
     method: "POST",
