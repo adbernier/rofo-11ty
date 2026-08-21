@@ -954,6 +954,10 @@ function getTenantConfirmationDetails(lead) {
 }
 
 function buildTenantConfirmationText(lead) {
+  if (vnextCommercialContext(lead)) {
+    return buildVnextTenantConfirmationText(lead);
+  }
+
   if (isLocationBriefLead(lead)) {
     const snapshot = buildProjectSnapshotFromLead(lead);
     const requestLines = projectSnapshotTextLines(snapshot)
@@ -1063,6 +1067,10 @@ function buildTenantConfirmationText(lead) {
 }
 
 function buildTenantConfirmationHtml(lead) {
+  if (vnextCommercialContext(lead)) {
+    return buildVnextTenantConfirmationHtml(lead);
+  }
+
   if (isLocationBriefLead(lead)) {
     const briefUrl = normalizeField(lead.location_brief_url);
     const snapshot = buildProjectSnapshotFromLead(lead);
@@ -1232,8 +1240,9 @@ export async function sendTenantConfirmationEmail(env, record) {
     body: JSON.stringify({
       from: env.TENANT_CONFIRMATION_FROM || "Rofo <leads@rofo.com>",
       to: [lead.email],
-      subject: isLocationBriefLead(lead)
-        ? "Your Rofo Location Brief"
+      subject: vnextCommercialContext(lead)
+        ? "We've received your Rofo search"
+        : isLocationBriefLead(lead) ? "Your Rofo Location Brief"
         : isLocationProfileLead(lead) ? "Your Rofo location profile" : "We received your Rofo space request",
       html: buildTenantConfirmationHtml(lead),
       text: buildTenantConfirmationText(lead),
@@ -1666,6 +1675,91 @@ function vnextEmailProjection(lead, context) {
     environment: normalizeField(location.environment),
     briefUrl: normalizeField(lead.location_brief_url || lead.location_brief_v2_url),
   };
+}
+
+export function buildVnextTenantConfirmationText(lead) {
+  const context = vnextCommercialContext(lead);
+  if (!context) return "";
+  const value = vnextEmailProjection(lead, context);
+  const firstName = getTenantFirstName(lead.name);
+  return [
+    "ROFO LOCATION BRIEF",
+    "",
+    "WE'VE RECEIVED YOUR SEARCH.",
+    "",
+    firstName ? `Hi ${firstName},` : "Hi,",
+    "",
+    "Thanks for sharing your search with Rofo. We've received your Location Brief and space requirements.",
+    "",
+    value.briefUrl ? "View My Location Brief:" : "",
+    value.briefUrl,
+    "",
+    "YOUR SEARCH",
+    value.business ? `Business: ${value.business}` : "",
+    value.requirement ? `Space: ${value.requirement}` : "",
+    value.timing ? `Timing: ${value.timing}` : "",
+    value.locations.length ? `Locations worth investigating: ${value.locations.join(" · ")}` : "",
+    value.spaceUse.length ? `Space use: ${value.spaceUse.join(" · ")}` : "",
+    "",
+    "WHAT HAPPENS NEXT",
+    "Rofo can use your requirements to investigate current and upcoming spaces, asking rents, and opportunities worth considering. A local commercial real estate expert can also review the search and follow up when helpful.",
+    "",
+    "Thanks,",
+    "Rofo",
+  ].filter((line, index, lines) => line !== "" || lines[index - 1] !== "").join("\n");
+}
+
+export function buildVnextTenantConfirmationHtml(lead) {
+  const context = vnextCommercialContext(lead);
+  if (!context) return "";
+  const value = vnextEmailProjection(lead, context);
+  const firstName = getTenantFirstName(lead.name);
+  const greeting = firstName ? `Hi ${escapeHtml(firstName)},` : "Hi,";
+  const searchRows = [
+    ["Business", value.business],
+    ["Space", value.requirement],
+    ["Timing", value.timing],
+    ["Locations worth investigating", value.locations.join(" · ")],
+    ["Space use", value.spaceUse.join(" · ")],
+  ].filter(([, fieldValue]) => fieldValue)
+    .map(([label, fieldValue]) => buildEmailField(label, escapeHtml(fieldValue)))
+    .join("");
+
+  return `<!doctype html>
+<html>
+  <body style="margin:0;padding:0;background:#f4f7fb;font-family:Arial,Helvetica,sans-serif;color:#0f172a;">
+    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="width:100%;background:#f4f7fb;margin:0;padding:22px 12px;">
+      <tr>
+        <td align="center">
+          <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="width:100%;max-width:620px;margin:0 auto;background:#ffffff;border-radius:14px;overflow:hidden;">
+            <tr>
+              <td style="padding:22px;background:#123f8c;color:#ffffff;">
+                <div style="font-size:12px;line-height:16px;text-transform:uppercase;letter-spacing:.08em;color:#bfdbfe;font-weight:700;">Rofo Location Brief</div>
+                <h1 style="margin:8px 0 0;font-size:24px;line-height:30px;">We've received your search.</h1>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:22px;font-size:15px;line-height:23px;">
+                <p style="margin:0 0 14px;">${greeting}</p>
+                <p style="margin:0 0 18px;">Thanks for sharing your search with Rofo. We've received your Location Brief and space requirements.</p>
+                ${value.briefUrl ? `<p style="margin:0 0 20px;"><a href="${escapeHtml(value.briefUrl)}" style="display:inline-block;padding:13px 18px;border-radius:8px;background:#1346d8;color:#ffffff;font-weight:800;text-decoration:none;">View My Location Brief →</a></p>` : ""}
+                ${searchRows ? `<div style="margin:0 0 18px;padding:14px;border-radius:10px;background:#f8fafc;border:1px solid #dbe5f2;">
+                  <div style="margin:0 0 8px;color:#64748b;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;">Your Search</div>
+                  <table role="presentation" width="100%" cellspacing="0" cellpadding="0">${searchRows}</table>
+                </div>` : ""}
+                <div style="margin:0 0 18px;padding:14px;border-radius:10px;background:#f8fafc;border:1px solid #dbe5f2;">
+                  <div style="margin:0 0 8px;color:#64748b;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;">What Happens Next</div>
+                  <p style="margin:0;color:#334155;">Rofo can use your requirements to investigate current and upcoming spaces, asking rents, and opportunities worth considering. A local commercial real estate expert can also review the search and follow up when helpful.</p>
+                </div>
+                <p style="margin:0;">Thanks,<br>Rofo</p>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>`;
 }
 
 export function buildVnextApprovalEmailText(record, dashboardUrl) {
