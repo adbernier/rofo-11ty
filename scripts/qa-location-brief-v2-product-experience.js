@@ -64,6 +64,14 @@ async function render(env, created, debug = false) {
   const browserWindow = { document: fakeDocument }; vm.runInNewContext(browserSource, { window: browserWindow });
   buttons[1].click(); assert.deepEqual(panels.map((panel) => panel.hidden), [true, false, true]); assert.equal(buttons[1].active || buttons[1].classList.active, true);
   buttons[2].click(); assert.deepEqual(panels.map((panel) => panel.hidden), [true, true, false]); assert.equal(buttons[2].active || buttons[2].classList.active, true);
+  const districtPresentation = JSON.parse(fs.readFileSync(path.join(ROOT, "data/generated/location-brief-district-presentation.json"), "utf8")).districts;
+  assert.equal(districtPresentation["marina-district"].image.sourceType, "approved_editorial_map");
+  assert.equal(districtPresentation["presidio"].image.sourceType, "approved_editorial_map");
+  assert.equal(districtPresentation["jackson-square"].image.sourceType, "approved_curated_district_media");
+  for (const id of ["marina-district", "presidio", "jackson-square"]) { assert.equal(districtPresentation[id].image.approved, true); assert(districtPresentation[id].image.src); assert(districtPresentation[id].image.alt); }
+  const presentationGenerator = fs.readFileSync(path.join(ROOT, "scripts/build-location-brief-district-presentation.js"), "utf8");
+  assert(presentationGenerator.includes("editorialDistrictMaps.byDistrictPath"));
+  for (const id of ["marina-district", "presidio", "jackson-square"]) assert(!presentationGenerator.includes(`slug === \"${id}\"`), `${id} imagery must not be hard-coded in the projection generator.`);
 
   const architecture = await foundation.createBrief(env, requirement({ business: "Architecture / design firm", origins: ["San Francisco"], clients: "Clients rarely or never visit" }), { sourceType: "operator_requirement_interview", marketId: "san-francisco", propertyType: "office" });
   const architectureHtml = await render(env, architecture);

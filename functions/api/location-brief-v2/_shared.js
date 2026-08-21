@@ -394,10 +394,21 @@ export async function savePropertyRequirementDraft(env, bundle, answers, expecte
   const now = new Date().toISOString();
   const allowedPurposes = ["client_meetings", "team_collaboration", "quiet_focused_work", "showroom_presentation"];
   const officePurposes = cleanArray(answers?.officePurposes, 8).filter((item) => allowedPurposes.includes(item));
+  const allowedTiming = ["asap", "within_3_months", "3_to_6_months", "6_to_12_months", "more_than_12_months"];
+  const allowedMustHaves = ["dedicated_storage", "loading_receiving", "special_improvements", "parking_requirement"];
+  const positiveInteger = (value) => { const number = Number(value); return Number.isFinite(number) && number > 0 ? Math.round(number) : null; };
   const draft = {
     briefId: bundle.brief.id, schemaVersion: PROPERTY_REQUIREMENT_DRAFT_VERSION,
     locationRequirementRevisionId: bundle.currentRevision.id, recommendationSnapshotId: bundle.currentSnapshot.id,
-    draftRevision: Number(existing?.draftRevision || 0) + 1, answers: { officePurposes },
+    draftRevision: Number(existing?.draftRevision || 0) + 1,
+    answers: {
+      officePurposes,
+      approximateSquareFeet: positiveInteger(answers?.approximateSquareFeet),
+      approximatePeople: positiveInteger(answers?.approximatePeople),
+      timing: allowedTiming.includes(clean(answers?.timing, 80)) ? clean(answers.timing, 80) : "",
+      mustHaves: cleanArray(answers?.mustHaves, 8).filter((item) => allowedMustHaves.includes(item)),
+      mustHavesReviewed: answers?.mustHavesReviewed === true,
+    },
     createdAt: existing?.createdAt || now, updatedAt: now,
   };
   if (storageKind(env) === "d1") {

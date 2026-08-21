@@ -87,13 +87,18 @@ const requirement = {
   assert(!propertyHtml.includes("Save and continue")); assert(propertyHtml.includes(">Continue</button>"));
 
   const before = await env.LOCATION_BRIEFS_KV.get(`location-brief-v2:${created.brief.publicId}`, "json");
-  const postRequest = new Request(`https://rofo.com/property-requirement/${created.brief.publicId}`, {
-    method: "POST", headers: { cookie, origin: "https://rofo.com", "content-type": "application/x-www-form-urlencoded" },
-    body: new URLSearchParams({ draftRevision: "0", officePurposes: "team_collaboration" }),
+  const submit = async (fields, options = {}) => propertyStage.onRequestPost({
+    request: new Request(options.url || `https://rofo.com/property-requirement/${created.brief.publicId}`, {
+      method: "POST", headers: { cookie, origin: options.origin || "https://rofo.com", "content-type": "application/x-www-form-urlencoded", ...(options.headers || {}) }, body: new URLSearchParams(fields),
+    }), env, params: { publicId: created.brief.publicId },
   });
-  const postResponse = await propertyStage.onRequestPost({ request: postRequest, env, params: { publicId: created.brief.publicId } });
-  assert.equal(postResponse.status, 303);
-  assert(postResponse.headers.get("location").includes(`/property-requirement/${created.brief.publicId}?saved=1`));
+  const renderCurrent = async () => {
+    const response = await propertyStage.onRequestGet({ request: getRequest, env, params: { publicId: created.brief.publicId } });
+    return response.text();
+  };
+  const postResponse = await submit({ draftRevision: "0", questionId: "1", officePurposes: "team_collaboration" });
+  assert.equal(postResponse.status, 303); assert(postResponse.headers.get("location").includes(`?saved=1`));
+  let currentHtml = await renderCurrent(); assert(currentHtml.includes("Step 2 of 4")); assert(currentHtml.includes("About how much space do you need")); assert(currentHtml.includes('name="approximateSquareFeet"')); assert(currentHtml.includes('name="approximatePeople"'));
   const after = await env.LOCATION_BRIEFS_KV.get(`location-brief-v2:${created.brief.publicId}`, "json");
   assert.equal(after.brief.publicId, before.brief.publicId);
   assert.deepEqual(after.entryContext, before.entryContext, "Source attribution and EntryContext must remain unchanged.");
@@ -106,38 +111,29 @@ const requirement = {
   assert.equal(after.propertyRequirementDraft.draftRevision, 1);
   assert.equal([...env.LOCATION_BRIEFS_KV.values.keys()].some((key) => /lead|officefinder|broker/i.test(key)), false);
 
-  const staleRequest = new Request(`https://rofo.com/property-requirement/${created.brief.publicId}`, {
-    method: "POST", headers: { cookie, origin: "https://rofo.com", "content-type": "application/x-www-form-urlencoded" },
-    body: new URLSearchParams({ draftRevision: "0", officePurposes: "client_meetings" }),
-  });
-  const staleResponse = await propertyStage.onRequestPost({ request: staleRequest, env, params: { publicId: created.brief.publicId } });
+  const staleResponse = await submit({ draftRevision: "0", questionId: "2", approximatePeople: "18" });
   assert.equal(staleResponse.status, 409);
   const afterRetry = await env.LOCATION_BRIEFS_KV.get(`location-brief-v2:${created.brief.publicId}`, "json");
   assert.equal(afterRetry.propertyRequirementDraft.draftRevision, 1, "A repeated stale submission must not create a duplicate draft revision.");
-  const productionAliasRequest = new Request(`https://rofo.com/property-requirement/${created.brief.publicId}`, {
-    method: "POST", headers: { cookie, origin: "https://www.rofo.com", "content-type": "application/x-www-form-urlencoded" },
-    body: new URLSearchParams({ draftRevision: "1", officePurposes: "quiet_focused_work" }),
-  });
-  const productionAliasResponse = await propertyStage.onRequestPost({ request: productionAliasRequest, env, params: { publicId: created.brief.publicId } });
+  const productionAliasResponse = await submit({ draftRevision: "1", questionId: "2", approximatePeople: "18" }, { origin: "https://www.rofo.com" });
   assert.equal(productionAliasResponse.status, 303, "A legitimate www.rofo.com form POST must survive the canonical-host request URL used by Pages.");
   assert(productionAliasResponse.headers.get("location").startsWith("https://www.rofo.com/"));
-  const originOmittedRequest = new Request(`https://www.rofo.com/property-requirement/${created.brief.publicId}`, {
-    method: "POST", headers: { cookie, "sec-fetch-site": "same-origin", "content-type": "application/x-www-form-urlencoded" },
-    body: new URLSearchParams({ draftRevision: "2", officePurposes: "client_meetings" }),
-  });
+  currentHtml = await renderCurrent(); assert(currentHtml.includes("Step 3 of 4")); assert(currentHtml.includes("When do you need the space?"));
+  const originOmittedRequest = new Request(`https://www.rofo.com/property-requirement/${created.brief.publicId}`, { method: "POST", headers: { cookie, "sec-fetch-site": "same-origin", "content-type": "application/x-www-form-urlencoded" }, body: new URLSearchParams({ draftRevision: "2", questionId: "3", timing: "3_to_6_months" }) });
   const originOmittedResponse = await propertyStage.onRequestPost({ request: originOmittedRequest, env, params: { publicId: created.brief.publicId } });
   assert.equal(originOmittedResponse.status, 303, "The observed same-origin production form contract must not require an Origin header when Sec-Fetch-Site is browser-confirmed same-origin.");
   const originOmittedRecord = await env.LOCATION_BRIEFS_KV.get(`location-brief-v2:${created.brief.publicId}`, "json");
   assert.equal(originOmittedRecord.propertyRequirementDraft.draftRevision, 3);
-  const crossOriginRequest = new Request(`https://rofo.com/property-requirement/${created.brief.publicId}`, {
-    method: "POST", headers: { cookie, origin: "https://attacker.example", "content-type": "application/x-www-form-urlencoded" },
-    body: new URLSearchParams({ draftRevision: "3", officePurposes: "client_meetings" }),
-  });
+  currentHtml = await renderCurrent(); assert(currentHtml.includes("Step 4 of 4")); assert(currentHtml.includes("must-have space needs")); assert(currentHtml.includes("None / no special requirements"));
+  const finishResponse = await submit({ draftRevision: "3", questionId: "4", mustHaves: "dedicated_storage" }); assert.equal(finishResponse.status, 303);
+  currentHtml = await renderCurrent(); assert(currentHtml.includes("Your space requirements are ready")); assert(currentHtml.includes("18 people")); assert(currentHtml.includes("3–6 months")); assert(currentHtml.includes("Dedicated storage")); assert(!currentHtml.includes(">Continue</button>"));
+  const completedRecord = await env.LOCATION_BRIEFS_KV.get(`location-brief-v2:${created.brief.publicId}`, "json"); assert.equal(completedRecord.propertyRequirementDraft.draftRevision, 4); assert.equal(completedRecord.propertyRequirementDraft.answers.mustHavesReviewed, true);
+  const crossOriginRequest = new Request(`https://rofo.com/property-requirement/${created.brief.publicId}`, { method: "POST", headers: { cookie, origin: "https://attacker.example", "content-type": "application/x-www-form-urlencoded" }, body: new URLSearchParams({ draftRevision: "4", questionId: "4" }) });
   const crossOriginResponse = await propertyStage.onRequestPost({ request: crossOriginRequest, env, params: { publicId: created.brief.publicId } });
   assert.equal(crossOriginResponse.status, 403);
   const opaqueOriginRequest = new Request(`https://www.rofo.com/property-requirement/${created.brief.publicId}`, {
     method: "POST", headers: { cookie, origin: "null", "sec-fetch-site": "same-origin", "sec-fetch-mode": "navigate", "sec-fetch-dest": "document", "content-type": "application/x-www-form-urlencoded" },
-    body: new URLSearchParams({ draftRevision: "3", officePurposes: "client_meetings" }),
+    body: new URLSearchParams({ draftRevision: "4", questionId: "4" }),
   });
   const opaqueOriginResponse = await propertyStage.onRequestPost({ request: opaqueOriginRequest, env, params: { publicId: created.brief.publicId } });
   assert.equal(opaqueOriginResponse.status, 403, "An opaque Origin must remain rejected even when Sec-Fetch-Site claims same-origin.");

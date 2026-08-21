@@ -207,7 +207,9 @@
       "image": {
         "src": "/assets/images/districts/downtown-oakland/downtown-oakland-hero.webp",
         "alt": "Downtown Oakland commercial core with office and civic business context",
-        "label": "Downtown Oakland office core"
+        "label": "Downtown Oakland office core",
+        "sourceType": "approved_curated_district_media",
+        "approved": true
       },
       "representativeBuildings": []
     },
@@ -218,7 +220,9 @@
       "image": {
         "src": "/assets/images/districts/uptown-oakland/uptown-oakland-hero.webp",
         "alt": "Uptown Oakland mixed-use commercial and office district context",
-        "label": "Uptown Oakland mixed-use commercial context"
+        "label": "Uptown Oakland mixed-use commercial context",
+        "sourceType": "approved_curated_district_media",
+        "approved": true
       },
       "representativeBuildings": []
     },
@@ -226,7 +230,13 @@
       "districtId": "jack-london-square",
       "districtName": "Jack London Square",
       "districtPath": "/commercial-real-estate/CA/oakland/jack-london-square/",
-      "image": null,
+      "image": {
+        "src": "/assets/images/districts/jack-london-square/jack-london-hero.webp",
+        "alt": "Jack London Square commercial district",
+        "label": "Jack London Square district",
+        "sourceType": "canonical_route_hero",
+        "approved": true
+      },
       "representativeBuildings": [
         {
           "name": "119 Filbert St",
@@ -379,7 +389,9 @@
       "image": {
         "src": "/assets/images/districts/mission-bay/mission-bay-streetscape.webp",
         "alt": "Modern commercial streetscape in Mission Bay near San Francisco’s life-science and institutional district",
-        "label": "Mission Bay commercial streetscape"
+        "label": "Mission Bay commercial streetscape",
+        "sourceType": "approved_curated_district_media",
+        "approved": true
       },
       "representativeBuildings": [
         {
@@ -421,7 +433,9 @@
       "image": {
         "src": "/assets/images/districts/soma/soma-accepted-44353-1340b9d3f4f7.webp",
         "alt": "156 2nd St in the SoMa commercial district, San Francisco",
-        "label": "156 2nd St"
+        "label": "156 2nd St",
+        "sourceType": "approved_curated_district_media",
+        "approved": true
       },
       "representativeBuildings": [
         {
@@ -456,6 +470,19 @@
         }
       ]
     },
+    "union-square": {
+      "districtId": "union-square",
+      "districtName": "Union Square",
+      "districtPath": "/commercial-real-estate/CA/san-francisco/union-square/",
+      "image": {
+        "src": "/assets/images/editorial-district-maps/san-francisco/base.webp",
+        "alt": "Editorial map of San Francisco showing Union Square in relation to nearby commercial districts.",
+        "label": "Union Square district map",
+        "sourceType": "approved_editorial_map",
+        "approved": true
+      },
+      "representativeBuildings": []
+    },
     "jackson-square": {
       "districtId": "jackson-square",
       "districtName": "Jackson Square",
@@ -463,7 +490,9 @@
       "image": {
         "src": "/assets/images/districts/jackson-square/streetscape.webp",
         "alt": "Street-level commercial buildings in Jackson Square near San Francisco’s downtown core",
-        "label": "Jackson Square historic commercial block"
+        "label": "Jackson Square historic commercial block",
+        "sourceType": "approved_curated_district_media",
+        "approved": true
       },
       "representativeBuildings": [
         {
@@ -497,6 +526,32 @@
           "primaryTradeoff": "District identity may be less clear than a Montgomery Street or Jackson Square alternative."
         }
       ]
+    },
+    "marina-district": {
+      "districtId": "marina-district",
+      "districtName": "Marina District",
+      "districtPath": "/commercial-real-estate/CA/san-francisco/marina-district/",
+      "image": {
+        "src": "/assets/images/editorial-district-maps/san-francisco/base.webp",
+        "alt": "Editorial map of San Francisco showing the Marina District in relation to nearby commercial districts.",
+        "label": "Marina District district map",
+        "sourceType": "approved_editorial_map",
+        "approved": true
+      },
+      "representativeBuildings": []
+    },
+    "hayes-valley": {
+      "districtId": "hayes-valley",
+      "districtName": "Hayes Valley",
+      "districtPath": "/commercial-real-estate/CA/san-francisco/hayes-valley/",
+      "image": {
+        "src": "/assets/images/editorial-district-maps/san-francisco/base.webp",
+        "alt": "Editorial map of San Francisco showing Hayes Valley in relation to nearby commercial districts.",
+        "label": "Hayes Valley district map",
+        "sourceType": "approved_editorial_map",
+        "approved": true
+      },
+      "representativeBuildings": []
     },
     "dogpatch": {
       "districtId": "dogpatch",
@@ -591,6 +646,58 @@
           "primaryTradeoff": "Less traditional prestige and client-facing polish than downtown towers."
         }
       ]
+    },
+    "mission": {
+      "districtId": "mission",
+      "districtName": "Mission",
+      "districtPath": "/commercial-real-estate/CA/san-francisco/mission/",
+      "image": {
+        "src": "/assets/images/editorial-district-maps/san-francisco/base.webp",
+        "alt": "Editorial map of San Francisco showing the Mission in relation to nearby commercial districts.",
+        "label": "Mission district map",
+        "sourceType": "approved_editorial_map",
+        "approved": true
+      },
+      "representativeBuildings": []
+    },
+    "presidio": {
+      "districtId": "presidio",
+      "districtName": "Presidio",
+      "districtPath": "/commercial-real-estate/CA/san-francisco/presidio/",
+      "image": {
+        "src": "/assets/images/editorial-district-maps/san-francisco/base.webp",
+        "alt": "Editorial map of San Francisco showing the Presidio in relation to nearby commercial districts.",
+        "label": "Presidio district map",
+        "sourceType": "approved_editorial_map",
+        "approved": true
+      },
+      "representativeBuildings": []
+    },
+    "richmond": {
+      "districtId": "richmond",
+      "districtName": "Richmond District",
+      "districtPath": "/commercial-real-estate/CA/san-francisco/richmond/",
+      "image": {
+        "src": "/assets/images/editorial-district-maps/san-francisco/base.webp",
+        "alt": "Editorial map of San Francisco showing the Richmond District in relation to nearby commercial districts.",
+        "label": "Richmond District district map",
+        "sourceType": "approved_editorial_map",
+        "approved": true
+      },
+      "representativeBuildings": []
+    },
+    "sunset": {
+      "districtId": "sunset",
+      "districtName": "Sunset District",
+      "districtPath": "/commercial-real-estate/CA/san-francisco/sunset/",
+      "image": {
+        "src": "/assets/images/editorial-district-maps/san-francisco/base.webp",
+        "alt": "Editorial map of San Francisco showing the Sunset District in relation to nearby commercial districts.",
+        "label": "Sunset District district map",
+        "sourceType": "approved_editorial_map",
+        "approved": true
+      },
+      "representativeBuildings": []
     },
     "moffett-park": {
       "districtId": "moffett-park",
@@ -986,6 +1093,19 @@
         }
       ]
     },
+    "buckhead": {
+      "districtId": "buckhead",
+      "districtName": "Buckhead",
+      "districtPath": "/commercial-real-estate/GA/atlanta/buckhead/",
+      "image": {
+        "src": "/assets/images/neighborhoods/GA/atlanta/buckhead.webp",
+        "alt": "Buckhead commercial district",
+        "label": "Buckhead district",
+        "sourceType": "canonical_route_hero",
+        "approved": true
+      },
+      "representativeBuildings": []
+    },
     "indianapolis-airport-logistics": {
       "districtId": "indianapolis-airport-logistics",
       "districtName": "Indianapolis Airport Logistics",
@@ -1023,6 +1143,19 @@
           "primaryTradeoff": "A large-format benchmark may not fit smaller operational users."
         }
       ]
+    },
+    "meatpacking-district": {
+      "districtId": "meatpacking-district",
+      "districtName": "Meatpacking District",
+      "districtPath": "/commercial-real-estate/NY/new-york/meatpacking-district/",
+      "image": {
+        "src": "/assets/images/neighborhoods/NY/new-york/meatpacking-district.webp",
+        "alt": "Meatpacking District commercial district",
+        "label": "Meatpacking District district",
+        "sourceType": "canonical_route_hero",
+        "approved": true
+      },
+      "representativeBuildings": []
     },
     "kent-valley": {
       "districtId": "kent-valley",
