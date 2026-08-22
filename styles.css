@@ -64,10 +64,12 @@ img {
     cursor: pointer;
 }
 
-.mobile-header-cta {
+.mobile-market-control {
     display: none;
     align-items: center;
     justify-content: center;
+    gap: 6px;
+    min-width: 0;
     min-height: 38px;
     padding: 0 12px;
     border: 1px solid #cbd5e1;
@@ -81,8 +83,17 @@ img {
     text-decoration: none;
 }
 
-.mobile-header-cta:hover {
+.mobile-market-control span:first-child {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.mobile-market-control:hover,
+.mobile-market-control:focus-visible {
     background: #f8fafc;
+    border-color: #94a3b8;
     text-decoration: none;
 }
 
@@ -152,8 +163,10 @@ body.mobile-menu-open .mobile-menu {
         display: inline-flex;
     }
 
-    .mobile-header-cta {
+    .mobile-market-control {
         display: inline-flex;
+        flex: 1 1 auto;
+        max-width: 240px;
         margin-left: auto;
     }
 
@@ -176,6 +189,11 @@ body.mobile-menu-open .mobile-menu {
 @media (max-width: 600px) {
     .logo img {
         height: 52px;
+    }
+
+    .mobile-market-control {
+        max-width: min(48vw, 190px);
+        padding-inline: 10px;
     }
 }
 .nav {
@@ -1639,6 +1657,20 @@ body.mobile-menu-open .mobile-menu {
 
 .breadcrumbs [aria-current="page"] {
   color: #475569;
+}
+
+@media (max-width: 600px) {
+  .breadcrumbs__item--mobile-hidden {
+    display: none;
+  }
+
+  .breadcrumbs__item--market a {
+    color: var(--blue);
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+  }
 }
 
 .handbook-page {

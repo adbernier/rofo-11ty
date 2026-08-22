@@ -2,7 +2,7 @@
 <nav class="breadcrumbs" aria-label="Breadcrumb">
   <ol class="breadcrumbs__list">
     {% for crumb in crumbs %}
-      <li class="breadcrumbs__item">
+      <li class="breadcrumbs__item{% if compactBreadcrumbs and loop.first %} breadcrumbs__item--mobile-hidden{% endif %}{% if compactBreadcrumbs and loop.index == 2 %} breadcrumbs__item--market{% endif %}">
         {% if not loop.last %}
           <a href="{{ crumb.url }}">{{ crumb.label }}</a>
           <span class="breadcrumbs__sep">/</span>

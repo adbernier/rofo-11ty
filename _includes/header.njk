@@ -1,3 +1,22 @@
+{% set mobileMarketLabel = "Markets" %}
+{% set mobileMarketUrl = "/markets/" %}
+{% if neighborhood and neighborhood.city and neighborhood.state_abbr and neighborhood.city_slug %}
+  {% set mobileMarketLabel = neighborhood.city %}
+  {% set mobileMarketUrl = "/commercial-real-estate/" + neighborhood.state_abbr + "/" + neighborhood.city_slug + "/" %}
+{% elseif city and city.city and city.state_abbr and city.slug %}
+  {% set mobileMarketLabel = city.city %}
+  {% set mobileMarketUrl = "/commercial-real-estate/" + city.state_abbr + "/" + city.slug + "/" %}
+{% elseif entry and entry.city and entry.city.city %}
+  {% set mobileMarketLabel = entry.city.city %}
+  {% set mobileMarketUrl = entry.city.url or ("/commercial-real-estate/" + entry.city.state_abbr + "/" + entry.city.slug + "/") %}
+{% elseif brief and brief.market and brief.market.marketName %}
+  {% set mobileMarketLabel = brief.market.marketName %}
+  {% set mobileMarketUrl = brief.market.route or ("/commercial-real-estate/" + brief.market.state + "/" + brief.market.marketSlug + "/") %}
+{% elseif guide and guide.city and guide.state_abbr %}
+  {% set mobileMarketLabel = guide.city %}
+  {% set mobileMarketUrl = guide.city_url or ("/commercial-real-estate/" + guide.state_abbr + "/" + guide.city_slug + "/") %}
+{% endif %}
+
 <header class="topbar">
   <div class="container nav-wrap">
     <a class="logo" href="/">
@@ -10,7 +29,9 @@
       <a href="/about/">About</a>
     </nav>
 
-    <a class="mobile-header-cta" href="/find-locations/">Get My Recommendation</a>
+    <a class="mobile-market-control" href="{{ mobileMarketUrl }}" aria-label="{% if mobileMarketLabel == 'Markets' %}Browse markets{% else %}View {{ mobileMarketLabel }} market{% endif %}">
+      <span>{{ mobileMarketLabel }}</span><span aria-hidden="true">⌄</span>
+    </a>
 
     <button class="mobile-menu-toggle" type="button" aria-label="Open menu" onclick="document.body.classList.toggle('mobile-menu-open')">
       ☰
@@ -29,7 +50,7 @@
     </div>
 
     <div class="actions">
-      <a class="btn btn-primary" href="/find-locations/">Get My Recommendation</a>
+      <a class="btn btn-primary" href="/find-locations/">See My Best-Fit Locations</a>
     </div>
   </div>
 

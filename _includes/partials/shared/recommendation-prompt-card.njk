@@ -22,7 +22,7 @@
   {% set promptBody = "Rofo already understands the business context. Tell us a little about your team and location priorities, and we'll compare " + promptCity + " commercial districts to identify strong fits and tradeoffs." %}
 {% elseif promptSource == "district" and promptDistrict and promptHasDistrictIntelligence %}
   {% set promptHeadline = "Is " + promptDistrict + " right for your business?" %}
-  {% set promptBody = "Rofo compares your needs with " + promptDistrict + " and other " + promptCity + " commercial areas to identify strong alternatives and explain the tradeoffs." %}
+  {% set promptBody = "Rofo compares " + promptDistrict + " with other " + promptCity + " areas based on your business, team, commute needs, and priorities." %}
 {% elseif (promptSource == "city" or promptSource == "market_guide") and promptCity and promptHasDistrictIntelligence %}
   {% set promptHeadline = "Find the " + promptCity + " locations that fit your business" %}
   {% set promptBody = "Not sure where to look? Rofo compares your business, workforce, customers and location priorities against our intelligence on " + promptCity + " commercial districts to identify areas worth considering—and explain the tradeoffs." %}
@@ -80,11 +80,11 @@
     <div class="recommendation-prompt-card__badge">Location intelligence</div>
     <h2>{{ promptHeadline }}</h2>
     <p>{{ promptBody }}</p>
-    <p class="recommendation-prompt-card__microcopy">Takes about 60 seconds.</p>
+    <p class="recommendation-prompt-card__microcopy">About 60 seconds.</p>
   </div>
   <div class="recommendation-prompt-card__actions">
     <a class="recommendation-prompt-card__button" href="{{ promptHref }}" data-recommendation-prompt-click>
-      Get My Recommendation <span aria-hidden="true">→</span>
+      See My Best-Fit Locations <span aria-hidden="true">→</span>
     </a>
     <a class="recommendation-prompt-card__example" href="/how-rofo-works/">How Rofo works <span aria-hidden="true">→</span></a>
   </div>

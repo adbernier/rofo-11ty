@@ -38,7 +38,7 @@ module.exports = {
       { label: "San Rafael", path: "/commercial-real-estate/CA/san-rafael/" },
     ],
     cta: {
-      label: "Get My Recommendation",
+      label: "See My Best-Fit Locations",
       href: "/find-locations/?city=San%20Francisco&state=CA&propertyType=office&source=market_snapshot",
     },
     sourceTrace: [
@@ -84,7 +84,7 @@ module.exports = {
       { label: "Centennial", path: "/commercial-real-estate/CO/centennial/" },
     ],
     cta: {
-      label: "Get My Recommendation",
+      label: "See My Best-Fit Locations",
       href: "/find-locations/?city=Denver&state=CO&propertyType=office&source=market_snapshot",
     },
     sourceTrace: [
@@ -121,7 +121,7 @@ module.exports = {
       { label: "Brentwood", path: "/commercial-real-estate/CA/brentwood/" },
     ],
     cta: {
-      label: "Get My Recommendation",
+      label: "See My Best-Fit Locations",
       href: "/find-locations/?city=Antioch&state=CA&propertyType=industrial&source=market_snapshot",
     },
     sourceTrace: [
@@ -163,7 +163,7 @@ module.exports = {
       { label: "Centennial", path: "/commercial-real-estate/CO/centennial/" },
     ],
     cta: {
-      label: "Get My Recommendation",
+      label: "See My Best-Fit Locations",
       href: "/find-locations/?city=Aurora&state=CO&propertyType=industrial&source=market_snapshot",
     },
     sourceTrace: [
@@ -200,7 +200,7 @@ module.exports = {
       { label: "Plainfield", path: "/commercial-real-estate/IN/plainfield/" },
     ],
     cta: {
-      label: "Get My Recommendation",
+      label: "See My Best-Fit Locations",
       href: "/find-locations/?city=Indianapolis&state=IN&propertyType=industrial&source=market_snapshot",
     },
     sourceTrace: [
@@ -238,7 +238,7 @@ module.exports = {
       { label: "Toledo", path: "/commercial-real-estate/OH/toledo/" },
     ],
     cta: {
-      label: "Get My Recommendation",
+      label: "See My Best-Fit Locations",
       href: "/find-locations/?city=Fort%20Wayne&state=IN&propertyType=industrial&source=market_snapshot",
     },
     sourceTrace: [
@@ -276,7 +276,7 @@ module.exports = {
       { label: "Mesa", path: "/commercial-real-estate/AZ/mesa/" },
     ],
     cta: {
-      label: "Get My Recommendation",
+      label: "See My Best-Fit Locations",
       href: "/find-locations/?city=Tempe&state=AZ&propertyType=industrial&source=market_snapshot",
     },
     sourceTrace: [

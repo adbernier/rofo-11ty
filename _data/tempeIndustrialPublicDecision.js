@@ -45,7 +45,7 @@ module.exports = {
   ],
   recommendation: {
     prompt: "Not sure whether Tempe or another Phoenix-area industrial location fits your operation?",
-    label: "Get My Recommendation",
+    label: "See My Best-Fit Locations",
     path: "/find-locations/?city=Tempe&state=AZ&spaceType=Industrial%20%2F%20Warehouse&source=tempe_industrial_decision_surface",
   },
 };
