@@ -101,6 +101,121 @@ function labelOf(value, fallback = "Not measured") {
   return value.label || value.state?.label || fallback;
 }
 
+function readinessStatusClass(status) {
+  return `readiness-status readiness-status--${String(status || "not-started").toLowerCase().replace(/[^a-z0-9]+/g, "-")}`;
+}
+
+function renderReadinessStatus(status) {
+  return `<span class="${readinessStatusClass(status)}">${escapeHtml(status || "Not Started")}</span>`;
+}
+
+function propertyTypeReadiness(market, propertyType) {
+  return (market.propertyTypes || []).find((item) => item.propertyType === propertyType) || { recommendation: "Not Started", workloads: {} };
+}
+
+function renderWorkloadEvidence(workload) {
+  const evidence = workload?.evidence || [];
+  const gaps = workload?.gaps || [];
+  return `
+    ${evidence.length ? `<p><strong>Evidence:</strong> ${escapeHtml(evidence.join(" · "))}</p>` : ""}
+    ${gaps.length ? `<p><strong>Remaining:</strong> ${escapeHtml(gaps.join(" · "))}</p>` : ""}
+  `;
+}
+
+function renderMarketReadinessDetail(market) {
+  const marketWorkloads = [
+    ["Market Graph", market.workloads?.marketGraph],
+    ["District Intelligence", market.workloads?.districtIntelligence],
+    ["Regional Access", market.workloads?.regionalAccess],
+    ["Public Experience", market.workloads?.publicExperience],
+  ];
+  return `
+    <details class="market-readiness-detail" id="readiness-${escapeHtml(market.marketId)}">
+      <summary>${escapeHtml(market.marketName)} workload detail</summary>
+      <div class="market-readiness-detail__section">
+        <h3>Market Foundation</h3>
+        <div class="readiness-workload-list">
+          ${marketWorkloads.map(([label, workload]) => `
+            <article>
+              <div><strong>${escapeHtml(label)}</strong>${renderReadinessStatus(workload?.status)}</div>
+              ${renderWorkloadEvidence(workload)}
+            </article>
+          `).join("")}
+        </div>
+      </div>
+      <div class="market-readiness-types">
+        ${(market.propertyTypes || []).map((property) => `
+          <section>
+            <div class="market-readiness-types__heading">
+              <h3>${escapeHtml(property.label)}</h3>
+              <span>Recommendation ${renderReadinessStatus(property.recommendation)}</span>
+            </div>
+            <div class="readiness-workload-list">
+              ${[
+                ["Space-Type Fit", property.workloads?.spaceTypeFit],
+                ["Calibration", property.workloads?.calibration],
+                ["Certification + Release", property.workloads?.certificationRelease],
+              ].map(([label, workload]) => `
+                <article>
+                  <div><strong>${escapeHtml(label)}</strong>${renderReadinessStatus(workload?.status)}</div>
+                  ${renderWorkloadEvidence(workload)}
+                  ${workload?.lastQa ? `<p><strong>Last QA:</strong> ${escapeHtml(workload.lastQa)}</p>` : ""}
+                  ${workload?.productionStatus ? `<p><strong>Production:</strong> ${escapeHtml(workload.productionStatus)}</p>` : ""}
+                </article>
+              `).join("")}
+            </div>
+          </section>
+        `).join("")}
+      </div>
+    </details>
+  `;
+}
+
+function renderMarketReadiness(eos) {
+  const readiness = eos.marketReadiness;
+  if (!readiness || !Array.isArray(readiness.markets)) return "";
+  const priority = readiness.currentPriority?.selection;
+  return `
+    <section class="market-readiness" aria-labelledby="market-readiness-heading">
+      <div class="section-heading">
+        <div>
+          <span class="mission-kicker">Repository truth</span>
+          <h2 id="market-readiness-heading">Market Readiness</h2>
+          <p>Recommendation validity and public experience are tracked independently. Legacy Compass QA is evidence, not current vNext certification.</p>
+        </div>
+        <div class="readiness-priority">
+          <span>Human-selected Current Priority</span>
+          <strong>${escapeHtml(priority?.label || "Not selected")}</strong>
+          <small>${escapeHtml(priority?.note || "Edit the repository priority record when the team chooses the next workload.")}</small>
+        </div>
+      </div>
+      <div class="market-readiness-table-wrap">
+        <table class="market-readiness-table">
+          <thead><tr><th>Market</th><th>Graph</th><th>Intelligence</th><th>Access</th><th>Experience</th><th>Office</th><th>Retail</th><th>Industrial</th><th>Current Priority</th></tr></thead>
+          <tbody>
+            ${readiness.markets.map((market) => `
+              <tr>
+                <th scope="row"><a href="#readiness-${escapeHtml(market.marketId)}" data-readiness-target="readiness-${escapeHtml(market.marketId)}">${escapeHtml(market.marketName)}</a></th>
+                <td>${renderReadinessStatus(market.workloads?.marketGraph?.status)}</td>
+                <td>${renderReadinessStatus(market.workloads?.districtIntelligence?.status)}</td>
+                <td>${renderReadinessStatus(market.workloads?.regionalAccess?.status)}</td>
+                <td>${renderReadinessStatus(market.workloads?.publicExperience?.status)}</td>
+                <td>${renderReadinessStatus(propertyTypeReadiness(market, "office").recommendation)}</td>
+                <td>${renderReadinessStatus(propertyTypeReadiness(market, "retail").recommendation)}</td>
+                <td>${renderReadinessStatus(propertyTypeReadiness(market, "industrial").recommendation)}</td>
+                <td>${escapeHtml(market.currentPriority?.label || "—")}</td>
+              </tr>
+            `).join("")}
+          </tbody>
+        </table>
+      </div>
+      <div class="market-readiness-details">
+        ${readiness.markets.map(renderMarketReadinessDetail).join("")}
+      </div>
+    </section>
+  `;
+}
+
 function renderMetric(label, value, note = "") {
   return `
     <article class="metric-card">
@@ -2356,12 +2471,15 @@ function renderExploreWorkspace(eos, token, missionState) {
   const activeMarkets = projectedMarkets.filter((market) => (market.nextMissions || []).length).slice(0, 4);
   const remainingMarkets = projectedMarkets.filter((market) => !activeMarkets.some((active) => active.id === market.id));
   const projectionSummary = (eos.marketProjection && eos.marketProjection.summary) || {};
+  const selectedPriority = eos.marketReadiness?.currentPriority?.selection;
   return `
     <a class="back-link" href="/admin/eos?${tokenParam(token)}">Back to Today</a>
     <section class="current-focus" aria-label="Current Focus">
       <span>Current Focus</span>
-      <p>${escapeHtml(marketFocusSummary(eos, activeMarkets))}</p>
+      <p>${escapeHtml(selectedPriority?.label || "No market-readiness priority is currently selected. Humans choose the next workload; EOS does not rank it.")}</p>
     </section>
+
+    ${renderMarketReadiness(eos)}
 
     <section class="metrics metrics--mission-control" aria-label="Mission Control overview">
       ${renderMetric("Markets", projectionSummary.markets || eos.overview.metroCount, "Primary planning objects")}
@@ -2689,6 +2807,34 @@ function renderPage({ token, eos, selectedMetro, selectedTask, selectedQueue, se
     .queue-section, .panel { margin-top: 20px; }
     .panel { padding: 20px; }
     .market-workspace { margin-top: 22px; }
+    .market-readiness { margin: 0 0 24px; padding: 20px; border: 1px solid var(--border); border-radius: 24px; background: rgba(255,255,255,0.98); box-shadow: 0 18px 46px rgba(15, 23, 42, 0.055); }
+    .market-readiness .section-heading { align-items: start; }
+    .readiness-priority { min-width: 250px; max-width: 360px; padding: 14px 16px; border-radius: 16px; background: #eff6ff; }
+    .readiness-priority span, .readiness-priority small { display: block; }
+    .readiness-priority span { color: #1d4ed8; font-size: 0.7rem; font-weight: 950; letter-spacing: 0.06em; text-transform: uppercase; }
+    .readiness-priority strong { display: block; margin: 4px 0; color: #0f172a; }
+    .market-readiness-table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 16px; }
+    .market-readiness-table { width: 100%; min-width: 1050px; border-collapse: collapse; font-size: 0.82rem; }
+    .market-readiness-table th, .market-readiness-table td { padding: 11px 10px; border-bottom: 1px solid #e8eef6; text-align: left; vertical-align: middle; }
+    .market-readiness-table thead th { color: #475569; background: #f8fafc; font-size: 0.69rem; letter-spacing: 0.04em; text-transform: uppercase; }
+    .market-readiness-table tbody tr:last-child th, .market-readiness-table tbody tr:last-child td { border-bottom: 0; }
+    .readiness-status { display: inline-flex; align-items: center; min-height: 26px; padding: 4px 9px; border-radius: 999px; font-size: 0.7rem; font-weight: 900; white-space: nowrap; }
+    .readiness-status--ready { color: #0f766e; background: #ccfbf1; }
+    .readiness-status--building { color: #1d4ed8; background: #dbeafe; }
+    .readiness-status--not-started { color: #64748b; background: #eef2f7; }
+    .readiness-status--blocked { color: #b91c1c; background: #fee2e2; }
+    .market-readiness-details { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 14px; }
+    .market-readiness-detail { border: 1px solid var(--border); border-radius: 14px; background: #fbfdff; }
+    .market-readiness-detail > summary { padding: 13px 15px; cursor: pointer; color: #0f172a; font-weight: 900; }
+    .market-readiness-detail__section, .market-readiness-types { padding: 0 15px 15px; }
+    .market-readiness-types { display: grid; gap: 12px; }
+    .market-readiness-types > section { padding-top: 12px; border-top: 1px solid #e5edf7; }
+    .market-readiness-types__heading, .readiness-workload-list article > div { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+    .market-readiness-types__heading h3 { margin: 0; }
+    .market-readiness-types__heading > span { color: var(--muted); font-size: 0.78rem; }
+    .readiness-workload-list { display: grid; gap: 7px; margin-top: 9px; }
+    .readiness-workload-list article { padding: 10px 11px; border-radius: 10px; background: #fff; }
+    .readiness-workload-list p { margin: 6px 0 0; font-size: 0.74rem; overflow-wrap: anywhere; }
     .market-workspace-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
     .market-workspace-card { display: grid; gap: 14px; padding: 18px; border: 1px solid rgba(203, 213, 225, 0.86); border-radius: 22px; background: rgba(255,255,255,0.97); box-shadow: 0 18px 46px rgba(15, 23, 42, 0.055); }
     .market-workspace-card__header { display: flex; justify-content: space-between; gap: 16px; align-items: start; }
@@ -2914,7 +3060,7 @@ function renderPage({ token, eos, selectedMetro, selectedTask, selectedQueue, se
     @media (max-width: 1100px) { .metrics { grid-template-columns: repeat(3, minmax(0, 1fr)); } .metro-grid { grid-template-columns: 1fr; } }
     @media (max-width: 760px) {
       main { width: min(100% - 24px, 1440px); padding-top: 24px; }
-      .metrics, .signal-grid, .signal-grid--detail, .selected-grid, dl, .queue-summary, .expansion-grid, .field-mode-grid, .packet-grid, .packet-grid--wide, .handoff-summary, .handoff-rail, .platform-service, .platform-service__metrics, .mission-review__hero, .review-grid, .mission-comparison, .market-workspace-grid, .program-grid, .program-detail-grid, .knowledge-intelligence-grid, .knowledge-intelligence-grid--three, .today-card-grid, .today-briefing-grid, .today-explore__grid, .mission-history-row, .mission-task-list__items article { grid-template-columns: 1fr; }
+      .metrics, .signal-grid, .signal-grid--detail, .selected-grid, dl, .queue-summary, .expansion-grid, .field-mode-grid, .packet-grid, .packet-grid--wide, .handoff-summary, .handoff-rail, .platform-service, .platform-service__metrics, .mission-review__hero, .review-grid, .mission-comparison, .market-workspace-grid, .market-readiness-details, .program-grid, .program-detail-grid, .knowledge-intelligence-grid, .knowledge-intelligence-grid--three, .today-card-grid, .today-briefing-grid, .today-explore__grid, .mission-history-row, .mission-task-list__items article { grid-template-columns: 1fr; }
       .metro-card__top, .metro-card__footer, .section-heading, .work-item__heading, .expansion-card__top, .codex-handoff__top, .market-workspace-card__header { flex-direction: column; }
       .health-score { text-align: left; }
       .work-item { grid-template-columns: 1fr; }
@@ -3122,6 +3268,11 @@ function renderPage({ token, eos, selectedMetro, selectedTask, selectedQueue, se
     }
 
     document.addEventListener("click", (event) => {
+      const readinessLink = event.target.closest("[data-readiness-target]");
+      if (readinessLink) {
+        const detail = document.getElementById(readinessLink.dataset.readinessTarget || "");
+        if (detail) detail.open = true;
+      }
       const copyButton = event.target.closest("[data-copy-prompt]");
       if (copyButton) {
         copyEosCodexPrompt(copyButton);
