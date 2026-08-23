@@ -65,11 +65,12 @@ if (root) {
     try { localStorage.removeItem(SESSION_KEY); } catch (error) { /* Clear compatible state from older prototype persistence. */ }
   }
 
+  const entryPropertyValue = query.get("propertyType") || query.get("spaceType") || "";
   const publicEntryContext = {
     sourceType: query.get("source") || (publicExperience ? "public_requirement" : "operator_requirement_interview"),
     sourcePath: query.get("sourcePath") || document.referrer || location.pathname,
     marketId: query.get("marketId") || (/^san francisco$/i.test(query.get("city") || "") ? "san-francisco" : ""),
-    propertyType: /office/i.test(query.get("propertyType") || query.get("spaceType") || "") ? "office" : "",
+    propertyType: /retail|service/i.test(entryPropertyValue) ? "retail_service" : /office/i.test(entryPropertyValue) ? "office" : "",
     candidateDistrictIds: [query.get("districtId") || ""].filter(Boolean),
     candidateDistrictNames: [query.get("district") || ""].filter(Boolean),
     businessIdentityId: query.get("businessIdentityId") || query.get("businessArchetype") || "",
@@ -85,7 +86,7 @@ if (root) {
 
   function trackVNext(eventName, extra = {}) {
     if (!publicExperience) return;
-    try { const payload = JSON.stringify({ event_name: eventName, profile_version: "location-brief:v2", context: { page_type: "location_requirement_vnext", page_url: location.pathname, city: "San Francisco", space_type: "Office", ...extra }, profile: { profile_version: "location-brief:v2", space_type: "Office" }, attribution: { entry_page_type: publicEntryContext.sourceType || "", landing_page: publicEntryContext.landingPage || location.href, referrer: publicEntryContext.referrer || "" } }); if (navigator.sendBeacon) navigator.sendBeacon("/api/analytics/search-profile", new Blob([payload], { type: "application/json" })); } catch (error) { /* Analytics never blocks the Requirement. */ }
+    try { const spaceType = publicEntryContext.propertyType === "retail_service" ? "Retail / service" : "Office"; const payload = JSON.stringify({ event_name: eventName, profile_version: "location-brief:v2", context: { page_type: "location_requirement_vnext", page_url: location.pathname, city: "San Francisco", space_type: spaceType, ...extra }, profile: { profile_version: "location-brief:v2", space_type: spaceType }, attribution: { entry_page_type: publicEntryContext.sourceType || "", landing_page: publicEntryContext.landingPage || location.href, referrer: publicEntryContext.referrer || "" } }); if (navigator.sendBeacon) navigator.sendBeacon("/api/analytics/search-profile", new Blob([payload], { type: "application/json" })); } catch (error) { /* Analytics never blocks the Requirement. */ }
   }
 
   function persist() {
@@ -170,7 +171,7 @@ if (root) {
     }
     try {
       let nextInterview = applyInterviewAnswer(state.interview, question.id, result);
-      if (publicExperience && question.id === "foundation.property_context" && nextInterview.requirement.propertyTypes?.[0] !== "office") {
+      if (publicExperience && question.id === "foundation.property_context" && !["office", "retail_service"].includes(nextInterview.requirement.propertyTypes?.[0])) {
         const fallback = new URL("/find-locations/", location.origin);
         fallback.searchParams.set("city", "San Francisco"); fallback.searchParams.set("state", "CA");
         fallback.searchParams.set("spaceType", nextInterview.requirement.propertyTypes?.[0] || "");

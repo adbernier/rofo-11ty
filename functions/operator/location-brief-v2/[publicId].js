@@ -6,7 +6,7 @@ function criterion(requirement, dimension) { return (requirement.criteria || [])
 function criterionText(requirement, dimension) { const value = criterion(requirement, dimension)?.value || {}; return (value.list || []).join(" + ") || value.text || ""; }
 function titleCase(value) { return String(value || "").replace(/[-_]+/g, " ").replace(/\b\w/g, (letter) => letter.toUpperCase()); }
 function marketLabel(requirement, entryContext) { return requirement.locationLogic?.marketAnchor?.displayName || requirement.locationLogic?.marketAnchor?.marketName || titleCase(requirement.locationLogic?.marketAnchor?.marketId || entryContext.marketId); }
-function propertyLabel(requirement, entryContext) { return titleCase((requirement.propertyTypes || [entryContext.propertyType])[0]); }
+function propertyLabel(requirement, entryContext) { const value = (requirement.propertyTypes || [entryContext.propertyType])[0]; return value === "retail_service" ? "Retail / service" : titleCase(value); }
 function humanBand(value) {
   return { STRONG: "Strong", GOOD: "Good", MODERATE: "Mixed", MIXED: "Mixed", PARTIAL: "Mixed", WEAK: "Limited", UNKNOWN: "Not established" }[value] || "Not established";
 }
@@ -24,10 +24,10 @@ function conciseReason(item) {
   const environment = (item.environment?.reasons || []).find((reason) => !/^Business type:/i.test(reason));
   const employee = (item.strengths || []).find((strength) => /^Strong supported access for employees/i.test(strength)) || (item.strengths || []).find((strength) => /employees coming from/i.test(strength));
   if (item.eligibilitySource === "SHADOW_ACCESS_ACTIVATION" && employee) return cleanStrength(employee);
-  if (item.office?.summary) return item.office.summary;
+  if (item.propertyTypeFit?.summary || item.retail?.summary || item.office?.summary) return item.propertyTypeFit?.summary || item.retail?.summary || item.office.summary;
   if (item.environment?.businessIdentityBasis === "USER_STATED_COMPANY_CONTEXT" && environment) return cleanStrength(environment);
   if (employee) return cleanStrength(employee);
-  return item.role || item.office?.summary || cleanStrength((item.strengths || [])[0]) || "A useful location to compare against your priorities.";
+  return item.role || item.propertyTypeFit?.summary || item.retail?.summary || item.office?.summary || cleanStrength((item.strengths || [])[0]) || "A useful location to compare against your priorities.";
 }
 function districtPath(item, requirement) {
   if (item.presentation?.districtPath) return item.presentation.districtPath;
@@ -65,14 +65,15 @@ function recommendationFocus(snapshot, requirement, omittedIds = []) {
 }
 function comparisonRows(snapshot) {
   const items = snapshot.shortlist || [];
+  const retail = items.some((item) => item.retail || item.propertyTypeFit?.summary && !item.office);
   const definitions = [
     ["Why consider it", (item) => conciseReason(item)],
-    ["Office character", (item) => item.office?.summary || humanBand(item.office?.band)],
+    [retail ? "Retail environment" : "Office character", (item) => item.propertyTypeFit?.summary || item.retail?.summary || item.office?.summary || humanBand(item.propertyTypeFit?.band || item.retail?.band || item.office?.band)],
     ["Parking", (item) => item.parkingRelevant ? humanBand(item.parkingEnvironment) : "Not a stated priority"],
     ["Key tradeoff", (item) => cleanStrength((item.tradeoffs || item.unknowns || [])[0]) || "No material tradeoff established"],
-    ["Employee access", (item) => item.employeeAccessSummary?.label || humanBand(item.accessComponent?.band)],
+    [retail ? "Customer access" : "Employee access", (item) => item.employeeAccessSummary?.label || humanBand(item.accessComponent?.band)],
   ];
-  return definitions.map(([label, getter]) => ({ label, values: items.map(getter) })).filter((row) => row.values.some(Boolean) && (row.label !== "Employee access" || new Set(row.values).size > 1));
+  return definitions.map(([label, getter]) => ({ label, values: items.map(getter) })).filter((row) => row.values.some(Boolean) && (!["Employee access", "Customer access"].includes(row.label) || new Set(row.values).size > 1));
 }
 function comparison(snapshot) {
   const items = snapshot.shortlist || []; const rows = comparisonRows(snapshot);
@@ -145,18 +146,19 @@ export function renderLocationBriefV2Page(bundle, owner, debug, options = {}) {
   const { brief, entryContext, currentRevision, currentSnapshot, candidates } = bundle;
   const requirement = currentRevision.requirement;
   const property = propertyLabel(requirement, entryContext); const market = marketLabel(requirement, entryContext);
+  const isRetail = requirement.propertyTypes?.length === 1 && requirement.propertyTypes[0] === "retail_service";
   const propertyContinuationSupported = requirement.propertyTypes?.length === 1 && requirement.propertyTypes[0] === "office" && (requirement.locationLogic?.marketAnchor?.marketId || requirement.locationLogic?.marketAnchor?.geographyId) === "san-francisco";
   const readiness = currentSnapshot.readiness;
   const priorities = readiness === "INVESTIGATE" ? investigationPriorities(requirement) : [];
   const hasCandidates = (candidates || []).length > 0;
   const guidanceHeading = readiness === "INVESTIGATE" ? "What matters most" : hasCandidates ? "Also worth investigating" : "Locations worth investigating";
   const comparedCandidate = currentSnapshot.candidateAssessments?.[0]; const comparedAlternative = currentSnapshot.comparisonAlternatives?.[0];
-  const guidanceCopy = readiness === "FULL" ? "Based on your business and priorities, these are the San Francisco areas we'd investigate first. Each offers a different combination of access, business environment, office character, and practical tradeoffs." : readiness === "BOUNDED" ? "These are the areas Rofo can support most confidently for this search. Some parts of the market still require additional investigation." : comparedCandidate && comparedAlternative ? `${comparedCandidate.districtName} is worth considering based on the business environment and Office fit you described. Comparing it with ${comparedAlternative.districtName} helps show a different set of district and office tradeoffs.` : "Use these priorities to evaluate the areas and properties you investigate next.";
+  const guidanceCopy = readiness === "FULL" ? `Based on your business and priorities, these are the San Francisco areas we'd investigate first. Each offers a different combination of access, business environment, ${isRetail ? "customer context and storefront character" : "office character"}, and practical tradeoffs.` : readiness === "BOUNDED" ? "These are the areas Rofo can support most confidently for this search. Some parts of the market still require additional investigation." : comparedCandidate && comparedAlternative ? `${comparedCandidate.districtName} is worth considering based on the business environment and ${isRetail ? "Retail" : "Office"} fit you described. Comparing it with ${comparedAlternative.districtName} helps show a different set of district tradeoffs.` : "Use these priorities to evaluate the areas and properties you investigate next.";
   const next = nextStep(readiness);
   const publicExperience = options.publicExperience === true;
   const briefUrl = publicExperience ? `/location-brief/${brief.publicId}` : `/operator/location-brief-v2/${brief.publicId}`;
   const editUrl = publicExperience ? `/location-requirement/?journey=edit&brief=${encodeURIComponent(brief.publicId)}` : `/prototype/requirement-v1/?locationBriefV2=edit&brief=${encodeURIComponent(brief.publicId)}`;
-  const newSearchUrl = publicExperience ? `/location-requirement/?journey=new&marketId=san-francisco&propertyType=office` : `/prototype/requirement-v1/?locationBriefV2=new`;
+  const newSearchUrl = publicExperience ? `/location-requirement/?journey=new&marketId=san-francisco&propertyType=${encodeURIComponent(requirement.propertyTypes?.[0] || "office")}` : `/prototype/requirement-v1/?locationBriefV2=new`;
   const candidateIds = (candidates || []).map((item) => item.canonicalDistrictId);
   const findSpacesUrl = `/property-requirement/${encodeURIComponent(brief.publicId)}`;
   return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Your Location Brief | Rofo</title><link rel="stylesheet" href="/assets/requirement-prototype.css"><style>
@@ -169,7 +171,7 @@ export function renderLocationBriefV2Page(bundle, owner, debug, options = {}) {
   ${readiness === "INVESTIGATE" ? "" : comparison(currentSnapshot)}
   <section class="lb2-next"><div class="lb2-next__panel"><div><p class="lb2-eyebrow">Next step</p><h2>${esc(next.heading)}</h2><p>${esc(next.copy)}</p></div>${publicExperience && owner && propertyContinuationSupported ? `<a class="lb2-button" href="${esc(findSpacesUrl)}" data-vnext-find-spaces>${esc(next.action)}</a>` : `<button class="lb2-button" type="button" disabled title="${esc(propertyContinuationSupported ? "Continue from the browser that owns this Location Brief" : "This property-stage continuation is currently available for San Francisco Office searches")}">${esc(next.action)}</button>`}</div></section></div><div class="lb2-summary-column">${renderSearchSummary(bundle, esc)}${owner ? `<a class="lb2-button lb2-button--quiet" href="${esc(editUrl)}">Edit my search</a>` : ""}</div></div>
   ${debug ? debugPanel(bundle) : ""}
-  </main><script>(function(){var endpoint='/api/analytics/search-profile';function track(name,extra){${publicExperience ? `try{fetch(endpoint,{method:'POST',headers:{'content-type':'application/json'},credentials:'same-origin',keepalive:true,body:JSON.stringify({event_name:name,profile_version:'location-brief:v2',context:Object.assign({page_type:'location_brief_v2',page_url:location.pathname,city:'San Francisco',space_type:'Office',readiness:${JSON.stringify(readiness)},brief_id:${JSON.stringify(brief.publicId)}},extra||{}),profile:{profile_version:'location-brief:v2',space_type:'Office'},attribution:{entry_page_type:${JSON.stringify(entryContext.sourceType || '')},landing_page:${JSON.stringify(entryContext.landingPage || '')}})})}catch(error){}` : ``}}track('vnext_brief_viewed');var key='rofoLocationBriefV2Return';document.querySelectorAll('[data-brief-explore]').forEach(function(link){link.addEventListener('click',function(){try{sessionStorage.setItem(key,JSON.stringify({url:${JSON.stringify(briefUrl)},label:'Back to my Location Brief'}));}catch(error){}track('vnext_district_explored',{district:link.textContent.replace(/Explore|→/g,'').trim()});});});document.querySelectorAll('a[href*="journey=edit"]').forEach(function(link){link.addEventListener('click',function(){track('vnext_requirement_edited')})});document.querySelectorAll('[data-vnext-find-spaces]').forEach(function(link){link.addEventListener('click',function(){track('vnext_find_spaces_clicked')})});})();</script><script src="/assets/location-brief-v2.js" defer data-cfasync="false"></script></body></html>`;
+  </main><script>(function(){var endpoint='/api/analytics/search-profile';function track(name,extra){${publicExperience ? `try{fetch(endpoint,{method:'POST',headers:{'content-type':'application/json'},credentials:'same-origin',keepalive:true,body:JSON.stringify({event_name:name,profile_version:'location-brief:v2',context:Object.assign({page_type:'location_brief_v2',page_url:location.pathname,city:'San Francisco',space_type:${JSON.stringify(property)},readiness:${JSON.stringify(readiness)},brief_id:${JSON.stringify(brief.publicId)}},extra||{}),profile:{profile_version:'location-brief:v2',space_type:${JSON.stringify(property)}},attribution:{entry_page_type:${JSON.stringify(entryContext.sourceType || '')},landing_page:${JSON.stringify(entryContext.landingPage || '')}})})}catch(error){}` : ``}}track('vnext_brief_viewed');var key='rofoLocationBriefV2Return';document.querySelectorAll('[data-brief-explore]').forEach(function(link){link.addEventListener('click',function(){try{sessionStorage.setItem(key,JSON.stringify({url:${JSON.stringify(briefUrl)},label:'Back to my Location Brief'}));}catch(error){}track('vnext_district_explored',{district:link.textContent.replace(/Explore|→/g,'').trim()});});});document.querySelectorAll('a[href*="journey=edit"]').forEach(function(link){link.addEventListener('click',function(){track('vnext_requirement_edited')})});document.querySelectorAll('[data-vnext-find-spaces]').forEach(function(link){link.addEventListener('click',function(){track('vnext_find_spaces_clicked')})});})();</script><script src="/assets/location-brief-v2.js" defer data-cfasync="false"></script></body></html>`;
 }
 
 export async function onRequestGet({ request, env, params }) {

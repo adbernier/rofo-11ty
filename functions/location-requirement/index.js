@@ -1,4 +1,4 @@
-import { isSfOfficeEntryContext, publicSourceAllowed, publicV2Enabled } from "../api/location-brief-v2/_shared.js";
+import { isSupportedPublicEntryContext, publicSourceAllowed, publicV2Enabled } from "../api/location-brief-v2/_shared.js";
 
 function fallback(request) {
   const source = new URL(request.url);
@@ -9,8 +9,10 @@ function fallback(request) {
 
 export async function onRequest(context) {
   const url = new URL(context.request.url);
-  const entry = { marketId: url.searchParams.get("marketId") || (/^san francisco$/i.test(url.searchParams.get("city") || "") ? "san-francisco" : ""), propertyType: /office/i.test(url.searchParams.get("propertyType") || url.searchParams.get("spaceType") || "") ? "office" : "" };
+  const propertyInput = url.searchParams.get("propertyType") || url.searchParams.get("spaceType") || "";
+  const propertyType = /retail|service/i.test(propertyInput) ? "retail_service" : /office/i.test(propertyInput) ? "office" : "";
+  const entry = { marketId: url.searchParams.get("marketId") || (/^san francisco$/i.test(url.searchParams.get("city") || "") ? "san-francisco" : ""), propertyType };
   const editing = url.searchParams.get("journey") === "edit" && /^LB2-[A-F0-9]{24}$/i.test(url.searchParams.get("brief") || "");
-  if (!editing && (!publicV2Enabled(context.env) || !publicSourceAllowed(context.env, url.searchParams.get("source") || "") || !isSfOfficeEntryContext(entry))) return fallback(context.request);
+  if (!editing && (!publicV2Enabled(context.env, propertyType) || !publicSourceAllowed(context.env, url.searchParams.get("source") || "") || !isSupportedPublicEntryContext(entry))) return fallback(context.request);
   return context.next();
 }

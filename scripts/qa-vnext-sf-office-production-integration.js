@@ -33,7 +33,7 @@ assert.equal(foundation.sameOriginMutation(new Request("https://rofo.com/api", {
 
 const entryRoute = read("functions/location-requirement/index.js");
 assert(entryRoute.includes("publicV2Enabled"));
-assert(entryRoute.includes("isSfOfficeEntryContext"));
+assert(entryRoute.includes("isSupportedPublicEntryContext"));
 assert(entryRoute.includes('new URL("/find-locations/"'));
 const requirementPage = read("pages/location-requirement.njk");
 const requirementStyles = read("assets/requirement-prototype.css");
@@ -65,7 +65,7 @@ assert(requirementClient.includes("seedTrustedEntryContext(restoredState.intervi
 assert(requirementClient.includes('if (elements["requirement-loading"]) elements["requirement-loading"].hidden = true;'));
 assert(requirementClient.includes("fallback.searchParams.set"), "Unsupported property selections must fall back to the existing journey.");
 const createApi = read("functions/api/location-brief-v2/create.js");
-assert(createApi.includes("isSfOfficeRequirement"));
+assert(createApi.includes("isSupportedPublicRequirement"));
 assert(createApi.includes("sameOriginMutation"));
 assert(createApi.includes("/location-brief/"));
 ["saveLead", "OfficeFinder", "resolveLeadRoute", "sendApprovalEmail", "sendTenantConfirmationEmail"].forEach((term) => assert(!createApi.includes(term), `Brief creation must not invoke ${term}.`));

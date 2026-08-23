@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-22T07:02:30-07:00",
+  "generatedAt": "2026-08-23T09:31:51-07:00",
   "eosVersion": "editorial-operating-system-v2.2.4",
   "sourceSystems": [
     "Publisher",
@@ -14,7 +14,7 @@
   ],
   "commercialKnowledgeIntelligence": {
     "schemaVersion": "eos-commercial-knowledge-intelligence-v1",
-    "generatedAt": "2026-08-22T07:02:30-07:00",
+    "generatedAt": "2026-08-23T09:31:51-07:00",
     "sourceSystems": [
       "Editor-controlled strategic priorities",
       "Google Search Console Search Analytics API",
@@ -278470,7 +278470,7 @@
       "displayedBy": "Mission Control",
       "status": "Validated",
       "validationStatus": "PASS",
-      "latestValidation": "2026-08-22T07:02:30-07:00",
+      "latestValidation": "2026-08-23T09:31:51-07:00",
       "markets": [
         {
           "marketId": "east-bay",
@@ -279159,7 +279159,7 @@
         "Low": 2
       },
       "deferredCandidates": 73,
-      "latestValidation": "2026-08-22T07:02:30-07:00",
+      "latestValidation": "2026-08-23T09:31:51-07:00",
       "errors": [],
       "warnings": [],
       "source": {
@@ -356282,36 +356282,36 @@
           {
             "propertyType": "retail",
             "label": "Retail",
-            "recommendation": "Building",
+            "recommendation": "Ready",
             "workloads": {
               "spaceTypeFit": {
-                "status": "Building",
+                "status": "Ready",
                 "evidence": [
-                  "_data/locationKnowledgeGraph.js"
+                  "_data/sfRetailMarketCoverage.js"
                 ],
-                "gaps": [
-                  "Current hard-gate decision-universe certification is incomplete"
-                ]
+                "gaps": []
               },
               "calibration": {
-                "status": "Building",
+                "status": "Ready",
                 "evidence": [
-                  "/docs/recommendation-qa/san-francisco-pilot/"
+                  "_data/sfRetailCompositionFoundation.js",
+                  "lib/requirements/requirement-to-sf-retail-recommendation.js",
+                  "lib/recommendations/sf-retail-location-composition.js",
+                  "scripts/qa-sf-retail-recommendation.js"
                 ],
-                "gaps": [
-                  "Legacy Compass QA is evidence, but not current vNext calibration certification"
-                ]
+                "gaps": []
               },
               "certificationRelease": {
-                "status": "Building",
+                "status": "Ready",
                 "evidence": [
-                  "/docs/recommendation-qa/san-francisco-pilot/"
+                  "_data/sfRetailMarketCoverage.js",
+                  "scripts/qa-sf-retail-recommendation.js",
+                  "functions/location-requirement/index.js",
+                  "functions/api/location-brief-v2/create.js"
                 ],
-                "lastQa": "2026-07-26",
-                "productionStatus": "Not enabled",
-                "gaps": [
-                  "Current hard gates and controlled vNext release are not certified"
-                ]
+                "lastQa": "2026-08-23",
+                "productionStatus": "Explicit SF Retail feature flag; defaults off",
+                "gaps": []
               }
             }
           },

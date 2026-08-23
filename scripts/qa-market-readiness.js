@@ -18,7 +18,10 @@ assert.equal(market("san-francisco").workloads.regionalAccess.status, "Ready");
 assert.equal(market("san-francisco").workloads.publicExperience.status, "Building", "Presentation debt must remain independent from recommendation validity.");
 assert.equal(property("san-francisco", "office").recommendation, "Ready");
 assert.equal(["marketGraph", "districtIntelligence", "regionalAccess"].every((id) => market("san-francisco").workloads[id].status === "Ready"), true, "Recommendation Ready must retain its market-level hard gates.");
-assert.equal(property("san-francisco", "retail").recommendation, "Building");
+assert.equal(property("san-francisco", "retail").recommendation, "Ready");
+assert.equal(property("san-francisco", "retail").workloads.spaceTypeFit.status, "Ready");
+assert.equal(property("san-francisco", "retail").workloads.calibration.status, "Ready");
+assert.equal(property("san-francisco", "retail").workloads.certificationRelease.status, "Ready");
 assert.equal(property("san-francisco", "industrial").recommendation, "Building");
 
 for (const id of ["sacramento", "san-diego", "orange-county", "denver", "seattle"]) {
