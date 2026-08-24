@@ -1,6 +1,8 @@
 # San Francisco Retail Recommendation Coverage
 
-Status: Recommendation Ready (controlled by the independent SF Retail public feature flag, which defaults off)
+Status: Recommendation Ready after decision-geography expansion and recertification (controlled by the independent SF Retail public feature flag, which defaults off)
+
+The original 2026-08-23 certification covered the first district-scale universe. A subsequent read-only audit found that universe internally consistent but too coarse for Retail, so it was treated as Building while geography was reopened. The status above reflects expanded-universe certification rather than the earlier denominator.
 
 This foundation reuses the canonical San Francisco graph, Regional Access, EntryContext, Requirement, Location Brief v2, persistence, privacy, and release contracts. It adds Retail-specific market facts and composition; it does not copy the SF Office model or add Requirement-to-district bonuses.
 
@@ -25,6 +27,23 @@ This foundation reuses the canonical San Francisco graph, Regional Access, Entry
 | Bayview Industrial | Generally not Retail | Industrial/flex identity |
 | Central Waterfront | Generally not Retail | Industrial/flex identity |
 
+### Retail corridor expansion
+
+| Geography | Classification | Retail role | Ownership |
+| --- | --- | --- | --- |
+| Sacramento Street | Situational | Premium, design, service and small-scale destination retail | Independent Retail-only decision identity |
+| Fillmore Street | Core | Lifestyle, dining, wellness, premium and neighborhood demand | Independent Retail-only decision identity |
+| Union Street / Cow Hollow | Core | Specialty shops, wellness, dining and wider-trade-area destination behavior | Child of Marina District for presentation |
+| Chestnut Street | Core | Neighborhood services, food, wellness, convenience and daily-use demand | Child of Marina District for presentation |
+| Valencia Street | Core | Food, experiential, wellness, furnishings, visibility and evening activity | Child of Mission District for presentation |
+| Upper Market / Castro | Core | Community, neighborhood service, dining, transit and destination demand | Independent Retail-only decision identity |
+| North Beach | Core | Visitor, neighborhood, food, specialty and evening demand | Independent Retail-only decision identity |
+| Chinatown | Core | Visitor specialty retail, food and community-serving commerce | Independent Retail-only decision identity |
+
+For Retail, Marina District and Mission District are parent/presentation identities. They retain public and Office identities but cannot compete beside eligible Retail children. `_data/sfRetailDecisionGeographies.js` is the bounded space-type ownership registry for the unpublished corridors. General public-graph registration is deferred until useful public surfaces exist, preventing Publisher/EOS from treating route intent as already-published geography and keeping Office composition unchanged.
+
+Polk Street, Divisadero, Clement Street, Irving Street, and West Portal remain explicitly deferred. Their identities are plausible, but the repository does not yet establish complete independent customer-environment and structural Access treatment. Deferral is recorded rather than converted into scoring or silent eligibility.
+
 Mission is compatibility-only for Mission District. South Park is a SoMa compatibility/subarea identity. Design District is presented through Showplace Square as the canonical knowledge owner. Public paths remain intact, but compatibility identities cannot add component votes or duplicate cards.
 
 ## Retail signals
@@ -41,7 +60,9 @@ Food and showroom choices add their already-supported canonical activities. Unsu
 
 ## Composition and calibration
 
-Retail composition separates Retail Fit, customer/business environment, and Access. Ordering is Retail Fit, supported Requirement-trait alignment, reviewed Access, then canonical ID as a stable tie-break. Candidate districts are comparison context only.
+Retail composition separates Retail Fit, customer/business environment, and Access. Ordering is Retail Fit, the supported environment band, the count of matched reviewed traits, reviewed Access, then canonical ID as a stable tie-break. Candidate districts are comparison context only.
+
+Expanded-universe calibration exposed a reusable tie defect: distinct supported Retail traits could collapse into the same broad environment band and then order alphabetically. Retaining matched reviewed-trait count fixes evidence alignment without adding a named-district bonus.
 
 Certified profiles include open-ended Retail; neighborhood service; premium/luxury; destination; convenience; food; showroom/design; customer-access-sensitive; parking-sensitive; visitor-oriented; unsupported/ambiguous; and candidate-led searches. Sensitivity asserts that materially different supported profiles can move the result, while candidate selection cannot change components, eligibility, shortlist, or ordering.
 
@@ -54,6 +75,8 @@ SF Retail uses `LOCATION_BRIEF_V2_PUBLIC_SF_RETAIL_ENABLED`, independently from 
 ## Public-experience debt
 
 Recommendation validity does not depend on imagery or representative buildings. Public presentation remains incomplete for several otherwise valid Retail geographies, especially Mission District, South Beach, Civic Center, and representative-building depth in Union Square, Marina, and Hayes Valley. This remains part of the human-selected SF Public Experience priority.
+
+All eight approved corridor identities remain unpublished. `_data/sfRetailPublicExperienceBacklog.js` records future route intent and bounded needs: useful decision surfaces, parent/sibling links, related alternatives, Retail explanation, representative environments, approved imagery where available, and certified sample Brief connections. No placeholder page, canonical, sitemap entry, or generated corridor copy was created during recertification.
 
 Potential future sample Location Briefs: boutique/consumer brand, premium retailer, neighborhood service business, fitness/wellness studio, showroom/home-design retailer, and destination specialty concept. They should be published only as certified, useful decision resources with real explanations, tradeoffs, district links, and representative environments.
 

@@ -35,6 +35,7 @@ module.exports = {
       calibration: {
         status: "Ready",
         evidence: [
+          "_data/sfRetailDecisionGeographies.js",
           "_data/sfRetailCompositionFoundation.js",
           "lib/requirements/requirement-to-sf-retail-recommendation.js",
           "lib/recommendations/sf-retail-location-composition.js",
@@ -46,6 +47,7 @@ module.exports = {
         lastQa: "2026-08-23",
         evidence: [
           "_data/sfRetailMarketCoverage.js",
+          "_data/sfRetailPublicExperienceBacklog.js",
           "scripts/qa-sf-retail-recommendation.js",
           "functions/location-requirement/index.js",
           "functions/api/location-brief-v2/create.js",

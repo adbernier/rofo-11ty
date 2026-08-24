@@ -11,6 +11,8 @@ const accessFoundation = require("../_data/sfAccessFoundationV0");
 const compositionFoundation = require("../_data/sfOfficeCompositionFoundation");
 const sfOfficeModel = require("../_data/sfOfficeRecommendationModel");
 const districtGeography = require("../_data/requirementPrototypeDistrictGeography");
+const retailGeographies = require("../_data/sfRetailDecisionGeographies");
+const publicBacklog = require("../_data/sfRetailPublicExperienceBacklog");
 
 const dependencies = { accessFoundation, compositionFoundation, sfOfficeModel, sfRetailFoundation: retailFoundation, districtGeography };
 const criterion = (dimension, value, status = "PREFERRED") => ({ dimension, value: Array.isArray(value) ? { list: value, text: "" } : { text: value, list: [] }, status });
@@ -33,6 +35,17 @@ for (const district of meaningful) for (const dimension of ["retailFit", "busine
 assert.equal(new Set(meaningful.map((item) => item.knowledgeOwnerDistrictId)).size, meaningful.length, "Meaningful Retail identities must not double-count a knowledge owner.");
 assert(coverage.compatibilityIdentities.some((item) => item.districtId === "mission" && item.canonicalDistrictId === "mission-district"));
 assert(coverage.compatibilityIdentities.some((item) => item.districtId === "south-park" && item.canonicalDistrictId === "soma"));
+assert.equal(coverage.universeReview.status, "READY");
+assert.equal(retailGeographies.approved.length, 8, "All eight primary candidates require an explicit reviewed resolution.");
+assert.equal(retailGeographies.deferred.length, 5, "Secondary candidates must remain explicit rather than disappearing from the audit trail.");
+for (const item of [...retailGeographies.approved, ...retailGeographies.deferred]) assert(item.reviewReason || item.reason, `${item.districtId} requires a review reason.`);
+for (const family of coverage.competitionFamilies) {
+  const parent = retailFoundation.districts.find((item) => item.districtId === family.parentDistrictId);
+  assert.equal(parent?.classification, retailFoundation.classification.PARENT, `${family.parentDistrictId} must be presentation-only for Retail.`);
+  assert(family.eligibleDistrictIds.every((id) => meaningful.some((item) => item.districtId === id)), `${family.familyId} children must be reviewed decisions.`);
+}
+assert.equal(publicBacklog.status, "BUILDING");
+assert.deepEqual(publicBacklog.items.map((item) => item.districtId).sort(), retailGeographies.approved.map((item) => item.districtId).sort());
 
 const scenarios = {
   open: evaluate(),
@@ -54,6 +67,27 @@ for (const [name, result] of Object.entries(scenarios)) {
 assert.notDeepEqual(ids(scenarios.neighborhood), ids(scenarios.showroom), "Neighborhood and showroom evidence should produce meaningfully different outcomes.");
 assert.notDeepEqual(ids(scenarios.premium), ids(scenarios.food), "Premium and food profiles should not collapse to one canned ordering.");
 
+const focused = {
+  marinaDaily: evaluate({ identity: "neighborhood_service", destination: "Visibility materially supports customer visits", customers: ["San Francisco"] }),
+  marinaDestination: evaluate({ identity: "boutique_brand", destination: "Primarily destination-driven", customers: ["Marin / North Bay"] }),
+  valenciaFood: evaluate({ identity: "food_beverage", destination: "A mix of planned and walk-in visits", customers: ["San Francisco"] }),
+  premiumDesign: evaluate({ identity: "showroom_design", destination: "Primarily destination-driven", customers: ["Across the Bay Area / mixed"], activities: ["display_present"] }),
+  visitorFood: evaluate({ identity: "food_beverage", destination: "Primarily destination-driven", customers: ["Across the Bay Area / mixed"] }),
+};
+for (const result of Object.values(focused)) {
+  assert(!result.shortlist.some((item) => ["marina-district", "mission-district"].includes(item.districtId)), "Retail parents must never compete with eligible children.");
+  assert.equal(new Set(result.shortlist.map((item) => item.districtId)).size, result.shortlist.length);
+}
+assert(focused.marinaDaily.candidateComposition.considered.some((item) => item.districtId === "chestnut-street" && item.matchedTraits.includes("SERVICE")), "Chestnut must expose reviewed neighborhood-service evidence.");
+assert(focused.marinaDestination.candidateComposition.considered.some((item) => item.districtId === "union-street-cow-hollow" && item.matchedTraits.includes("DESTINATION")), "Union/Cow Hollow must expose reviewed destination evidence.");
+assert(focused.valenciaFood.candidateComposition.considered.some((item) => item.districtId === "valencia-street" && item.matchedTraits.includes("FOOD")), "Valencia must expose reviewed food/experiential evidence.");
+assert(focused.premiumDesign.candidateComposition.considered.some((item) => item.districtId === "sacramento-street" && item.matchedTraits.includes("DESIGN")), "Sacramento Street must be distinguishable through reviewed design evidence.");
+for (const id of ["north-beach", "chinatown"]) {
+  const district = retailFoundation.districts.find((item) => item.districtId === id);
+  assert(district?.traits.includes("VISITOR") && district.traits.includes("FOOD"), `${id} must carry supported visitor/food evidence.`);
+  assert(focused.visitorFood.candidateComposition.considered.some((item) => item.districtId === id && item.matchedTraits.includes("FOOD")), `${id} evidence must participate in visitor-oriented food composition.`);
+}
+
 const unsupported = evaluate({ identity: "heavy_equipment_repair", activities: ["repair_service"] });
 assert.equal(unsupported.readiness, "INVESTIGATE", "Unsupported Retail identity/operations must abstain.");
 assert.equal(unsupported.shortlist.length, 0);
@@ -61,6 +95,9 @@ const base = evaluate({ identity: "boutique_brand", destination: "Visibility mat
 const candidate = evaluate({ identity: "boutique_brand", destination: "Visibility materially supports customer visits", customers: ["San Francisco"], candidate: ["mission-bay"] });
 assert.deepEqual(ids(candidate), ids(base), "Candidate identity must have zero ordering effect.");
 assert.deepEqual(candidate.candidateComposition.considered.map((item) => [item.districtId, item.compositionBand]), base.candidateComposition.considered.map((item) => [item.districtId, item.compositionBand]), "Candidate identity must have zero component effect.");
+const corridorCandidate = evaluate({ identity: "food_beverage", destination: "A mix of planned and walk-in visits", customers: ["San Francisco"], candidate: ["valencia-street"] });
+const corridorBase = evaluate({ identity: "food_beverage", destination: "A mix of planned and walk-in visits", customers: ["San Francisco"] });
+assert.deepEqual(ids(corridorCandidate), ids(corridorBase), "A corridor EntryContext candidate must remain ranking-neutral.");
 
 const grouped = retailComposer.composeLocationRecommendations(fixture({ identity: "showroom_design", candidate: ["design-district"] }), accessFoundation, retailFoundation);
 assert.equal(grouped.considered.filter((item) => item.memberDistrictIds?.includes("design-district")).length, 1, "Design District compatibility must render once through Showplace Square.");
@@ -68,6 +105,7 @@ assert(grouped.candidateContext.some((item) => item.districtId === "showplace-sq
 
 const office = readiness.evaluateRecommendationReadiness({ propertyTypes: ["office"], locationLogic: { marketAnchor: { marketId: "san-francisco" }, specificPreference: { candidateDistrictIds: [] } }, criteria: [] }, dependencies);
 assert.notEqual(office.readiness, undefined, "SF Office readiness must remain operational.");
+for (const id of retailGeographies.approved.map((item) => item.districtId)) assert(!office.candidateComposition?.considered?.some((item) => item.districtId === id), `${id} must not enter Office composition.`);
 
 const temp = fs.mkdtempSync(path.join(os.tmpdir(), "rofo-sf-retail-qa-"));
 const bundlePath = path.join(temp, "shared.cjs");
