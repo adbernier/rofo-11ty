@@ -177,4 +177,4 @@ const city = Object.freeze({
   ]),
 });
 
-module.exports = Object.freeze({ schemaVersion: "sf-public-discovery:v1", marketId: "san-francisco", status: "BUILDING", city, guides });
+module.exports = Object.freeze({ schemaVersion: "sf-public-discovery:v1", marketId: "san-francisco", status: "READY", city, guides });

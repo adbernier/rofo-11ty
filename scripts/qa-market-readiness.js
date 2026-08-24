@@ -15,7 +15,7 @@ assert.equal(readiness.markets.length, 14, "Every canonical market registry entr
 assert.equal(market("san-francisco").workloads.marketGraph.status, "Ready");
 assert.equal(market("san-francisco").workloads.districtIntelligence.status, "Ready");
 assert.equal(market("san-francisco").workloads.regionalAccess.status, "Ready");
-assert.equal(market("san-francisco").workloads.publicExperience.status, "Building", "Presentation debt must remain independent from recommendation validity.");
+assert.equal(market("san-francisco").workloads.publicExperience.status, "Ready", "Certified public decision coverage must remain independent from nonblocking photography polish.");
 assert.equal(property("san-francisco", "office").recommendation, "Ready");
 assert.equal(["marketGraph", "districtIntelligence", "regionalAccess"].every((id) => market("san-francisco").workloads[id].status === "Ready"), true, "Recommendation Ready must retain its market-level hard gates.");
 assert.equal(property("san-francisco", "retail").recommendation, "Ready");

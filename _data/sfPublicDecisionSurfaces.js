@@ -199,7 +199,7 @@ const byPath = Object.freeze(Object.fromEntries(surfaces.map((surface) => [surfa
 module.exports = Object.freeze({
   schemaVersion: "sf-public-decision-surfaces:v1",
   marketId: "san-francisco",
-  status: "BUILDING",
+  status: "READY",
   surfaces: Object.freeze(surfaces),
   byPath,
 });

@@ -11,9 +11,10 @@ eleventyComputed:
   canonical: "{{ metadata.siteUrl }}{{ sample.url }}"
 ---
 
-<main class="sample-brief-page">
+<section class="sample-brief-page">
   <div class="sample-brief-shell">
-    <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Rofo</a><span aria-hidden="true">/</span><a href="/example-location-brief/">Examples</a><span aria-hidden="true">/</span><span>{{ sample.title }}</span></nav>
+    {% set crumbs = [{ "label": "Rofo", "url": "/" }, { "label": "Examples", "url": "/example-location-brief/" }, { "label": sample.title, "url": sample.url }] %}
+    {% include "partials/breadcrumbs.njk" %}
     <header class="sample-brief-hero">
       <div class="eyebrow">Example Location Brief</div>
       <h1>{{ sample.title }}</h1>
@@ -54,4 +55,4 @@ eleventyComputed:
       <a class="btn btn-primary" href="{{ sample.cta }}">See My Best-Fit Locations</a>
     </section>
   </div>
-</main>
+</section>

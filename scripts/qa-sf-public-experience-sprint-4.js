@@ -53,7 +53,7 @@ assert(read("pages/sitemap.njk").includes("sfPublicSampleBriefs.briefs"), "sampl
 assert(read("assets/css/system.css").includes("@media (max-width: 760px)"), "mobile contract missing");
 const readinessProjection = marketReadiness.buildMarketReadiness();
 const sf = readinessProjection.markets.find((market) => market.marketId === "san-francisco");
-assert(sf.workloads.publicExperience.status === "Building", "SF Public Experience must remain Building");
+assert(["Building", "Ready"].includes(sf.workloads.publicExperience.status), "SF Public Experience evidence regressed");
 assert(sf.workloads.publicExperience.details.certifiedSampleBriefs === 9, "Mission Control sample evidence missing");
 assert(readinessProjection.currentPriority.selection.label === "SF Public Experience", "current priority changed");
-console.log(`SF Public Experience Sprint 4 QA passed (${samples.briefs.length} certified samples; Public Experience remains ${sf.workloads.publicExperience.status}).`);
+console.log(`SF Public Experience Sprint 4 QA passed (${samples.briefs.length} certified samples; Public Experience is ${sf.workloads.publicExperience.status}).`);

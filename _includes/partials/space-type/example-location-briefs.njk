@@ -1,0 +1,16 @@
+{% if entry.localDecisionGuide and sfPublicSampleBriefs %}
+  {% set sampleGroup = "Office" if entry.localDecisionGuide.propertyType == "office" else ("Retail" if entry.localDecisionGuide.propertyType == "retail_service" else ("Industrial" if entry.localDecisionGuide.propertyType == "industrial" else "Flex")) %}
+  {% set guideSamples = [] %}
+  {% for sample in sfPublicSampleBriefs.briefs %}{% if sample.group == sampleGroup %}{% set guideSamples = (guideSamples.push(sample), guideSamples) %}{% endif %}{% endfor %}
+  {% if guideSamples.length %}
+  <section class="content-card space-type-sample-briefs" aria-labelledby="space-type-sample-briefs-heading">
+    <div class="eyebrow">Example business decisions</div>
+    <h2 id="space-type-sample-briefs-heading">See how different {{ sampleGroup }} needs change the location decision</h2>
+    <p>These certified examples show the locations, reasons, and tradeoffs produced for representative business profiles. They are not universal rankings.</p>
+    <div class="neighborhood-sample-grid">
+      {% for sample in guideSamples %}<a href="{{ sample.url }}"><strong>{{ sample.title }}</strong><span>{{ sample.description }}</span><em>View example Brief →</em></a>{% endfor %}
+    </div>
+    <p><a class="building-link" href="/example-location-brief/">Explore all example Location Briefs →</a></p>
+  </section>
+  {% endif %}
+{% endif %}

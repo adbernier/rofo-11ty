@@ -38,7 +38,8 @@ if (!districtCompatibilityRedirects.some((redirect) => redirect.from === designP
 }
 
 for (const guide of [sfIndustrialFlexPublicDecision.industrial, sfIndustrialFlexPublicDecision.flex]) {
-  const showplace = guide.entries.find((entry) => entry.id === "showplace-square");
+  const entries = guide.entries || (guide.groups || []).flatMap((group) => group.entries || []);
+  const showplace = entries.find((entry) => entry.id === "showplace-square");
   if (showplace?.path !== showplacePath) fail(`${guide.title} does not link Showplace Square`);
 }
 const siteRoot = path.join(root, "_site");

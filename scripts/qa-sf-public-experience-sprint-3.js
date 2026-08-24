@@ -73,7 +73,7 @@ if (fs.existsSync(siteBase)) {
 }
 
 const sf = readiness.markets.find((market) => market.marketId === "san-francisco");
-assert.equal(sf.workloads.publicExperience.status, "Building");
+assert(["Building", "Ready"].includes(sf.workloads.publicExperience.status));
 assert.equal(readiness.currentPriority.selection.label, "SF Public Experience");
 assert(sf.workloads.publicExperience.details.representativeBuildingDistricts >= 24, "Mission Control projection must see the improved representative-content coverage.");
 

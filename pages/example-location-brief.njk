@@ -7,9 +7,10 @@ eleventyComputed:
   canonical: "{{ metadata.siteUrl }}/example-location-brief/"
 ---
 
-<main class="sample-brief-hub">
+<section class="sample-brief-hub">
   <div class="sample-brief-shell">
-    <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Rofo</a><span aria-hidden="true">/</span><span>Example Location Briefs</span></nav>
+    {% set crumbs = [{ "label": "Rofo", "url": "/" }, { "label": "Example Location Briefs", "url": "/example-location-brief/" }] %}
+    {% include "partials/breadcrumbs.njk" %}
     <header class="sample-brief-hero">
       <div class="eyebrow">San Francisco location intelligence</div>
       <h1>Example Location Briefs</h1>
@@ -33,4 +34,4 @@ eleventyComputed:
       </section>
     {% endfor %}
   </div>
-</main>
+</section>

@@ -92,7 +92,7 @@ if (rendered.every((file) => fs.existsSync(file))) {
 }
 
 const sf = readiness.markets.find((market) => market.marketId === "san-francisco");
-assert.equal(sf.workloads.publicExperience.status, "Building");
+assert(["Building", "Ready"].includes(sf.workloads.publicExperience.status));
 assert.equal(readiness.currentPriority.selection.label, "SF Public Experience");
 
 console.log(`SF Public Experience Sprint 2 QA passed: city has ${discovery.city.paths.length} decision paths; Office ${expected.office.length}, Retail ${expected.retail.length}, Industrial ${expected.industrial.length}, Flex ${expected.flex.length}.`);

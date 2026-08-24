@@ -66,7 +66,7 @@ const mobilePrompt = fs.readFileSync(path.join(root, "_includes/partials/shared/
 for (const token of ["mobileUsesVnext", "marketId=san-francisco", "mobilePromptDistrictId", "journey=new"]) assert(mobilePrompt.includes(token), `Mobile recommendation entry must preserve ${token}.`);
 
 const sf = readiness.markets.find((market) => market.marketId === "san-francisco");
-assert.equal(sf.workloads.publicExperience.status, "Building");
+assert(["Building", "Ready"].includes(sf.workloads.publicExperience.status));
 assert.equal(readiness.currentPriority.selection.label, "SF Public Experience");
 
 const siteRoot = path.join(root, "_site", "commercial-real-estate", "CA", "san-francisco");
