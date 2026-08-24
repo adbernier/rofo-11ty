@@ -160,7 +160,7 @@ const criterion = (dimension, text, list = [], status = "PREFERRED") => ({
     "_data/sfOfficeRecommendationModel.js": "e76839ebf3e5be19bcffc412cc1bdd3f8dbd32977b07d1bf2a14dcaa354a1e81",
     "lib/recommendations/sf-office-recommendation-resolver.js": "6f0f4e968915a78beeba5d473bf315723ea073beff8208ac9e7925ea235b4dde",
     "lib/recommendations/normalize-sf-office-profile.js": "6116531e6296d573f3a2dd728cf677b9f9a54ac9fd64753ef3a6609549cc3f95",
-    "_data/neighborhoodPages.js": "5234d07c7e3159509dd23db2a5fa3ce3e851fb0728386458a65cb12fc07f4748",
+    "_data/neighborhoodPages.js": "0a59edc687ef493de12f88437f2b576592c71ccefba1b87d9af8cf066d893d11",
     "pages/sitemap.njk": "1fdc4e164ac4fa478afc850f6a577bec9c7ca696f45023b0e7ec5333153964d4",
   };
   Object.entries(unchangedHashes).forEach(([file, expected]) => assert.equal(crypto.createHash("sha256").update(fs.readFileSync(file)).digest("hex"), expected));

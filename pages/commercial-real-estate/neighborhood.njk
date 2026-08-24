@@ -290,7 +290,7 @@ eleventyComputed:
           {% include "partials/neighborhood/nearby-commercial-districts.njk" %}
         {% endif %}
 
-        {% if hasBuildings %}
+        {% if hasBuildings and not neighborhood.representative_content.length %}
           <section class="city-card">
             <div class="eyebrow">Representative Buildings</div>
             <h2>Representative buildings in {{ neighborhoodDisplayNameWithArticle }}</h2>

@@ -72,6 +72,7 @@ const commercialDistrictPublicIntegrations = require("./commercialDistrictPublic
 const commercialLocationModel = require("./commercialLocationModel.js");
 const commercialBuildingIntelligence = require("./commercialBuildingIntelligence.js");
 const representativeBuildingCards = require("./representativeBuildingCards.js");
+const sfRepresentativeContent = require("./sfRepresentativeContent.js");
 const commercialMarketEvidence = require("./commercialMarketEvidence.js");
 const sfPublicDecisionSurfaces = require("./sfPublicDecisionSurfaces.js");
 const commercialMarketEvidenceByDistrict = new Map(
@@ -7725,6 +7726,11 @@ for (const page of allPages) {
   }
   page.representative_building_cards =
     representativeBuildingCards.byDistrictPath[page.canonical_neighborhood_path] || [];
+  page.representative_content =
+    clean(page.city).toLowerCase() === "san francisco" && clean(page.state_abbr).toUpperCase() === "CA"
+      ? sfRepresentativeContent.byDistrictId[page.slug] || []
+      : [];
+  page.representative_content_disclaimer = sfRepresentativeContent.availabilityDisclaimer;
   page.curated_district_media =
     page.slug === "soma" &&
     clean(page.city).toLowerCase() === "san francisco" &&

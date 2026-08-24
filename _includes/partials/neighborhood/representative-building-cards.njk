@@ -1,5 +1,32 @@
+{% set representativeContent = neighborhood.representative_content %}
 {% set representativeBuildingCards = neighborhood.representative_building_cards %}
-{% if representativeBuildingCards and representativeBuildingCards.length %}
+{% if representativeContent and representativeContent.length %}
+  <section class="city-card representative-building-cards" aria-labelledby="representative-building-cards-heading">
+    <div class="eyebrow">Representative commercial environments</div>
+    <h2 id="representative-building-cards-heading">What commercial space here can feel like</h2>
+    <p>{{ neighborhood.representative_content_disclaimer }}</p>
+
+    <div class="representative-building-card-grid">
+      {% for item in representativeContent %}
+        <article class="representative-building-card" data-representative-content-kind="{{ item.kind }}">
+          <div class="representative-building-card__header">
+            <p class="representative-building-card__type">{{ item.buildingType }}</p>
+            <h3>{% if item.canonicalUrl %}<a href="{{ item.canonicalUrl }}">{{ item.name }}</a>{% else %}{{ item.name }}{% endif %}</h3>
+            {% if item.address %}<p class="representative-building-card__address">{{ item.address }}</p>{% endif %}
+          </div>
+          <p class="representative-building-card__descriptor">{{ item.descriptor }}</p>
+          <p class="representative-building-card__reason">{{ item.representativeReason }}</p>
+          {% if item.relevantSpaceTypes and item.relevantSpaceTypes.length %}
+            <div class="representative-building-card__tags" aria-label="Relevant space types">
+              {% for spaceType in item.relevantSpaceTypes %}<span>{{ spaceType | title }}</span>{% endfor %}
+            </div>
+          {% endif %}
+          {% if item.caveat %}<p class="semantic-footnote"><strong>What to verify:</strong> {{ item.caveat }}</p>{% endif %}
+        </article>
+      {% endfor %}
+    </div>
+  </section>
+{% elseif representativeBuildingCards and representativeBuildingCards.length %}
   <section class="city-card representative-building-cards" aria-labelledby="representative-building-cards-heading">
     <div class="eyebrow">Example Buildings</div>
     <h2 id="representative-building-cards-heading">Buildings that help explain this district</h2>
