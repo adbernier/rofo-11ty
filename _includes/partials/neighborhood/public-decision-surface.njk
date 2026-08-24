@@ -1,0 +1,81 @@
+{% set decision = neighborhood.public_decision_surface %}
+{% if decision %}
+  <section class="city-card neighborhood-decision-surface" aria-labelledby="public-decision-heading">
+    <div class="eyebrow">Location decision</div>
+    <h2 id="public-decision-heading">How to think about {{ decision.name }}</h2>
+    <p class="neighborhood-intelligence__lead">{{ decision.identity }}</p>
+
+    {% if decision.parent %}
+      <div class="neighborhood-decision-guidance">
+        <h3>Part of {{ decision.parent.name }}</h3>
+        <p>{{ decision.name }} is a distinct Retail decision within the broader <a href="{{ decision.parent.path }}">{{ decision.parent.name }}</a> context.</p>
+      </div>
+    {% endif %}
+
+    <div class="neighborhood-intelligence__grid">
+      <article class="neighborhood-intelligence__card">
+        <h3>Commercial character</h3>
+        <p>{{ decision.character }}</p>
+      </article>
+      <article class="neighborhood-intelligence__card">
+        <h3>Access</h3>
+        <p>{{ decision.access }}</p>
+      </article>
+    </div>
+
+    <div class="neighborhood-intelligence__split">
+      <div class="neighborhood-intelligence__block">
+        <h3>Businesses that may consider it</h3>
+        <ul>{% for item in decision.useCases %}<li>{{ item }}</li>{% endfor %}</ul>
+      </div>
+      <div class="neighborhood-intelligence__block">
+        <h3>Why consider it</h3>
+        <ul>{% for item in decision.strengths %}<li>{{ item }}</li>{% endfor %}</ul>
+      </div>
+    </div>
+
+    <div class="neighborhood-decision-guidance">
+      <h3>Things to weigh</h3>
+      <ul>{% for item in decision.tradeoffs %}<li>{{ item }}</li>{% endfor %}</ul>
+    </div>
+
+    {% if decision.children and decision.children.length %}
+      <div class="neighborhood-decision-guidance">
+        <h3>Explore the distinct choices within {{ decision.name }}</h3>
+        <div class="neighborhood-comparison-grid">
+          {% for child in decision.children %}
+            <a class="neighborhood-comparison-card neighborhood-link-card" href="{{ child.path }}">
+              <h4>{{ child.name }}</h4>
+              <p>{{ child.reason }}</p>
+            </a>
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+
+    {% if decision.contexts and decision.contexts.length %}
+      <div class="neighborhood-decision-guidance">
+        <h3>Related operating context</h3>
+        <ul>
+          {% for context in decision.contexts %}<li><strong>{{ context.name }}:</strong> {{ context.reason }}</li>{% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+  </section>
+
+  {% if decision.related and decision.related.length %}
+    <section class="city-card" aria-labelledby="related-decision-locations-heading">
+      <div class="eyebrow">Related locations</div>
+      <h2 id="related-decision-locations-heading">Other locations worth understanding</h2>
+      <p>Compare a small set of locations that present a meaningfully different customer, business, access, or operating tradeoff.</p>
+      <div class="neighborhood-comparison-grid">
+        {% for item in decision.related %}
+          <a class="neighborhood-comparison-card neighborhood-link-card" href="{{ item.path }}">
+            <h3>{{ item.name }}</h3>
+            <p>{{ item.reason }}</p>
+          </a>
+        {% endfor %}
+      </div>
+    </section>
+  {% endif %}
+{% endif %}

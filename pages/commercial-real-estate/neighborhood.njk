@@ -215,7 +215,9 @@ eleventyComputed:
         {% set insightModuleSummary = "" %}
         {% set insightHubUrl = "" %}
 
-        {% if neighborhood.neighborhood_intelligence %}
+        {% if neighborhood.public_decision_surface %}
+          {% include "partials/neighborhood/public-decision-surface.njk" %}
+        {% elseif neighborhood.neighborhood_intelligence %}
           {% include "partials/neighborhood/intelligence.njk" %}
         {% else %}
           <section class="city-card">
@@ -410,6 +412,7 @@ eleventyComputed:
             "primary_archetype": neighborhood.commercial_location_model.primary_archetype or "",
             "business_ecosystem": neighborhood.commercial_location_model.primary_archetype_label or "",
             "location_suggestions": searchProfileLocationSuggestions,
+            "default_space_type": neighborhood.public_decision_surface.defaultSpaceType or "",
             "card_headline": "Get a personalized " + neighborhood.name + " building shortlist"
           } %}
           {% include "partials/shared/recommendation-prompt-card.njk" %}

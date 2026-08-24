@@ -73,6 +73,7 @@ const commercialLocationModel = require("./commercialLocationModel.js");
 const commercialBuildingIntelligence = require("./commercialBuildingIntelligence.js");
 const representativeBuildingCards = require("./representativeBuildingCards.js");
 const commercialMarketEvidence = require("./commercialMarketEvidence.js");
+const sfPublicDecisionSurfaces = require("./sfPublicDecisionSurfaces.js");
 const commercialMarketEvidenceByDistrict = new Map(
   (commercialMarketEvidence.collections || []).map((collection) => [collection.district?.districtId, collection])
 );
@@ -6946,6 +6947,41 @@ function sfEditorialDistrictPageFor(district) {
   };
 }
 
+function sfPublicDecisionPageFor(surface) {
+  return {
+    name: surface.name,
+    slug: surface.slug,
+    city: "San Francisco",
+    state_abbr: "CA",
+    city_slug: "san-francisco",
+    canonical_neighborhood_path: surface.path,
+    centroid_lat: "",
+    centroid_lng: "",
+    radius: "",
+    geometry_quality: "sf_certified_decision_geography_v1",
+    approximate_building_count: 0,
+    approximate_space_types: surface.spaceTypes,
+    approximate_semantic_signals: [],
+    representative_buildings: [],
+    commercial_area_id: surface.id,
+    commercial_area_type: surface.areaType.replace(/\s+/g, "_"),
+    commercial_area_type_label: surface.areaType,
+    commercial_profile: surface.spaceTypes,
+    source_confidence: "reviewed",
+    source_types: ["certified_location_intelligence", "sf_public_decision_surfaces_v1"],
+    suppress_nearby_neighborhoods: true,
+    noindex: false,
+    prototype: false,
+    public_review: false,
+    public_phase_1: false,
+    public_phase_2: true,
+    public_sf_decision_surface_v1: true,
+    city_nav_priority: surface.parent ? 2 : 3,
+    meta_description: surface.lead,
+    public_decision_surface: surface,
+  };
+}
+
 function distanceKm(a, b) {
   if (!a || !b || a.lat == null || a.lng == null || b.lat == null || b.lng == null) {
     return Number.POSITIVE_INFINITY;
@@ -7287,6 +7323,7 @@ const nashvilleMetroPages = nashvilleMetroDistrictDefinitions.map(nashvilleMetro
 const nycMetroPhase1Pages = nycMetroPhase1DistrictDefinitions.map(nycMetroPhase1DistrictPageFor);
 const nycMetroPhase2Pages = nycMetroPhase2DistrictDefinitions.map(nycMetroPhase2DistrictPageFor);
 const sfEditorialDistrictPages = sfEditorialDistrictDefinitions.map(sfEditorialDistrictPageFor);
+const sfPublicDecisionPages = sfPublicDecisionSurfaces.surfaces.map(sfPublicDecisionPageFor);
 
 const searchLedFoundationPages = [
   {
@@ -7560,6 +7597,21 @@ for (const page of sfEditorialDistrictPages) {
   });
 }
 
+for (const page of sfPublicDecisionPages) {
+  const existingPage = allPagesByPath.get(page.canonical_neighborhood_path);
+  allPagesByPath.set(page.canonical_neighborhood_path, {
+    ...existingPage,
+    ...page,
+    commercial_area_id: existingPage?.commercial_area_id || page.commercial_area_id,
+    commercial_area_type: existingPage?.commercial_area_type || page.commercial_area_type,
+    commercial_area_type_label: existingPage?.commercial_area_type_label || page.commercial_area_type_label,
+    representative_buildings: existingPage?.representative_buildings?.length
+      ? existingPage.representative_buildings
+      : page.representative_buildings,
+    approximate_building_count: existingPage?.approximate_building_count || page.approximate_building_count,
+  });
+}
+
 const allPages = Array.from(allPagesByPath.values());
 const eastBayV1ExistingPaths = new Set([
   "/commercial-real-estate/CA/oakland/west-oakland/",
@@ -7696,7 +7748,14 @@ for (const page of allPages) {
       suppress_map_hero: true,
     };
   }
-  page.district_identity = districtIdentityFor(page);
+  page.district_identity = page.public_decision_surface
+    ? {
+        eyebrow: page.public_decision_surface.areaType === "retail corridor" ? "Retail Location Guide" : "Location Guide",
+        title: page.public_decision_surface.name,
+        lead: page.public_decision_surface.lead,
+        guide_label: page.public_decision_surface.classification,
+      }
+    : districtIdentityFor(page);
   const representativeBuildingRoles = representativeBuildingRolesFor(page);
   if (page.representative_buildings && Object.keys(representativeBuildingRoles).length) {
     page.representative_buildings = page.representative_buildings.map((building) => ({

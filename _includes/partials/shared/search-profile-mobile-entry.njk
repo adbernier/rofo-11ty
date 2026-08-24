@@ -6,7 +6,9 @@
       "city": neighborhood.city,
       "state": neighborhood.state_abbr,
       "district": neighborhood.name,
-      "neighborhood_name": neighborhood.name
+      "neighborhood_name": neighborhood.name,
+      "neighborhood_slug": neighborhood.slug,
+      "default_space_type": neighborhood.public_decision_surface.defaultSpaceType or ""
     } %}
   {% elseif comparison %}
     {% set mobilePromptContext = {
@@ -41,6 +43,7 @@
 {% set mobilePromptCity = mobilePromptContext.city or "" %}
 {% set mobilePromptState = mobilePromptContext.state or mobilePromptContext.state_abbr or "" %}
 {% set mobilePromptDistrict = mobilePromptContext.neighborhood_name or mobilePromptContext.district or "" %}
+{% set mobilePromptDistrictId = mobilePromptContext.neighborhood_slug or mobilePromptContext.district_id or "" %}
 {% set mobilePromptSpaceType = mobilePromptContext.default_space_type or "" %}
 {% set mobilePromptSourcePath = page.url or mobilePromptContext.page_url or "" %}
 {% set mobilePromptLocationA = "" %}
@@ -58,7 +61,16 @@
 {% if mobilePromptSpaceType %}{% set mobileParams = (mobileParams.push("spaceType=" + (mobilePromptSpaceType | queryEncode)), mobileParams) %}{% endif %}
 {% if mobilePromptSource %}{% set mobileParams = (mobileParams.push("source=" + (mobilePromptSource | queryEncode)), mobileParams) %}{% endif %}
 {% if mobilePromptSourcePath %}{% set mobileParams = (mobileParams.push("sourcePath=" + (mobilePromptSourcePath | queryEncode)), mobileParams) %}{% endif %}
-{% set mobilePromptHref = "/find-locations/" + ("?" + (mobileParams | join("&")) if mobileParams.length else "") %}
+{% set mobileSpaceTypeNormalized = mobilePromptSpaceType | lower %}
+{% set mobileHasSupportedSfType = not mobilePromptSpaceType or mobileSpaceTypeNormalized.includes("office") or mobileSpaceTypeNormalized.includes("retail") or mobileSpaceTypeNormalized.includes("service") or mobileSpaceTypeNormalized.includes("industrial") or mobileSpaceTypeNormalized.includes("warehouse") or mobileSpaceTypeNormalized.includes("flex") %}
+{% set mobileUsesVnext = mobilePromptCity == "San Francisco" and mobileHasSupportedSfType %}
+{% if mobileUsesVnext %}
+  {% set mobileParams = (mobileParams.push("marketId=san-francisco"), mobileParams) %}
+  {% if mobilePromptDistrictId %}{% set mobileParams = (mobileParams.push("districtId=" + (mobilePromptDistrictId | queryEncode)), mobileParams) %}{% endif %}
+  {% set mobileParams = (mobileParams.push("journey=new"), mobileParams) %}
+{% endif %}
+{% set mobilePromptBase = "/location-requirement/" if mobileUsesVnext else "/find-locations/" %}
+{% set mobilePromptHref = mobilePromptBase + ("?" + (mobileParams | join("&")) if mobileParams.length else "") %}
 
 <section class="search-profile-mobile-entry" aria-label="Create your Business Profile">
   <div>

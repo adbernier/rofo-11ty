@@ -10,7 +10,7 @@ module.exports = Object.freeze({
     districtId: item.districtId,
     districtName: item.districtName,
     futurePublicPath: item.futurePublicPath,
-    status: "NOT_PUBLISHED",
-    needs: ["public decision surface", "parent and sibling navigation", "related alternatives", "Retail explanation and tradeoffs", "representative storefront or commercial environments", "approved imagery when available", "relevant certified sample Location Brief links"],
+    status: "PUBLIC_DECISION_SURFACE_READY",
+    needs: ["representative storefront or commercial environments", "approved imagery when available", "relevant certified sample Location Brief links"],
   })),
 });

@@ -16,7 +16,9 @@
 {% endif %}
 {% set promptIsIndustrial = (promptSpaceType | lower).includes("industrial") or (promptLabel | lower).includes("industrial") or (promptDistrict | lower).includes("industrial") %}
 
-{% set promptHasDistrictIntelligence = promptCity == "San Francisco" and (not promptSpaceType or (promptSpaceType | lower).includes("office")) %}
+{% set promptSpaceTypeNormalized = promptSpaceType | lower %}
+{% set promptHasSupportedSfType = not promptSpaceType or promptSpaceTypeNormalized.includes("office") or promptSpaceTypeNormalized.includes("retail") or promptSpaceTypeNormalized.includes("service") or promptSpaceTypeNormalized.includes("industrial") or promptSpaceTypeNormalized.includes("warehouse") or promptSpaceTypeNormalized.includes("flex") %}
+{% set promptHasDistrictIntelligence = promptCity == "San Francisco" and promptHasSupportedSfType %}
 {% if promptSource == "business_brief" and promptCity and promptBusinessIdentity %}
   {% set promptHeadline = "Find " + promptCity + " office locations that fit " + promptBusinessIdentity %}
   {% set promptBody = "Rofo already understands the business context. Tell us a little about your team and location priorities, and we'll compare " + promptCity + " commercial districts to identify strong fits and tradeoffs." %}
