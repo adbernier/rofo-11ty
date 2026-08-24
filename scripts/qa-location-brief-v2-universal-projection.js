@@ -46,7 +46,7 @@ for (const item of cases) {
 
 const noviContext = shared.commercialContextForBundle(bundle(cases[0]));
 assert.deepEqual(noviContext.universalIntelligence.foundations, ["industrial"]);
-assert(noviContext.universalIntelligence.investigationTopics.includes("loading configuration"));
+assert(noviContext.universalIntelligence.investigationTopics.includes("required loading form"));
 assert.equal(noviContext.universalIntelligence.locationIntelligenceBoundary, "LOCAL_EVIDENCE_REQUIRED");
 
 assert.equal(samples.briefs.length, 9);

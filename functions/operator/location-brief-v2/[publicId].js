@@ -132,7 +132,7 @@ function investigationPriorities(requirement) {
 function universalGuidance(requirement) {
   const projection = projectUniversalIntelligence(requirement);
   if (!projection.foundations.length || !projection.whatMatters.length) return { projection, matters: "" };
-  const matters = `<section class="lb2-universal" aria-labelledby="lb2-matters-heading"><div class="lb2-section-head"><p class="lb2-eyebrow">Your requirement</p><h2 id="lb2-matters-heading">What matters for this search</h2></div><div class="lb2-matter-grid">${projection.whatMatters.map((item) => `<article><h3>${esc(item.label)}</h3><p>${esc(item.whyItMatters)}</p></article>`).join("")}</div></section>`;
+  const matters = `<section class="lb2-universal" aria-labelledby="lb2-matters-heading"><div class="lb2-section-head"><p class="lb2-eyebrow">Your requirement</p><h2 id="lb2-matters-heading">What matters for this search</h2></div><div class="lb2-matter-grid">${projection.whatMatters.map((item) => `<article><h3>${esc(item.label)}</h3>${item.statedRequirement ? `<p class="lb2-matter-signal">${esc(item.statedRequirement)}</p>` : ""}<p>${esc(item.whyItMatters)}</p></article>`).join("")}</div></section>`;
   return { projection, matters };
 }
 function investigationGuidance(projection, certified, market) {

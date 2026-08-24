@@ -117,19 +117,19 @@ const criterion = (dimension, text, status = "PREFERRED", scope = "location", au
     assert(!result.questions.some((item) => item.stage === "PROPERTY"), `${id} must defer all property-stage questions.`);
   });
 
-  assert(paths["northstar-advisory"].questions.length >= 6 && paths["northstar-advisory"].questions.length <= 9, "Northstar must reach location value without a separate district rationale step.");
-  assert(ids(paths["northstar-advisory"]).join(",") === "location.district_candidates,business.identity,office.environment_confirmation,office.exceptions,employee.origins,access.parking,customer.origins,final.unusual", "Northstar must capture bounded business identity and its conditional environment confirmation before the existing access path.");
+  assert(paths["northstar-advisory"].questions.length >= 6 && paths["northstar-advisory"].questions.length <= 10, "Northstar must reach location value without a separate district rationale step.");
+  assert(ids(paths["northstar-advisory"]).join(",") === "location.district_candidates,business.identity,office.environment_confirmation,office.exceptions,office.working_pattern,employee.origins,access.parking,customer.origins,final.unusual", "Northstar must capture bounded business identity, working pattern, and its conditional environment confirmation before the existing access path.");
   assert(!ids(paths["northstar-advisory"]).some((id) => /care|food|research|vehicles|industrial|technical|capacity\.basis|transaction|economics|timing/.test(id)), "Northstar must not receive unrelated or property-search questions.");
   const northstarEmployee = paths["northstar-advisory"].questions.find((item) => item.id === "employee.origins");
   assert(northstarEmployee.answerType === "multi" && northstarEmployee.options.includes("San Francisco") && northstarEmployee.options.includes("East Bay"), "Northstar employee geography must use concrete Bay Area choices.");
   assert(ids(paths["northstar-advisory"]).includes("access.parking") && !ids(paths["northstar-advisory"]).includes("access.transit"), "known BART importance must suppress the transit question while parking remains separate.");
   assert(ids(paths["northstar-advisory"]).includes("customer.origins"), "client geography must appear because Northstar has material client visits.");
 
-  assert(paths["usa-shoe-company"].questions.length <= 9, "USA Shoe must reach location value without property-search interrogation.");
+  assert(paths["usa-shoe-company"].questions.length <= 10, "USA Shoe must reach location value with only bounded storefront and delivery enrichment.");
   assert(ids(paths["usa-shoe-company"]).includes("property.ambiguity") && !ids(paths["usa-shoe-company"]).includes("operations.repair_nature") && ids(paths["usa-shoe-company"]).includes("visitors.pattern"), "USA Shoe must retain location-relevant customer logic while closing secondary activity detail after its property-context choice.");
   assert(!ids(paths["usa-shoe-company"]).some((id) => ["capacity.basis", "capacity.flexibility", "economics.budget", "transaction.intent", "operations.technical"].includes(id)), "USA Shoe must defer property-search detail.");
 
-  assert(paths["bayline-equipment-services"].questions.length <= 7, "Bayline must preserve known industrial facts and ask only unresolved location questions.");
+  assert(paths["bayline-equipment-services"].questions.length <= 9, "Bayline must preserve known industrial facts and ask only unresolved use-mix and loading questions.");
   assert(ids(paths["bayline-equipment-services"]).includes("vehicles.territory") && ids(paths["bayline-equipment-services"]).includes("operations.repair_nature"), "Bayline must ask service-territory and operating-use facts.");
   assert(!ids(paths["bayline-equipment-services"]).includes("operations.technical") && !ids(paths["bayline-equipment-services"]).includes("vehicles.overnight"), "Bayline technical and property-storage diligence must be deferred.");
   assert(paths["bayline-equipment-services"].state.requirement.criteria.some((item) => item.dimension === "industrial.power.exact_capacity" && item.status === "UNKNOWN"), "Bayline exact power must remain Unknown without blocking location readiness.");
@@ -148,8 +148,8 @@ const criterion = (dimension, text, status = "PREFERRED", scope = "location", au
     },
   };
   const fresh = runPath(freshOffice);
-  assert(fresh.questions.length >= 6 && fresh.questions.length <= 9, "fresh ordinary office must reach location readiness quickly.");
-  assert(ids(fresh).join(",") === "location.district_candidates,business.identity,office.environment_confirmation,office.exceptions,employee.origins,access.transit,access.parking,customer.origins,final.unusual", "fresh office must add bounded business identity and conditional environment confirmation before the later access path.");
+  assert(fresh.questions.length >= 6 && fresh.questions.length <= 11, "fresh ordinary office must remain bounded after working-pattern and growth enrichment.");
+  assert(ids(fresh).join(",") === "location.district_candidates,business.identity,office.environment_confirmation,office.exceptions,office.working_pattern,employee.origins,access.transit,access.parking,customer.origins,office.growth_horizon,final.unusual", "fresh office must add bounded working-pattern and growth signals without property programming.");
   assert(!ids(fresh).some((id) => /care|food|research|vehicles|industrial|repair|technical/.test(id)), "fresh office must never enter unrelated activity branches.");
 
   let freshEndToEnd = engine.createInterviewState({ districtGeography });

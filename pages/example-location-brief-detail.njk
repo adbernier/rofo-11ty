@@ -32,7 +32,7 @@ eleventyComputed:
       <h2 id="sample-matters-heading">What matters for this search</h2>
       <div class="sample-matter-grid">
       {% for item in sample.universal.whatMatters %}
-        <article><h3>{{ item.label }}</h3><p>{{ item.whyItMatters }}</p></article>
+        <article><h3>{{ item.label }}</h3>{% if item.statedRequirement %}<p><strong>{{ item.statedRequirement }}</strong></p>{% endif %}<p>{{ item.whyItMatters }}</p></article>
       {% endfor %}
       </div>
     </section>

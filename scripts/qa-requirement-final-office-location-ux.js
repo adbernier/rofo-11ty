@@ -31,9 +31,14 @@ const composer = require("../lib/recommendations/private-location-composition");
     "office.environment_confirmation": { optionId: "creative" },
     "office.client_frequency": { optionId: "rare" },
     "office.exceptions": { optionIds: ["store"] },
+    "office.working_pattern": { optionId: "mixed" },
+    "industrial.pattern": { optionIds: ["storage", "office"] },
+    "industrial.use_mix": { optionId: "balanced" },
     "employee.origins": { optionIds: ["san_francisco", "east_bay"] },
     "access.transit": { optionId: "very" },
     "access.parking": { optionId: "helpful" },
+    "industrial.loading_form": { optionId: "either" },
+    "office.growth_horizon": { optionId: "modest" },
     "capacity.size": { text: "About 5,000 sq ft" },
     "final.unusual": {},
   };
@@ -58,8 +63,8 @@ const composer = require("../lib/recommendations/private-location-composition");
   const officeFlex = runPath("office-inventory-flex", "include");
   const forbiddenDetails = ["storage.pattern", "logistics.receiving", "operations.repair_nature", "vehicles.count", "events.peak", "work.peak"];
 
-  assert.equal(officeOnly.questions.length, 13);
-  assert.deepEqual(officeOnly.questions, ["location.anchor", "foundation.property_context", "location.district_candidates", "foundation.objective", "business.identity", "office.environment_confirmation", "office.client_frequency", "office.exceptions", "property.ambiguity", "employee.origins", "access.transit", "access.parking", "final.unusual"]);
+  assert.equal(officeOnly.questions.length, 15);
+  assert.deepEqual(officeOnly.questions, ["location.anchor", "foundation.property_context", "location.district_candidates", "foundation.objective", "business.identity", "office.environment_confirmation", "office.client_frequency", "office.exceptions", "office.working_pattern", "property.ambiguity", "employee.origins", "access.transit", "access.parking", "office.growth_horizon", "final.unusual"]);
   assert(forbiddenDetails.every((id) => !officeOnly.questions.includes(id)));
   assert(!officeOnly.questions.includes("capacity.size"));
   assert(officeOnly.state.requirement.activities.includes("store"), "The secondary activity fact must survive branch closure.");
@@ -72,9 +77,9 @@ const composer = require("../lib/recommendations/private-location-composition");
   const ambiguityQuestion = engine.QUESTIONS_BY_ID["property.ambiguity"];
   assert(ambiguityQuestion, "The generic ambiguity question must remain registered.");
 
-  assert.equal(officeFlex.questions.length, 14);
+  assert(officeFlex.questions.length <= 20, "Confirmed Office/Flex enrichment must remain bounded.");
   assert(officeFlex.state.requirement.propertyTypes.includes("office") && officeFlex.state.requirement.propertyTypes.includes("industrial_flex"));
-  assert(forbiddenDetails.every((id) => !officeFlex.questions.includes(id)));
+  assert(officeFlex.questions.includes("industrial.pattern") && officeFlex.questions.includes("industrial.use_mix") && officeFlex.questions.includes("industrial.loading_form"), "Confirmed Office/Flex scope must capture the material hybrid facts.");
   assert(officeFlex.questions.includes("capacity.size"), "The broadened non-Office context retains its existing scale boundary.");
   const flexSize = officeFlex.selections.find((item) => item.id === "capacity.size");
   assert.equal(flexSize.prompt, "About how much space do you need?");
@@ -85,7 +90,7 @@ const composer = require("../lib/recommendations/private-location-composition");
     result.selections.slice(0, -1).forEach((selection) => assert.equal(selection.submitLabel, "Continue", `${selection.id} cannot promise recommendations early.`));
     assert.equal(result.selections.at(-1).id, "final.unusual");
     assert.equal(result.selections.at(-1).submitLabel, "Show recommended locations");
-    assert(!result.questions.some((id) => /growth/i.test(id)));
+    assert(result.questions.filter((id) => /growth/i.test(id)).length <= 1, "Growth must remain one bounded Office question.");
   }
   assert.deepEqual(officeOnly.recommendation.shortlist.map((item) => item.districtId), ["soma", "jackson-square", "mission-district"]);
   assert.equal(officeOnly.recommendation.shortlist.filter((item) => ["showplace-square", "design-district"].includes(item.districtId)).length <= 1, true);
@@ -99,10 +104,12 @@ const composer = require("../lib/recommendations/private-location-composition");
     "office.environment_confirmation": "LOCATION",
     "office.client_frequency": "LOCATION",
     "office.exceptions": "PROPERTY-CONTEXT CHECK",
+    "office.working_pattern": "USE",
     "property.ambiguity": "PROPERTY-CONTEXT CHECK",
     "employee.origins": "LOCATION",
     "access.transit": "LOCATION",
     "access.parking": "LOCATION",
+    "office.growth_horizon": "SCALE",
     "final.unusual": "CONTEXT",
   };
   assert.deepEqual(Object.keys(classifications), officeOnly.questions);

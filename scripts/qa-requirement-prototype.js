@@ -52,7 +52,8 @@ function turn(operations, options = {}) {
   const scenarios = require("../js/requirement-prototype-scenarios.js");
 
   assert(domain.ALLOWED_STATUSES.join(",") === "REQUIRED,PREFERRED,FLEXIBLE,UNKNOWN,VERIFY", "allowed statuses must match the product specification.");
-  assert(domain.DIMENSION_REGISTRY.length > 20 && domain.DIMENSION_REGISTRY.length <= 61, "dimension registry should remain bounded after adding Medical practice context.");
+  assert(domain.DIMENSION_REGISTRY.length > 20 && domain.DIMENSION_REGISTRY.length <= 65, "dimension registry should remain bounded after adding the four reviewed adaptive space-use signals.");
+  for (const id of ["retail.property.storefront_priority", "industrial.loading.form", "industrial.operations.use_mix", "industrial.customer.visit_priority"]) assert(domain.DIMENSIONS_BY_ID[id], `${id} must be canonical rather than UI-only state.`);
   assert(new Set(domain.DIMENSION_REGISTRY.map((item) => item.id)).size === domain.DIMENSION_REGISTRY.length, "dimension ids must be unique.");
   assert(domain.DIMENSION_REGISTRY.every((item) => item.id.includes(".")), "dimensions must be namespaced.");
 

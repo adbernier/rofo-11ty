@@ -359,6 +359,16 @@ export function commercialContextForBundle(bundle) {
       investigationTopics: universalProjection.investigationTopics,
       missingRequirementSignals: universalProjection.missingRequirementSignals,
       locationIntelligenceBoundary: universalProjection.locationIntelligenceBoundary.code,
+      requirementSignals: {
+        officeWorkingPattern: criterion("office.workplace.meetings_collaboration"),
+        growthHorizon: criterion("universal.growth.future_state"),
+        storefrontPriority: criterion("retail.property.storefront_priority"),
+        retailDeliveryService: criterion("retail.operations.delivery_receiving"),
+        industrialUseMix: criterion("industrial.operations.use_mix"),
+        customerFacingPriority: criterion("industrial.customer.visit_priority"),
+        vehicleProfile: criterion("industrial.access.truck_circulation"),
+        loadingForm: criterion("industrial.loading.form"),
+      },
     },
     materialIntelligenceGaps: (snapshot.intelligenceGaps || []).filter((gap) => ["CORE", "MATERIAL"].includes(gap.materiality) || gap.blockingStatus === "BLOCKED").slice(0, 12).map((gap) => ({ districtId: gap.districtId, dimension: gap.intelligenceDimension, materiality: gap.materiality, blockingStatus: gap.blockingStatus, reason: gap.reason })),
   };

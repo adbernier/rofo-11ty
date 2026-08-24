@@ -40,9 +40,11 @@ const criterion = (dimension, text, list = [], status = "PREFERRED") => ({
     "foundation.objective": { optionId: "relocate" },
     "office.client_frequency": { optionId: "rare" },
     "office.exceptions": { optionIds: ["none"] },
+    "office.working_pattern": { optionId: "mixed" },
     "employee.origins": { optionIds: ["san_francisco"] },
     "access.transit": { optionId: "helpful" },
     "access.parking": { optionId: "helpful" },
+    "office.growth_horizon": { optionId: "stable" },
     "final.unusual": { optionId: "none" },
   };
 
@@ -71,7 +73,7 @@ const criterion = (dimension, text, list = [], status = "PREFERRED") => ({
 
   for (const result of [architectureNeutral, architectureEstablished, accountingNeutral, accountingCreative, unknownBusiness]) {
     assert(!result.questions.includes("work.peak"));
-    assert(!result.questions.some((id) => /growth/i.test(id)), "No growth question may enter ordinary Office Location intake.");
+    assert(result.questions.includes("office.working_pattern") && result.questions.includes("office.growth_horizon"), "Ordinary Office must capture only bounded working-pattern and growth signals.");
     assert.equal(result.questions.at(-1), "final.unusual");
   }
   assert(architectureNeutral.questions.indexOf("business.identity") < architectureNeutral.questions.indexOf("office.environment_confirmation"));
