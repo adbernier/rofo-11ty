@@ -1,0 +1,57 @@
+---
+layout: base.njk
+pagination:
+  data: sfPublicSampleBriefs.briefs
+  size: 1
+  alias: sample
+permalink: "{{ sample.url }}index.html"
+eleventyComputed:
+  title: "{{ sample.title }} — Example Location Brief | Rofo"
+  description: "{{ sample.description }} See the locations, reasons, and tradeoffs produced by Rofo's certified San Francisco logic."
+  canonical: "{{ metadata.siteUrl }}{{ sample.url }}"
+---
+
+<main class="sample-brief-page">
+  <div class="sample-brief-shell">
+    <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Rofo</a><span aria-hidden="true">/</span><a href="/example-location-brief/">Examples</a><span aria-hidden="true">/</span><span>{{ sample.title }}</span></nav>
+    <header class="sample-brief-hero">
+      <div class="eyebrow">Example Location Brief</div>
+      <h1>{{ sample.title }}</h1>
+      <p class="lead">{{ sample.description }}</p>
+      <p class="sample-brief-notice">This example shows how Rofo evaluates locations for a representative business profile. Your Best Fits will depend on your own business, team, access needs, and priorities.</p>
+    </header>
+
+    <section class="sample-brief-profile" aria-labelledby="sample-profile-heading">
+      <div><div class="eyebrow">Example business</div><h2 id="sample-profile-heading">The search behind this Brief</h2><p>{{ sample.profile }}</p></div>
+      <dl><div><dt>Market</dt><dd>San Francisco</dd></div><div><dt>Space</dt><dd>{{ sample.spaceType }}</dd></div></dl>
+    </section>
+
+    <section class="sample-brief-results" aria-labelledby="sample-results-heading">
+      <div class="eyebrow">Best-Fit locations</div>
+      <h2 id="sample-results-heading">Locations worth investigating</h2>
+      <p>These locations are peers to investigate, not a numbered ranking. Each solves a different part of the example search.</p>
+      <div class="sample-location-grid">
+      {% for location in sample.locations %}
+        <article class="sample-location-card">
+          <h3><a href="{{ location.path }}">{{ location.name }}</a></h3>
+          <p>{{ location.reason }}</p>
+          {% if location.strengths.length %}<h4>Why consider it</h4><ul>{% for strength in location.strengths %}<li>{{ strength }}</li>{% endfor %}</ul>{% endif %}
+          {% if location.tradeoffs.length %}<h4>Things to weigh</h4><ul>{% for tradeoff in location.tradeoffs %}<li>{{ tradeoff }}</li>{% endfor %}</ul>{% endif %}
+          {% if location.representativeContent.length %}
+            <div class="sample-representative-content"><h4>What space here can feel like</h4>
+            {% for example in location.representativeContent %}<div><strong>{{ example.name }}</strong>{% if example.descriptor %}<p>{{ example.descriptor }}</p>{% endif %}</div>{% endfor %}
+            </div>
+          {% endif %}
+          <a class="sample-location-link" href="{{ location.path }}">Explore {{ location.name }} <span aria-hidden="true">→</span></a>
+        </article>
+      {% endfor %}
+      </div>
+      <p class="sample-brief-disclaimer">Representative examples illustrate each location's commercial character and may not be currently available. This Brief evaluates location fit, not live availability, rents, permitted use, or leasing terms.</p>
+    </section>
+
+    <section class="sample-brief-next">
+      <div><div class="eyebrow">Your business will be different</div><h2>See which San Francisco locations fit your business.</h2><p>Answer a few questions about your business, team, access needs, and priorities to create a fresh search of your own.</p></div>
+      <a class="btn btn-primary" href="{{ sample.cta }}">See My Best-Fit Locations</a>
+    </section>
+  </div>
+</main>

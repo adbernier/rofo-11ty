@@ -35,6 +35,11 @@ eleventyExcludeFromCollections: true
   <url>
     <loc>{{ siteUrl }}/example-location-brief/</loc>
   </url>
+  {% for sample in sfPublicSampleBriefs.briefs %}
+  <url>
+    <loc>{{ siteUrl }}{{ sample.url }}</loc>
+  </url>
+  {% endfor %}
 
   <url>
     <loc>{{ siteUrl }}/how-rofo-works/</loc>

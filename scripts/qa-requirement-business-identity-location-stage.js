@@ -161,7 +161,7 @@ const criterion = (dimension, text, list = [], status = "PREFERRED") => ({
     "lib/recommendations/sf-office-recommendation-resolver.js": "6f0f4e968915a78beeba5d473bf315723ea073beff8208ac9e7925ea235b4dde",
     "lib/recommendations/normalize-sf-office-profile.js": "6116531e6296d573f3a2dd728cf677b9f9a54ac9fd64753ef3a6609549cc3f95",
     "_data/neighborhoodPages.js": "0a59edc687ef493de12f88437f2b576592c71ccefba1b87d9af8cf066d893d11",
-    "pages/sitemap.njk": "1fdc4e164ac4fa478afc850f6a577bec9c7ca696f45023b0e7ec5333153964d4",
+    "pages/sitemap.njk": "a197454c7a61c8139be5fab2fc66b84cd658b85240992e28bc2467541ab863f8",
   };
   Object.entries(unchangedHashes).forEach(([file, expected]) => assert.equal(crypto.createHash("sha256").update(fs.readFileSync(file)).digest("hex"), expected));
 

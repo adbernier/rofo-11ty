@@ -1,0 +1,16 @@
+{% set matchingSamples = [] %}
+{% for sample in sfPublicSampleBriefs.briefs %}
+  {% for location in sample.locations %}
+    {% if location.districtId == neighborhood.slug %}{% set matchingSamples = (matchingSamples.push(sample), matchingSamples) %}{% endif %}
+  {% endfor %}
+{% endfor %}
+{% if matchingSamples.length %}
+<section class="city-card neighborhood-sample-briefs" aria-labelledby="neighborhood-sample-briefs-heading">
+  <div class="eyebrow">Example business decisions</div>
+  <h2 id="neighborhood-sample-briefs-heading">See why Rofo surfaced {{ neighborhood.name }}</h2>
+  <p>These certified examples show how this location can fit different business needs. They are examples, not universal answers.</p>
+  <div class="neighborhood-sample-grid">
+  {% for sample in matchingSamples %}<a href="{{ sample.url }}"><strong>{{ sample.title }}</strong><span>{{ sample.description }}</span><em>View example brief →</em></a>{% endfor %}
+  </div>
+</section>
+{% endif %}

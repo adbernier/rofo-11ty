@@ -1,279 +1,36 @@
 ---
 layout: base.njk
 permalink: /example-location-brief/
-title: Example Location Brief | Rofo
-description: Preview the kind of commercial location analysis Rofo can produce, including recommended areas, tradeoffs, representative buildings, and next steps.
+title: Example Location Briefs for San Francisco Businesses | Rofo
+description: See how different San Francisco business needs lead to different locations worth investigating, reasons, and tradeoffs.
 eleventyComputed:
   canonical: "{{ metadata.siteUrl }}/example-location-brief/"
 ---
 
-<section class="example-brief-page">
-  <div class="example-brief-shell">
-    <div class="breadcrumbs">
-      <a href="/">Rofo</a>
-      <span aria-hidden="true">/</span>
-      <span>Example Location Brief</span>
-    </div>
-
-    <header class="example-brief-hero">
-      <div>
-        <div class="eyebrow">Example Location Brief</div>
-        <h1>Example Location Brief</h1>
-        <p class="lead">
-          This is an example of the Location Brief Rofo creates to help businesses evaluate commercial locations.
-        </p>
-        <p class="example-brief-fiction-note">
-          Pacific Analytics is a fictional company used only to demonstrate the product experience.
-        </p>
-        <div class="example-brief-actions">
-          <a class="btn btn-primary" href="/find-locations/" data-example-brief-cta>See My Best-Fit Locations</a>
-          <a class="btn btn-secondary" href="/how-rofo-works/">How Rofo Works</a>
-        </div>
-      </div>
-
-      <aside class="example-brief-meta" aria-label="Example brief metadata">
-        <dl>
-          <div>
-            <dt>Prepared for</dt>
-            <dd>Pacific Analytics</dd>
-          </div>
-          <div>
-            <dt>Business type</dt>
-            <dd>Growing software company</dd>
-          </div>
-          <div>
-            <dt>Status</dt>
-            <dd>Sample</dd>
-          </div>
-          <div>
-            <dt>Created by</dt>
-            <dd>Rofo Commercial Location Intelligence</dd>
-          </div>
-        </dl>
-      </aside>
+<main class="sample-brief-hub">
+  <div class="sample-brief-shell">
+    <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Rofo</a><span aria-hidden="true">/</span><span>Example Location Briefs</span></nav>
+    <header class="sample-brief-hero">
+      <div class="eyebrow">San Francisco location intelligence</div>
+      <h1>Example Location Briefs</h1>
+      <p class="lead">See how different business needs lead Rofo to different locations worth investigating—and the tradeoffs worth understanding.</p>
+      <p>Each example starts with a defined business profile and runs through Rofo's certified San Francisco recommendation logic. Your results will depend on your own business, team, access needs, and priorities.</p>
+      <a class="btn btn-primary" href="/location-requirement/?journey=new&amp;city=San%20Francisco&amp;state=CA&amp;marketId=san-francisco&amp;source=example&amp;sourcePath=%2Fexample-location-brief%2F">See My Best-Fit Locations</a>
     </header>
 
-    <main class="example-brief-document" aria-label="Example Location Brief document">
-      <section class="example-brief-section">
-        <div class="example-brief-section__header">
-          <div class="kicker">A. Business Profile</div>
-          <h2>Business Profile</h2>
-        </div>
-        <dl class="example-brief-details">
-          <div>
-            <dt>Location</dt>
-            <dd>San Francisco</dd>
-          </div>
-          <div>
-            <dt>Space Type</dt>
-            <dd>Office</dd>
-          </div>
-          <div>
-            <dt>Size</dt>
-            <dd>5,000-7,500 SF</dd>
-          </div>
-          <div>
-            <dt>Timeline</dt>
-            <dd>Exploring options</dd>
-          </div>
-          <div>
-            <dt>Business</dt>
-            <dd>Growing software company</dd>
-          </div>
-        </dl>
-        <p class="example-brief-summary">
-          Pacific Analytics has 42 employees and expects to grow to 65-75 employees over the next 24 months. The team values employee transit, talent access, growth flexibility, professional image, and operating efficiency. Clients visit occasionally, so the search should balance recruiting appeal with a credible business environment.
-        </p>
-      </section>
-
-      <section class="example-brief-section">
-        <div class="example-brief-section__header">
-          <div class="kicker">B. Recommended Market Path</div>
-          <h2>Recommended starting point</h2>
-          <p class="example-brief-callout">This section shows where Rofo would begin the search - not every possible option.</p>
-        </div>
-        <div class="example-brief-market-path">
-          <article>
-            <span>Recommended Starting Point</span>
-            <h3>Mission Bay</h3>
-            <p>Modern office inventory, strong transit access, technology/life science ecosystem, and room for growth.</p>
-          </article>
-          <article>
-            <span>Also Worth Comparing</span>
-            <h3>SoMa</h3>
-            <p>Broader office inventory, creative environments, and access to downtown amenities.</p>
-          </article>
-          <article>
-            <span>Also Worth Comparing</span>
-            <h3>South Financial District</h3>
-            <p>More traditional office environment, strong regional transit, and established business infrastructure.</p>
-          </article>
+    {% for group in ["Office", "Retail", "Industrial", "Flex"] %}
+      <section class="sample-brief-group" aria-labelledby="sample-group-{{ group | lower }}">
+        <div class="eyebrow">{{ group }}</div>
+        <h2 id="sample-group-{{ group | lower }}">{{ group }} business decisions</h2>
+        <div class="sample-brief-grid">
+          {% for sample in sfPublicSampleBriefs.briefs %}{% if sample.group == group %}
+            <a class="sample-brief-card" href="{{ sample.url }}">
+              <h3>{{ sample.title }}</h3><p>{{ sample.description }}</p>
+              <span>View example brief <span aria-hidden="true">→</span></span>
+            </a>
+          {% endif %}{% endfor %}
         </div>
       </section>
-
-      <section class="example-brief-section example-brief-section--split">
-        <div>
-          <div class="kicker">C. Why these markets?</div>
-          <h2>Market reasoning</h2>
-          <p>
-            Rofo would begin with these markets because Pacific Analytics needs a San Francisco office environment that supports growth, transit access, and talent attraction without narrowing too quickly to a single district.
-          </p>
-        </div>
-        <ul class="example-brief-check-list">
-          <li>Modern and flexible office inventory</li>
-          <li>Regional transit access</li>
-          <li>Talent and hiring appeal</li>
-          <li>Professional image</li>
-          <li>Ability to compare cost and growth tradeoffs</li>
-        </ul>
-      </section>
-
-      <section class="example-brief-section">
-        <div class="example-brief-section__header">
-          <div class="kicker">D. Business Priorities</div>
-          <h2>What matters most</h2>
-          <p class="example-brief-callout">These priorities help Rofo refine recommendations as the brief develops.</p>
-        </div>
-        <div class="example-brief-chip-list">
-          <span>Employee transit</span>
-          <span>Growth flexibility</span>
-          <span>Talent access</span>
-          <span>Professional image</span>
-          <span>Cost awareness</span>
-          <span>Occasional client visits</span>
-        </div>
-      </section>
-
-      <section class="example-brief-section">
-        <div class="example-brief-section__header">
-          <div class="kicker">E. Tradeoffs</div>
-          <h2>What to pressure-test</h2>
-          <p class="example-brief-callout">Good recommendations explain tradeoffs, not just benefits.</p>
-        </div>
-        <div class="example-brief-tradeoff-grid">
-          <article>
-            <h3>Mission Bay</h3>
-            <ul>
-              <li>Strong modern inventory and growth environment</li>
-              <li>Needs building-level review to balance image, growth capacity, and operating constraints</li>
-              <li>Less traditional CBD feel</li>
-            </ul>
-          </article>
-          <article>
-            <h3>SoMa</h3>
-            <ul>
-              <li>Broad inventory and creative office options</li>
-              <li>Quality can vary significantly block by block</li>
-              <li>Needs careful building-level evaluation</li>
-            </ul>
-          </article>
-          <article>
-            <h3>South Financial District</h3>
-            <ul>
-              <li>Excellent transit and professional image</li>
-              <li>More traditional office environment</li>
-              <li>May feel less distinctive for recruiting than Mission Bay or SoMa</li>
-            </ul>
-          </article>
-        </div>
-      </section>
-
-      <section class="example-brief-section">
-        <div class="example-brief-section__header">
-          <div class="kicker">F. Questions to Validate Next</div>
-          <h2>Open questions</h2>
-        </div>
-        <ul class="example-brief-question-list">
-          <li>How often do clients visit?</li>
-          <li>How important is employee transit compared with parking?</li>
-          <li>How quickly will headcount grow?</li>
-          <li>Is operating efficiency more important than image?</li>
-          <li>Does the team prefer newer buildings or character space?</li>
-        </ul>
-      </section>
-
-      <section class="example-brief-section">
-        <div class="example-brief-section__header">
-          <div class="kicker">G. Representative Buildings</div>
-          <h2>Buildings that frame the search</h2>
-          <p class="example-brief-callout">Representative buildings help translate market strategy into real-world environments.</p>
-          <p>Representative buildings help illustrate the type of environment Rofo would evaluate. These examples are not confirmed active listings.</p>
-        </div>
-        <div class="example-brief-building-grid">
-          <article>
-            <span>Mission Bay</span>
-            <h3>Modern Mission Bay office building</h3>
-            <p>Used to evaluate newer office environments, growth capacity, and access to the district's technology and life science context.</p>
-          </article>
-          <article>
-            <span>SoMa</span>
-            <h3>Creative SoMa office building</h3>
-            <p>Used to test whether character office space and central access create a better fit than newer Mission Bay inventory.</p>
-          </article>
-          <article>
-            <span>South Financial District</span>
-            <h3>Transit-oriented Financial District office building</h3>
-            <p>Used to benchmark regional transit access, professional image, and traditional office-core functionality.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="example-brief-section example-brief-section--cta">
-        <div>
-          <div class="kicker">H. Expert Review</div>
-          <h2>Move from market path to specific spaces.</h2>
-          <p>
-            A Rofo market expert or partner broker can review the Location Brief, validate assumptions, and help move from market path to specific spaces.
-          </p>
-          <p class="example-brief-callout">Start your own Location Brief by getting recommendations.</p>
-        </div>
-        <a class="btn btn-primary" href="/find-locations/" data-example-brief-cta>See My Best-Fit Locations</a>
-      </section>
-    </main>
+    {% endfor %}
   </div>
-</section>
-
-<script>
-  (() => {
-    const endpoint = "/api/analytics/search-profile";
-    function track(eventName) {
-      const payload = {
-        event_name: eventName,
-        profile_version: "example_location_brief_v1",
-        context: {
-          page_type: "example_location_brief",
-          page_url: window.location.href,
-          location_display: "Example Location Brief",
-          device_type: window.matchMedia && window.matchMedia("(max-width: 767px)").matches ? "mobile" : "desktop",
-        },
-        profile: {
-          profile_version: "example_location_brief_v1",
-        },
-        attribution: {
-          referrer: document.referrer || "",
-          landing_page: window.location.href,
-          entry_page_type: "example_location_brief",
-        },
-      };
-      try {
-        const body = JSON.stringify(payload);
-        if (navigator.sendBeacon) {
-          const blob = new Blob([body], { type: "application/json" });
-          if (navigator.sendBeacon(endpoint, blob)) return;
-        }
-        fetch(endpoint, {
-          method: "POST",
-          headers: { "content-type": "application/json" },
-          body,
-          credentials: "same-origin",
-          keepalive: true,
-        }).catch(() => {});
-      } catch (error) {}
-    }
-
-    track("example_location_brief_viewed");
-    document.querySelectorAll("[data-example-brief-cta]").forEach((link) => {
-      link.addEventListener("click", () => track("example_location_brief_cta_clicked"), { once: true });
-    });
-  })();
-</script>
+</main>
