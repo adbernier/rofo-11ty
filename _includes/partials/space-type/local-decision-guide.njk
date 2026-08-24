@@ -4,23 +4,69 @@
     <h2 id="space-type-local-decision-heading">{{ entry.localDecisionGuide.title }}</h2>
     <p>{{ entry.localDecisionGuide.introduction }}</p>
 
-    <div class="neighborhood-comparison-grid">
-      {% for option in entry.localDecisionGuide.entries %}
-        {% if option.path %}
-          <a class="neighborhood-comparison-card neighborhood-link-card" href="{{ option.path }}">
-            <div class="eyebrow">{{ option.label }}</div>
-            <h3>{{ option.name }}</h3>
-            <p>{{ option.summary }}</p>
-          </a>
-        {% else %}
-          <article class="neighborhood-comparison-card">
-            <div class="eyebrow">{{ option.label }}</div>
-            <h3>{{ option.name }}</h3>
-            <p>{{ option.summary }}</p>
-          </article>
-        {% endif %}
-      {% endfor %}
-    </div>
+    {% if entry.localDecisionGuide.groups and entry.localDecisionGuide.groups.length %}
+      <div class="space-type-decision-groups">
+        {% for group in entry.localDecisionGuide.groups %}
+          <details class="neighborhood-decision-guidance space-type-decision-group"{% if loop.first %} open{% endif %}>
+            <summary>
+              <strong>{{ group.title }}</strong>
+              <span>{{ group.introduction }}</span>
+            </summary>
+            <div class="neighborhood-comparison-grid">
+              {% for option in group.entries %}
+                <a class="neighborhood-comparison-card neighborhood-link-card" href="{{ option.path }}">
+                  <h3>{{ option.name }}</h3>
+                  <p>{{ option.summary }}</p>
+                </a>
+              {% endfor %}
+            </div>
+          </details>
+        {% endfor %}
+      </div>
+    {% else %}
+      <div class="neighborhood-comparison-grid">
+        {% for option in entry.localDecisionGuide.entries %}
+          {% if option.path %}
+            <a class="neighborhood-comparison-card neighborhood-link-card" href="{{ option.path }}">
+              <div class="eyebrow">{{ option.label }}</div>
+              <h3>{{ option.name }}</h3>
+              <p>{{ option.summary }}</p>
+            </a>
+          {% else %}
+            <article class="neighborhood-comparison-card">
+              <div class="eyebrow">{{ option.label }}</div>
+              <h3>{{ option.name }}</h3>
+              <p>{{ option.summary }}</p>
+            </article>
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    {% if entry.localDecisionGuide.parentContexts and entry.localDecisionGuide.parentContexts.length %}
+      <div class="neighborhood-decision-guidance">
+        <h3>How the broader neighborhoods relate</h3>
+        <div class="neighborhood-comparison-grid">
+          {% for context in entry.localDecisionGuide.parentContexts %}
+            <a class="neighborhood-comparison-card neighborhood-link-card" href="{{ context.path }}">
+              <h4>{{ context.name }}</h4>
+              <p>{{ context.explanation }}</p>
+            </a>
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+
+    {% if entry.localDecisionGuide.contexts and entry.localDecisionGuide.contexts.length %}
+      <div class="neighborhood-decision-guidance space-type-decision-contexts">
+        <h3>Important context—not ordinary ranked choices</h3>
+        <ul>
+          {% for context in entry.localDecisionGuide.contexts %}
+            <li><strong>{% if context.path %}<a href="{{ context.path }}">{{ context.name }}</a>{% else %}{{ context.name }}{% endif %}:</strong> {{ context.explanation }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
 
     {% if entry.localDecisionGuide.representativeEnvironment %}
       <div class="neighborhood-decision-guidance">

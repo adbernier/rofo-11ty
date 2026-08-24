@@ -2,7 +2,7 @@ const cities = require("./cities.generated.json");
 const spaceTypes = require("./spaceTypes");
 const buildings = require("./buildings.js");
 const { getRoutingCandidates } = require("./leadRouting.js");
-const sfIndustrialFlexPublicDecision = require("./sfIndustrialFlexPublicDecision.js");
+const sfPublicDiscovery = require("./sfPublicDiscovery.js");
 const tempeIndustrialPublicDecision = require("./tempeIndustrialPublicDecision.js");
 
 function slugify(value) {
@@ -189,10 +189,14 @@ module.exports = cities.flatMap((city) => {
         hasInventory: representativeBuildings.length > 0,
         localDecisionGuide:
           normalizedCitySlug === "san-francisco" && normalizedStateAbbr === "ca"
-            ? normalizedTypeSlug === "industrial-space"
-              ? sfIndustrialFlexPublicDecision.industrial
+            ? normalizedTypeSlug === "office-space"
+              ? sfPublicDiscovery.guides.office
+              : normalizedTypeSlug === "retail-space"
+              ? sfPublicDiscovery.guides.retail
+              : normalizedTypeSlug === "industrial-space"
+              ? sfPublicDiscovery.guides.industrial
               : normalizedTypeSlug === "flex-space"
-              ? sfIndustrialFlexPublicDecision.flex
+              ? sfPublicDiscovery.guides.flex
               : null
             : normalizedCitySlug === "tempe" &&
               normalizedStateAbbr === "az" &&

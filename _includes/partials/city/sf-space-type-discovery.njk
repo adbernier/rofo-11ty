@@ -1,0 +1,22 @@
+{% set discovery = sfPublicDiscovery.city %}
+<div class="city-card sf-space-type-discovery" data-sf-space-type-discovery>
+  <div class="eyebrow">{{ discovery.eyebrow }}</div>
+  <h2>{{ discovery.title }}</h2>
+  <p>{{ discovery.introduction }}</p>
+
+  <div class="sf-space-type-discovery__grid">
+    {% for decisionPath in discovery.paths %}
+      <article class="sf-space-type-discovery__card">
+        <h3><a href="{{ decisionPath.path }}">{{ decisionPath.name }}</a></h3>
+        <p>{{ decisionPath.summary }}</p>
+        <ul aria-label="Example {{ decisionPath.name }} locations">
+          {% for location in decisionPath.locations %}
+            <li><a href="{{ location.path }}">{{ location.name }}</a><span>{{ location.summary }}</span></li>
+          {% endfor %}
+        </ul>
+        <a class="building-link" href="{{ decisionPath.path }}">Explore {{ decisionPath.name }} locations →</a>
+      </article>
+    {% endfor %}
+  </div>
+  <p class="semantic-footnote">These examples illustrate different location decisions. They are not a ranking or a complete shortlist.</p>
+</div>

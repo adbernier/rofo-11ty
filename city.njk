@@ -289,11 +289,15 @@ eleventyComputed:
               <div class="city-decision-flow city-decision-flow--commercial-areas">
           {% endif %}
 
+          {% if isSanFranciscoDecisionJourney %}
+            {% include "partials/city/sf-space-type-discovery.njk" %}
+          {% endif %}
+
           {% if hasAreaChapter %}
             {% include "partials/shared/editorial-district-map.njk" %}
           {% endif %}
 
-          {% if cityNeighborhoods.length and not editorialDistrictMap %}
+          {% if cityNeighborhoods.length and not editorialDistrictMap and not isSanFranciscoDecisionJourney %}
             <div class="city-card city-neighborhoods-card">
               <div class="eyebrow">Commercial areas</div>
               <h2>Compare {{ city.city }} districts and commercial areas</h2>
