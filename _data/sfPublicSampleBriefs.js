@@ -8,6 +8,7 @@ const sfIndustrialFlexFoundation = require("./sfIndustrialFlexCompositionFoundat
 const districtGeography = require("./requirementPrototypeDistrictGeography");
 const representativeContent = require("./sfRepresentativeContent");
 const publicSurfaces = require("./sfPublicDecisionSurfaces");
+const { projectUniversalIntelligence } = require("../lib/intelligence/universal-space-type-intelligence");
 
 const dependencies = { accessFoundation, compositionFoundation, sfOfficeModel, sfRetailFoundation, sfIndustrialFlexFoundation, districtGeography };
 const BASE = "/commercial-real-estate/CA/san-francisco/";
@@ -34,6 +35,7 @@ function titleFor(id, fallback) { return surfaceById.get(id)?.name || fallback |
 function pathFor(id) { return surfaceById.get(id)?.path || `${BASE}${id}/`; }
 function project(fixture) {
   const result = readiness.evaluateRecommendationReadiness(fixture.requirement, dependencies);
+  const universal = projectUniversalIntelligence(fixture.requirement);
   const ids = result.shortlist.map((item) => item.districtId);
   if (!["FULL", "BOUNDED"].includes(result.readiness) || ids.join("|") !== fixture.expected.join("|")) throw new Error(`Public sample ${fixture.id} requires review: ${result.readiness} ${ids.join(",")}`);
   if (fixture.expectedModel && result.candidateComposition?.resolvedModel !== fixture.expectedModel) throw new Error(`Public sample ${fixture.id} applicability drifted.`);
@@ -49,7 +51,7 @@ function project(fixture) {
   }));
   const signature = crypto.createHash("sha256").update(JSON.stringify({ requirement: fixture.requirement, readiness: result.readiness, model: result.candidateComposition?.resolvedModel || fixture.requirement.propertyTypes[0], ids })).digest("hex");
   const spaceType = fixture.group === "Industrial" || fixture.group === "Flex" ? "Industrial / warehouse / flex" : fixture.group === "Retail" ? "Retail / service" : "Office";
-  return Object.freeze({ ...fixture, requirement: Object.freeze(fixture.requirement), readiness: result.readiness, resolvedApplicability: result.candidateComposition?.resolvedModel || fixture.group.toLowerCase(), locations: Object.freeze(locations), signature, url: `/example-location-brief/${fixture.id}/`, spaceType, cta: `/location-requirement/?journey=new&city=San%20Francisco&state=CA&marketId=san-francisco&spaceType=${encodeURIComponent(spaceType)}&source=example&sourcePath=${encodeURIComponent(`/example-location-brief/${fixture.id}/`)}` });
+  return Object.freeze({ ...fixture, requirement: Object.freeze(fixture.requirement), readiness: result.readiness, resolvedApplicability: result.candidateComposition?.resolvedModel || fixture.group.toLowerCase(), universal: Object.freeze(universal), locations: Object.freeze(locations), signature, url: `/example-location-brief/${fixture.id}/`, spaceType, cta: `/location-requirement/?journey=new&city=San%20Francisco&state=CA&marketId=san-francisco&spaceType=${encodeURIComponent(spaceType)}&source=example&sourcePath=${encodeURIComponent(`/example-location-brief/${fixture.id}/`)}` });
 }
 
 const briefs = Object.freeze(fixtures.map(project));

@@ -44,7 +44,7 @@
 .sample-brief-notice { padding: 14px 16px; border: 1px solid #cbd9ea; border-radius: 10px; background: #fff; color: #42566f; }
 .sample-brief-group { margin: 32px 0 48px; }
 .sample-brief-grid, .sample-location-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
-.sample-brief-card, .sample-location-card, .sample-brief-profile, .sample-brief-next { border: 1px solid #cfdaea; border-radius: 14px; background: #fff; box-shadow: 0 6px 20px rgba(30, 58, 95, .06); }
+.sample-brief-card, .sample-location-card, .sample-brief-profile, .sample-brief-matters, .sample-brief-investigation, .sample-brief-next { border: 1px solid #cfdaea; border-radius: 14px; background: #fff; box-shadow: 0 6px 20px rgba(30, 58, 95, .06); }
 .sample-brief-card { display: flex; flex-direction: column; padding: 22px; color: inherit; text-decoration: none; }
 .sample-brief-card p { flex: 1; }
 .sample-brief-card > span, .sample-location-link { color: #175fc7; font-weight: 700; }
@@ -53,6 +53,13 @@
 .sample-brief-profile dl div { padding: 8px 0; border-bottom: 1px solid #e2e9f2; }
 .sample-brief-profile dt { color: #5a6c82; font-size: .82rem; font-weight: 700; text-transform: uppercase; }
 .sample-brief-profile dd { margin: 3px 0 0; font-weight: 700; }
+.sample-brief-matters, .sample-brief-investigation { padding: 26px; margin-bottom: 48px; }
+.sample-matter-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.sample-matter-grid article { padding: 16px; border-radius: 10px; background: #f5f8fc; }
+.sample-matter-grid h3 { margin: 0 0 5px; font-size: 1rem; }
+.sample-matter-grid p { margin: 0; color: #52667d; font-size: .92rem; }
+.sample-brief-investigation ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; padding: 0; list-style: none; }
+.sample-brief-investigation li { padding: 12px 14px; border-radius: 9px; background: #edf4ff; }
 .sample-brief-results { padding-bottom: 48px; }
 .sample-location-card { padding: 22px; }
 .sample-location-card h4 { margin: 20px 0 7px; font-size: .82rem; letter-spacing: .04em; text-transform: uppercase; }
@@ -70,7 +77,7 @@
   .sample-brief-shell { width: min(100% - 24px, 1120px); }
   .sample-brief-hub, .sample-brief-page { padding-top: 18px; }
   .sample-brief-hero { padding: 28px 0; }
-  .sample-brief-grid, .sample-location-grid, .sample-brief-profile, .neighborhood-sample-grid { grid-template-columns: 1fr; }
+  .sample-brief-grid, .sample-location-grid, .sample-brief-profile, .sample-matter-grid, .sample-brief-investigation ul, .neighborhood-sample-grid { grid-template-columns: 1fr; }
   .sample-brief-next { align-items: stretch; flex-direction: column; }
   .sample-brief-next .btn { width: 100%; text-align: center; }
 }

@@ -27,6 +27,16 @@ eleventyComputed:
       <dl><div><dt>Market</dt><dd>San Francisco</dd></div><div><dt>Space</dt><dd>{{ sample.spaceType }}</dd></div></dl>
     </section>
 
+    <section class="sample-brief-matters" aria-labelledby="sample-matters-heading">
+      <div class="eyebrow">Your requirement</div>
+      <h2 id="sample-matters-heading">What matters for this search</h2>
+      <div class="sample-matter-grid">
+      {% for item in sample.universal.whatMatters %}
+        <article><h3>{{ item.label }}</h3><p>{{ item.whyItMatters }}</p></article>
+      {% endfor %}
+      </div>
+    </section>
+
     <section class="sample-brief-results" aria-labelledby="sample-results-heading">
       <div class="eyebrow">Best-Fit locations</div>
       <h2 id="sample-results-heading">Locations worth investigating</h2>
@@ -48,6 +58,13 @@ eleventyComputed:
       {% endfor %}
       </div>
       <p class="sample-brief-disclaimer">Representative examples illustrate each location's commercial character and may not be currently available. This Brief evaluates location fit, not live availability, rents, permitted use, or leasing terms.</p>
+    </section>
+
+    <section class="sample-brief-investigation" aria-labelledby="sample-investigation-heading">
+      <div class="eyebrow">Next questions</div>
+      <h2 id="sample-investigation-heading">What we'll investigate next</h2>
+      <p>These locations fit the example requirement based on reviewed location intelligence. Individual buildings, current availability, economics, and use compatibility still need property-level investigation.</p>
+      <ul>{% for topic in sample.universal.investigationTopics %}<li>{{ topic }}</li>{% endfor %}</ul>
     </section>
 
     <section class="sample-brief-next">

@@ -6,6 +6,9 @@ import sfRetailFoundation from "../../../_data/sfRetailCompositionFoundation.js"
 import sfIndustrialFlexFoundation from "../../../_data/sfIndustrialFlexCompositionFoundation.js";
 import districtGeography from "../../../_data/requirementPrototypeDistrictGeography.js";
 import districtPresentations from "../../../data/generated/location-brief-district-presentation.json";
+import universalIntelligence from "../../../lib/intelligence/universal-space-type-intelligence.js";
+
+const { projectUniversalIntelligence } = universalIntelligence;
 
 export const V2_SCHEMA_VERSION = "location-brief:v2";
 export const ENTRY_CONTEXT_VERSION = "entry-context:v1";
@@ -326,6 +329,7 @@ export async function ownsBrief(request, brief) {
 export function commercialContextForBundle(bundle) {
   const requirement = bundle?.currentRevision?.requirement || {};
   const snapshot = bundle?.currentSnapshot || {};
+  const universalProjection = projectUniversalIntelligence(requirement);
   const criterion = (dimension) => criterionText(requirement, dimension);
   return {
     briefPublicId: bundle?.brief?.publicId || "",
@@ -348,6 +352,14 @@ export function commercialContextForBundle(bundle) {
     requirementRevisionNumber: bundle?.currentRevision?.revisionNumber || 0,
     recommendationSnapshotId: snapshot.id || "",
     recommendationSnapshotVersion: snapshot.schemaVersion || "",
+    universalIntelligence: {
+      schemaVersion: universalProjection.schemaVersion,
+      foundations: universalProjection.foundations.map((item) => item.id),
+      importantDimensions: universalProjection.whatMatters.map((item) => item.label),
+      investigationTopics: universalProjection.investigationTopics,
+      missingRequirementSignals: universalProjection.missingRequirementSignals,
+      locationIntelligenceBoundary: universalProjection.locationIntelligenceBoundary.code,
+    },
     materialIntelligenceGaps: (snapshot.intelligenceGaps || []).filter((gap) => ["CORE", "MATERIAL"].includes(gap.materiality) || gap.blockingStatus === "BLOCKED").slice(0, 12).map((gap) => ({ districtId: gap.districtId, dimension: gap.intelligenceDimension, materiality: gap.materiality, blockingStatus: gap.blockingStatus, reason: gap.reason })),
   };
 }
