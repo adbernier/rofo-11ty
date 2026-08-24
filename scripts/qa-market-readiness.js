@@ -22,7 +22,10 @@ assert.equal(property("san-francisco", "retail").recommendation, "Ready");
 assert.equal(property("san-francisco", "retail").workloads.spaceTypeFit.status, "Ready");
 assert.equal(property("san-francisco", "retail").workloads.calibration.status, "Ready");
 assert.equal(property("san-francisco", "retail").workloads.certificationRelease.status, "Ready");
-assert.equal(property("san-francisco", "industrial").recommendation, "Building");
+assert.equal(property("san-francisco", "industrial").recommendation, "Ready");
+assert.equal(property("san-francisco", "industrial").workloads.certificationRelease.status, "Ready");
+assert.equal(property("san-francisco", "industrial").submodels.industrial.status, "Ready");
+assert.equal(property("san-francisco", "industrial").submodels.flex.status, "Ready");
 
 for (const id of ["sacramento", "san-diego", "orange-county", "denver", "seattle"]) {
   assert.notEqual(property(id, "office").recommendation, "Ready", `${id} legacy Compass QA must not imply current vNext readiness.`);

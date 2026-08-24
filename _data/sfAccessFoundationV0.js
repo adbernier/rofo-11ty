@@ -406,6 +406,25 @@ for (const district of districtProfiles) {
   }
 }
 
+// Reviewed southeast Industrial/Flex access profiles. These reuse the same
+// regional gateway graph as adjacent Dogpatch, with bounded district-specific
+// ratings from the canonical industrial geography and attributes. They do not
+// assert travel times, live traffic, or property-level loading/parking.
+function southeastIndustrialProfile(districtId, districtName, parkingEnvironment, adjustments, importantUnknowns) {
+  const base = districtProfiles.find((item) => item.districtId === "dogpatch");
+  const change = (rating, delta = 0) => {
+    const scale = ["WEAK", "MODERATE", "GOOD", "STRONG"];
+    const index = scale.indexOf(rating); return index < 0 ? rating : scale[Math.max(0, Math.min(scale.length - 1, index + delta))];
+  };
+  const gatewayRelationships = base.gatewayRelationships.map((item) => ({ ...item, rating: change(item.rating, adjustments[item.gatewayId] || 0), confidence: "MEDIUM", evidenceIds: [...new Set([...(item.evidenceIds || []), "sf-access-evidence:kg-bounded-attributes", "sf-access-evidence:peninsula-freeways-reviewed"])], limitations: ["Reviewed structural southeast relationship only; exact routing, congestion, and travel time remain outside the foundation."] }));
+  const originAccess = base.originAccess.map((origin) => ({ ...origin, paths: origin.paths.map((path) => ({ ...path, rating: change(path.rating, adjustments[path.gatewayId] || 0), evidenceIds: [...new Set([...(path.evidenceIds || []), "sf-access-evidence:kg-bounded-attributes"]) ] })), overallRating: origin.paths.length ? origin.paths.map((path) => change(path.rating, adjustments[path.gatewayId] || 0)).sort((a, b) => ({ STRONG: 3, GOOD: 2, MODERATE: 1, WEAK: 0 }[b] - { STRONG: 3, GOOD: 2, MODERATE: 1, WEAK: 0 }[a]))[0] : "UNKNOWN" }));
+  return { ...base, profileId: `sf-access-profile:${districtId}`, districtId, districtName, canonicalGeographyRef: `district:${districtId}`, propertyTypeFit: "strong", recommendationEligible: false, productionRecommendationEligible: false, startingDistrict: false, accessActivationEligible: false, accessKnowledgeOwnerDistrictId: districtId, parkingEnvironment, gatewayRelationships, originAccess, completeness: complete({ districtGeometry: "PARTIAL", originAccess: "SUFFICIENT", transit: "SUFFICIENT", driving: "SUFFICIENT", parking: "SUFFICIENT", ferry: "MISSING" }), confidence: "MEDIUM", evidenceIds: ["sf-access-evidence:kg-bounded-attributes", "sf-access-evidence:peninsula-freeways-reviewed", "sf-access-evidence:parking-environment"], importantUnknowns, limitations: ["Structural Industrial/Flex district access only; no exact travel time, live traffic, truck-route clearance, or building parking."] };
+}
+districtProfiles.push(
+  southeastIndustrialProfile("central-waterfront", "Central Waterfront", "MODERATE", { "sf-gateway:caltrain": -1 }, ["Block-level PDR access", "Truck route and building loading", "Property parking"]),
+  southeastIndustrialProfile("bayview-industrial", "Bayview Industrial", "GOOD", { "sf-gateway:caltrain": -2, "sf-gateway:local-transit": -1, "sf-gateway:us-101": 1, "sf-gateway:i-280": 1, "sf-gateway:central-street-network": 1 }, ["Internal subarea variation", "Truck route and yard suitability", "Property parking and environmental condition"]),
+);
+
 module.exports = {
   schemaVersion: "sf-access-foundation-v0",
   foundationId: "access-foundation:san-francisco:v0",

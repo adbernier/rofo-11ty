@@ -3,6 +3,7 @@ import accessFoundation from "../../../_data/sfAccessFoundationV0.js";
 import compositionFoundation from "../../../_data/sfOfficeCompositionFoundation.js";
 import sfOfficeModel from "../../../_data/sfOfficeRecommendationModel.js";
 import sfRetailFoundation from "../../../_data/sfRetailCompositionFoundation.js";
+import sfIndustrialFlexFoundation from "../../../_data/sfIndustrialFlexCompositionFoundation.js";
 import districtGeography from "../../../_data/requirementPrototypeDistrictGeography.js";
 import districtPresentations from "../../../data/generated/location-brief-district-presentation.json";
 
@@ -15,9 +16,10 @@ export const OWNER_COOKIE = "rofo_lb_v2_owner";
 export const ENGINE_VERSION = readinessEngine.VERSION;
 export const PUBLIC_SF_OFFICE_FLAG = "LOCATION_BRIEF_V2_PUBLIC_SF_OFFICE_ENABLED";
 export const PUBLIC_SF_RETAIL_FLAG = "LOCATION_BRIEF_V2_PUBLIC_SF_RETAIL_ENABLED";
+export const PUBLIC_SF_INDUSTRIAL_FLEX_FLAG = "LOCATION_BRIEF_V2_PUBLIC_SF_INDUSTRIAL_FLEX_ENABLED";
 export const PUBLIC_SOURCE_ALLOWLIST = "LOCATION_BRIEF_V2_PUBLIC_SF_OFFICE_SOURCES";
 
-const dependencies = { accessFoundation, compositionFoundation, sfOfficeModel, sfRetailFoundation, districtGeography };
+const dependencies = { accessFoundation, compositionFoundation, sfOfficeModel, sfRetailFoundation, sfIndustrialFlexFoundation, districtGeography };
 const encoder = new TextEncoder();
 
 function clean(value, max = 1000) { return String(value == null ? "" : value).trim().slice(0, max); }
@@ -38,8 +40,8 @@ export async function sha256(value) {
 
 export function v2Enabled(env) { return String(env && env.LOCATION_BRIEF_V2_OPERATOR_ENABLED || "false").toLowerCase() === "true"; }
 export function publicV2Enabled(env, propertyType = "") {
-  if (!propertyType) return [PUBLIC_SF_OFFICE_FLAG, PUBLIC_SF_RETAIL_FLAG].some((flag) => String(env && env[flag] || "false").toLowerCase() === "true");
-  const flag = propertyType === "retail_service" ? PUBLIC_SF_RETAIL_FLAG : PUBLIC_SF_OFFICE_FLAG;
+  if (!propertyType) return [PUBLIC_SF_OFFICE_FLAG, PUBLIC_SF_RETAIL_FLAG, PUBLIC_SF_INDUSTRIAL_FLEX_FLAG].some((flag) => String(env && env[flag] || "false").toLowerCase() === "true");
+  const flag = propertyType === "retail_service" ? PUBLIC_SF_RETAIL_FLAG : propertyType === "industrial_flex" ? PUBLIC_SF_INDUSTRIAL_FLEX_FLAG : PUBLIC_SF_OFFICE_FLAG;
   return String(env && env[flag] || "false").toLowerCase() === "true";
 }
 export function publicSourceAllowed(env, sourceType) {
@@ -70,8 +72,14 @@ export function isSfRetailEntryContext(input = {}) {
   const context = normalizeEntryContext(input);
   return context.marketId === "san-francisco" && context.propertyType === "retail_service";
 }
-export function isSupportedPublicRequirement(requirement = {}) { return isSfOfficeRequirement(requirement) || isSfRetailRequirement(requirement); }
-export function isSupportedPublicEntryContext(input = {}) { return isSfOfficeEntryContext(input) || isSfRetailEntryContext(input); }
+export function isSfIndustrialFlexRequirement(requirement = {}) {
+  const market = clean(requirement.locationLogic?.marketAnchor?.marketId || requirement.locationLogic?.marketAnchor?.geographyId, 120).toLowerCase();
+  const propertyTypes = cleanArray(requirement.propertyTypes, 6).map((item) => item.toLowerCase());
+  return market === "san-francisco" && propertyTypes.length === 1 && propertyTypes[0] === "industrial_flex";
+}
+export function isSfIndustrialFlexEntryContext(input = {}) { const context = normalizeEntryContext(input); return context.marketId === "san-francisco" && context.propertyType === "industrial_flex"; }
+export function isSupportedPublicRequirement(requirement = {}) { return isSfOfficeRequirement(requirement) || isSfRetailRequirement(requirement) || isSfIndustrialFlexRequirement(requirement); }
+export function isSupportedPublicEntryContext(input = {}) { return isSfOfficeEntryContext(input) || isSfRetailEntryContext(input) || isSfIndustrialFlexEntryContext(input); }
 export function sameOriginMutation(request) {
   const origin = clean(request.headers.get("origin"), 500);
   const requestUrl = new URL(request.url);
@@ -248,6 +256,8 @@ export function calculateSnapshot(requirement) {
     engineVersion: ENGINE_VERSION,
     foundationVersions: result.propertyType === "retail_service"
       ? { access: accessFoundation.version, composition: sfRetailFoundation.schemaVersion, retail: sfRetailFoundation.schemaVersion }
+      : result.propertyType === "industrial_flex"
+        ? { access: accessFoundation.version, composition: sfIndustrialFlexFoundation.schemaVersion, resolvedModel: result.composition?.resolvedModel || result.candidateComposition?.resolvedModel || "unresolved" }
       : { access: accessFoundation.version, composition: compositionFoundation.schemaVersion, office: sfOfficeModel.version || sfOfficeModel.schemaVersion || "sf-office-recommendation-model" },
   };
 }

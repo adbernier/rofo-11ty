@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-23T10:56:01-07:00",
+  "generatedAt": "2026-08-23T17:42:33-07:00",
   "eosVersion": "editorial-operating-system-v2.2.4",
   "sourceSystems": [
     "Publisher",
@@ -14,7 +14,7 @@
   ],
   "commercialKnowledgeIntelligence": {
     "schemaVersion": "eos-commercial-knowledge-intelligence-v1",
-    "generatedAt": "2026-08-23T10:56:01-07:00",
+    "generatedAt": "2026-08-23T17:42:33-07:00",
     "sourceSystems": [
       "Editor-controlled strategic priorities",
       "Google Search Console Search Analytics API",
@@ -15959,7 +15959,7 @@
       "displayedBy": "Mission Control",
       "status": "Validated",
       "validationStatus": "PASS",
-      "latestValidation": "2026-08-23T10:56:01-07:00",
+      "latestValidation": "2026-08-23T17:42:33-07:00",
       "markets": [
         {
           "marketId": "east-bay",
@@ -16648,7 +16648,7 @@
         "Low": 2
       },
       "deferredCandidates": 73,
-      "latestValidation": "2026-08-23T10:56:01-07:00",
+      "latestValidation": "2026-08-23T17:42:33-07:00",
       "errors": [],
       "warnings": [],
       "source": {
@@ -81099,6 +81099,7 @@
             "propertyType": "office",
             "label": "Office",
             "recommendation": "Ready",
+            "submodels": null,
             "workloads": {
               "spaceTypeFit": {
                 "status": "Ready",
@@ -81134,6 +81135,7 @@
             "propertyType": "retail",
             "label": "Retail",
             "recommendation": "Ready",
+            "submodels": null,
             "workloads": {
               "spaceTypeFit": {
                 "status": "Ready",
@@ -81171,36 +81173,49 @@
           {
             "propertyType": "industrial",
             "label": "Industrial",
-            "recommendation": "Building",
+            "recommendation": "Ready",
+            "submodels": {
+              "industrial": {
+                "label": "Industrial Fit",
+                "status": "Ready",
+                "coverage": "sf-industrial-market-coverage:v1"
+              },
+              "flex": {
+                "label": "Flex Fit",
+                "status": "Ready",
+                "coverage": "sf-flex-market-coverage:v1"
+              }
+            },
             "workloads": {
               "spaceTypeFit": {
-                "status": "Building",
+                "status": "Ready",
                 "evidence": [
-                  "_data/locationKnowledgeGraph.js"
+                  "_data/sfIndustrialFlexMarketCoverage.js"
                 ],
-                "gaps": [
-                  "Current hard-gate decision-universe certification is incomplete"
-                ]
+                "gaps": []
               },
               "calibration": {
-                "status": "Building",
+                "status": "Ready",
                 "evidence": [
-                  "/docs/recommendation-qa/san-francisco-pilot/"
+                  "_data/sfIndustrialFlexDecisionGeographies.js",
+                  "_data/sfIndustrialFlexCompositionFoundation.js",
+                  "lib/requirements/requirement-to-sf-industrial-flex-recommendation.js",
+                  "lib/recommendations/sf-industrial-flex-location-composition.js",
+                  "scripts/qa-sf-industrial-flex-recommendation.js"
                 ],
-                "gaps": [
-                  "Legacy Compass QA is evidence, but not current vNext calibration certification"
-                ]
+                "gaps": []
               },
               "certificationRelease": {
-                "status": "Building",
+                "status": "Ready",
                 "evidence": [
-                  "/docs/recommendation-qa/san-francisco-pilot/"
+                  "_data/sfIndustrialFlexMarketCoverage.js",
+                  "_data/sfIndustrialFlexPublicExperienceBacklog.js",
+                  "scripts/qa-sf-industrial-flex-recommendation.js",
+                  "functions/api/location-brief-v2/create.js"
                 ],
-                "lastQa": "2026-07-26",
-                "productionStatus": "Not enabled",
-                "gaps": [
-                  "Current hard gates and controlled vNext release are not certified"
-                ]
+                "lastQa": "2026-08-23",
+                "productionStatus": "Explicit shared Industrial/Flex feature flag; defaults off",
+                "gaps": []
               }
             }
           }
@@ -81266,6 +81281,7 @@
             "propertyType": "office",
             "label": "Office",
             "recommendation": "Building",
+            "submodels": null,
             "workloads": {
               "spaceTypeFit": {
                 "status": "Building",
@@ -81298,6 +81314,7 @@
             "propertyType": "retail",
             "label": "Retail",
             "recommendation": "Building",
+            "submodels": null,
             "workloads": {
               "spaceTypeFit": {
                 "status": "Building",
@@ -81330,6 +81347,7 @@
             "propertyType": "industrial",
             "label": "Industrial",
             "recommendation": "Building",
+            "submodels": null,
             "workloads": {
               "spaceTypeFit": {
                 "status": "Building",
@@ -81420,6 +81438,7 @@
             "propertyType": "office",
             "label": "Office",
             "recommendation": "Building",
+            "submodels": null,
             "workloads": {
               "spaceTypeFit": {
                 "status": "Building",
@@ -81452,6 +81471,7 @@
             "propertyType": "retail",
             "label": "Retail",
             "recommendation": "Not Started",
+            "submodels": null,
             "workloads": {
               "spaceTypeFit": {
                 "status": "Not Started",
@@ -81482,6 +81502,7 @@
             "propertyType": "industrial",
             "label": "Industrial",
             "recommendation": "Building",
+            "submodels": null,
             "workloads": {
               "spaceTypeFit": {
                 "status": "Building",
@@ -81571,6 +81592,7 @@
             "propertyType": "office",
             "label": "Office",
             "recommendation": "Building",
+            "submodels": null,
             "workloads": {
               "spaceTypeFit": {
                 "status": "Building",
@@ -81603,6 +81625,7 @@
             "propertyType": "retail",
             "label": "Retail",
             "recommendation": "Building",
+            "submodels": null,
             "workloads": {
               "spaceTypeFit": {
                 "status": "Building",
@@ -81635,6 +81658,7 @@
             "propertyType": "industrial",
             "label": "Industrial",
             "recommendation": "Not Started",
+            "submodels": null,
             "workloads": {
               "spaceTypeFit": {
                 "status": "Not Started",
@@ -81713,6 +81737,7 @@
             "propertyType": "office",
             "label": "Office",
             "recommendation": "Not Started",
+            "submodels": null,
             "workloads": {
               "spaceTypeFit": {
                 "status": "Not Started",
@@ -81743,6 +81768,7 @@
             "propertyType": "retail",
             "label": "Retail",
             "recommendation": "Not Started",
+            "submodels": null,
             "workloads": {
               "spaceTypeFit": {
                 "status": "Not Started",
@@ -81773,6 +81799,7 @@
             "propertyType": "industrial",
             "label": "Industrial",
             "recommendation": "Not Started",
+            "submodels": null,
             "workloads": {
               "spaceTypeFit": {
                 "status": "Not Started",
@@ -81862,6 +81889,7 @@
             "propertyType": "office",
             "label": "Office",
             "recommendation": "Building",
+            "submodels": null,
             "workloads": {
               "spaceTypeFit": {
                 "status": "Building",
@@ -81898,6 +81926,7 @@
             "propertyType": "retail",
             "label": "Retail",
             "recommendation": "Building",
+            "submodels": null,
             "workloads": {
               "spaceTypeFit": {
                 "status": "Building",
@@ -81934,6 +81963,7 @@
             "propertyType": "industrial",
             "label": "Industrial",
             "recommendation": "Building",
+            "submodels": null,
             "workloads": {
               "spaceTypeFit": {
                 "status": "Building",
@@ -82028,6 +82058,7 @@
             "propertyType": "office",
             "label": "Office",
             "recommendation": "Building",
+            "submodels": null,
             "workloads": {
               "spaceTypeFit": {
                 "status": "Building",
@@ -82064,6 +82095,7 @@
             "propertyType": "retail",
             "label": "Retail",
             "recommendation": "Building",
+            "submodels": null,
             "workloads": {
               "spaceTypeFit": {
                 "status": "Building",
@@ -82100,6 +82132,7 @@
             "propertyType": "industrial",
             "label": "Industrial",
             "recommendation": "Building",
+            "submodels": null,
             "workloads": {
               "spaceTypeFit": {
                 "status": "Building",
@@ -82194,6 +82227,7 @@
             "propertyType": "office",
             "label": "Office",
             "recommendation": "Building",
+            "submodels": null,
             "workloads": {
               "spaceTypeFit": {
                 "status": "Building",
@@ -82230,6 +82264,7 @@
             "propertyType": "retail",
             "label": "Retail",
             "recommendation": "Building",
+            "submodels": null,
             "workloads": {
               "spaceTypeFit": {
                 "status": "Building",
@@ -82266,6 +82301,7 @@
             "propertyType": "industrial",
             "label": "Industrial",
             "recommendation": "Building",
+            "submodels": null,
             "workloads": {
               "spaceTypeFit": {
                 "status": "Building",
@@ -82360,6 +82396,7 @@
             "propertyType": "office",
             "label": "Office",
             "recommendation": "Building",
+            "submodels": null,
             "workloads": {
               "spaceTypeFit": {
                 "status": "Building",
@@ -82392,6 +82429,7 @@
             "propertyType": "retail",
             "label": "Retail",
             "recommendation": "Building",
+            "submodels": null,
             "workloads": {
               "spaceTypeFit": {
                 "status": "Building",
@@ -82424,6 +82462,7 @@
             "propertyType": "industrial",
             "label": "Industrial",
             "recommendation": "Building",
+            "submodels": null,
             "workloads": {
               "spaceTypeFit": {
                 "status": "Building",
@@ -82515,6 +82554,7 @@
             "propertyType": "office",
             "label": "Office",
             "recommendation": "Building",
+            "submodels": null,
             "workloads": {
               "spaceTypeFit": {
                 "status": "Building",
@@ -82551,6 +82591,7 @@
             "propertyType": "retail",
             "label": "Retail",
             "recommendation": "Building",
+            "submodels": null,
             "workloads": {
               "spaceTypeFit": {
                 "status": "Building",
@@ -82587,6 +82628,7 @@
             "propertyType": "industrial",
             "label": "Industrial",
             "recommendation": "Building",
+            "submodels": null,
             "workloads": {
               "spaceTypeFit": {
                 "status": "Building",
@@ -82682,6 +82724,7 @@
             "propertyType": "office",
             "label": "Office",
             "recommendation": "Building",
+            "submodels": null,
             "workloads": {
               "spaceTypeFit": {
                 "status": "Building",
@@ -82718,6 +82761,7 @@
             "propertyType": "retail",
             "label": "Retail",
             "recommendation": "Building",
+            "submodels": null,
             "workloads": {
               "spaceTypeFit": {
                 "status": "Building",
@@ -82754,6 +82798,7 @@
             "propertyType": "industrial",
             "label": "Industrial",
             "recommendation": "Building",
+            "submodels": null,
             "workloads": {
               "spaceTypeFit": {
                 "status": "Building",
@@ -82848,6 +82893,7 @@
             "propertyType": "office",
             "label": "Office",
             "recommendation": "Not Started",
+            "submodels": null,
             "workloads": {
               "spaceTypeFit": {
                 "status": "Not Started",
@@ -82878,6 +82924,7 @@
             "propertyType": "retail",
             "label": "Retail",
             "recommendation": "Not Started",
+            "submodels": null,
             "workloads": {
               "spaceTypeFit": {
                 "status": "Not Started",
@@ -82908,6 +82955,7 @@
             "propertyType": "industrial",
             "label": "Industrial",
             "recommendation": "Building",
+            "submodels": null,
             "workloads": {
               "spaceTypeFit": {
                 "status": "Building",
@@ -82999,6 +83047,7 @@
             "propertyType": "office",
             "label": "Office",
             "recommendation": "Not Started",
+            "submodels": null,
             "workloads": {
               "spaceTypeFit": {
                 "status": "Not Started",
@@ -83029,6 +83078,7 @@
             "propertyType": "retail",
             "label": "Retail",
             "recommendation": "Not Started",
+            "submodels": null,
             "workloads": {
               "spaceTypeFit": {
                 "status": "Not Started",
@@ -83059,6 +83109,7 @@
             "propertyType": "industrial",
             "label": "Industrial",
             "recommendation": "Building",
+            "submodels": null,
             "workloads": {
               "spaceTypeFit": {
                 "status": "Building",
@@ -83150,6 +83201,7 @@
             "propertyType": "office",
             "label": "Office",
             "recommendation": "Not Started",
+            "submodels": null,
             "workloads": {
               "spaceTypeFit": {
                 "status": "Not Started",
@@ -83180,6 +83232,7 @@
             "propertyType": "retail",
             "label": "Retail",
             "recommendation": "Not Started",
+            "submodels": null,
             "workloads": {
               "spaceTypeFit": {
                 "status": "Not Started",
@@ -83210,6 +83263,7 @@
             "propertyType": "industrial",
             "label": "Industrial",
             "recommendation": "Building",
+            "submodels": null,
             "workloads": {
               "spaceTypeFit": {
                 "status": "Building",

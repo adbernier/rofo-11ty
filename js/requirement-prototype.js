@@ -171,7 +171,7 @@ if (root) {
     }
     try {
       let nextInterview = applyInterviewAnswer(state.interview, question.id, result);
-      if (publicExperience && question.id === "foundation.property_context" && !["office", "retail_service"].includes(nextInterview.requirement.propertyTypes?.[0])) {
+      if (publicExperience && question.id === "foundation.property_context" && !["office", "retail_service", "industrial_flex"].includes(nextInterview.requirement.propertyTypes?.[0])) {
         const fallback = new URL("/find-locations/", location.origin);
         fallback.searchParams.set("city", "San Francisco"); fallback.searchParams.set("state", "CA");
         fallback.searchParams.set("spaceType", nextInterview.requirement.propertyTypes?.[0] || "");

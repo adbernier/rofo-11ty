@@ -1,5 +1,6 @@
 const sfOfficeCoverage = require("./sfOfficeMarketCoverage");
 const sfRetailCoverage = require("./sfRetailMarketCoverage");
+const sfIndustrialFlexCoverage = require("./sfIndustrialFlexMarketCoverage");
 
 module.exports = {
   schemaVersion: "market-readiness-foundation-registry:v1",
@@ -53,6 +54,15 @@ module.exports = {
           "functions/api/location-brief-v2/create.js",
         ],
         productionStatus: "Explicit SF Retail feature flag; defaults off",
+      },
+    },
+    {
+      marketId: "san-francisco", propertyType: "industrial", coverage: sfIndustrialFlexCoverage.industrial,
+      calibration: { status: "Ready", evidence: ["_data/sfIndustrialFlexDecisionGeographies.js", "_data/sfIndustrialFlexCompositionFoundation.js", "lib/requirements/requirement-to-sf-industrial-flex-recommendation.js", "lib/recommendations/sf-industrial-flex-location-composition.js", "scripts/qa-sf-industrial-flex-recommendation.js"] },
+      certificationRelease: { status: "Ready", lastQa: "2026-08-23", evidence: ["_data/sfIndustrialFlexMarketCoverage.js", "_data/sfIndustrialFlexPublicExperienceBacklog.js", "scripts/qa-sf-industrial-flex-recommendation.js", "functions/api/location-brief-v2/create.js"], productionStatus: "Explicit shared Industrial/Flex feature flag; defaults off" },
+      submodels: {
+        industrial: { label: "Industrial Fit", status: "Ready", coverage: sfIndustrialFlexCoverage.industrial.schemaVersion },
+        flex: { label: "Flex Fit", status: "Ready", coverage: sfIndustrialFlexCoverage.flex.schemaVersion },
       },
     },
   ],

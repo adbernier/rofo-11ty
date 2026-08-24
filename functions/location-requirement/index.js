@@ -10,7 +10,7 @@ function fallback(request) {
 export async function onRequest(context) {
   const url = new URL(context.request.url);
   const propertyInput = url.searchParams.get("propertyType") || url.searchParams.get("spaceType") || "";
-  const propertyType = /retail|service/i.test(propertyInput) ? "retail_service" : /office/i.test(propertyInput) ? "office" : "";
+  const propertyType = /industrial|warehouse|flex/i.test(propertyInput) ? "industrial_flex" : /retail|service/i.test(propertyInput) ? "retail_service" : /office/i.test(propertyInput) ? "office" : "";
   const entry = { marketId: url.searchParams.get("marketId") || (/^san francisco$/i.test(url.searchParams.get("city") || "") ? "san-francisco" : ""), propertyType };
   const editing = url.searchParams.get("journey") === "edit" && /^LB2-[A-F0-9]{24}$/i.test(url.searchParams.get("brief") || "");
   if (!editing && (!publicV2Enabled(context.env, propertyType) || !publicSourceAllowed(context.env, url.searchParams.get("source") || "") || !isSupportedPublicEntryContext(entry))) return fallback(context.request);

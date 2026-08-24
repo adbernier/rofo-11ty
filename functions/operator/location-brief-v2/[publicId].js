@@ -6,7 +6,7 @@ function criterion(requirement, dimension) { return (requirement.criteria || [])
 function criterionText(requirement, dimension) { const value = criterion(requirement, dimension)?.value || {}; return (value.list || []).join(" + ") || value.text || ""; }
 function titleCase(value) { return String(value || "").replace(/[-_]+/g, " ").replace(/\b\w/g, (letter) => letter.toUpperCase()); }
 function marketLabel(requirement, entryContext) { return requirement.locationLogic?.marketAnchor?.displayName || requirement.locationLogic?.marketAnchor?.marketName || titleCase(requirement.locationLogic?.marketAnchor?.marketId || entryContext.marketId); }
-function propertyLabel(requirement, entryContext) { const value = (requirement.propertyTypes || [entryContext.propertyType])[0]; return value === "retail_service" ? "Retail / service" : titleCase(value); }
+function propertyLabel(requirement, entryContext) { const value = (requirement.propertyTypes || [entryContext.propertyType])[0]; return value === "retail_service" ? "Retail / service" : value === "industrial_flex" ? "Industrial / Warehouse / Flex" : titleCase(value); }
 function humanBand(value) {
   return { STRONG: "Strong", GOOD: "Good", MODERATE: "Mixed", MIXED: "Mixed", PARTIAL: "Mixed", WEAK: "Limited", UNKNOWN: "Not established" }[value] || "Not established";
 }
@@ -66,14 +66,17 @@ function recommendationFocus(snapshot, requirement, omittedIds = []) {
 function comparisonRows(snapshot) {
   const items = snapshot.shortlist || [];
   const retail = items.some((item) => item.retail || item.propertyTypeFit?.summary && !item.office);
+  const industrialFlex = items.some((item) => item.industrialFlex);
+  const fitLabel = industrialFlex ? `${titleCase(items[0]?.model || "Industrial / Flex")} character` : retail ? "Retail environment" : "Office character";
+  const accessLabel = industrialFlex ? "Employee / operational access" : retail ? "Customer access" : "Employee access";
   const definitions = [
     ["Why consider it", (item) => conciseReason(item)],
-    [retail ? "Retail environment" : "Office character", (item) => item.propertyTypeFit?.summary || item.retail?.summary || item.office?.summary || humanBand(item.propertyTypeFit?.band || item.retail?.band || item.office?.band)],
+    [fitLabel, (item) => item.propertyTypeFit?.summary || item.industrialFlex?.summary || item.retail?.summary || item.office?.summary || humanBand(item.propertyTypeFit?.band || item.industrialFlex?.band || item.retail?.band || item.office?.band)],
     ["Parking", (item) => item.parkingRelevant ? humanBand(item.parkingEnvironment) : "Not a stated priority"],
     ["Key tradeoff", (item) => cleanStrength((item.tradeoffs || item.unknowns || [])[0]) || "No material tradeoff established"],
-    [retail ? "Customer access" : "Employee access", (item) => item.employeeAccessSummary?.label || humanBand(item.accessComponent?.band)],
+    [accessLabel, (item) => item.employeeAccessSummary?.label || humanBand(item.accessComponent?.band)],
   ];
-  return definitions.map(([label, getter]) => ({ label, values: items.map(getter) })).filter((row) => row.values.some(Boolean) && (!["Employee access", "Customer access"].includes(row.label) || new Set(row.values).size > 1));
+  return definitions.map(([label, getter]) => ({ label, values: items.map(getter) })).filter((row) => row.values.some(Boolean) && (!["Employee access", "Customer access", "Employee / operational access"].includes(row.label) || new Set(row.values).size > 1));
 }
 function comparison(snapshot) {
   const items = snapshot.shortlist || []; const rows = comparisonRows(snapshot);

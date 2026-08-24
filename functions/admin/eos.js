@@ -150,6 +150,7 @@ function renderMarketReadinessDetail(market) {
               <h3>${escapeHtml(property.label)}</h3>
               <span>Recommendation ${renderReadinessStatus(property.recommendation)}</span>
             </div>
+            ${property.submodels ? `<p>${Object.values(property.submodels).map((model) => `${escapeHtml(model.label)} ${renderReadinessStatus(model.status)}`).join(" · ")}</p>` : ""}
             <div class="readiness-workload-list">
               ${[
                 ["Space-Type Fit", property.workloads?.spaceTypeFit],
