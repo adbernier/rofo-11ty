@@ -20,7 +20,10 @@ export const ENGINE_VERSION = readinessEngine.VERSION;
 export const PUBLIC_SF_OFFICE_FLAG = "LOCATION_BRIEF_V2_PUBLIC_SF_OFFICE_ENABLED";
 export const PUBLIC_SF_RETAIL_FLAG = "LOCATION_BRIEF_V2_PUBLIC_SF_RETAIL_ENABLED";
 export const PUBLIC_SF_INDUSTRIAL_FLEX_FLAG = "LOCATION_BRIEF_V2_PUBLIC_SF_INDUSTRIAL_FLEX_ENABLED";
+export const PUBLIC_UNIVERSAL_FLAG = "LOCATION_BRIEF_V2_PUBLIC_UNIVERSAL_ENABLED";
+export const PUBLIC_ENTRY_FLAG = "LOCATION_BRIEF_V2_PUBLIC_ENTRY_ENABLED";
 export const PUBLIC_SOURCE_ALLOWLIST = "LOCATION_BRIEF_V2_PUBLIC_SF_OFFICE_SOURCES";
+export const CANONICAL_PUBLIC_SOURCES = Object.freeze(["homepage", "header", "city", "space_type", "district", "example", "market_guide", "comparison", "business_brief", "product_education", "insight", "building"]);
 
 const dependencies = { accessFoundation, compositionFoundation, sfOfficeModel, sfRetailFoundation, sfIndustrialFlexFoundation, districtGeography };
 const encoder = new TextEncoder();
@@ -43,14 +46,16 @@ export async function sha256(value) {
 
 export function v2Enabled(env) { return String(env && env.LOCATION_BRIEF_V2_OPERATOR_ENABLED || "false").toLowerCase() === "true"; }
 export function publicV2Enabled(env, propertyType = "") {
-  if (!propertyType) return [PUBLIC_SF_OFFICE_FLAG, PUBLIC_SF_RETAIL_FLAG, PUBLIC_SF_INDUSTRIAL_FLEX_FLAG].some((flag) => String(env && env[flag] || "false").toLowerCase() === "true");
+  if (!propertyType) return [PUBLIC_SF_OFFICE_FLAG, PUBLIC_SF_RETAIL_FLAG, PUBLIC_SF_INDUSTRIAL_FLEX_FLAG, PUBLIC_UNIVERSAL_FLAG].some((flag) => String(env && env[flag] || "false").toLowerCase() === "true");
   const flag = propertyType === "retail_service" ? PUBLIC_SF_RETAIL_FLAG : propertyType === "industrial_flex" ? PUBLIC_SF_INDUSTRIAL_FLEX_FLAG : PUBLIC_SF_OFFICE_FLAG;
   return String(env && env[flag] || "false").toLowerCase() === "true";
 }
 export function publicSourceAllowed(env, sourceType) {
-  const configured = clean(env && env[PUBLIC_SOURCE_ALLOWLIST] || "space_type,district", 500).split(",").map((item) => item.trim()).filter(Boolean);
+  const configured = clean(env && env[PUBLIC_SOURCE_ALLOWLIST] || CANONICAL_PUBLIC_SOURCES.join(","), 500).split(",").map((item) => item.trim()).filter(Boolean);
   return configured.includes(clean(sourceType, 80));
 }
+export function publicEntryEnabled(env) { return String(env && env[PUBLIC_ENTRY_FLAG] || "false").toLowerCase() === "true"; }
+export function publicGlobalCohortEnabled(env) { return publicEntryEnabled(env) && [PUBLIC_UNIVERSAL_FLAG, PUBLIC_SF_OFFICE_FLAG, PUBLIC_SF_RETAIL_FLAG, PUBLIC_SF_INDUSTRIAL_FLEX_FLAG].every((flag) => String(env && env[flag] || "false").toLowerCase() === "true"); }
 export function operatorAllowed(request, env) {
   if (!v2Enabled(env)) return false;
   const expected = clean(env && env.LOCATION_BRIEF_V2_OPERATOR_KEY, 500);
@@ -83,6 +88,26 @@ export function isSfIndustrialFlexRequirement(requirement = {}) {
 export function isSfIndustrialFlexEntryContext(input = {}) { const context = normalizeEntryContext(input); return context.marketId === "san-francisco" && context.propertyType === "industrial_flex"; }
 export function isSupportedPublicRequirement(requirement = {}) { return isSfOfficeRequirement(requirement) || isSfRetailRequirement(requirement) || isSfIndustrialFlexRequirement(requirement); }
 export function isSupportedPublicEntryContext(input = {}) { return isSfOfficeEntryContext(input) || isSfRetailEntryContext(input) || isSfIndustrialFlexEntryContext(input); }
+export function isUniversalPublicRequirement(requirement = {}) {
+  const market = clean(requirement.locationLogic?.marketAnchor?.marketId || requirement.locationLogic?.marketAnchor?.geographyId, 120).toLowerCase();
+  const propertyTypes = cleanArray(requirement.propertyTypes, 6).map((item) => item.toLowerCase());
+  return Boolean(market) && market !== "san-francisco" && propertyTypes.length === 1 && ["office", "retail_service", "industrial_flex"].includes(propertyTypes[0]);
+}
+export function publicRequirementEligible(env, requirement = {}) {
+  if (isSfOfficeRequirement(requirement)) return publicV2Enabled(env, "office");
+  if (isSfRetailRequirement(requirement)) return publicV2Enabled(env, "retail_service");
+  if (isSfIndustrialFlexRequirement(requirement)) return publicV2Enabled(env, "industrial_flex");
+  return isUniversalPublicRequirement(requirement) && String(env && env[PUBLIC_UNIVERSAL_FLAG] || "false").toLowerCase() === "true";
+}
+export function publicEntryContextEligible(env, input = {}) {
+  if (!publicEntryEnabled(env)) return false;
+  const context = normalizeEntryContext(input);
+  if (!context.marketId || !context.propertyType) return publicGlobalCohortEnabled(env);
+  if (context.marketId !== "san-francisco") return ["office", "retail_service", "industrial_flex"].includes(context.propertyType) && String(env && env[PUBLIC_UNIVERSAL_FLAG] || "false").toLowerCase() === "true";
+  if (context.propertyType === "retail_service") return publicV2Enabled(env, "retail_service");
+  if (context.propertyType === "industrial_flex") return publicV2Enabled(env, "industrial_flex");
+  return context.propertyType === "office" && publicV2Enabled(env, "office");
+}
 export function sameOriginMutation(request) {
   const origin = clean(request.headers.get("origin"), 500);
   const requestUrl = new URL(request.url);

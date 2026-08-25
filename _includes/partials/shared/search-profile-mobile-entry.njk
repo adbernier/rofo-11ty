@@ -67,9 +67,8 @@
 {% if mobileUsesVnext %}
   {% set mobileParams = (mobileParams.push("marketId=san-francisco"), mobileParams) %}
   {% if mobilePromptDistrictId %}{% set mobileParams = (mobileParams.push("districtId=" + (mobilePromptDistrictId | queryEncode)), mobileParams) %}{% endif %}
-  {% set mobileParams = (mobileParams.push("journey=new"), mobileParams) %}
 {% endif %}
-{% set mobilePromptBase = "/location-requirement/" if mobileUsesVnext else "/find-locations/" %}
+{% set mobilePromptBase = "/best-fit-locations/" %}
 {% set mobilePromptHref = mobilePromptBase + ("?" + (mobileParams | join("&")) if mobileParams.length else "") %}
 
 <section class="search-profile-mobile-entry" aria-label="Create your Business Profile">

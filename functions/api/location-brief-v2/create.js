@@ -1,16 +1,12 @@
-import { createBrief, findCreationRequest, getBriefBundle, isSupportedPublicEntryContext, isSupportedPublicRequirement, operatorAllowed, privateJson, publicSourceAllowed, publicV2Enabled, recordCreationRequest, sameOriginMutation } from "./_shared.js";
+import { createBrief, findCreationRequest, getBriefBundle, operatorAllowed, privateJson, publicRequirementEligible, publicSourceAllowed, recordCreationRequest, sameOriginMutation } from "./_shared.js";
 
 export async function onRequestPost({ request, env }) {
   const operator = operatorAllowed(request, env);
-  let requestedPropertyType = "office";
-  try { const preview = await request.clone().json(); requestedPropertyType = preview?.requirement?.propertyTypes?.[0] || preview?.entryContext?.propertyType || "office"; } catch {}
-  const publicEnabled = publicV2Enabled(env, requestedPropertyType);
-  if (!operator && !publicEnabled) return privateJson({ ok: false, error: "Location Brief v2 is not enabled." }, 404);
   if (!operator && !sameOriginMutation(request)) return privateJson({ ok: false, error: "Invalid request origin." }, 403);
   let body; try { body = await request.json(); } catch { return privateJson({ ok: false, error: "Invalid JSON." }, 400); }
   if (!body.requirement || typeof body.requirement !== "object") return privateJson({ ok: false, error: "A canonical Requirement is required." }, 400);
-  if (!operator && (!isSupportedPublicRequirement(body.requirement) || !isSupportedPublicEntryContext(body.entryContext) || !publicSourceAllowed(env, body.entryContext?.sourceType))) {
-    return privateJson({ ok: false, error: "This vNext rollout does not support that market and space type.", fallbackUrl: "/find-locations/" }, 409);
+  if (!operator && (!publicRequirementEligible(env, body.requirement) || !publicSourceAllowed(env, body.entryContext?.sourceType))) {
+    return privateJson({ ok: false, error: "This controlled journey is not enabled for that search.", reasonCode: "COHORT_NOT_ELIGIBLE", fallbackUrl: "/find-locations/" }, 409);
   }
   try {
     const requestId = String(body.creationRequestId || "").trim().slice(0, 120);

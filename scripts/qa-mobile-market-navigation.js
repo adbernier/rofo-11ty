@@ -7,6 +7,7 @@ const read = (file) => fs.readFileSync(path.join(ROOT, file), "utf8");
 const header = read("_includes/header.njk");
 const breadcrumbs = read("_includes/partials/breadcrumbs.njk");
 const prompt = read("_includes/partials/shared/recommendation-prompt-card.njk");
+const mobileEntry = read("_includes/partials/shared/search-profile-mobile-entry.njk");
 const styles = read("styles.css");
 
 assert(header.includes('class="mobile-market-control"'));
@@ -37,6 +38,7 @@ assert(prompt.includes("district="));
 assert(prompt.includes("districtId="));
 assert(prompt.includes("sourcePath="));
 assert(prompt.includes("marketId=san-francisco"));
-assert(prompt.includes('promptBase = "/location-requirement/" if promptHasDistrictIntelligence else "/find-locations/"'));
+assert(prompt.includes('promptBase = "/best-fit-locations/"'));
+assert(mobileEntry.includes('mobilePromptBase = "/best-fit-locations/"'));
 
 console.log("Mobile market navigation QA passed for 375px, 390px, and 430px CSS contracts.");

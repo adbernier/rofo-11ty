@@ -37,10 +37,15 @@ const ALLOWED_EVENTS = new Set([
   "example_location_brief_cta_clicked",
   "vnext_requirement_started",
   "vnext_requirement_completed",
+  "vnext_brief_created",
+  "vnext_creation_rejected",
+  "vnext_entry_fallback",
   "vnext_brief_viewed",
   "vnext_district_explored",
   "vnext_requirement_edited",
   "vnext_find_spaces_clicked",
+  "vnext_research_clicked",
+  "vnext_research_submitted",
   "vnext_commercial_request_submitted",
   "property_requirement_completed",
   "share_search_viewed",
@@ -177,10 +182,11 @@ export async function onRequestPost({ request, env, waitUntil }) {
   return jsonResponse({ ok: true, stored: true });
 }
 
-export async function onRequestGet() {
+export async function onRequestGet({ env } = {}) {
   return jsonResponse({
     ok: true,
     endpoint: "/api/analytics/search-profile",
     method: "POST",
+    persistenceConfigured: Boolean(env && (env.SEARCH_PROFILE_EVENTS_DB || env.LEADS_DB)),
   });
 }

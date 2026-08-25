@@ -59,7 +59,7 @@ const office = Object.freeze({
     ]),
   ]),
   validation: Object.freeze(["Employee origins and regional gateways", "Client visit frequency and business environment", "Modern, conventional, historic, or creative building character", "Transit and parking as tradeoffs rather than guarantees", "Size, suite condition, and current availability at the property level"]),
-  recommendation: Object.freeze({ prompt: "Which Office locations fit your business?", label: "See My Best-Fit Locations", path: "/location-requirement/?journey=new&city=San%20Francisco&state=CA&marketId=san-francisco&spaceType=Office&source=space_type&sourcePath=%2Fcommercial-real-estate%2FCA%2Fsan-francisco%2Foffice-space%2F" }),
+  recommendation: Object.freeze({ prompt: "Which Office locations fit your business?", label: "See My Best-Fit Locations", path: "/best-fit-locations/?city=San%20Francisco&state=CA&marketId=san-francisco&spaceType=Office&source=space_type&sourcePath=%2Fcommercial-real-estate%2FCA%2Fsan-francisco%2Foffice-space%2F" }),
 });
 
 const retail = Object.freeze({
@@ -101,7 +101,7 @@ const retail = Object.freeze({
     { name: "Mission District", path: `${BASE}mission-district/`, explanation: "The Mission remains the broader context. Valencia Street is its independently reviewed Retail corridor." },
   ]),
   validation: Object.freeze(["Customer and demand source", "Planned destination visits versus passing visibility", "Neighborhood, visitor, daytime, and evening patterns", "Parking, transit, loading, and receiving", "Storefront, use, size, and current availability at the property level"]),
-  recommendation: Object.freeze({ prompt: "Which Retail locations fit your business?", label: "See My Best-Fit Locations", path: "/location-requirement/?journey=new&city=San%20Francisco&state=CA&marketId=san-francisco&spaceType=Retail%20%2F%20service&source=space_type&sourcePath=%2Fcommercial-real-estate%2FCA%2Fsan-francisco%2Fretail-space%2F" }),
+  recommendation: Object.freeze({ prompt: "Which Retail locations fit your business?", label: "See My Best-Fit Locations", path: "/best-fit-locations/?city=San%20Francisco&state=CA&marketId=san-francisco&spaceType=Retail%20%2F%20service&source=space_type&sourcePath=%2Fcommercial-real-estate%2FCA%2Fsan-francisco%2Fretail-space%2F" }),
 });
 
 const industrial = Object.freeze({
@@ -127,7 +127,7 @@ const industrial = Object.freeze({
     { name: "Broader Bayview", path: `${BASE}bayview/`, explanation: "Neighborhood context; Bayview Industrial owns the operational location decision." },
   ]),
   validation: Object.freeze(["Loading and truck or service circulation", "Power, ventilation, clear height, and production systems", "Parking, fleet, yards, and outdoor storage", "Permitted use and specialized approvals", "Environmental, shoreline, neighboring-use, and current-property conditions"]),
-  recommendation: Object.freeze({ prompt: "Which Industrial / Warehouse / Flex locations fit your operation?", label: "See My Best-Fit Locations", path: "/location-requirement/?journey=new&city=San%20Francisco&state=CA&marketId=san-francisco&spaceType=Industrial%20%2F%20warehouse%20%2F%20flex&source=space_type&sourcePath=%2Fcommercial-real-estate%2FCA%2Fsan-francisco%2Findustrial-space%2F" }),
+  recommendation: Object.freeze({ prompt: "Which Industrial / Warehouse / Flex locations fit your operation?", label: "See My Best-Fit Locations", path: "/best-fit-locations/?city=San%20Francisco&state=CA&marketId=san-francisco&spaceType=Industrial%20%2F%20warehouse%20%2F%20flex&source=space_type&sourcePath=%2Fcommercial-real-estate%2FCA%2Fsan-francisco%2Findustrial-space%2F" }),
 });
 
 const flex = Object.freeze({
@@ -152,7 +152,7 @@ const flex = Object.freeze({
     { name: "Mission Bay", path: `${BASE}mission-bay/`, explanation: "Modern institutional context alone does not establish technical or R&D Flex suitability." },
   ]),
   validation: Object.freeze(["Office-to-operational area balance", "Customer, showroom, receiving, and circulation needs", "Power, ventilation, loading, and technical infrastructure", "Employee transit and parking", "Permitted use, buildout, suite condition, and current availability"]),
-  recommendation: Object.freeze({ prompt: "Which Industrial / Warehouse / Flex locations fit your business?", label: "See My Best-Fit Locations", path: "/location-requirement/?journey=new&city=San%20Francisco&state=CA&marketId=san-francisco&spaceType=Industrial%20%2F%20warehouse%20%2F%20flex&source=space_type&sourcePath=%2Fcommercial-real-estate%2FCA%2Fsan-francisco%2Fflex-space%2F" }),
+  recommendation: Object.freeze({ prompt: "Which Industrial / Warehouse / Flex locations fit your business?", label: "See My Best-Fit Locations", path: "/best-fit-locations/?city=San%20Francisco&state=CA&marketId=san-francisco&spaceType=Industrial%20%2F%20warehouse%20%2F%20flex&source=space_type&sourcePath=%2Fcommercial-real-estate%2FCA%2Fsan-francisco%2Fflex-space%2F" }),
 });
 
 const guides = Object.freeze({ office, retail, industrial, flex });

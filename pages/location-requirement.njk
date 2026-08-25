@@ -4,7 +4,7 @@ permalink: /location-requirement/
 eleventyExcludeFromCollections: true
 robots: noindex,nofollow
 title: "Build Your Location Search | Rofo"
-description: "Tell Rofo what matters to your business and see San Francisco office locations worth considering."
+description: "Tell Rofo what matters to your business and create a Location Brief for the search."
 ---
 <link rel="stylesheet" href="/assets/requirement-prototype.css">
 <main class="requirement-prototype" data-requirement-prototype data-requirement-experience="public">
@@ -13,7 +13,7 @@ description: "Tell Rofo what matters to your business and see San Francisco offi
   <script type="application/json" data-sf-office-recommendation-model>{{ sfOfficeRecommendationModel | dump | safe }}</script>
   <script type="application/json" data-sf-access-foundation>{{ sfAccessFoundationV0 | dump | safe }}</script>
   <script type="application/json" data-sf-office-composition-foundation>{{ sfOfficeCompositionFoundation | dump | safe }}</script>
-  <header class="requirement-prototype__header"><div><p class="requirement-prototype__eyebrow">Location search</p><h1>Find locations that fit your business.</h1><p>Answer a few questions and see the locations that best fit your business.</p></div></header>
+  <header class="requirement-prototype__header"><div><p class="requirement-prototype__eyebrow">Location search</p><h1>Build a location search around your business.</h1><p>Answer a few questions to create a Location Brief. Rofo will compare locations where reviewed local intelligence is available and organize what to investigate everywhere else.</p></div></header>
   <section class="requirement-bootstrap" data-requirement-loading aria-live="polite">Preparing your location search…</section>
   <section class="requirement-interview" data-interview aria-live="polite" hidden>
     <div class="requirement-interview__orientation"><span data-stage-label>Location search</span><span data-question-position></span></div>
@@ -23,7 +23,7 @@ description: "Tell Rofo what matters to your business and see San Francisco offi
       <aside class="requirement-search-summary" aria-label="Your search"><h2>Your search</h2><p data-search-summary-empty>Rofo will keep track of what it learns here.</p><div data-search-summary></div></aside>
     </div>
   </section>
-  <section class="requirement-complete" data-requirement-complete hidden><header><p class="requirement-prototype__eyebrow">Your search</p><h2 data-requirement-title>Location search</h2><p>Rofo has enough context to recommend locations. You can still change any answer.</p></header><div class="requirement-readiness-summary" data-readiness-summary></div><div class="requirement-summary-grid" data-requirement-summary></div><div class="requirement-complete__actions"><button class="requirement-button requirement-button--primary" type="button" data-view-recommendations>Show recommended locations</button><button type="button" data-refine-requirement>Change my answers</button></div></section>
+  <section class="requirement-complete" data-requirement-complete hidden><header><p class="requirement-prototype__eyebrow">Your search</p><h2 data-requirement-title>Location search</h2><p>Rofo has enough context to create your Location Brief. You can still change any answer.</p></header><div class="requirement-readiness-summary" data-readiness-summary></div><div class="requirement-summary-grid" data-requirement-summary></div><div class="requirement-complete__actions"><button class="requirement-button requirement-button--primary" type="button" data-view-recommendations>Create My Location Brief</button><button type="button" data-refine-requirement>Change my answers</button></div></section>
   <section class="requirement-preview" data-recommendation-preview hidden><h2 data-preview-heading></h2><p data-preview-intro></p><div data-preview-results></div><div data-candidate-comparisons></div><button type="button" data-back-to-requirement>Edit my search</button></section>
   <section hidden aria-hidden="true"><div data-preview-coverage></div><div data-access-shadow></div><div data-composition-debug></div><div data-debug-meta></div><div data-requirement-criteria></div><pre data-debug-json></pre></section>
 </main>

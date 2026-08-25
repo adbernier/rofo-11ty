@@ -64,8 +64,7 @@
 {% if promptSourcePath %}{% set promptParams = (promptParams.push("sourcePath=" + (promptSourcePath | queryEncode)), promptParams) %}{% endif %}
 {% if promptCity == "San Francisco" %}{% set promptParams = (promptParams.push("marketId=san-francisco"), promptParams) %}{% endif %}
 {% if promptDistrictId %}{% set promptParams = (promptParams.push("districtId=" + (promptDistrictId | queryEncode)), promptParams) %}{% endif %}
-{% set promptBase = "/location-requirement/" if promptHasDistrictIntelligence else "/find-locations/" %}
-{% if promptBase == "/location-requirement/" %}{% set promptParams = (promptParams.push("journey=new"), promptParams) %}{% endif %}
+{% set promptBase = "/best-fit-locations/" %}
 {% set promptHref = promptBase + ("?" + (promptParams | join("&")) if promptParams.length else "") %}
 
 <section

@@ -1,5 +1,5 @@
 {% set transitionVariant = productTransitionVariant or "building" %}
-{% set transitionCtaUrl = productTransitionCtaUrl or "/find-locations/" %}
+{% set transitionCtaUrl = productTransitionCtaUrl or ("/best-fit-locations/?source=building&sourcePath=" + (page.url | urlencode) + "&journey=new") %}
 {% set transitionCtaLabel = productTransitionCtaLabel or "See My Best-Fit Locations" %}
 {% set transitionSecondaryUrl = productTransitionSecondaryUrl or "" %}
 {% set transitionSecondaryLabel = productTransitionSecondaryLabel or "" %}

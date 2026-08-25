@@ -32,7 +32,7 @@ eleventyComputed:
               <h1>{{ comparison.headline }}</h1>
               <p class="lead">{{ comparison.summary }}</p>
               <div class="button-row">
-                <a class="btn-primary" href="/find-locations/?city=San%20Francisco&state=CA">See My Best-Fit Locations</a>
+                <a class="btn-primary" href="/best-fit-locations/?city=San%20Francisco&state=CA&marketId=san-francisco&source=building&sourcePath={{ page.url | urlencode }}&journey=new">See My Best-Fit Locations</a>
                 <a class="btn-secondary" href="/commercial-real-estate/CA/san-francisco/">Explore San Francisco</a>
               </div>
             </div>
@@ -167,7 +167,7 @@ eleventyComputed:
         {% endif %}
 
         {% set productTransitionVariant = "comparison" %}
-        {% set productTransitionCtaUrl = "/find-locations/?city=San%20Francisco&state=CA" %}
+        {% set productTransitionCtaUrl = "/best-fit-locations/?city=San%20Francisco&state=CA&marketId=san-francisco&source=building&sourcePath=" + (page.url | urlencode) + "&journey=new" %}
         {% set productTransitionBody = "This comparison explains the building and district tradeoffs. Rofo can evaluate each option against the company's priorities, then recommend the districts and representative buildings most worth exploring next." %}
         {% include "partials/building/product-transition-card.njk" %}
         {% set productTransitionVariant = "" %}

@@ -25,7 +25,7 @@ assert(prompt.includes("Find \" + promptCity + \" office locations that fit \" +
 assert(prompt.includes("Find commercial locations that fit your business"), "Unsupported markets need bounded fallback copy.");
 assert(prompt.includes("promptHasDistrictIntelligence"));
 assert(prompt.includes('promptCity == "San Francisco"'), "District-intelligence claim must remain capability-aware.");
-assert(prompt.includes('promptBase = "/location-requirement/" if promptHasDistrictIntelligence else "/find-locations/"'), "Capable SF entry surfaces must use the runtime-gated vNext entry while unsupported contexts retain the current flow.");
+assert(prompt.includes('promptBase = "/best-fit-locations/"'), "Public recommendation prompts must use the controlled router before choosing v2 or fallback.");
 assert(!prompt.includes("/operator/location-brief-v2/"));
 assert(prompt.includes("businessArchetype="));
 assert(prompt.includes("district="));
@@ -35,7 +35,7 @@ assert(prompt.includes("See My Best-Fit Locations"));
 assert(!prompt.includes("Get my recommendations"));
 assert(prompt.includes('"Rofo compares " + promptDistrict + " with other " + promptCity + " areas based on your business, team, commute needs, and priorities."'));
 assert(prompt.includes("About 60 seconds."));
-assert(header.includes('href="/find-locations/">See My Best-Fit Locations</a>'));
+assert(header.includes('href="/best-fit-locations/?source=header'));
 assert(header.includes('class="mobile-market-control"'));
 assert(header.includes("mobileMarketLabel = neighborhood.city"));
 assert(header.includes("mobileMarketUrl = \"/commercial-real-estate/\" + neighborhood.state_abbr + \"/\" + neighborhood.city_slug + \"/\""));

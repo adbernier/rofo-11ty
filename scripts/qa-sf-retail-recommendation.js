@@ -121,9 +121,9 @@ assert(["FULL", "BOUNDED"].includes(snapshot.readiness));
 assert(snapshot.shortlist.length > 0 && snapshot.shortlist.every((item) => item.presentation), "Retail Location Brief snapshots must use the existing district presentation projection.");
 assert.equal(snapshot.foundationVersions.retail, retailFoundation.schemaVersion);
 const entryRoute = fs.readFileSync(path.join(__dirname, "..", "functions/location-requirement/index.js"), "utf8");
-assert(entryRoute.includes("isSupportedPublicEntryContext") && entryRoute.includes("retail_service"));
+assert(entryRoute.includes("publicEntryContextEligible"), "Retail entry must use the shared controlled-cohort eligibility contract.");
 const createRoute = fs.readFileSync(path.join(__dirname, "..", "functions/api/location-brief-v2/create.js"), "utf8");
-assert(createRoute.includes("isSupportedPublicRequirement") && createRoute.includes("isSupportedPublicEntryContext"));
+assert(createRoute.includes("publicRequirementEligible"), "Retail creation must use the same controlled-cohort eligibility contract as entry.");
 for (const prohibited of ["saveLead", "OfficeFinder", "resolveLeadRoute"]) assert(!createRoute.includes(prohibited), `Retail Brief creation must not invoke ${prohibited}.`);
 fs.rmSync(temp, { recursive: true, force: true });
 

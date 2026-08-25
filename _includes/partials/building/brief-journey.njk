@@ -38,7 +38,7 @@
   {% include "partials/building/brief-status-note.njk" %}
 
   {% set productTransitionVariant = "building" %}
-  {% set productTransitionCtaUrl = "/find-locations/?city=" + (building.city | urlencode) + "&state=" + building.state_abbr %}
+  {% set productTransitionCtaUrl = "/best-fit-locations/?city=" + (building.city | urlencode) + "&state=" + (building.state_abbr | urlencode) + "&source=building&sourcePath=" + (page.url | urlencode) + "&journey=new" %}
   {% include "partials/building/product-transition-card.njk" %}
   {% set productTransitionVariant = "" %}
   {% set productTransitionCtaUrl = "" %}

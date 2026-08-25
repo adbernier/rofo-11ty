@@ -58,12 +58,12 @@ assert(surfaces.byPath[`${sfBase}bayview-industrial/`].identity.includes("Broade
 assert(surfaces.byPath[`${sfBase}potrero-hill/`].identity.includes("residential hill is not"));
 
 const prompt = fs.readFileSync(path.join(root, "_includes/partials/shared/recommendation-prompt-card.njk"), "utf8");
-for (const token of ["See My Best-Fit Locations", "districtId=", "sourcePath=", "retail", "industrial", "journey=new"]) assert(prompt.includes(token), `Recommendation prompt must preserve ${token}.`);
+for (const token of ["See My Best-Fit Locations", "districtId=", "sourcePath=", "retail", "industrial", "/best-fit-locations/"]) assert(prompt.includes(token), `Recommendation prompt must preserve ${token}.`);
 const template = fs.readFileSync(path.join(root, "pages/commercial-real-estate/neighborhood.njk"), "utf8");
 assert(template.includes("public-decision-surface.njk"));
 assert(template.includes('"default_space_type": neighborhood.public_decision_surface.defaultSpaceType'));
 const mobilePrompt = fs.readFileSync(path.join(root, "_includes/partials/shared/search-profile-mobile-entry.njk"), "utf8");
-for (const token of ["mobileUsesVnext", "marketId=san-francisco", "mobilePromptDistrictId", "journey=new"]) assert(mobilePrompt.includes(token), `Mobile recommendation entry must preserve ${token}.`);
+for (const token of ["mobileUsesVnext", "marketId=san-francisco", "mobilePromptDistrictId", "/best-fit-locations/"]) assert(mobilePrompt.includes(token), `Mobile recommendation entry must preserve ${token}.`);
 
 const sf = readiness.markets.find((market) => market.marketId === "san-francisco");
 assert(["Building", "Ready"].includes(sf.workloads.publicExperience.status));

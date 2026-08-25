@@ -76,7 +76,7 @@ eleventyComputed:
       }
     }
 
-    function track(eventName) {
+    function track(eventName, extraContext = {}) {
       const payload = {
         event_name: eventName,
         profile_version: profileVersion,
@@ -85,6 +85,7 @@ eleventyComputed:
           page_url: pageUrl,
           location_display: "Business Profile",
           device_type: window.matchMedia && window.matchMedia("(max-width: 767px)").matches ? "mobile" : "desktop",
+          ...extraContext,
         },
         profile: {
           profile_version: profileVersion,
@@ -121,6 +122,8 @@ eleventyComputed:
     } catch (error) {
       track("find_locations_page_viewed");
     }
+    const fallbackReason = new URLSearchParams(window.location.search).get("v2Fallback");
+    if (fallbackReason) track("vnext_entry_fallback", { reason_code: fallbackReason });
 
     document.addEventListener("click", (event) => {
       const button = event.target && event.target.closest("[data-profile-next]");

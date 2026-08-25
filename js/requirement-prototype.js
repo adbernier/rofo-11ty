@@ -66,11 +66,12 @@ if (root) {
   }
 
   const entryPropertyValue = query.get("propertyType") || query.get("spaceType") || "";
+  const vnextJourneyId = (() => { try { const key = "rofoVnextJourneyId"; let value = sessionStorage.getItem(key); if (!value) { value = window.crypto?.randomUUID ? window.crypto.randomUUID() : `${Date.now()}-${Math.random().toString(16).slice(2)}`; sessionStorage.setItem(key, value); } return value; } catch { return ""; } })();
   const publicEntryContext = {
     sourceType: query.get("source") || (publicExperience ? "public_requirement" : "operator_requirement_interview"),
     sourcePath: query.get("sourcePath") || document.referrer || location.pathname,
     marketId: query.get("marketId") || (/^san francisco$/i.test(query.get("city") || "") ? "san-francisco" : ""),
-    propertyType: /retail|service/i.test(entryPropertyValue) ? "retail_service" : /office/i.test(entryPropertyValue) ? "office" : "",
+    propertyType: /retail|service/i.test(entryPropertyValue) ? "retail_service" : /industrial|warehouse|flex/i.test(entryPropertyValue) ? "industrial_flex" : /office/i.test(entryPropertyValue) ? "office" : "",
     candidateDistrictIds: [query.get("districtId") || ""].filter(Boolean),
     candidateDistrictNames: [query.get("district") || ""].filter(Boolean),
     businessIdentityId: query.get("businessIdentityId") || query.get("businessArchetype") || "",
@@ -86,7 +87,7 @@ if (root) {
 
   function trackVNext(eventName, extra = {}) {
     if (!publicExperience) return;
-    try { const spaceType = publicEntryContext.propertyType === "retail_service" ? "Retail / service" : "Office"; const payload = JSON.stringify({ event_name: eventName, profile_version: "location-brief:v2", context: { page_type: "location_requirement_vnext", page_url: location.pathname, city: "San Francisco", space_type: spaceType, ...extra }, profile: { profile_version: "location-brief:v2", space_type: spaceType }, attribution: { entry_page_type: publicEntryContext.sourceType || "", landing_page: publicEntryContext.landingPage || location.href, referrer: publicEntryContext.referrer || "" } }); if (navigator.sendBeacon) navigator.sendBeacon("/api/analytics/search-profile", new Blob([payload], { type: "application/json" })); } catch (error) { /* Analytics never blocks the Requirement. */ }
+    try { const requirement = state?.interview?.requirement || {}; const canonicalType = requirement.propertyTypes?.[0] || publicEntryContext.propertyType || ""; const market = requirement.locationLogic?.marketAnchor || {}; const payload = JSON.stringify({ event_name: eventName, profile_version: "location-brief:v2", context: { page_type: "location_requirement_vnext", page_url: location.pathname, city: market.city || market.displayName || query.get("city") || "", location_display: market.displayName || query.get("city") || "", space_type: canonicalType, journey_id: vnextJourneyId, ...extra }, profile: { profile_version: "location-brief:v2", space_type: canonicalType }, attribution: { entry_page_type: publicEntryContext.sourceType || "", landing_page: publicEntryContext.landingPage || location.href, referrer: publicEntryContext.referrer || "", session_id: vnextJourneyId } }); if (navigator.sendBeacon) navigator.sendBeacon("/api/analytics/search-profile", new Blob([payload], { type: "application/json" })); else { const request = new XMLHttpRequest(); request.open("POST", "/api/analytics/search-profile", true); request.setRequestHeader("content-type", "application/json"); request.send(payload); } } catch (error) { /* Analytics never blocks the Requirement. */ }
   }
 
   function persist() {
@@ -104,8 +105,9 @@ if (root) {
     const body = editing ? { requirement, expectedRevision: locationBriefV2Context.revisionNumber } : { requirement, entryContext: entryContextFor(requirement), creationRequestId };
     const response = await fetch(url, { method: editing ? "PUT" : "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(body) });
     const result = await response.json();
-    if (!response.ok) throw new Error(result.error || "Location Brief v2 could not be saved.");
+    if (!response.ok) { const error = new Error(result.error || "Location Brief v2 could not be saved."); error.reasonCode = result.reasonCode || "CREATION_FAILED"; error.fallbackUrl = result.fallbackUrl || ""; throw error; }
     trackVNext("vnext_requirement_completed", { readiness: result.readiness || "" });
+    trackVNext("vnext_brief_created", { readiness: result.readiness || "" });
     clearPrototypePersistence();
     location.href = result.briefUrl || (publicExperience ? `/location-brief/${encodeURIComponent(result.publicId)}` : `/operator/location-brief-v2/${encodeURIComponent(result.publicId)}`);
   }
@@ -847,9 +849,9 @@ if (root) {
     if (locationBriefV2Mode) {
       const button = root.querySelector("[data-view-recommendations]");
       button.disabled = true;
-      button.textContent = "Saving recommendations…";
+      button.textContent = "Creating Location Brief…";
       try { await persistLocationBriefV2(state.interview.requirement); }
-      catch (error) { button.disabled = false; button.textContent = "Show recommended locations"; alert(error.message); }
+      catch (error) { trackVNext("vnext_creation_rejected", { reason_code: error.reasonCode || "CREATION_FAILED" }); if (error.fallbackUrl) { location.href = error.fallbackUrl; return; } button.disabled = false; button.textContent = "Create My Location Brief"; alert(error.message); }
       return;
     }
     state.mode = "preview"; persist(); render();

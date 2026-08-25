@@ -35,7 +35,7 @@ for (const sample of samples.briefs) {
   const resultKey = sample.locations.map((item) => item.districtId).join("|");
   if (resultSignatures.has(resultKey)) assert(resultSignatures.get(resultKey) !== sample.resolvedApplicability, `${sample.id} duplicates a decision path`);
   resultSignatures.set(resultKey, sample.resolvedApplicability);
-  assert(sample.cta.includes("journey=new") && sample.cta.includes("source=example") && !sample.cta.includes("business="), `${sample.id} CTA must start a fresh search`);
+  assert(sample.cta.startsWith("/best-fit-locations/") && sample.cta.includes("source=example") && !sample.cta.includes("business="), `${sample.id} CTA must enter the controlled fresh-search router`);
   for (const location of sample.locations) {
     assert(location.path.startsWith("/commercial-real-estate/CA/san-francisco/"), `${location.districtId} lacks canonical SF path`);
     assert((representativeContent.byDistrictId[location.districtId] || []).length && location.representativeContent.length, `${location.districtId} lacks canonical representative reuse`);

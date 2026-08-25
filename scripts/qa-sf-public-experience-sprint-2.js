@@ -39,7 +39,7 @@ for (const [model, guide] of Object.entries(discovery.guides)) {
   assert.deepEqual(entries.map((item) => item.id).sort(), expected[model], `${model} guide must expose its exact certified universe once.`);
   assert.equal(new Set(entries.map((item) => item.id)).size, entries.length, `${model} guide cannot duplicate geography across groups.`);
   for (const item of entries) assert(publicPaths.has(item.path), `${model}:${item.id} must link to its Sprint 1 canonical surface.`);
-  assert(guide.recommendation.path.startsWith("/location-requirement/?journey=new&city=San%20Francisco&state=CA&marketId=san-francisco"));
+  assert(guide.recommendation.path.startsWith("/best-fit-locations/?city=San%20Francisco&state=CA&marketId=san-francisco"));
   assert(guide.recommendation.path.includes("source=space_type") && guide.recommendation.path.includes("sourcePath="));
 }
 
