@@ -7,6 +7,7 @@ const tempeIndustrialPublicDecision = require("./tempeIndustrialPublicDecision.j
 const antiochIndustrialPublicDecision = require("./antiochIndustrialPublicDecision.js");
 const indianapolisIndustrialPublicDecision = require("./indianapolisIndustrialPublicDecision.js");
 const sacramentoIndustrialPublicDecision = require("./sacramentoIndustrialPublicDecision.js");
+const sanDiegoIndustrialPublicDecision = require("./sanDiegoIndustrialPublicDecision.js");
 
 function slugify(value) {
   return String(value || "")
@@ -192,6 +193,8 @@ module.exports = cities.flatMap((city) => {
           ? indianapolisIndustrialPublicDecision
           : normalizedCitySlug === "sacramento" && normalizedStateAbbr === "ca" && normalizedTypeSlug === "industrial-space"
           ? sacramentoIndustrialPublicDecision
+          : normalizedCitySlug === "san-diego" && normalizedStateAbbr === "ca" && normalizedTypeSlug === "industrial-space"
+          ? sanDiegoIndustrialPublicDecision
           : null;
 
       return {

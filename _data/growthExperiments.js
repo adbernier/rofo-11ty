@@ -5,6 +5,7 @@ const experiments = Object.freeze([
   Object.freeze({ id: "growth-sf-retail-v1", marketId: "san-francisco", market: "San Francisco", state: "CA", spaceType: "retail_service", hypothesis: "A clearer city-to-Retail semantic path and more distinct Retail metadata will help Google and users select the certified Retail decision guide.", baseline: Object.freeze({ window: "2026-07-16/2026-08-12", query: "san francisco retail space for lease", impressions: 31, averagePosition: 32.3, selectedPath: "/commercial-real-estate/CA/san-francisco/" }), landingPath: "/commercial-real-estate/CA/san-francisco/retail-space/", targetBehavior: "Organic Retail landing → Business Profile → certified Retail Brief → Find Spaces That Fit", startVersion: "growth-sprint-1", deploymentDate: null, reviewStatus: "implementation_complete_pending_deployment" }),
   Object.freeze({ id: "growth-aliso-viejo-office-v1", marketId: "aliso-viejo", market: "Aliso Viejo", state: "CA", spaceType: "office", hypothesis: "Occupier-oriented metadata and durable decision framing will improve CTR and reveal whether market-information visitors begin a Business Profile.", baseline: Object.freeze({ window: "2026-07-16/2026-08-12", impressions: 818, averagePosition: 8.3, clicks: 0, impressionChange: "+245%" }), landingPath: "/commercial-real-estate/CA/aliso-viejo/", targetBehavior: "Market-information landing → tenant decision context → Business Profile → Universal Brief", startVersion: "growth-sprint-1", deploymentDate: null, reviewStatus: "implementation_complete_pending_deployment" }),
   Object.freeze({ id: "growth-sacramento-industrial-v1", marketId: "sacramento", market: "Sacramento", state: "CA", spaceType: "industrial", hypothesis: "Projecting reviewed Industrial decision geography and representative environments onto the canonical Sacramento Industrial page will improve relevance and discovery while creating qualified Business Profile starts.", baseline: Object.freeze({ window: "2026-07-16/2026-08-12", propertyTypeImpressions: 31, averagePosition: 21.1, clicks: 0 }), landingPath: "/commercial-real-estate/CA/sacramento/industrial-space/", targetBehavior: "Organic Industrial landing → local operating context → Business Profile → Universal Brief → Find Spaces That Fit", startVersion: "market-development-sprint-a", deploymentDate: null, reviewStatus: "implementation_complete_pending_deployment" }),
+  Object.freeze({ id: "growth-san-diego-industrial-v1", marketId: "san-diego", market: "San Diego", state: "CA", spaceType: "industrial", hypothesis: "Projecting reviewed Industrial decision geography and representative environments onto the canonical San Diego Industrial page will improve relevance, organic discovery, and qualified Business Profile starts.", baseline: Object.freeze({ window: "2026-07-16/2026-08-12", propertyTypeImpressions: 28, averagePosition: 27.1, marketImpressions: 185 }), landingPath: "/commercial-real-estate/CA/san-diego/industrial-space/", targetBehavior: "Organic Industrial landing → operating-environment exploration → Business Profile → Universal Brief → Find Spaces That Fit", startVersion: "market-development-sprint-b", deploymentDate: null, reviewStatus: "implementation_complete_pending_deployment" }),
 ]);
 
 const observationPolicy = Object.freeze({
@@ -32,6 +33,18 @@ const cityProjection = Object.freeze({
       summary: "Compare Power Inn, Natomas, and bounded Sacramento-area operating contexts before investigating individual buildings.",
       cue: "Understand Sacramento Industrial environments",
       path: "/commercial-real-estate/CA/sacramento/industrial-space/",
+    }),
+  }),
+  "CA/san-diego": Object.freeze({
+    experimentId: "growth-san-diego-industrial-v1",
+    propertyType: "Industrial / Warehouse / Flex",
+    intelligenceState: "universal_with_local_context",
+    featuredSpaceType: Object.freeze({
+      eyebrow: "San Diego Industrial decisions",
+      title: "Explore San Diego Industrial and Warehouse locations",
+      summary: "Compare Miramar, Otay Mesa, Kearny Mesa, and Sorrento Mesa before investigating individual buildings.",
+      cue: "Understand San Diego Industrial environments",
+      path: "/commercial-real-estate/CA/san-diego/industrial-space/",
     }),
   }),
 });

@@ -24,7 +24,7 @@ const assertControlledEntry = (href, city, state) => {
 };
 
 assert.equal(experiments.schemaVersion, "growth-experiments:v1");
-assert.equal(experiments.experiments.length, 6, "The experiment registry must remain bounded to the five Growth Sprint 1 hypotheses plus Sacramento Industrial");
+assert.equal(experiments.experiments.length, 7, "The experiment registry must remain bounded to the five Growth Sprint 1 hypotheses plus Sacramento and San Diego Industrial");
 assert(experiments.experiments.every((item) => item.deploymentDate === null && item.reviewStatus === "implementation_complete_pending_deployment"));
 assert(experiments.observationPolicy.firstMeaningfulReview.includes("14 complete post-deployment days"));
 
@@ -85,4 +85,4 @@ for (const guide of [antioch.localDecisionGuide, tempe.localDecisionGuide, indy.
   assert(!/ranked recommendation|best industrial district/i.test(JSON.stringify(guide)), "Partial intelligence must not claim Level 3 conclusions");
 }
 
-console.log("Growth Sprint 1 QA passed: original five experiments plus the bounded Sacramento extension, public projections, intelligence boundaries, canonical continuity, controlled entry, and observation contracts verified.");
+console.log("Growth Sprint 1 QA passed: original five experiments plus the bounded Sacramento and San Diego extensions, public projections, intelligence boundaries, canonical continuity, controlled entry, and observation contracts verified.");
