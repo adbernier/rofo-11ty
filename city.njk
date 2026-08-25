@@ -660,6 +660,14 @@ eleventyComputed:
           {% endif %}
 
           {% if availableSpaceTypes.length %}
+            {% if city.growth_experiment and city.growth_experiment.featuredSpaceType %}
+              <div class="city-card city-support-module" data-experiment="{{ city.growth_experiment.experimentId }}">
+                <div class="eyebrow">{{ city.growth_experiment.featuredSpaceType.eyebrow }}</div>
+                <h2>{{ city.growth_experiment.featuredSpaceType.title }}</h2>
+                <p>{{ city.growth_experiment.featuredSpaceType.summary }}</p>
+                <p><a href="{{ city.growth_experiment.featuredSpaceType.path }}">{{ city.growth_experiment.featuredSpaceType.cue }} →</a></p>
+              </div>
+            {% endif %}
             <div class="city-card city-popular-searches-card city-support-module">
               <div class="eyebrow">Common searches</div>
               <h2>When you are ready to look at space</h2>

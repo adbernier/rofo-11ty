@@ -31,6 +31,12 @@
               <div class="eyebrow">{{ option.label }}</div>
               <h3>{{ option.name }}</h3>
               <p>{{ option.summary }}</p>
+              {% if option.strengths and option.strengths.length %}
+                <p><strong>Strengths:</strong> {% for item in option.strengths %}{{ item }}{% if not loop.last %}; {% endif %}{% endfor %}.</p>
+              {% endif %}
+              {% if option.tradeoffs and option.tradeoffs.length %}
+                <p><strong>Tradeoffs:</strong> {% for item in option.tradeoffs %}{{ item }}{% if not loop.last %}; {% endif %}{% endfor %}.</p>
+              {% endif %}
             </a>
           {% else %}
             <article class="neighborhood-comparison-card">
@@ -40,6 +46,17 @@
             </article>
           {% endif %}
         {% endfor %}
+      </div>
+    {% endif %}
+
+    {% if entry.localDecisionGuide.operatingPatterns and entry.localDecisionGuide.operatingPatterns.length %}
+      <div class="neighborhood-decision-guidance">
+        <h3>How the operating requirement changes the search</h3>
+        <ul>
+          {% for pattern in entry.localDecisionGuide.operatingPatterns %}
+            <li><strong>{{ pattern.name }}:</strong> {{ pattern.explanation }}</li>
+          {% endfor %}
+        </ul>
       </div>
     {% endif %}
 
@@ -73,6 +90,24 @@
         <div class="eyebrow">{{ entry.localDecisionGuide.representativeEnvironment.label }}</div>
         <h3><a href="{{ entry.localDecisionGuide.representativeEnvironment.path }}">{{ entry.localDecisionGuide.representativeEnvironment.name }}</a></h3>
         <p>{{ entry.localDecisionGuide.representativeEnvironment.summary }}</p>
+      </div>
+    {% endif %}
+
+    {% if entry.localDecisionGuide.representativeEnvironments and entry.localDecisionGuide.representativeEnvironments.length %}
+      <div class="neighborhood-decision-guidance">
+        <div class="eyebrow">Representative commercial environments</div>
+        <h3>What Industrial space here can feel like</h3>
+        <div class="neighborhood-comparison-grid">
+          {% for example in entry.localDecisionGuide.representativeEnvironments %}
+            <article class="neighborhood-comparison-card">
+              <div class="eyebrow">{{ example.label }}</div>
+              <h4><a href="{{ example.path }}">{{ example.name }}</a></h4>
+              <p>{{ example.summary }}</p>
+              {% if example.contextPath %}<p><a href="{{ example.contextPath }}">Understand {{ example.contextName }} →</a></p>{% endif %}
+            </article>
+          {% endfor %}
+        </div>
+        <p class="semantic-footnote">{{ entry.localDecisionGuide.representativeDisclaimer }}</p>
       </div>
     {% endif %}
 
