@@ -1,7 +1,11 @@
 module.exports = {
-  experimentId: "tempe-industrial-decision-surface",
+  experimentId: "growth-tempe-industrial-v1",
   eyebrow: "Tempe industrial location guide",
   title: "Is Tempe the right Phoenix-area industrial location?",
+  seoTitle: "Tempe Industrial Space and I-10 Warehouse Location Guide | Rofo",
+  seoDescription: "Evaluate Tempe Industrial and warehouse requirements through reviewed I-10 context, a representative office/warehouse environment, Phoenix-area orientation, and property-level questions.",
+  h1: "Industrial and Warehouse Space in Tempe, AZ",
+  heroLead: "Tempe Industrial searches should begin with loading, vehicle movement, storage, production, employee and customer geography, and office/warehouse mix. Reviewed I-10 context helps orient the search without ranking Tempe against other Phoenix-area markets.",
   introduction:
     "Start with how the operation needs to work. Tempe can suit businesses that need practical industrial or flex space with I-10 and central/east Valley access, while airport-oriented logistics or more specialized industrial requirements may point elsewhere.",
   entries: [
@@ -37,6 +41,18 @@ module.exports = {
     summary:
       "One concrete Tempe I-10 office/warehouse reference—not evidence of current availability or a verified match for loading, power, yard, or permitted-use needs.",
   },
+  relatedGuides: [
+    {
+      name: "Tempe Flex Space",
+      path: "/commercial-real-estate/AZ/tempe/flex-space/",
+      explanation: "Use the Flex path when office, showroom, technical, maker, or customer-facing space is a meaningful part of the requirement rather than treating Flex as a weaker warehouse category.",
+    },
+    {
+      name: "Phoenix Industrial Space",
+      path: "/commercial-real-estate/AZ/phoenix/industrial-space/",
+      explanation: "Use broader Phoenix Industrial discovery to understand additional metro operating contexts; this link is orientation, not a claim that one market ranks above another.",
+    },
+  ],
   validation: [
     "Loading configuration, truck access, circulation, and parking",
     "Power, yard or outdoor storage, and permitted use",
@@ -46,6 +62,6 @@ module.exports = {
   recommendation: {
     prompt: "Not sure whether Tempe or another Phoenix-area industrial location fits your operation?",
     label: "See My Best-Fit Locations",
-    path: "/find-locations/?city=Tempe&state=AZ&spaceType=Industrial%20%2F%20Warehouse&source=tempe_industrial_decision_surface",
+    path: "/best-fit-locations/?city=Tempe&state=AZ&spaceType=Industrial%20%2F%20Warehouse%20%2F%20Flex&source=space_type&sourcePath=%2Fcommercial-real-estate%2FAZ%2Ftempe%2Findustrial-space%2F&journey=new",
   },
 };

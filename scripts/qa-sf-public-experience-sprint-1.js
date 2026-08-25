@@ -77,7 +77,7 @@ if (renderedRoutes.every((route) => fs.existsSync(route))) {
     assert(html.includes(`<link rel="canonical" href="https://www.rofo.com${sfBase}${id}/">`));
     assert(!html.includes('name="robots" content="noindex'));
     assert(html.includes("See My Best-Fit Locations"));
-    assert(html.includes(`/location-requirement/?city=San%20Francisco`));
+    assert(html.includes(`/best-fit-locations/?city=San%20Francisco`));
     assert(html.includes(`districtId=${id}`));
     assert(html.includes("What kind of space") === false, "Public surface must not leak interview UI.");
     assert(!/being reviewed|possible Rofo neighborhood page|evaluation state/i.test(html), `${id} must not expose evaluation language.`);

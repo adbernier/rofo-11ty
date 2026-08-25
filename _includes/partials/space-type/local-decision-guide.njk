@@ -76,6 +76,17 @@
       </div>
     {% endif %}
 
+    {% if entry.localDecisionGuide.relatedGuides and entry.localDecisionGuide.relatedGuides.length %}
+      <div class="neighborhood-decision-guidance">
+        <h3>Related space decisions</h3>
+        <ul>
+          {% for related in entry.localDecisionGuide.relatedGuides %}
+            <li><strong><a href="{{ related.path }}">{{ related.name }}</a>:</strong> {{ related.explanation }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+
     <div class="neighborhood-decision-guidance">
       <h3>What to verify before comparing spaces</h3>
       <ul>

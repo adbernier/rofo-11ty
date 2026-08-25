@@ -82,10 +82,10 @@ if (fs.existsSync(site)) {
     assert(/<main\b|role="main"/.test(html), `${url} lacks main landmark`);
     assert(/<h1\b/.test(html), `${url} lacks h1`);
     if (url.includes("/commercial-real-estate/CA/san-francisco/") && !/\/(office|retail|industrial|flex)-space\/$/.test(url) && url !== "/commercial-real-estate/CA/san-francisco/") {
-      assert(html.includes("See My Best-Fit Locations") && html.includes("marketId=san-francisco") && html.includes("journey=new") && html.includes("sourcePath="), `${url} lacks complete Best-Fit EntryContext`);
+      assert(html.includes("See My Best-Fit Locations") && html.includes("/best-fit-locations/") && html.includes("marketId=san-francisco") && html.includes("sourcePath="), `${url} lacks complete controlled Best-Fit EntryContext`);
     }
     for (const href of internalLinks(html)) {
-      if (href.startsWith("/api/") || href.startsWith("/assets/") || href.startsWith("/location-requirement/") || href.startsWith("/find-locations/") || href.startsWith("/location-brief/")) continue;
+      if (href.startsWith("/api/") || href.startsWith("/assets/") || href.startsWith("/best-fit-locations/") || href.startsWith("/location-requirement/") || href.startsWith("/find-locations/") || href.startsWith("/location-brief/")) continue;
       const target = output(href);
       const redirect = redirectMap.get(href);
       assert(fs.existsSync(target) || (redirect && fs.existsSync(output(redirect.to))) || fs.existsSync(path.join(site, href.replace(/^\//, ""))), `${url} has broken link ${href}`);

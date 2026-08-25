@@ -7,6 +7,7 @@
 {% set promptLabel = promptContext.context_label or promptDistrict or promptCity or "" %}
 {% set promptSpaceType = promptContext.default_space_type or "" %}
 {% set promptBusinessIdentity = promptContext.business_identity or promptContext.business_archetype or "" %}
+{% set promptIntelligenceState = promptContext.intelligence_state or "" %}
 {% set promptSourcePath = page.url or promptContext.page_url or "" %}
 {% set promptComparisonA = "" %}
 {% set promptComparisonB = "" %}
@@ -75,6 +76,7 @@
   data-prompt-district="{{ promptDistrict }}"
   data-prompt-space-type="{{ promptSpaceType }}"
   data-prompt-source-path="{{ promptSourcePath }}"
+  data-prompt-intelligence-state="{{ promptIntelligenceState }}"
   aria-label="Get location recommendations"
 >
   <div class="recommendation-prompt-card__content">
@@ -108,11 +110,13 @@
           district: card.dataset.promptDistrict || "",
           location_display: card.dataset.promptDistrict || card.dataset.promptCity || "",
           space_type: card.dataset.promptSpaceType || "",
+          intelligence_state: card.dataset.promptIntelligenceState || "",
           device_type: window.matchMedia && window.matchMedia("(max-width: 767px)").matches ? "mobile" : "desktop",
         },
         profile: {
           profile_version: "recommendation_prompt_v1",
           space_type: card.dataset.promptSpaceType || "",
+          intelligence_state: card.dataset.promptIntelligenceState || "",
         },
         attribution: {
           referrer: document.referrer || "",

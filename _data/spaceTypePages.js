@@ -4,6 +4,8 @@ const buildings = require("./buildings.js");
 const { getRoutingCandidates } = require("./leadRouting.js");
 const sfPublicDiscovery = require("./sfPublicDiscovery.js");
 const tempeIndustrialPublicDecision = require("./tempeIndustrialPublicDecision.js");
+const antiochIndustrialPublicDecision = require("./antiochIndustrialPublicDecision.js");
+const indianapolisIndustrialPublicDecision = require("./indianapolisIndustrialPublicDecision.js");
 
 function slugify(value) {
   return String(value || "")
@@ -170,6 +172,25 @@ module.exports = cities.flatMap((city) => {
         city.city_state_slug || `${normalizedCitySlug}-${normalizedStateAbbr}`;
       const routingCounty = countyStateSlug(city.county || city.county_name, city.state_abbr);
 
+      const localDecisionGuide =
+        normalizedCitySlug === "san-francisco" && normalizedStateAbbr === "ca"
+          ? normalizedTypeSlug === "office-space"
+            ? sfPublicDiscovery.guides.office
+            : normalizedTypeSlug === "retail-space"
+            ? sfPublicDiscovery.guides.retail
+            : normalizedTypeSlug === "industrial-space"
+            ? sfPublicDiscovery.guides.industrial
+            : normalizedTypeSlug === "flex-space"
+            ? sfPublicDiscovery.guides.flex
+            : null
+          : normalizedCitySlug === "antioch" && normalizedStateAbbr === "ca" && normalizedTypeSlug === "industrial-space"
+          ? antiochIndustrialPublicDecision
+          : normalizedCitySlug === "tempe" && normalizedStateAbbr === "az" && normalizedTypeSlug === "industrial-space"
+          ? tempeIndustrialPublicDecision
+          : normalizedCitySlug === "indianapolis" && normalizedStateAbbr === "in" && normalizedTypeSlug === "industrial-space"
+          ? indianapolisIndustrialPublicDecision
+          : null;
+
       return {
         city,
         spaceType,
@@ -187,23 +208,12 @@ module.exports = cities.flatMap((city) => {
         routing_space_type: normalizedTypeSlug,
         representativeBuildings: representativeBuildings.slice(0, 12),
         hasInventory: representativeBuildings.length > 0,
-        localDecisionGuide:
-          normalizedCitySlug === "san-francisco" && normalizedStateAbbr === "ca"
-            ? normalizedTypeSlug === "office-space"
-              ? sfPublicDiscovery.guides.office
-              : normalizedTypeSlug === "retail-space"
-              ? sfPublicDiscovery.guides.retail
-              : normalizedTypeSlug === "industrial-space"
-              ? sfPublicDiscovery.guides.industrial
-              : normalizedTypeSlug === "flex-space"
-              ? sfPublicDiscovery.guides.flex
-              : null
-            : normalizedCitySlug === "tempe" &&
-              normalizedStateAbbr === "az" &&
-              normalizedTypeSlug === "industrial-space"
-            ? tempeIndustrialPublicDecision
-            : null,
+        localDecisionGuide,
+        seoTitle: localDecisionGuide?.seoTitle || "",
+        seoDescription: localDecisionGuide?.seoDescription || "",
+        h1: localDecisionGuide?.h1 || "",
+        heroLead: localDecisionGuide?.heroLead || "",
       };
     })
-    .filter((entry) => entry.representativeBuildings.length > 0);
+    .filter((entry) => entry.representativeBuildings.length > 0 || entry.localDecisionGuide);
 });

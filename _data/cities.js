@@ -3,6 +3,7 @@ const path = require("path");
 const { getRoutingCandidates } = require("./leadRouting.js");
 const marketSnapshots = require("./marketSnapshots.js");
 const commercialKnowledgeMarketSnapshots = require("./commercialKnowledgeMarketSnapshots.js");
+const growthExperiments = require("./growthExperiments.js");
 
 function findCityHeroImage(cityStateSlug) {
   const baseDir = path.join(process.cwd(), "assets", "images", "cities");
@@ -56,6 +57,7 @@ module.exports = () => {
       city.city_state_slug || `${city.slug}-${city.state_abbr.toLowerCase()}`;
     const marketSnapshotKey = `${String(city.state_abbr || "").toUpperCase()}/${String(city.slug || "").toLowerCase()}`;
     const routingCounty = countyStateSlug(city.county || city.county_name, city.state_abbr);
+    const growthProjection = growthExperiments.cityProjection[marketSnapshotKey] || null;
 
     const autoHeroImage = findCityHeroImage(cityStateSlug);
     const rawHeroImage = city.hero_image || "";
@@ -73,6 +75,10 @@ module.exports = () => {
       routing_county: routingCounty,
       market_snapshot: marketSnapshots[marketSnapshotKey] || null,
       commercial_knowledge_snapshot: commercialKnowledgeMarketSnapshots[marketSnapshotKey] || null,
+      growth_experiment: growthProjection,
+      seo_title: growthProjection?.seoTitle || city.seo_title,
+      seo_description: growthProjection?.seoDescription || city.seo_description,
+      h1: growthProjection?.h1 || city.h1,
       routing_candidates: getRoutingCandidates({
         city_state_slug: cityStateSlug,
         county_state_slug: routingCounty,

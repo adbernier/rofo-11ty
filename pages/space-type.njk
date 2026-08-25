@@ -7,8 +7,8 @@ pagination:
   alias: entry
 permalink: "/commercial-real-estate/{{ entry.city.state_abbr | upper }}/{{ entry.city_slug }}/{{ entry.page_slug }}/index.html"
 eleventyComputed:
-  title: "{{ entry.spaceType.label }} Space in {{ entry.city.city }}, {{ entry.city.state_abbr | upper }} | Rofo"
-  description: "Compare {{ entry.spaceType.label | lower }} location options in {{ entry.city.city }}, {{ entry.city.state_abbr | upper }}. Understand areas, buildings, and tradeoffs before narrowing the search."
+  title: "{{ entry.seoTitle or (entry.spaceType.label + ' Space in ' + entry.city.city + ', ' + (entry.city.state_abbr | upper) + ' | Rofo') }}"
+  description: "{{ entry.seoDescription or ('Compare ' + (entry.spaceType.label | lower) + ' location options in ' + entry.city.city + ', ' + (entry.city.state_abbr | upper) + '. Understand areas, buildings, and tradeoffs before narrowing the search.') }}"
 ---
 
 {% set city = entry.city %}
@@ -63,7 +63,8 @@ eleventyComputed:
       "location_suggestions": searchProfileLocationSuggestions,
       "default_space_type": searchProfileDefaultSpaceType,
       "space_type_context_label": "Searching for: " + spaceType.pluralLabel,
-      "card_headline": "Get a personalized " + city.city + " " + searchProfileShortlistType + " shortlist"
+      "card_headline": "Get a personalized " + city.city + " " + searchProfileShortlistType + " shortlist",
+      "intelligence_state": "recommendation_ready" if city.slug == "san-francisco" else ("universal_with_local_context" if entry.localDecisionGuide else "universal_only")
     } %}
 
     <div class="space-type-hero-layout">
@@ -86,7 +87,9 @@ eleventyComputed:
         {% include "partials/space-type/budget-card.njk" %}
         {% include "partials/space-type/timeline-card.njk" %}
 
-        {% include "partials/space-type/representative-buildings.njk" %}
+        {% if not entry.localDecisionGuide or not entry.localDecisionGuide.suppressInventoryModule %}
+          {% include "partials/space-type/representative-buildings.njk" %}
+        {% endif %}
         {% include "partials/space-type/nearby-markets.njk" %}
         {% include "partials/space-type/related-space-types.njk" %}
       </div>

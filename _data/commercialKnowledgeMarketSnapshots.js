@@ -102,8 +102,8 @@ module.exports = {
     commercialCharacter:
       "Antioch is an East Contra Costa commercial market where warehouse, service, retail, and local business-space searches are shaped by suburban access, customer geography, and practical operating needs.",
     businessDrivers: [
-      "Search demand is currently strongest around industrial, lease, and general commercial-space questions, which makes Antioch a useful candidate for deeper occupier knowledge before any public business-guide expansion.",
-      "The immediate editorial need is to distinguish practical warehouse or service-space requirements from office, retail, and general commercial inquiries rather than publish broad claims from limited evidence.",
+      "Search demand is currently strongest around industrial, lease, and general commercial-space questions, while reviewed East 18th evidence provides a bounded local operating context.",
+      "The useful distinction is practical warehouse or service-space requirements versus office, retail, and general commercial inquiries—not a citywide Industrial ranking.",
     ],
     propertyTypeContext: {
       office: "Office decisions should be treated as local-serving and access-driven until stronger district or representative-building evidence is available.",
@@ -112,8 +112,11 @@ module.exports = {
       flex: "Flex requirements need property-level validation because office, storage, service, and light operational needs can be mixed in different proportions.",
     },
     businessLocationContext: [
-      "For industrial and warehouse users, the next useful knowledge work is canonical district/corridor definition and representative building evidence.",
-      "Search Intelligence shows meaningful occupier demand, but Rofo should not create public industrial recommendations until local district and building evidence is stronger.",
+      "For Industrial and warehouse users, East 18th provides reviewed local context while representative Industrial building evidence remains unresolved.",
+      "Rofo can explain what to investigate without creating local recommendations, implying availability, or substituting Retail buildings as Industrial examples.",
+    ],
+    keyDistricts: [
+      { label: "Antioch East 18th Industrial", path: "/commercial-real-estate/CA/antioch/antioch-east-18th-industrial/" },
     ],
     nearbyMarkets: [
       { label: "Concord", path: "/commercial-real-estate/CA/concord/" },
@@ -122,7 +125,7 @@ module.exports = {
     ],
     cta: {
       label: "See My Best-Fit Locations",
-      href: "/find-locations/?city=Antioch&state=CA&propertyType=industrial&source=market_snapshot",
+      href: "/best-fit-locations/?city=Antioch&state=CA&spaceType=Industrial%20%2F%20Warehouse%20%2F%20Flex&source=city&sourcePath=%2Fcommercial-real-estate%2FCA%2Fantioch%2F&journey=new",
     },
     sourceTrace: [
       "EOS Search Mission #001",
@@ -181,8 +184,8 @@ module.exports = {
     commercialCharacter:
       "Indianapolis is a regional Midwest commercial market where broad commercial-space, industrial, and warehouse questions should be separated from office-only search behavior before Rofo publishes deeper guidance.",
     businessDrivers: [
-      "Search Intelligence shows industrial and general-commercial demand, but Rofo's current local knowledge is still too thin for district-level public recommendations.",
-      "The first useful knowledge step is occupier framing: what industrial, warehouse, service, and local business-space users need to validate before narrowing a building list.",
+      "Search Intelligence shows industrial and general-commercial demand, while reviewed Airport Logistics and representative-building evidence now provide a bounded starting context.",
+      "That evidence supports occupier framing—what warehouse, distribution, service, and local business-space users need to validate—not district-level public recommendations.",
     ],
     propertyTypeContext: {
       office: "Current Rofo office context is stronger than curated industrial context, so office searches should remain general until district and building evidence improves.",
@@ -191,8 +194,11 @@ module.exports = {
       flex: "Flex needs should be evaluated by the actual office/warehouse mix, loading, parking, and operational permissions.",
     },
     businessLocationContext: [
-      "Indianapolis has enough observed search demand to justify knowledge planning, but not enough curated Rofo district evidence to publish confident industrial recommendations yet.",
-      "Representative building and district work should precede any public business-guide expansion.",
+      "Indianapolis Airport Logistics is a reviewed operating context rather than a complete citywide Industrial decision universe.",
+      "Representative buildings make the environment tangible, but loading, clear height, circulation, use, economics, and availability remain property-level questions.",
+    ],
+    keyDistricts: [
+      { label: "Indianapolis Airport Logistics", path: "/commercial-real-estate/IN/indianapolis/indianapolis-airport-logistics/" },
     ],
     nearbyMarkets: [
       { label: "Carmel", path: "/commercial-real-estate/IN/carmel/" },
@@ -201,7 +207,7 @@ module.exports = {
     ],
     cta: {
       label: "See My Best-Fit Locations",
-      href: "/find-locations/?city=Indianapolis&state=IN&propertyType=industrial&source=market_snapshot",
+      href: "/best-fit-locations/?city=Indianapolis&state=IN&spaceType=Industrial%20%2F%20Warehouse%20%2F%20Flex&source=city&sourcePath=%2Fcommercial-real-estate%2FIN%2Findianapolis%2F&journey=new",
     },
     sourceTrace: [
       "EOS Search Mission #001",
@@ -257,8 +263,8 @@ module.exports = {
     commercialCharacter:
       "Tempe is a Phoenix-area commercial market where office, flex, service, and industrial-adjacent searches often need to be compared against broader metro alternatives before a business chooses a specific location.",
     businessDrivers: [
-      "Search Mission evidence shows Tempe contributing to warehouse and industrial demand, but current Rofo source coverage is still mostly office-oriented.",
-      "The near-term knowledge need is to frame industrial and flex validation carefully while preserving the distinction between Tempe-specific demand and broader Phoenix-area industrial geography.",
+      "Search Mission evidence shows Tempe contributing to warehouse and industrial demand, and reviewed I-10 evidence now provides a cautious Tempe-specific operating context.",
+      "Industrial and Flex still require different property questions, and broader Phoenix-area links provide orientation rather than a calibrated market comparison.",
     ],
     propertyTypeContext: {
       office: "Tempe office searches should compare access, workplace character, parking, and proximity to nearby Phoenix-area business nodes.",
@@ -267,8 +273,11 @@ module.exports = {
       flex: "Flex users should test office/warehouse mix, service access, loading, parking, and employee/customer geography before relying on office-oriented buildings.",
     },
     businessLocationContext: [
-      "Tempe should not be treated as a completed warehouse/industrial market from current Rofo evidence alone.",
-      "The next defensible step is canonical district and representative-building research focused on industrial/flex operating requirements.",
+      "Tempe I-10 Industrial and its representative office/warehouse example make the operating context tangible without completing the market.",
+      "Additional properties and local comparison evidence are still required before Rofo can rank Tempe against broader Phoenix-area alternatives.",
+    ],
+    keyDistricts: [
+      { label: "Tempe I-10 Industrial", path: "/commercial-real-estate/AZ/tempe/tempe-i-10-industrial/" },
     ],
     nearbyMarkets: [
       { label: "Phoenix", path: "/commercial-real-estate/AZ/phoenix/" },
@@ -277,7 +286,7 @@ module.exports = {
     ],
     cta: {
       label: "See My Best-Fit Locations",
-      href: "/find-locations/?city=Tempe&state=AZ&propertyType=industrial&source=market_snapshot",
+      href: "/best-fit-locations/?city=Tempe&state=AZ&spaceType=Industrial%20%2F%20Warehouse%20%2F%20Flex&source=city&sourcePath=%2Fcommercial-real-estate%2FAZ%2Ftempe%2F&journey=new",
     },
     sourceTrace: [
       "EOS Search Mission #001",

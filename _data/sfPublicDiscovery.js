@@ -64,8 +64,13 @@ const office = Object.freeze({
 
 const retail = Object.freeze({
   propertyType: "retail_service",
+  experimentId: "growth-sf-retail-v1",
   eyebrow: "San Francisco Retail location guide",
   title: "Retail decisions often happen at the corridor level",
+  seoTitle: "San Francisco Retail Location Guide and Commercial Corridors | Rofo",
+  seoDescription: "Compare San Francisco Retail districts and corridors by customer environment, storefront character, access, strengths, and tradeoffs before starting a personalized location search.",
+  h1: "San Francisco Retail Districts and Corridors",
+  heroLead: "San Francisco Retail location decisions often happen at the corridor level. Compare customer environment, storefront character, access, daily-use versus destination behavior, and operating tradeoffs before narrowing the search to properties.",
   introduction: "Compare who the location serves, why customers visit, street and storefront character, access, and operating tradeoffs. A familiar neighborhood name may contain more than one distinct Retail decision.",
   groups: Object.freeze([
     group("retail", "Downtown, visitor, and specialty environments", "For concepts comparing visitor demand, professional/daytime activity, destination behavior, and central access.", [
@@ -101,7 +106,7 @@ const retail = Object.freeze({
     { name: "Mission District", path: `${BASE}mission-district/`, explanation: "The Mission remains the broader context. Valencia Street is its independently reviewed Retail corridor." },
   ]),
   validation: Object.freeze(["Customer and demand source", "Planned destination visits versus passing visibility", "Neighborhood, visitor, daytime, and evening patterns", "Parking, transit, loading, and receiving", "Storefront, use, size, and current availability at the property level"]),
-  recommendation: Object.freeze({ prompt: "Which Retail locations fit your business?", label: "See My Best-Fit Locations", path: "/best-fit-locations/?city=San%20Francisco&state=CA&marketId=san-francisco&spaceType=Retail%20%2F%20service&source=space_type&sourcePath=%2Fcommercial-real-estate%2FCA%2Fsan-francisco%2Fretail-space%2F" }),
+  recommendation: Object.freeze({ prompt: "Which Retail locations fit your business?", label: "See My Best-Fit Locations", path: "/best-fit-locations/?city=San%20Francisco&state=CA&marketId=san-francisco&spaceType=Retail%20%2F%20service&source=space_type&sourcePath=%2Fcommercial-real-estate%2FCA%2Fsan-francisco%2Fretail-space%2F&journey=new" }),
 });
 
 const industrial = Object.freeze({

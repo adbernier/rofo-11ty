@@ -187,14 +187,16 @@ eleventyComputed:
             <div class="city-hero-copy">
               <div class="eyebrow">{{ city.city }} Commercial Real Estate</div>
 
-              <h1>Commercial Real Estate in {{ city.city }}, {{ city.state_abbr }}</h1>
+              <h1>{{ city.h1 or ("Commercial Real Estate in " + city.city + ", " + city.state_abbr) }}</h1>
 
               {% set recommendationPromptContext = {
                 "context_type": "city",
                 "city": city.city,
                 "state": city.state_abbr,
                 "context_label": city.city,
-                "page_url": page.url
+                "page_url": page.url,
+                "default_space_type": city.growth_experiment.propertyType if city.growth_experiment else "",
+                "intelligence_state": "recommendation_ready" if isSanFranciscoDecisionJourney else (city.growth_experiment.intelligenceState if city.growth_experiment else ("universal_with_local_context" if commercialKnowledgeSnapshot else "universal_only"))
               } %}
               {% include "partials/shared/recommendation-prompt-card.njk" %}
               {% set recommendationPromptContext = null %}
@@ -524,7 +526,7 @@ eleventyComputed:
               </div>
               <div class="city-knowledge-snapshot__cta">
                 <p>Not sure whether Antioch fits your operation?</p>
-                <a class="btn-primary" href="/find-locations/?city=Antioch&amp;state=CA&amp;spaceType=Industrial%20%2F%20Warehouse&amp;source=antioch_industrial_decision_bridge">See My Best-Fit Locations</a>
+                <a class="btn-primary" href="/best-fit-locations/?city=Antioch&amp;state=CA&amp;spaceType=Industrial%20%2F%20Warehouse%20%2F%20Flex&amp;source=city&amp;sourcePath=%2Fcommercial-real-estate%2FCA%2Fantioch%2F&amp;journey=new">See My Best-Fit Locations</a>
               </div>
             </aside>
           {% endif %}
@@ -532,8 +534,8 @@ eleventyComputed:
           {% if city.slug == "aliso-viejo" and city.state_abbr == "CA" %}
             <aside class="city-card city-location-comparisons-card city-support-module" aria-labelledby="aliso-oc-decision-bridge-heading" data-experiment="aliso-oc-decision-bridge">
               <div class="eyebrow">Orange County Location Decisions</div>
-              <h2 id="aliso-oc-decision-bridge-heading">Considering Locations Beyond Aliso Viejo?</h2>
-              <p>Orange County is not one uniform commercial market. If your search can extend beyond Aliso Viejo, different South Orange County and Irvine environments may fit materially different operating requirements.</p>
+              <h2 id="aliso-oc-decision-bridge-heading">What does the market context mean for an Aliso Viejo tenant?</h2>
+              <p>Market trends and lease-rate context are useful orientation, but they do not determine whether a location or building fits your team. Compare employee and client access, parking, workplace needs, growth flexibility, building condition, and total occupancy cost before narrowing the search.</p>
               <div class="neighborhood-comparison-grid">
                 <a class="neighborhood-comparison-card neighborhood-link-card" href="/commercial-real-estate/CA/irvine/irvine-spectrum/">
                   <h3>Irvine Spectrum</h3>
@@ -553,9 +555,10 @@ eleventyComputed:
                 </a>
               </div>
               <div class="city-knowledge-snapshot__cta">
-                <p>Not sure which Orange County location fits your business?</p>
-                <a class="btn-primary" href="/find-locations/?city=Aliso%20Viejo&amp;state=CA&amp;source=aliso_oc_decision_bridge">See My Best-Fit Locations</a>
+                <p>Turn the market context into a Business Profile built around your team, workplace, and timing.</p>
+                <a class="btn-primary" href="/best-fit-locations/?city=Aliso%20Viejo&amp;state=CA&amp;spaceType=Office&amp;source=city&amp;sourcePath=%2Fcommercial-real-estate%2FCA%2Faliso-viejo%2F&amp;journey=new">See My Best-Fit Locations</a>
               </div>
+              <p class="semantic-footnote">Rent ranges, availability, lease terms, building condition, and property-specific facts must be verified for the current search.</p>
             </aside>
           {% endif %}
 
