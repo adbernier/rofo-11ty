@@ -85,7 +85,7 @@ async function render(env, created, debug = false) {
 
   const medical = await foundation.createBrief(env, requirement({ business: "Medical private practice", property: "medical", origins: ["Marin / North Bay"], clients: "Patients visit regularly", customerOrigins: ["San Francisco", "Marin / North Bay"], transit: "Public transit is not important", parking: "Convenient parking is very important" }), { sourceType: "operator_requirement_interview", marketId: "san-francisco", propertyType: "medical" });
   const investigate = await render(env, medical);
-  assert(investigate.includes("<h2>What matters most</h2>")); assert(investigate.includes("Research Spaces for My Business →"));
+  assert(investigate.includes("<h2>What matters most</h2>")); assert(investigate.includes("Find Spaces That Fit →"));
   assert(investigate.includes("Medical-compatible use")); assert(!investigate.includes('<article class="lb2-rec'));
   assert(!investigate.includes(`/property-requirement/${medical.brief.publicId}`), "Medical must not enter the Office property-stage continuation.");
   assert(!investigate.includes("Technology"));

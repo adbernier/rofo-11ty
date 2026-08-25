@@ -52,7 +52,7 @@ const nonCertifiedBundle = { brief: { publicId: "LB2-00112233445566778899AABB" }
 const universalHtml = renderer.renderLocationBriefV2Page(nonCertifiedBundle, true, false, { publicExperience: true });
 assert(universalHtml.includes("Rofo has not yet calibrated Novi for automatic location comparison."));
 assert(!universalHtml.includes("Locations worth investigating"));
-assert(universalHtml.includes("Research Spaces for My Business →") && universalHtml.includes("/research-search/LB2-00112233445566778899AABB"));
+assert(universalHtml.includes("Find Spaces That Fit →") && universalHtml.includes("/research-search/LB2-00112233445566778899AABB"));
 assert(!universalHtml.includes("<button class=\"lb2-button\" type=\"button\" disabled"));
 
 const sfOfficeRequirement = requirement("san-francisco", "San Francisco", "office");
@@ -65,7 +65,7 @@ const sampleRegistry = read("_data/sfPublicSampleBriefs.js"); assert(sampleRegis
 const client = read("js/requirement-prototype.js");
 for (const token of ["vnextJourneyId", "industrial_flex", "vnext_brief_created", "vnext_creation_rejected", "reason_code"]) assert(client.includes(token));
 const research = read("functions/research-search/[publicId].js");
-for (const token of ["Share My Search with Rofo", "location_brief_v2_public_id", "investigationTopics", "vnext_research_submitted", "This is a research request—not an instant inventory search."]) assert(research.includes(token));
+for (const token of ["Start My Space Search", "existing Business Profile and Location Brief", "Actual availability and property-specific details require investigation", "location_brief_v2_public_id", "investigationTopics", "vnext_research_submitted"]) assert(research.includes(token));
 assert(research.includes("@media(max-width:700px)") && research.includes("grid-template-columns:1fr"));
 const analytics = read("functions/api/analytics/search-profile.js");
 for (const event of ["vnext_brief_created", "vnext_creation_rejected", "vnext_entry_fallback", "vnext_research_clicked", "vnext_research_submitted"]) assert(analytics.includes(`\"${event}\"`));

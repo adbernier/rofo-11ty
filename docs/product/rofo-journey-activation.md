@@ -23,7 +23,7 @@ Rollback is `LOCATION_BRIEF_V2_PUBLIC_ENTRY_ENABLED=false`. The router immediate
 
 ## Continuation
 
-Owned SF Office Briefs retain the four-step Property Requirement. Other owned Briefs use `Research Spaces for My Business`, a contact-only continuation that posts to the existing lead endpoint. That endpoint attaches the owned Brief's structured Requirement, certified locations when present, universal dimensions, investigation topics, and local-intelligence boundary. It does not create local rankings or an inventory experience.
+Owned SF Office Briefs retain the four-step Property Requirement. Other owned Briefs use `Find Spaces That Fit`, a contact-only continuation that posts to the existing lead endpoint. That endpoint attaches the owned Brief's structured Requirement, certified locations when present, universal dimensions, investigation topics, and local-intelligence boundary. It does not create local rankings or an inventory experience.
 
 ## Deployment smoke test
 
