@@ -43,6 +43,12 @@
               <div class="eyebrow">{{ option.label }}</div>
               <h3>{{ option.name }}</h3>
               <p>{{ option.summary }}</p>
+              {% if option.strengths and option.strengths.length %}
+                <p><strong>Strengths:</strong> {% for item in option.strengths %}{{ item }}{% if not loop.last %}; {% endif %}{% endfor %}.</p>
+              {% endif %}
+              {% if option.tradeoffs and option.tradeoffs.length %}
+                <p><strong>Tradeoffs:</strong> {% for item in option.tradeoffs %}{{ item }}{% if not loop.last %}; {% endif %}{% endfor %}.</p>
+              {% endif %}
             </article>
           {% endif %}
         {% endfor %}

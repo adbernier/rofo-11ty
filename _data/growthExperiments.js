@@ -6,6 +6,7 @@ const experiments = Object.freeze([
   Object.freeze({ id: "growth-aliso-viejo-office-v1", marketId: "aliso-viejo", market: "Aliso Viejo", state: "CA", spaceType: "office", hypothesis: "Occupier-oriented metadata and durable decision framing will improve CTR and reveal whether market-information visitors begin a Business Profile.", baseline: Object.freeze({ window: "2026-07-16/2026-08-12", impressions: 818, averagePosition: 8.3, clicks: 0, impressionChange: "+245%" }), landingPath: "/commercial-real-estate/CA/aliso-viejo/", targetBehavior: "Market-information landing → tenant decision context → Business Profile → Universal Brief", startVersion: "growth-sprint-1", deploymentDate: null, reviewStatus: "implementation_complete_pending_deployment" }),
   Object.freeze({ id: "growth-sacramento-industrial-v1", marketId: "sacramento", market: "Sacramento", state: "CA", spaceType: "industrial", hypothesis: "Projecting reviewed Industrial decision geography and representative environments onto the canonical Sacramento Industrial page will improve relevance and discovery while creating qualified Business Profile starts.", baseline: Object.freeze({ window: "2026-07-16/2026-08-12", propertyTypeImpressions: 31, averagePosition: 21.1, clicks: 0 }), landingPath: "/commercial-real-estate/CA/sacramento/industrial-space/", targetBehavior: "Organic Industrial landing → local operating context → Business Profile → Universal Brief → Find Spaces That Fit", startVersion: "market-development-sprint-a", deploymentDate: null, reviewStatus: "implementation_complete_pending_deployment" }),
   Object.freeze({ id: "growth-san-diego-industrial-v1", marketId: "san-diego", market: "San Diego", state: "CA", spaceType: "industrial", hypothesis: "Projecting reviewed Industrial decision geography and representative environments onto the canonical San Diego Industrial page will improve relevance, organic discovery, and qualified Business Profile starts.", baseline: Object.freeze({ window: "2026-07-16/2026-08-12", propertyTypeImpressions: 28, averagePosition: 27.1, marketImpressions: 185 }), landingPath: "/commercial-real-estate/CA/san-diego/industrial-space/", targetBehavior: "Organic Industrial landing → operating-environment exploration → Business Profile → Universal Brief → Find Spaces That Fit", startVersion: "market-development-sprint-b", deploymentDate: null, reviewStatus: "implementation_complete_pending_deployment" }),
+  Object.freeze({ id: "growth-san-jose-industrial-v1", marketId: "san-jose", market: "San Jose", state: "CA", spaceType: "industrial", hypothesis: "Projecting reviewed technical Flex, advanced-manufacturing, and service-industrial contexts onto the canonical San Jose Industrial page will improve relevance and turn growing search discovery into qualified Business Profile starts.", baseline: Object.freeze({ window: "2026-07-16/2026-08-12", marketImpressions: 317, propertyTypeImpressions: 43, averagePosition: 24.3, clicks: 0, marketImpressionChange: "+117%" }), landingPath: "/commercial-real-estate/CA/san-jose/industrial-space/", targetBehavior: "Organic Industrial landing → operating-context exploration → Business Profile → Universal Brief → Find Spaces That Fit", startVersion: "market-development-sprint-c-public-consolidation", deploymentDate: null, reviewStatus: "implementation_complete_pending_deployment" }),
 ]);
 
 const observationPolicy = Object.freeze({
@@ -45,6 +46,18 @@ const cityProjection = Object.freeze({
       summary: "Compare Miramar, Otay Mesa, Kearny Mesa, and Sorrento Mesa before investigating individual buildings.",
       cue: "Understand San Diego Industrial environments",
       path: "/commercial-real-estate/CA/san-diego/industrial-space/",
+    }),
+  }),
+  "CA/san-jose": Object.freeze({
+    experimentId: "growth-san-jose-industrial-v1",
+    propertyType: "Industrial / Warehouse / Flex",
+    intelligenceState: "universal_with_local_context",
+    featuredSpaceType: Object.freeze({
+      eyebrow: "San Jose Industrial and Flex decisions",
+      title: "Explore San Jose Industrial, Warehouse and Flex environments",
+      summary: "Understand North San Jose technical Flex, the Monterey Business Corridor, and validated Berryessa service-industrial context before investigating individual buildings.",
+      cue: "Understand San Jose Industrial and Flex environments",
+      path: "/commercial-real-estate/CA/san-jose/industrial-space/",
     }),
   }),
 });

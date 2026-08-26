@@ -2,6 +2,8 @@
 {% set promptSource = promptContext.context_type or "page" %}
 {% set promptCity = promptContext.city or "" %}
 {% set promptState = promptContext.state or promptContext.state_abbr or "" %}
+{% set promptMarketId = promptContext.market_id or "" %}
+{% set promptJourney = promptContext.journey or "" %}
 {% set promptDistrict = promptContext.neighborhood_name or promptContext.district or "" %}
 {% set promptDistrictId = promptContext.neighborhood_slug or promptContext.district_id or "" %}
 {% set promptLabel = promptContext.context_label or promptDistrict or promptCity or "" %}
@@ -63,8 +65,9 @@
 {% if promptBusinessIdentity %}{% set promptParams = (promptParams.push("businessArchetype=" + (promptBusinessIdentity | queryEncode)), promptParams) %}{% endif %}
 {% if promptSource %}{% set promptParams = (promptParams.push("source=" + (promptSource | queryEncode)), promptParams) %}{% endif %}
 {% if promptSourcePath %}{% set promptParams = (promptParams.push("sourcePath=" + (promptSourcePath | queryEncode)), promptParams) %}{% endif %}
-{% if promptCity == "San Francisco" %}{% set promptParams = (promptParams.push("marketId=san-francisco"), promptParams) %}{% endif %}
+{% if promptMarketId %}{% set promptParams = (promptParams.push("marketId=" + (promptMarketId | queryEncode)), promptParams) %}{% elseif promptCity == "San Francisco" %}{% set promptParams = (promptParams.push("marketId=san-francisco"), promptParams) %}{% endif %}
 {% if promptDistrictId %}{% set promptParams = (promptParams.push("districtId=" + (promptDistrictId | queryEncode)), promptParams) %}{% endif %}
+{% if promptJourney %}{% set promptParams = (promptParams.push("journey=" + (promptJourney | queryEncode)), promptParams) %}{% endif %}
 {% set promptBase = "/best-fit-locations/" %}
 {% set promptHref = promptBase + ("?" + (promptParams | join("&")) if promptParams.length else "") %}
 

@@ -4,6 +4,7 @@ const approvedAvailabilityBuildings = require("./approvedAvailabilityBuildings.j
 const ecosystemPublicBuildings = require("./ecosystemPublicBuildings.js");
 const representativeBuildingPageExpansions = require("./representativeBuildingPageExpansions.js");
 const commercialBuildingIntelligence = require("./commercialBuildingIntelligence.js");
+const sanJoseBuildingClassificationOverrides = require("./sanJoseBuildingClassificationOverrides.js");
 const { getRoutingCandidates } = require("./leadRouting.js");
 const cities = require("./cities.generated.json");
 
@@ -419,6 +420,7 @@ function buildingKey(building) {
 }
 
 function normalizeBuilding(building, source) {
+  building = sanJoseBuildingClassificationOverrides.apply(building);
   const address = normalizeAddress(building);
   const city = normalizeCity(building);
   const state_abbr = normalizeState(building);

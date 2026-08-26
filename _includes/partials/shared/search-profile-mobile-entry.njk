@@ -42,6 +42,8 @@
 {% set mobilePromptSource = mobilePromptContext.context_type or "page" %}
 {% set mobilePromptCity = mobilePromptContext.city or "" %}
 {% set mobilePromptState = mobilePromptContext.state or mobilePromptContext.state_abbr or "" %}
+{% set mobilePromptMarketId = mobilePromptContext.market_id or "" %}
+{% set mobilePromptJourney = mobilePromptContext.journey or "" %}
 {% set mobilePromptDistrict = mobilePromptContext.neighborhood_name or mobilePromptContext.district or "" %}
 {% set mobilePromptDistrictId = mobilePromptContext.neighborhood_slug or mobilePromptContext.district_id or "" %}
 {% set mobilePromptSpaceType = mobilePromptContext.default_space_type or "" %}
@@ -65,9 +67,11 @@
 {% set mobileHasSupportedSfType = not mobilePromptSpaceType or mobileSpaceTypeNormalized.includes("office") or mobileSpaceTypeNormalized.includes("retail") or mobileSpaceTypeNormalized.includes("service") or mobileSpaceTypeNormalized.includes("industrial") or mobileSpaceTypeNormalized.includes("warehouse") or mobileSpaceTypeNormalized.includes("flex") %}
 {% set mobileUsesVnext = mobilePromptCity == "San Francisco" and mobileHasSupportedSfType %}
 {% if mobileUsesVnext %}
-  {% set mobileParams = (mobileParams.push("marketId=san-francisco"), mobileParams) %}
+  {% if not mobilePromptMarketId %}{% set mobileParams = (mobileParams.push("marketId=san-francisco"), mobileParams) %}{% endif %}
   {% if mobilePromptDistrictId %}{% set mobileParams = (mobileParams.push("districtId=" + (mobilePromptDistrictId | queryEncode)), mobileParams) %}{% endif %}
 {% endif %}
+{% if mobilePromptMarketId %}{% set mobileParams = (mobileParams.push("marketId=" + (mobilePromptMarketId | queryEncode)), mobileParams) %}{% endif %}
+{% if mobilePromptJourney %}{% set mobileParams = (mobileParams.push("journey=" + (mobilePromptJourney | queryEncode)), mobileParams) %}{% endif %}
 {% set mobilePromptBase = "/best-fit-locations/" %}
 {% set mobilePromptHref = mobilePromptBase + ("?" + (mobileParams | join("&")) if mobileParams.length else "") %}
 

@@ -15,7 +15,7 @@ eleventyComputed:
 {% set stateAbbr = city.state_abbr | upper %}
 {% set spaceType = entry.spaceType %}
 {% set representativeBuildings = entry.representativeBuildings %}
-{% set searchProfileDefaultSpaceType = "Industrial / Warehouse" if spaceType.slug == "industrial-space" else spaceType.label %}
+{% set searchProfileDefaultSpaceType = "Industrial / Warehouse / Flex" if entry.localDecisionGuide and entry.localDecisionGuide.recommendation and spaceType.slug == "industrial-space" else ("Industrial / Warehouse" if spaceType.slug == "industrial-space" else spaceType.label) %}
 {% set searchProfileHeadlineType = "industrial" if spaceType.slug == "industrial-space" else (spaceType.label | lower) %}
 {% set searchProfileShortlistType = searchProfileHeadlineType | replace(" space", "") %}
 {% set searchProfileLocationSuggestions = [] %}
@@ -49,6 +49,8 @@ eleventyComputed:
       "district": "",
       "street": "",
       "state": stateAbbr,
+      "market_id": city.slug,
+      "journey": "new",
       "context_type": "space_type",
       "context_label": spaceType.pluralLabel + " in " + city.city + ", " + stateAbbr,
       "page_url": metadata.siteUrl + page.url,
