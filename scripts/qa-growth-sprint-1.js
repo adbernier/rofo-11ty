@@ -25,9 +25,11 @@ const assertControlledEntry = (href, city, state) => {
 
 assert.equal(experiments.schemaVersion, "growth-experiments:v1");
 assert.equal(experiments.experiments.length, 10, "The experiment registry must remain bounded to the established nine hypotheses plus Phoenix Industrial");
-assert(experiments.experiments.filter((item) => item.id !== "growth-antioch-retail-v1").every((item) => item.deploymentDate === null && item.reviewStatus === "implementation_complete_pending_deployment"));
+assert(experiments.experiments.filter((item) => !["growth-antioch-retail-v1", "growth-phoenix-industrial-v1"].includes(item.id)).every((item) => item.deploymentDate === null && item.reviewStatus === "implementation_complete_pending_deployment"));
 assert.equal(experiments.byId["growth-antioch-retail-v1"].deploymentDate, "2026-08-26");
 assert.equal(experiments.byId["growth-antioch-retail-v1"].reviewStatus, "deployed_pending_observation");
+assert.equal(experiments.byId["growth-phoenix-industrial-v1"].deploymentDate, "2026-08-27");
+assert.equal(experiments.byId["growth-phoenix-industrial-v1"].reviewStatus, "deployed_pending_observation");
 assert(experiments.observationPolicy.firstMeaningfulReview.includes("14 complete post-deployment days"));
 
 const antioch = page("antioch", "industrial-space");
