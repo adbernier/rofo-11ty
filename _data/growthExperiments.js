@@ -8,6 +8,7 @@ const experiments = Object.freeze([
   Object.freeze({ id: "growth-san-diego-industrial-v1", marketId: "san-diego", market: "San Diego", state: "CA", spaceType: "industrial", hypothesis: "Projecting reviewed Industrial decision geography and representative environments onto the canonical San Diego Industrial page will improve relevance, organic discovery, and qualified Business Profile starts.", baseline: Object.freeze({ window: "2026-07-16/2026-08-12", propertyTypeImpressions: 28, averagePosition: 27.1, marketImpressions: 185 }), landingPath: "/commercial-real-estate/CA/san-diego/industrial-space/", targetBehavior: "Organic Industrial landing → operating-environment exploration → Business Profile → Universal Brief → Find Spaces That Fit", startVersion: "market-development-sprint-b", deploymentDate: null, reviewStatus: "implementation_complete_pending_deployment" }),
   Object.freeze({ id: "growth-san-jose-industrial-v1", marketId: "san-jose", market: "San Jose", state: "CA", spaceType: "industrial", hypothesis: "Projecting reviewed technical Flex, advanced-manufacturing, and service-industrial contexts onto the canonical San Jose Industrial page will improve relevance and turn growing search discovery into qualified Business Profile starts.", baseline: Object.freeze({ window: "2026-07-16/2026-08-12", marketImpressions: 317, propertyTypeImpressions: 43, averagePosition: 24.3, clicks: 0, marketImpressionChange: "+117%" }), landingPath: "/commercial-real-estate/CA/san-jose/industrial-space/", targetBehavior: "Organic Industrial landing → operating-context exploration → Business Profile → Universal Brief → Find Spaces That Fit", startVersion: "market-development-sprint-c-public-consolidation", deploymentDate: null, reviewStatus: "implementation_complete_pending_deployment" }),
   Object.freeze({ id: "growth-antioch-retail-v1", marketId: "antioch", market: "Antioch", state: "CA", spaceType: "retail_service", hypothesis: "A differentiated Antioch Retail decision surface will improve Google's Retail landing-page selection, organic engagement, and qualified Business Profile starts.", baseline: Object.freeze({ window: "2026-07-30/2026-08-26", comparisonWindow: "2026-07-02/2026-07-29", query: "antioch retail space for lease", impressions: 19, clicks: 0, averagePosition: 11.42, selectedPath: "/commercial-real-estate/CA/antioch/", marketImpressions: 354, priorMarketImpressions: 254, marketImpressionChange: "+39.4%" }), landingPath: "/commercial-real-estate/CA/antioch/retail-space/", targetBehavior: "Organic Retail landing → customer-environment exploration → Business Profile → Universal Brief → Find Spaces That Fit", startVersion: "antioch-retail-public-consolidation", deploymentDate: "2026-08-26", reviewStatus: "deployed_pending_observation" }),
+  Object.freeze({ id: "growth-phoenix-industrial-v1", marketId: "phoenix", market: "Phoenix", state: "AZ", spaceType: "industrial", hypothesis: "Replacing generic Phoenix Industrial content with reviewed operating-context guidance and representative environments will improve search relevance, ranking, organic engagement, and qualified Business Profile starts.", baseline: Object.freeze({ window: "2026-07-30/2026-08-26", comparisonWindow: "2026-07-02/2026-07-29", propertyTypeImpressions: 72, clicks: 0, averagePosition: 24.75, dominantQuery: "phoenix industrial space", dominantQueryImpressions: 55, dominantQueryAveragePosition: 21.13, marketImpressions: 98, priorMarketImpressions: 26, marketImpressionChange: "+276.9%", selectedPath: "/commercial-real-estate/AZ/phoenix/industrial-space/" }), landingPath: "/commercial-real-estate/AZ/phoenix/industrial-space/", targetBehavior: "Organic Industrial landing → operating-context exploration → Business Profile → Universal Brief → Find Spaces That Fit", startVersion: "phoenix-industrial-public-consolidation", deploymentDate: null, reviewStatus: "implementation_complete_pending_deployment" }),
 ]);
 
 const observationPolicy = Object.freeze({
@@ -17,6 +18,18 @@ const observationPolicy = Object.freeze({
 });
 
 const cityProjection = Object.freeze({
+  "AZ/phoenix": Object.freeze({
+    experimentId: "growth-phoenix-industrial-v1",
+    propertyType: "Industrial / Warehouse / Flex",
+    intelligenceState: "universal_with_local_context",
+    featuredSpaceType: Object.freeze({
+      eyebrow: "Phoenix Industrial and Flex decisions",
+      title: "Explore Phoenix Industrial, Warehouse and Flex environments",
+      summary: "Compare Southwest Phoenix logistics, Airport and South Central operations, and North Phoenix advanced-manufacturing contexts before investigating individual buildings.",
+      cue: "Understand Phoenix Industrial and Flex environments",
+      path: "/commercial-real-estate/AZ/phoenix/industrial-space/",
+    }),
+  }),
   "CA/antioch": Object.freeze({
     experimentId: "growth-antioch-retail-v1",
     propertyType: "Retail",

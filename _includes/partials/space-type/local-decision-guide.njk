@@ -37,6 +37,11 @@
               {% if option.tradeoffs and option.tradeoffs.length %}
                 <p><strong>Tradeoffs:</strong> {% for item in option.tradeoffs %}{{ item }}{% if not loop.last %}; {% endif %}{% endfor %}.</p>
               {% endif %}
+              {% if option.subareas and option.subareas.length %}
+                <ul>
+                  {% for subarea in option.subareas %}<li><strong>{% if subarea.path %}<a href="{{ subarea.path }}">{{ subarea.name }}</a>{% else %}{{ subarea.name }}{% endif %}:</strong> {{ subarea.explanation }}</li>{% endfor %}
+                </ul>
+              {% endif %}
             </a>
           {% else %}
             <article class="neighborhood-comparison-card">
@@ -48,6 +53,11 @@
               {% endif %}
               {% if option.tradeoffs and option.tradeoffs.length %}
                 <p><strong>Tradeoffs:</strong> {% for item in option.tradeoffs %}{{ item }}{% if not loop.last %}; {% endif %}{% endfor %}.</p>
+              {% endif %}
+              {% if option.subareas and option.subareas.length %}
+                <ul>
+                  {% for subarea in option.subareas %}<li><strong>{% if subarea.path %}<a href="{{ subarea.path }}">{{ subarea.name }}</a>{% else %}{{ subarea.name }}{% endif %}:</strong> {{ subarea.explanation }}</li>{% endfor %}
+                </ul>
               {% endif %}
             </article>
           {% endif %}
