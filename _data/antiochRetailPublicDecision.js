@@ -1,0 +1,33 @@
+module.exports = Object.freeze({
+  experimentId: "growth-antioch-retail-v1",
+  eyebrow: "Antioch Retail location guide",
+  title: "Compare Antioch customer environments before comparing storefronts",
+  seoTitle: "Antioch Retail Location Guide and Commercial Environments | Rofo",
+  seoDescription: "Compare Somersville / Delta Fair and Lone Tree Way Retail environments, their customer-setting tradeoffs, and what to verify before choosing space in Antioch.",
+  h1: "Retail Space and Customer Environments in Antioch, CA",
+  heroLead: "Antioch Retail searches can involve very different center formats and customer routines. Somersville / Delta Fair and Lone Tree Way provide two useful starting contexts, while current access, signage, parking, property condition, and availability still require investigation.",
+  introduction: "Somersville / Delta Fair is a broader, changing commercial concentration; Lone Tree Way is a segmented corridor of neighborhood- and community-serving centers. These are reviewed customer environments, not ranked recommendations for an individual business.",
+  representativeHeading: "What Retail space here can feel like",
+  entries: Object.freeze([
+    Object.freeze({ id: "somersville-delta-fair", label: "Broader commercial concentration", name: "Somersville / Delta Fair", summary: "An established, center-based commercial cluster with varied storefront scales, parking-oriented access, and material redevelopment changing parts of the environment.", strengths: Object.freeze(["Useful for comparing larger and smaller shopping-center formats within a broader commercial concentration", "Offers visible commercial adjacency and customer access patterns that can suit destination, discretionary, and service uses"]), tradeoffs: Object.freeze(["Redevelopment means the commercial configuration is changing and Somersville Towne Center should not be treated as a static conventional mall", "Center condition, access, parking operations, tenant adjacency, and availability vary and require current investigation"]) }),
+    Object.freeze({ id: "lone-tree-way", label: "Neighborhood + community-serving centers", name: "Lone Tree Way", summary: "A long, segmented corridor of center-based Retail interspersed with residential, medical, and service uses rather than one continuous shopping district.", strengths: Object.freeze(["Relevant to food, wellness, fitness, convenience, personal service, and repeat-visit customer uses", "Provides parking- and customer-access-oriented center formats across multiple parts of the corridor"]), tradeoffs: Object.freeze(["Centers vary in age, format, visibility, and redevelopment state, so the corridor does not provide one uniform customer environment", "Curb access, signage, parking, cross-access, delivery conditions, and nearby uses require site-specific verification"]) }),
+  ]),
+  operatingPatterns: Object.freeze([
+    Object.freeze({ name: "Destination and larger-format Retail", explanation: "Somersville / Delta Fair provides the more relevant starting context, but changing center configuration and current customer adjacency need verification." }),
+    Object.freeze({ name: "Food, wellness and personal service", explanation: "Lone Tree Way's community-serving centers may fit repeat-visit uses, with visibility, access, parking, and co-tenancy evaluated center by center." }),
+    Object.freeze({ name: "Storefront visibility", explanation: "A visible center position can matter in either environment; Rofo does not infer signage rights, sightlines, or customer volume from the corridor name." }),
+    Object.freeze({ name: "Deliveries and service access", explanation: "Back-of-house access and delivery patterns remain property-specific even within established shopping-center environments." }),
+  ]),
+  representativeEnvironments: Object.freeze([
+    Object.freeze({ label: "Changing commercial environment", name: "Somersville / Delta Fair commercial cluster", summary: "The cluster is the primary representative unit: established center-based commerce alongside active redevelopment that is changing how parts of the area function." }),
+    Object.freeze({ label: "Redevelopment context", name: "Somersville Towne Center", path: "/commercial-real-estate/building/CA/antioch/2520-2550-somersville-rd/", summary: "A tangible reference for the cluster's historically larger-format character and current transition—not evidence of a static mall, current tenants, or availability." }),
+    Object.freeze({ label: "Named center example", name: "Delta Square", path: "/commercial-real-estate/building/CA/antioch/3600-3648-delta-fair-blvd/", summary: "A separate center identity on Delta Fair Boulevard that illustrates a center-based storefront format; it is not Delta Fair Shopping Center." }),
+    Object.freeze({ label: "Community-serving environment", name: "Lone Tree Way commercial centers", summary: "The corridor environment illustrates neighborhood- and community-serving centers with varied formats rather than a single continuous district." }),
+    Object.freeze({ label: "Storefront example", name: "4194 Lone Tree Way", path: "/commercial-real-estate/building/CA/antioch/4194-lone-tree-way/", summary: "A tangible Retail reference within the Lone Tree corridor; property access, signage, parking, use compatibility, and availability remain unverified." }),
+  ]),
+  representativeDisclaimer: "Representative environments illustrate commercial character and may not be currently available. Current tenants, access, parking, signage, delivery conditions, property capability, economics, and permitted use require property-level investigation.",
+  boundaryFootnote: "Customer-environment guidance explains durable commercial patterns, not current availability, customer volume, or verified capability in a particular storefront.",
+  validation: Object.freeze(["Storefront visibility, signage rights, sightlines, and the customer's actual arrival path", "Parking supply and operations, curb access, cross-access, and accessibility", "Customer adjacency, center condition, redevelopment plans, and delivery or service access", "Property configuration, infrastructure, permitted use, code, and required improvements", "Current availability, economics, and whether another Antioch or regional context should be investigated"]),
+  suppressInventoryModule: true,
+  recommendation: Object.freeze({ prompt: "Which customer environment fits the way your business needs to operate?", label: "See My Best-Fit Locations", path: "/best-fit-locations/?city=Antioch&state=CA&marketId=antioch&spaceType=Retail&source=space_type&sourcePath=%2Fcommercial-real-estate%2FCA%2Fantioch%2Fretail-space%2F&journey=new" }),
+});

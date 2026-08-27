@@ -102,12 +102,12 @@
     {% if entry.localDecisionGuide.representativeEnvironments and entry.localDecisionGuide.representativeEnvironments.length %}
       <div class="neighborhood-decision-guidance">
         <div class="eyebrow">Representative commercial environments</div>
-        <h3>What Industrial space here can feel like</h3>
+        <h3>{{ entry.localDecisionGuide.representativeHeading or "What Industrial space here can feel like" }}</h3>
         <div class="neighborhood-comparison-grid">
           {% for example in entry.localDecisionGuide.representativeEnvironments %}
             <article class="neighborhood-comparison-card">
               <div class="eyebrow">{{ example.label }}</div>
-              <h4><a href="{{ example.path }}">{{ example.name }}</a></h4>
+              <h4>{% if example.path %}<a href="{{ example.path }}">{{ example.name }}</a>{% else %}{{ example.name }}{% endif %}</h4>
               <p>{{ example.summary }}</p>
               {% if example.contextPath %}<p><a href="{{ example.contextPath }}">Understand {{ example.contextName }} →</a></p>{% endif %}
             </article>
@@ -135,7 +135,7 @@
       </ul>
     </div>
 
-    <p class="semantic-footnote">District guidance explains operating patterns, not current availability or verified capability in a particular suite.</p>
+    <p class="semantic-footnote">{{ entry.localDecisionGuide.boundaryFootnote or "District guidance explains operating patterns, not current availability or verified capability in a particular suite." }}</p>
 
     {% if entry.localDecisionGuide.recommendation %}
       <div class="neighborhood-decision-guidance">

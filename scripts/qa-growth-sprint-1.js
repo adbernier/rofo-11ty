@@ -24,7 +24,7 @@ const assertControlledEntry = (href, city, state) => {
 };
 
 assert.equal(experiments.schemaVersion, "growth-experiments:v1");
-assert.equal(experiments.experiments.length, 8, "The experiment registry must remain bounded to the five Growth Sprint 1 hypotheses plus Sacramento, San Diego, and San Jose Industrial");
+assert.equal(experiments.experiments.length, 9, "The experiment registry must remain bounded to the established eight hypotheses plus Antioch Retail");
 assert(experiments.experiments.every((item) => item.deploymentDate === null && item.reviewStatus === "implementation_complete_pending_deployment"));
 assert(experiments.observationPolicy.firstMeaningfulReview.includes("14 complete post-deployment days"));
 

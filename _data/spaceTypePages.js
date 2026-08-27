@@ -5,6 +5,7 @@ const { getRoutingCandidates } = require("./leadRouting.js");
 const sfPublicDiscovery = require("./sfPublicDiscovery.js");
 const tempeIndustrialPublicDecision = require("./tempeIndustrialPublicDecision.js");
 const antiochIndustrialPublicDecision = require("./antiochIndustrialPublicDecision.js");
+const antiochRetailPublicDecision = require("./antiochRetailPublicDecision.js");
 const indianapolisIndustrialPublicDecision = require("./indianapolisIndustrialPublicDecision.js");
 const sacramentoIndustrialPublicDecision = require("./sacramentoIndustrialPublicDecision.js");
 const sanDiegoIndustrialPublicDecision = require("./sanDiegoIndustrialPublicDecision.js");
@@ -188,6 +189,8 @@ module.exports = cities.flatMap((city) => {
             : null
           : normalizedCitySlug === "antioch" && normalizedStateAbbr === "ca" && normalizedTypeSlug === "industrial-space"
           ? antiochIndustrialPublicDecision
+          : normalizedCitySlug === "antioch" && normalizedStateAbbr === "ca" && normalizedTypeSlug === "retail-space"
+          ? antiochRetailPublicDecision
           : normalizedCitySlug === "tempe" && normalizedStateAbbr === "az" && normalizedTypeSlug === "industrial-space"
           ? tempeIndustrialPublicDecision
           : normalizedCitySlug === "indianapolis" && normalizedStateAbbr === "in" && normalizedTypeSlug === "industrial-space"
