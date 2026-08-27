@@ -58,7 +58,8 @@ assert.equal(experiment.baseline.window, "2026-07-30/2026-08-26");
 assert.equal(experiment.baseline.comparisonWindow, "2026-07-02/2026-07-29");
 assert.equal(experiment.baseline.impressions, 19);
 assert.equal(experiment.baseline.averagePosition, 11.42);
-assert.equal(experiment.deploymentDate, null);
+assert.equal(experiment.deploymentDate, "2026-08-26");
+assert.equal(experiment.reviewStatus, "deployed_pending_observation");
 
 const claims = JSON.stringify(guide);
 assert.doesNotMatch(claims, /measured foot traffic|proven sales performance|is currently available|best retail (area|district)|ranked #1/i);
