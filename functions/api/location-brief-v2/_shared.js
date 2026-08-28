@@ -34,6 +34,12 @@ function criterionText(requirement, dimension) {
   const value = (requirement.criteria || []).find((item) => item.dimension === dimension)?.value || {};
   return (value.list || []).join(" + ") || value.text || "";
 }
+function businessIdentity(requirement) {
+  const value = (requirement.criteria || []).find((item) => item.dimension === "universal.business.type")?.value || {};
+  const list = cleanArray(value.list, 4);
+  if (list.length) return { canonical: list[0], specific: list[1] && list[1] !== list[0] ? list[1] : "" };
+  return { canonical: "", specific: clean(value.text || requirement.businessContext?.summary, 140) };
+}
 function randomToken(bytes = 24) {
   const values = new Uint8Array(bytes);
   crypto.getRandomValues(values);
@@ -356,11 +362,18 @@ export function commercialContextForBundle(bundle) {
   const snapshot = bundle?.currentSnapshot || {};
   const universalProjection = projectUniversalIntelligence(requirement);
   const criterion = (dimension) => criterionText(requirement, dimension);
+  const business = businessIdentity(requirement);
+  const marketAnchor = requirement.locationLogic?.marketAnchor || {};
   return {
     briefPublicId: bundle?.brief?.publicId || "",
-    marketId: requirement.locationLogic?.marketAnchor?.marketId || requirement.locationLogic?.marketAnchor?.geographyId || "",
+    marketId: marketAnchor.marketId || marketAnchor.geographyId || "",
+    marketName: marketAnchor.marketName || marketAnchor.displayName || marketAnchor.city || "",
+    marketCity: marketAnchor.city || "",
+    marketState: marketAnchor.state || "",
     propertyType: requirement.propertyTypes?.[0] || "",
-    business: criterion("universal.business.type") || requirement.businessContext?.summary || "",
+    business: business.specific || business.canonical,
+    businessUse: business.specific || business.canonical,
+    businessCategory: business.canonical,
     environment: criterion("office.environment.image"),
     employeeOrigins: criterion("universal.location.employee_origins"),
     clientVisitFrequency: criterion("office.access.client_visits"),

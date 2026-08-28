@@ -1,5 +1,6 @@
 import leadRoutes from "../../../_data/leadRoutes.json";
 import {
+  businessPresentation,
   buildProjectSnapshotFromLead,
   locationBriefReferenceText,
   projectSnapshotTextLines,
@@ -1657,16 +1658,20 @@ function vnextEmailProjection(lead, context) {
   const location = context.locationRequirement || {};
   const recommendation = context.recommendation || {};
   const property = context.propertyRequirement || {};
-  const market = normalizeField(location.marketId) === "san-francisco" ? "San Francisco" : normalizeField(lead.market || lead.city || location.marketId);
+  const snapshot = buildProjectSnapshotFromLead(lead);
+  const market = snapshot.market || (normalizeField(location.marketId) === "san-francisco" ? "San Francisco, CA" : normalizeField(lead.market || lead.city || location.marketId));
   const propertyType = vnextPropertyType(location.propertyType || lead.effective_space_type || lead.space_type);
   const size = vnextDisplaySize(property.sizeLabel || lead.space_needed);
   const requirement = /\bpeople\b/i.test(size) ? [propertyType, size ? `for ${size}` : ""].filter(Boolean).join(" ") : [size, propertyType].filter(Boolean).join(" ");
   const timing = normalizeField(property.timingLabel || lead.move_timing);
   const clientContext = normalizeField(location.clientVisitFrequency).replace(/^clients?\s+/i, "");
+  const business = businessPresentation({ canonical: location.businessCategory || lead.business_type || lead.location_profile_business_type, specific: location.businessUse || lead.business_use || lead.location_profile_business_use || location.business, propertyType });
   return {
     market, propertyType, size, requirement, timing,
     header: [requirement, market, timing].filter(Boolean).join(" · "),
-    business: normalizeField(location.business || lead.business_type || lead.location_profile_business_type),
+    business: business.businessUse,
+    businessCategory: business.businessCategory,
+    businessClassificationStatus: business.classificationStatus,
     locations: vnextList(recommendation.locationsWorthInvestigating, 3),
     spaceUse: vnextList(property.purposes, 8),
     mustHaves: vnextList(property.mustHaves, 8),
@@ -1772,7 +1777,7 @@ export function buildVnextApprovalEmailText(record, dashboardUrl) {
     "PROJECT SNAPSHOT",
     value.locations.length ? `Locations to investigate: ${value.locations.join(" · ")}` : "",
     value.requirement ? `Requirement: ${value.requirement}` : "", value.timing ? `Timing: ${value.timing}` : "",
-    value.business ? `Business: ${value.business}` : "", value.spaceUse.length ? `Space use: ${value.spaceUse.join(" · ")}` : "",
+    value.business ? `Business / use: ${value.business}` : "", value.businessCategory ? `Category: ${value.businessCategory}` : "", value.businessClassificationStatus === "investigate" ? "Use classification: Verify intended use" : "", value.spaceUse.length ? `Space use: ${value.spaceUse.join(" · ")}` : "",
     value.mustHaves.length ? `Must-haves: ${value.mustHaves.join(" · ")}` : "", value.workforce ? `Workforce: ${value.workforce}` : "",
     value.clients ? `Clients: ${value.clients}` : "", value.environment ? `Environment: ${value.environment}` : "", "",
     "CONTACT", `Name: ${lead.name}`, lead.company ? `Company: ${lead.company}` : "", `Email: ${lead.email}`, `Phone: ${lead.phone || "Not provided"}`, "",
@@ -1785,7 +1790,8 @@ export function buildVnextApprovalEmailHtml(record, dashboardUrl) {
   const lead = record.lead || {}; const context = vnextCommercialContext(lead); if (!context) return "";
   const value = vnextEmailProjection(lead, context);
   const snapshotRows = [
-    ["Locations to investigate", value.locations.join(" · ")], ["Requirement", value.requirement], ["Timing", value.timing], ["Business", value.business],
+    ["Locations to investigate", value.locations.join(" · ")], ["Requirement", value.requirement], ["Timing", value.timing], ["Business / use", value.business], ["Category", value.businessCategory],
+    ...(value.businessClassificationStatus === "investigate" ? [["Use classification", "Verify intended use"]] : []),
     ["Space use", value.spaceUse.join(" · ")], ["Must-haves", value.mustHaves.join(" · ")], ["Workforce", value.workforce], ["Clients", value.clients], ["Environment", value.environment],
   ].filter(([, fieldValue]) => fieldValue).map(([label, fieldValue]) => buildEmailField(label, escapeHtml(fieldValue))).join("");
   const contactRows = [

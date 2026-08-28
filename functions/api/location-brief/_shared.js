@@ -5,6 +5,7 @@ import {
   randomHex,
 } from "../leads/_shared.js";
 import {
+  businessPresentation,
   buildProjectSnapshotFromBrief,
   executionTimingLabel,
   projectSnapshotTextLines,
@@ -563,6 +564,7 @@ function investigationHtmlBlock(investigation) {
   const buildings = selectedInvestigationBuildings(investigation);
   const scope = investigationScopeLabels(investigation);
   const requirements = investigation.confirmedRequirements || {};
+  const business = businessPresentation({ canonical: requirements.businessType, specific: requirements.businessTypeOther, propertyType: requirements.spaceType });
   return `
     <div style="margin:0 0 18px;padding:14px;border-radius:10px;background:#eff6ff;border:1px solid #bfdbfe;">
       <div style="margin:0 0 8px;color:#1d4ed8;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;">Live Market Investigation</div>
@@ -575,7 +577,9 @@ function investigationHtmlBlock(investigation) {
         ${emailField("Timing", escapeHtml(investigation.timing || requirements.timing || ""))}
         ${emailField("Broker preference", escapeHtml(brokerPreferenceLabel(investigation.brokerPreference)))}
         ${emailField("Confirmed requirements", formatList([
-          requirements.businessType ? `Business type: ${requirements.businessType}${requirements.businessTypeOther ? ` (${requirements.businessTypeOther})` : ""}` : "",
+          business.businessUse ? `Business / use: ${business.businessUse}` : "",
+          business.businessCategory ? `Category: ${business.businessCategory}` : "",
+          business.classificationStatus === "investigate" ? "Use classification: verify intended use" : "",
           requirements.spaceType ? `Space type: ${requirements.spaceType}` : "",
           requirements.targetSize ? `Target size: ${requirements.targetSize}` : "",
           requirements.headcount ? `Headcount: ${requirements.headcount}` : "",
@@ -756,6 +760,7 @@ export async function sendLiveMarketInvestigationConfirmationEmail(env, request,
 
   const url = publicBriefUrl(request, brief.publicId);
   const requirements = investigation.confirmedRequirements || {};
+  const business = businessPresentation({ canonical: requirements.businessType, specific: requirements.businessTypeOther, propertyType: requirements.spaceType });
   const district = investigation.districtName || locationSummary(brief);
   const city = [investigation.city, investigation.state].filter(Boolean).join(", ");
   const timing = executionTimingLabel(requirements.timing || investigation.timing || "");
@@ -782,7 +787,9 @@ export async function sendLiveMarketInvestigationConfirmationEmail(env, request,
     "REQUEST SUMMARY",
     `Selected district: ${district}`,
     city ? `Market: ${city}` : "",
-    requirements.businessType ? `Business type: ${requirements.businessType}${requirements.businessTypeOther ? ` (${requirements.businessTypeOther})` : ""}` : "",
+    business.businessUse ? `Business / use: ${business.businessUse}` : "",
+    business.businessCategory ? `Category: ${business.businessCategory}` : "",
+    business.classificationStatus === "investigate" ? "Use classification: Verify intended use" : "",
     requirements.headcount ? `Headcount: ${requirements.headcount}` : "",
     requirements.approximateSize ? `Approximate size: ${requirements.approximateSize}` : "",
     timing ? `Timing: ${timing}` : "",
@@ -819,7 +826,9 @@ export async function sendLiveMarketInvestigationConfirmationEmail(env, request,
                   <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
                     ${emailField("District", escapeHtml(district))}
                     ${city ? emailField("City", escapeHtml(city)) : ""}
-                    ${requirements.businessType ? emailField("Business type", escapeHtml(`${requirements.businessType}${requirements.businessTypeOther ? ` (${requirements.businessTypeOther})` : ""}`)) : ""}
+                    ${business.businessUse ? emailField("Business / use", escapeHtml(business.businessUse)) : ""}
+                    ${business.businessCategory ? emailField("Category", escapeHtml(business.businessCategory)) : ""}
+                    ${business.classificationStatus === "investigate" ? emailField("Use classification", escapeHtml("Verify intended use")) : ""}
                     ${requirements.headcount ? emailField("Headcount", escapeHtml(requirements.headcount)) : ""}
                     ${requirements.approximateSize ? emailField("Approximate size", escapeHtml(requirements.approximateSize)) : ""}
                     ${timing ? emailField("Timing", escapeHtml(timing)) : ""}

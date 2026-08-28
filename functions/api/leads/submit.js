@@ -16,6 +16,7 @@ import {
   updateLeadStatus,
 } from "./_shared.js";
 import { commercialContextForBundle, getBriefBundle as getLocationBriefV2Bundle, ownsBrief as ownsLocationBriefV2 } from "../location-brief-v2/_shared.js";
+import { businessPresentation, marketDisplayName } from "../../_shared/project-snapshot.js";
 
 export async function onRequestPost({ request, env }) {
   let fields;
@@ -32,8 +33,18 @@ export async function onRequestPost({ request, env }) {
       const briefBundle = await getLocationBriefV2Bundle(env, lead.location_brief_v2_public_id, false);
       if (briefBundle && await ownsLocationBriefV2(request, briefBundle.brief)) {
         const context = commercialContextForBundle(briefBundle);
+        const business = businessPresentation({ canonical: context.businessCategory, specific: context.businessUse, propertyType: context.propertyType });
         lead.location_brief_v2_context = context;
         lead.location_brief_v2_url = `${new URL(request.url).origin}/location-brief/${briefBundle.brief.publicId}`;
+        lead.market = context.marketName || lead.market;
+        lead.city = context.marketCity || lead.city;
+        lead.state = context.marketState || lead.state;
+        lead.location_display = marketDisplayName({ market: lead.market, city: lead.city, state: lead.state });
+        lead.location_profile_business_type = business.canonicalBusinessType;
+        lead.business_type = business.canonicalBusinessType;
+        lead.location_profile_business_use = business.businessUse;
+        lead.business_use = business.businessUse;
+        lead.business_classification_status = business.classificationStatus;
         lead.requirements = [lead.requirements, "", "Rofo Location Brief v2", JSON.stringify(context, null, 2)].filter(Boolean).join("\n");
       }
     } catch (error) {

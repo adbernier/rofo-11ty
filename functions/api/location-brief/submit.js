@@ -24,6 +24,7 @@ import {
   updateLeadStatus,
 } from "../leads/_shared.js";
 import {
+  businessPresentation,
   buildProjectSnapshotFromBrief,
   projectSnapshotTextLines,
 } from "../../_shared/project-snapshot.js";
@@ -401,7 +402,6 @@ function investigationRequirementsSummary(investigation) {
     `Include competitive buildings: ${investigation.includeCompetitiveBuildings !== false ? "Yes" : "No"}`,
     investigationScopeSummary(investigation) ? `Investigation scope: ${investigationScopeSummary(investigation)}` : "",
     investigation.timing || requirements.timing ? `Timing: ${investigation.timing || requirements.timing}` : "",
-    requirements.businessType ? `Business type: ${requirements.businessType}${requirements.businessTypeOther ? ` (${requirements.businessTypeOther})` : ""}` : "",
     requirements.headcount ? `Headcount: ${requirements.headcount}` : "",
     requirements.approximateSize ? `Approximate size: ${requirements.approximateSize}` : "",
     requirements.budgetContext ? `Budget/rent context: ${requirements.budgetContext}` : "",
@@ -431,8 +431,14 @@ function buildLocationBriefLead(brief, request, briefUrl) {
   ].filter(Boolean).join("\n\n");
   const selectedBuildings = selectedInvestigationBuildings(investigation);
   const projectSnapshot = brief.projectSnapshot || buildProjectSnapshotFromBrief(brief);
-  const snapshotLines = projectSnapshotTextLines(projectSnapshot);
   const businessProfile = brief.searchProfile || {};
+  const business = businessPresentation({
+    canonical: businessProfile.businessType || businessProfile.business_type || investigationRequirements.businessType || "",
+    specific: investigationRequirements.businessTypeOther || businessProfile.businessUse || businessProfile.business_use || "",
+    propertyType: spaceType,
+  });
+  Object.assign(projectSnapshot, { businessType: business.canonicalBusinessType, ...business });
+  const snapshotLines = projectSnapshotTextLines(projectSnapshot);
   const commuteOrientations = cleanArray(businessProfile.commuteOrientations || businessProfile.commute_orientations || businessProfile.commuteOrientation || businessProfile.commute_orientation, 6);
 
   return {
@@ -471,8 +477,11 @@ function buildLocationBriefLead(brief, request, briefUrl) {
     project_snapshot_json: JSON.stringify(projectSnapshot),
     project_snapshot_summary: snapshotLines.join("\n"),
     top_three_districts: (projectSnapshot.topDistricts || []).join(", "),
-    location_profile_business_type: businessProfile.businessType || businessProfile.business_type || investigationRequirements.businessType || "",
-    business_type: businessProfile.businessType || businessProfile.business_type || investigationRequirements.businessType || "",
+    location_profile_business_type: business.canonicalBusinessType,
+    business_type: business.canonicalBusinessType,
+    location_profile_business_use: business.businessUse,
+    business_use: business.businessUse,
+    business_classification_status: business.classificationStatus,
     qualification_status: investigation && investigation.investigationIntent ? "qualified_requirement" : "",
     location_profile_operational_use: Array.isArray(businessProfile.operationalUse) ? businessProfile.operationalUse.join(", ") : "",
     location_profile_office_environment: businessProfile.officeEnvironment || businessProfile.office_environment || "",

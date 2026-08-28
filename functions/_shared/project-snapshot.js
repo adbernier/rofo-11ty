@@ -2,6 +2,43 @@ function clean(value, max = 500) {
   return String(value || "").trim().slice(0, max);
 }
 
+export function humanizeTaxonomyLabel(value) {
+  const normalized = clean(value, 140);
+  if (!normalized) return "";
+  return normalized.replace(/[_-]+/g, " ").replace(/\b\w/g, (character) => character.toUpperCase());
+}
+
+export function marketDisplayName({ market = "", city = "", state = "", locations = [] } = {}) {
+  const normalizedState = clean(state, 40);
+  const locationRows = Array.isArray(locations) ? locations.filter(Boolean) : [];
+  if (locationRows.length) {
+    const cities = uniqueLabels(locationRows.map((item) => item.city || item.label || item.name || item), 12);
+    const states = [...new Set(locationRows.map((item) => clean(item && item.state, 40)).filter(Boolean))];
+    if (cities.length && states.length === 1) return `${cities.join(" / ")}, ${states[0]}`;
+    if (cities.length && states.length > 1) {
+      return locationRows.map((item) => [clean(item.city || item.label || item.name, 140), clean(item.state, 40)].filter(Boolean).join(", ")).filter(Boolean).join(" / ");
+    }
+  }
+  const base = clean(market || city, 240);
+  if (!base) return normalizedState;
+  if (!normalizedState || new RegExp(`(?:,|\\b)\\s*${normalizedState.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}$`, "i").test(base)) return base;
+  return `${base}, ${normalizedState}`;
+}
+
+export function businessPresentation({ canonical = "", specific = "", propertyType = "" } = {}) {
+  const suppliedUse = clean(specific, 140);
+  let canonicalType = clean(canonical, 140);
+  let classificationStatus = "classified";
+  if (/\bbarber(?:shop)?\b/i.test(suppliedUse) && /retail|service/i.test(propertyType)) canonicalType = "neighborhood_service";
+  if (/\bdealership\b/i.test(suppliedUse) && canonicalType === "professional_services") classificationStatus = "investigate";
+  return {
+    businessUse: suppliedUse || humanizeTaxonomyLabel(canonicalType),
+    businessCategory: humanizeTaxonomyLabel(canonicalType),
+    canonicalBusinessType: canonicalType,
+    classificationStatus,
+  };
+}
+
 function cleanArray(value, max = 12) {
   return Array.isArray(value)
     ? value.map((item) => clean(item, 240)).filter(Boolean).slice(0, max)
@@ -70,9 +107,9 @@ export function buildProjectSnapshotFromBrief(brief) {
   const requirements = investigation && investigation.confirmedRequirements || {};
   const locations = Array.isArray(searchProfile.locations) ? searchProfile.locations : [];
   const firstLocation = locations[0] || {};
-  const market = clean(firstLocation.city || firstLocation.label || searchProfile.market || searchProfile.city, 140);
+  const market = marketDisplayName({ market: searchProfile.market, city: searchProfile.city, state: firstLocation.state || searchProfile.state, locations });
   const propertyType = clean(searchProfile.spaceType || searchProfile.space_type || "Commercial space", 120);
-  const businessType = clean(requirements.businessType || searchProfile.businessType || searchProfile.business_type, 140);
+  const business = businessPresentation({ canonical: requirements.businessType || searchProfile.businessType || searchProfile.business_type, specific: requirements.businessTypeOther || searchProfile.businessUse || searchProfile.business_use, propertyType });
   const selectedDistrict = clean(investigation.districtName || investigation.district || "", 140);
   const headcount = clean(requirements.headcount, 120);
   const approximateSize = executionSizeLabel(requirements.approximateSize || searchProfile.size || searchProfile.size_or_people);
@@ -84,7 +121,8 @@ export function buildProjectSnapshotFromBrief(brief) {
   return {
     market,
     propertyType,
-    businessType,
+    businessType: business.canonicalBusinessType,
+    ...business,
     selectedDistrict,
     headcount,
     approximateSize,
@@ -97,11 +135,19 @@ export function buildProjectSnapshotFromBrief(brief) {
 
 export function buildProjectSnapshotFromLead(lead) {
   const parsed = parseJson(lead && lead.project_snapshot_json, null);
+  const v2 = parseJson(lead && lead.location_brief_v2_context, null) || {};
+  const v2Location = v2.locationRequirement || v2;
   if (parsed && typeof parsed === "object") {
+    const business = businessPresentation({
+      canonical: parsed.canonicalBusinessType || parsed.businessType || lead && (lead.business_type || lead.location_profile_business_type),
+      specific: parsed.businessUse || lead && (lead.business_use || lead.location_profile_business_use) || v2Location.businessUse,
+      propertyType: parsed.propertyType || lead && (lead.effective_space_type || lead.requested_space_type || lead.space_type),
+    });
     return {
-      market: clean(parsed.market, 140),
+      market: marketDisplayName({ market: parsed.market || lead && lead.market, city: lead && lead.city, state: parsed.state || lead && (lead.state || lead.location_state), locations: parsed.locations }),
       propertyType: clean(parsed.propertyType, 120),
-      businessType: clean(parsed.businessType, 140),
+      businessType: business.canonicalBusinessType,
+      ...business,
       selectedDistrict: clean(parsed.selectedDistrict, 140),
       headcount: clean(parsed.headcount, 120),
       approximateSize: executionSizeLabel(parsed.approximateSize),
@@ -112,10 +158,13 @@ export function buildProjectSnapshotFromLead(lead) {
     };
   }
 
+  const propertyType = clean(lead && (lead.effective_space_type || lead.requested_space_type || lead.space_type || v2Location.propertyType), 120);
+  const business = businessPresentation({ canonical: lead && (lead.location_profile_business_type || lead.business_type) || v2Location.businessCategory || v2Location.business, specific: lead && (lead.location_profile_business_use || lead.business_use) || v2Location.businessUse, propertyType });
   return {
-    market: clean(lead && (lead.market || lead.city), 140),
-    propertyType: clean(lead && (lead.effective_space_type || lead.requested_space_type || lead.space_type), 120),
-    businessType: clean(lead && (lead.location_profile_business_type || lead.business_type), 140),
+    market: marketDisplayName({ market: lead && (lead.market || lead.location_display), city: lead && lead.city, state: lead && (lead.state || lead.location_state) }),
+    propertyType,
+    businessType: business.canonicalBusinessType,
+    ...business,
     selectedDistrict: clean(lead && lead.investigation_district, 140),
     headcount: clean(lead && lead.investigation_headcount, 120),
     approximateSize: executionSizeLabel(lead && (lead.space_needed || lead.size)),
@@ -131,7 +180,9 @@ export function projectSnapshotTextLines(snapshot) {
   return [
     value.market ? `Market: ${value.market}` : "",
     value.propertyType ? `Property Type: ${value.propertyType}` : "",
-    value.businessType ? `Business Type: ${value.businessType}` : "",
+    value.businessUse ? `Business / Use: ${value.businessUse}` : "",
+    value.businessCategory ? `Category: ${value.businessCategory}` : "",
+    value.classificationStatus === "investigate" ? "Use Classification: Verify intended use" : "",
     value.selectedDistrict ? `Selected District: ${value.selectedDistrict}` : "",
     value.headcount ? `Headcount: ${value.headcount}` : "",
     value.approximateSize ? `Approximate Size: ${value.approximateSize}` : "",

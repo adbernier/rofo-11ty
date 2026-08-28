@@ -167,7 +167,7 @@ function getLeadMessage(lead) {
 }
 
 function isLocationBriefLead(lead) {
-  return lead.lead_type === "location_brief" || lead.lead_type === "live_market_investigation" || lead.source === "location_brief";
+  return lead.lead_type === "location_brief" || lead.lead_type === "live_market_investigation" || lead.lead_type === "vnext_market_investigation" || Boolean(lead.location_brief_v2_context) || lead.source === "location_brief";
 }
 
 function isInvestigationLead(lead) {
@@ -633,7 +633,7 @@ function renderProjectSnapshot(lead, market) {
   const topDistricts = Array.isArray(snapshot.topDistricts) ? snapshot.topDistricts.filter(Boolean) : [];
   const primaryLine = [snapshot.market || market, snapshot.propertyType || lead.requested_space_type || lead.space_type].filter(Boolean).join(" - ");
   const requirementLine = [
-    snapshot.businessType || lead.location_profile_business_type,
+    snapshot.businessUse || lead.location_profile_business_use || snapshot.businessCategory,
     snapshot.headcount || lead.investigation_headcount,
     snapshot.approximateSize || lead.space_needed,
     snapshot.timing || lead.move_timing,
@@ -653,7 +653,9 @@ function renderProjectSnapshot(lead, market) {
       </div>
       <dl class="lead-grid lead-grid--compact">
         ${field("Qualification", qualified ? "Qualified requirement" : "Incomplete legacy requirement", { showEmpty: true })}
-        ${field("Business type", snapshot.businessType || lead.location_profile_business_type, { showEmpty: true })}
+        ${field("Business / use", snapshot.businessUse || lead.location_profile_business_use || snapshot.businessCategory, { showEmpty: true })}
+        ${field("Category", snapshot.businessCategory, { showEmpty: true })}
+        ${snapshot.classificationStatus === "investigate" ? field("Use classification", "Verify intended use", { showEmpty: true }) : ""}
         ${field("Selected district", snapshot.selectedDistrict || lead.investigation_district, { showEmpty: true })}
         ${isVnext ? field("Locations worth investigating", topDistricts.join(", ") || lead.recommended_market_path, { showEmpty: true }) : field("Best Fits", topDistricts.join(", ") || lead.recommended_market_path, { showEmpty: true })}
         ${field("Headcount", snapshot.headcount || lead.investigation_headcount, { showEmpty: true })}
@@ -674,8 +676,10 @@ function renderProjectSnapshot(lead, market) {
 }
 
 function renderBusinessProfileSummary(lead) {
+  const snapshot = buildProjectSnapshotFromLead(lead);
   const items = [
-    ["Business type", lead.location_profile_business_type],
+    ["Business / use", snapshot.businessUse || lead.location_profile_business_use],
+    ["Category", snapshot.businessCategory],
     ["Office use", lead.location_profile_operational_use],
     ["Office environment", lead.location_profile_office_environment],
     ["Commute", lead.location_profile_commute_orientation],

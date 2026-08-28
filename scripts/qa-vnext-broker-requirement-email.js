@@ -28,7 +28,7 @@ const record = { id: "lead-vnext", status: "pending", lead };
 const html = leadTools.buildVnextApprovalEmailHtml(record, dashboardUrl);
 const text = leadTools.buildVnextApprovalEmailText(record, dashboardUrl);
 
-for (const expected of ["Rofo Location Brief", "New Rofo Requirement", "5,000 SF Office · San Francisco · 6–12 months", "Architecture, Design &amp; Creative Services", "Open Location Brief →", "Project Snapshot", "Locations to investigate", "Marina District · Presidio · Jackson Square", "Requirement", "Timing", "Space use", "Team collaboration", "Must-haves", "Dedicated storage · Parking requirement", "Workforce", "San Francisco + Marin / North Bay", "Clients", "visit occasionally", "Environment", "Creative and distinctive", "Contact", "Not provided", "Investigation", "Review Lead in Dashboard →"]) assert(html.includes(expected), `vNext email should render ${expected}`);
+for (const expected of ["Rofo Location Brief", "New Rofo Requirement", "5,000 SF Office · San Francisco, CA · 6–12 months", "Architecture, Design &amp; Creative Services", "Open Location Brief →", "Project Snapshot", "Locations to investigate", "Marina District · Presidio · Jackson Square", "Requirement", "Timing", "Space use", "Team collaboration", "Must-haves", "Dedicated storage · Parking requirement", "Workforce", "San Francisco + Marin / North Bay", "Clients", "visit occasionally", "Environment", "Creative and distinctive", "Contact", "Not provided", "Investigation", "Review Lead in Dashboard →"]) assert(html.includes(expected), `vNext email should render ${expected}`);
 assert(html.includes(`href="${briefUrl}"`)); assert(!html.includes(`>${briefUrl}<`), "HTML should use a Brief CTA instead of displaying the raw URL.");
 assert(!html.includes("LEGACY COMPATIBILITY NOTES"), "vNext HTML must not duplicate the compatibility Notes blob.");
 assert(!/>\s*Notes\s*</i.test(html)); assert.equal(lead.requirements, "LEGACY COMPATIBILITY NOTES MUST REMAIN IN PAYLOAD", "Email rendering must not mutate the legacy payload.");
@@ -39,7 +39,7 @@ sparse.lead.phone = ""; sparse.lead.location_brief_v2_context.recommendation.loc
 sparse.lead.location_brief_v2_context.propertyRequirement = { sizeLabel: "20 people", timingLabel: "Flexible", purposes: ["Quiet focused work"], mustHaves: [] };
 sparse.lead.location_brief_v2_context.locationRequirement.clientVisitFrequency = ""; sparse.lead.location_brief_v2_context.locationRequirement.environment = "";
 const sparseHtml = leadTools.buildVnextApprovalEmailHtml(sparse, dashboardUrl);
-assert(sparseHtml.includes("Office for 20 people · San Francisco · Flexible")); assert(sparseHtml.includes("Mission Bay")); assert(!sparseHtml.includes("Must-haves")); assert(!sparseHtml.includes("Environment</td>")); assert(!/undefined|null/.test(sparseHtml));
+assert(sparseHtml.includes("Office for 20 people · San Francisco, CA · Flexible")); assert(sparseHtml.includes("Mission Bay")); assert(!sparseHtml.includes("Must-haves")); assert(!sparseHtml.includes("Environment</td>")); assert(!/undefined|null/.test(sparseHtml));
 
 const source = fs.readFileSync(path.join(ROOT, "functions/api/leads/_shared.js"), "utf8");
 assert(source.includes('value.schemaVersion === "vnext-commercial-context:v1"'));
