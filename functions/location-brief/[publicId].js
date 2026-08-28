@@ -4,13 +4,13 @@ import {
   htmlResponse,
   locationSummary,
   locationIntentLabel,
-  locationIntentSummary,
   sizeSummary,
   spaceSummary,
   trackLocationBriefEvent,
 } from "../api/location-brief/_shared.js";
 import { getBriefBundle as getLocationBriefV2Bundle, ownsBrief as ownsLocationBriefV2, privateHtml } from "../api/location-brief-v2/_shared.js";
 import { renderLocationBriefV2Page } from "../operator/location-brief-v2/[publicId].js";
+import { executionTimingLabel, marketDisplayName } from "../_shared/project-snapshot.js";
 
 function formatDate(value) {
   if (!value) return "";
@@ -23,8 +23,9 @@ function formatDate(value) {
   });
 }
 
-function statusLabel(status) {
-  if (status === "submitted") return "Awaiting Expert Review";
+function statusLabel(status, investigation) {
+  if (status === "submitted" && investigation?.investigationIntent) return "Awaiting Expert Review";
+  if (status === "submitted") return "Search Profile Ready";
   if (status === "draft") return "Draft";
   return String(status || "Submitted")
     .replace(/_/g, " ")
@@ -39,7 +40,7 @@ function list(items, empty = "None provided.") {
 
 function descriptionList(rows) {
   const filtered = rows.filter(([, value]) => value);
-  if (!filtered.length) return `<p class="location-brief-muted">None provided.</p>`;
+  if (!filtered.length) return "";
   return `
     <dl class="location-brief-details">
       ${filtered.map(([label, value]) => `
@@ -52,7 +53,7 @@ function descriptionList(rows) {
   `;
 }
 
-function renderMarketPath(brief) {
+function supportedMarketEntries(brief) {
   const marketPath = brief.marketPath || {};
   const recommended = Array.isArray(marketPath.recommendedPath) ? marketPath.recommendedPath : [];
   const compareWith = Array.isArray(marketPath.compareWith) ? marketPath.compareWith : [];
@@ -64,6 +65,7 @@ function renderMarketPath(brief) {
     seen.add(key);
     entries.push({
       ...item,
+      substantive: Boolean(item.summary || item.fitLabel || item.strengths?.length || item.tradeoffs?.length || item.bestFor?.length),
       roleLabel: index === 0 ? "Recommended starting point" : "Also worth comparing",
       reason: item.summary || item.reason || "Worth evaluating before narrowing the search.",
     });
@@ -75,23 +77,16 @@ function renderMarketPath(brief) {
     seen.add(key);
     entries.push({
       ...item,
+      substantive: Boolean(item.reason || item.summary || item.strengths?.length || item.tradeoffs?.length),
       roleLabel: "Also worth comparing",
       reason: item.reason || item.summary || "Worth comparing before narrowing the search.",
     });
   });
 
-  if (!recommended.length && marketPath.primaryLocationLabel) {
-    return `<article class="location-brief-path-card">
-      <span>Recommended starting point</span>
-      <h3>${escapeHtml(marketPath.primaryLocationLabel)}</h3>
-      <p>${escapeHtml(marketPath.title || "Relevant starting point")}</p>
-    </article>`;
-  }
+  return entries.filter((item) => item.substantive);
+}
 
-  if (!entries.length) {
-    return `<p class="location-brief-muted">A local expert should define the recommended market path.</p>`;
-  }
-
+function renderMarketPath(entries) {
   return entries.map((item) => `
     <article class="location-brief-path-card">
       <span>${escapeHtml(item.roleLabel)}</span>
@@ -103,24 +98,17 @@ function renderMarketPath(brief) {
   `).join("");
 }
 
-function renderWhyMarkets(brief) {
-  const recommended = brief.marketPath && Array.isArray(brief.marketPath.recommendedPath)
-    ? brief.marketPath.recommendedPath
-    : [];
-  const primary = recommended[0];
-  if (!primary) {
-    return `<p>Rofo captured the search profile and will use expert review to identify the right market path.</p>`;
-  }
+function renderWhyMarkets(primary) {
   return `
     <p>${escapeHtml(primary.summary || `${primary.label} is the first location to review against this profile.`)}</p>
     <div class="location-brief-two-col">
       <div>
         <h4>Best suited for</h4>
-        ${list(primary.bestFor, "Expert review will confirm best-fit users.")}
+        ${list(primary.bestFor)}
       </div>
       <div>
         <h4>Tradeoffs</h4>
-        ${list(primary.tradeoffs, "Live availability, pricing, and lease terms still need to be verified.")}
+        ${list(primary.tradeoffs)}
       </div>
     </div>
   `;
@@ -156,36 +144,45 @@ function renderInvestigation(brief) {
     ? investigation.representativeBuildings.filter((building) => building && building.selected !== false)
     : [];
   const scope = investigationScopeLabels(investigation);
-  const requirements = investigation.confirmedRequirements || {};
+  const intent = brief.searchProfile && brief.searchProfile.locationIntent;
+  const compareCopy = intent === "compare" ? `Rofo will investigate ${investigation.city || "the starting market"} alongside relevant nearby markets rather than limiting the search to the city boundary.` : "";
   return `
       <section class="location-brief-card">
-        <div class="location-brief-kicker">Live Market Investigation</div>
-        <h2>Investigate ${escapeHtml(investigation.districtName || investigation.city || "the live market")}</h2>
-        <p class="location-brief-muted">Representative buildings are reference points, not confirmed availability. Rofo will review the request and determine available coverage.</p>
+        <h2>What Rofo will investigate</h2>
+        ${compareCopy ? `<p>${escapeHtml(compareCopy)}</p>` : ""}
         ${descriptionList([
-          ["City", escapeHtml([investigation.city, investigation.state].filter(Boolean).join(", "))],
-          ["District", investigation.districtPath ? `<a href="${escapeHtml(investigation.districtPath)}">${escapeHtml(investigation.districtName)}</a>` : escapeHtml(investigation.districtName || "")],
-          ["Selected buildings", buildings.length ? list(buildings.map((building) => building.name), "District-level only") : escapeHtml("District-level only")],
-          ["Competitive buildings", escapeHtml(investigation.includeCompetitiveBuildings !== false ? "Include other competitive buildings" : "Not selected")],
-          ["Scope", scope.length ? list(scope, "No scope selected.") : ""],
-          ["Timing", escapeHtml(investigation.timing || requirements.timing || "")],
-          ["Broker preference", escapeHtml(brokerPreferenceLabel(investigation.brokerPreference))],
+          ["Investigation scope", scope.length ? list(scope) : ""],
+          ["Reference properties", buildings.length ? list(buildings.map((building) => building.name)) : ""],
+          ["Research approach", escapeHtml(brokerPreferenceLabel(investigation.brokerPreference))],
         ])}
         ${investigation.additionalNotes ? `<p class="location-brief-note">${escapeHtml(investigation.additionalNotes)}</p>` : ""}
       </section>
   `;
 }
 
-function renderPage(brief) {
-  const location = locationSummary(brief);
+function substantiveQuestions(brief) {
+  const questions = brief.marketPath && Array.isArray(brief.marketPath.questionsToValidate) ? brief.marketPath.questionsToValidate : [];
+  return questions.filter((question) => question && !/confirm commute,? timing,? operating constraints,? and building requirements/i.test(question));
+}
+
+function representativeBuildings(brief) {
+  return (brief.liveMarketInvestigation?.representativeBuildings || []).filter((building) => building && building.selected !== false && building.name);
+}
+
+export function renderLocationBriefPage(brief) {
+  const locations = brief.searchProfile && Array.isArray(brief.searchProfile.locations) ? brief.searchProfile.locations : [];
+  const location = marketDisplayName({ market: locationSummary(brief), state: locations[0]?.state, locations });
   const space = spaceSummary(brief);
   const size = sizeSummary(brief);
   const intent = brief.searchProfile && brief.searchProfile.locationIntent;
   const contact = brief.contact || {};
-  const questions = brief.marketPath && Array.isArray(brief.marketPath.questionsToValidate)
-    ? brief.marketPath.questionsToValidate
-    : [];
-  const preparedFor = [contact.name, contact.company].filter(Boolean).join(" / ") || "Rofo customer";
+  const questions = substantiveQuestions(brief);
+  const marketEntries = supportedMarketEntries(brief);
+  const primaryMarket = marketEntries[0];
+  const priorities = Array.isArray(brief.priorities) ? brief.priorities.filter(Boolean) : [];
+  const buildings = representativeBuildings(brief);
+  const preparedFor = [contact.name, contact.company].filter(Boolean).join(" / ");
+  const hasContact = Boolean(contact.name || contact.email || contact.company || contact.phone);
 
   return `<!doctype html>
 <html lang="en">
@@ -208,7 +205,7 @@ function renderPage(brief) {
         <aside>
           ${descriptionList([
             ["Prepared for", escapeHtml(preparedFor)],
-            ["Status", escapeHtml(statusLabel(brief.status))],
+            ["Status", escapeHtml(statusLabel(brief.status, brief.liveMarketInvestigation))],
             ["Brief ID", escapeHtml(brief.publicId)],
             ["Submitted", escapeHtml(formatDate(brief.createdAt))],
           ])}
@@ -216,61 +213,53 @@ function renderPage(brief) {
       </header>
 
       <section class="location-brief-card">
-        <div class="location-brief-kicker">Business Profile</div>
-        <h2>Business Profile</h2>
+        <h2>Your search</h2>
         ${descriptionList([
-          ["Location", escapeHtml(location)],
+          ["Starting market", escapeHtml(location)],
           ["Space type", escapeHtml(space)],
           ["Size", escapeHtml(size)],
-          ["Timing", escapeHtml(brief.searchProfile && brief.searchProfile.timing || "")],
-          ["Location Intent", escapeHtml(locationIntentLabel(intent))],
-          ["Intent Guidance", escapeHtml(locationIntentSummary(intent))],
+          ["Timing", escapeHtml(executionTimingLabel(brief.searchProfile && brief.searchProfile.timing || ""))],
+          ["Search approach", escapeHtml(locationIntentLabel(intent))],
           ["Feedback", escapeHtml(brief.feedback || "")],
         ])}
       </section>
 
-      <section class="location-brief-card">
-        <div class="location-brief-kicker">Best Fits</div>
+      ${marketEntries.length ? `<section class="location-brief-card">
         <h2>${escapeHtml(brief.marketPath && brief.marketPath.title || "Recommended starting point")}</h2>
         <div class="location-brief-path-grid">
-          ${renderMarketPath(brief)}
+          ${renderMarketPath(marketEntries)}
         </div>
-      </section>
+      </section>` : ""}
 
       ${renderInvestigation(brief)}
 
-      <section class="location-brief-card">
-        <div class="location-brief-kicker">Why These Markets</div>
+      ${primaryMarket ? `<section class="location-brief-card">
         <h2>Why these markets</h2>
-        ${renderWhyMarkets(brief)}
-      </section>
+        ${renderWhyMarkets(primaryMarket)}
+      </section>` : ""}
 
-      <section class="location-brief-card">
-        <div class="location-brief-kicker">Business Priorities</div>
+      ${priorities.length ? `<section class="location-brief-card">
         <h2>What matters most</h2>
-        ${list(brief.priorities, "No priorities selected yet.")}
-      </section>
+        ${list(priorities)}
+      </section>` : ""}
 
-      <section class="location-brief-card">
-        <div class="location-brief-kicker">Questions for Expert Review</div>
+      ${questions.length ? `<section class="location-brief-card">
         <h2>Questions for expert review</h2>
-        ${list(questions, "A local expert should confirm commute, timing, operating constraints, and building requirements.")}
-      </section>
+        ${list(questions)}
+      </section>` : ""}
 
-      <section class="location-brief-card">
-        <div class="location-brief-kicker">User Notes</div>
+      ${brief.notes ? `<section class="location-brief-card">
         <h2>User notes</h2>
-        <p class="location-brief-note">${escapeHtml(brief.notes || "None provided.")}</p>
-      </section>
+        <p class="location-brief-note">${escapeHtml(brief.notes)}</p>
+      </section>` : ""}
 
-      <section class="location-brief-card">
-        <div class="location-brief-kicker">Representative Buildings</div>
-        <h2>Representative Buildings</h2>
-        <p class="location-brief-muted">Representative buildings may be added during expert review to illustrate the types of environments worth evaluating.</p>
-      </section>
+      ${buildings.length ? `<section class="location-brief-card">
+        <h2>Representative buildings</h2>
+        <p class="location-brief-muted">These examples illustrate commercial environments and are not confirmed availability.</p>
+        ${list(buildings.map((building) => building.name))}
+      </section>` : ""}
 
-      <section class="location-brief-card">
-        <div class="location-brief-kicker">Contact Information</div>
+      ${hasContact ? `<section class="location-brief-card">
         <h2>Contact information</h2>
         ${descriptionList([
           ["Name", escapeHtml(contact.name || "")],
@@ -279,13 +268,8 @@ function renderPage(brief) {
           ["Phone", contact.phone ? `<a href="tel:${escapeHtml(contact.phone)}">${escapeHtml(contact.phone)}</a>` : ""],
           ["Submitted", escapeHtml(formatDate(brief.createdAt))],
         ])}
-      </section>
+      </section>` : ""}
 
-      <section class="location-brief-card location-brief-card--muted">
-        <div class="location-brief-kicker">Expert Notes</div>
-        <h2>Expert notes</h2>
-        <p>This section may be updated as a local market expert reviews the brief.</p>
-      </section>
     </main>
   </body>
 </html>`;
@@ -322,5 +306,5 @@ export async function onRequestGet({ request, params, env }) {
     console.warn("Unable to store Location Brief view event", error);
   }
 
-  return htmlResponse(renderPage(brief));
+  return htmlResponse(renderLocationBriefPage(brief));
 }

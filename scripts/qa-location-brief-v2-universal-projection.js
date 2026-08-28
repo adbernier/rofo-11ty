@@ -25,8 +25,8 @@ function bundle(item) {
 
 const cases = [
   { id: "novi-industrial", marketId: "novi", market: "Novi", propertyType: "industrial_flex", activities: ["store", "receive", "ship_distribute", "operate_vehicles"], criteria: [criterion("industrial.access.truck_circulation", "Box trucks")], expected: ["Building functionality", "Operational access"] },
-  { id: "boise-office", marketId: "boise", market: "Boise", propertyType: "office", activities: ["work", "meet_collaborate"], criteria: [criterion("office.access.client_visits", "Clients visit occasionally")], expected: ["Client and visitor access", "Space configuration"] },
-  { id: "nashville-retail", marketId: "nashville", market: "Nashville", propertyType: "retail_service", activities: ["host_visitors", "sell_serve"], criteria: [criterion("retail.customer.destination_visibility", "Visibility matters")], expected: ["Customer environment", "Visibility and storefront"] },
+  { id: "boise-office", marketId: "boise", market: "Boise", propertyType: "office", activities: ["work", "meet_collaborate"], criteria: [criterion("office.access.client_visits", "Clients visit occasionally")], expected: ["Client and visitor access"] },
+  { id: "nashville-retail", marketId: "nashville", market: "Nashville", propertyType: "retail_service", activities: ["host_visitors", "sell_serve"], criteria: [criterion("retail.customer.destination_visibility", "Visibility matters")], expected: ["Visibility and storefront"] },
   { id: "boise-flex", marketId: "boise", market: "Boise", propertyType: "industrial_flex", activities: ["work", "display_present", "make_assemble"], criteria: [], expected: ["Use mix", "Customer-facing environment"] },
 ];
 
@@ -35,9 +35,9 @@ for (const item of cases) {
   const projection = projectUniversalIntelligence(item.requirement);
   const html = renderer.renderLocationBriefV2Page(bundle(item), true, false, { publicExperience: true });
   assert(html.includes("What matters for this search"), `${item.id} lacks useful universal guidance`);
-  assert(html.includes("What we'll investigate next"), `${item.id} lacks investigation guidance`);
+  assert(html.includes("What Rofo will investigate"), `${item.id} lacks investigation guidance`);
   for (const label of item.expected) assert(html.includes(label), `${item.id} lacks ${label}`);
-  assert(html.includes(`Rofo has not yet calibrated ${item.market} for automatic location comparison.`));
+  assert(html.includes("Rofo has not produced a personalized local market ranking for this search."));
   assert(!html.includes("Locations worth investigating"), `${item.id} must not render a false shortlist`);
   assert(!html.includes("Fabricated local result") && !html.includes("Financial District"), `${item.id} leaked local resolver output`);
   assert(!/asking rent|vacancy rate|zoning is|available now/i.test(html));

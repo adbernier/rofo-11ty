@@ -50,7 +50,7 @@ assert.equal(nonCertifiedSnapshot.readiness, "INVESTIGATE");
 assert.equal(nonCertifiedSnapshot.shortlist.length, 0, "Universal creation cannot leak a local shortlist");
 const nonCertifiedBundle = { brief: { publicId: "LB2-00112233445566778899AABB" }, entryContext: { marketId: "novi", propertyType: "industrial_flex", sourceType: "city" }, currentRevision: { requirement: nonCertifiedRequirement }, currentSnapshot: { readiness: "INVESTIGATE", shortlist: [], candidateAssessments: [], comparisonAlternatives: [], intelligenceGaps: [] }, candidates: [] };
 const universalHtml = renderer.renderLocationBriefV2Page(nonCertifiedBundle, true, false, { publicExperience: true });
-assert(universalHtml.includes("Rofo has not yet calibrated Novi for automatic location comparison."));
+assert(universalHtml.includes("Rofo has not produced a personalized local market ranking for this search."));
 assert(!universalHtml.includes("Locations worth investigating"));
 assert(universalHtml.includes("Find Spaces That Fit →") && universalHtml.includes("/research-search/LB2-00112233445566778899AABB"));
 assert(!universalHtml.includes("<button class=\"lb2-button\" type=\"button\" disabled"));

@@ -129,18 +129,32 @@ function investigationPriorities(requirement) {
   if (mixedOrigins) return ["Your team is distributed across the Bay Area, so no single commute direction clearly determines the location. Employee access remains an important question to validate across the areas you compare."];
   return [];
 }
+const DEFAULT_PROPERTY_ACTIVITIES = Object.freeze({
+  office: new Set(["work", "meet_collaborate"]),
+  retail_service: new Set(["host_visitors", "sell_serve"]),
+  industrial_flex: new Set(),
+});
+function substantiveUniversalItems(requirement, projection) {
+  const defaults = DEFAULT_PROPERTY_ACTIVITIES[(requirement.propertyTypes || [])[0]] || new Set();
+  return projection.whatMatters.filter((item) => item.activatedBy.some((signal) => signal.startsWith("dimension:") || signal.startsWith("field:") || (signal.startsWith("activity:") && !defaults.has(signal.slice(9)))));
+}
 function universalGuidance(requirement) {
   const projection = projectUniversalIntelligence(requirement);
-  if (!projection.foundations.length || !projection.whatMatters.length) return { projection, matters: "" };
-  const matters = `<section class="lb2-universal" aria-labelledby="lb2-matters-heading"><div class="lb2-section-head"><p class="lb2-eyebrow">Your requirement</p><h2 id="lb2-matters-heading">What matters for this search</h2></div><div class="lb2-matter-grid">${projection.whatMatters.map((item) => `<article><h3>${esc(item.label)}</h3>${item.statedRequirement ? `<p class="lb2-matter-signal">${esc(item.statedRequirement)}</p>` : ""}<p>${esc(item.whyItMatters)}</p></article>`).join("")}</div></section>`;
-  return { projection, matters };
+  const items = substantiveUniversalItems(requirement, projection);
+  if (!projection.foundations.length || !items.length) return { projection, items, matters: "" };
+  const matters = `<section class="lb2-universal" aria-labelledby="lb2-matters-heading"><div class="lb2-section-head"><p class="lb2-eyebrow">Your requirement</p><h2 id="lb2-matters-heading">What matters for this search</h2></div><div class="lb2-matter-grid">${items.map((item) => `<article><h3>${esc(item.label)}</h3>${item.statedRequirement ? `<p class="lb2-matter-signal">${esc(item.statedRequirement)}</p>` : ""}<p>${esc(item.whyItMatters)}</p></article>`).join("")}</div></section>`;
+  return { projection, items, matters };
 }
-function investigationGuidance(projection, certified, market) {
-  if (!projection.foundations.length || !projection.investigationTopics.length) return "";
+function investigationGuidance(projection, certified, market, substantiveItems = []) {
+  if (!projection.foundations.length) return "";
+  const topics = certified || substantiveItems.length
+    ? projection.investigationTopics.slice(0, 6)
+    : ["Current availability", "Relevant nearby markets", "Comparable properties", "Location and property tradeoffs"];
+  if (!topics.length) return "";
   const boundary = certified
     ? "These locations fit the requirement based on reviewed location intelligence. Individual buildings, current availability, economics, and use compatibility still need property-level investigation."
-    : `Rofo has not yet calibrated ${market || "this market"} for automatic location comparison. We'll use your selected market as the starting point and evaluate relevant alternatives against the requirements that matter for your business.`;
-  return `<section class="lb2-investigation" aria-labelledby="lb2-investigation-heading"><div class="lb2-section-head"><p class="lb2-eyebrow">Next questions</p><h2 id="lb2-investigation-heading">What we'll investigate next</h2></div><p class="lb2-guidance__intro">${esc(boundary)}</p><ul class="lb2-investigate-list">${projection.investigationTopics.slice(0, 6).map((item) => `<li>${esc(item)}</li>`).join("")}</ul></section>`;
+    : `Rofo has not produced a personalized local market ranking for this search. ${market || "The selected market"} is the starting point; relevant alternatives, availability, and property-specific details require live investigation.`;
+  return `<section class="lb2-investigation" aria-labelledby="lb2-investigation-heading"><div class="lb2-section-head"><p class="lb2-eyebrow">Investigation</p><h2 id="lb2-investigation-heading">What Rofo will investigate</h2></div><p class="lb2-guidance__intro">${esc(boundary)}</p><ul class="lb2-investigate-list">${topics.map((item) => `<li>${esc(item)}</li>`).join("")}</ul></section>`;
 }
 function nextStep(readiness, propertyContinuationSupported) {
   if (!propertyContinuationSupported) return { heading: "Find spaces that fit this search", action: "Find Spaces That Fit →", copy: "Rofo will use your existing Business Profile and Location Brief to help identify spaces that fit your requirement. Actual availability and property-specific details require investigation." };
@@ -194,7 +208,7 @@ export function renderLocationBriefV2Page(bundle, owner, debug, options = {}) {
   ${reviewedLocalIntelligence && readiness === "INVESTIGATE" ? comparisonAlternatives(currentSnapshot, requirement) : ""}
   ${certified || priorities.length ? `<section class="lb2-guidance"><div class="lb2-section-head"><p class="lb2-eyebrow">Location guidance</p><h2>${esc(guidanceHeading)}</h2></div><p class="lb2-guidance__intro">${esc(guidanceCopy)}</p>${certified ? recommendationFocus(currentSnapshot, requirement, candidateIds) : `<ul class="lb2-investigate-list">${priorities.map((item) => `<li>${esc(item)}</li>`).join("")}</ul>`}</section>` : ""}
   ${certified ? comparison(currentSnapshot) : ""}
-  ${investigationGuidance(universal.projection, certified, market)}
+  ${investigationGuidance(universal.projection, certified, market, universal.items)}
   <section class="lb2-next"><div class="lb2-next__panel"><div><p class="lb2-eyebrow">Next step</p><h2>${esc(next.heading)}</h2><p>${esc(next.copy)}</p></div>${owner ? `<a class="lb2-button" href="${esc(propertyContinuationSupported ? findSpacesUrl : researchSpacesUrl)}" ${propertyContinuationSupported ? "data-vnext-find-spaces" : "data-vnext-research"}>${esc(next.action)}</a>` : `<a class="lb2-button" href="${esc(newSearchUrl)}">Start my own search →</a>`}</div></section></div><div class="lb2-summary-column">${renderSearchSummary(bundle, esc, { includeLocations: certified })}${owner ? `<a class="lb2-button lb2-button--quiet" href="${esc(editUrl)}">Edit my search</a>` : ""}</div></div>
   ${debug ? debugPanel(bundle) : ""}
   </main><script>(function(){var endpoint='/api/analytics/search-profile',journeyId='';try{journeyId=sessionStorage.getItem('rofoVnextJourneyId')||''}catch(error){}function track(name,extra){${publicExperience ? `try{fetch(endpoint,{method:'POST',headers:{'content-type':'application/json'},credentials:'same-origin',keepalive:true,body:JSON.stringify({event_name:name,profile_version:'location-brief:v2',context:Object.assign({page_type:'location_brief_v2',page_url:location.pathname,city:${JSON.stringify(market)},location_display:${JSON.stringify(market)},space_type:${JSON.stringify(requirement.propertyTypes?.[0] || "")},readiness:${JSON.stringify(readiness)},brief_id:${JSON.stringify(brief.publicId)},journey_id:journeyId},extra||{}),profile:{profile_version:'location-brief:v2',space_type:${JSON.stringify(requirement.propertyTypes?.[0] || "")}},attribution:{entry_page_type:${JSON.stringify(entryContext.sourceType || '')},landing_page:${JSON.stringify(entryContext.landingPage || '')},session_id:journeyId}})})}catch(error){}` : ``}}track('vnext_brief_viewed');var key='rofoLocationBriefV2Return';document.querySelectorAll('[data-brief-explore]').forEach(function(link){link.addEventListener('click',function(){try{sessionStorage.setItem(key,JSON.stringify({url:${JSON.stringify(briefUrl)},label:'Back to my Location Brief'}));}catch(error){}track('vnext_district_explored',{district:link.textContent.replace(/Explore|→/g,'').trim()});});});document.querySelectorAll('a[href*="journey=edit"]').forEach(function(link){link.addEventListener('click',function(){track('vnext_requirement_edited')})});document.querySelectorAll('[data-vnext-find-spaces]').forEach(function(link){link.addEventListener('click',function(){track('vnext_find_spaces_clicked')})});document.querySelectorAll('[data-vnext-research]').forEach(function(link){link.addEventListener('click',function(){track('vnext_research_clicked')})});})();</script><script src="/assets/location-brief-v2.js" defer data-cfasync="false"></script></body></html>`;
