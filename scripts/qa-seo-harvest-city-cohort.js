@@ -25,8 +25,8 @@ for (const item of cohort) {
   assert.equal(experiment.baseline.relevantImpressions, item.impressions);
   assert.equal(experiment.baseline.queryCount, item.queryCount);
   assert.equal(experiment.baseline.clicks, 0);
-  assert.equal(experiment.deploymentDate, null);
-  assert.equal(experiment.reviewStatus, "implementation_complete_pending_deployment");
+  assert.equal(experiment.deploymentDate, "2026-08-31");
+  assert.equal(experiment.reviewStatus, "deployed_pending_observation");
   assert.equal(experiment.landingPath, `/commercial-real-estate/${item.state}/${item.slug}/`);
 
   const projection = experiments.cityProjection[`${item.state}/${item.slug}`];

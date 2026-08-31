@@ -33,7 +33,8 @@ const harvestExperimentIds = [
 ];
 assert.equal(experiments.experiments.length, 15, "The experiment registry must remain bounded to the established ten records plus the five approved Harvest city experiments");
 assert(harvestExperimentIds.every((id) => experiments.byId[id]), "All five approved Harvest city experiments must be registered");
-assert(experiments.experiments.filter((item) => !["growth-antioch-retail-v1", "growth-phoenix-industrial-v1"].includes(item.id)).every((item) => item.deploymentDate === null && item.reviewStatus === "implementation_complete_pending_deployment"));
+assert(experiments.experiments.filter((item) => !["growth-antioch-retail-v1", "growth-phoenix-industrial-v1", ...harvestExperimentIds].includes(item.id)).every((item) => item.deploymentDate === null && item.reviewStatus === "implementation_complete_pending_deployment"));
+assert(harvestExperimentIds.every((id) => experiments.byId[id].deploymentDate === "2026-08-31" && experiments.byId[id].reviewStatus === "deployed_pending_observation"));
 assert.equal(experiments.byId["growth-antioch-retail-v1"].deploymentDate, "2026-08-26");
 assert.equal(experiments.byId["growth-antioch-retail-v1"].reviewStatus, "deployed_pending_observation");
 assert.equal(experiments.byId["growth-phoenix-industrial-v1"].deploymentDate, "2026-08-27");
