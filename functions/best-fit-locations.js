@@ -8,7 +8,7 @@ export function controlledEntryDecision(env, url) {
   const type = propertyType(url.searchParams.get("propertyType") || url.searchParams.get("spaceType"));
   if (!publicSourceAllowed(env, source)) return { eligible: false, reasonCode: "SOURCE_NOT_ALLOWED" };
   const eligible = publicEntryContextEligible(env, { marketId, propertyType: type });
-  return { eligible, reasonCode: eligible ? (marketId ? marketId === "san-francisco" ? "SF_COHORT" : "UNIVERSAL_COHORT" : "CONTROLLED_GLOBAL") : marketId && type ? "SEARCH_NOT_ENABLED" : "INCOMPLETE_GLOBAL_COHORT" };
+  return { eligible, reasonCode: eligible ? (marketId === "san-francisco" ? "SF_COHORT" : marketId === "san-diego" && type === "industrial_flex" ? "SAN_DIEGO_INDUSTRIAL_FLEX_COHORT" : marketId ? "UNIVERSAL_COHORT" : "CONTROLLED_GLOBAL") : marketId && type ? "SEARCH_NOT_ENABLED" : "INCOMPLETE_GLOBAL_COHORT" };
 }
 
 export async function onRequestGet({ request, env }) {

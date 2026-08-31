@@ -26,6 +26,7 @@ export const PUBLIC_UNIVERSAL_FLAG = "LOCATION_BRIEF_V2_PUBLIC_UNIVERSAL_ENABLED
 export const PUBLIC_ENTRY_FLAG = "LOCATION_BRIEF_V2_PUBLIC_ENTRY_ENABLED";
 export const PUBLIC_SOURCE_ALLOWLIST = "LOCATION_BRIEF_V2_PUBLIC_SF_OFFICE_SOURCES";
 export const CANONICAL_PUBLIC_SOURCES = Object.freeze(["homepage", "header", "city", "space_type", "district", "example", "market_guide", "comparison", "business_brief", "product_education", "insight", "building"]);
+const SAN_DIEGO_INDUSTRIAL_FLEX_ENTRY_IDS = Object.freeze(["miramar", "otay-mesa", "kearny-mesa", "sorrento-mesa", "sorrento-valley"]);
 
 const dependencies = { accessFoundation, compositionFoundation, sfOfficeModel, sfRetailFoundation, sfIndustrialFlexFoundation, sanDiegoIndustrialFlexFoundation, districtGeography };
 const encoder = new TextEncoder();
@@ -95,6 +96,17 @@ export function isSfIndustrialFlexRequirement(requirement = {}) {
   return market === "san-francisco" && propertyTypes.length === 1 && propertyTypes[0] === "industrial_flex";
 }
 export function isSfIndustrialFlexEntryContext(input = {}) { const context = normalizeEntryContext(input); return context.marketId === "san-francisco" && context.propertyType === "industrial_flex"; }
+export function isSanDiegoIndustrialFlexRequirement(requirement = {}) {
+  const market = clean(requirement.locationLogic?.marketAnchor?.marketId || requirement.locationLogic?.marketAnchor?.geographyId, 120).toLowerCase();
+  const propertyTypes = cleanArray(requirement.propertyTypes, 6).map((item) => item.toLowerCase());
+  const candidates = cleanArray(requirement.locationLogic?.specificPreference?.candidateDistrictIds).map((item) => item.toLowerCase());
+  return market === "san-diego" && propertyTypes.length === 1 && propertyTypes[0] === "industrial_flex" && candidates.every((item) => SAN_DIEGO_INDUSTRIAL_FLEX_ENTRY_IDS.includes(item));
+}
+export function isSanDiegoIndustrialFlexEntryContext(input = {}) {
+  const context = normalizeEntryContext(input);
+  const candidates = context.candidateDistrictIds.map((item) => item.toLowerCase());
+  return context.marketId === "san-diego" && context.propertyType === "industrial_flex" && candidates.every((item) => SAN_DIEGO_INDUSTRIAL_FLEX_ENTRY_IDS.includes(item));
+}
 export function isSupportedPublicRequirement(requirement = {}) { return isSfOfficeRequirement(requirement) || isSfRetailRequirement(requirement) || isSfIndustrialFlexRequirement(requirement); }
 export function isSupportedPublicEntryContext(input = {}) { return isSfOfficeEntryContext(input) || isSfRetailEntryContext(input) || isSfIndustrialFlexEntryContext(input); }
 export function isUniversalPublicRequirement(requirement = {}) {
@@ -106,12 +118,14 @@ export function publicRequirementEligible(env, requirement = {}) {
   if (isSfOfficeRequirement(requirement)) return publicV2Enabled(env, "office");
   if (isSfRetailRequirement(requirement)) return publicV2Enabled(env, "retail_service");
   if (isSfIndustrialFlexRequirement(requirement)) return publicV2Enabled(env, "industrial_flex");
+  if (isSanDiegoIndustrialFlexRequirement(requirement)) return publicEntryEnabled(env) && sanDiegoIndustrialFlexEnabled(env);
   return isUniversalPublicRequirement(requirement) && String(env && env[PUBLIC_UNIVERSAL_FLAG] || "false").toLowerCase() === "true";
 }
 export function publicEntryContextEligible(env, input = {}) {
   if (!publicEntryEnabled(env)) return false;
   const context = normalizeEntryContext(input);
   if (!context.marketId || !context.propertyType) return publicGlobalCohortEnabled(env);
+  if (isSanDiegoIndustrialFlexEntryContext(context)) return sanDiegoIndustrialFlexEnabled(env);
   if (context.marketId !== "san-francisco") return ["office", "retail_service", "industrial_flex"].includes(context.propertyType) && String(env && env[PUBLIC_UNIVERSAL_FLAG] || "false").toLowerCase() === "true";
   if (context.propertyType === "retail_service") return publicV2Enabled(env, "retail_service");
   if (context.propertyType === "industrial_flex") return publicV2Enabled(env, "industrial_flex");
