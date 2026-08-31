@@ -24,7 +24,15 @@ const assertControlledEntry = (href, city, state) => {
 };
 
 assert.equal(experiments.schemaVersion, "growth-experiments:v1");
-assert.equal(experiments.experiments.length, 10, "The experiment registry must remain bounded to the established nine hypotheses plus Phoenix Industrial");
+const harvestExperimentIds = [
+  "growth-harvest-deerfield-city-v1",
+  "growth-harvest-chula-vista-city-v1",
+  "growth-harvest-costa-mesa-city-v1",
+  "growth-harvest-fullerton-city-v1",
+  "growth-harvest-rancho-cordova-city-v1",
+];
+assert.equal(experiments.experiments.length, 15, "The experiment registry must remain bounded to the established ten records plus the five approved Harvest city experiments");
+assert(harvestExperimentIds.every((id) => experiments.byId[id]), "All five approved Harvest city experiments must be registered");
 assert(experiments.experiments.filter((item) => !["growth-antioch-retail-v1", "growth-phoenix-industrial-v1"].includes(item.id)).every((item) => item.deploymentDate === null && item.reviewStatus === "implementation_complete_pending_deployment"));
 assert.equal(experiments.byId["growth-antioch-retail-v1"].deploymentDate, "2026-08-26");
 assert.equal(experiments.byId["growth-antioch-retail-v1"].reviewStatus, "deployed_pending_observation");

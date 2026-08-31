@@ -189,12 +189,18 @@ eleventyComputed:
 
               <h1>{{ city.h1 or ("Commercial Real Estate in " + city.city + ", " + city.state_abbr) }}</h1>
 
+              {% if city.growth_experiment and city.growth_experiment.heroLead %}
+                <p class="city-decision-hero__lead">{{ city.growth_experiment.heroLead }}</p>
+              {% endif %}
+
               {% set recommendationPromptContext = {
                 "context_type": "city",
                 "city": city.city,
                 "state": city.state_abbr,
                 "context_label": city.city,
                 "page_url": page.url,
+                "market_id": city.slug,
+                "journey": "new",
                 "default_space_type": city.growth_experiment.propertyType if city.growth_experiment else "",
                 "intelligence_state": "recommendation_ready" if isSanFranciscoDecisionJourney else (city.growth_experiment.intelligenceState if city.growth_experiment else ("universal_with_local_context" if commercialKnowledgeSnapshot else "universal_only"))
               } %}
@@ -654,6 +660,19 @@ eleventyComputed:
                   <li>
                     <a href="{{ brief.url }}">{{ brief.archetype.pluralLabel }}</a>
                   </li>
+                {% endfor %}
+              </ul>
+            </div>
+          {% endif %}
+
+          {% if city.growth_experiment and city.growth_experiment.decisionGuide %}
+            <div class="city-card city-support-module city-harvest-decision-card" data-experiment="{{ city.growth_experiment.experimentId }}">
+              <div class="eyebrow">{{ city.growth_experiment.decisionGuide.eyebrow }}</div>
+              <h2>{{ city.growth_experiment.decisionGuide.title }}</h2>
+              <p>{{ city.growth_experiment.decisionGuide.summary }}</p>
+              <ul class="mini-list">
+                {% for item in city.growth_experiment.decisionGuide.links %}
+                  <li><a href="{{ item.path }}">{{ item.label }}</a></li>
                 {% endfor %}
               </ul>
             </div>

@@ -9,6 +9,11 @@ const experiments = Object.freeze([
   Object.freeze({ id: "growth-san-jose-industrial-v1", marketId: "san-jose", market: "San Jose", state: "CA", spaceType: "industrial", hypothesis: "Projecting reviewed technical Flex, advanced-manufacturing, and service-industrial contexts onto the canonical San Jose Industrial page will improve relevance and turn growing search discovery into qualified Business Profile starts.", baseline: Object.freeze({ window: "2026-07-16/2026-08-12", marketImpressions: 317, propertyTypeImpressions: 43, averagePosition: 24.3, clicks: 0, marketImpressionChange: "+117%" }), landingPath: "/commercial-real-estate/CA/san-jose/industrial-space/", targetBehavior: "Organic Industrial landing → operating-context exploration → Business Profile → Universal Brief → Find Spaces That Fit", startVersion: "market-development-sprint-c-public-consolidation", deploymentDate: null, reviewStatus: "implementation_complete_pending_deployment" }),
   Object.freeze({ id: "growth-antioch-retail-v1", marketId: "antioch", market: "Antioch", state: "CA", spaceType: "retail_service", hypothesis: "A differentiated Antioch Retail decision surface will improve Google's Retail landing-page selection, organic engagement, and qualified Business Profile starts.", baseline: Object.freeze({ window: "2026-07-30/2026-08-26", comparisonWindow: "2026-07-02/2026-07-29", query: "antioch retail space for lease", impressions: 19, clicks: 0, averagePosition: 11.42, selectedPath: "/commercial-real-estate/CA/antioch/", marketImpressions: 354, priorMarketImpressions: 254, marketImpressionChange: "+39.4%" }), landingPath: "/commercial-real-estate/CA/antioch/retail-space/", targetBehavior: "Organic Retail landing → customer-environment exploration → Business Profile → Universal Brief → Find Spaces That Fit", startVersion: "antioch-retail-public-consolidation", deploymentDate: "2026-08-26", reviewStatus: "deployed_pending_observation" }),
   Object.freeze({ id: "growth-phoenix-industrial-v1", marketId: "phoenix", market: "Phoenix", state: "AZ", spaceType: "industrial", hypothesis: "Replacing generic Phoenix Industrial content with reviewed operating-context guidance and representative environments will improve search relevance, ranking, organic engagement, and qualified Business Profile starts.", baseline: Object.freeze({ window: "2026-07-30/2026-08-26", comparisonWindow: "2026-07-02/2026-07-29", propertyTypeImpressions: 72, clicks: 0, averagePosition: 24.75, dominantQuery: "phoenix industrial space", dominantQueryImpressions: 55, dominantQueryAveragePosition: 21.13, marketImpressions: 98, priorMarketImpressions: 26, marketImpressionChange: "+276.9%", selectedPath: "/commercial-real-estate/AZ/phoenix/industrial-space/" }), landingPath: "/commercial-real-estate/AZ/phoenix/industrial-space/", targetBehavior: "Organic Industrial landing → operating-context exploration → Business Profile → Universal Brief → Find Spaces That Fit", startVersion: "phoenix-industrial-public-consolidation", deploymentDate: "2026-08-27", reviewStatus: "deployed_pending_observation" }),
+  Object.freeze({ id: "growth-harvest-deerfield-city-v1", marketId: "deerfield", market: "Deerfield", state: "IL", spaceType: "commercial_general", hypothesis: "A clearer occupier-oriented city proposition, Office discovery path, and complete Best-Fit EntryContext will turn Deerfield's near-page-one commercial lease exposure into qualified Business Profile starts.", baseline: Object.freeze({ window: "2026-07-30/2026-08-26", relevantImpressions: 163, clicks: 0, top10Share: "33.7%", position11To20Share: "48.5%", queryCount: 3, selectedPath: "/commercial-real-estate/IL/deerfield/" }), landingPath: "/commercial-real-estate/IL/deerfield/", targetBehavior: "Organic city landing → Office/commercial decision path → Business Profile → Universal Brief → Find Spaces That Fit", startVersion: "seo-harvest-city-v1", deploymentDate: null, reviewStatus: "implementation_complete_pending_deployment" }),
+  Object.freeze({ id: "growth-harvest-chula-vista-city-v1", marketId: "chula-vista", market: "Chula Vista", state: "CA", spaceType: "commercial_general", hypothesis: "A clearer Chula Vista commercial decision proposition and stronger Office, Retail, and Industrial discovery will improve organic engagement and qualified Business Profile starts.", baseline: Object.freeze({ window: "2026-07-30/2026-08-26", relevantImpressions: 106, clicks: 0, top10Share: "18.9%", position11To20Share: "77.4%", queryCount: 4, selectedPath: "/commercial-real-estate/CA/chula-vista/" }), landingPath: "/commercial-real-estate/CA/chula-vista/", targetBehavior: "Organic city landing → space-type decision path → Business Profile → Universal Brief → Find Spaces That Fit", startVersion: "seo-harvest-city-v1", deploymentDate: null, reviewStatus: "implementation_complete_pending_deployment" }),
+  Object.freeze({ id: "growth-harvest-costa-mesa-city-v1", marketId: "costa-mesa", market: "Costa Mesa", state: "CA", spaceType: "commercial_general", hypothesis: "A differentiated Costa Mesa city proposition and bounded Office/Industrial discovery will broaden a narrow near-page-one commercial real estate foothold into qualified search starts.", baseline: Object.freeze({ window: "2026-07-30/2026-08-26", relevantImpressions: 94, clicks: 0, top10Share: "4.3%", position11To20Share: "95.7%", queryCount: 1, selectedPath: "/commercial-real-estate/CA/costa-mesa/" }), landingPath: "/commercial-real-estate/CA/costa-mesa/", targetBehavior: "Organic city landing → commercial environment/space-type discovery → Business Profile → Universal Brief → Find Spaces That Fit", startVersion: "seo-harvest-city-v1", deploymentDate: null, reviewStatus: "implementation_complete_pending_deployment" }),
+  Object.freeze({ id: "growth-harvest-fullerton-city-v1", marketId: "fullerton", market: "Fullerton", state: "CA", spaceType: "commercial_general", hypothesis: "Clearer Fullerton commercial decision framing and links to existing North Orange County context will improve relevance and qualified Business Profile starts without creating a competing space-type surface.", baseline: Object.freeze({ window: "2026-07-30/2026-08-26", relevantImpressions: 84, clicks: 0, top10Share: "0%", position11To20Share: "95.2%", queryCount: 2, selectedPath: "/commercial-real-estate/CA/fullerton/" }), landingPath: "/commercial-real-estate/CA/fullerton/", targetBehavior: "Organic city landing → commercial context exploration → Business Profile → Universal Brief → Find Spaces That Fit", startVersion: "seo-harvest-city-v1", deploymentDate: null, reviewStatus: "implementation_complete_pending_deployment" }),
+  Object.freeze({ id: "growth-harvest-rancho-cordova-city-v1", marketId: "rancho-cordova", market: "Rancho Cordova", state: "CA", spaceType: "commercial_general", hypothesis: "A sharper Highway 50 office/flex and service-commercial proposition will improve CTR and qualified Business Profile starts from Rancho Cordova's existing Top-10 city exposure.", baseline: Object.freeze({ window: "2026-07-30/2026-08-26", relevantImpressions: 37, clicks: 0, top10Share: "78.4%", position11To20Share: "18.9%", queryCount: 3, selectedPath: "/commercial-real-estate/CA/rancho-cordova/" }), landingPath: "/commercial-real-estate/CA/rancho-cordova/", targetBehavior: "Organic city landing → Highway 50 office/flex context → Business Profile → Universal Brief → Find Spaces That Fit", startVersion: "seo-harvest-city-v1", deploymentDate: null, reviewStatus: "implementation_complete_pending_deployment" }),
 ]);
 
 const observationPolicy = Object.freeze({
@@ -18,6 +23,99 @@ const observationPolicy = Object.freeze({
 });
 
 const cityProjection = Object.freeze({
+  "IL/deerfield": Object.freeze({
+    experimentId: "growth-harvest-deerfield-city-v1",
+    propertyType: "",
+    intelligenceState: "universal_only",
+    seoTitle: "Deerfield, IL Commercial Real Estate for Lease | Rofo",
+    seoDescription: "Compare Deerfield office and commercial space options, clarify what your business needs, and start a guided location search with Rofo.",
+    h1: "Commercial Real Estate for Lease in Deerfield, IL",
+    heroLead: "Start with the way your business uses space, then compare Deerfield office options, nearby commercial alternatives, and the property facts that require live investigation.",
+    decisionGuide: Object.freeze({
+      eyebrow: "Deerfield commercial decisions",
+      title: "Start with office fit, then compare the location",
+      summary: "Deerfield's existing public evidence is strongest for suburban office and professional-service searches. Use the Office path for space-specific considerations or compare Deerfield with Northbrook before narrowing buildings.",
+      links: Object.freeze([
+        Object.freeze({ label: "Explore Deerfield Office space", path: "/commercial-real-estate/IL/deerfield/office-space/" }),
+        Object.freeze({ label: "Compare Deerfield and Northbrook", path: "/commercial-real-estate/IL/deerfield/deerfield-vs-northbrook/" }),
+      ]),
+    }),
+  }),
+  "CA/chula-vista": Object.freeze({
+    experimentId: "growth-harvest-chula-vista-city-v1",
+    propertyType: "",
+    intelligenceState: "universal_only",
+    seoTitle: "Chula Vista Commercial Real Estate and Space Guide | Rofo",
+    seoDescription: "Compare Chula Vista office, retail, and industrial search paths, organize your business requirements, and investigate spaces that fit.",
+    h1: "Commercial Real Estate in Chula Vista, CA",
+    heroLead: "Choose the Chula Vista search path that matches how your business serves customers, supports employees, or operates—then verify availability and property capability through live investigation.",
+    decisionGuide: Object.freeze({
+      eyebrow: "Chula Vista commercial decisions",
+      title: "Choose the space decision before the building",
+      summary: "Office, Retail, and Industrial searches raise different questions. Chula Vista should remain its own South Bay business decision; San Diego and Otay Mesa are useful context, not substitutes or ranked recommendations.",
+      links: Object.freeze([
+        Object.freeze({ label: "Explore Chula Vista Office space", path: "/commercial-real-estate/CA/chula-vista/office-space/" }),
+        Object.freeze({ label: "Explore Chula Vista Retail space", path: "/commercial-real-estate/CA/chula-vista/retail-space/" }),
+        Object.freeze({ label: "Explore Chula Vista Industrial space", path: "/commercial-real-estate/CA/chula-vista/industrial-space/" }),
+      ]),
+    }),
+  }),
+  "CA/costa-mesa": Object.freeze({
+    experimentId: "growth-harvest-costa-mesa-city-v1",
+    propertyType: "",
+    intelligenceState: "universal_only",
+    seoTitle: "Costa Mesa Commercial Real Estate Location Guide | Rofo",
+    seoDescription: "Understand Costa Mesa commercial location choices, compare Office and Industrial search paths, and build a requirement before investigating spaces.",
+    h1: "Costa Mesa Commercial Real Estate Location Guide",
+    heroLead: "Use Costa Mesa as the starting market, clarify whether the requirement is office, customer-facing, or operational, and compare existing commercial contexts before investigating individual properties.",
+    decisionGuide: Object.freeze({
+      eyebrow: "Costa Mesa commercial decisions",
+      title: "Clarify the kind of Costa Mesa space you need",
+      summary: "The current search foothold is broad commercial intent, so this guide keeps the choice open while connecting users to established Office, Industrial, and local commercial-context pages.",
+      links: Object.freeze([
+        Object.freeze({ label: "Explore Costa Mesa Office space", path: "/commercial-real-estate/CA/costa-mesa/office-space/" }),
+        Object.freeze({ label: "Explore Costa Mesa Industrial space", path: "/commercial-real-estate/CA/costa-mesa/industrial-space/" }),
+        Object.freeze({ label: "Understand South Coast Metro", path: "/commercial-real-estate/CA/costa-mesa/south-coast-metro/" }),
+      ]),
+    }),
+  }),
+  "CA/fullerton": Object.freeze({
+    experimentId: "growth-harvest-fullerton-city-v1",
+    propertyType: "",
+    intelligenceState: "universal_only",
+    seoTitle: "Fullerton Commercial Real Estate Location Guide | Rofo",
+    seoDescription: "Understand Fullerton commercial location choices, compare North Orange County context, and organize your business-space requirement with Rofo.",
+    h1: "Fullerton Commercial Real Estate Location Guide",
+    heroLead: "Start with Fullerton's role in a North Orange County search, compare nearby commercial settings, and define the property and operating requirements that need live verification.",
+    decisionGuide: Object.freeze({
+      eyebrow: "Fullerton commercial decisions",
+      title: "Place Fullerton within a North Orange County search",
+      summary: "Fullerton has useful service-commercial and Industrial/Flex context, but Rofo does not yet have a sufficiently supported canonical space-type guide to foreground here. Use the existing city context and comparisons without treating a narrow Flex query as a complete market model.",
+      links: Object.freeze([
+        Object.freeze({ label: "Understand Fullerton commercial context", path: "/commercial-real-estate/CA/fullerton/fullerton/" }),
+        Object.freeze({ label: "Compare Fullerton and Buena Park", path: "/commercial-real-estate/CA/fullerton/fullerton-vs-buena-park/" }),
+      ]),
+    }),
+  }),
+  "CA/rancho-cordova": Object.freeze({
+    experimentId: "growth-harvest-rancho-cordova-city-v1",
+    propertyType: "",
+    intelligenceState: "universal_with_local_context",
+    seoTitle: "Rancho Cordova Commercial Real Estate Location Guide | Rofo",
+    seoDescription: "Compare Rancho Cordova office, flex, service-commercial, and light-industrial search paths before investigating individual properties.",
+    h1: "Rancho Cordova Commercial Real Estate Location Guide",
+    heroLead: "Use Rancho Cordova's Highway 50 office, Flex, service-commercial, and light-industrial context to frame the search—then verify building capability and current options property by property.",
+    decisionGuide: Object.freeze({
+      eyebrow: "Rancho Cordova commercial decisions",
+      title: "Compare office needs with operational requirements",
+      summary: "Rancho Cordova's reviewed evidence supports a practical Highway 50 office/Flex and service-commercial decision. Choose the relevant space-type path or review the bounded commercial-core context before narrowing properties.",
+      links: Object.freeze([
+        Object.freeze({ label: "Explore Rancho Cordova Office space", path: "/commercial-real-estate/CA/rancho-cordova/office-space/" }),
+        Object.freeze({ label: "Explore Rancho Cordova Industrial space", path: "/commercial-real-estate/CA/rancho-cordova/industrial-space/" }),
+        Object.freeze({ label: "Understand the Rancho Cordova Commercial Core", path: "/commercial-real-estate/CA/rancho-cordova/rancho-cordova-commercial-core/" }),
+      ]),
+    }),
+  }),
   "AZ/phoenix": Object.freeze({
     experimentId: "growth-phoenix-industrial-v1",
     propertyType: "Industrial / Warehouse / Flex",
