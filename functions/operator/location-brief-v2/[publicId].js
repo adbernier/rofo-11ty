@@ -66,10 +66,11 @@ function recommendationFocus(snapshot, requirement, omittedIds = []) {
   if (!items.length) return "";
   return `<div class="lb2-location-focus" data-location-focus-root><div class="lb2-focus-tabs" aria-label="Locations worth investigating">${items.map((item, index) => `<button type="button" class="${index ? "" : "is-active"}" data-focus-button="${esc(item.districtId)}">${esc(item.districtName)}</button>`).join("")}</div>${items.map((item, index) => `<div data-focus-panel="${esc(item.districtId)}"${index ? " hidden" : ""}>${districtCard(item, requirement, { rich: true, role: "Worth investigating" })}</div>`).join("")}</div>`;
 }
-function comparisonRows(snapshot) {
+function comparisonRows(snapshot, requirement) {
   const items = snapshot.shortlist || [];
-  const retail = items.some((item) => item.retail || item.propertyTypeFit?.summary && !item.office);
-  const industrialFlex = items.some((item) => item.industrialFlex);
+  const propertyType = requirement.propertyTypes?.[0];
+  const retail = propertyType === "retail_service";
+  const industrialFlex = propertyType === "industrial_flex";
   const fitLabel = industrialFlex ? `${titleCase(items[0]?.model || "Industrial / Flex")} character` : retail ? "Retail environment" : "Office character";
   const accessLabel = industrialFlex ? "Employee / operational access" : retail ? "Customer access" : "Employee access";
   const definitions = [
@@ -81,8 +82,8 @@ function comparisonRows(snapshot) {
   ];
   return definitions.map(([label, getter]) => ({ label, values: items.map(getter) })).filter((row) => row.values.some(Boolean) && (!["Employee access", "Customer access", "Employee / operational access"].includes(row.label) || new Set(row.values).size > 1));
 }
-function comparison(snapshot) {
-  const items = snapshot.shortlist || []; const rows = comparisonRows(snapshot);
+function comparison(snapshot, requirement) {
+  const items = snapshot.shortlist || []; const rows = comparisonRows(snapshot, requirement);
   if (items.length < 2 || !rows.length) return "";
   return `<section class="lb2-comparison"><div class="lb2-section-head"><p class="lb2-eyebrow">Compare</p><h2>How they differ</h2></div><div class="lb2-compare" style="--lb2-cols:${items.length}" role="table" aria-label="Location comparison"><div class="lb2-compare__row lb2-compare__head" role="row"><span role="columnheader">Priority</span>${items.map((item) => `<strong role="columnheader">${esc(item.districtName)}</strong>`).join("")}</div>${rows.map((row) => `<div class="lb2-compare__row" role="row"><strong role="rowheader">${esc(row.label)}</strong>${row.values.map((value, index) => `<span role="cell" data-label="${esc(items[index].districtName)}: ">${esc(value)}</span>`).join("")}</div>`).join("")}</div></section>`;
 }
@@ -184,14 +185,15 @@ export function renderLocationBriefV2Page(bundle, owner, debug, options = {}) {
   const isRetail = requirement.propertyTypes?.length === 1 && requirement.propertyTypes[0] === "retail_service";
   const propertyContinuationSupported = requirement.propertyTypes?.length === 1 && requirement.propertyTypes[0] === "office" && (requirement.locationLogic?.marketAnchor?.marketId || requirement.locationLogic?.marketAnchor?.geographyId) === "san-francisco";
   const readiness = currentSnapshot.readiness;
-  const reviewedLocalIntelligence = marketId === "san-francisco" && ["office", "retail_service", "industrial_flex"].includes(requirement.propertyTypes?.[0]);
+  const reviewedLocalIntelligence = (marketId === "san-francisco" && ["office", "retail_service", "industrial_flex"].includes(requirement.propertyTypes?.[0]))
+    || (marketId === "san-diego" && requirement.propertyTypes?.[0] === "industrial_flex");
   const certified = reviewedLocalIntelligence && ["FULL", "BOUNDED"].includes(readiness) && (currentSnapshot.shortlist || []).length > 0;
   const universal = universalGuidance(requirement);
   const priorities = readiness === "INVESTIGATE" ? investigationPriorities(requirement) : [];
   const hasCandidates = marketId === "san-francisco" && (candidates || []).length > 0;
   const guidanceHeading = readiness === "INVESTIGATE" ? "What matters most" : hasCandidates ? "Also worth investigating" : "Locations worth investigating";
   const comparedCandidate = currentSnapshot.candidateAssessments?.[0]; const comparedAlternative = currentSnapshot.comparisonAlternatives?.[0];
-  const guidanceCopy = readiness === "FULL" ? `Based on your business and priorities, these are the San Francisco areas we'd investigate first. Each offers a different combination of access, business environment, ${isRetail ? "customer context and storefront character" : "office character"}, and practical tradeoffs.` : readiness === "BOUNDED" ? "These are the areas Rofo can support most confidently for this search. Some parts of the market still require additional investigation." : comparedCandidate && comparedAlternative ? `${comparedCandidate.districtName} is worth considering based on the business environment and ${isRetail ? "Retail" : "Office"} fit you described. Comparing it with ${comparedAlternative.districtName} helps show a different set of district tradeoffs.` : "Use these priorities to evaluate the areas and properties you investigate next.";
+  const guidanceCopy = readiness === "FULL" ? `Based on your business and priorities, these are the ${market} areas we'd investigate first. Each offers a different combination of operating environment, business context, and practical tradeoffs.` : readiness === "BOUNDED" ? "These are peer locations supported by reviewed local evidence for this search. Individual property capabilities and some location questions still require investigation." : comparedCandidate && comparedAlternative ? `${comparedCandidate.districtName} is worth considering based on the business environment and ${isRetail ? "Retail" : "Office"} fit you described. Comparing it with ${comparedAlternative.districtName} helps show a different set of district tradeoffs.` : "Use these priorities to evaluate the areas and properties you investigate next.";
   const next = nextStep(certified ? readiness : "INVESTIGATE", propertyContinuationSupported);
   const publicExperience = options.publicExperience === true;
   const briefUrl = publicExperience ? `/location-brief/${brief.publicId}` : `/operator/location-brief-v2/${brief.publicId}`;
@@ -207,7 +209,7 @@ export function renderLocationBriefV2Page(bundle, owner, debug, options = {}) {
   <div class="lb2-layout"><div class="lb2-main">${universal.matters}${hasCandidates ? candidateSection(candidates, currentSnapshot, requirement) : ""}
   ${reviewedLocalIntelligence && readiness === "INVESTIGATE" ? comparisonAlternatives(currentSnapshot, requirement) : ""}
   ${certified || priorities.length ? `<section class="lb2-guidance"><div class="lb2-section-head"><p class="lb2-eyebrow">Location guidance</p><h2>${esc(guidanceHeading)}</h2></div><p class="lb2-guidance__intro">${esc(guidanceCopy)}</p>${certified ? recommendationFocus(currentSnapshot, requirement, candidateIds) : `<ul class="lb2-investigate-list">${priorities.map((item) => `<li>${esc(item)}</li>`).join("")}</ul>`}</section>` : ""}
-  ${certified ? comparison(currentSnapshot) : ""}
+  ${certified ? comparison(currentSnapshot, requirement) : ""}
   ${investigationGuidance(universal.projection, certified, market, universal.items)}
   <section class="lb2-next"><div class="lb2-next__panel"><div><p class="lb2-eyebrow">Next step</p><h2>${esc(next.heading)}</h2><p>${esc(next.copy)}</p></div>${owner ? `<a class="lb2-button" href="${esc(propertyContinuationSupported ? findSpacesUrl : researchSpacesUrl)}" ${propertyContinuationSupported ? "data-vnext-find-spaces" : "data-vnext-research"}>${esc(next.action)}</a>` : `<a class="lb2-button" href="${esc(newSearchUrl)}">Start my own search →</a>`}</div></section></div><div class="lb2-summary-column">${renderSearchSummary(bundle, esc, { includeLocations: certified })}${owner ? `<a class="lb2-button lb2-button--quiet" href="${esc(editUrl)}">Edit my search</a>` : ""}</div></div>
   ${debug ? debugPanel(bundle) : ""}

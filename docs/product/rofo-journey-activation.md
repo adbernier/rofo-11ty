@@ -11,6 +11,7 @@ Sprint 10 connects the adaptive Requirement, polished Location Brief, and existi
 | `LOCATION_BRIEF_V2_PUBLIC_SF_OFFICE_ENABLED` | off | Enables certified SF Office creation. |
 | `LOCATION_BRIEF_V2_PUBLIC_SF_RETAIL_ENABLED` | off | Enables certified SF Retail creation. |
 | `LOCATION_BRIEF_V2_PUBLIC_SF_INDUSTRIAL_FLEX_ENABLED` | off | Enables certified SF Industrial/Flex creation. |
+| `LOCATION_BRIEF_V2_PUBLIC_SAN_DIEGO_INDUSTRIAL_FLEX_ENABLED` | off | Enables the bounded City of San Diego Industrial/Flex recommendation foundation. When off, San Diego remains Universal/INVESTIGATE. |
 | `LOCATION_BRIEF_V2_PUBLIC_SF_OFFICE_SOURCES` | canonical defaults | Optional override for the bounded source vocabulary. |
 
 The approved default sources are the primary entry surfaces (`homepage`, `header`, `city`, `space_type`, `district`, `example`) plus bounded existing decision-content sources (`market_guide`, `comparison`, `business_brief`, `product_education`, `insight`, `building`). Source validation remains enabled. Global context-free entry activates only when the entry flag, Universal flag, and all three SF flags are enabled, preventing a user from choosing a deterministically rejected branch after starting.

@@ -4,6 +4,7 @@ import compositionFoundation from "../../../_data/sfOfficeCompositionFoundation.
 import sfOfficeModel from "../../../_data/sfOfficeRecommendationModel.js";
 import sfRetailFoundation from "../../../_data/sfRetailCompositionFoundation.js";
 import sfIndustrialFlexFoundation from "../../../_data/sfIndustrialFlexCompositionFoundation.js";
+import sanDiegoIndustrialFlexFoundation from "../../../_data/sanDiegoIndustrialFlexCompositionFoundation.js";
 import districtGeography from "../../../_data/requirementPrototypeDistrictGeography.js";
 import districtPresentations from "../../../data/generated/location-brief-district-presentation.json";
 import universalIntelligence from "../../../lib/intelligence/universal-space-type-intelligence.js";
@@ -20,12 +21,13 @@ export const ENGINE_VERSION = readinessEngine.VERSION;
 export const PUBLIC_SF_OFFICE_FLAG = "LOCATION_BRIEF_V2_PUBLIC_SF_OFFICE_ENABLED";
 export const PUBLIC_SF_RETAIL_FLAG = "LOCATION_BRIEF_V2_PUBLIC_SF_RETAIL_ENABLED";
 export const PUBLIC_SF_INDUSTRIAL_FLEX_FLAG = "LOCATION_BRIEF_V2_PUBLIC_SF_INDUSTRIAL_FLEX_ENABLED";
+export const PUBLIC_SAN_DIEGO_INDUSTRIAL_FLEX_FLAG = "LOCATION_BRIEF_V2_PUBLIC_SAN_DIEGO_INDUSTRIAL_FLEX_ENABLED";
 export const PUBLIC_UNIVERSAL_FLAG = "LOCATION_BRIEF_V2_PUBLIC_UNIVERSAL_ENABLED";
 export const PUBLIC_ENTRY_FLAG = "LOCATION_BRIEF_V2_PUBLIC_ENTRY_ENABLED";
 export const PUBLIC_SOURCE_ALLOWLIST = "LOCATION_BRIEF_V2_PUBLIC_SF_OFFICE_SOURCES";
 export const CANONICAL_PUBLIC_SOURCES = Object.freeze(["homepage", "header", "city", "space_type", "district", "example", "market_guide", "comparison", "business_brief", "product_education", "insight", "building"]);
 
-const dependencies = { accessFoundation, compositionFoundation, sfOfficeModel, sfRetailFoundation, sfIndustrialFlexFoundation, districtGeography };
+const dependencies = { accessFoundation, compositionFoundation, sfOfficeModel, sfRetailFoundation, sfIndustrialFlexFoundation, sanDiegoIndustrialFlexFoundation, districtGeography };
 const encoder = new TextEncoder();
 
 function clean(value, max = 1000) { return String(value == null ? "" : value).trim().slice(0, max); }
@@ -61,6 +63,7 @@ export function publicSourceAllowed(env, sourceType) {
   return configured.includes(clean(sourceType, 80));
 }
 export function publicEntryEnabled(env) { return String(env && env[PUBLIC_ENTRY_FLAG] || "false").toLowerCase() === "true"; }
+export function sanDiegoIndustrialFlexEnabled(env) { return String(env && env[PUBLIC_SAN_DIEGO_INDUSTRIAL_FLEX_FLAG] || "false").toLowerCase() === "true"; }
 export function publicGlobalCohortEnabled(env) { return publicEntryEnabled(env) && [PUBLIC_UNIVERSAL_FLAG, PUBLIC_SF_OFFICE_FLAG, PUBLIC_SF_RETAIL_FLAG, PUBLIC_SF_INDUSTRIAL_FLEX_FLAG].every((flag) => String(env && env[flag] || "false").toLowerCase() === "true"); }
 export function operatorAllowed(request, env) {
   if (!v2Enabled(env)) return false;
@@ -183,7 +186,7 @@ export function canonicalRequirement(input = {}, entryContext = {}) {
 
 function presentationFor(item = {}) {
   const slug = item.canonicalDistrictId || item.districtId || "";
-  return districtPresentations.districts[slug] || { districtId: slug, districtName: item.districtName || slug, districtPath: "", image: null, representativeBuildings: [] };
+  return districtPresentations.districts[slug] || { districtId: slug, districtName: item.districtName || slug, districtPath: item.path || "", image: null, representativeBuildings: (item.representatives || []).map((entry) => ({ name: entry.label, path: entry.path, canonicalUrl: entry.path, representativeRole: entry.role, representativeReason: entry.role, sourceConfidence: entry.confidence, propertyVerification: entry.propertyVerification })) };
 }
 
 function assessmentForDistrict(requirement, district, item) {
@@ -272,8 +275,8 @@ function comparisonAlternatives(requirement, result, assessments) {
   }];
 }
 
-export function calculateSnapshot(requirement) {
-  const result = readinessEngine.evaluateRecommendationReadiness(requirement, dependencies);
+export function calculateSnapshot(requirement, env = {}) {
+  const result = readinessEngine.evaluateRecommendationReadiness(requirement, { ...dependencies, sanDiegoIndustrialFlexEnabled: sanDiegoIndustrialFlexEnabled(env) });
   const assessments = candidateAssessments(requirement, result);
   return {
     schemaVersion: SNAPSHOT_VERSION,
@@ -291,7 +294,7 @@ export function calculateSnapshot(requirement) {
     foundationVersions: result.propertyType === "retail_service"
       ? { access: accessFoundation.version, composition: sfRetailFoundation.schemaVersion, retail: sfRetailFoundation.schemaVersion }
       : result.propertyType === "industrial_flex"
-        ? { access: accessFoundation.version, composition: sfIndustrialFlexFoundation.schemaVersion, resolvedModel: result.composition?.resolvedModel || result.candidateComposition?.resolvedModel || "unresolved" }
+        ? { access: accessFoundation.version, composition: result.market === "san-diego" ? sanDiegoIndustrialFlexFoundation.schemaVersion : sfIndustrialFlexFoundation.schemaVersion, resolvedModel: result.composition?.resolvedModel || result.candidateComposition?.resolvedModel || "unresolved" }
       : { access: accessFoundation.version, composition: compositionFoundation.schemaVersion, office: sfOfficeModel.version || sfOfficeModel.schemaVersion || "sf-office-recommendation-model" },
   };
 }
@@ -473,11 +476,12 @@ function candidateRows(briefId, entryContext, now) {
   const seen = new Set();
   return cleanArray(entryContext.candidateDistrictIds).map((sourceId) => {
     const group = (compositionFoundation.presentationGroups || []).find((item) => item.memberDistrictIds.includes(sourceId));
-    const canonicalDistrictId = group?.canonicalDistrictId || sourceId;
+    const sanDiegoContextOwner = entryContext.marketId === "san-diego" && sourceId === "sorrento-valley" ? "sorrento-mesa" : "";
+    const canonicalDistrictId = sanDiegoContextOwner || group?.canonicalDistrictId || sourceId;
     if (seen.has(canonicalDistrictId)) return null;
     seen.add(canonicalDistrictId);
     const memberSources = cleanArray(entryContext.candidateDistrictIds).filter((candidateId) => candidateId === canonicalDistrictId || group?.memberDistrictIds.includes(candidateId));
-    return { id: crypto.randomUUID(), briefId, canonicalDistrictId, presentationGroupId: group?.presentationGroupId || "", sourceIdentity: sourceId, provenance: memberSources.map((identity) => ({ sourceType: entryContext.sourceType, sourceIdentity: identity })), disposition: "considering", createdAt: now, updatedAt: now };
+    return { id: crypto.randomUUID(), briefId, canonicalDistrictId, presentationGroupId: group?.presentationGroupId || (sanDiegoContextOwner ? "san-diego-industrial-flex:sorrento" : ""), sourceIdentity: sourceId, provenance: memberSources.map((identity) => ({ sourceType: entryContext.sourceType, sourceIdentity: identity })), disposition: "considering", createdAt: now, updatedAt: now };
   }).filter(Boolean);
 }
 
@@ -485,7 +489,7 @@ export async function createBrief(env, rawRequirement, rawEntryContext = {}, cha
   const now = new Date().toISOString(); const generated = ids();
   const entryContext = { ...normalizeEntryContext(rawEntryContext), entryContextId: generated.entryId };
   const requirement = canonicalRequirement(rawRequirement, entryContext);
-  const snapshotBody = calculateSnapshot(requirement);
+  const snapshotBody = calculateSnapshot(requirement, env);
   const ownerCapabilityHash = await sha256(generated.ownerToken);
   const revision = { id: generated.revisionId, briefId: generated.briefId, schemaVersion: REQUIREMENT_REVISION_VERSION, revisionNumber: 1, requirement, changedBy, createdAt: now };
   const snapshot = { id: generated.snapshotId, briefId: generated.briefId, requirementRevisionId: revision.id, ...snapshotBody, createdAt: now };
@@ -581,7 +585,7 @@ export async function savePropertyRequirementDraft(env, bundle, answers, expecte
 export async function reviseBrief(env, bundle, rawRequirement, expectedRevision, changedBy = "anonymous_operator") {
   if (Number(expectedRevision) !== Number(bundle.currentRevision.revisionNumber)) { const error = new Error("The Brief changed in another session. Refresh before saving."); error.status = 409; throw error; }
   const now = new Date().toISOString(); const requirement = canonicalRequirement(rawRequirement, bundle.entryContext); const revision = { id: crypto.randomUUID(), briefId: bundle.brief.id, schemaVersion: REQUIREMENT_REVISION_VERSION, revisionNumber: bundle.currentRevision.revisionNumber + 1, requirement, changedBy, createdAt: now };
-  const snapshot = { id: crypto.randomUUID(), briefId: bundle.brief.id, requirementRevisionId: revision.id, ...calculateSnapshot(requirement), createdAt: now };
+  const snapshot = { id: crypto.randomUUID(), briefId: bundle.brief.id, requirementRevisionId: revision.id, ...calculateSnapshot(requirement, env), createdAt: now };
   const lifecycleStage = snapshot.readiness === "INVESTIGATE" ? "LOCATION_INVESTIGATE" : "LOCATIONS_RECOMMENDED";
   if (storageKind(env) === "d1") {
     const database = db(env); await database.batch([

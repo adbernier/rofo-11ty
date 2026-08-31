@@ -21,10 +21,10 @@ module.exports = {
     metro: "San Diego",
     qaStatus: "completed",
     lastQaDate: "2026-07-09",
-    validationStatus: "compass_ready",
+    validationStatus: "legacy_compass_calibration_complete_level3_default_off",
     scenarioCount: 10,
     reportPath: "/docs/recommendation-qa/san-diego-pilot/",
-    notes: "San Diego pilot scenarios produce differentiated, graph-backed market paths across office, medical, life science/R&D, showroom/flex, warehouse, manufacturing, and North County profiles. Editorial broker-style review passed after calibration; representative-building depth remains an enhancement priority, not a readiness blocker.",
+    notes: "Legacy Compass scenarios remain useful calibration evidence but do not certify current controlled Level 3 behavior. Only the bounded City of San Diego Industrial/Flex foundation may enter current Recommendation Intelligence, and its independent production flag defaults off; Office, Retail, and regional paths remain non-certified.",
   },
   "orange-county": {
     metro: "Orange County",

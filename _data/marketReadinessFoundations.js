@@ -1,6 +1,7 @@
 const sfOfficeCoverage = require("./sfOfficeMarketCoverage");
 const sfRetailCoverage = require("./sfRetailMarketCoverage");
 const sfIndustrialFlexCoverage = require("./sfIndustrialFlexMarketCoverage");
+const sanDiegoIndustrialFlexFoundation = require("./sanDiegoIndustrialFlexCompositionFoundation");
 
 module.exports = {
   schemaVersion: "market-readiness-foundation-registry:v1",
@@ -64,6 +65,13 @@ module.exports = {
         industrial: { label: "Industrial Fit", status: "Ready", coverage: sfIndustrialFlexCoverage.industrial.schemaVersion },
         flex: { label: "Flex Fit", status: "Ready", coverage: sfIndustrialFlexCoverage.flex.schemaVersion },
       },
+    },
+    {
+      marketId: "san-diego", propertyType: "industrial",
+      coverage: { schemaVersion: sanDiegoIndustrialFlexFoundation.schemaVersion, marketId: "san-diego", approvedDecisionGeographyIds: sanDiegoIndustrialFlexFoundation.certifiedDistrictIds, scope: "City of San Diego only" },
+      calibration: { status: "Ready", evidence: ["_data/sanDiegoIndustrialFlexCompositionFoundation.js", "lib/requirements/requirement-to-san-diego-industrial-flex-recommendation.js", "lib/recommendations/san-diego-industrial-flex-location-composition.js", "scripts/qa-san-diego-industrial-flex-recommendation.js"] },
+      certificationRelease: { status: "ReadyDefaultOff", lastQa: "2026-08-31", evidence: ["scripts/qa-san-diego-industrial-flex-recommendation.js", "functions/api/location-brief-v2/_shared.js"], productionStatus: "Explicit San Diego Industrial/Flex feature flag; defaults off" },
+      submodels: { industrial: { label: "Industrial-led", status: "Ready" }, flex: { label: "Flex-led", status: "Ready" }, mixed: { label: "Mixed/hybrid", status: "Ready" } },
     },
   ],
 };
