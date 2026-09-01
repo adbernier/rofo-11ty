@@ -24,6 +24,8 @@ const allFlags = {
 };
 const requirement = (marketId, displayName, propertyType) => ({ schemaVersion: "requirement:v1", propertyTypes: [propertyType], activities: propertyType === "office" ? ["work"] : propertyType === "retail_service" ? ["sell_serve", "host_visitors"] : ["store", "receive", "ship_distribute"], businessContext: { summary: "Controlled cohort QA business" }, locationLogic: { marketAnchor: { marketId, geographyId: marketId, displayName }, specificPreference: { candidateDistrictIds: [], candidateDistrictNames: [] } }, criteria: [] });
 
+(async () => {
+
 for (const source of shared.CANONICAL_PUBLIC_SOURCES) assert(shared.publicSourceAllowed({}, source), `${source} must be accepted by default`);
 assert(!shared.publicSourceAllowed({}, "arbitrary_campaign_source"));
 assert.equal(shared.publicGlobalCohortEnabled(allFlags), true);
@@ -39,10 +41,10 @@ for (const [marketId, name, propertyType] of searches) {
 }
 assert(!shared.publicRequirementEligible(allFlags, requirement("boise", "Boise", "medical")), "Medical remains outside the public cohort");
 
-const routed = router.controlledEntryDecision(allFlags, new URL("https://rofo.com/best-fit-locations/?marketId=novi&spaceType=Industrial&source=city"));
+const routed = await router.controlledEntryDecision(allFlags, new URL("https://rofo.com/best-fit-locations/?marketId=novi&spaceType=Industrial&source=city"));
 assert.equal(routed.eligible, true);
-assert.equal(router.controlledEntryDecision({ ...allFlags, LOCATION_BRIEF_V2_PUBLIC_ENTRY_ENABLED: "false" }, new URL("https://rofo.com/best-fit-locations/?marketId=novi&spaceType=Industrial&source=city")).eligible, false);
-assert.equal(router.controlledEntryDecision(allFlags, new URL("https://rofo.com/best-fit-locations/?marketId=novi&spaceType=Industrial&source=unknown")).eligible, false);
+assert.equal((await router.controlledEntryDecision({ ...allFlags, LOCATION_BRIEF_V2_PUBLIC_ENTRY_ENABLED: "false" }, new URL("https://rofo.com/best-fit-locations/?marketId=novi&spaceType=Industrial&source=city"))).eligible, false);
+assert.equal((await router.controlledEntryDecision(allFlags, new URL("https://rofo.com/best-fit-locations/?marketId=novi&spaceType=Industrial&source=unknown"))).eligible, false);
 
 const nonCertifiedRequirement = requirement("novi", "Novi", "industrial_flex");
 const nonCertifiedSnapshot = shared.calculateSnapshot(nonCertifiedRequirement);
@@ -74,3 +76,4 @@ const homepage = read("index.njk"); assert(homepage.includes("Locations worth in
 
 fs.rmSync(temp, { recursive: true, force: true });
 console.log("Journey Activation QA passed: controlled routing, seven creation states, active continuation, analytics, and rollback contracts verified.");
+})().catch((error) => { fs.rmSync(temp, { recursive: true, force: true }); console.error(error); process.exit(1); });

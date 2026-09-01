@@ -1,11 +1,11 @@
-import { createBrief, findCreationRequest, getBriefBundle, operatorAllowed, privateJson, publicRequirementEligible, publicSourceAllowed, recordCreationRequest, sameOriginMutation } from "./_shared.js";
+import { createBrief, findCreationRequest, getBriefBundle, operatorAllowed, privateJson, publicRequirementEligibleAtRuntime, publicSourceAllowed, recordCreationRequest, sameOriginMutation } from "./_shared.js";
 
 export async function onRequestPost({ request, env }) {
   const operator = operatorAllowed(request, env);
   if (!operator && !sameOriginMutation(request)) return privateJson({ ok: false, error: "Invalid request origin." }, 403);
   let body; try { body = await request.json(); } catch { return privateJson({ ok: false, error: "Invalid JSON." }, 400); }
   if (!body.requirement || typeof body.requirement !== "object") return privateJson({ ok: false, error: "A canonical Requirement is required." }, 400);
-  if (!operator && (!publicRequirementEligible(env, body.requirement) || !publicSourceAllowed(env, body.entryContext?.sourceType))) {
+  if (!operator && (!await publicRequirementEligibleAtRuntime(env, body.requirement) || !publicSourceAllowed(env, body.entryContext?.sourceType))) {
     return privateJson({ ok: false, error: "This controlled journey is not enabled for that search.", reasonCode: "COHORT_NOT_ELIGIBLE", fallbackUrl: "/find-locations/" }, 409);
   }
   try {

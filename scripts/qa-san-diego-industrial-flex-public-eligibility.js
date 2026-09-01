@@ -39,9 +39,9 @@ async function publicCreate(env, req, context, id) {
   assert.equal(shared.publicEntryContextEligible(cohort, entry()), true);
   assert.equal(shared.publicRequirementEligible(cohort, sd), true);
   assert.equal(cohort[UNIVERSAL], undefined, "The bounded San Diego path must not require Universal access.");
-  const routed = router.controlledEntryDecision(cohort, new URL("https://www.rofo.com/best-fit-locations/?marketId=san-diego&spaceType=Industrial%20%2F%20Warehouse%20%2F%20Flex&source=space_type"));
+  const routed = await router.controlledEntryDecision(cohort, new URL("https://www.rofo.com/best-fit-locations/?marketId=san-diego&spaceType=Industrial%20%2F%20Warehouse%20%2F%20Flex&source=space_type"));
   assert.equal(routed.eligible, true); assert.equal(routed.reasonCode, "SAN_DIEGO_INDUSTRIAL_FLEX_COHORT");
-  assert.equal(router.controlledEntryDecision(cohort, new URL("https://www.rofo.com/best-fit-locations/?marketId=san-diego&spaceType=Industrial&source=homepage")).eligible, false, "Existing source allowlist remains part of the cohort boundary.");
+  assert.equal((await router.controlledEntryDecision(cohort, new URL("https://www.rofo.com/best-fit-locations/?marketId=san-diego&spaceType=Industrial&source=homepage"))).eligible, false, "Existing source allowlist remains part of the cohort boundary.");
 
   const flagOff = { ...cohort, [SD]: "false" };
   assert.equal(shared.publicEntryContextEligible(flagOff, entry()), false);

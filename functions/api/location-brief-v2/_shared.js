@@ -8,6 +8,7 @@ import sanDiegoIndustrialFlexFoundation from "../../../_data/sanDiegoIndustrialF
 import districtGeography from "../../../_data/requirementPrototypeDistrictGeography.js";
 import districtPresentations from "../../../data/generated/location-brief-district-presentation.json";
 import universalIntelligence from "../../../lib/intelligence/universal-space-type-intelligence.js";
+import recommendationActivationRegistry from "../../../_data/recommendationActivationRegistry.js";
 
 const { projectUniversalIntelligence } = universalIntelligence;
 
@@ -27,6 +28,7 @@ export const PUBLIC_ENTRY_FLAG = "LOCATION_BRIEF_V2_PUBLIC_ENTRY_ENABLED";
 export const PUBLIC_SOURCE_ALLOWLIST = "LOCATION_BRIEF_V2_PUBLIC_SF_OFFICE_SOURCES";
 export const CANONICAL_PUBLIC_SOURCES = Object.freeze(["homepage", "header", "city", "space_type", "district", "example", "market_guide", "comparison", "business_brief", "product_education", "insight", "building"]);
 const SAN_DIEGO_INDUSTRIAL_FLEX_ENTRY_IDS = Object.freeze(["miramar", "otay-mesa", "kearny-mesa", "sorrento-mesa", "sorrento-valley"]);
+const SAN_DIEGO_ACTIVATION = recommendationActivationRegistry.flows["san-diego:industrial_flex:bounded"];
 
 const dependencies = { accessFoundation, compositionFoundation, sfOfficeModel, sfRetailFoundation, sfIndustrialFlexFoundation, sanDiegoIndustrialFlexFoundation, districtGeography };
 const encoder = new TextEncoder();
@@ -130,6 +132,40 @@ export function publicEntryContextEligible(env, input = {}) {
   if (context.propertyType === "retail_service") return publicV2Enabled(env, "retail_service");
   if (context.propertyType === "industrial_flex") return publicV2Enabled(env, "industrial_flex");
   return context.propertyType === "office" && publicV2Enabled(env, "office");
+}
+export async function recommendationRuntimeActivationState(env, marketId, propertyType, cohort = "bounded") {
+  const flow = Object.values(recommendationActivationRegistry.flows).find((item) => item.marketId === clean(marketId, 120).toLowerCase() && item.propertyType === clean(propertyType, 80).toLowerCase() && item.cohort === clean(cohort, 80).toLowerCase());
+  if (!flow) return { enabled: false, source: "uncertified", reason: "UNRECOGNIZED_CERTIFIED_FLOW" };
+  const database = env && (env.RECOMMENDATION_ACTIVATIONS_DB || env.LOCATION_BRIEFS_DB || env.LEADS_DB);
+  if (!database) {
+    const legacyEnabled = flow.activationKey === SAN_DIEGO_ACTIVATION.activationKey && sanDiegoIndustrialFlexEnabled(env);
+    return { enabled: legacyEnabled, source: "legacy_environment", reason: legacyEnabled ? "LEGACY_FLAG_ON" : "RUNTIME_STORE_UNAVAILABLE" };
+  }
+  try {
+    const row = await database.prepare(`select activation_key, market_id, property_type, cohort, enabled, certification_id, updated_at, updated_by from recommendation_runtime_activations where activation_key = ? limit 1`).bind(flow.activationKey).first();
+    const valid = row
+      && row.activation_key === flow.activationKey
+      && row.market_id === flow.marketId
+      && row.property_type === flow.propertyType
+      && row.cohort === flow.cohort
+      && row.certification_id === flow.certificationId
+      && (row.enabled === 0 || row.enabled === 1);
+    if (!valid) return { enabled: false, source: "runtime_d1", reason: row ? "MALFORMED_RUNTIME_RECORD" : "MISSING_RUNTIME_RECORD" };
+    return { enabled: row.enabled === 1, source: "runtime_d1", reason: row.enabled === 1 ? "RUNTIME_ON" : "RUNTIME_OFF", updatedAt: row.updated_at || null, updatedBy: row.updated_by || null };
+  } catch {
+    return { enabled: false, source: "runtime_d1", reason: "RUNTIME_READ_FAILED" };
+  }
+}
+export async function publicRequirementEligibleAtRuntime(env, requirement = {}) {
+  if (!isSanDiegoIndustrialFlexRequirement(requirement)) return publicRequirementEligible(env, requirement);
+  if (!publicEntryEnabled(env)) return false;
+  return (await recommendationRuntimeActivationState(env, SAN_DIEGO_ACTIVATION.marketId, SAN_DIEGO_ACTIVATION.propertyType, SAN_DIEGO_ACTIVATION.cohort)).enabled;
+}
+export async function publicEntryContextEligibleAtRuntime(env, input = {}) {
+  const context = normalizeEntryContext(input);
+  if (!isSanDiegoIndustrialFlexEntryContext(context)) return publicEntryContextEligible(env, context);
+  if (!publicEntryEnabled(env)) return false;
+  return (await recommendationRuntimeActivationState(env, SAN_DIEGO_ACTIVATION.marketId, SAN_DIEGO_ACTIVATION.propertyType, SAN_DIEGO_ACTIVATION.cohort)).enabled;
 }
 export function sameOriginMutation(request) {
   const origin = clean(request.headers.get("origin"), 500);
