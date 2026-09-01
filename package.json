@@ -37,6 +37,7 @@
     "qa:antioch-retail-public": "node scripts/qa-antioch-retail-public-consolidation.js",
     "qa:phoenix-industrial-public": "node scripts/qa-phoenix-industrial-public-consolidation.js",
     "qa:real-user-lead-context": "node scripts/qa-real-user-lead-context-integrity.mjs",
+    "qa:requirement-broker-readiness": "node scripts/qa-requirement-broker-readiness.mjs && node scripts/qa-lead-qualification-floor.js && node scripts/qa-location-brief-handoff.js",
     "qa:location-brief-signal-to-noise": "node scripts/qa-location-brief-signal-to-noise.js",
     "qa:seo-harvest-city-cohort": "node scripts/qa-seo-harvest-city-cohort.js",
     "qa:eos": "node scripts/qa-eos.js",

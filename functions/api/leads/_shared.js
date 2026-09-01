@@ -1,5 +1,7 @@
 import leadRoutes from "../../../_data/leadRoutes.json";
 import {
+  BROKER_READINESS,
+  assessBrokerReadiness,
   businessPresentation,
   buildProjectSnapshotFromLead,
   locationBriefReferenceText,
@@ -9,6 +11,7 @@ import {
 export const OFFICEFINDER_TEST_ENDPOINT = "https://www.officefinder.com/scripts/_importLeadTest.cfm";
 export const OFFICEFINDER_PRODUCTION_ENDPOINT = "https://www.officefinder.com/scripts/_importLead.cfm";
 const OFFICEFINDER_LOCATION_PROFILE_PLACEHOLDER_PHONE = "555-555-5555";
+const OFFICEFINDER_COMMENTS_MAX_LENGTH = 6000;
 
 export function jsonResponse(body, status = 200) {
   return new Response(JSON.stringify(body, null, 2), {
@@ -575,7 +578,7 @@ export function buildOfficeFinderPayload(lead, env) {
     : "";
 
   const projectSnapshot = buildProjectSnapshotFromLead(lead);
-  const comments = isLocationBriefLead(lead)
+  const comments = (isLocationBriefLead(lead)
     ? [
       locationBriefReferenceText({
         url: normalizeField(lead.location_brief_url),
@@ -593,7 +596,7 @@ export function buildOfficeFinderPayload(lead, env) {
       spaceType && `Requested/page space type: ${spaceType}`,
       lead.page_type && `Page type: ${lead.page_type}`,
       lead.source && `Source: ${lead.source}`,
-    ].filter(Boolean).join("\n");
+    ].filter(Boolean).join("\n")).slice(0, OFFICEFINDER_COMMENTS_MAX_LENGTH);
 
   const payload = {
     Referrer: "MM2",
@@ -1257,7 +1260,7 @@ export async function sendTenantConfirmationEmail(env, record) {
   return { sent: true, sent_at: new Date().toISOString() };
 }
 
-export async function approveLead(env, id, routeParam = "recommended") {
+export async function approveLead(env, id, routeParam = "recommended", options = {}) {
   const record = await getLead(env, id);
   if (!record) {
     return { ok: false, status: 404, title: "Lead not found", message: "No matching lead exists." };
@@ -1273,6 +1276,19 @@ export async function approveLead(env, id, routeParam = "recommended") {
 
   if (["spam_quarantined", "rejected_spam"].includes(record.status)) {
     return { ok: false, status: 409, title: "Lead is quarantined as spam", message: "Review and change status before routing this lead." };
+  }
+
+  if (isLocationBriefLead(record.lead)) {
+    const readiness = assessBrokerReadiness(record.lead);
+    if (readiness.status !== BROKER_READINESS.READY && options.readinessOverride !== true) {
+      return {
+        ok: false,
+        status: 409,
+        title: readiness.label,
+        message: readiness.summary,
+        readiness,
+      };
+    }
   }
 
   const routeRecommendation = record.lead.route_recommendation || { route_to: "officefinder" };

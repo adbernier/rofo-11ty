@@ -13,6 +13,8 @@ import {
   referralStatusLabel,
 } from "../broker-referral/_shared.js";
 import {
+  BROKER_READINESS,
+  assessBrokerReadiness,
   buildProjectSnapshotFromLead,
 } from "../_shared/project-snapshot.js";
 import {
@@ -526,9 +528,12 @@ function renderFulfillmentRouting({ lead, matches, token, leadId, activeReferral
     `;
   }
   const destinations = fulfillmentDestinationOptions(matches);
+  const readiness = assessBrokerReadiness(lead);
+  const requiresOverride = readiness.status !== BROKER_READINESS.READY;
   return `
     <section class="message-block broker-match-block fulfillment-block">
       <h3>Send To</h3>
+      ${requiresOverride ? `<div class="spam-box spam-box--medium"><strong>${escapeHtml(readiness.label)}</strong><p>${escapeHtml(readiness.summary)}</p></div>` : ""}
       <form method="POST" action="/admin/leads" class="referral-form fulfillment-form">
         <input type="hidden" name="token" value="${escapeHtml(token)}">
         <input type="hidden" name="id" value="${escapeHtml(leadId)}">
@@ -540,6 +545,7 @@ function renderFulfillmentRouting({ lead, matches, token, leadId, activeReferral
             ${destinations.map((destination) => `<option value="${escapeHtml(destination.value)}">${escapeHtml(`${destination.label} - ${destination.description}`)}</option>`).join("")}
           </select>
         </label>
+        ${requiresOverride ? `<label class="broker-readiness-override"><input type="checkbox" name="readiness_override" value="acknowledged" required> Send anyway — I acknowledge that this Requirement needs additional qualification.</label>` : ""}
         <button class="button button--approve" type="submit" data-send-requirement-button disabled>Send Requirement</button>
       </form>
       ${matches.length
@@ -549,8 +555,10 @@ function renderFulfillmentRouting({ lead, matches, token, leadId, activeReferral
   `;
 }
 
-function renderEligibleBrokers(matches, token, leadId, activeReferral = null, timeZone = DEFAULT_OPERATOR_TIME_ZONE) {
+function renderEligibleBrokers(lead, matches, token, leadId, activeReferral = null, timeZone = DEFAULT_OPERATOR_TIME_ZONE) {
   if (activeReferral) return renderActiveReferralStatus(activeReferral, timeZone);
+  const readiness = assessBrokerReadiness(lead);
+  const requiresOverride = readiness.status !== BROKER_READINESS.READY;
   return `
     <section class="message-block broker-match-block">
       <h3>Assign Partner</h3>
@@ -566,6 +574,7 @@ function renderEligibleBrokers(matches, token, leadId, activeReferral = null, ti
               ${matches.map(({ broker, matchType }) => `<option value="${escapeHtml(broker.id)}">${escapeHtml(`${broker.name}${broker.company ? ` - ${broker.company}` : ""} - ${matchType}`)}</option>`).join("")}
             </select>
           </label>
+          ${requiresOverride ? `<label class="broker-readiness-override"><input type="checkbox" name="readiness_override" value="acknowledged" required> Send anyway — I acknowledge that this Requirement needs additional qualification.</label>` : ""}
           <button class="button button--approve" type="submit">Send Referral</button>
         </form>
         <p class="muted broker-match-note">${escapeHtml(matches[0].broker.name)} is the strongest available match: ${escapeHtml(matches[0].matchType)}.</p>
@@ -640,6 +649,7 @@ function renderProjectSnapshot(lead, market) {
   ].filter(Boolean).join(" - ");
   const customerLine = [lead.name, lead.company].filter(Boolean).join(" - ");
   const qualified = lead.qualification_status === "qualified_requirement";
+  const readiness = assessBrokerReadiness(lead);
   const isVnext = lead.lead_type === "vnext_market_investigation";
   return `
     <section class="lead-ops-summary" aria-label="Lead Summary">
@@ -652,7 +662,9 @@ function renderProjectSnapshot(lead, market) {
         ${lead.location_brief_url ? `<a href="${escapeHtml(lead.location_brief_url)}" target="_blank" rel="noopener">Open Brief</a>` : ""}
       </div>
       <dl class="lead-grid lead-grid--compact">
-        ${field("Qualification", qualified ? "Qualified requirement" : "Incomplete legacy requirement", { showEmpty: true })}
+        ${field("Submission state", qualified ? "Valid requirement" : "Legacy requirement — structural status unavailable", { showEmpty: true })}
+        ${field("Broker readiness", readiness.label, { showEmpty: true, className: readiness.status === BROKER_READINESS.READY ? "" : "field--warning" })}
+        ${readiness.gaps.length ? field("Material follow-up", readiness.gaps.map((gap) => gap.label).join(" "), { showEmpty: true, className: "field--warning" }) : ""}
         ${field("Business / use", snapshot.businessUse || lead.location_profile_business_use || snapshot.businessCategory, { showEmpty: true })}
         ${field("Category", snapshot.businessCategory, { showEmpty: true })}
         ${snapshot.classificationStatus === "investigate" ? field("Use classification", "Verify intended use", { showEmpty: true }) : ""}
@@ -661,6 +673,11 @@ function renderProjectSnapshot(lead, market) {
         ${field("Headcount", snapshot.headcount || lead.investigation_headcount, { showEmpty: true })}
         ${field("Approx. size", snapshot.approximateSize || lead.space_needed, { showEmpty: true })}
         ${field("Timing", snapshot.timing || lead.move_timing, { showEmpty: true })}
+        ${field("Operational features", (snapshot.operationalFeatures || []).join(", "))}
+        ${field("Operating / work pattern", (snapshot.operationalUse || []).join(", "))}
+        ${field("Location approach", snapshot.locationIntent || locationIntentLabel(lead))}
+        ${field("Business priorities", (snapshot.businessPriorities || []).join(", "))}
+        ${field("Known constraints", snapshot.knownConstraints)}
         ${field("Customer", customerLine || lead.name, { showEmpty: true })}
         ${field("Email", lead.email, { showEmpty: true })}
         ${field("Phone", lead.phone)}
@@ -673,6 +690,34 @@ function renderProjectSnapshot(lead, market) {
       </dl>
     </section>
   `;
+}
+
+async function recordBrokerReadinessAtSend(env, id, destination, overrideAcknowledged) {
+  const record = await getLead(env, id);
+  if (!record) return { ok: false, status: 404, title: "Lead not found" };
+  const readiness = assessBrokerReadiness(record.lead);
+  if (readiness.status !== BROKER_READINESS.READY && !overrideAcknowledged) {
+    return {
+      ok: false,
+      status: 409,
+      title: readiness.label,
+      message: readiness.summary,
+      readiness,
+    };
+  }
+  const assessedAt = new Date().toISOString();
+  const lead = {
+    ...record.lead,
+    broker_readiness_at_send: {
+      status: readiness.status,
+      gaps: readiness.gaps.map((gap) => gap.code),
+      override: readiness.status !== BROKER_READINESS.READY && overrideAcknowledged,
+      destination,
+      assessed_at: assessedAt,
+    },
+  };
+  await updateLeadStatus(env, id, { status: record.status, lead });
+  return { ok: true, record: { ...record, lead }, readiness };
 }
 
 function renderBusinessProfileSummary(lead) {
@@ -876,7 +921,7 @@ function renderLeadCard(row, token, brokerPartners = [], referrals = [], timeZon
       ${row.approval_error ? `<div class="alert"><strong>Approval error:</strong> ${escapeHtml(row.approval_error)}</div>` : ""}
       ${row.officefinder_response ? `<div class="note"><strong>OfficeFinder response:</strong> ${escapeHtml(row.officefinder_response)}</div>` : ""}
 
-      ${renderEligibleBrokers(eligibleBrokers, token, row.id, activeReferral, timeZone)}
+      ${renderEligibleBrokers(lead, eligibleBrokers, token, row.id, activeReferral, timeZone)}
       ${renderReferralHistory(referrals, timeZone)}
 
       <div class="lead-card__details">
@@ -1479,12 +1524,18 @@ export async function onRequestPost({ request, env }) {
   try {
     if (action === "send_requirement") {
       const destination = String(formData.get("destination") || "").trim();
+      const overrideAcknowledged = String(formData.get("readiness_override") || "") === "acknowledged";
       params.set("id", id);
       if (!destination) {
         return adminResponse("Missing fulfillment destination", 400);
       }
+      const readinessCheck = await recordBrokerReadinessAtSend(env, id, destination, overrideAcknowledged);
+      if (!readinessCheck.ok) {
+        params.set("notice", `${readinessCheck.title}: ${readinessCheck.message || "Add the material missing Requirement context or explicitly acknowledge an override."}`);
+        return adminRedirect(`/admin/leads?${params.toString()}`);
+      }
       if (destination === "officefinder") {
-        const result = await approveLead(env, id, "officefinder");
+        const result = await approveLead(env, id, "officefinder", { readinessOverride: overrideAcknowledged });
         params.set("notice", result.status === 200 ? "Requirement sent to OfficeFinder." : result.title || "OfficeFinder routing failed.");
         return adminRedirect(`/admin/leads?${params.toString()}`);
       }
@@ -1497,6 +1548,7 @@ export async function onRequestPost({ request, env }) {
           leadId: id,
           brokerPartnerId,
           createdBy: "admin",
+          readinessOverride: overrideAcknowledged,
         });
         if (result.email && result.email.sent) {
           params.set("notice", `Requirement sent to ${result.broker.name || result.broker.email}.`);
@@ -1510,13 +1562,21 @@ export async function onRequestPost({ request, env }) {
 
     if (action === "send_referral") {
       const brokerPartnerId = String(formData.get("broker_partner_id") || "").trim();
+      const overrideAcknowledged = String(formData.get("readiness_override") || "") === "acknowledged";
       if (!brokerPartnerId) {
         return adminResponse("Missing broker partner id", 400);
+      }
+      const readinessCheck = await recordBrokerReadinessAtSend(env, id, `broker:${brokerPartnerId}`, overrideAcknowledged);
+      if (!readinessCheck.ok) {
+        params.set("id", id);
+        params.set("notice", `${readinessCheck.title}: ${readinessCheck.message || "Add the material missing Requirement context or explicitly acknowledge an override."}`);
+        return adminRedirect(`/admin/leads?${params.toString()}`);
       }
       const result = await createAndSendReferral(env, request, {
         leadId: id,
         brokerPartnerId,
         createdBy: "admin",
+        readinessOverride: overrideAcknowledged,
       });
       params.set("id", id);
       if (result.email && result.email.sent) {

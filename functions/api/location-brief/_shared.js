@@ -65,6 +65,8 @@ function normalizeSearchProfile(profile) {
     locationIntent: normalizeLocationIntent(value.locationIntent || value.location_intent),
     modelKey: clean(value.modelKey || value.model_key, 120),
     businessType: clean(value.businessType || value.business_type, 120),
+    features: cleanArray(value.features, 12),
+    featureOther: clean(value.featureOther || value.feature_other, 240),
     operationalUse: cleanArray(value.operationalUse || value.operational_use, 12),
     officeEnvironment: clean(value.officeEnvironment || value.office_environment, 140),
     commuteOrientation: commuteOrientations[0] || clean(value.commuteOrientation || value.commute_orientation, 140),

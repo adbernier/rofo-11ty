@@ -161,6 +161,8 @@
       city: String(value.city || "").trim(),
       market: String(value.market || "").trim(),
       businessType: String(value.businessType || value.business_type || "").trim(),
+      features: Array.isArray(value.features) ? value.features.map((item) => String(item || "").trim()).filter(Boolean) : [],
+      featureOther: String(value.featureOther || value.feature_other || "").trim(),
       operationalUse: Array.isArray(value.operationalUse) ? value.operationalUse : Array.isArray(value.operational_use) ? value.operational_use : [],
       officeEnvironment: String(value.officeEnvironment || value.office_environment || "").trim(),
       commuteOrientation: commuteValues.length ? commuteValues.join(" / ") : String(value.commuteOrientation || value.commute_orientation || "").trim(),

@@ -1,4 +1,5 @@
 import { escapeHtml, getLocationRequirementSummary } from "../api/leads/_shared.js";
+import { BROKER_READINESS, assessBrokerReadiness, buildProjectSnapshotFromLead, projectSnapshotTextLines } from "../_shared/project-snapshot.js";
 
 export const REFERRAL_STATUSES = ["draft", "sent", "viewed", "accepted", "declined", "expired", "completed", "cancelled"];
 export const DEFAULT_REFERRAL_EXPIRATION_DAYS = 7;
@@ -282,16 +283,18 @@ export function getBriefUrl(lead) {
 }
 
 export function buildReferralSummary(lead) {
+  const snapshot = buildProjectSnapshotFromLead(lead);
   return {
-    market: getLeadMarket(lead),
-    spaceType: getLeadSpaceType(lead),
-    size: getLeadSize(lead),
-    businessType: getLeadBusinessType(lead),
+    market: snapshot.market || getLeadMarket(lead),
+    spaceType: snapshot.propertyType || getLeadSpaceType(lead),
+    size: snapshot.approximateSize || getLeadSize(lead),
+    businessType: snapshot.businessUse || getLeadBusinessType(lead),
     priorities: getLeadPriorities(lead),
     questions: getLeadQuestions(lead),
     recommendedMarketPath: lead.recommended_market_path || "",
     notes: lead.notes || lead.requirements || lead.message || "",
     briefUrl: getBriefUrl(lead),
+    contextLines: projectSnapshotTextLines(snapshot),
   };
 }
 
@@ -350,6 +353,7 @@ export function buildReferralEmail({ request, referral, leadRow, broker, token }
     `Business: ${summary.businessType || "Not specified"}`,
     `Space Requirement: ${summary.spaceType || "Not specified"}`,
     `Size Requirement: ${summary.size || "Not specified"}`,
+    ...summary.contextLines.filter((line) => !/^(Market|Property Type|Business \/ Use|Approximate Size):/.test(line)),
     summary.recommendedMarketPath ? `Recommended market path: ${summary.recommendedMarketPath}` : "",
     "",
     "Reviewing this opportunity does not commit you to accepting it.",
@@ -383,6 +387,7 @@ export function buildReferralEmail({ request, referral, leadRow, broker, token }
                 ["Space Requirement", summary.spaceType],
                 ["Size Requirement", summary.size],
                 ["Recommended market path", summary.recommendedMarketPath],
+                ["Requirement context", summary.contextLines.filter((line) => !/^(Market|Property Type|Business \/ Use|Approximate Size):/.test(line)).join(" • ")],
               ].filter(([, value]) => value).map(([label, value]) => `
                 <tr>
                   <td style="padding:8px;border-top:1px solid #e2e8f0;color:#64748b;font-size:12px;text-transform:uppercase;font-weight:700;">${escapeHtml(label)}</td>
@@ -446,6 +451,12 @@ export async function markReferralSendFailed(env, referralId, reason) {
 }
 
 export async function createAndSendReferral(env, request, options) {
+  const leadRow = await getLeadRow(env, options.leadId);
+  if (!leadRow) throw new Error("Lead not found.");
+  const readiness = assessBrokerReadiness(leadRow.lead);
+  if (readiness.status !== BROKER_READINESS.READY && options.readinessOverride !== true) {
+    throw new Error(`${readiness.label}: ${readiness.summary}`);
+  }
   const created = await createReferral(env, request, options);
   const email = await sendReferralEmail(env, request, created.referral, created.leadRow, created.broker, created.token);
   if (!email.sent) {

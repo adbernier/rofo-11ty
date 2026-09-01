@@ -44,7 +44,7 @@ assert(submit.includes("qualification_status"), "new qualified requests should p
 assert(submit.includes("qualified_requirement"), "new availability requests should be marked structurally qualified.");
 
 assert(briefShared.includes("businessType"), "canonical Live Market Investigation should preserve request-stage business type.");
-assert(briefShared.includes("Business type"), "customer confirmation should include business type when present.");
+assert(briefShared.includes("Business / use"), "customer confirmation should include the specific business/use when present.");
 assert(projectSnapshot.includes("executionTimingLabel"), "Project Snapshot should render human-readable timing labels.");
 assert(projectSnapshot.includes("executionSizeLabel"), "Project Snapshot should render human-readable size labels.");
 assert(leadShared.includes("raw.includes(\"not_sure\")"), "OfficeFinder sizing fallback should treat not_sure as not sure.");
@@ -52,8 +52,9 @@ assert(leadShared.includes("raw.includes(\"not_sure\")"), "OfficeFinder sizing f
 assert(adminLeads.includes("DEFAULT_OPERATOR_TIME_ZONE = \"America/Los_Angeles\""), "dashboard should default to Pacific operator timezone.");
 assert(adminLeads.includes("env.OPERATOR_TIME_ZONE"), "dashboard should support configurable operator timezone.");
 assert(adminLeads.includes("timeZoneName: \"short\""), "dashboard timestamps should show timezone abbreviation.");
-assert(adminLeads.includes("Incomplete legacy requirement"), "legacy incomplete leads should render safely.");
-assert(adminLeads.includes("Qualified requirement"), "qualified new leads should render a structural completeness indicator.");
+assert(adminLeads.includes("Legacy requirement — structural status unavailable"), "legacy requirements should render safely without inventing a current structural status.");
+assert(adminLeads.includes("Valid requirement"), "qualified new leads should render an honest structural-validity label.");
+assert(!adminLeads.includes('qualified ? "Qualified requirement"'), "structural validity should not be presented as broker readiness.");
 assert(new Intl.DateTimeFormat("en-US", {
   hour: "numeric",
   minute: "2-digit",

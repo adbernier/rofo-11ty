@@ -64,7 +64,7 @@ assert(adminLeads.includes("action\" value=\"send_requirement\""), "dashboard sh
 assert(adminLeads.includes("Send Requirement"), "dashboard should use Send Requirement terminology.");
 assert(adminLeads.includes("data-send-requirement-button disabled"), "Send Requirement button should be disabled until a destination is chosen.");
 assert(adminLeads.includes("button.textContent = \"Sending...\""), "Send Requirement button should expose a loading state.");
-assert(adminLeads.includes("approveLead(env, id, \"officefinder\")"), "OfficeFinder destination should use the existing OfficeFinder approval adapter.");
+assert(adminLeads.includes('approveLead(env, id, "officefinder", { readinessOverride: overrideAcknowledged })'), "OfficeFinder destination should use the existing approval adapter with an explicit readiness override contract.");
 assert(adminLeads.includes("createAndSendReferral(env, request"), "broker destination should preserve the existing referral workflow.");
 assert(adminLeads.includes("<summary>More Details</summary>"), "dashboard should use one collapsed More Details section for Location Brief diagnostics.");
 assert(adminLeads.includes("OfficeFinder diagnostics"), "OfficeFinder diagnostics should remain accessible under Advanced.");
