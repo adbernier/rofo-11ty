@@ -223,6 +223,7 @@ export function normalizeEntryContext(input = {}) {
     sourcePath: clean(input.sourcePath, 500),
     sourceEntityId: clean(input.sourceEntityId, 180),
     marketId: marketId === "san-francisco" ? marketId : marketId,
+    city: clean(input.city || input.marketCity, 160),
     propertyType,
     candidateDistrictIds: cleanArray(input.candidateDistrictIds),
     businessArchetypeId: clean(input.businessArchetypeId, 160),

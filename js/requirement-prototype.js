@@ -96,7 +96,7 @@ if (root) {
   }
 
   function entryContextFor(requirement) {
-    return { ...publicEntryContext, sourceType: publicExperience ? publicEntryContext.sourceType : "operator_requirement_interview", sourcePath: publicEntryContext.sourcePath || location.pathname, marketId: requirement.locationLogic?.marketAnchor?.marketId || requirement.locationLogic?.marketAnchor?.geographyId || publicEntryContext.marketId, propertyType: requirement.propertyTypes?.[0] || publicEntryContext.propertyType, candidateDistrictIds: requirement.locationLogic?.specificPreference?.candidateDistrictIds || publicEntryContext.candidateDistrictIds };
+    return { ...publicEntryContext, sourceType: publicExperience ? publicEntryContext.sourceType : "operator_requirement_interview", sourcePath: publicEntryContext.sourcePath || location.pathname, marketId: requirement.locationLogic?.marketAnchor?.marketId || requirement.locationLogic?.marketAnchor?.geographyId || publicEntryContext.marketId, city: requirement.locationLogic?.marketAnchor?.city || "", propertyType: requirement.propertyTypes?.[0] || publicEntryContext.propertyType, candidateDistrictIds: requirement.locationLogic?.specificPreference?.candidateDistrictIds || publicEntryContext.candidateDistrictIds };
   }
 
   async function persistLocationBriefV2(requirement) {
