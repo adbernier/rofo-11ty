@@ -10,6 +10,7 @@ import districtGeography from "../../../_data/requirementPrototypeDistrictGeogra
 import districtPresentations from "../../../data/generated/location-brief-district-presentation.json";
 import universalIntelligence from "../../../lib/intelligence/universal-space-type-intelligence.js";
 import recommendationActivationRegistry from "../../../_data/recommendationActivationRegistry.js";
+import northOrangeCountyRequirementAdapter from "../../../lib/requirements/requirement-to-north-orange-county-industrial-flex-recommendation.js";
 
 const { projectUniversalIntelligence } = universalIntelligence;
 
@@ -31,8 +32,7 @@ export const CANONICAL_PUBLIC_SOURCES = Object.freeze(["homepage", "header", "ci
 const SAN_DIEGO_INDUSTRIAL_FLEX_ENTRY_IDS = Object.freeze(["miramar", "otay-mesa", "kearny-mesa", "sorrento-mesa", "sorrento-valley"]);
 const SAN_DIEGO_ACTIVATION = recommendationActivationRegistry.flows["san-diego:industrial_flex:bounded"];
 const NORTH_ORANGE_COUNTY_ACTIVATION = recommendationActivationRegistry.flows["north-orange-county:industrial_flex:bounded"];
-const NORTH_ORANGE_COUNTY_MARKET_IDS = Object.freeze(["anaheim", "fullerton"]);
-const NORTH_ORANGE_COUNTY_ENTRY_IDS = Object.freeze(["anaheim-canyon", "fullerton-industrial-service-area"]);
+const { resolveNorthOrangeCountyIndustrialFlexMembership } = northOrangeCountyRequirementAdapter;
 
 const dependencies = { accessFoundation, compositionFoundation, sfOfficeModel, sfRetailFoundation, sfIndustrialFlexFoundation, sanDiegoIndustrialFlexFoundation, northOrangeCountyIndustrialFlexFoundation, districtGeography };
 const encoder = new TextEncoder();
@@ -114,15 +114,11 @@ export function isSanDiegoIndustrialFlexEntryContext(input = {}) {
   return context.marketId === "san-diego" && context.propertyType === "industrial_flex" && candidates.every((item) => SAN_DIEGO_INDUSTRIAL_FLEX_ENTRY_IDS.includes(item));
 }
 export function isNorthOrangeCountyIndustrialFlexRequirement(requirement = {}) {
-  const market = clean(requirement.locationLogic?.marketAnchor?.marketId || requirement.locationLogic?.marketAnchor?.geographyId, 120).toLowerCase();
-  const propertyTypes = cleanArray(requirement.propertyTypes, 6).map((item) => item.toLowerCase());
-  const candidates = cleanArray(requirement.locationLogic?.specificPreference?.candidateDistrictIds).map((item) => item.toLowerCase());
-  return NORTH_ORANGE_COUNTY_MARKET_IDS.includes(market) && propertyTypes.length === 1 && propertyTypes[0] === "industrial_flex" && candidates.every((item) => NORTH_ORANGE_COUNTY_ENTRY_IDS.includes(item));
+  return resolveNorthOrangeCountyIndustrialFlexMembership(requirement).eligible;
 }
 export function isNorthOrangeCountyIndustrialFlexEntryContext(input = {}) {
   const context = normalizeEntryContext(input);
-  const candidates = context.candidateDistrictIds.map((item) => item.toLowerCase());
-  return NORTH_ORANGE_COUNTY_MARKET_IDS.includes(context.marketId) && context.propertyType === "industrial_flex" && candidates.every((item) => NORTH_ORANGE_COUNTY_ENTRY_IDS.includes(item));
+  return resolveNorthOrangeCountyIndustrialFlexMembership(context).eligible;
 }
 export function isSupportedPublicRequirement(requirement = {}) { return isSfOfficeRequirement(requirement) || isSfRetailRequirement(requirement) || isSfIndustrialFlexRequirement(requirement); }
 export function isSupportedPublicEntryContext(input = {}) { return isSfOfficeEntryContext(input) || isSfRetailEntryContext(input) || isSfIndustrialFlexEntryContext(input); }
@@ -372,7 +368,7 @@ export function calculateSnapshot(requirement, env = {}) {
     foundationVersions: result.propertyType === "retail_service"
       ? { access: accessFoundation.version, composition: sfRetailFoundation.schemaVersion, retail: sfRetailFoundation.schemaVersion }
       : result.propertyType === "industrial_flex"
-        ? { access: accessFoundation.version, composition: result.market === "san-diego" ? sanDiegoIndustrialFlexFoundation.schemaVersion : ["anaheim", "fullerton"].includes(result.market) && env?.__northOrangeCountyIndustrialFlexEnabled === true ? northOrangeCountyIndustrialFlexFoundation.schemaVersion : sfIndustrialFlexFoundation.schemaVersion, resolvedModel: result.composition?.resolvedModel || result.candidateComposition?.resolvedModel || "unresolved" }
+        ? { access: accessFoundation.version, composition: result.market === "san-diego" ? sanDiegoIndustrialFlexFoundation.schemaVersion : resolveNorthOrangeCountyIndustrialFlexMembership(requirement).eligible && env?.__northOrangeCountyIndustrialFlexEnabled === true ? northOrangeCountyIndustrialFlexFoundation.schemaVersion : sfIndustrialFlexFoundation.schemaVersion, resolvedModel: result.composition?.resolvedModel || result.candidateComposition?.resolvedModel || "unresolved" }
       : { access: accessFoundation.version, composition: compositionFoundation.schemaVersion, office: sfOfficeModel.version || sfOfficeModel.schemaVersion || "sf-office-recommendation-model" },
   };
 }

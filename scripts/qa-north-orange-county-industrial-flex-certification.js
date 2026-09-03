@@ -25,11 +25,12 @@ class EmptyDb {
   prepare() { return { bind: () => ({ first: async () => null }) }; }
 }
 function requirement(id, activities, summary, marketId = "anaheim", candidates = [], criteria = []) {
+  const city = marketId === "anaheim" ? "Anaheim" : marketId === "fullerton" ? "Fullerton" : marketId;
   return {
     id, schemaVersion: "requirement:v1", propertyTypes: ["industrial_flex"], activities,
     businessContext: { summary },
     locationLogic: {
-      marketAnchor: { marketId, geographyId: marketId, displayName: marketId === "anaheim" ? "Anaheim" : marketId === "fullerton" ? "Fullerton" : marketId },
+      marketAnchor: { marketId: "orange-county", geographyId: "orange-county", city, displayName: `${city}, CA` },
       specificPreference: { candidateDistrictIds: candidates, candidateDistrictNames: candidates },
     },
     criteria,
@@ -123,8 +124,8 @@ const order = (snapshot) => snapshot.shortlist.map((item) => item.districtId);
     requirement("specialized", ["research"], "Specialized laboratory with hazardous-material ventilation"),
   ];
   for (const item of abstentions) {
-    const marketId = item.locationLogic.marketAnchor.marketId;
-    const result = await api.createBrief(env, item, context(["anaheim", "fullerton"].includes(marketId) ? marketId : "anaheim"));
+    const city = item.locationLogic.marketAnchor.city.toLowerCase();
+    const result = await api.createBrief(env, item, context(["anaheim", "fullerton"].includes(city) ? city : "anaheim"));
     const html = await render(env, result);
     assert.equal(result.snapshot.readiness, "INVESTIGATE", item.id);
     assert.equal(result.snapshot.shortlist.length, 0);
