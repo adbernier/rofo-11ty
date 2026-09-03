@@ -8,6 +8,42 @@ export function humanizeTaxonomyLabel(value) {
   return normalized.replace(/[_-]+/g, " ").replace(/\b\w/g, (character) => character.toUpperCase());
 }
 
+export function requirementDisplayLabel(kind, value) {
+  const normalizedKind = clean(kind, 80).toLowerCase();
+  const normalizedValue = clean(value, 180);
+  if (!normalizedValue) return "";
+  const key = normalizedValue.toLowerCase();
+  const labels = {
+    business_category: {
+      design_creative: "Design / creative",
+    },
+    growth: {
+      significant: "Significant growth",
+      high: "Significant growth",
+      some: "Some growth",
+      medium: "Some growth",
+      low: "Stable team",
+    },
+    operational_use: {
+      client_meetings: "Client meetings",
+      team_collaboration: "Team collaboration",
+      recruiting: "Recruiting",
+      quiet_focused_work: "Quiet focused work",
+      showroom_presentation: "Showroom / presentation",
+      lab_rd_adjacency: "UCSF / R&D adjacency",
+    },
+    research_preference: {
+      research_first: "Research first; contact me with findings",
+      include_local_broker: "Include local broker guidance when available",
+      already_working_with_broker: "I am already working with a broker",
+      not_sure: "Not sure yet",
+    },
+  };
+  const display = labels[normalizedKind]?.[key];
+  if (display) return display;
+  return /[_-]/.test(normalizedValue) ? humanizeTaxonomyLabel(normalizedValue) : normalizedValue;
+}
+
 export function marketDisplayName({ market = "", city = "", state = "", locations = [] } = {}) {
   const normalizedState = clean(state, 40);
   const locationRows = Array.isArray(locations) ? locations.filter(Boolean) : [];
@@ -33,7 +69,7 @@ export function businessPresentation({ canonical = "", specific = "", propertyTy
   if (/\bdealership\b/i.test(suppliedUse) && canonicalType === "professional_services") classificationStatus = "investigate";
   return {
     businessUse: suppliedUse || humanizeTaxonomyLabel(canonicalType),
-    businessCategory: humanizeTaxonomyLabel(canonicalType),
+    businessCategory: requirementDisplayLabel("business_category", canonicalType),
     canonicalBusinessType: canonicalType,
     classificationStatus,
   };
@@ -133,10 +169,12 @@ export function buildProjectSnapshotFromBrief(brief) {
   const approximateSize = executionSizeLabel(requirements.approximateSize || searchProfile.size || searchProfile.size_or_people);
   const timing = executionTimingLabel(requirements.timing || investigation.timing || searchProfile.timing || searchProfile.moveTiming || searchProfile.move_timing);
   const additionalNotes = clean(investigation.additionalNotes, 1000);
-  const growth = clean(searchProfile.expectedGrowth || searchProfile.expected_growth, 120);
+  const growth = requirementDisplayLabel("growth", searchProfile.expectedGrowth || searchProfile.expected_growth);
   const topDistricts = bestFitLabelsFromBrief(brief);
-  const operationalFeatures = cleanList(searchProfile.features, 12);
-  const operationalUse = cleanList(searchProfile.operationalUse || searchProfile.operational_use, 12);
+  const operationalFeatures = cleanList(searchProfile.features, 12)
+    .map((item) => requirementDisplayLabel("operational_feature", item));
+  const operationalUse = cleanList(searchProfile.operationalUse || searchProfile.operational_use, 12)
+    .map((item) => requirementDisplayLabel("operational_use", item));
   const requirementPriorities = cleanList(requirements.locationPriorities, 12);
   const businessPriorities = requirementPriorities.length ? requirementPriorities : cleanList(brief && brief.priorities, 12);
 
@@ -157,6 +195,7 @@ export function buildProjectSnapshotFromBrief(brief) {
     featureOther: clean(searchProfile.featureOther || searchProfile.feature_other, 240),
     operationalUse,
     locationIntent: locationIntentDisplay(searchProfile.locationIntent || searchProfile.location_intent),
+    researchPreference: requirementDisplayLabel("research_preference", investigation.brokerPreference),
     businessPriorities,
     knownConstraints: clean(requirements.knownConstraints, 1000),
   };
@@ -183,12 +222,15 @@ export function buildProjectSnapshotFromLead(lead) {
       approximateSize: executionSizeLabel(parsed.approximateSize),
       timing: executionTimingLabel(parsed.timing),
       additionalNotes: clean(parsed.additionalNotes, 1000),
-      growth: clean(parsed.growth, 120),
+      growth: requirementDisplayLabel("growth", parsed.growth),
       topDistricts: cleanArray(parsed.topDistricts, 3),
-      operationalFeatures: cleanList(parsed.operationalFeatures || lead && (lead.location_profile_features || lead.property_requirement_must_haves), 12),
+      operationalFeatures: cleanList(parsed.operationalFeatures || lead && (lead.location_profile_features || lead.property_requirement_must_haves), 12)
+        .map((item) => requirementDisplayLabel("operational_feature", item)),
       featureOther: clean(parsed.featureOther || lead && lead.location_profile_feature_other, 240),
-      operationalUse: cleanList(parsed.operationalUse || lead && lead.location_profile_operational_use, 12),
+      operationalUse: cleanList(parsed.operationalUse || lead && lead.location_profile_operational_use, 12)
+        .map((item) => requirementDisplayLabel("operational_use", item)),
       locationIntent: locationIntentDisplay(parsed.locationIntent || lead && (lead.location_intent || lead.location_intent_label)),
+      researchPreference: requirementDisplayLabel("research_preference", parsed.researchPreference || lead && lead.investigation_broker_preference),
       businessPriorities: cleanList(parsed.businessPriorities || lead && lead.business_priorities, 12),
       knownConstraints: clean(parsed.knownConstraints || lead && lead.requirement_known_constraints, 1000),
     };
@@ -207,12 +249,15 @@ export function buildProjectSnapshotFromLead(lead) {
     approximateSize: executionSizeLabel(lead && (lead.space_needed || lead.size)),
     timing: executionTimingLabel(lead && lead.move_timing),
     additionalNotes: clean(lead && lead.investigation_notes, 1000),
-    growth: clean(lead && (lead.location_profile_expected_growth || lead.expected_growth), 120),
+    growth: requirementDisplayLabel("growth", lead && (lead.location_profile_expected_growth || lead.expected_growth)),
     topDistricts: cleanArray(lead && (lead.top_three_districts || "").split(","), 3),
-    operationalFeatures: cleanList(lead && (lead.location_profile_features || lead.property_requirement_must_haves), 12),
+    operationalFeatures: cleanList(lead && (lead.location_profile_features || lead.property_requirement_must_haves), 12)
+      .map((item) => requirementDisplayLabel("operational_feature", item)),
     featureOther: clean(lead && lead.location_profile_feature_other, 240),
-    operationalUse: cleanList(lead && lead.location_profile_operational_use, 12),
+    operationalUse: cleanList(lead && lead.location_profile_operational_use, 12)
+      .map((item) => requirementDisplayLabel("operational_use", item)),
     locationIntent: locationIntentDisplay(lead && (lead.location_intent || lead.location_intent_label)),
+    researchPreference: requirementDisplayLabel("research_preference", lead && lead.investigation_broker_preference),
     businessPriorities: cleanList(lead && lead.business_priorities, 12),
     knownConstraints: clean(lead && lead.requirement_known_constraints, 1000),
   };
@@ -235,6 +280,7 @@ export function projectSnapshotTextLines(snapshot) {
     value.featureOther ? `Other Feature Detail: ${value.featureOther}` : "",
     value.operationalUse && value.operationalUse.length ? `Operating / Work Pattern: ${value.operationalUse.join(", ")}` : "",
     value.locationIntent ? `Location Approach: ${value.locationIntent}` : "",
+    value.researchPreference ? `Research Approach: ${value.researchPreference}` : "",
     value.businessPriorities && value.businessPriorities.length ? `Business Priorities: ${value.businessPriorities.join(", ")}` : "",
     value.knownConstraints ? `Known Constraints: ${value.knownConstraints}` : "",
     value.additionalNotes ? `Additional Notes: ${value.additionalNotes}` : "",
@@ -354,8 +400,8 @@ export function locationBriefReferenceText({ url, topDistricts = [] }) {
     "",
     url || "(Location Brief URL unavailable)",
     "",
-    "Best Fits",
-    ...(topDistricts.length ? topDistricts.map((district) => `- ${district}`) : ["- Review Location Brief"]),
+    topDistricts.length ? "Locations worth investigating" : "Recommendation context",
+    ...(topDistricts.length ? topDistricts.map((district) => `- ${district}`) : ["- Investigation required; no shortlist was generated."]),
     "",
     "Please review the Location Brief before contacting the client.",
   ].join("\n");

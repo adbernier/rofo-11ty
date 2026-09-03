@@ -57,7 +57,7 @@ assertIncludes(briefShared, "headcount: clean(requirements.headcount", "executio
 
 assertIncludes(leadShared, "New Rofo ${propertyType} Requirement - ${market}", "broker email subject");
 assertIncludes(leadShared, "Project Snapshot", "broker/internal email");
-assertIncludes(leadShared, "Best Fits", "broker/internal email");
+assertIncludes(leadShared, "locationBriefReferenceText", "broker/internal email");
 assertIncludes(leadShared, "Location Brief", "broker/internal email");
 assertIncludes(leadShared, "Client", "broker email");
 assertIncludes(leadShared, "Depending on your request, we'll either continue the research directly or involve a local market expert when appropriate.", "tenant confirmation email");

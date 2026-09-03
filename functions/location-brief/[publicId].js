@@ -10,7 +10,7 @@ import {
 } from "../api/location-brief/_shared.js";
 import { getBriefBundle as getLocationBriefV2Bundle, ownsBrief as ownsLocationBriefV2, privateHtml } from "../api/location-brief-v2/_shared.js";
 import { renderLocationBriefV2Page } from "../operator/location-brief-v2/[publicId].js";
-import { executionTimingLabel, marketDisplayName } from "../_shared/project-snapshot.js";
+import { buildProjectSnapshotFromBrief, marketDisplayName } from "../_shared/project-snapshot.js";
 
 function formatDate(value) {
   if (!value) return "";
@@ -170,10 +170,11 @@ function representativeBuildings(brief) {
 }
 
 export function renderLocationBriefPage(brief) {
+  const snapshot = buildProjectSnapshotFromBrief(brief);
   const locations = brief.searchProfile && Array.isArray(brief.searchProfile.locations) ? brief.searchProfile.locations : [];
   const location = marketDisplayName({ market: locationSummary(brief), state: locations[0]?.state, locations });
   const space = spaceSummary(brief);
-  const size = sizeSummary(brief);
+  const size = snapshot.approximateSize || sizeSummary(brief);
   const intent = brief.searchProfile && brief.searchProfile.locationIntent;
   const contact = brief.contact || {};
   const questions = substantiveQuestions(brief);
@@ -217,8 +218,11 @@ export function renderLocationBriefPage(brief) {
         ${descriptionList([
           ["Starting market", escapeHtml(location)],
           ["Space type", escapeHtml(space)],
+          ["Business / Use", escapeHtml(snapshot.businessUse)],
           ["Size", escapeHtml(size)],
-          ["Timing", escapeHtml(executionTimingLabel(brief.searchProfile && brief.searchProfile.timing || ""))],
+          ["Timing", escapeHtml(snapshot.timing)],
+          ["Growth", escapeHtml(snapshot.growth)],
+          ["Operating / Work Pattern", escapeHtml((snapshot.operationalUse || []).join(", "))],
           ["Search approach", escapeHtml(locationIntentLabel(intent))],
           ["Feedback", escapeHtml(brief.feedback || "")],
         ])}

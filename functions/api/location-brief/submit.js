@@ -398,7 +398,11 @@ function investigationRequirementsSummary(investigation) {
     "Live Market Investigation requested",
     investigation.districtName ? `District: ${investigation.districtName}` : "",
     investigation.city ? `City: ${[investigation.city, investigation.state].filter(Boolean).join(", ")}` : "",
-    selectedBuildings.length ? `Selected representative buildings: ${selectedBuildings.map((building) => building.name).join(", ")}` : "Selected representative buildings: district-level only",
+    selectedBuildings.length
+      ? `Selected representative buildings: ${selectedBuildings.map((building) => building.name).join(", ")}`
+      : investigation.districtName
+        ? `Representative scope: No representative buildings selected for ${investigation.districtName}`
+        : "Representative scope: No representative buildings selected",
     `Include competitive buildings: ${investigation.includeCompetitiveBuildings !== false ? "Yes" : "No"}`,
     investigationScopeSummary(investigation) ? `Investigation scope: ${investigationScopeSummary(investigation)}` : "",
     investigation.timing || requirements.timing ? `Timing: ${investigation.timing || requirements.timing}` : "",

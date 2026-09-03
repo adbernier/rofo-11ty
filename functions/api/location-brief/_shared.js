@@ -279,7 +279,7 @@ export function spaceSummary(brief) {
 }
 
 export function sizeSummary(brief) {
-  return brief.searchProfile && brief.searchProfile.size || "Size to confirm";
+  return buildProjectSnapshotFromBrief(brief).approximateSize || "Size to confirm";
 }
 
 export function publicBriefUrl(request, publicId) {
@@ -552,13 +552,20 @@ function investigationTextBlock(investigation) {
     "LIVE MARKET INVESTIGATION",
     `District: ${investigation.districtName || ""}`,
     `City: ${[investigation.city, investigation.state].filter(Boolean).join(", ")}`,
-    `Selected buildings: ${buildings.length ? buildings.map((building) => building.name).join(", ") : "(district-level only)"}`,
+    `Representative scope: ${representativeScopeLabel(investigation, buildings)}`,
     `Include competitive buildings: ${investigation.includeCompetitiveBuildings !== false ? "Yes" : "No"}`,
     `Scope: ${scope.length ? scope.join(", ") : "(not selected)"}`,
     `Timing: ${investigation.timing || investigation.confirmedRequirements && investigation.confirmedRequirements.timing || ""}`,
     `Broker preference: ${brokerPreferenceLabel(investigation.brokerPreference)}`,
     `Notes: ${investigation.additionalNotes || "(none provided)"}`,
   ];
+}
+
+function representativeScopeLabel(investigation, buildings = selectedInvestigationBuildings(investigation)) {
+  if (buildings.length) return buildings.map((building) => building.name).join(", ");
+  return investigation && investigation.districtName
+    ? `No representative buildings selected for ${investigation.districtName}`
+    : "No representative buildings selected";
 }
 
 function investigationHtmlBlock(investigation) {
@@ -573,7 +580,7 @@ function investigationHtmlBlock(investigation) {
       <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
         ${emailField("District", escapeHtml(investigation.districtName || ""))}
         ${emailField("City", escapeHtml([investigation.city, investigation.state].filter(Boolean).join(", ")))}
-        ${emailField("Selected buildings", buildings.length ? formatList(buildings.map((building) => building.name)) : escapeHtml("District-level review only"))}
+        ${emailField("Representative scope", escapeHtml(representativeScopeLabel(investigation, buildings)))}
         ${emailField("Competitive buildings", escapeHtml(investigation.includeCompetitiveBuildings !== false ? "Include other competitive buildings" : "Do not include by default"))}
         ${emailField("Scope", scope.length ? formatList(scope) : escapeHtml("Not selected"))}
         ${emailField("Timing", escapeHtml(investigation.timing || requirements.timing || ""))}

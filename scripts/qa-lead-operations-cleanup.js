@@ -30,7 +30,7 @@ assert(leadShared.includes("status: \"sent\""), "successful Resend request shoul
 assert(leadShared.includes("recipient: env.LEAD_NOTIFY_EMAIL"), "internal alert result should expose the resolved internal recipient.");
 assert(leadShared.includes("sender: env.RESEND_FROM_EMAIL || \"Rofo Leads <onboarding@resend.dev>\""), "internal alert result should expose the sender used.");
 assert(leadShared.includes("Review Lead in Dashboard"), "internal alert should include a direct dashboard link.");
-assert(leadShared.includes("Location Brief") && leadShared.includes("Project Snapshot") && leadShared.includes("Best Fits"), "internal alert should include Brief, Project Snapshot, and Best Fits context.");
+assert(leadShared.includes("Location Brief") && leadShared.includes("Project Snapshot") && leadShared.includes("locationBriefReferenceText"), "internal alert should include Brief, Project Snapshot, and shared recommendation context.");
 assert(leadShared.includes("Review the requirement in the dashboard before sending it to a fulfillment partner."), "internal alert should use dashboard-first routing language.");
 assert(!leadShared.includes("OfficeFinder and broker routing still require manual approval"), "internal alert should not expose legacy approval wording.");
 
@@ -52,7 +52,8 @@ assert(!customerConfirmationSource.includes("Broker preference"), "customer conf
 
 assert(adminLeads.includes("function renderProjectSnapshot"), "dashboard should render a Project Snapshot summary.");
 assert(adminLeads.includes("field(\"Selected district\""), "dashboard summary should include selected district.");
-assert(adminLeads.includes("field(\"Best Fits\""), "dashboard summary should include Best Fits.");
+assert(adminLeads.includes('field("Recommendation", "Investigation required")'), "dashboard summary should describe an absent shortlist as investigation required.");
+assert(adminLeads.includes('field("Locations worth investigating"'), "dashboard summary should label generated shortlist output neutrally.");
 assert(adminLeads.includes("field(\"Headcount\""), "dashboard summary should include headcount.");
 assert(adminLeads.includes("field(\"Approx. size\""), "dashboard summary should include approximate size.");
 assert(adminLeads.includes("field(\"Timing\""), "dashboard summary should include timing.");

@@ -668,14 +668,16 @@ function renderProjectSnapshot(lead, market) {
         ${field("Business / use", snapshot.businessUse || lead.location_profile_business_use || snapshot.businessCategory, { showEmpty: true })}
         ${field("Category", snapshot.businessCategory, { showEmpty: true })}
         ${snapshot.classificationStatus === "investigate" ? field("Use classification", "Verify intended use", { showEmpty: true }) : ""}
-        ${field("Selected district", snapshot.selectedDistrict || lead.investigation_district, { showEmpty: true })}
-        ${isVnext ? field("Locations worth investigating", topDistricts.join(", ") || lead.recommended_market_path, { showEmpty: true }) : field("Best Fits", topDistricts.join(", ") || lead.recommended_market_path, { showEmpty: true })}
+        ${field("Selected district", snapshot.selectedDistrict || lead.investigation_district)}
+        ${isVnext ? field("Locations worth investigating", topDistricts.join(", ") || lead.recommended_market_path) : topDistricts.length || lead.recommended_market_path ? field("Locations worth investigating", topDistricts.join(", ") || lead.recommended_market_path) : field("Recommendation", "Investigation required")}
         ${field("Headcount", snapshot.headcount || lead.investigation_headcount, { showEmpty: true })}
         ${field("Approx. size", snapshot.approximateSize || lead.space_needed, { showEmpty: true })}
         ${field("Timing", snapshot.timing || lead.move_timing, { showEmpty: true })}
         ${field("Operational features", (snapshot.operationalFeatures || []).join(", "))}
         ${field("Operating / work pattern", (snapshot.operationalUse || []).join(", "))}
+        ${field("Growth", snapshot.growth)}
         ${field("Location approach", snapshot.locationIntent || locationIntentLabel(lead))}
+        ${field("Research approach", snapshot.researchPreference)}
         ${field("Business priorities", (snapshot.businessPriorities || []).join(", "))}
         ${field("Known constraints", snapshot.knownConstraints)}
         ${field("Customer", customerLine || lead.name, { showEmpty: true })}
@@ -765,7 +767,7 @@ function renderLocationBriefAdvanced({ lead, row, route, officeFinderStatus, off
             ${field("Brief ID", lead.location_brief_public_id)}
             ${linkField("Open Brief", lead.location_brief_url)}
             ${field("Location Brief status", lead.location_brief_status)}
-            ${field("Selected buildings", lead.investigation_buildings || "District-level only")}
+            ${field("Representative scope", lead.investigation_buildings)}
           </div>
         </section>
         ${renderBusinessProfileSummary(lead)}
@@ -783,7 +785,7 @@ function renderLocationBriefAdvanced({ lead, row, route, officeFinderStatus, off
             ${field("Internal alert error", lead.internal_email_error || lead.investigation_internal_email_error)}
             ${field("City", [lead.investigation_city, lead.state].filter(Boolean).join(", "))}
             ${field("District", lead.investigation_district)}
-            ${field("Selected buildings", lead.investigation_buildings || "District-level only")}
+            ${field("Representative scope", lead.investigation_buildings)}
             ${field("Scope", lead.investigation_scope)}
             ${field("Timing", lead.investigation_timing || lead.move_timing)}
             ${field("Source", lead.investigation_source)}
