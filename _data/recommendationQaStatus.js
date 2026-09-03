@@ -44,6 +44,15 @@ module.exports = {
     reportPath: "/docs/recommendation-qa/phoenix-pilot/",
     notes: "Legacy Phoenix Compass and public-guide material remain calibration context, not current Level 3 certification. Only the bounded City of Phoenix Industrial/Flex three-candidate flow is certified for a bounded real-user cohort and remains runtime default-off with no D1 activation record. Phoenix Metro, Tempe, other Valley municipalities, Office, and Retail are not certified.",
   },
+  indianapolis: {
+    metro: "Indianapolis",
+    qaStatus: "completed",
+    lastQaDate: "2026-09-03",
+    validationStatus: "legacy_compass_calibration_only_city_indianapolis_industrial_flex_level3_certified",
+    scenarioCount: 25,
+    reportPath: "/docs/recommendation-qa/indianapolis-pilot/",
+    notes: "Legacy Indianapolis Compass, public guidance, and historical listings remain calibration or discovery context, not current Level 3 certification. Only the bounded City of Indianapolis Airport Logistics + Park 100 / Northwest Indianapolis Industrial/Flex flow is certified for a bounded real-user cohort and remains runtime default-off with no D1 activation record. Indianapolis Metro, Plainfield, other suburbs, Office, and Retail are not certified.",
+  },
   denver: {
     metro: "Denver",
     qaStatus: "completed",

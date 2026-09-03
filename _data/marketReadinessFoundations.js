@@ -4,6 +4,7 @@ const sfIndustrialFlexCoverage = require("./sfIndustrialFlexMarketCoverage");
 const sanDiegoIndustrialFlexFoundation = require("./sanDiegoIndustrialFlexCompositionFoundation");
 const northOrangeCountyIndustrialFlexFoundation = require("./northOrangeCountyIndustrialFlexEvidenceFoundation");
 const phoenixIndustrialFlexFoundation = require("./phoenixIndustrialFlexEvidenceFoundation");
+const indianapolisIndustrialFlexFoundation = require("./indianapolisIndustrialFlexEvidenceFoundation");
 
 module.exports = {
   schemaVersion: "market-readiness-foundation-registry:v1",
@@ -109,6 +110,22 @@ module.exports = {
       },
       calibration: { status: "Ready", evidence: ["_data/phoenixIndustrialFlexEvidenceFoundation.js", "lib/requirements/requirement-to-phoenix-industrial-flex-recommendation.js", "lib/recommendations/phoenix-industrial-flex-location-composition.js", "scripts/qa-phoenix-industrial-flex-recommendation.js"] },
       certificationRelease: { status: "Ready", lastQa: "2026-09-03", evidence: ["scripts/qa-phoenix-industrial-flex-recommendation.js", "scripts/qa-phoenix-industrial-flex-public-eligibility.js", "scripts/qa-phoenix-industrial-flex-certification.js"], productionStatus: "Certified for a bounded real-user cohort; deployable and runtime-activatable; no D1 activation record" },
+      submodels: { industrial: { label: "Industrial-led", status: "Ready" }, flex: { label: "Flex-led", status: "Ready" }, mixed: { label: "Mixed/hybrid", status: "Ready" } },
+    },
+    {
+      marketId: "indianapolis", propertyType: "industrial",
+      coverage: {
+        schemaVersion: indianapolisIndustrialFlexFoundation.schemaVersion,
+        marketId: "indianapolis",
+        scope: "Bounded City of Indianapolis Airport Logistics + Park 100 / Northwest Indianapolis only; not Indianapolis Metro",
+        blockingGaps: [],
+        decisionGeographies: indianapolisIndustrialFlexFoundation.evidenceCandidateIds.map((districtId) => ({
+          districtId, knowledgeOwnerDistrictId: districtId, classification: "CORE_BOUNDED_INDUSTRIAL_FLEX",
+          coverage: { industrialFit: "REVIEWED", flexFit: "REVIEWED", businessEnvironment: "REVIEWED", representativeBuildings: "REVIEWED", presentation: "REVIEWED", access: "NOT_REVIEWED", transit: "NOT_REVIEWED", parking: "NOT_REVIEWED" },
+        })),
+      },
+      calibration: { status: "Ready", evidence: ["_data/indianapolisIndustrialFlexEvidenceFoundation.js", "lib/requirements/requirement-to-indianapolis-industrial-flex-recommendation.js", "lib/recommendations/indianapolis-industrial-flex-location-composition.js", "scripts/qa-indianapolis-industrial-flex-recommendation.js"] },
+      certificationRelease: { status: "Ready", lastQa: "2026-09-03", evidence: ["scripts/qa-indianapolis-industrial-flex-recommendation.js", "scripts/qa-indianapolis-industrial-flex-public-eligibility.js", "scripts/qa-indianapolis-industrial-flex-certification.js"], productionStatus: "Certified for a bounded real-user cohort; deployable and runtime-activatable; no D1 activation record" },
       submodels: { industrial: { label: "Industrial-led", status: "Ready" }, flex: { label: "Flex-led", status: "Ready" }, mixed: { label: "Mixed/hybrid", status: "Ready" } },
     },
   ],
