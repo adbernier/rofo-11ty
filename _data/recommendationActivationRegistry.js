@@ -24,5 +24,17 @@ module.exports = Object.freeze({
       entryMarketIds: Object.freeze(["anaheim", "fullerton"]),
       entryContextIds: Object.freeze(["anaheim-canyon", "fullerton-industrial-service-area"]),
     }),
+    "phoenix:industrial_flex:bounded": Object.freeze({
+      activationKey: "phoenix:industrial_flex:bounded",
+      marketId: "phoenix",
+      propertyType: "industrial_flex",
+      propertyTypeAliases: Object.freeze(["industrial-flex", "industrial_flex"]),
+      cohort: "bounded",
+      certificationId: "phoenix-industrial-flex-v1",
+      certificationStatus: "certified_for_bounded_real_user_cohort",
+      activationEligible: true,
+      entryMarketIds: Object.freeze(["phoenix"]),
+      entryContextIds: Object.freeze(["southwest-phoenix-industrial", "airport-south-central-industrial", "phoenix-airport-sky-harbor-area", "north-phoenix-advanced-operations", "deer-valley", "north-phoenix-tsmc-corridor"]),
+    }),
   }),
 });

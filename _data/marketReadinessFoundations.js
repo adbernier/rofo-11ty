@@ -3,6 +3,7 @@ const sfRetailCoverage = require("./sfRetailMarketCoverage");
 const sfIndustrialFlexCoverage = require("./sfIndustrialFlexMarketCoverage");
 const sanDiegoIndustrialFlexFoundation = require("./sanDiegoIndustrialFlexCompositionFoundation");
 const northOrangeCountyIndustrialFlexFoundation = require("./northOrangeCountyIndustrialFlexEvidenceFoundation");
+const phoenixIndustrialFlexFoundation = require("./phoenixIndustrialFlexEvidenceFoundation");
 
 module.exports = {
   schemaVersion: "market-readiness-foundation-registry:v1",
@@ -90,6 +91,24 @@ module.exports = {
       },
       calibration: { status: "Ready", evidence: ["_data/northOrangeCountyIndustrialFlexEvidenceFoundation.js", "lib/requirements/requirement-to-north-orange-county-industrial-flex-recommendation.js", "lib/recommendations/north-orange-county-industrial-flex-location-composition.js", "scripts/qa-north-orange-county-industrial-flex-recommendation.js"] },
       certificationRelease: { status: "Ready", lastQa: "2026-09-02", evidence: ["scripts/qa-north-orange-county-industrial-flex-recommendation.js", "scripts/qa-north-orange-county-industrial-flex-certification.js"], productionStatus: "Certified for a bounded real-user cohort; deployable and runtime-activatable; no D1 activation record" },
+      submodels: { industrial: { label: "Industrial-led", status: "Ready" }, flex: { label: "Flex-led", status: "Ready" }, mixed: { label: "Mixed/hybrid", status: "Ready" } },
+    },
+    {
+      marketId: "phoenix-metro", propertyType: "industrial",
+      coverage: {
+        schemaVersion: phoenixIndustrialFlexFoundation.schemaVersion,
+        marketId: "phoenix",
+        scope: "Bounded City of Phoenix three-candidate Industrial/Flex universe only; not Phoenix Metro or Valley-wide",
+        blockingGaps: [],
+        decisionGeographies: phoenixIndustrialFlexFoundation.evidenceCandidateIds.map((districtId) => ({
+          districtId,
+          knowledgeOwnerDistrictId: districtId,
+          classification: "CORE_BOUNDED_INDUSTRIAL_FLEX",
+          coverage: { industrialFit: "REVIEWED", flexFit: "REVIEWED", businessEnvironment: "REVIEWED", representativeBuildings: "REVIEWED", presentation: "REVIEWED", access: "NOT_REVIEWED", transit: "NOT_REVIEWED", parking: "NOT_REVIEWED" },
+        })),
+      },
+      calibration: { status: "Ready", evidence: ["_data/phoenixIndustrialFlexEvidenceFoundation.js", "lib/requirements/requirement-to-phoenix-industrial-flex-recommendation.js", "lib/recommendations/phoenix-industrial-flex-location-composition.js", "scripts/qa-phoenix-industrial-flex-recommendation.js"] },
+      certificationRelease: { status: "Ready", lastQa: "2026-09-03", evidence: ["scripts/qa-phoenix-industrial-flex-recommendation.js", "scripts/qa-phoenix-industrial-flex-public-eligibility.js", "scripts/qa-phoenix-industrial-flex-certification.js"], productionStatus: "Certified for a bounded real-user cohort; deployable and runtime-activatable; no D1 activation record" },
       submodels: { industrial: { label: "Industrial-led", status: "Ready" }, flex: { label: "Flex-led", status: "Ready" }, mixed: { label: "Mixed/hybrid", status: "Ready" } },
     },
   ],

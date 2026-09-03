@@ -6,11 +6,13 @@ import sfRetailFoundation from "../../../_data/sfRetailCompositionFoundation.js"
 import sfIndustrialFlexFoundation from "../../../_data/sfIndustrialFlexCompositionFoundation.js";
 import sanDiegoIndustrialFlexFoundation from "../../../_data/sanDiegoIndustrialFlexCompositionFoundation.js";
 import northOrangeCountyIndustrialFlexFoundation from "../../../_data/northOrangeCountyIndustrialFlexEvidenceFoundation.js";
+import phoenixIndustrialFlexFoundation from "../../../_data/phoenixIndustrialFlexEvidenceFoundation.js";
 import districtGeography from "../../../_data/requirementPrototypeDistrictGeography.js";
 import districtPresentations from "../../../data/generated/location-brief-district-presentation.json";
 import universalIntelligence from "../../../lib/intelligence/universal-space-type-intelligence.js";
 import recommendationActivationRegistry from "../../../_data/recommendationActivationRegistry.js";
 import northOrangeCountyRequirementAdapter from "../../../lib/requirements/requirement-to-north-orange-county-industrial-flex-recommendation.js";
+import phoenixRequirementAdapter from "../../../lib/requirements/requirement-to-phoenix-industrial-flex-recommendation.js";
 
 const { projectUniversalIntelligence } = universalIntelligence;
 
@@ -32,9 +34,11 @@ export const CANONICAL_PUBLIC_SOURCES = Object.freeze(["homepage", "header", "ci
 const SAN_DIEGO_INDUSTRIAL_FLEX_ENTRY_IDS = Object.freeze(["miramar", "otay-mesa", "kearny-mesa", "sorrento-mesa", "sorrento-valley"]);
 const SAN_DIEGO_ACTIVATION = recommendationActivationRegistry.flows["san-diego:industrial_flex:bounded"];
 const NORTH_ORANGE_COUNTY_ACTIVATION = recommendationActivationRegistry.flows["north-orange-county:industrial_flex:bounded"];
+const PHOENIX_ACTIVATION = recommendationActivationRegistry.flows["phoenix:industrial_flex:bounded"];
 const { resolveNorthOrangeCountyIndustrialFlexMembership } = northOrangeCountyRequirementAdapter;
+const { resolvePhoenixIndustrialFlexMembership } = phoenixRequirementAdapter;
 
-const dependencies = { accessFoundation, compositionFoundation, sfOfficeModel, sfRetailFoundation, sfIndustrialFlexFoundation, sanDiegoIndustrialFlexFoundation, northOrangeCountyIndustrialFlexFoundation, districtGeography };
+const dependencies = { accessFoundation, compositionFoundation, sfOfficeModel, sfRetailFoundation, sfIndustrialFlexFoundation, sanDiegoIndustrialFlexFoundation, northOrangeCountyIndustrialFlexFoundation, phoenixIndustrialFlexFoundation, districtGeography };
 const encoder = new TextEncoder();
 
 function clean(value, max = 1000) { return String(value == null ? "" : value).trim().slice(0, max); }
@@ -120,6 +124,8 @@ export function isNorthOrangeCountyIndustrialFlexEntryContext(input = {}) {
   const context = normalizeEntryContext(input);
   return resolveNorthOrangeCountyIndustrialFlexMembership(context).eligible;
 }
+export function isPhoenixIndustrialFlexRequirement(requirement = {}) { return resolvePhoenixIndustrialFlexMembership(requirement).eligible; }
+export function isPhoenixIndustrialFlexEntryContext(input = {}) { return resolvePhoenixIndustrialFlexMembership(normalizeEntryContext(input)).eligible; }
 export function isSupportedPublicRequirement(requirement = {}) { return isSfOfficeRequirement(requirement) || isSfRetailRequirement(requirement) || isSfIndustrialFlexRequirement(requirement); }
 export function isSupportedPublicEntryContext(input = {}) { return isSfOfficeEntryContext(input) || isSfRetailEntryContext(input) || isSfIndustrialFlexEntryContext(input); }
 export function isUniversalPublicRequirement(requirement = {}) {
@@ -133,6 +139,7 @@ export function publicRequirementEligible(env, requirement = {}) {
   if (isSfIndustrialFlexRequirement(requirement)) return publicV2Enabled(env, "industrial_flex");
   if (isSanDiegoIndustrialFlexRequirement(requirement)) return publicEntryEnabled(env) && sanDiegoIndustrialFlexEnabled(env);
   if (isNorthOrangeCountyIndustrialFlexRequirement(requirement)) return false;
+  if (isPhoenixIndustrialFlexRequirement(requirement)) return false;
   return isUniversalPublicRequirement(requirement) && String(env && env[PUBLIC_UNIVERSAL_FLAG] || "false").toLowerCase() === "true";
 }
 export function publicEntryContextEligible(env, input = {}) {
@@ -141,6 +148,7 @@ export function publicEntryContextEligible(env, input = {}) {
   if (!context.marketId || !context.propertyType) return publicGlobalCohortEnabled(env);
   if (isSanDiegoIndustrialFlexEntryContext(context)) return sanDiegoIndustrialFlexEnabled(env);
   if (isNorthOrangeCountyIndustrialFlexEntryContext(context)) return false;
+  if (isPhoenixIndustrialFlexEntryContext(context)) return false;
   if (context.marketId !== "san-francisco") return ["office", "retail_service", "industrial_flex"].includes(context.propertyType) && String(env && env[PUBLIC_UNIVERSAL_FLAG] || "false").toLowerCase() === "true";
   if (context.propertyType === "retail_service") return publicV2Enabled(env, "retail_service");
   if (context.propertyType === "industrial_flex") return publicV2Enabled(env, "industrial_flex");
@@ -171,6 +179,10 @@ export async function recommendationRuntimeActivationState(env, marketId, proper
   }
 }
 export async function publicRequirementEligibleAtRuntime(env, requirement = {}) {
+  if (isPhoenixIndustrialFlexRequirement(requirement)) {
+    if (!publicEntryEnabled(env)) return false;
+    return (await recommendationRuntimeActivationState(env, PHOENIX_ACTIVATION.marketId, PHOENIX_ACTIVATION.propertyType, PHOENIX_ACTIVATION.cohort)).enabled;
+  }
   if (isNorthOrangeCountyIndustrialFlexRequirement(requirement)) {
     if (!publicEntryEnabled(env)) return false;
     return (await recommendationRuntimeActivationState(env, NORTH_ORANGE_COUNTY_ACTIVATION.marketId, NORTH_ORANGE_COUNTY_ACTIVATION.propertyType, NORTH_ORANGE_COUNTY_ACTIVATION.cohort)).enabled;
@@ -181,6 +193,10 @@ export async function publicRequirementEligibleAtRuntime(env, requirement = {}) 
 }
 export async function publicEntryContextEligibleAtRuntime(env, input = {}) {
   const context = normalizeEntryContext(input);
+  if (isPhoenixIndustrialFlexEntryContext(context)) {
+    if (!publicEntryEnabled(env)) return false;
+    return (await recommendationRuntimeActivationState(env, PHOENIX_ACTIVATION.marketId, PHOENIX_ACTIVATION.propertyType, PHOENIX_ACTIVATION.cohort)).enabled;
+  }
   if (isNorthOrangeCountyIndustrialFlexEntryContext(context)) {
     if (!publicEntryEnabled(env)) return false;
     return (await recommendationRuntimeActivationState(env, NORTH_ORANGE_COUNTY_ACTIVATION.marketId, NORTH_ORANGE_COUNTY_ACTIVATION.propertyType, NORTH_ORANGE_COUNTY_ACTIVATION.cohort)).enabled;
@@ -351,7 +367,7 @@ function comparisonAlternatives(requirement, result, assessments) {
 }
 
 export function calculateSnapshot(requirement, env = {}) {
-  const result = readinessEngine.evaluateRecommendationReadiness(requirement, { ...dependencies, sanDiegoIndustrialFlexEnabled: sanDiegoIndustrialFlexEnabled(env), northOrangeCountyIndustrialFlexEnabled: env?.__northOrangeCountyIndustrialFlexEnabled === true });
+  const result = readinessEngine.evaluateRecommendationReadiness(requirement, { ...dependencies, sanDiegoIndustrialFlexEnabled: sanDiegoIndustrialFlexEnabled(env), northOrangeCountyIndustrialFlexEnabled: env?.__northOrangeCountyIndustrialFlexEnabled === true, phoenixIndustrialFlexEnabled: env?.__phoenixIndustrialFlexEnabled === true });
   const assessments = candidateAssessments(requirement, result);
   return {
     schemaVersion: SNAPSHOT_VERSION,
@@ -369,7 +385,7 @@ export function calculateSnapshot(requirement, env = {}) {
     foundationVersions: result.propertyType === "retail_service"
       ? { access: accessFoundation.version, composition: sfRetailFoundation.schemaVersion, retail: sfRetailFoundation.schemaVersion }
       : result.propertyType === "industrial_flex"
-        ? { access: accessFoundation.version, composition: result.market === "san-diego" ? sanDiegoIndustrialFlexFoundation.schemaVersion : resolveNorthOrangeCountyIndustrialFlexMembership(requirement).eligible && env?.__northOrangeCountyIndustrialFlexEnabled === true ? northOrangeCountyIndustrialFlexFoundation.schemaVersion : sfIndustrialFlexFoundation.schemaVersion, resolvedModel: result.composition?.resolvedModel || result.candidateComposition?.resolvedModel || "unresolved" }
+        ? { access: accessFoundation.version, composition: result.market === "san-diego" ? sanDiegoIndustrialFlexFoundation.schemaVersion : resolveNorthOrangeCountyIndustrialFlexMembership(requirement).eligible && env?.__northOrangeCountyIndustrialFlexEnabled === true ? northOrangeCountyIndustrialFlexFoundation.schemaVersion : resolvePhoenixIndustrialFlexMembership(requirement).eligible && env?.__phoenixIndustrialFlexEnabled === true ? phoenixIndustrialFlexFoundation.schemaVersion : sfIndustrialFlexFoundation.schemaVersion, resolvedModel: result.composition?.resolvedModel || result.candidateComposition?.resolvedModel || "unresolved" }
       : { access: accessFoundation.version, composition: compositionFoundation.schemaVersion, office: sfOfficeModel.version || sfOfficeModel.schemaVersion || "sf-office-recommendation-model" },
   };
 }
@@ -552,15 +568,21 @@ function candidateRows(briefId, entryContext, now) {
   return cleanArray(entryContext.candidateDistrictIds).map((sourceId) => {
     const group = (compositionFoundation.presentationGroups || []).find((item) => item.memberDistrictIds.includes(sourceId));
     const sanDiegoContextOwner = entryContext.marketId === "san-diego" && sourceId === "sorrento-valley" ? "sorrento-mesa" : "";
-    const canonicalDistrictId = sanDiegoContextOwner || group?.canonicalDistrictId || sourceId;
+    const phoenixContextOwner = entryContext.marketId === "phoenix" ? phoenixRequirementAdapter.CANDIDATE_OWNERS[sourceId] || "" : "";
+    const canonicalDistrictId = sanDiegoContextOwner || phoenixContextOwner || group?.canonicalDistrictId || sourceId;
     if (seen.has(canonicalDistrictId)) return null;
     seen.add(canonicalDistrictId);
-    const memberSources = cleanArray(entryContext.candidateDistrictIds).filter((candidateId) => candidateId === canonicalDistrictId || group?.memberDistrictIds.includes(candidateId));
-    return { id: crypto.randomUUID(), briefId, canonicalDistrictId, presentationGroupId: group?.presentationGroupId || (sanDiegoContextOwner ? "san-diego-industrial-flex:sorrento" : ""), sourceIdentity: sourceId, provenance: memberSources.map((identity) => ({ sourceType: entryContext.sourceType, sourceIdentity: identity })), disposition: "considering", createdAt: now, updatedAt: now };
+    const memberSources = cleanArray(entryContext.candidateDistrictIds).filter((candidateId) => candidateId === canonicalDistrictId || group?.memberDistrictIds.includes(candidateId) || phoenixRequirementAdapter.CANDIDATE_OWNERS[candidateId] === canonicalDistrictId);
+    return { id: crypto.randomUUID(), briefId, canonicalDistrictId, presentationGroupId: group?.presentationGroupId || (sanDiegoContextOwner ? "san-diego-industrial-flex:sorrento" : phoenixContextOwner ? `phoenix-industrial-flex:${phoenixContextOwner}` : ""), sourceIdentity: sourceId, provenance: memberSources.map((identity) => ({ sourceType: entryContext.sourceType, sourceIdentity: identity })), disposition: "considering", createdAt: now, updatedAt: now };
   }).filter(Boolean);
 }
 
 async function snapshotEnvironment(env, requirement) {
+  if (isPhoenixIndustrialFlexRequirement(requirement)) {
+    if (env?.__phoenixIndustrialFlexCertificationEnabled === true) return { ...env, __phoenixIndustrialFlexEnabled: true };
+    const activation = await recommendationRuntimeActivationState(env, PHOENIX_ACTIVATION.marketId, PHOENIX_ACTIVATION.propertyType, PHOENIX_ACTIVATION.cohort);
+    return { ...env, __phoenixIndustrialFlexEnabled: activation.enabled === true };
+  }
   if (!isNorthOrangeCountyIndustrialFlexRequirement(requirement)) return env;
   if (env?.__northOrangeCountyIndustrialFlexCertificationEnabled === true) return { ...env, __northOrangeCountyIndustrialFlexEnabled: true };
   const activation = await recommendationRuntimeActivationState(env, NORTH_ORANGE_COUNTY_ACTIVATION.marketId, NORTH_ORANGE_COUNTY_ACTIVATION.propertyType, NORTH_ORANGE_COUNTY_ACTIVATION.cohort);

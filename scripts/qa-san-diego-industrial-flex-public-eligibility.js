@@ -58,7 +58,7 @@ async function publicCreate(env, req, context, id) {
   for (const outsideId of ["chula-vista", "vista-business-park", "oceanside", "carlsbad", "poway"]) assert.equal(shared.publicEntryContextEligible(cohort, entry("san-diego", "industrial_flex", [outsideId])), false, `${outsideId} cannot enter through a San Diego anchor`);
 
   const universalOn = { ...cohort, [SD]: "false", [UNIVERSAL]: "true" };
-  assert.equal(shared.publicRequirementEligible(universalOn, requirement("phoenix")), true, "Existing Universal behavior remains available only under its own flag.");
+  assert.equal(shared.publicRequirementEligible(universalOn, requirement("indianapolis")), true, "Existing Universal behavior remains available only under its own flag.");
   assert.equal(shared.publicRequirementEligible(cohort, requirement("phoenix")), false, "The San Diego flag must not alter unrelated non-SF eligibility.");
   const sf = { ...cohort, LOCATION_BRIEF_V2_PUBLIC_SF_OFFICE_ENABLED: "true" };
   assert.equal(shared.publicEntryContextEligible(sf, entry("san-francisco", "office")), true);

@@ -48,7 +48,7 @@ async function create(environment, req, id) {
   db.row = { ...certified(), enabled: "1" };
   assert.equal((await shared.recommendationRuntimeActivationState(runtime, "san-diego", "industrial_flex")).reason, "MALFORMED_RUNTIME_RECORD");
   assert.equal((await shared.recommendationRuntimeActivationState(env(new ActivationDb(certified(), true)), "san-diego", "industrial_flex")).reason, "RUNTIME_READ_FAILED");
-  assert.equal((await shared.recommendationRuntimeActivationState(runtime, "phoenix", "industrial_flex")).reason, "UNRECOGNIZED_CERTIFIED_FLOW");
+  assert.equal((await shared.recommendationRuntimeActivationState(runtime, "denver", "industrial_flex")).reason, "UNRECOGNIZED_CERTIFIED_FLOW");
 
   db.row = certified();
   assert.equal(await shared.publicRequirementEligibleAtRuntime(runtime, requirement("san-diego", "office", ["work"])), false);
@@ -76,7 +76,7 @@ async function create(environment, req, id) {
   const operator = fs.readFileSync(path.join(ROOT, "scripts/recommendation-activation.js"), "utf8");
   assert(operator.includes("--confirm-production") && operator.includes("not in the certified runtime registry"));
   let uncertifiedFailure = null;
-  try { execFileSync(process.execPath, [path.join(ROOT, "scripts/recommendation-activation.js"), "set", "phoenix", "industrial-flex", "on", "--environment", "production", "--confirm-production"], { stdio: "pipe" }); }
+  try { execFileSync(process.execPath, [path.join(ROOT, "scripts/recommendation-activation.js"), "set", "denver", "industrial-flex", "on", "--environment", "production", "--confirm-production"], { stdio: "pipe" }); }
   catch (error) { uncertifiedFailure = String(error.stderr || error.message); }
   assert(uncertifiedFailure?.includes("not in the certified runtime registry"), "Operator workflow must reject uncertified activation before touching infrastructure.");
 
