@@ -30,10 +30,10 @@ module.exports = {
     metro: "Orange County",
     qaStatus: "completed",
     lastQaDate: "2026-07-10",
-    validationStatus: "compass_ready_editorial_developing",
+    validationStatus: "legacy_compass_calibration_only_north_oc_industrial_flex_pending_level3_certification",
     scenarioCount: 12,
     reportPath: "/docs/recommendation-qa/orange-county-pilot/",
-    notes: "Orange County pilot scenarios produce differentiated, graph-backed market paths across office, R&D, airport-access professional office, medical, executive office, warehouse/flex, contractor/service industrial, and South OC profiles. Under the Compass operating model, QA and Location Brief quality support Compass Ready status while representative-building enrichment continues as an editorial workstream.",
+    notes: "Legacy Orange County Compass scenarios remain calibration hypotheses, not current Level 3 certification. A separate bounded Anaheim Canyon + Fullerton Industrial / Service Area implementation exists for Industrial/Flex only and remains pending end-to-end certification and runtime-ineligible. Orange County Office, Retail, countywide, Irvine, and South OC recommendation flows are not certified.",
   },
   denver: {
     metro: "Denver",

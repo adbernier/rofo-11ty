@@ -45,7 +45,8 @@ function mediaMarkup(presentation, name) {
 function buildingsMarkup(presentation) {
   const buildings = presentation?.representativeBuildings || [];
   if (!buildings.length) return "";
-  return `<section class="lb2-buildings"><h4>Representative buildings</h4><p>These are representative examples, not current availability. They help explain the kinds of commercial environments to evaluate next.</p><div class="lb2-building-grid">${buildings.map((building) => `<a href="${esc(building.canonicalUrl)}"><strong>${esc(building.name)}</strong><span>${esc(building.representativeReason)}</span></a>`).join("")}</div></section>`;
+  const environments = buildings.some((building) => building.representativeKind === "COMMERCIAL_ENVIRONMENT");
+  return `<section class="lb2-buildings"><h4>${environments ? "Representative environments" : "Representative buildings"}</h4><p>These are representative examples, not current availability. They help explain the kinds of commercial environments to evaluate next.</p><div class="lb2-building-grid">${buildings.map((building) => `<a href="${esc(building.canonicalUrl)}"><strong>${esc(building.name)}</strong><span>${esc(building.representativeReason)}</span></a>`).join("")}</div></section>`;
 }
 function districtCard(item, requirement, options = {}) {
   const path = districtPath(item, requirement);
@@ -186,14 +187,16 @@ export function renderLocationBriefV2Page(bundle, owner, debug, options = {}) {
   const propertyContinuationSupported = requirement.propertyTypes?.length === 1 && requirement.propertyTypes[0] === "office" && (requirement.locationLogic?.marketAnchor?.marketId || requirement.locationLogic?.marketAnchor?.geographyId) === "san-francisco";
   const readiness = currentSnapshot.readiness;
   const reviewedLocalIntelligence = (marketId === "san-francisco" && ["office", "retail_service", "industrial_flex"].includes(requirement.propertyTypes?.[0]))
-    || (marketId === "san-diego" && requirement.propertyTypes?.[0] === "industrial_flex");
+    || (marketId === "san-diego" && requirement.propertyTypes?.[0] === "industrial_flex")
+    || (currentSnapshot.foundationVersions?.composition === "north-orange-county-industrial-flex-evidence-foundation:v1" && requirement.propertyTypes?.[0] === "industrial_flex");
+  const northOrangeCounty = currentSnapshot.foundationVersions?.composition === "north-orange-county-industrial-flex-evidence-foundation:v1";
   const certified = reviewedLocalIntelligence && ["FULL", "BOUNDED"].includes(readiness) && (currentSnapshot.shortlist || []).length > 0;
   const universal = universalGuidance(requirement);
   const priorities = readiness === "INVESTIGATE" ? investigationPriorities(requirement) : [];
   const hasCandidates = marketId === "san-francisco" && (candidates || []).length > 0;
   const guidanceHeading = readiness === "INVESTIGATE" ? "What matters most" : hasCandidates ? "Also worth investigating" : "Locations worth investigating";
   const comparedCandidate = currentSnapshot.candidateAssessments?.[0]; const comparedAlternative = currentSnapshot.comparisonAlternatives?.[0];
-  const guidanceCopy = readiness === "FULL" ? `Based on your business and priorities, these are the ${market} areas we'd investigate first. Each offers a different combination of operating environment, business context, and practical tradeoffs.` : readiness === "BOUNDED" ? "These are peer locations supported by reviewed local evidence for this search. Individual property capabilities and some location questions still require investigation." : comparedCandidate && comparedAlternative ? `${comparedCandidate.districtName} is worth considering based on the business environment and ${isRetail ? "Retail" : "Office"} fit you described. Comparing it with ${comparedAlternative.districtName} helps show a different set of district tradeoffs.` : "Use these priorities to evaluate the areas and properties you investigate next.";
+  const guidanceCopy = northOrangeCounty && readiness !== "INVESTIGATE" ? "This is a bounded North Orange County comparison between Anaheim Canyon and the Fullerton Industrial / Service Area—not a countywide ranking. Individual property capabilities and access questions still require investigation." : readiness === "FULL" ? `Based on your business and priorities, these are the ${market} areas we'd investigate first. Each offers a different combination of operating environment, business context, and practical tradeoffs.` : readiness === "BOUNDED" ? "These are peer locations supported by reviewed local evidence for this search. Individual property capabilities and some location questions still require investigation." : comparedCandidate && comparedAlternative ? `${comparedCandidate.districtName} is worth considering based on the business environment and ${isRetail ? "Retail" : "Office"} fit you described. Comparing it with ${comparedAlternative.districtName} helps show a different set of district tradeoffs.` : "Use these priorities to evaluate the areas and properties you investigate next.";
   const next = nextStep(certified ? readiness : "INVESTIGATE", propertyContinuationSupported);
   const publicExperience = options.publicExperience === true;
   const briefUrl = publicExperience ? `/location-brief/${brief.publicId}` : `/operator/location-brief-v2/${brief.publicId}`;

@@ -24,7 +24,7 @@ function run(sql) {
 }
 function normalizePropertyType(value) { return String(value || "").trim().toLowerCase().replace(/-/g, "_"); }
 function certifiedFlow(market, propertyType) {
-  return Object.values(registry.flows).find((flow) => flow.marketId === String(market || "").trim().toLowerCase() && flow.propertyType === normalizePropertyType(propertyType));
+  return Object.values(registry.flows).find((flow) => flow.activationEligible === true && flow.certificationStatus === "certified_for_bounded_real_user_cohort" && flow.marketId === String(market || "").trim().toLowerCase() && flow.propertyType === normalizePropertyType(propertyType));
 }
 function state(flow) {
   const rows = run(`select activation_key, market_id, property_type, cohort, enabled, certification_id, updated_at, updated_by from recommendation_runtime_activations where activation_key = ${sqlValue(flow.activationKey)} limit 1`);

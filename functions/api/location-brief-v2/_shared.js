@@ -5,6 +5,7 @@ import sfOfficeModel from "../../../_data/sfOfficeRecommendationModel.js";
 import sfRetailFoundation from "../../../_data/sfRetailCompositionFoundation.js";
 import sfIndustrialFlexFoundation from "../../../_data/sfIndustrialFlexCompositionFoundation.js";
 import sanDiegoIndustrialFlexFoundation from "../../../_data/sanDiegoIndustrialFlexCompositionFoundation.js";
+import northOrangeCountyIndustrialFlexFoundation from "../../../_data/northOrangeCountyIndustrialFlexEvidenceFoundation.js";
 import districtGeography from "../../../_data/requirementPrototypeDistrictGeography.js";
 import districtPresentations from "../../../data/generated/location-brief-district-presentation.json";
 import universalIntelligence from "../../../lib/intelligence/universal-space-type-intelligence.js";
@@ -29,8 +30,11 @@ export const PUBLIC_SOURCE_ALLOWLIST = "LOCATION_BRIEF_V2_PUBLIC_SF_OFFICE_SOURC
 export const CANONICAL_PUBLIC_SOURCES = Object.freeze(["homepage", "header", "city", "space_type", "district", "example", "market_guide", "comparison", "business_brief", "product_education", "insight", "building"]);
 const SAN_DIEGO_INDUSTRIAL_FLEX_ENTRY_IDS = Object.freeze(["miramar", "otay-mesa", "kearny-mesa", "sorrento-mesa", "sorrento-valley"]);
 const SAN_DIEGO_ACTIVATION = recommendationActivationRegistry.flows["san-diego:industrial_flex:bounded"];
+const NORTH_ORANGE_COUNTY_ACTIVATION = recommendationActivationRegistry.flows["north-orange-county:industrial_flex:bounded"];
+const NORTH_ORANGE_COUNTY_MARKET_IDS = Object.freeze(["anaheim", "fullerton"]);
+const NORTH_ORANGE_COUNTY_ENTRY_IDS = Object.freeze(["anaheim-canyon", "fullerton-industrial-service-area"]);
 
-const dependencies = { accessFoundation, compositionFoundation, sfOfficeModel, sfRetailFoundation, sfIndustrialFlexFoundation, sanDiegoIndustrialFlexFoundation, districtGeography };
+const dependencies = { accessFoundation, compositionFoundation, sfOfficeModel, sfRetailFoundation, sfIndustrialFlexFoundation, sanDiegoIndustrialFlexFoundation, northOrangeCountyIndustrialFlexFoundation, districtGeography };
 const encoder = new TextEncoder();
 
 function clean(value, max = 1000) { return String(value == null ? "" : value).trim().slice(0, max); }
@@ -109,6 +113,17 @@ export function isSanDiegoIndustrialFlexEntryContext(input = {}) {
   const candidates = context.candidateDistrictIds.map((item) => item.toLowerCase());
   return context.marketId === "san-diego" && context.propertyType === "industrial_flex" && candidates.every((item) => SAN_DIEGO_INDUSTRIAL_FLEX_ENTRY_IDS.includes(item));
 }
+export function isNorthOrangeCountyIndustrialFlexRequirement(requirement = {}) {
+  const market = clean(requirement.locationLogic?.marketAnchor?.marketId || requirement.locationLogic?.marketAnchor?.geographyId, 120).toLowerCase();
+  const propertyTypes = cleanArray(requirement.propertyTypes, 6).map((item) => item.toLowerCase());
+  const candidates = cleanArray(requirement.locationLogic?.specificPreference?.candidateDistrictIds).map((item) => item.toLowerCase());
+  return NORTH_ORANGE_COUNTY_MARKET_IDS.includes(market) && propertyTypes.length === 1 && propertyTypes[0] === "industrial_flex" && candidates.every((item) => NORTH_ORANGE_COUNTY_ENTRY_IDS.includes(item));
+}
+export function isNorthOrangeCountyIndustrialFlexEntryContext(input = {}) {
+  const context = normalizeEntryContext(input);
+  const candidates = context.candidateDistrictIds.map((item) => item.toLowerCase());
+  return NORTH_ORANGE_COUNTY_MARKET_IDS.includes(context.marketId) && context.propertyType === "industrial_flex" && candidates.every((item) => NORTH_ORANGE_COUNTY_ENTRY_IDS.includes(item));
+}
 export function isSupportedPublicRequirement(requirement = {}) { return isSfOfficeRequirement(requirement) || isSfRetailRequirement(requirement) || isSfIndustrialFlexRequirement(requirement); }
 export function isSupportedPublicEntryContext(input = {}) { return isSfOfficeEntryContext(input) || isSfRetailEntryContext(input) || isSfIndustrialFlexEntryContext(input); }
 export function isUniversalPublicRequirement(requirement = {}) {
@@ -121,6 +136,7 @@ export function publicRequirementEligible(env, requirement = {}) {
   if (isSfRetailRequirement(requirement)) return publicV2Enabled(env, "retail_service");
   if (isSfIndustrialFlexRequirement(requirement)) return publicV2Enabled(env, "industrial_flex");
   if (isSanDiegoIndustrialFlexRequirement(requirement)) return publicEntryEnabled(env) && sanDiegoIndustrialFlexEnabled(env);
+  if (isNorthOrangeCountyIndustrialFlexRequirement(requirement)) return false;
   return isUniversalPublicRequirement(requirement) && String(env && env[PUBLIC_UNIVERSAL_FLAG] || "false").toLowerCase() === "true";
 }
 export function publicEntryContextEligible(env, input = {}) {
@@ -128,6 +144,7 @@ export function publicEntryContextEligible(env, input = {}) {
   const context = normalizeEntryContext(input);
   if (!context.marketId || !context.propertyType) return publicGlobalCohortEnabled(env);
   if (isSanDiegoIndustrialFlexEntryContext(context)) return sanDiegoIndustrialFlexEnabled(env);
+  if (isNorthOrangeCountyIndustrialFlexEntryContext(context)) return false;
   if (context.marketId !== "san-francisco") return ["office", "retail_service", "industrial_flex"].includes(context.propertyType) && String(env && env[PUBLIC_UNIVERSAL_FLAG] || "false").toLowerCase() === "true";
   if (context.propertyType === "retail_service") return publicV2Enabled(env, "retail_service");
   if (context.propertyType === "industrial_flex") return publicV2Enabled(env, "industrial_flex");
@@ -136,6 +153,7 @@ export function publicEntryContextEligible(env, input = {}) {
 export async function recommendationRuntimeActivationState(env, marketId, propertyType, cohort = "bounded") {
   const flow = Object.values(recommendationActivationRegistry.flows).find((item) => item.marketId === clean(marketId, 120).toLowerCase() && item.propertyType === clean(propertyType, 80).toLowerCase() && item.cohort === clean(cohort, 80).toLowerCase());
   if (!flow) return { enabled: false, source: "uncertified", reason: "UNRECOGNIZED_CERTIFIED_FLOW" };
+  if (flow.activationEligible !== true || flow.certificationStatus !== "certified_for_bounded_real_user_cohort") return { enabled: false, source: "uncertified", reason: "FLOW_NOT_CERTIFIED_FOR_ACTIVATION" };
   const database = env && (env.RECOMMENDATION_ACTIVATIONS_DB || env.LOCATION_BRIEFS_DB || env.LEADS_DB);
   if (!database) {
     const legacyEnabled = flow.activationKey === SAN_DIEGO_ACTIVATION.activationKey && sanDiegoIndustrialFlexEnabled(env);
@@ -157,12 +175,20 @@ export async function recommendationRuntimeActivationState(env, marketId, proper
   }
 }
 export async function publicRequirementEligibleAtRuntime(env, requirement = {}) {
+  if (isNorthOrangeCountyIndustrialFlexRequirement(requirement)) {
+    if (!publicEntryEnabled(env)) return false;
+    return (await recommendationRuntimeActivationState(env, NORTH_ORANGE_COUNTY_ACTIVATION.marketId, NORTH_ORANGE_COUNTY_ACTIVATION.propertyType, NORTH_ORANGE_COUNTY_ACTIVATION.cohort)).enabled;
+  }
   if (!isSanDiegoIndustrialFlexRequirement(requirement)) return publicRequirementEligible(env, requirement);
   if (!publicEntryEnabled(env)) return false;
   return (await recommendationRuntimeActivationState(env, SAN_DIEGO_ACTIVATION.marketId, SAN_DIEGO_ACTIVATION.propertyType, SAN_DIEGO_ACTIVATION.cohort)).enabled;
 }
 export async function publicEntryContextEligibleAtRuntime(env, input = {}) {
   const context = normalizeEntryContext(input);
+  if (isNorthOrangeCountyIndustrialFlexEntryContext(context)) {
+    if (!publicEntryEnabled(env)) return false;
+    return (await recommendationRuntimeActivationState(env, NORTH_ORANGE_COUNTY_ACTIVATION.marketId, NORTH_ORANGE_COUNTY_ACTIVATION.propertyType, NORTH_ORANGE_COUNTY_ACTIVATION.cohort)).enabled;
+  }
   if (!isSanDiegoIndustrialFlexEntryContext(context)) return publicEntryContextEligible(env, context);
   if (!publicEntryEnabled(env)) return false;
   return (await recommendationRuntimeActivationState(env, SAN_DIEGO_ACTIVATION.marketId, SAN_DIEGO_ACTIVATION.propertyType, SAN_DIEGO_ACTIVATION.cohort)).enabled;
@@ -236,7 +262,9 @@ export function canonicalRequirement(input = {}, entryContext = {}) {
 
 function presentationFor(item = {}) {
   const slug = item.canonicalDistrictId || item.districtId || "";
-  return districtPresentations.districts[slug] || { districtId: slug, districtName: item.districtName || slug, districtPath: item.path || "", image: null, representativeBuildings: (item.representatives || []).map((entry) => ({ name: entry.label, path: entry.path, canonicalUrl: entry.path, representativeRole: entry.role, representativeReason: entry.role, sourceConfidence: entry.confidence, propertyVerification: entry.propertyVerification })) };
+  const existing = districtPresentations.districts[slug] || { districtId: slug, districtName: item.districtName || slug, districtPath: item.path || "", image: null, representativeBuildings: [] };
+  if (!(item.representatives || []).length) return existing;
+  return { ...existing, districtName: item.districtName || existing.districtName, districtPath: item.path || existing.districtPath || "", representativeBuildings: item.representatives.map((entry) => ({ name: entry.label, path: entry.path, canonicalUrl: entry.path, representativeKind: entry.kind || "BUILDING", representativeRole: entry.role, representativeReason: entry.role, sourceConfidence: entry.confidence, reviewStatus: entry.reviewStatus, availabilitySemantics: entry.availabilitySemantics, provenance: entry.sources || entry.source || [], propertyVerification: entry.propertyVerification })) };
 }
 
 function assessmentForDistrict(requirement, district, item) {
@@ -326,7 +354,7 @@ function comparisonAlternatives(requirement, result, assessments) {
 }
 
 export function calculateSnapshot(requirement, env = {}) {
-  const result = readinessEngine.evaluateRecommendationReadiness(requirement, { ...dependencies, sanDiegoIndustrialFlexEnabled: sanDiegoIndustrialFlexEnabled(env) });
+  const result = readinessEngine.evaluateRecommendationReadiness(requirement, { ...dependencies, sanDiegoIndustrialFlexEnabled: sanDiegoIndustrialFlexEnabled(env), northOrangeCountyIndustrialFlexEnabled: env?.__northOrangeCountyIndustrialFlexEnabled === true });
   const assessments = candidateAssessments(requirement, result);
   return {
     schemaVersion: SNAPSHOT_VERSION,
@@ -344,7 +372,7 @@ export function calculateSnapshot(requirement, env = {}) {
     foundationVersions: result.propertyType === "retail_service"
       ? { access: accessFoundation.version, composition: sfRetailFoundation.schemaVersion, retail: sfRetailFoundation.schemaVersion }
       : result.propertyType === "industrial_flex"
-        ? { access: accessFoundation.version, composition: result.market === "san-diego" ? sanDiegoIndustrialFlexFoundation.schemaVersion : sfIndustrialFlexFoundation.schemaVersion, resolvedModel: result.composition?.resolvedModel || result.candidateComposition?.resolvedModel || "unresolved" }
+        ? { access: accessFoundation.version, composition: result.market === "san-diego" ? sanDiegoIndustrialFlexFoundation.schemaVersion : ["anaheim", "fullerton"].includes(result.market) && env?.__northOrangeCountyIndustrialFlexEnabled === true ? northOrangeCountyIndustrialFlexFoundation.schemaVersion : sfIndustrialFlexFoundation.schemaVersion, resolvedModel: result.composition?.resolvedModel || result.candidateComposition?.resolvedModel || "unresolved" }
       : { access: accessFoundation.version, composition: compositionFoundation.schemaVersion, office: sfOfficeModel.version || sfOfficeModel.schemaVersion || "sf-office-recommendation-model" },
   };
 }
@@ -535,11 +563,17 @@ function candidateRows(briefId, entryContext, now) {
   }).filter(Boolean);
 }
 
+async function snapshotEnvironment(env, requirement) {
+  if (!isNorthOrangeCountyIndustrialFlexRequirement(requirement)) return env;
+  const activation = await recommendationRuntimeActivationState(env, NORTH_ORANGE_COUNTY_ACTIVATION.marketId, NORTH_ORANGE_COUNTY_ACTIVATION.propertyType, NORTH_ORANGE_COUNTY_ACTIVATION.cohort);
+  return { ...env, __northOrangeCountyIndustrialFlexEnabled: activation.enabled === true };
+}
+
 export async function createBrief(env, rawRequirement, rawEntryContext = {}, changedBy = "anonymous_operator") {
   const now = new Date().toISOString(); const generated = ids();
   const entryContext = { ...normalizeEntryContext(rawEntryContext), entryContextId: generated.entryId };
   const requirement = canonicalRequirement(rawRequirement, entryContext);
-  const snapshotBody = calculateSnapshot(requirement, env);
+  const snapshotBody = calculateSnapshot(requirement, await snapshotEnvironment(env, requirement));
   const ownerCapabilityHash = await sha256(generated.ownerToken);
   const revision = { id: generated.revisionId, briefId: generated.briefId, schemaVersion: REQUIREMENT_REVISION_VERSION, revisionNumber: 1, requirement, changedBy, createdAt: now };
   const snapshot = { id: generated.snapshotId, briefId: generated.briefId, requirementRevisionId: revision.id, ...snapshotBody, createdAt: now };
@@ -635,7 +669,7 @@ export async function savePropertyRequirementDraft(env, bundle, answers, expecte
 export async function reviseBrief(env, bundle, rawRequirement, expectedRevision, changedBy = "anonymous_operator") {
   if (Number(expectedRevision) !== Number(bundle.currentRevision.revisionNumber)) { const error = new Error("The Brief changed in another session. Refresh before saving."); error.status = 409; throw error; }
   const now = new Date().toISOString(); const requirement = canonicalRequirement(rawRequirement, bundle.entryContext); const revision = { id: crypto.randomUUID(), briefId: bundle.brief.id, schemaVersion: REQUIREMENT_REVISION_VERSION, revisionNumber: bundle.currentRevision.revisionNumber + 1, requirement, changedBy, createdAt: now };
-  const snapshot = { id: crypto.randomUUID(), briefId: bundle.brief.id, requirementRevisionId: revision.id, ...calculateSnapshot(requirement, env), createdAt: now };
+  const snapshot = { id: crypto.randomUUID(), briefId: bundle.brief.id, requirementRevisionId: revision.id, ...calculateSnapshot(requirement, await snapshotEnvironment(env, requirement)), createdAt: now };
   const lifecycleStage = snapshot.readiness === "INVESTIGATE" ? "LOCATION_INVESTIGATE" : "LOCATIONS_RECOMMENDED";
   if (storageKind(env) === "d1") {
     const database = db(env); await database.batch([
