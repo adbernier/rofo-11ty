@@ -3,17 +3,11 @@ import {
   MISSION_CONTROL_NAV_CSS,
   renderMissionControlHeader,
 } from "./mission-control-nav.js";
+import { assessBrokerReadiness, BROKER_READINESS } from "../_shared/project-snapshot.js";
 
 const KPI_WINDOWS = [7, 30];
-const RECENT_BRIEF_LIMIT = 50;
+const RECENT_BRIEF_LIMIT = 100;
 const TOP_LIMIT = 6;
-const PIPELINE_STATUSES = [
-  ["expert_review_requested", "Expert Review Requested"],
-  ["broker_assigned", "Broker Assigned"],
-  ["under_review", "Under Review"],
-  ["tour_planning", "Tour Planning"],
-  ["completed", "Completed"],
-];
 
 function adminResponse(body, status = 200) {
   return new Response(body, {
@@ -50,11 +44,15 @@ function lookbackStartIso(days) {
   return new Date(Date.now() - (days * 24 * 60 * 60 * 1000)).toISOString();
 }
 
-function percent(numerator, denominator) {
-  const top = Number(numerator || 0);
-  const bottom = Number(denominator || 0);
-  if (!bottom) return "0%";
-  return `${Math.round((top / bottom) * 100)}%`;
+const CLEARLY_NON_CUSTOMER = /(?:^|[^a-z])(?:qa|test|fixture|synthetic|certification|operator(?:_requirement|[-_ ]probe)?|codex)(?:[^a-z]|$)/i;
+const SENT_STATUSES = new Set(["approved_sent", "broker_sent", "both_sent", "partial_sent"]);
+
+export function isClearlyNonCustomerRecord(value = {}) {
+  const status = String(value.status || "").toLowerCase();
+  if (["spam_quarantined", "rejected_spam", "rejected"].includes(status)) return true;
+  const source = [value.source, value.sourceType, value.createdFrom, value.campaign, value.profileVersion]
+    .filter(Boolean).join(" ");
+  return CLEARLY_NON_CUSTOMER.test(source);
 }
 
 function statusLabel(value) {
@@ -93,6 +91,16 @@ async function countSearchEvents(env, eventNames, days) {
   }
 }
 
+async function queryRows(db, sql, bindings = []) {
+  const result = await db.prepare(sql).bind(...bindings).all();
+  return result.results || [];
+}
+
+async function firstCount(db, sql, bindings = []) {
+  const row = await db.prepare(sql).bind(...bindings).first();
+  return Number(row && row.count || 0);
+}
+
 async function countLocationBriefEvents(env, eventName, days) {
   const db = getLocationBriefDb(env);
   if (!db) return 0;
@@ -117,9 +125,9 @@ async function loadKpis(env) {
       days,
       promptClicks: await countSearchEvents(env, "recommendation_prompt_clicked", days),
       findLocationsStarts: await countSearchEvents(env, "find_locations_page_viewed", days),
-      // Recommendation page views were not historically tracked. Keep these future event names here
-      // so the dashboard starts reporting immediately once the product emits either event.
-      recommendationsViewed: await countSearchEvents(env, ["recommendations_viewed", "recommendation_context_created"], days),
+      // Raw v2 view activity is retained only in Activity Diagnostics; the canonical
+      // intelligence-delivery count comes from durable current recommendation snapshots.
+      briefViewsV2: await countSearchEvents(env, "vnext_brief_viewed", days),
       locationBriefsCreated: await countLocationBriefEvents(env, "location_brief_created", days),
       expertReviewsRequested: await countLocationBriefEvents(env, "expert_review_requested", days),
     });
@@ -127,16 +135,86 @@ async function loadKpis(env) {
   return rows;
 }
 
-async function loadLeadRows(env) {
+async function loadCustomerFunnel(env, days = 30) {
+  const db = env.LEADS_DB;
+  if (!db) return null;
+  const since = lookbackStartIso(days);
+  const result = {
+    days,
+    engaged: null,
+    requirementsCreated: null,
+    intelligence: { FULL: 0, BOUNDED: 0, INVESTIGATE: 0, total: 0 },
+    briefEngaged: null,
+    continuationRequested: null,
+    fulfillmentSent: null,
+  };
+  try {
+    result.engaged = await firstCount(db, `
+      select count(distinct coalesce(
+        nullif(json_extract(event_json, '$.attribution.session_id'), ''),
+        nullif(json_extract(event_json, '$.context.journey_id'), ''), id
+      )) as count
+      from search_profile_events
+      where created_at >= ? and event_name in ('search_profile_started', 'vnext_requirement_started')
+        and lower(event_json) not like '%certification%'
+        and lower(event_json) not like '%synthetic%'
+        and lower(event_json) not like '%operator_requirement%'
+    `, [since]);
+  } catch (error) { if (!isMissingTable(error, "search_profile_events")) throw error; }
+  let legacyLeadRequirements = 0; let v2Requirements = 0;
+  try { legacyLeadRequirements = await firstCount(db, `select count(distinct l.id) as count from leads l left join location_brief_v2_commercial_requests cr on cr.lead_id = l.id where l.created_at >= ? and cr.lead_id is null and l.status not in ('spam_quarantined','rejected_spam','rejected') and lower(coalesce(json_extract(l.lead_json, '$.source'), json_extract(l.lead_json, '$.created_from'), '')) not like '%test%' and lower(coalesce(json_extract(l.lead_json, '$.source'), json_extract(l.lead_json, '$.created_from'), '')) not like '%qa%' and lower(coalesce(json_extract(l.lead_json, '$.source'), json_extract(l.lead_json, '$.created_from'), '')) not like '%operator%'`, [since]); } catch (error) { if (!isMissingTable(error, "leads")) throw error; }
+  try { v2Requirements = await firstCount(db, `select count(distinct b.id) as count from location_briefs_v2 b join location_brief_v2_entry_contexts e on e.id = b.entry_context_id where b.created_at >= ? and b.archived_at is null and lower(coalesce(json_extract(e.context_json, '$.sourceType'), '')) not like '%test%' and lower(coalesce(json_extract(e.context_json, '$.sourceType'), '')) not like '%qa%' and lower(coalesce(json_extract(e.context_json, '$.sourceType'), '')) not like '%operator%' and lower(coalesce(json_extract(e.context_json, '$.sourceType'), '')) not like '%certification%'`, [since]); } catch (error) { if (!isMissingTable(error, "location_briefs_v2")) throw error; }
+  result.requirementsCreated = legacyLeadRequirements + v2Requirements;
+  try {
+    const rows = await queryRows(db, `
+      select upper(s.readiness) as readiness, count(distinct b.id) as count
+      from location_briefs_v2 b
+      join location_brief_v2_recommendation_snapshots s on s.id = b.current_recommendation_snapshot_id
+      join location_brief_v2_entry_contexts e on e.id = b.entry_context_id
+      where b.created_at >= ? and b.archived_at is null
+        and lower(coalesce(json_extract(e.context_json, '$.sourceType'), '')) not like '%test%'
+        and lower(coalesce(json_extract(e.context_json, '$.sourceType'), '')) not like '%qa%'
+        and lower(coalesce(json_extract(e.context_json, '$.sourceType'), '')) not like '%operator%'
+        and lower(coalesce(json_extract(e.context_json, '$.sourceType'), '')) not like '%certification%'
+      group by upper(s.readiness)
+    `, [since]);
+    for (const row of rows) if (Object.hasOwn(result.intelligence, row.readiness)) result.intelligence[row.readiness] = Number(row.count || 0);
+    result.intelligence.total = result.intelligence.FULL + result.intelligence.BOUNDED + result.intelligence.INVESTIGATE;
+  } catch (error) { if (!isMissingTable(error, "location_briefs_v2")) throw error; }
+  try {
+    result.briefEngaged = await firstCount(db, `
+      select count(distinct coalesce(nullif(json_extract(event_json, '$.context.brief_id'), ''), '') || ':' ||
+        coalesce(nullif(json_extract(event_json, '$.attribution.session_id'), ''), id)) as count
+      from search_profile_events where created_at >= ? and event_name = 'vnext_brief_viewed'
+    `, [since]);
+  } catch (error) { if (!isMissingTable(error, "search_profile_events")) throw error; }
+  try {
+    result.continuationRequested = await firstCount(db, `
+      select count(*) as count from location_brief_v2_commercial_requests
+      where created_at >= ? and status = 'created'
+    `, [since]);
+  } catch (error) { if (!isMissingTable(error, "location_brief_v2_commercial_requests")) throw error; }
+  try {
+    const leadSent = await firstCount(db, `select count(distinct id) as count from leads where sent_at >= ? and status in ('approved_sent','broker_sent','both_sent','partial_sent')`, [since]);
+    let referralOnly = 0;
+    try {
+      referralOnly = await firstCount(db, `select count(distinct r.lead_id) as count from referrals r left join leads l on l.id = r.lead_id where r.sent_at >= ? and (l.id is null or l.sent_at is null or l.sent_at < ?)`, [since, since]);
+    } catch (error) { if (!isMissingTable(error, "referrals")) throw error; }
+    result.fulfillmentSent = leadSent + referralOnly;
+  } catch (error) { if (!isMissingTable(error, "leads")) throw error; }
+  return result;
+}
+
+async function loadLeadRows(env, days = 30) {
   if (!env.LEADS_DB) return [];
   try {
     const result = await env.LEADS_DB.prepare(`
       select id, status, lead_json, created_at
       from leads
-      where status in ('expert_review_requested', 'broker_assigned', 'under_review', 'tour_planning', 'completed')
+      where created_at >= ?
       order by created_at desc
       limit ?
-    `).bind(RECENT_BRIEF_LIMIT).all();
+    `).bind(lookbackStartIso(days), RECENT_BRIEF_LIMIT).all();
     return result.results || [];
   } catch (error) {
     if (isMissingTable(error, "leads")) return [];
@@ -146,6 +224,7 @@ async function loadLeadRows(env) {
 
 function normalizeBriefLeadRow(row) {
   const lead = parseJson(row.lead_json);
+  const readiness = assessBrokerReadiness(lead);
   return {
     id: row.id,
     status: row.status || lead.status || "expert_review_requested",
@@ -163,14 +242,109 @@ function normalizeBriefLeadRow(row) {
       .split(",")
       .map((item) => item.trim())
       .filter(Boolean),
+    version: lead.location_brief_public_id ? "v1/lead" : "lead",
+    recommendationReadiness: lead.recommendation_readiness || "",
+    brokerReadiness: readiness.status,
+    source: lead.source || lead.created_from || lead.entry_source || "",
+    sourceType: lead.source_type || "",
+    campaign: lead.campaign || "",
+    createdFrom: lead.created_from || "",
   };
 }
 
-function loadPipeline(rows) {
-  const counts = Object.fromEntries(PIPELINE_STATUSES.map(([status]) => [status, 0]));
+async function loadV2RequirementRows(env, days = 30) {
+  if (!env.LEADS_DB) return [];
+  try {
+    return await queryRows(env.LEADS_DB, `
+      select b.id, b.public_id, b.lifecycle_stage, b.created_at,
+        r.requirement_json, s.readiness, e.context_json,
+        cr.lead_id, l.status as lead_status, l.lead_json
+      from location_briefs_v2 b
+      join location_brief_v2_requirement_revisions r on r.id = b.current_requirement_revision_id
+      left join location_brief_v2_recommendation_snapshots s on s.id = b.current_recommendation_snapshot_id
+      left join location_brief_v2_entry_contexts e on e.id = b.entry_context_id
+      left join location_brief_v2_commercial_requests cr on cr.brief_id = b.id and cr.status = 'created'
+        and cr.property_draft_revision = (select max(cr2.property_draft_revision) from location_brief_v2_commercial_requests cr2 where cr2.brief_id = b.id and cr2.status = 'created')
+      left join leads l on l.id = cr.lead_id
+      where b.created_at >= ? and b.archived_at is null
+      order by b.created_at desc limit ?
+    `, [lookbackStartIso(days), RECENT_BRIEF_LIMIT]);
+  } catch (error) {
+    if (isMissingTable(error, "location_briefs_v2")) return [];
+    throw error;
+  }
+}
+
+function criterionText(requirement, dimension) {
+  const item = (requirement.criteria || []).find((entry) => entry.dimension === dimension);
+  const value = item && item.value;
+  return String(value && (value.text || value.label || value.value) || "").trim();
+}
+
+function normalizeV2RequirementRow(row) {
+  const requirement = parseJson(row.requirement_json);
+  const context = parseJson(row.context_json);
+  const lead = parseJson(row.lead_json);
+  const anchor = requirement.locationLogic && requirement.locationLogic.marketAnchor || {};
+  const business = requirement.businessIdentity || {};
+  const projectedLead = lead && Object.keys(lead).length ? lead : {
+    requested_space_type: requirement.propertyTypes && requirement.propertyTypes[0],
+    location_display: anchor.displayName || [anchor.city, anchor.state].filter(Boolean).join(", "),
+    specific_business_use: business.specificUse || business.specific || business.displayName || business.canonical,
+    space_needed: criterionText(requirement, "capacity.approximate_size") || criterionText(requirement, "capacity.size"),
+    move_timing: criterionText(requirement, "timing.target") || criterionText(requirement, "timing"),
+  };
+  const hasLead = Boolean(row.lead_id && lead && Object.keys(lead).length);
+  const readiness = hasLead ? assessBrokerReadiness(projectedLead) : null;
+  return {
+    id: row.id,
+    leadId: row.lead_id || "",
+    status: row.lead_status || row.lifecycle_stage || "requirement_created",
+    createdAt: row.created_at || "",
+    publicId: row.public_id || "",
+    briefUrl: row.public_id ? `/location-brief/${encodeURIComponent(row.public_id)}` : "",
+    customer: lead.name || "",
+    email: lead.email || "",
+    company: lead.company || "",
+    market: anchor.displayName || [anchor.city, anchor.state].filter(Boolean).join(", ") || anchor.marketName || anchor.marketId || "",
+    spaceType: requirement.propertyTypes && requirement.propertyTypes[0] || "",
+    size: criterionText(requirement, "capacity.approximate_size") || criterionText(requirement, "capacity.size") || lead.space_needed || "",
+    priorities: [],
+    version: "v2",
+    recommendationReadiness: String(row.readiness || "").toUpperCase(),
+    brokerReadiness: readiness ? readiness.status : "NOT_ASSESSED",
+    source: context.sourceType || "",
+    sourceType: context.sourceType || "",
+    campaign: context.campaign || "",
+    createdFrom: context.sourcePath || "",
+  };
+}
+
+export function mergeRecentRequirements(leadRows, v2Rows) {
+  const v2LeadIds = new Set(v2Rows.map((row) => row.leadId).filter(Boolean));
+  return [...v2Rows, ...leadRows.filter((row) => !v2LeadIds.has(row.id))]
+    .filter((row) => !isClearlyNonCustomerRecord(row))
+    .sort((a, b) => String(b.createdAt).localeCompare(String(a.createdAt)))
+    .slice(0, RECENT_BRIEF_LIMIT);
+}
+
+function loadOperationalFulfillment(rows) {
+  const counts = {
+    valid: 0,
+    brokerReady: 0,
+    needsQualification: 0,
+    insufficient: 0,
+    underReview: 0,
+    sent: 0,
+  };
   for (const row of rows) {
-    const status = row.status || "expert_review_requested";
-    if (counts[status] !== undefined) counts[status] += 1;
+    if (isClearlyNonCustomerRecord(row)) continue;
+    if (!["spam_quarantined", "rejected_spam", "rejected"].includes(String(row.status || "").toLowerCase())) counts.valid += 1;
+    if (row.brokerReadiness === BROKER_READINESS.READY) counts.brokerReady += 1;
+    if (row.brokerReadiness === BROKER_READINESS.NEEDS_QUALIFICATION) counts.needsQualification += 1;
+    if (row.brokerReadiness === BROKER_READINESS.INSUFFICIENT) counts.insufficient += 1;
+    if (["pending", "expert_review_requested", "market_investigation_requested", "broker_assigned", "under_review", "tour_planning"].includes(row.status)) counts.underReview += 1;
+    if (SENT_STATUSES.has(row.status)) counts.sent += 1;
   }
   return counts;
 }
@@ -192,18 +366,34 @@ function loadDemand(rows) {
   const markets = new Map();
   const spaceTypes = new Map();
   const priorities = new Map();
+  const readiness = new Map();
 
   for (const row of rows) {
     addCount(markets, row.market);
     addCount(spaceTypes, row.spaceType);
     row.priorities.forEach((priority) => addCount(priorities, priority));
+    addCount(readiness, statusLabel(row.brokerReadiness || "Unknown"));
   }
 
   return {
     markets: topEntries(markets),
     spaceTypes: topEntries(spaceTypes),
     priorities: topEntries(priorities),
+    readiness: topEntries(readiness),
   };
+}
+
+function loadRecommendationPerformance(rows) {
+  const grouped = new Map();
+  for (const row of rows) {
+    if (row.version !== "v2" || !row.recommendationReadiness) continue;
+    const key = `${row.market || "Unknown"}|||${statusLabel(row.spaceType || "Unknown")}`;
+    const current = grouped.get(key) || { market: row.market || "Unknown", spaceType: statusLabel(row.spaceType || "Unknown"), requirements: 0, FULL: 0, BOUNDED: 0, INVESTIGATE: 0 };
+    current.requirements += 1;
+    if (Object.hasOwn(current, row.recommendationReadiness)) current[row.recommendationReadiness] += 1;
+    grouped.set(key, current);
+  }
+  return [...grouped.values()].sort((a, b) => b.requirements - a.requirements || a.market.localeCompare(b.market)).slice(0, 12);
 }
 
 function healthStatus(value) {
@@ -235,18 +425,26 @@ function metricCard(label, rowKey, kpis) {
   `;
 }
 
-function renderPipeline(pipeline) {
+function renderOperationalFulfillment(operations) {
+  const cards = [
+    ["Valid requirements", operations.valid],
+    ["Broker ready", operations.brokerReady],
+    ["Needs qualification", operations.needsQualification],
+    ["Insufficient requirement", operations.insufficient],
+    ["Approved / under review", operations.underReview],
+    ["Sent to fulfillment", operations.sent],
+  ];
   return `
     <section class="panel">
       <div class="section-heading">
-        <h2>Active Pipeline</h2>
-        <p>Operational status across Location Brief and expert review workflow.</p>
+        <h2>Operational Fulfillment</h2>
+        <p>Requirement quality and fulfillment state for recent Requirements; broker readiness is assessed when lead context exists. These are operational dimensions, not funnel stages.</p>
       </div>
       <div class="pipeline-grid">
-        ${PIPELINE_STATUSES.map(([status, label]) => `
+        ${cards.map(([label, count]) => `
           <article class="pipeline-card">
             <span>${escapeHtml(label)}</span>
-            <strong>${escapeHtml(pipeline[status] || 0)}</strong>
+            <strong>${escapeHtml(count || 0)}</strong>
           </article>
         `).join("")}
       </div>
@@ -256,7 +454,7 @@ function renderPipeline(pipeline) {
 
 function renderBriefRows(rows) {
   if (!rows.length) {
-    return `<tr><td colspan="9" class="empty">No Location Brief expert-review requests yet.</td></tr>`;
+    return `<tr><td colspan="11" class="empty">No recent Requirements in this window.</td></tr>`;
   }
   return rows.map((row) => `
     <tr>
@@ -270,6 +468,8 @@ function renderBriefRows(rows) {
       <td>${escapeHtml(row.spaceType || "—")}</td>
       <td>${escapeHtml(row.size || "—")}</td>
       <td><span class="badge">${escapeHtml(statusLabel(row.status))}</span></td>
+      <td>${escapeHtml(statusLabel(row.brokerReadiness || "Unknown"))}</td>
+      <td>${escapeHtml(row.recommendationReadiness || "—")}</td>
       <td>${escapeHtml(formatDate(row.createdAt))}</td>
       <td>${row.briefUrl ? `<a class="button-link" href="${escapeHtml(row.briefUrl)}">View Brief</a>` : "—"}</td>
     </tr>
@@ -281,8 +481,8 @@ function renderRecentBriefs(rows, token) {
     <section class="panel panel--table">
       <div class="section-heading section-heading--row">
         <div>
-          <h2>Recent Location Briefs / Expert Reviews</h2>
-          <p>Latest Location Brief submissions stored in the lead dashboard workflow.</p>
+          <h2>Recent Requirements</h2>
+          <p>Current v1 and v2 persisted Requirements from the last 30 rolling days; clearly marked QA, synthetic, operator-probe, and spam records are excluded.</p>
         </div>
         <a class="button-link" href="/admin/leads?token=${encodeURIComponent(token)}">Lead Dashboard</a>
       </div>
@@ -297,6 +497,8 @@ function renderRecentBriefs(rows, token) {
               <th>Space Type</th>
               <th>Size</th>
               <th>Status</th>
+              <th>Broker Readiness</th>
+              <th>Recommendation</th>
               <th>Submitted</th>
               <th>View</th>
             </tr>
@@ -326,46 +528,60 @@ function renderDemand(demand) {
     <section class="panel">
       <div class="section-heading">
         <h2>Market Demand</h2>
-        <p>Basic demand signals from submitted Location Briefs.</p>
+        <p>Demand from the same current persisted Requirements shown above, within the explicit 30-day window—not page traffic.</p>
       </div>
       <div class="demand-grid">
         ${renderDemandList("Top requested markets", demand.markets)}
         ${renderDemandList("Top space types", demand.spaceTypes)}
-        ${renderDemandList("Most common priorities", demand.priorities)}
+        ${renderDemandList("Broker readiness", demand.readiness || [])}
       </div>
     </section>
   `;
 }
 
-function renderFunnel(kpis) {
-  const row = kpis.find((item) => item.days === 30) || {};
+function measurable(value) { return value === null || value === undefined ? "Not yet measurable" : value; }
+
+function renderCustomerFunnel(funnel) {
   const steps = [
-    ["Prompt Clicks", row.promptClicks || 0],
-    ["Find Locations", row.findLocationsStarts || 0],
-    ["Recommendations", row.recommendationsViewed || 0],
-    ["Brief Created", row.locationBriefsCreated || 0],
-    ["Expert Review", row.expertReviewsRequested || 0],
+    ["Location Search Engaged", measurable(funnel && funnel.engaged), "Unique journey/session with a meaningful start event"],
+    ["Requirement Created", measurable(funnel && funnel.requirementsCreated), "Unique persisted v1 + v2 Requirements"],
+    ["Location Intelligence Delivered", measurable(funnel && funnel.intelligence && funnel.intelligence.total), "Current v2 recommendation snapshots"],
+    ["Location Brief Engaged", measurable(funnel && funnel.briefEngaged), "Unique v2 Brief × viewer session"],
+    ["Space Search Continuation Requested", measurable(funnel && funnel.continuationRequested), "Persisted v2 commercial requests"],
+    ["Fulfillment Sent", measurable(funnel && funnel.fulfillmentSent), "Unique successfully sent leads/referrals"],
   ];
   return `
     <section class="panel">
       <div class="section-heading">
-        <h2>Operational Funnel</h2>
-        <p>Last 30 days. Recommendations currently reports once the corresponding event is emitted.</p>
+        <h2>Customer Funnel</h2>
+        <p>Last 30 rolling days (UTC). Counts use the most durable honest source available. No conversion rate is shown where stages cannot be linked to one eligible cohort.</p>
       </div>
       <div class="funnel">
-        ${steps.map(([label, count], index) => {
-          const previous = index > 0 ? steps[index - 1][1] : count;
-          return `
+        ${steps.map(([label, count, denominator]) => `
             <article>
               <span>${escapeHtml(label)}</span>
               <strong>${escapeHtml(count)}</strong>
-              ${index > 0 ? `<small>${escapeHtml(percent(count, previous))} from previous</small>` : `<small>Entry step</small>`}
+              <small>${escapeHtml(denominator)}</small>
             </article>
-          `;
-        }).join("")}
+        `).join("")}
+      </div>
+      <div class="readiness-grid">
+        ${["FULL", "BOUNDED", "INVESTIGATE"].map((state) => `<article><span>${state}</span><strong>${escapeHtml(funnel && funnel.intelligence ? funnel.intelligence[state] : 0)}</strong></article>`).join("")}
       </div>
     </section>
   `;
+}
+
+function renderAcquisition(kpis) {
+  return `<section class="panel"><div class="section-heading"><h2>Acquisition / Entry</h2><p>Unfiltered activity. These counters are not sequential and are not conversion denominators.</p></div><section class="metrics" aria-label="Acquisition activity">${metricCard("Recommendation Prompt Clicks", "promptClicks", kpis)}${metricCard("Find Locations Page Entries", "findLocationsStarts", kpis)}</section></section>`;
+}
+
+function renderRecommendationPerformance(rows) {
+  return `<section class="panel panel--table"><div class="section-heading"><h2>Recommendation Intelligence Performance</h2><p>Current v2 Requirement and snapshot outcomes by market and property type, last 30 rolling days.</p></div><div class="table-wrap"><table><thead><tr><th>Market</th><th>Property type</th><th>Requirements</th><th>FULL</th><th>BOUNDED</th><th>INVESTIGATE</th></tr></thead><tbody>${rows.length ? rows.map((row) => `<tr><td>${escapeHtml(row.market)}</td><td>${escapeHtml(row.spaceType)}</td><td>${row.requirements}</td><td>${row.FULL}</td><td>${row.BOUNDED}</td><td>${row.INVESTIGATE}</td></tr>`).join("") : `<tr><td colspan="6" class="empty">No current v2 recommendation snapshots in this window.</td></tr>`}</tbody></table></div></section>`;
+}
+
+function renderLegacyDiagnostics(kpis) {
+  return `<section class="panel"><div class="section-heading"><h2>Activity Diagnostics</h2><p>Legacy/raw counters retained for observability. They are not the canonical customer funnel.</p></div><section class="metrics">${metricCard("Legacy v1 Brief Events", "locationBriefsCreated", kpis)}${metricCard("Legacy Expert Review Events", "expertReviewsRequested", kpis)}${metricCard("Raw v2 Brief View Events", "briefViewsV2", kpis)}</section></section>`;
 }
 
 function renderHealth(env) {
@@ -464,7 +680,7 @@ function renderAdminModules(token) {
   `;
 }
 
-function renderPage({ token, kpis, pipeline, recentBriefs, demand, errors, env }) {
+function renderPage({ token, kpis, customerFunnel, operations, recentBriefs, demand, recommendationPerformance, errors, env }) {
   return `<!doctype html>
 <html lang="en">
 <head>
@@ -484,7 +700,7 @@ function renderPage({ token, kpis, pipeline, recentBriefs, demand, errors, env }
     header p, .section-heading p { color: var(--muted); line-height: 1.55; }
     .button-link { display: inline-flex; align-items: center; justify-content: center; min-height: 36px; padding: 0 12px; border: 1px solid var(--border); border-radius: 999px; background: #fff; color: var(--blue); font-size: 0.9rem; font-weight: 800; text-decoration: none; white-space: nowrap; }
     .button-link--active { border-color: #bfdbfe; background: #eff6ff; color: #1e40af; }
-    .metrics { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; margin-bottom: 16px; }
+    .metrics { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-bottom: 0; }
     .metric-card, .panel, .pipeline-card, .demand-card, .health-card { border: 1px solid var(--border); background: var(--surface); box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06); }
     .metric-card { display: grid; gap: 6px; padding: 16px; border-radius: 16px; }
     .metric-card span, .pipeline-card span, .health-card span { color: var(--muted); font-size: 0.76rem; font-weight: 900; letter-spacing: 0.04em; text-transform: uppercase; }
@@ -493,7 +709,7 @@ function renderPage({ token, kpis, pipeline, recentBriefs, demand, errors, env }
     .panel { margin-top: 16px; padding: 20px; border-radius: 18px; }
     .section-heading { display: grid; gap: 6px; margin-bottom: 14px; }
     .section-heading--row { display: flex; justify-content: space-between; gap: 16px; align-items: center; }
-    .pipeline-grid, .health-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; }
+    .pipeline-grid, .health-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
     .pipeline-card, .health-card { display: grid; gap: 8px; padding: 14px; border-radius: 14px; box-shadow: none; }
     .pipeline-card strong { font-size: 1.8rem; }
     .table-wrap { overflow-x: auto; }
@@ -510,12 +726,15 @@ function renderPage({ token, kpis, pipeline, recentBriefs, demand, errors, env }
     .demand-card ol { display: grid; gap: 9px; margin: 0; padding: 0; list-style: none; }
     .demand-card li { display: flex; justify-content: space-between; gap: 12px; color: #334155; }
     .demand-card li strong { color: var(--ink); }
-    .funnel { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; }
+    .funnel { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
     .funnel article { position: relative; padding: 14px; border: 1px solid #cfdcf0; border-radius: 14px; background: linear-gradient(180deg, #fff 0%, #f8fbff 100%); }
-    .funnel article:not(:last-child)::after { content: "→"; position: absolute; right: -9px; top: 50%; transform: translateY(-50%); color: var(--muted); font-weight: 900; }
     .funnel span { display: block; color: var(--muted); font-size: 0.75rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.04em; }
     .funnel strong { display: block; margin-top: 8px; font-size: 1.7rem; }
     .funnel small { color: var(--muted); }
+    .readiness-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 10px; margin-top: 12px; }
+    .readiness-grid article { padding: 12px 14px; border: 1px solid var(--border); border-radius: 12px; background: #f8fbff; }
+    .readiness-grid span { display: block; color: var(--muted); font-size: .72rem; font-weight: 900; }
+    .readiness-grid strong { font-size: 1.45rem; }
     .health--ok { color: var(--green); }
     .health--bad { color: var(--red); }
     .health--unknown { color: #92400e; }
@@ -551,19 +770,14 @@ function renderPage({ token, kpis, pipeline, recentBriefs, demand, errors, env }
 
     ${errors.length ? `<div class="notice">Some operations data could not be loaded: ${errors.map(escapeHtml).join(" ")}</div>` : ""}
 
-    <section class="metrics" aria-label="Operational KPIs">
-      ${metricCard("Recommendation Prompt Clicks", "promptClicks", kpis)}
-      ${metricCard("Find Locations Starts", "findLocationsStarts", kpis)}
-      ${metricCard("Recommendations Viewed", "recommendationsViewed", kpis)}
-      ${metricCard("Location Briefs Created", "locationBriefsCreated", kpis)}
-      ${metricCard("Expert Reviews Requested", "expertReviewsRequested", kpis)}
-    </section>
-
+    ${renderAcquisition(kpis)}
+    ${renderCustomerFunnel(customerFunnel)}
+    ${renderOperationalFulfillment(operations)}
+    ${renderRecommendationPerformance(recommendationPerformance)}
     ${renderAdminModules(token)}
-    ${renderPipeline(pipeline)}
     ${renderRecentBriefs(recentBriefs, token)}
     ${renderDemand(demand)}
-    ${renderFunnel(kpis)}
+    ${renderLegacyDiagnostics(kpis)}
     ${renderHealth(env)}
   </main>
 </body>
@@ -587,11 +801,12 @@ export async function onRequestGet({ request, env }) {
     days,
     promptClicks: 0,
     findLocationsStarts: 0,
-    recommendationsViewed: 0,
+    briefViewsV2: 0,
     locationBriefsCreated: 0,
     expertReviewsRequested: 0,
   }));
   let recentBriefs = [];
+  let customerFunnel = null;
 
   try {
     kpis = await loadKpis(env);
@@ -600,20 +815,28 @@ export async function onRequestGet({ request, env }) {
   }
 
   try {
-    recentBriefs = (await loadLeadRows(env)).map(normalizeBriefLeadRow);
+    const leadRows = (await loadLeadRows(env, 30)).map(normalizeBriefLeadRow);
+    const v2Rows = (await loadV2RequirementRows(env, 30)).map(normalizeV2RequirementRow);
+    recentBriefs = mergeRecentRequirements(leadRows, v2Rows);
   } catch (error) {
-    errors.push(error.message || "Location Brief lead rows failed.");
+    errors.push(error.message || "Recent Requirement rows failed.");
   }
 
-  const pipeline = loadPipeline(recentBriefs);
+  try { customerFunnel = await loadCustomerFunnel(env, 30); }
+  catch (error) { errors.push(error.message || "Customer funnel queries failed."); }
+
+  const operations = loadOperationalFulfillment(recentBriefs);
   const demand = loadDemand(recentBriefs);
+  const recommendationPerformance = loadRecommendationPerformance(recentBriefs);
 
   return adminResponse(renderPage({
     token,
     kpis,
-    pipeline,
+    customerFunnel,
+    operations,
     recentBriefs,
     demand,
+    recommendationPerformance,
     errors,
     env,
   }));
