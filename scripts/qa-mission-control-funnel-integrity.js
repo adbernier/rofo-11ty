@@ -38,6 +38,7 @@ assert(source.includes("current_recommendation_snapshot_id"), "Recommendation ou
 assert(source.includes("isClearlyNonCustomerRecord"), "A reusable clear test/operator exclusion must be present.");
 assert(source.includes("Last 30 rolling days (UTC)"), "The reporting window must be explicit.");
 assert(source.includes("Not yet measurable"), "Unavailable stages must have an honest fallback.");
+assert(source.includes("broker ready among") && source.includes("operations.assessed"), "The only displayed quality rate must name its assessed-Requirement denominator.");
 
 const temp = fs.mkdtempSync(path.join(os.tmpdir(), "rofo-funnel-integrity-"));
 const bundled = path.join(temp, "operations.cjs");

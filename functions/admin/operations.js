@@ -336,6 +336,8 @@ function loadOperationalFulfillment(rows) {
     insufficient: 0,
     underReview: 0,
     sent: 0,
+    assessed: 0,
+    brokerReadyRate: null,
   };
   for (const row of rows) {
     if (isClearlyNonCustomerRecord(row)) continue;
@@ -343,9 +345,11 @@ function loadOperationalFulfillment(rows) {
     if (row.brokerReadiness === BROKER_READINESS.READY) counts.brokerReady += 1;
     if (row.brokerReadiness === BROKER_READINESS.NEEDS_QUALIFICATION) counts.needsQualification += 1;
     if (row.brokerReadiness === BROKER_READINESS.INSUFFICIENT) counts.insufficient += 1;
+    if ([BROKER_READINESS.READY, BROKER_READINESS.NEEDS_QUALIFICATION, BROKER_READINESS.INSUFFICIENT].includes(row.brokerReadiness)) counts.assessed += 1;
     if (["pending", "expert_review_requested", "market_investigation_requested", "broker_assigned", "under_review", "tour_planning"].includes(row.status)) counts.underReview += 1;
-    if (SENT_STATUSES.has(row.status)) counts.sent += 1;
+    if (SENT_STATUSES.has(row.status) || row.status === "officefinder_sent") counts.sent += 1;
   }
+  counts.brokerReadyRate = counts.assessed ? `${Math.round((counts.brokerReady / counts.assessed) * 100)}%` : null;
   return counts;
 }
 
@@ -440,6 +444,7 @@ function renderOperationalFulfillment(operations) {
         <h2>Operational Fulfillment</h2>
         <p>Requirement quality and fulfillment state for recent Requirements; broker readiness is assessed when lead context exists. These are operational dimensions, not funnel stages.</p>
       </div>
+      <p class="quality-note">Requirement quality: ${operations.brokerReadyRate || "Not yet measurable"} broker ready among ${operations.assessed || 0} lead-backed Requirements assessed in this window.</p>
       <div class="pipeline-grid">
         ${cards.map(([label, count]) => `
           <article class="pipeline-card">
@@ -712,6 +717,7 @@ function renderPage({ token, kpis, customerFunnel, operations, recentBriefs, dem
     .pipeline-grid, .health-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
     .pipeline-card, .health-card { display: grid; gap: 8px; padding: 14px; border-radius: 14px; box-shadow: none; }
     .pipeline-card strong { font-size: 1.8rem; }
+    .quality-note { margin-top: 12px; color: var(--muted); font-size: .9rem; }
     .table-wrap { overflow-x: auto; }
     table { width: 100%; border-collapse: collapse; min-width: 980px; }
     th { color: var(--muted); font-size: 0.72rem; font-weight: 900; letter-spacing: 0.04em; text-align: left; text-transform: uppercase; }
