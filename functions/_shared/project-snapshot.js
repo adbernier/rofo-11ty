@@ -16,6 +16,9 @@ export function requirementDisplayLabel(kind, value) {
   const labels = {
     business_category: {
       design_creative: "Design / creative",
+      food_beverage: "Food / beverage",
+      other: "Other",
+      unclassified: "Unclassified",
     },
     growth: {
       significant: "Significant growth",
@@ -65,6 +68,18 @@ export function businessPresentation({ canonical = "", specific = "", propertyTy
   const suppliedUse = clean(specific, 140);
   let canonicalType = clean(canonical, 140);
   let classificationStatus = "classified";
+  const retailContext = /retail|service/i.test(propertyType);
+  const retailCategories = new Set(["boutique_brand", "premium_luxury", "neighborhood_service", "fitness_wellness", "food_beverage", "showroom_design", "convenience", "destination_experiential", "other", "unclassified"]);
+  const officeOnlyCategories = new Set(["design_creative", "professional_services", "technology", "life_science", "nonprofit"]);
+  if (retailContext && officeOnlyCategories.has(canonicalType)) {
+    canonicalType = /\b(?:food|foods|meat|grocery|frozen|restaurant|cafe|bakery|beverage)\b/i.test(suppliedUse)
+      ? "food_beverage"
+      : "other";
+    classificationStatus = canonicalType === "other" ? "investigate" : "classified";
+  } else if (retailContext && canonicalType && !retailCategories.has(canonicalType)) {
+    canonicalType = "other";
+    classificationStatus = "investigate";
+  }
   if (/\bbarber(?:shop)?\b/i.test(suppliedUse) && /retail|service/i.test(propertyType)) canonicalType = "neighborhood_service";
   if (/\bdealership\b/i.test(suppliedUse) && canonicalType === "professional_services") classificationStatus = "investigate";
   return {

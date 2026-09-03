@@ -3,6 +3,7 @@ import {
   escapeHtml,
   getLead,
   getLocationRequirementSummary,
+  phoneDigitCountSpamReason,
   updateLeadStatus,
 } from "../api/leads/_shared.js";
 import {
@@ -160,10 +161,6 @@ function compactLower(value) {
   return normalizeText(value).toLowerCase().replace(/\s+/g, " ");
 }
 
-function phoneDigits(value) {
-  return normalizeText(value).replace(/\D/g, "");
-}
-
 function getLeadMessage(lead) {
   return normalizeText(lead.requirements || lead.message || lead.notes || lead.comments);
 }
@@ -201,7 +198,6 @@ function detectAdminSpamSignals(lead, market) {
   const signals = [];
   const context = [];
   const phone = normalizeText(lead.phone);
-  const digits = phoneDigits(phone);
   const locationValues = [
     market,
     lead.market,
@@ -250,8 +246,8 @@ function detectAdminSpamSignals(lead, market) {
   const emailDomain = getEmailDomain(lead.email);
 
   if (phone) {
-    if (digits.length > 10) addSpamSignal(signals, 45, `Phone has more than 10 digits (${digits.length})`);
-    if (digits.length > 0 && digits.length < 10) addSpamSignal(signals, 35, `Phone has fewer than 10 digits (${digits.length})`);
+    const phoneReason = phoneDigitCountSpamReason(phone);
+    if (phoneReason) addSpamSignal(signals, phoneReason.includes("more than") ? 45 : 35, phoneReason);
   }
 
   if (locationValues.some((value) => countryOnlyLocations.has(value))) {

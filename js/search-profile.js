@@ -1320,7 +1320,7 @@
       features: Array.isArray(profile.features) ? [...profile.features] : [],
       featureOther: profile.featureOther || "",
       locationIntent: normalizeLocationIntent(profile.locationIntent, ""),
-      businessType: profile.businessType || "",
+      businessType: isOfficeProfile() ? profile.businessType || "" : "",
       operationalUse: Array.isArray(profile.operationalUse) ? [...profile.operationalUse] : [],
       officeEnvironment: profile.officeEnvironment || "",
       commuteOrientation: selectedValues(profile.commuteOrientation),

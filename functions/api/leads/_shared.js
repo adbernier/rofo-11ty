@@ -102,12 +102,22 @@ export function normalizeSqFtForOfficeFinder(spaceNeeded) {
 
 export function normalizePhoneForOfficeFinder(phone) {
   const raw = normalizeField(phone);
-  let digits = raw.replace(/\D/g, "");
-  if (digits.length === 11 && digits.startsWith("1")) {
-    digits = digits.slice(1);
-  }
+  const digits = normalizePhoneDigitsForSpam(raw);
   if (digits.length !== 10) return "";
   return `${digits.slice(0, 3)}-${digits.slice(3, 6)}-${digits.slice(6)}`;
+}
+
+export function normalizePhoneDigitsForSpam(phone) {
+  const digits = normalizeField(phone).replace(/\D/g, "");
+  return digits.length === 11 && digits.startsWith("1") ? digits.slice(1) : digits;
+}
+
+export function phoneDigitCountSpamReason(phone) {
+  if (!normalizeField(phone)) return "";
+  const digits = normalizePhoneDigitsForSpam(phone);
+  if (digits.length > 10) return `Phone has more than 10 digits (${digits.length})`;
+  if (digits.length > 0 && digits.length < 10) return `Phone has fewer than 10 digits (${digits.length})`;
+  return "";
 }
 
 function getMarketName(lead) {
@@ -291,14 +301,8 @@ function getEmailDomain(value) {
   return parts.length === 2 ? parts[1] : "";
 }
 
-function getPhoneDigits(value) {
-  let digits = normalizeField(value).replace(/\D/g, "");
-  if (digits.length === 11 && digits.startsWith("1")) digits = digits.slice(1);
-  return digits;
-}
-
 function isFakePhone(value) {
-  const digits = getPhoneDigits(value);
+  const digits = normalizePhoneDigitsForSpam(value);
   if (digits.length < 10) return true;
   if (/^(\d)\1{9}$/.test(digits)) return true;
   if (["1234567890", "0123456789", "5555555555", "0000000000"].includes(digits)) return true;
