@@ -86,7 +86,7 @@ const common = Object.freeze({
     path: "/commercial-real-estate/CA/anaheim/anaheim-canyon/",
     geographicThesis: "The City-defined Anaheim Canyon Specific Plan area, not Anaheim generally.",
     confidence: "REVIEWED",
-    reviewStatus: "EVIDENCE_READY_NOT_CERTIFIED",
+    reviewStatus: "CERTIFIED_RECOMMENDATION_EVIDENCE",
     provenance: Object.freeze([sources.anaheimCanyonPlan, sources.anaheimCanyonLandUse]),
     representatives: Object.freeze([
       representative("3071-e-coronado-st", "3071 E Coronado Street", "BUILDING", "/commercial-real-estate/building/CA/anaheim/3071-e-coronado-st/", "anaheim-canyon", "Conventional industrial and warehouse/distribution environment", [sources.anaheimBuildingRegistry, sources.coronadoOwnerRecord]),
@@ -102,7 +102,7 @@ const common = Object.freeze({
     path: "/commercial-real-estate/CA/fullerton/fullerton/",
     geographicThesis: "A bounded south/east Fullerton operating geography formed by the Orangethorpe industrial corridor and the Walnut–Truslow–Raymond manufacturing areas; it is not the entire City of Fullerton.",
     confidence: "REVIEWED",
-    reviewStatus: "EVIDENCE_READY_NOT_CERTIFIED",
+    reviewStatus: "CERTIFIED_RECOMMENDATION_EVIDENCE",
     provenance: Object.freeze([sources.fullertonPlan, sources.fullertonZoning, sources.fullertonParcelEvidence, sources.fullertonDevelopment]),
     representatives: Object.freeze([
       representative("fullerton-orangethorpe-industrial-corridor", "Orangethorpe Industrial Corridor", "COMMERCIAL_ENVIRONMENT", "/commercial-real-estate/CA/fullerton/fullerton/", "fullerton-industrial-service-area", "Industrial, commercial-manufacturing, and service-operating environment", [sources.fullertonZoning, sources.fullertonDevelopment]),

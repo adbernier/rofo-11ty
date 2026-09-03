@@ -89,7 +89,7 @@ module.exports = {
         })),
       },
       calibration: { status: "Ready", evidence: ["_data/northOrangeCountyIndustrialFlexEvidenceFoundation.js", "lib/requirements/requirement-to-north-orange-county-industrial-flex-recommendation.js", "lib/recommendations/north-orange-county-industrial-flex-location-composition.js", "scripts/qa-north-orange-county-industrial-flex-recommendation.js"] },
-      certificationRelease: { status: "Building", lastQa: "2026-09-02", evidence: ["scripts/qa-north-orange-county-industrial-flex-recommendation.js"], productionStatus: "Implementation complete; end-to-end certification pending; runtime activation denied" },
+      certificationRelease: { status: "Ready", lastQa: "2026-09-02", evidence: ["scripts/qa-north-orange-county-industrial-flex-recommendation.js", "scripts/qa-north-orange-county-industrial-flex-certification.js"], productionStatus: "Certified for a bounded real-user cohort; deployable and runtime-activatable; no D1 activation record" },
       submodels: { industrial: { label: "Industrial-led", status: "Ready" }, flex: { label: "Flex-led", status: "Ready" }, mixed: { label: "Mixed/hybrid", status: "Ready" } },
     },
   ],

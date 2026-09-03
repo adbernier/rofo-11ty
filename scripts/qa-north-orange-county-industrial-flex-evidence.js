@@ -21,7 +21,7 @@ for (const candidate of Object.values(foundation.candidates)) {
   assert.equal(owner.city, candidate.municipality);
   assert.equal(owner.canonical_neighborhood_path, candidate.path);
   assert.equal(candidate.confidence, "REVIEWED");
-  assert.equal(candidate.reviewStatus, "EVIDENCE_READY_NOT_CERTIFIED");
+  assert.equal(candidate.reviewStatus, "CERTIFIED_RECOMMENDATION_EVIDENCE");
   assert(candidate.provenance.length >= 2);
   for (const item of candidate.representatives) {
     assert.equal(item.ownerGeographyId, candidate.geographyId);

@@ -565,6 +565,7 @@ function candidateRows(briefId, entryContext, now) {
 
 async function snapshotEnvironment(env, requirement) {
   if (!isNorthOrangeCountyIndustrialFlexRequirement(requirement)) return env;
+  if (env?.__northOrangeCountyIndustrialFlexCertificationEnabled === true) return { ...env, __northOrangeCountyIndustrialFlexEnabled: true };
   const activation = await recommendationRuntimeActivationState(env, NORTH_ORANGE_COUNTY_ACTIVATION.marketId, NORTH_ORANGE_COUNTY_ACTIVATION.propertyType, NORTH_ORANGE_COUNTY_ACTIVATION.cohort);
   return { ...env, __northOrangeCountyIndustrialFlexEnabled: activation.enabled === true };
 }

@@ -66,16 +66,16 @@ for (const [marketId, candidate] of [["anaheim", ""], ["anaheim", "anaheim-canyo
 
 const activation = activationRegistry.flows["north-orange-county:industrial_flex:bounded"];
 assert(activation);
-assert.equal(activation.activationEligible, false);
-assert.equal(activation.certificationStatus, "implementation_complete_pending_certification");
+assert.equal(activation.activationEligible, true);
+assert.equal(activation.certificationStatus, "certified_for_bounded_real_user_cohort");
 assert.match(qaStatus["orange-county"].validationStatus, /legacy_compass/);
 assert.match(qaStatus["orange-county"].notes, /not current Level 3 certification/);
 const orangeCountyReadiness = buildMarketReadiness().markets.find((item) => item.marketId === "orange-county");
 const industrialReadiness = orangeCountyReadiness.propertyTypes.find((item) => item.propertyType === "industrial");
 assert.equal(industrialReadiness.workloads.spaceTypeFit.status, "Ready");
 assert.equal(industrialReadiness.workloads.calibration.status, "Ready");
-assert.equal(industrialReadiness.workloads.certificationRelease.status, "Building");
-assert.equal(industrialReadiness.recommendation, "Building");
+assert.equal(industrialReadiness.workloads.certificationRelease.status, "Ready");
+assert.equal(industrialReadiness.recommendation, "Building", "Orange County overall remains Building because access and countywide intelligence are not certified");
 assert.notEqual(orangeCountyReadiness.propertyTypes.find((item) => item.propertyType === "office").recommendation, "Ready");
 assert.notEqual(orangeCountyReadiness.propertyTypes.find((item) => item.propertyType === "retail").recommendation, "Ready");
 

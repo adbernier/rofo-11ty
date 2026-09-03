@@ -11,15 +11,19 @@ const shared = require(output);
 const entry = (marketId, candidates = []) => ({ sourceType: candidates.length ? "district" : "space_type", marketId, propertyType: "industrial_flex", candidateDistrictIds: candidates });
 const requirement = (marketId, candidates = []) => ({ propertyTypes: ["industrial_flex"], activities: ["store"], businessContext: { summary: "Warehouse" }, locationLogic: { marketAnchor: { marketId }, specificPreference: { candidateDistrictIds: candidates } }, criteria: [] });
 class Db { prepare() { return { bind: () => ({ first: async () => ({ activation_key: "north-orange-county:industrial_flex:bounded", market_id: "north-orange-county", property_type: "industrial_flex", cohort: "bounded", enabled: 1, certification_id: "north-orange-county-industrial-flex-v1" }) }) }; } }
+class EmptyDb { prepare() { return { bind: () => ({ first: async () => null }) }; } }
 const env = { LOCATION_BRIEF_V2_PUBLIC_ENTRY_ENABLED: "true", LOCATION_BRIEF_V2_PUBLIC_SF_OFFICE_SOURCES: "space_type,district", RECOMMENDATION_ACTIVATIONS_DB: new Db() };
+const offEnv = { ...env, RECOMMENDATION_ACTIVATIONS_DB: new EmptyDb() };
 
 (async () => {
   for (const [marketId, candidate] of [["anaheim", ""], ["anaheim", "anaheim-canyon"], ["fullerton", ""], ["fullerton", "fullerton-industrial-service-area"]]) {
     const candidates = candidate ? [candidate] : [];
     assert.equal(shared.isNorthOrangeCountyIndustrialFlexEntryContext(entry(marketId, candidates)), true);
     assert.equal(shared.isNorthOrangeCountyIndustrialFlexRequirement(requirement(marketId, candidates)), true);
-    assert.equal(await shared.publicEntryContextEligibleAtRuntime(env, entry(marketId, candidates)), false, "Pending certification remains runtime denied");
-    assert.equal(await shared.publicRequirementEligibleAtRuntime(env, requirement(marketId, candidates)), false, "A D1 row cannot bypass certification");
+    assert.equal(await shared.publicEntryContextEligibleAtRuntime(env, entry(marketId, candidates)), true, "Certified flow is structurally activatable");
+    assert.equal(await shared.publicRequirementEligibleAtRuntime(env, requirement(marketId, candidates)), true, "Certified flow accepts an explicit enabled D1 state");
+    assert.equal(await shared.publicEntryContextEligibleAtRuntime(offEnv, entry(marketId, candidates)), false, "Missing D1 activation remains denied");
+    assert.equal(await shared.publicRequirementEligibleAtRuntime(offEnv, requirement(marketId, candidates)), false, "Missing D1 activation remains denied");
   }
   for (const marketId of ["orange-county", "irvine", "costa-mesa", "santa-ana", "lake-forest", "brea", "buena-park"]) {
     assert.equal(shared.isNorthOrangeCountyIndustrialFlexEntryContext(entry(marketId)), false);
@@ -31,8 +35,8 @@ const env = { LOCATION_BRIEF_V2_PUBLIC_ENTRY_ENABLED: "true", LOCATION_BRIEF_V2_
   assert.equal(shared.isNorthOrangeCountyIndustrialFlexRequirement({ ...requirement("anaheim"), propertyTypes: ["office"] }), false);
   assert.equal(shared.isNorthOrangeCountyIndustrialFlexEntryContext({ ...entry("fullerton"), propertyType: "retail" }), false);
   assert.equal(shared.isNorthOrangeCountyIndustrialFlexRequirement({ ...requirement("fullerton"), propertyTypes: ["retail"] }), false);
-  assert.equal((await shared.recommendationRuntimeActivationState(env, "north-orange-county", "industrial_flex")).reason, "FLOW_NOT_CERTIFIED_FOR_ACTIVATION");
+  assert.equal((await shared.recommendationRuntimeActivationState(offEnv, "north-orange-county", "industrial_flex")).reason, "MISSING_RUNTIME_RECORD");
   assert.equal(env.LOCATION_BRIEF_V2_PUBLIC_UNIVERSAL_ENABLED, undefined);
   fs.rmSync(temp, { recursive: true, force: true });
-  console.log("North Orange County Industrial/Flex Public Eligibility QA passed: reviewed entry identities recognized, all other OC identities excluded, and runtime remains default-deny pending certification.");
+  console.log("North Orange County Industrial/Flex Public Eligibility QA passed: certified bounded identities are structurally activatable, excluded OC identities remain denied, and a missing D1 record defaults OFF.");
 })().catch((error) => { fs.rmSync(temp, { recursive: true, force: true }); console.error(error); process.exit(1); });

@@ -30,10 +30,10 @@ module.exports = {
     metro: "Orange County",
     qaStatus: "completed",
     lastQaDate: "2026-07-10",
-    validationStatus: "legacy_compass_calibration_only_north_oc_industrial_flex_pending_level3_certification",
+    validationStatus: "legacy_compass_calibration_only_bounded_north_oc_industrial_flex_level3_certified",
     scenarioCount: 12,
     reportPath: "/docs/recommendation-qa/orange-county-pilot/",
-    notes: "Legacy Orange County Compass scenarios remain calibration hypotheses, not current Level 3 certification. A separate bounded Anaheim Canyon + Fullerton Industrial / Service Area implementation exists for Industrial/Flex only and remains pending end-to-end certification and runtime-ineligible. Orange County Office, Retail, countywide, Irvine, and South OC recommendation flows are not certified.",
+    notes: "Legacy Orange County Compass scenarios remain calibration hypotheses, not current Level 3 certification. Only the bounded Anaheim Canyon + Fullerton Industrial / Service Area Industrial/Flex flow is certified for a bounded real-user cohort and remains runtime default-off. Orange County Office, Retail, countywide, Irvine, and South OC recommendation flows are not certified.",
   },
   denver: {
     metro: "Denver",
