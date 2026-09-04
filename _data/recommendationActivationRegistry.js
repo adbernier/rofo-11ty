@@ -48,5 +48,17 @@ module.exports = Object.freeze({
       entryMarketIds: Object.freeze(["indianapolis"]),
       entryContextIds: Object.freeze(["indianapolis-airport-logistics", "park-fletcher", "stout-field", "park-100-northwest-indianapolis", "park-100"]),
     }),
+    "sacramento:industrial_flex:bounded": Object.freeze({
+      activationKey: "sacramento:industrial_flex:bounded",
+      marketId: "sacramento",
+      propertyType: "industrial_flex",
+      propertyTypeAliases: Object.freeze(["industrial-flex", "industrial_flex"]),
+      cohort: "bounded",
+      certificationId: "sacramento-industrial-flex-v1",
+      certificationStatus: "certified_for_bounded_real_user_cohort",
+      activationEligible: true,
+      entryMarketIds: Object.freeze(["sacramento"]),
+      entryContextIds: Object.freeze(["power-inn-industrial", "florin-perkins-industrial", "sci-ramona-component", "sci", "ramona", "northgate-north-market-industrial", "northgate-industrial-park", "northgate", "north-market-boulevard", "north-market"]),
+    }),
   }),
 });

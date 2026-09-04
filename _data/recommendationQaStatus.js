@@ -12,10 +12,10 @@ module.exports = {
     metro: "Sacramento",
     qaStatus: "completed",
     lastQaDate: "2026-07-09",
-    validationStatus: "pilot_passed",
+    validationStatus: "legacy_compass_calibration_only_city_sacramento_industrial_flex_level3_certified",
     scenarioCount: 7,
     reportPath: "/docs/recommendation-qa/sacramento-pilot/",
-    notes: "Sacramento pilot scenarios produce differentiated, graph-backed market paths for office, medical, flex, warehouse, and retail/service profiles.",
+    notes: "Legacy Sacramento Compass, public guidance, building briefs, and historical listings remain calibration, editorial, or discovery context rather than modern Level 3 certification. Only the bounded City of Sacramento Power Inn Industrial + Northgate / North Market Industrial flow is certified for a bounded real-user cohort and remains runtime default-off with no D1 activation record. Sacramento Metro, West Sacramento, Rancho Cordova, surrounding municipalities, Office, and Retail are not certified.",
   },
   "san-diego": {
     metro: "San Diego",

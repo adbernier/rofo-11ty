@@ -5,6 +5,7 @@ const sanDiegoIndustrialFlexFoundation = require("./sanDiegoIndustrialFlexCompos
 const northOrangeCountyIndustrialFlexFoundation = require("./northOrangeCountyIndustrialFlexEvidenceFoundation");
 const phoenixIndustrialFlexFoundation = require("./phoenixIndustrialFlexEvidenceFoundation");
 const indianapolisIndustrialFlexFoundation = require("./indianapolisIndustrialFlexEvidenceFoundation");
+const sacramentoIndustrialFlexFoundation = require("./sacramentoIndustrialFlexEvidenceFoundation");
 
 module.exports = {
   schemaVersion: "market-readiness-foundation-registry:v1",
@@ -126,6 +127,22 @@ module.exports = {
       },
       calibration: { status: "Ready", evidence: ["_data/indianapolisIndustrialFlexEvidenceFoundation.js", "lib/requirements/requirement-to-indianapolis-industrial-flex-recommendation.js", "lib/recommendations/indianapolis-industrial-flex-location-composition.js", "scripts/qa-indianapolis-industrial-flex-recommendation.js"] },
       certificationRelease: { status: "Ready", lastQa: "2026-09-03", evidence: ["scripts/qa-indianapolis-industrial-flex-recommendation.js", "scripts/qa-indianapolis-industrial-flex-public-eligibility.js", "scripts/qa-indianapolis-industrial-flex-certification.js"], productionStatus: "Certified for a bounded real-user cohort; deployable and runtime-activatable; no D1 activation record" },
+      submodels: { industrial: { label: "Industrial-led", status: "Ready" }, flex: { label: "Flex-led", status: "Ready" }, mixed: { label: "Mixed/hybrid", status: "Ready" } },
+    },
+    {
+      marketId: "sacramento", propertyType: "industrial",
+      coverage: {
+        schemaVersion: sacramentoIndustrialFlexFoundation.schemaVersion,
+        marketId: "sacramento",
+        scope: "Bounded City of Sacramento Power Inn Industrial + Northgate / North Market Industrial only; not Sacramento Metro",
+        blockingGaps: [],
+        decisionGeographies: sacramentoIndustrialFlexFoundation.evidenceCandidateIds.map((districtId) => ({
+          districtId, knowledgeOwnerDistrictId: districtId, classification: "CORE_BOUNDED_INDUSTRIAL_FLEX",
+          coverage: { industrialFit: "REVIEWED", flexFit: "REVIEWED", businessEnvironment: "REVIEWED", representativeBuildings: "REVIEWED", presentation: "REVIEWED", access: "NOT_REVIEWED", transit: "NOT_REVIEWED", parking: "NOT_REVIEWED" },
+        })),
+      },
+      calibration: { status: "Ready", evidence: ["_data/sacramentoIndustrialFlexEvidenceFoundation.js", "lib/requirements/requirement-to-sacramento-industrial-flex-recommendation.js", "lib/recommendations/sacramento-industrial-flex-location-composition.js", "scripts/qa-sacramento-industrial-flex-recommendation.js"] },
+      certificationRelease: { status: "Ready", lastQa: "2026-09-03", evidence: ["scripts/qa-sacramento-industrial-flex-recommendation.js", "scripts/qa-sacramento-industrial-flex-public-eligibility.js", "scripts/qa-sacramento-industrial-flex-certification.js"], productionStatus: "Certified for a bounded real-user cohort; deployable and runtime-activatable; no D1 activation record" },
       submodels: { industrial: { label: "Industrial-led", status: "Ready" }, flex: { label: "Flex-led", status: "Ready" }, mixed: { label: "Mixed/hybrid", status: "Ready" } },
     },
   ],
