@@ -1,0 +1,406 @@
+Duplicate and hierarchy review
+
+Multiple IDs, suites, campuses, and duplicate marketing entities do not auto-promote.
+
+| Market | Property | Municipality | Risks | Legacy IDs |
+|---|---|---|---|---|
+| seattle-kent-eastside | king county tax parcel 4055700515 | Kirkland | MULTIPLE_LEGACY_IDS | 61 |
+| seattle-kent-eastside | 12345 | Bellevue | MULTIPLE_LEGACY_IDS | 51 |
+| seattle-kent-eastside | ballard | Seattle | MULTIPLE_LEGACY_IDS | 43 |
+| seattle-kent-eastside | 1251 lake ave | Seattle | MULTIPLE_LEGACY_IDS | 40 |
+| seattle-kent-eastside | 19500 ballinger way ne | Seattle | MULTIPLE_LEGACY_IDS, SUITE_BUILDING_AMBIGUITY | 26 |
+| seattle-kent-eastside | 13607 wodinville redmond rd ne | Redmond | MULTIPLE_LEGACY_IDS | 25 |
+| seattle-kent-eastside | 1530 140th ave ne | Bellevue | MULTIPLE_LEGACY_IDS | 24 |
+| seattle-kent-eastside | 5001 208th st sw | Lynnwood | MULTIPLE_LEGACY_IDS | 22 |
+| seattle-kent-eastside | 20109 aurora ave n | Seattle | MULTIPLE_LEGACY_IDS | 20 |
+| seattle-kent-eastside | 6520 212th st sw | Lynnwood | MULTIPLE_LEGACY_IDS | 16 |
+| seattle-kent-eastside | 1601 1611 2nd ave | Seattle | MULTIPLE_LEGACY_IDS | 11 |
+| seattle-kent-eastside | 2018 156th ave ne building f | Bellevue | MULTIPLE_LEGACY_IDS | 10 |
+| seattle-kent-eastside | 23636 104th ave se | Kent | MULTIPLE_LEGACY_IDS | 10 |
+| seattle-kent-eastside | 5400 carillon point building 5000 | Kirkland | MULTIPLE_LEGACY_IDS | 10 |
+| seattle-kent-eastside | 1201 second ave | Seattle | MULTIPLE_LEGACY_IDS, SUITE_BUILDING_AMBIGUITY | 10 |
+| seattle-kent-eastside | 1420 fifth ave | Seattle | MULTIPLE_LEGACY_IDS | 10 |
+| seattle-kent-eastside | 4201 6th ave s | Seattle | MULTIPLE_LEGACY_IDS | 10 |
+| seattle-kent-eastside | 506 second ave | Seattle | MULTIPLE_LEGACY_IDS | 10 |
+| seattle-kent-eastside | 701 fifth ave | Seattle | MULTIPLE_LEGACY_IDS | 10 |
+| seattle-kent-eastside | skyline tower 10900 n e 4th st | Bellevue | MULTIPLE_LEGACY_IDS | 9 |
+| seattle-kent-eastside | 6869 woodlawn ave ne | Seattle | MULTIPLE_LEGACY_IDS | 8 |
+| seattle-kent-eastside | 753 n 35th st | Seattle | MULTIPLE_LEGACY_IDS | 8 |
+| seattle-kent-eastside | 7030 7048 s 188th st | Kent | MULTIPLE_LEGACY_IDS | 7 |
+| seattle-kent-eastside | 22027 68th ave s | Kent | MULTIPLE_LEGACY_IDS | 6 |
+| seattle-kent-eastside | 22135 68th ave s | Kent | MULTIPLE_LEGACY_IDS | 6 |
+| seattle-kent-eastside | 11624 se 5th st | Bellevue | MULTIPLE_LEGACY_IDS | 5 |
+| seattle-kent-eastside | 2625 northup way | Bellevue | MULTIPLE_LEGACY_IDS | 5 |
+| seattle-kent-eastside | 11715 n creek pkwy | Bothell | MULTIPLE_LEGACY_IDS | 5 |
+| seattle-kent-eastside | 1568 highlands dr ne | Issaquah | MULTIPLE_LEGACY_IDS | 5 |
+| seattle-kent-eastside | 355 nw gilman blvd | Issaquah | MULTIPLE_LEGACY_IDS | 5 |
+| seattle-kent-eastside | 25012 104th ave se | Kent | MULTIPLE_LEGACY_IDS | 5 |
+| seattle-kent-eastside | 26015 26301 104th ave se | Kent | MULTIPLE_LEGACY_IDS | 5 |
+| seattle-kent-eastside | 12409 ne 124th st | Kirkland | MULTIPLE_LEGACY_IDS | 5 |
+| seattle-kent-eastside | 15365 ne 90th st | Redmond | MULTIPLE_LEGACY_IDS | 5 |
+| seattle-kent-eastside | 16710 ne 79th st | Redmond | MULTIPLE_LEGACY_IDS | 5 |
+| seattle-kent-eastside | 8410 154th ave ne | Redmond | MULTIPLE_LEGACY_IDS | 5 |
+| seattle-kent-eastside | 1501 melrose ave | Seattle | MULTIPLE_LEGACY_IDS | 5 |
+| seattle-kent-eastside | 17171 17191 bothell way ne | Seattle | MULTIPLE_LEGACY_IDS | 5 |
+| seattle-kent-eastside | 18613 international blvd | Seattle | MULTIPLE_LEGACY_IDS | 5 |
+| seattle-kent-eastside | 6407 12th ave ne | Seattle | MULTIPLE_LEGACY_IDS | 5 |
+| san-jose-south-bay | 472 484 hamilton ave | Campbell | MULTIPLE_LEGACY_IDS | 79 |
+| san-jose-south-bay | 4040 4152 monterey rd | San Jose | MULTIPLE_LEGACY_IDS | 68 |
+| san-jose-south-bay | the block tasman dr and great america pkwy | Santa Clara | MULTIPLE_LEGACY_IDS | 66 |
+| san-jose-south-bay | 41 main st | Los Gatos | MULTIPLE_LEGACY_IDS | 45 |
+| san-jose-south-bay | 425 n whisman rd | Mountain View | MULTIPLE_LEGACY_IDS, SUITE_BUILDING_AMBIGUITY | 44 |
+| san-jose-south-bay | 1016 1018 s almaden blvd | San Jose | MULTIPLE_LEGACY_IDS | 42 |
+| san-jose-south-bay | 10525 10555 s de anza blvd | Cupertino | MULTIPLE_LEGACY_IDS | 36 |
+| san-jose-south-bay | 1228 camden ave | San Jose | MULTIPLE_LEGACY_IDS | 26 |
+| san-jose-south-bay | 125 n jackson ave | San Jose | MULTIPLE_LEGACY_IDS, SUITE_BUILDING_AMBIGUITY | 25 |
+| san-jose-south-bay | 2235 2239 old middlefield way | Mountain View | MULTIPLE_LEGACY_IDS | 24 |
+| san-jose-south-bay | 3303 3305 hillview ave | Palo Alto | MULTIPLE_LEGACY_IDS | 24 |
+| san-jose-south-bay | 3075 3087 n first st | San Jose | MULTIPLE_LEGACY_IDS | 24 |
+| san-jose-south-bay | 1278 1280 reamwood ave | Sunnyvale | MULTIPLE_LEGACY_IDS | 24 |
+| san-jose-south-bay | 730 750 e capitol ave | Milpitas | MULTIPLE_LEGACY_IDS | 23 |
+| san-jose-south-bay | 2055 gateway pl | San Jose | MULTIPLE_LEGACY_IDS | 23 |
+| san-jose-south-bay | 501 earthquake way | San Jose | MULTIPLE_LEGACY_IDS | 23 |
+| san-jose-south-bay | 4 tait ave | Los Gatos | MULTIPLE_LEGACY_IDS | 22 |
+| san-jose-south-bay | 75 church st | Los Gatos | MULTIPLE_LEGACY_IDS | 22 |
+| san-jose-south-bay | 359 w el camino real | Mountain View | MULTIPLE_LEGACY_IDS | 22 |
+| san-jose-south-bay | 2431 park blvd | Palo Alto | MULTIPLE_LEGACY_IDS | 22 |
+| san-jose-south-bay | 4131 el camino way | Palo Alto | MULTIPLE_LEGACY_IDS | 22 |
+| san-jose-south-bay | 1405 s bascom ave | San Jose | MULTIPLE_LEGACY_IDS | 22 |
+| san-jose-south-bay | 600 n 3rd st | San Jose | MULTIPLE_LEGACY_IDS | 22 |
+| san-jose-south-bay | 665 lincoln ave | San Jose | MULTIPLE_LEGACY_IDS | 22 |
+| san-jose-south-bay | 795 s 2nd st | San Jose | MULTIPLE_LEGACY_IDS | 22 |
+| san-jose-south-bay | 924 w fremont ave | Sunnyvale | MULTIPLE_LEGACY_IDS | 22 |
+| san-jose-south-bay | 907 911 dell ave | Campbell | MULTIPLE_LEGACY_IDS | 21 |
+| san-jose-south-bay | 4960 camden ave | San Jose | MULTIPLE_LEGACY_IDS | 21 |
+| san-jose-south-bay | 52 78 e santa clara st | San Jose | MULTIPLE_LEGACY_IDS | 21 |
+| san-jose-south-bay | 4249 cheney st | Santa Clara | MULTIPLE_LEGACY_IDS | 21 |
+| san-jose-south-bay | 5145 5155 stevens creek blvd | Santa Clara | MULTIPLE_LEGACY_IDS | 21 |
+| san-jose-south-bay | 36 oak ln | Mountain View | MULTIPLE_LEGACY_IDS | 20 |
+| san-jose-south-bay | 1597 tully rd | San Jose | MULTIPLE_LEGACY_IDS | 20 |
+| san-jose-south-bay | 2630 union ave | San Jose | MULTIPLE_LEGACY_IDS | 20 |
+| san-jose-south-bay | 961 965 e arques ave | Sunnyvale | MULTIPLE_LEGACY_IDS | 20 |
+| san-jose-south-bay | 16540 los gatos blvd | Los Gatos | MULTIPLE_LEGACY_IDS | 18 |
+| san-jose-south-bay | 975 s first st | San Jose | MULTIPLE_LEGACY_IDS | 18 |
+| san-jose-south-bay | 3401 el camino real | Palo Alto | MULTIPLE_LEGACY_IDS | 17 |
+| san-jose-south-bay | 580 ahwanee | Sunnyvale | MULTIPLE_LEGACY_IDS | 17 |
+| san-jose-south-bay | 2450 e pulgas ave | East Palo Alto | MULTIPLE_LEGACY_IDS | 16 |
+| detroit-novi | oakland commons vacant land | Southfield | MULTIPLE_LEGACY_IDS | 114 |
+| detroit-novi | 20700 20750 civic center dr | Southfield | MULTIPLE_LEGACY_IDS | 113 |
+| detroit-novi | 16112 16184 middlebelt rd | Livonia | MULTIPLE_LEGACY_IDS | 107 |
+| detroit-novi | 33710 33760 plymouth rd | Livonia | MULTIPLE_LEGACY_IDS | 107 |
+| detroit-novi | 37104 37176 6 mile | Livonia | MULTIPLE_LEGACY_IDS | 107 |
+| detroit-novi | 37294 37308 6 mile rd | Livonia | MULTIPLE_LEGACY_IDS | 107 |
+| detroit-novi | 30500 30850 beck rd | Novi | MULTIPLE_LEGACY_IDS | 107 |
+| detroit-novi | 27200 27220 w 8 mile rd | Southfield | MULTIPLE_LEGACY_IDS | 107 |
+| detroit-novi | 28821 28871 southfield rd | Southfield | MULTIPLE_LEGACY_IDS | 107 |
+| detroit-novi | lapeer rd and interpark dr | Auburn Hills | MULTIPLE_LEGACY_IDS | 105 |
+| detroit-novi | 29441 29567 five mile rd | Livonia | MULTIPLE_LEGACY_IDS | 105 |
+| detroit-novi | pacific rd taylor rd | Auburn Hills | MULTIPLE_LEGACY_IDS | 103 |
+| detroit-novi | 28901 28935 southfield rd | Southfield | MULTIPLE_LEGACY_IDS | 97 |
+| detroit-novi | 28565 28595 northwestern hwy | Southfield | MULTIPLE_LEGACY_IDS | 90 |
+| detroit-novi | 3031 w grand blvd | Detroit | MULTIPLE_LEGACY_IDS, SUITE_BUILDING_AMBIGUITY | 87 |
+| detroit-novi | 36121 36141 schoolcraft rd | Livonia | MULTIPLE_LEGACY_IDS | 82 |
+| detroit-novi | 38047 38151 ann arbor rd | Livonia | MULTIPLE_LEGACY_IDS | 80 |
+| detroit-novi | 15375 15383 inkster rd | Livonia | MULTIPLE_LEGACY_IDS | 79 |
+| detroit-novi | ford rd and i 94 expressway | Dearborn | MULTIPLE_LEGACY_IDS | 68 |
+| detroit-novi | 30598 30860 southfield rd | Southfield | MULTIPLE_LEGACY_IDS | 64 |
+| detroit-novi | 15103 15105 kercheval | Detroit | MULTIPLE_LEGACY_IDS | 63 |
+| detroit-novi | 16940 16912 joy rd | Detroit | MULTIPLE_LEGACY_IDS | 63 |
+| detroit-novi | 17122 17180 farmington rd | Livonia | MULTIPLE_LEGACY_IDS | 63 |
+| detroit-novi | 34706 34746 plymouth rd | Livonia | MULTIPLE_LEGACY_IDS | 63 |
+| detroit-novi | midtown cass corridor | Detroit | MULTIPLE_LEGACY_IDS | 58 |
+| detroit-novi | 19151 19223 merriman rd | Livonia | MULTIPLE_LEGACY_IDS | 57 |
+| detroit-novi | 29227 29245 6 mile rd | Livonia | MULTIPLE_LEGACY_IDS | 56 |
+| detroit-novi | 23389 23391 telegraph | Southfield | MULTIPLE_LEGACY_IDS | 56 |
+| detroit-novi | 16890 16940 schaefer hwy | Detroit | MULTIPLE_LEGACY_IDS | 55 |
+| detroit-novi | 32606 32630 w seven mile rd | Livonia | MULTIPLE_LEGACY_IDS | 55 |
+| detroit-novi | 24529 24571 w 12 mile rd | Southfield | MULTIPLE_LEGACY_IDS | 55 |
+| detroit-novi | 28661 28681 northwestern hwy | Southfield | MULTIPLE_LEGACY_IDS | 55 |
+| detroit-novi | 15365 15375 newburgh rd | Livonia | MULTIPLE_LEGACY_IDS | 52 |
+| detroit-novi | 1360 1400 oakman blvd | Detroit | MULTIPLE_LEGACY_IDS | 51 |
+| detroit-novi | 11908 11940 conner st | Detroit | MULTIPLE_LEGACY_IDS | 50 |
+| detroit-novi | 37609 37685 5 mile rd | Livonia | MULTIPLE_LEGACY_IDS | 50 |
+| detroit-novi | 123 main | Livonia | MULTIPLE_LEGACY_IDS | 48 |
+| detroit-novi | 32231 32233 schoolcraft rd | Livonia | MULTIPLE_LEGACY_IDS | 44 |
+| detroit-novi | 22506 22554 telegraph rd | Southfield | MULTIPLE_LEGACY_IDS | 40 |
+| detroit-novi | 27335 27355 w eleven mile rd | Southfield | MULTIPLE_LEGACY_IDS | 38 |
+| atlanta | atlanta msa | Atlanta | MULTIPLE_LEGACY_IDS | 100 |
+| atlanta | 586 se cobb pky | Marietta | MULTIPLE_LEGACY_IDS | 96 |
+| atlanta | 2901 clairmont rd | Atlanta | MULTIPLE_LEGACY_IDS | 91 |
+| atlanta | 6110 mcfarland station dr | Alpharetta | MULTIPLE_LEGACY_IDS, SUITE_BUILDING_AMBIGUITY | 76 |
+| atlanta | 2695 austell rd | Marietta | MULTIPLE_LEGACY_IDS | 75 |
+| atlanta | 4300 paces ferry rd | Atlanta | MULTIPLE_LEGACY_IDS | 70 |
+| atlanta | fowler hill rd | Alpharetta | MULTIPLE_LEGACY_IDS | 62 |
+| atlanta | 1385 oxford rd | Atlanta | MULTIPLE_LEGACY_IDS | 55 |
+| atlanta | 1823 sw delowe dr | Atlanta | MULTIPLE_LEGACY_IDS | 55 |
+| atlanta | 731 powder springs | Marietta | MULTIPLE_LEGACY_IDS | 55 |
+| atlanta | westside pkwy at hembree rd | Alpharetta | MULTIPLE_LEGACY_IDS | 54 |
+| atlanta | 970 mlk jr dr | Atlanta | MULTIPLE_LEGACY_IDS | 53 |
+| atlanta | 6135 jimmy carter | Norcross | MULTIPLE_LEGACY_IDS | 52 |
+| atlanta | 1265 powder springs | Marietta | MULTIPLE_LEGACY_IDS | 51 |
+| atlanta | 695 powder springs | Marietta | MULTIPLE_LEGACY_IDS | 51 |
+| atlanta | hwy 9 five acre rd | Alpharetta | MULTIPLE_LEGACY_IDS | 50 |
+| atlanta | 100 home sfr investment portfolio atlanta ga | Atlanta | MULTIPLE_LEGACY_IDS | 49 |
+| atlanta | 3452 s cobb dr | Smyrna | MULTIPLE_LEGACY_IDS | 47 |
+| atlanta | 0 jailette trace | Atlanta | MULTIPLE_LEGACY_IDS | 46 |
+| atlanta | 1383 spring st | Atlanta | MULTIPLE_LEGACY_IDS | 45 |
+| atlanta | 6 5 ac austell rd assemblage | Marietta | MULTIPLE_LEGACY_IDS | 44 |
+| atlanta | 0 connell ave | Atlanta | MULTIPLE_LEGACY_IDS | 43 |
+| atlanta | 57 home sfr investment portfolio decatur ga | Decatur | MULTIPLE_LEGACY_IDS | 43 |
+| atlanta | 194 powers ferry rd | Marietta | MULTIPLE_LEGACY_IDS | 43 |
+| atlanta | 707 whitlock ave a 37 | Marietta | MULTIPLE_LEGACY_IDS | 43 |
+| atlanta | 5430 new northside dr | Atlanta | MULTIPLE_LEGACY_IDS | 42 |
+| atlanta | 2865 log cabin dr se | Smyrna | MULTIPLE_LEGACY_IDS | 40 |
+| atlanta | atlanta sfr dynamic portfolio | Atlanta | MULTIPLE_LEGACY_IDS | 39 |
+| atlanta | 2575 peachtree st | Atlanta | MULTIPLE_LEGACY_IDS | 37 |
+| atlanta | 00 roosevelt hwy | Atlanta | MULTIPLE_LEGACY_IDS | 36 |
+| atlanta | 3141 nifda blvd | Smyrna | MULTIPLE_LEGACY_IDS | 35 |
+| atlanta | 1911 and 1931 roosevelt hwy | Atlanta | MULTIPLE_LEGACY_IDS | 33 |
+| atlanta | 515 cobb pkwy | Marietta | MULTIPLE_LEGACY_IDS | 32 |
+| atlanta | 1218 1236 menlo dr | Atlanta | MULTIPLE_LEGACY_IDS | 31 |
+| atlanta | 1000 hartsfield centre pkwy | Atlanta | MULTIPLE_LEGACY_IDS | 30 |
+| atlanta | 2255 sewell mill rd | Marietta | MULTIPLE_LEGACY_IDS, SUITE_BUILDING_AMBIGUITY | 29 |
+| atlanta | 6115 jimmy carter | Norcross | MULTIPLE_LEGACY_IDS | 29 |
+| atlanta | 11815 northfall ln | Alpharetta | MULTIPLE_LEGACY_IDS, SUITE_BUILDING_AMBIGUITY | 26 |
+| atlanta | 1875 lockeway dr | Alpharetta | MULTIPLE_LEGACY_IDS, SUITE_BUILDING_AMBIGUITY | 26 |
+| atlanta | 2024 powers ferry rd se | Atlanta | MULTIPLE_LEGACY_IDS, SUITE_BUILDING_AMBIGUITY | 26 |
+| nashville | 1785 hwy 31 and s swift rd | Goodlettsville | MULTIPLE_LEGACY_IDS | 48 |
+| nashville | 9837 9849 split log | Brentwood | MULTIPLE_LEGACY_IDS | 24 |
+| nashville | 1208 e northfield blvd | Murfreesboro | MULTIPLE_LEGACY_IDS, SUITE_BUILDING_AMBIGUITY | 22 |
+| nashville | 3354 perimeter hill dr | Nashville | MULTIPLE_LEGACY_IDS | 22 |
+| nashville | 3636 clarksville pike | Nashville | MULTIPLE_LEGACY_IDS | 21 |
+| nashville | 1109 elm hill pike | Nashville | MULTIPLE_LEGACY_IDS | 20 |
+| nashville | manson pike | Murfreesboro | MULTIPLE_LEGACY_IDS | 19 |
+| nashville | 2201 buena vista pike | Nashville | MULTIPLE_LEGACY_IDS | 18 |
+| nashville | 213 w maplewood ln | Nashville | MULTIPLE_LEGACY_IDS, SUITE_BUILDING_AMBIGUITY | 16 |
+| nashville | 213 217 w maplewood ln | Nashville | MULTIPLE_LEGACY_IDS | 11 |
+| nashville | 4106 gallatin pike | Nashville | MULTIPLE_LEGACY_IDS | 11 |
+| nashville | 222 second ave s | Nashville | MULTIPLE_LEGACY_IDS | 10 |
+| nashville | 1201 7th ave n | Nashville | MULTIPLE_LEGACY_IDS | 8 |
+| nashville | 3710 n natchez ct | Nashville | MULTIPLE_LEGACY_IDS | 8 |
+| nashville | 5722 hickory plz | Nashville | MULTIPLE_LEGACY_IDS | 8 |
+| nashville | 73 white bridge rd | Nashville | MULTIPLE_LEGACY_IDS, SUITE_BUILDING_AMBIGUITY | 8 |
+| nashville | 822 wren rd | Goodlettsville | MULTIPLE_LEGACY_IDS | 7 |
+| nashville | 2309 clarksville pike | Nashville | MULTIPLE_LEGACY_IDS | 7 |
+| nashville | 2625 gallatin pike | Nashville | MULTIPLE_LEGACY_IDS | 7 |
+| nashville | 1337 baptist world center dr | Nashville | MULTIPLE_LEGACY_IDS | 6 |
+| nashville | 1612 westgate cir | Brentwood | MULTIPLE_LEGACY_IDS | 5 |
+| nashville | 102 hazel path | Hendersonville | MULTIPLE_LEGACY_IDS, SUITE_BUILDING_AMBIGUITY | 5 |
+| nashville | 1945 southpointe way | Murfreesboro | MULTIPLE_LEGACY_IDS, SUITE_BUILDING_AMBIGUITY | 5 |
+| nashville | 1017 12th ave n | Nashville | MULTIPLE_LEGACY_IDS | 5 |
+| nashville | 351 harding pl | Nashville | MULTIPLE_LEGACY_IDS | 5 |
+| nashville | 9495 crockett rd | Brentwood | MULTIPLE_LEGACY_IDS | 4 |
+| nashville | 2528 halls hill pike | Murfreesboro | MULTIPLE_LEGACY_IDS | 4 |
+| nashville | asbury ln | Murfreesboro | MULTIPLE_LEGACY_IDS | 4 |
+| nashville | 1625 23rd ave n | Nashville | MULTIPLE_LEGACY_IDS | 4 |
+| nashville | 810 broadway | Nashville | MULTIPLE_LEGACY_IDS | 4 |
+| nashville | 1625 s church st | Murfreesboro | MULTIPLE_LEGACY_IDS | 3 |
+| nashville | 1727 nw broad st | Murfreesboro | MULTIPLE_LEGACY_IDS | 3 |
+| nashville | 2295 nw broad st | Murfreesboro | MULTIPLE_LEGACY_IDS | 3 |
+| nashville | 2896 s rutherford blvd | Murfreesboro | MULTIPLE_LEGACY_IDS | 3 |
+| nashville | 5530 nw broad st | Murfreesboro | MULTIPLE_LEGACY_IDS | 3 |
+| nashville | 1212 1214 1st ave s | Nashville | MULTIPLE_LEGACY_IDS | 3 |
+| nashville | 127 cleveland st | Nashville | MULTIPLE_LEGACY_IDS | 3 |
+| nashville | 1728 jefferson st | Nashville | MULTIPLE_LEGACY_IDS | 3 |
+| nashville | 1912 old murfreesboro pike | Nashville | MULTIPLE_LEGACY_IDS | 3 |
+| nashville | 210 w maplewood ln | Nashville | MULTIPLE_LEGACY_IDS | 3 |
+| kansas-city-mo-ks | ne kansas city multi family | Kansas City | MULTIPLE_LEGACY_IDS | 57 |
+| kansas-city-mo-ks | harold st | Olathe | MULTIPLE_LEGACY_IDS | 57 |
+| kansas-city-mo-ks | 3000 pennsylvania ave | Kansas City | MULTIPLE_LEGACY_IDS | 53 |
+| kansas-city-mo-ks | dennis land | Olathe | MULTIPLE_LEGACY_IDS | 53 |
+| kansas-city-mo-ks | 13424 13430 santa fe | Lenexa | MULTIPLE_LEGACY_IDS | 51 |
+| kansas-city-mo-ks | 23726 23730 college blvd | Olathe | MULTIPLE_LEGACY_IDS | 45 |
+| kansas-city-mo-ks | 16311 e 23rd st | Independence | MULTIPLE_LEGACY_IDS | 42 |
+| kansas-city-mo-ks | 49 home sfr investment portfolio kansas city mo ks | Kansas City | MULTIPLE_LEGACY_IDS | 40 |
+| kansas-city-mo-ks | ne kansas city residential portfolio 1 | Kansas City | MULTIPLE_LEGACY_IDS | 40 |
+| kansas-city-mo-ks | ne kansas city residential portfolio 2 | Kansas City | MULTIPLE_LEGACY_IDS | 40 |
+| kansas-city-mo-ks | ne kansas city residential portfolio 3 | Kansas City | MULTIPLE_LEGACY_IDS | 40 |
+| kansas-city-mo-ks | ne kansas city residential portfolio 4 | Kansas City | MULTIPLE_LEGACY_IDS | 40 |
+| kansas-city-mo-ks | college pflumm | Olathe | MULTIPLE_LEGACY_IDS | 36 |
+| kansas-city-mo-ks | 615 623 e 23rd st | Independence | MULTIPLE_LEGACY_IDS | 27 |
+| kansas-city-mo-ks | 19405 19415 w 151st terr | Olathe | MULTIPLE_LEGACY_IDS | 27 |
+| kansas-city-mo-ks | 18877 18889 w 158th | Olathe | MULTIPLE_LEGACY_IDS | 26 |
+| kansas-city-mo-ks | 12708 s black bob rd | Olathe | MULTIPLE_LEGACY_IDS | 22 |
+| kansas-city-mo-ks | 8325 8339 nieman rd | Lenexa | MULTIPLE_LEGACY_IDS | 21 |
+| kansas-city-mo-ks | 8665 w 135st st | Overland Park | MULTIPLE_LEGACY_IDS | 21 |
+| kansas-city-mo-ks | 9303 w 75th | Overland Park | MULTIPLE_LEGACY_IDS | 21 |
+| kansas-city-mo-ks | 900 e 21st st | Kansas City | MULTIPLE_LEGACY_IDS | 16 |
+| kansas-city-mo-ks | 16575 s theden rd | Olathe | MULTIPLE_LEGACY_IDS | 16 |
+| kansas-city-mo-ks | 17201 17351 w 113th st | Lenexa | MULTIPLE_LEGACY_IDS | 13 |
+| kansas-city-mo-ks | 8663 w 135th st | Overland Park | MULTIPLE_LEGACY_IDS | 13 |
+| kansas-city-mo-ks | 9424 johnson dr | Shawnee | MULTIPLE_LEGACY_IDS | 13 |
+| kansas-city-mo-ks | 5251 w 116th pl | Leawood | MULTIPLE_LEGACY_IDS | 11 |
+| kansas-city-mo-ks | 519 521 e kansas city rd | Olathe | MULTIPLE_LEGACY_IDS | 11 |
+| kansas-city-mo-ks | 7300 w 110th st commerce plz 1 | Overland Park | MULTIPLE_LEGACY_IDS | 9 |
+| kansas-city-mo-ks | 9393 w 110th st bldg 51 corporate woods | Overland Park | MULTIPLE_LEGACY_IDS | 9 |
+| kansas-city-mo-ks | 2010 e spruce cir | Olathe | MULTIPLE_LEGACY_IDS | 8 |
+| kansas-city-mo-ks | 12170 blue valley pkwy | Overland Park | MULTIPLE_LEGACY_IDS | 7 |
+| kansas-city-mo-ks | 8005 w 110th st | Overland Park | MULTIPLE_LEGACY_IDS, SUITE_BUILDING_AMBIGUITY | 5 |
+| kansas-city-mo-ks | 5732 barton dr | Shawnee | MULTIPLE_LEGACY_IDS | 5 |
+| kansas-city-mo-ks | 5734 barton dr | Shawnee | MULTIPLE_LEGACY_IDS | 5 |
+| kansas-city-mo-ks | 10110 e 63rd st | Kansas City | MULTIPLE_LEGACY_IDS | 4 |
+| kansas-city-mo-ks | 950 state ave | Kansas City | MULTIPLE_LEGACY_IDS | 4 |
+| kansas-city-mo-ks | 12760 w 87th st | Lenexa | MULTIPLE_LEGACY_IDS | 4 |
+| kansas-city-mo-ks | 11503 s strang line rd | Olathe | MULTIPLE_LEGACY_IDS | 4 |
+| kansas-city-mo-ks | 7590 w 151st st | Overland Park | MULTIPLE_LEGACY_IDS | 4 |
+| kansas-city-mo-ks | 5840 n oak trafficway | Kansas City | MULTIPLE_LEGACY_IDS | 3 |
+| miami-doral-medley | nw 137th ave nw 25th st | Miami | MULTIPLE_LEGACY_IDS | 66 |
+| miami-doral-medley | 681 nw 108 st | Miami | MULTIPLE_LEGACY_IDS | 65 |
+| miami-doral-medley | nw 26th st w of nw 87th ct | Miami | MULTIPLE_LEGACY_IDS | 62 |
+| miami-doral-medley | nw corner of us1 and sw 136th st | Miami | MULTIPLE_LEGACY_IDS, CAMPUS_COMPLEX_AMBIGUITY | 62 |
+| miami-doral-medley | 230 ne 97th st | Miami | MULTIPLE_LEGACY_IDS | 61 |
+| miami-doral-medley | 14800 nw 24 ct | Miami | MULTIPLE_LEGACY_IDS | 59 |
+| miami-doral-medley | 2906 douglas rd | Coral Gables | MULTIPLE_LEGACY_IDS | 58 |
+| miami-doral-medley | sw 248th st and 119th ave | Miami | MULTIPLE_LEGACY_IDS | 56 |
+| miami-doral-medley | 20446 20468 s dixie hwy | Miami | MULTIPLE_LEGACY_IDS | 54 |
+| miami-doral-medley | 20464 20462 s dixie hwy | Miami | MULTIPLE_LEGACY_IDS | 54 |
+| miami-doral-medley | 34th st 168th ave | Miami | MULTIPLE_LEGACY_IDS | 53 |
+| miami-doral-medley | 499 nw 79 st | Miami | MULTIPLE_LEGACY_IDS | 53 |
+| miami-doral-medley | 838 nw 79th st | Miami | MULTIPLE_LEGACY_IDS | 53 |
+| miami-doral-medley | ne corner of nw 15th st 129th ave | Miami | MULTIPLE_LEGACY_IDS | 53 |
+| miami-doral-medley | 12900 12950 w dixie hwy | Miami | MULTIPLE_LEGACY_IDS | 52 |
+| miami-doral-medley | sw 169th ave theoretical sw 167th st | Miami | MULTIPLE_LEGACY_IDS | 52 |
+| miami-doral-medley | sw 45th st 33185 | Miami | MULTIPLE_LEGACY_IDS | 48 |
+| miami-doral-medley | 1125 ne 125 st | Miami | MULTIPLE_LEGACY_IDS | 47 |
+| miami-doral-medley | 7200 nw 19th st | Miami | MULTIPLE_LEGACY_IDS, SUITE_BUILDING_AMBIGUITY | 45 |
+| miami-doral-medley | 14121 14267 sw 119th ave | Miami | MULTIPLE_LEGACY_IDS | 43 |
+| miami-doral-medley | 9000 nw 15 st | Miami | MULTIPLE_LEGACY_IDS | 43 |
+| miami-doral-medley | eureka dr sw 184th st | Miami | MULTIPLE_LEGACY_IDS | 41 |
+| miami-doral-medley | 1025 e 45 st | Miami | MULTIPLE_LEGACY_IDS | 40 |
+| miami-doral-medley | 2200 nw 2 ave | Miami | MULTIPLE_LEGACY_IDS, SUITE_BUILDING_AMBIGUITY | 36 |
+| miami-doral-medley | 6955 nw 52 st | Miami | MULTIPLE_LEGACY_IDS | 35 |
+| miami-doral-medley | private address | Miami | MULTIPLE_LEGACY_IDS | 30 |
+| miami-doral-medley | 8726 nw 26th st | Miami | MULTIPLE_LEGACY_IDS, SUITE_BUILDING_AMBIGUITY | 28 |
+| miami-doral-medley | 8150 nw 33rd st | Miami | MULTIPLE_LEGACY_IDS | 27 |
+| miami-doral-medley | 9301 ne 6 ave | Miami | MULTIPLE_LEGACY_IDS | 27 |
+| miami-doral-medley | 325 alhambra cir | Coral Gables | MULTIPLE_LEGACY_IDS | 26 |
+| miami-doral-medley | 175 sw 7th st | Miami | MULTIPLE_LEGACY_IDS, SUITE_BUILDING_AMBIGUITY | 26 |
+| miami-doral-medley | 6316 nw 97th ave | Miami | MULTIPLE_LEGACY_IDS, SUITE_BUILDING_AMBIGUITY | 26 |
+| miami-doral-medley | 7150 nw 5th pl | Miami | MULTIPLE_LEGACY_IDS | 26 |
+| miami-doral-medley | 7620 nw 25th st | Miami | MULTIPLE_LEGACY_IDS, SUITE_BUILDING_AMBIGUITY | 26 |
+| miami-doral-medley | 9699 ne 2nd ave | Miami | MULTIPLE_LEGACY_IDS | 26 |
+| miami-doral-medley | 600 payne dr | Miami | MULTIPLE_LEGACY_IDS | 25 |
+| miami-doral-medley | 8726 nw 26 st | Miami | MULTIPLE_LEGACY_IDS, SUITE_BUILDING_AMBIGUITY | 25 |
+| miami-doral-medley | 1516 1526 ponce de leon blvd | Coral Gables | MULTIPLE_LEGACY_IDS | 24 |
+| miami-doral-medley | 15805 biscayne blvd | Miami | MULTIPLE_LEGACY_IDS | 24 |
+| miami-doral-medley | 15807 biscayne blvd | Miami | MULTIPLE_LEGACY_IDS | 24 |
+| las-vegas-clark-county | rainbow and landberg | Las Vegas | MULTIPLE_LEGACY_IDS | 76 |
+| las-vegas-clark-county | craig simmons | North Las Vegas | MULTIPLE_LEGACY_IDS | 47 |
+| las-vegas-clark-county | 10801 w charleston blvd | Las Vegas | MULTIPLE_LEGACY_IDS, SUITE_BUILDING_AMBIGUITY | 46 |
+| las-vegas-clark-county | placid st keehn ave | Henderson | MULTIPLE_LEGACY_IDS | 45 |
+| las-vegas-clark-county | nw corner of ford at parvin st | Las Vegas | MULTIPLE_LEGACY_IDS | 45 |
+| las-vegas-clark-county | w richmar | Las Vegas | MULTIPLE_LEGACY_IDS | 44 |
+| las-vegas-clark-county | corner of rosanna st and ford ave | Las Vegas | MULTIPLE_LEGACY_IDS | 43 |
+| las-vegas-clark-county | bicentennial pkwy via inspirada | Henderson | MULTIPLE_LEGACY_IDS | 41 |
+| las-vegas-clark-county | 197 e california ave | Las Vegas | MULTIPLE_LEGACY_IDS | 41 |
+| las-vegas-clark-county | las vegas blvd lamont st | Las Vegas | MULTIPLE_LEGACY_IDS | 41 |
+| las-vegas-clark-county | nwc of w lone mountain rd and n fort apache rd | Las Vegas | MULTIPLE_LEGACY_IDS | 41 |
+| las-vegas-clark-county | simmons craig | North Las Vegas | MULTIPLE_LEGACY_IDS | 41 |
+| las-vegas-clark-county | simmons st w craig rd | North Las Vegas | MULTIPLE_LEGACY_IDS | 41 |
+| las-vegas-clark-county | e maulding ave and gilespie | Las Vegas | MULTIPLE_LEGACY_IDS | 40 |
+| las-vegas-clark-county | 730 s 9th st 816 820 gass ave | Las Vegas | MULTIPLE_LEGACY_IDS | 39 |
+| las-vegas-clark-county | via centro near via inspirada | Henderson | MULTIPLE_LEGACY_IDS | 37 |
+| las-vegas-clark-county | tomsik camero | Las Vegas | MULTIPLE_LEGACY_IDS | 24 |
+| las-vegas-clark-county | 1015 e charleston blvd | Las Vegas | MULTIPLE_LEGACY_IDS | 22 |
+| las-vegas-clark-county | 12209 nevada hwy 160 | Las Vegas | MULTIPLE_LEGACY_IDS | 22 |
+| las-vegas-clark-county | 2550 fremont st | Las Vegas | MULTIPLE_LEGACY_IDS | 22 |
+| las-vegas-clark-county | 3150 w charleston blvd | Las Vegas | MULTIPLE_LEGACY_IDS | 22 |
+| las-vegas-clark-county | 4730 s pecos rd | Las Vegas | MULTIPLE_LEGACY_IDS | 22 |
+| las-vegas-clark-county | 5055 n rainbow blvd | Las Vegas | MULTIPLE_LEGACY_IDS | 22 |
+| las-vegas-clark-county | 5585 redwood st | Las Vegas | MULTIPLE_LEGACY_IDS | 22 |
+| las-vegas-clark-county | 5613 s eastern ave | Las Vegas | MULTIPLE_LEGACY_IDS | 22 |
+| las-vegas-clark-county | 12797 s las vegas blvd | Las Vegas | MULTIPLE_LEGACY_IDS | 21 |
+| las-vegas-clark-county | 2113 2417 sunrise ave | Las Vegas | MULTIPLE_LEGACY_IDS | 21 |
+| las-vegas-clark-county | 6745 s eastern 7 | Las Vegas | MULTIPLE_LEGACY_IDS | 21 |
+| las-vegas-clark-county | 9748 w ann rd | Las Vegas | MULTIPLE_LEGACY_IDS | 21 |
+| las-vegas-clark-county | 9824 w pebble rd | Las Vegas | MULTIPLE_LEGACY_IDS | 21 |
+| las-vegas-clark-county | swc of cimarron rd vegas dr | Las Vegas | MULTIPLE_LEGACY_IDS | 19 |
+| las-vegas-clark-county | 2705 w lake mead blvd | Las Vegas | MULTIPLE_LEGACY_IDS | 18 |
+| las-vegas-clark-county | carey lamb | Las Vegas | MULTIPLE_LEGACY_IDS | 18 |
+| las-vegas-clark-county | washington ave and los feliz st | Las Vegas | MULTIPLE_LEGACY_IDS | 18 |
+| las-vegas-clark-county | steptoe st and hamilton ave | Las Vegas | MULTIPLE_LEGACY_IDS | 16 |
+| las-vegas-clark-county | 7935 7975 w badura ave | Las Vegas | MULTIPLE_LEGACY_IDS, SUITE_BUILDING_AMBIGUITY | 15 |
+| las-vegas-clark-county | sec wynn rd tropicana ave | Las Vegas | MULTIPLE_LEGACY_IDS | 14 |
+| las-vegas-clark-county | 710 s main st | Las Vegas | MULTIPLE_LEGACY_IDS | 13 |
+| las-vegas-clark-county | giles and wigwam | Las Vegas | MULTIPLE_LEGACY_IDS | 12 |
+| las-vegas-clark-county | nellis blvd s of lake mead blvd | Las Vegas | MULTIPLE_LEGACY_IDS | 12 |
+| east-bay | evora rd and willow pass ct | Concord | MULTIPLE_LEGACY_IDS | 94 |
+| east-bay | 18551 19367 mission blvd | Hayward | MULTIPLE_LEGACY_IDS | 83 |
+| east-bay | 30850 30920 dyer st | Union City | MULTIPLE_LEGACY_IDS | 82 |
+| east-bay | 22708 22712 foothill blvd | Hayward | MULTIPLE_LEGACY_IDS | 50 |
+| east-bay | vacant land macarthur blvd oakland ca | Oakland | MULTIPLE_LEGACY_IDS | 37 |
+| east-bay | 24011 24123 hesperian blvd | Hayward | MULTIPLE_LEGACY_IDS | 32 |
+| east-bay | 40400 40550 albrae st | Fremont | MULTIPLE_LEGACY_IDS | 31 |
+| east-bay | 40871 40967 albrae st | Fremont | MULTIPLE_LEGACY_IDS | 27 |
+| east-bay | 37353 37371 fremont blvd | Fremont | MULTIPLE_LEGACY_IDS | 25 |
+| east-bay | 1679 1691 willow pass rd | Concord | MULTIPLE_LEGACY_IDS | 24 |
+| east-bay | 22164 22168 mission blvd | Hayward | MULTIPLE_LEGACY_IDS | 24 |
+| east-bay | 1230 1232 fruitvale ave | Oakland | MULTIPLE_LEGACY_IDS | 24 |
+| east-bay | 2400 2496 teagarden st | San Leandro | MULTIPLE_LEGACY_IDS | 24 |
+| east-bay | 1313 9th st | Berkeley | MULTIPLE_LEGACY_IDS | 23 |
+| east-bay | alameda point | Alameda | MULTIPLE_LEGACY_IDS | 22 |
+| east-bay | 690 692 25th st | Oakland | MULTIPLE_LEGACY_IDS | 21 |
+| east-bay | 1500 150th st | San Leandro | MULTIPLE_LEGACY_IDS | 21 |
+| east-bay | 1500 1530 s main st | Walnut Creek | MULTIPLE_LEGACY_IDS | 21 |
+| east-bay | baumberg ave arden rd | Hayward | MULTIPLE_LEGACY_IDS, CAMPUS_COMPLEX_AMBIGUITY | 18 |
+| east-bay | 945 959 22nd ave | Oakland | MULTIPLE_LEGACY_IDS | 18 |
+| east-bay | 20902 20914 cabot blvd | San Leandro | MULTIPLE_LEGACY_IDS | 18 |
+| east-bay | 1777 oakland blvd | Walnut Creek | MULTIPLE_LEGACY_IDS, SUITE_BUILDING_AMBIGUITY | 18 |
+| east-bay | 1500 1530 broadway st | Oakland | MULTIPLE_LEGACY_IDS | 16 |
+| east-bay | 2764 73rd ave | Oakland | MULTIPLE_LEGACY_IDS | 16 |
+| east-bay | 3000 3010 colby st | Berkeley | MULTIPLE_LEGACY_IDS | 15 |
+| east-bay | 0 warm springs blvd combo | Fremont | MULTIPLE_LEGACY_IDS | 15 |
+| east-bay | 47609 47643 lakeview blvd | Fremont | MULTIPLE_LEGACY_IDS | 15 |
+| east-bay | 1300 7th st 1333 8th st | Oakland | MULTIPLE_LEGACY_IDS | 15 |
+| east-bay | 1205 1299 parkside dr | Walnut Creek | MULTIPLE_LEGACY_IDS | 15 |
+| east-bay | 3000 main st | Alameda | MULTIPLE_LEGACY_IDS | 14 |
+| east-bay | 46560 fremont blvd | Fremont | MULTIPLE_LEGACY_IDS | 14 |
+| east-bay | 3098 3100 e 10th st | Oakland | MULTIPLE_LEGACY_IDS | 14 |
+| east-bay | goodrick w parr n | Richmond | MULTIPLE_LEGACY_IDS | 14 |
+| east-bay | 15099 hesperian blvd | San Leandro | MULTIPLE_LEGACY_IDS, SUITE_BUILDING_AMBIGUITY | 14 |
+| east-bay | 3007 3039 teagarden st | San Leandro | MULTIPLE_LEGACY_IDS | 14 |
+| east-bay | 1501 1597 ferry pt | Alameda | MULTIPLE_LEGACY_IDS | 13 |
+| east-bay | 1535 buena vista ave marina | Alameda | MULTIPLE_LEGACY_IDS | 13 |
+| east-bay | 2315 2323 central ave | Alameda | MULTIPLE_LEGACY_IDS | 13 |
+| east-bay | 46997 47001 warm springs blvd | Fremont | MULTIPLE_LEGACY_IDS | 13 |
+| east-bay | 5605 5639 auto mall pky | Fremont | MULTIPLE_LEGACY_IDS | 13 |
+| los-angeles-independent-cities | 12924 12930 lakeland rd | Santa Fe Springs | MULTIPLE_LEGACY_IDS | 65 |
+| los-angeles-independent-cities | 15401 15467 valley blvd | City of Industry | MULTIPLE_LEGACY_IDS | 64 |
+| los-angeles-independent-cities | florence and broadway | Los Angeles | MULTIPLE_LEGACY_IDS | 62 |
+| los-angeles-independent-cities | 1811 n anaheim blvd | Long Beach | MULTIPLE_LEGACY_IDS | 52 |
+| los-angeles-independent-cities | 24427 24451 crenshaw blvd | Torrance | MULTIPLE_LEGACY_IDS | 50 |
+| los-angeles-independent-cities | 15219 15229 15259 gale ave 980 turnbull canyon rd | City of Industry | MULTIPLE_LEGACY_IDS | 49 |
+| los-angeles-independent-cities | 4539 4551 centinela ave | Los Angeles | MULTIPLE_LEGACY_IDS | 48 |
+| los-angeles-independent-cities | 4555 centinela ave | Los Angeles | MULTIPLE_LEGACY_IDS | 48 |
+| los-angeles-independent-cities | 10841 10847 laurel ave | Santa Fe Springs | MULTIPLE_LEGACY_IDS | 48 |
+| los-angeles-independent-cities | 2151 florence ave | Los Angeles | MULTIPLE_LEGACY_IDS | 46 |
+| los-angeles-independent-cities | 18831 18837 hawthorne blvd | Torrance | MULTIPLE_LEGACY_IDS | 46 |
+| los-angeles-independent-cities | 15512 15516 s white ave | Compton | MULTIPLE_LEGACY_IDS | 45 |
+| los-angeles-independent-cities | 11200 11350 s crenshaw blvd | Inglewood | MULTIPLE_LEGACY_IDS | 40 |
+| los-angeles-independent-cities | 5861 5865 s vermont ave | Los Angeles | MULTIPLE_LEGACY_IDS | 31 |
+| los-angeles-independent-cities | 12130 millennium dr | Los Angeles | MULTIPLE_LEGACY_IDS | 30 |
+| los-angeles-independent-cities | 360 n pacific coast hwy | Los Angeles | MULTIPLE_LEGACY_IDS | 30 |
+| los-angeles-independent-cities | 21046 figueroa st | Carson | MULTIPLE_LEGACY_IDS, SUITE_BUILDING_AMBIGUITY | 27 |
+| los-angeles-independent-cities | 11835 w olympic blvd | Los Angeles | MULTIPLE_LEGACY_IDS, SUITE_BUILDING_AMBIGUITY | 26 |
+| los-angeles-independent-cities | 901 s stimson ave 16030 phoenix dr | City of Industry | MULTIPLE_LEGACY_IDS | 25 |
+| los-angeles-independent-cities | 900 940 e compton blvd | Compton | MULTIPLE_LEGACY_IDS | 25 |
+| los-angeles-independent-cities | 15325 15345 s western ave | Gardena | MULTIPLE_LEGACY_IDS | 25 |
+| los-angeles-independent-cities | 11736 11744 hawthorne blvd | Hawthorne | MULTIPLE_LEGACY_IDS | 25 |
+| los-angeles-independent-cities | 3322 la cienega pl | Culver City | MULTIPLE_LEGACY_IDS | 24 |
+| los-angeles-independent-cities | 3562 3576 eastham dr | Culver City | MULTIPLE_LEGACY_IDS | 24 |
+| los-angeles-independent-cities | 200 210 w grand ave | El Segundo | MULTIPLE_LEGACY_IDS | 24 |
+| los-angeles-independent-cities | 2210 2218 e maple ave | El Segundo | MULTIPLE_LEGACY_IDS | 24 |
+| los-angeles-independent-cities | 1625 103rd | Los Angeles | MULTIPLE_LEGACY_IDS | 24 |
+| los-angeles-independent-cities | 2850 n soto st | Los Angeles | MULTIPLE_LEGACY_IDS | 24 |
+| los-angeles-independent-cities | 6216 6218 w manchester ave | Los Angeles | MULTIPLE_LEGACY_IDS | 24 |
+| los-angeles-independent-cities | 6611 6617 s main st | Los Angeles | MULTIPLE_LEGACY_IDS | 24 |
+| los-angeles-independent-cities | 980 n la cienega blvd | Los Angeles | MULTIPLE_LEGACY_IDS | 24 |
+| los-angeles-independent-cities | 8106 8118 allport ave | Santa Fe Springs | MULTIPLE_LEGACY_IDS | 24 |
+| los-angeles-independent-cities | 1520 1528 cloverfield blvd | Santa Monica | MULTIPLE_LEGACY_IDS | 24 |
+| los-angeles-independent-cities | 1159 w 36th st | Los Angeles | MULTIPLE_LEGACY_IDS | 23 |
+| los-angeles-independent-cities | 1801 s la cienega blvd | Los Angeles | MULTIPLE_LEGACY_IDS | 23 |
+| los-angeles-independent-cities | 1810 w burbank blvd | Burbank | MULTIPLE_LEGACY_IDS | 22 |
+| los-angeles-independent-cities | 2820 n ontario st | Burbank | MULTIPLE_LEGACY_IDS | 22 |
+| los-angeles-independent-cities | 7643 n san fernando rd | Burbank | MULTIPLE_LEGACY_IDS | 22 |
+| los-angeles-independent-cities | 701 e alondra blvd | Compton | MULTIPLE_LEGACY_IDS | 22 |
+| los-angeles-independent-cities | 8717 aviation blvd | Inglewood | MULTIPLE_LEGACY_IDS | 22 |

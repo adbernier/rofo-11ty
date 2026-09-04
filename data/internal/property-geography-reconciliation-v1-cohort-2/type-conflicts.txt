@@ -1,0 +1,77 @@
+Property-type conflicts
+
+Historical observations are preserved; reviewed canonical type prevails and multi-type is not inferred.
+
+| Market | Property | Historical | Canonical | Decision |
+|---|---|---|---|---|
+| east-bay | 1608 4th st | office | flex, industrial | CANONICAL_TYPE_PREVAILS |
+| east-bay | 2501 9th st | office | industrial | CANONICAL_TYPE_PREVAILS |
+| east-bay | 2560 9th st | office | flex | CANONICAL_TYPE_PREVAILS |
+| east-bay | 2600 10th st | office | flex, special_purpose_unresolved | CANONICAL_TYPE_PREVAILS |
+| east-bay | 2929 7th st | office | industrial | CANONICAL_TYPE_PREVAILS |
+| east-bay | 3100 san pablo ave | industrial, office | flex | CANONICAL_TYPE_PREVAILS |
+| east-bay | 650 university ave | industrial, office | flex | CANONICAL_TYPE_PREVAILS |
+| east-bay | 717 potter st | office | flex | CANONICAL_TYPE_PREVAILS |
+| east-bay | 918 parker st | office | flex | CANONICAL_TYPE_PREVAILS |
+| east-bay | 950 gilman st | office | industrial | CANONICAL_TYPE_PREVAILS |
+| east-bay | 1400 65th st | office | flex | CANONICAL_TYPE_PREVAILS |
+| east-bay | 1480 64th st | office | flex | CANONICAL_TYPE_PREVAILS |
+| east-bay | 4045 horton st | industrial, office | flex | CANONICAL_TYPE_PREVAILS |
+| east-bay | 967 stanford ave | industrial | flex | CANONICAL_TYPE_PREVAILS |
+| east-bay | 215 fourier ave | office | flex | CANONICAL_TYPE_PREVAILS |
+| east-bay | 3068 laurelview ct | industrial, office | flex | CANONICAL_TYPE_PREVAILS |
+| east-bay | 40460 albrae st | office | industrial | CANONICAL_TYPE_PREVAILS |
+| east-bay | 41407 41601 albrae st | industrial | flex | CANONICAL_TYPE_PREVAILS |
+| east-bay | 41444 christy st | industrial, office | flex | CANONICAL_TYPE_PREVAILS |
+| east-bay | 41460 christy st | industrial, office | flex | CANONICAL_TYPE_PREVAILS |
+| east-bay | 41638 41758 christy st | office | flex | CANONICAL_TYPE_PREVAILS |
+| east-bay | 42744 boscell rd | industrial | flex | CANONICAL_TYPE_PREVAILS |
+| east-bay | 42840 christy st | office | flex | CANONICAL_TYPE_PREVAILS |
+| east-bay | 4400 auto mall pkwy | industrial | flex | CANONICAL_TYPE_PREVAILS |
+| east-bay | 44235 nobel dr | office | industrial | CANONICAL_TYPE_PREVAILS |
+| east-bay | 4580 auto mall pkwy | industrial, office | flex | CANONICAL_TYPE_PREVAILS |
+| east-bay | 46723 lakeview blvd | office | flex | CANONICAL_TYPE_PREVAILS |
+| east-bay | 47421 bayside pkwy | office | flex | CANONICAL_TYPE_PREVAILS |
+| east-bay | 47697 westinghouse dr | industrial, office | flex | CANONICAL_TYPE_PREVAILS |
+| east-bay | 48000 48016 fremont blvd | industrial, office | flex | CANONICAL_TYPE_PREVAILS |
+| east-bay | 48301 lakeview blvd | office | flex | CANONICAL_TYPE_PREVAILS |
+| east-bay | 48603 warm springs blvd | office | industrial, special_purpose_unresolved | CANONICAL_TYPE_PREVAILS |
+| east-bay | 48810 48818 kato rd | office | industrial, special_purpose_unresolved | CANONICAL_TYPE_PREVAILS |
+| east-bay | 48834 kato rd | office | industrial | CANONICAL_TYPE_PREVAILS |
+| east-bay | 5500 boscell cmn | industrial, land | office | CANONICAL_TYPE_PREVAILS |
+| east-bay | 5605 auto mall pkwy | retail | office | CANONICAL_TYPE_PREVAILS |
+| east-bay | 6036 stevenson blvd | retail | flex | CANONICAL_TYPE_PREVAILS |
+| east-bay | 21371 cabot blvd | industrial, office | flex | CANONICAL_TYPE_PREVAILS |
+| east-bay | 3447 investment blvd | industrial, office | flex | CANONICAL_TYPE_PREVAILS |
+| east-bay | 1400 mandela pkwy | industrial, office | flex | CANONICAL_TYPE_PREVAILS |
+| east-bay | 2400 filbert st | industrial, land | flex | CANONICAL_TYPE_PREVAILS |
+| east-bay | 2855 mandela pkwy | office | flex | CANONICAL_TYPE_PREVAILS |
+| east-bay | 303 hegenberger rd | office | flex | CANONICAL_TYPE_PREVAILS |
+| east-bay | 675 hegenberger rd | office | flex | CANONICAL_TYPE_PREVAILS |
+| east-bay | 7677 oakport st | office | flex | CANONICAL_TYPE_PREVAILS |
+| east-bay | 8000 edgewater dr | office | flex | CANONICAL_TYPE_PREVAILS |
+| east-bay | 8301 edgewater dr | office | flex | CANONICAL_TYPE_PREVAILS |
+| east-bay | 8501 san leandro st | land | industrial | CANONICAL_TYPE_PREVAILS |
+| east-bay | 1050 1090 marina way s | industrial, office | flex | CANONICAL_TYPE_PREVAILS |
+| east-bay | 1200 harbour way s | industrial | flex | CANONICAL_TYPE_PREVAILS |
+| east-bay | 1400 harbour way s | industrial, office | flex | CANONICAL_TYPE_PREVAILS |
+| east-bay | 5215 central ave | industrial, office | flex | CANONICAL_TYPE_PREVAILS |
+| east-bay | 830 marina way s | industrial | flex | CANONICAL_TYPE_PREVAILS |
+| east-bay | 1670 alvarado st | industrial, office | flex | CANONICAL_TYPE_PREVAILS |
+| east-bay | 3018 alvarado st | industrial, office | flex | CANONICAL_TYPE_PREVAILS |
+| east-bay | 321 davis st | office, retail | flex | CANONICAL_TYPE_PREVAILS |
+| los-angeles-independent-cities | 5788 w adams blvd | office | retail | CANONICAL_TYPE_PREVAILS |
+| san-jose-south-bay | 10420 bubb rd | office | flex | CANONICAL_TYPE_PREVAILS |
+| san-jose-south-bay | 200 hamilton ave | retail | office | CANONICAL_TYPE_PREVAILS |
+| san-jose-south-bay | 1580 1630 old oakland rd | industrial, office | flex | CANONICAL_TYPE_PREVAILS |
+| san-jose-south-bay | 1650 las plumas ave | industrial, office | flex | CANONICAL_TYPE_PREVAILS |
+| san-jose-south-bay | 350 w trimble rd | office | flex | CANONICAL_TYPE_PREVAILS |
+| san-jose-south-bay | 1195 borregas ave | industrial | flex | CANONICAL_TYPE_PREVAILS |
+| san-jose-south-bay | 333 w maude ave | office | flex | CANONICAL_TYPE_PREVAILS |
+| san-jose-south-bay | 380 n pastoria ave | industrial, land, office | flex | CANONICAL_TYPE_PREVAILS |
+| san-jose-south-bay | 400 w california ave | land, office | flex | CANONICAL_TYPE_PREVAILS |
+| san-jose-south-bay | 640 w california ave | industrial, office | flex | CANONICAL_TYPE_PREVAILS |
+| san-jose-south-bay | 650 vaqueros ave | industrial, office | flex | CANONICAL_TYPE_PREVAILS |
+| san-jose-south-bay | 678 w maude ave | office | flex | CANONICAL_TYPE_PREVAILS |
+| san-jose-south-bay | 730 n pastoria ave | industrial | flex | CANONICAL_TYPE_PREVAILS |
+| san-jose-south-bay | 965 w maude ave | office | flex | CANONICAL_TYPE_PREVAILS |

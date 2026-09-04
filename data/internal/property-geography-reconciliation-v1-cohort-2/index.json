@@ -1,0 +1,3451 @@
+{
+  "schemaVersion": "property-geography-reconciliation:v1:cohort-2",
+  "sourceSnapshot": "repository-controlled-inputs:2026-09-03:cohort-2",
+  "scope": {
+    "pilotMarkets": [
+      "seattle-kent-eastside",
+      "san-jose-south-bay",
+      "detroit-novi",
+      "atlanta",
+      "nashville",
+      "kansas-city-mo-ks",
+      "miami-doral-medley",
+      "las-vegas-clark-county",
+      "east-bay",
+      "los-angeles-independent-cities"
+    ],
+    "publicBehavior": "NONE",
+    "availabilitySemantics": "HISTORICAL_OBSERVATION_ONLY_NOT_CURRENT_AVAILABILITY"
+  },
+  "summaries": [
+    {
+      "marketId": "seattle-kent-eastside",
+      "label": "Seattle / Kent / Eastside",
+      "sourcePropertyObservations": 2451,
+      "historicalListingObservations": 5473,
+      "normalizedIdentities": 1720,
+      "canonicalMatches": 27,
+      "reconciledEntities": 44,
+      "geographyLinked": 0,
+      "humanReview": 35,
+      "discoveryOnly": 1634,
+      "rejected": 7,
+      "statuses": {
+        "CANONICAL_MATCH": 27,
+        "DISCOVERY_ONLY": 1634,
+        "HUMAN_REVIEW_REQUIRED": 35,
+        "RECONCILED_PROPERTY": 17,
+        "REJECTED": 7
+      },
+      "tiers": {
+        "AUTO_PROMOTABLE_INTERNAL": 27,
+        "AUTO_RECONCILE_QA": 17,
+        "DISCOVERY_ONLY": 1634,
+        "HUMAN_REVIEW": 35,
+        "REJECT": 7
+      },
+      "conflictCount": 250,
+      "representativeCandidates": 0,
+      "publicCandidatesLater": 0
+    },
+    {
+      "marketId": "san-jose-south-bay",
+      "label": "San Jose / South Bay",
+      "sourcePropertyObservations": 8716,
+      "historicalListingObservations": 26796,
+      "normalizedIdentities": 5666,
+      "canonicalMatches": 174,
+      "reconciledEntities": 286,
+      "geographyLinked": 0,
+      "humanReview": 236,
+      "discoveryOnly": 5098,
+      "rejected": 46,
+      "statuses": {
+        "CANONICAL_MATCH": 174,
+        "DISCOVERY_ONLY": 5098,
+        "HUMAN_REVIEW_REQUIRED": 236,
+        "RECONCILED_PROPERTY": 112,
+        "REJECTED": 46
+      },
+      "tiers": {
+        "AUTO_PROMOTABLE_INTERNAL": 174,
+        "AUTO_RECONCILE_QA": 112,
+        "DISCOVERY_ONLY": 5098,
+        "HUMAN_REVIEW": 236,
+        "REJECT": 46
+      },
+      "conflictCount": 1133,
+      "representativeCandidates": 0,
+      "publicCandidatesLater": 0
+    },
+    {
+      "marketId": "detroit-novi",
+      "label": "Detroit / Novi",
+      "sourcePropertyObservations": 11377,
+      "historicalListingObservations": 39217,
+      "normalizedIdentities": 3665,
+      "canonicalMatches": 11,
+      "reconciledEntities": 100,
+      "geographyLinked": 0,
+      "humanReview": 218,
+      "discoveryOnly": 3237,
+      "rejected": 110,
+      "statuses": {
+        "CANONICAL_MATCH": 11,
+        "DISCOVERY_ONLY": 3237,
+        "HUMAN_REVIEW_REQUIRED": 218,
+        "RECONCILED_PROPERTY": 89,
+        "REJECTED": 110
+      },
+      "tiers": {
+        "AUTO_PROMOTABLE_INTERNAL": 11,
+        "AUTO_RECONCILE_QA": 89,
+        "DISCOVERY_ONLY": 3237,
+        "HUMAN_REVIEW": 218,
+        "REJECT": 110
+      },
+      "conflictCount": 1281,
+      "representativeCandidates": 0,
+      "publicCandidatesLater": 0
+    },
+    {
+      "marketId": "atlanta",
+      "label": "Atlanta",
+      "sourcePropertyObservations": 10742,
+      "historicalListingObservations": 31271,
+      "normalizedIdentities": 4018,
+      "canonicalMatches": 61,
+      "reconciledEntities": 134,
+      "geographyLinked": 0,
+      "humanReview": 321,
+      "discoveryOnly": 3528,
+      "rejected": 35,
+      "statuses": {
+        "CANONICAL_MATCH": 61,
+        "DISCOVERY_ONLY": 3528,
+        "HUMAN_REVIEW_REQUIRED": 321,
+        "RECONCILED_PROPERTY": 73,
+        "REJECTED": 35
+      },
+      "tiers": {
+        "AUTO_PROMOTABLE_INTERNAL": 61,
+        "AUTO_RECONCILE_QA": 73,
+        "DISCOVERY_ONLY": 3528,
+        "HUMAN_REVIEW": 321,
+        "REJECT": 35
+      },
+      "conflictCount": 1590,
+      "representativeCandidates": 0,
+      "publicCandidatesLater": 0
+    },
+    {
+      "marketId": "nashville",
+      "label": "Nashville",
+      "sourcePropertyObservations": 1139,
+      "historicalListingObservations": 2713,
+      "normalizedIdentities": 716,
+      "canonicalMatches": 16,
+      "reconciledEntities": 25,
+      "geographyLinked": 0,
+      "humanReview": 24,
+      "discoveryOnly": 660,
+      "rejected": 7,
+      "statuses": {
+        "CANONICAL_MATCH": 16,
+        "DISCOVERY_ONLY": 660,
+        "HUMAN_REVIEW_REQUIRED": 24,
+        "RECONCILED_PROPERTY": 9,
+        "REJECTED": 7
+      },
+      "tiers": {
+        "AUTO_PROMOTABLE_INTERNAL": 16,
+        "AUTO_RECONCILE_QA": 9,
+        "DISCOVERY_ONLY": 660,
+        "HUMAN_REVIEW": 24,
+        "REJECT": 7
+      },
+      "conflictCount": 124,
+      "representativeCandidates": 0,
+      "publicCandidatesLater": 0
+    },
+    {
+      "marketId": "kansas-city-mo-ks",
+      "label": "Kansas City MO / KS",
+      "sourcePropertyObservations": 1875,
+      "historicalListingObservations": 3268,
+      "normalizedIdentities": 885,
+      "canonicalMatches": 12,
+      "reconciledEntities": 15,
+      "geographyLinked": 0,
+      "humanReview": 10,
+      "discoveryOnly": 842,
+      "rejected": 18,
+      "statuses": {
+        "CANONICAL_MATCH": 12,
+        "DISCOVERY_ONLY": 842,
+        "HUMAN_REVIEW_REQUIRED": 10,
+        "RECONCILED_PROPERTY": 3,
+        "REJECTED": 18
+      },
+      "tiers": {
+        "AUTO_PROMOTABLE_INTERNAL": 12,
+        "AUTO_RECONCILE_QA": 3,
+        "DISCOVERY_ONLY": 842,
+        "HUMAN_REVIEW": 10,
+        "REJECT": 18
+      },
+      "conflictCount": 140,
+      "representativeCandidates": 0,
+      "publicCandidatesLater": 0
+    },
+    {
+      "marketId": "miami-doral-medley",
+      "label": "Miami / Doral / Medley",
+      "sourcePropertyObservations": 6644,
+      "historicalListingObservations": 23024,
+      "normalizedIdentities": 2067,
+      "canonicalMatches": 32,
+      "reconciledEntities": 48,
+      "geographyLinked": 0,
+      "humanReview": 269,
+      "discoveryOnly": 1689,
+      "rejected": 61,
+      "statuses": {
+        "CANONICAL_MATCH": 32,
+        "DISCOVERY_ONLY": 1689,
+        "HUMAN_REVIEW_REQUIRED": 269,
+        "RECONCILED_PROPERTY": 16,
+        "REJECTED": 61
+      },
+      "tiers": {
+        "AUTO_PROMOTABLE_INTERNAL": 32,
+        "AUTO_RECONCILE_QA": 16,
+        "DISCOVERY_ONLY": 1689,
+        "HUMAN_REVIEW": 269,
+        "REJECT": 61
+      },
+      "conflictCount": 890,
+      "representativeCandidates": 0,
+      "publicCandidatesLater": 0
+    },
+    {
+      "marketId": "las-vegas-clark-county",
+      "label": "Las Vegas / Clark County",
+      "sourcePropertyObservations": 4548,
+      "historicalListingObservations": 11669,
+      "normalizedIdentities": 2698,
+      "canonicalMatches": 15,
+      "reconciledEntities": 45,
+      "geographyLinked": 0,
+      "humanReview": 318,
+      "discoveryOnly": 2086,
+      "rejected": 249,
+      "statuses": {
+        "CANONICAL_MATCH": 15,
+        "DISCOVERY_ONLY": 2086,
+        "HUMAN_REVIEW_REQUIRED": 318,
+        "RECONCILED_PROPERTY": 30,
+        "REJECTED": 249
+      },
+      "tiers": {
+        "AUTO_PROMOTABLE_INTERNAL": 15,
+        "AUTO_RECONCILE_QA": 30,
+        "DISCOVERY_ONLY": 2086,
+        "HUMAN_REVIEW": 318,
+        "REJECT": 249
+      },
+      "conflictCount": 823,
+      "representativeCandidates": 0,
+      "publicCandidatesLater": 0
+    },
+    {
+      "marketId": "east-bay",
+      "label": "East Bay",
+      "sourcePropertyObservations": 31115,
+      "historicalListingObservations": 23000,
+      "normalizedIdentities": 28356,
+      "canonicalMatches": 142,
+      "reconciledEntities": 196,
+      "geographyLinked": 0,
+      "humanReview": 193,
+      "discoveryOnly": 27887,
+      "rejected": 80,
+      "statuses": {
+        "CANONICAL_MATCH": 142,
+        "DISCOVERY_ONLY": 27887,
+        "HUMAN_REVIEW_REQUIRED": 193,
+        "RECONCILED_PROPERTY": 54,
+        "REJECTED": 80
+      },
+      "tiers": {
+        "AUTO_PROMOTABLE_INTERNAL": 142,
+        "AUTO_RECONCILE_QA": 54,
+        "DISCOVERY_ONLY": 27887,
+        "HUMAN_REVIEW": 193,
+        "REJECT": 80
+      },
+      "conflictCount": 1288,
+      "representativeCandidates": 22,
+      "publicCandidatesLater": 0
+    },
+    {
+      "marketId": "los-angeles-independent-cities",
+      "label": "Los Angeles / independently owned municipalities",
+      "sourcePropertyObservations": 13726,
+      "historicalListingObservations": 32770,
+      "normalizedIdentities": 8242,
+      "canonicalMatches": 268,
+      "reconciledEntities": 330,
+      "geographyLinked": 0,
+      "humanReview": 293,
+      "discoveryOnly": 7577,
+      "rejected": 42,
+      "statuses": {
+        "CANONICAL_MATCH": 268,
+        "DISCOVERY_ONLY": 7577,
+        "HUMAN_REVIEW_REQUIRED": 293,
+        "RECONCILED_PROPERTY": 62,
+        "REJECTED": 42
+      },
+      "tiers": {
+        "AUTO_PROMOTABLE_INTERNAL": 268,
+        "AUTO_RECONCILE_QA": 62,
+        "DISCOVERY_ONLY": 7577,
+        "HUMAN_REVIEW": 293,
+        "REJECT": 42
+      },
+      "conflictCount": 1775,
+      "representativeCandidates": 0,
+      "publicCandidatesLater": 0
+    }
+  ],
+  "marketFiles": [
+    {
+      "marketId": "seattle-kent-eastside",
+      "file": "seattle-kent-eastside.json",
+      "bytes": 3176146,
+      "sha256": "85155e51ef0d490823dd16049071497de783d9f88bc866d5a37d550f8c08d561",
+      "entityCount": 1720,
+      "sharded": false
+    },
+    {
+      "marketId": "san-jose-south-bay",
+      "file": "san-jose-south-bay.json",
+      "bytes": 10625045,
+      "sha256": "4bd18fdd15e0e6647d56ee8c4089ae95008722c3eec1ab853885ffb6d420d111",
+      "entityCount": 5666,
+      "sharded": false
+    },
+    {
+      "marketId": "detroit-novi",
+      "file": "detroit-novi.json",
+      "bytes": 7535141,
+      "sha256": "7bd6935d12afd065a1514fb2e4e435b5935a2bdf7772b308a4b2b3c38e220612",
+      "entityCount": 3665,
+      "sharded": false
+    },
+    {
+      "marketId": "atlanta",
+      "file": "atlanta.json",
+      "bytes": 8087338,
+      "sha256": "d928eec1293bf6942adb9c592ef80d6e5bc70e7fc3f3b5adb719e37ea82648ee",
+      "entityCount": 4018,
+      "sharded": false
+    },
+    {
+      "marketId": "nashville",
+      "file": "nashville.json",
+      "bytes": 1330425,
+      "sha256": "fb71efd5e3fdef7045881503aeb235f1c1a369b5236d3e023714da030485a851",
+      "entityCount": 716,
+      "sharded": false
+    },
+    {
+      "marketId": "kansas-city-mo-ks",
+      "file": "kansas-city-mo-ks.json",
+      "bytes": 1698073,
+      "sha256": "1fe4de82ce6b29e936b0e7e740a6a37a528559f66694637b9c46cfe7791ec943",
+      "entityCount": 885,
+      "sharded": false
+    },
+    {
+      "marketId": "miami-doral-medley",
+      "file": "miami-doral-medley.json",
+      "bytes": 4296546,
+      "sha256": "4e0022049be5ed933e2d3d6dda654a08020744efdb12cccf13a8d9713b8a92a0",
+      "entityCount": 2067,
+      "sharded": false
+    },
+    {
+      "marketId": "las-vegas-clark-county",
+      "file": "las-vegas-clark-county.json",
+      "bytes": 5119325,
+      "sha256": "199927eaf5276cd4bca8e4783b58e968c665e25e8ae9a5bb552f0b5f3d6ae884",
+      "entityCount": 2698,
+      "sharded": false
+    },
+    {
+      "marketId": "east-bay",
+      "indexFile": "east-bay/index.json",
+      "sharded": true,
+      "parts": [
+        {
+          "file": "east-bay/part-01.json",
+          "bytes": 29361468,
+          "sha256": "c7f599695443d636bdad044d630a0305627e93e37670d1fe1d0d4b6772ee7014",
+          "entityCount": 16791
+        },
+        {
+          "file": "east-bay/part-02.json",
+          "bytes": 20191625,
+          "sha256": "5c14c4d9285ccbf8662bf50c17d7e95d9c55ec90efef2c0b8552ba7fad85fe73",
+          "entityCount": 11565
+        }
+      ],
+      "entityCount": 28356
+    },
+    {
+      "marketId": "los-angeles-independent-cities",
+      "file": "los-angeles-independent-cities.json",
+      "bytes": 15643590,
+      "sha256": "feeb026440d176835a7279caf091858c3c8baa9af0538a49f6af09883b014c07",
+      "entityCount": 8242,
+      "sharded": false
+    }
+  ],
+  "deepReview": {
+    "architectureDecision": "B. READY FOR ANOTHER 10-MARKET COHORT",
+    "totals": {
+      "sourcePropertyObservations": 92333,
+      "historicalListingObservations": 199201,
+      "normalizedIdentities": 58033,
+      "canonicalMatches": 758,
+      "reconciledEntities": 1223,
+      "geographyLinked": 22,
+      "reviewedGeographyLinks": 0,
+      "downgradedGeographyLinks": 22,
+      "humanReview": 1917,
+      "discoveryOnly": 54238,
+      "rejected": 655,
+      "municipalityConflicts": 197,
+      "municipalityConflictsClassified": 197,
+      "autoQaReviewed": 1862,
+      "autoQaPromoted": 465,
+      "autoQaDowngraded": 1397,
+      "strongRepresentatives": 0,
+      "possibleRepresentatives": 22,
+      "publicReviewed": 0,
+      "publicNeedsEvidence": 22
+    },
+    "automation": {
+      "autoPromotableInternal": 758,
+      "autoReconcileQa": 465,
+      "humanReview": 1917,
+      "discoveryOnly": 54238,
+      "reject": 655
+    },
+    "architectureDrift": "CONTRACT_HANDLES_CLEANLY",
+    "discoveryClusters": [
+      {
+        "marketId": "east-bay",
+        "state": "CA",
+        "municipalityId": "fremont",
+        "name": "clipper court commerce center",
+        "propertyIdentityCount": 60,
+        "classification": "STRONG_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "east-bay",
+        "state": "CA",
+        "municipalityId": "hayward",
+        "name": "barrington business park",
+        "propertyIdentityCount": 21,
+        "classification": "STRONG_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "east-bay",
+        "state": "CA",
+        "municipalityId": "union-city",
+        "name": "alvarado business park",
+        "propertyIdentityCount": 14,
+        "classification": "STRONG_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "san-jose-south-bay",
+        "state": "CA",
+        "municipalityId": "santa-clara",
+        "name": "marriott business park",
+        "propertyIdentityCount": 14,
+        "classification": "STRONG_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "san-jose-south-bay",
+        "state": "CA",
+        "municipalityId": "san-jose",
+        "name": "montague oaks business park",
+        "propertyIdentityCount": 12,
+        "classification": "STRONG_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "east-bay",
+        "state": "CA",
+        "municipalityId": "hayward",
+        "name": "hayward business park",
+        "propertyIdentityCount": 10,
+        "classification": "STRONG_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "east-bay",
+        "state": "CA",
+        "municipalityId": "san-leandro",
+        "name": "san leandro business park",
+        "propertyIdentityCount": 10,
+        "classification": "STRONG_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "san-jose-south-bay",
+        "state": "CA",
+        "municipalityId": "san-jose",
+        "name": "riversedge business park",
+        "propertyIdentityCount": 10,
+        "classification": "STRONG_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "east-bay",
+        "state": "CA",
+        "municipalityId": "hayward",
+        "name": "hayward industrial park",
+        "propertyIdentityCount": 9,
+        "classification": "STRONG_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "san-jose-south-bay",
+        "state": "CA",
+        "municipalityId": "milpitas",
+        "name": "milpitas business park",
+        "propertyIdentityCount": 9,
+        "classification": "STRONG_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "san-jose-south-bay",
+        "state": "CA",
+        "municipalityId": "sunnyvale",
+        "name": "sunnyvale business park",
+        "propertyIdentityCount": 9,
+        "classification": "STRONG_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "detroit-novi",
+        "state": "MI",
+        "municipalityId": "dearborn",
+        "name": "fairlane commerce park north",
+        "propertyIdentityCount": 8,
+        "classification": "STRONG_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "east-bay",
+        "state": "CA",
+        "municipalityId": "walnut-creek",
+        "name": "quail court office park",
+        "propertyIdentityCount": 8,
+        "classification": "STRONG_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "san-jose-south-bay",
+        "state": "CA",
+        "municipalityId": "milpitas",
+        "name": "ames business park",
+        "propertyIdentityCount": 8,
+        "classification": "STRONG_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "san-jose-south-bay",
+        "state": "CA",
+        "municipalityId": "santa-clara",
+        "name": "central lawrence business park",
+        "propertyIdentityCount": 8,
+        "classification": "STRONG_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "san-jose-south-bay",
+        "state": "CA",
+        "municipalityId": "milpitas",
+        "name": "fleming business park",
+        "propertyIdentityCount": 8,
+        "classification": "STRONG_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "san-jose-south-bay",
+        "state": "CA",
+        "municipalityId": "san-jose",
+        "name": "koll circle business park",
+        "propertyIdentityCount": 8,
+        "classification": "STRONG_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "east-bay",
+        "state": "CA",
+        "municipalityId": "fremont",
+        "name": "fremont industrial commerce center",
+        "propertyIdentityCount": 7,
+        "classification": "STRONG_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "east-bay",
+        "state": "CA",
+        "municipalityId": "fremont",
+        "name": "scott creek business park",
+        "propertyIdentityCount": 7,
+        "classification": "STRONG_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "los-angeles-independent-cities",
+        "state": "CA",
+        "municipalityId": "santa-fe-springs",
+        "name": "legacy heritage corporate center",
+        "propertyIdentityCount": 7,
+        "classification": "STRONG_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "san-jose-south-bay",
+        "state": "CA",
+        "municipalityId": "san-jose",
+        "name": "orchard business park",
+        "propertyIdentityCount": 7,
+        "classification": "STRONG_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "san-jose-south-bay",
+        "state": "CA",
+        "municipalityId": "santa-clara",
+        "name": "san tomas commerce park",
+        "propertyIdentityCount": 7,
+        "classification": "STRONG_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "detroit-novi",
+        "state": "MI",
+        "municipalityId": "troy",
+        "name": "marquee troy corporate center",
+        "propertyIdentityCount": 6,
+        "classification": "STRONG_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "detroit-novi",
+        "state": "MI",
+        "municipalityId": "troy",
+        "name": "troy industrial park",
+        "propertyIdentityCount": 6,
+        "classification": "STRONG_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "east-bay",
+        "state": "CA",
+        "municipalityId": "hayward",
+        "name": "hesperian industrial park",
+        "propertyIdentityCount": 6,
+        "classification": "STRONG_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "east-bay",
+        "state": "CA",
+        "municipalityId": "hayward",
+        "name": "industrial blvd business center",
+        "propertyIdentityCount": 6,
+        "classification": "STRONG_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "east-bay",
+        "state": "CA",
+        "municipalityId": "fremont",
+        "name": "mission business park",
+        "propertyIdentityCount": 6,
+        "classification": "STRONG_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "east-bay",
+        "state": "CA",
+        "municipalityId": "san-leandro",
+        "name": "northpoint business park",
+        "propertyIdentityCount": 6,
+        "classification": "STRONG_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "east-bay",
+        "state": "CA",
+        "municipalityId": "richmond",
+        "name": "pinole point business park",
+        "propertyIdentityCount": 6,
+        "classification": "STRONG_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "los-angeles-independent-cities",
+        "state": "CA",
+        "municipalityId": "torrance",
+        "name": "rreef sequoia commerce center",
+        "propertyIdentityCount": 6,
+        "classification": "STRONG_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "los-angeles-independent-cities",
+        "state": "CA",
+        "municipalityId": "santa-fe-springs",
+        "name": "shoemaker business park",
+        "propertyIdentityCount": 6,
+        "classification": "STRONG_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "san-jose-south-bay",
+        "state": "CA",
+        "municipalityId": "san-jose",
+        "name": "bering zanker business park",
+        "propertyIdentityCount": 6,
+        "classification": "STRONG_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "san-jose-south-bay",
+        "state": "CA",
+        "municipalityId": "san-jose",
+        "name": "edenvale business park",
+        "propertyIdentityCount": 6,
+        "classification": "STRONG_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "detroit-novi",
+        "state": "MI",
+        "municipalityId": "dearborn",
+        "name": "gulley road industrial park",
+        "propertyIdentityCount": 5,
+        "classification": "STRONG_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "detroit-novi",
+        "state": "MI",
+        "municipalityId": "troy",
+        "name": "rankin business park",
+        "propertyIdentityCount": 5,
+        "classification": "STRONG_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "east-bay",
+        "state": "CA",
+        "municipalityId": "fremont",
+        "name": "bayside business park",
+        "propertyIdentityCount": 5,
+        "classification": "STRONG_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "east-bay",
+        "state": "CA",
+        "municipalityId": "hayward",
+        "name": "diablo industrial park",
+        "propertyIdentityCount": 5,
+        "classification": "STRONG_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "east-bay",
+        "state": "CA",
+        "municipalityId": "fremont",
+        "name": "fountains business park",
+        "propertyIdentityCount": 5,
+        "classification": "STRONG_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "east-bay",
+        "state": "CA",
+        "municipalityId": "hayward",
+        "name": "mt eden business park",
+        "propertyIdentityCount": 5,
+        "classification": "STRONG_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "east-bay",
+        "state": "CA",
+        "municipalityId": "hayward",
+        "name": "north hayward corporate center",
+        "propertyIdentityCount": 5,
+        "classification": "STRONG_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "east-bay",
+        "state": "CA",
+        "municipalityId": "hayward",
+        "name": "stratford business park",
+        "propertyIdentityCount": 5,
+        "classification": "STRONG_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "east-bay",
+        "state": "CA",
+        "municipalityId": "hayward",
+        "name": "winton industrial center",
+        "propertyIdentityCount": 5,
+        "classification": "STRONG_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "las-vegas-clark-county",
+        "state": "NV",
+        "municipalityId": "las-vegas",
+        "name": "ali baba commerce center",
+        "propertyIdentityCount": 5,
+        "classification": "STRONG_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "las-vegas-clark-county",
+        "state": "NV",
+        "municipalityId": "las-vegas",
+        "name": "arrowhead commerce center",
+        "propertyIdentityCount": 5,
+        "classification": "STRONG_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "las-vegas-clark-county",
+        "state": "NV",
+        "municipalityId": "henderson",
+        "name": "henderson commerce center iv phase 2",
+        "propertyIdentityCount": 5,
+        "classification": "STRONG_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "los-angeles-independent-cities",
+        "state": "CA",
+        "municipalityId": "city-of-industry",
+        "name": "concourse business park",
+        "propertyIdentityCount": 5,
+        "classification": "STRONG_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "los-angeles-independent-cities",
+        "state": "CA",
+        "municipalityId": "pasadena",
+        "name": "pasadena business park",
+        "propertyIdentityCount": 5,
+        "classification": "STRONG_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "san-jose-south-bay",
+        "state": "CA",
+        "municipalityId": "san-jose",
+        "name": "berryessa industrial park",
+        "propertyIdentityCount": 5,
+        "classification": "STRONG_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "san-jose-south-bay",
+        "state": "CA",
+        "municipalityId": "mountain-view",
+        "name": "clyde avenue business park",
+        "propertyIdentityCount": 5,
+        "classification": "STRONG_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "san-jose-south-bay",
+        "state": "CA",
+        "municipalityId": "santa-clara",
+        "name": "lafayette business park",
+        "propertyIdentityCount": 5,
+        "classification": "STRONG_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "san-jose-south-bay",
+        "state": "CA",
+        "municipalityId": "milpitas",
+        "name": "milpitas 10 business park",
+        "propertyIdentityCount": 5,
+        "classification": "STRONG_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "san-jose-south-bay",
+        "state": "CA",
+        "municipalityId": "milpitas",
+        "name": "oak creek business park",
+        "propertyIdentityCount": 5,
+        "classification": "STRONG_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "san-jose-south-bay",
+        "state": "CA",
+        "municipalityId": "san-jose",
+        "name": "tripoint business park",
+        "propertyIdentityCount": 5,
+        "classification": "STRONG_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "detroit-novi",
+        "state": "MI",
+        "municipalityId": "novi",
+        "name": "beck north corporate park",
+        "propertyIdentityCount": 4,
+        "classification": "MODERATE_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "detroit-novi",
+        "state": "MI",
+        "municipalityId": "troy",
+        "name": "kirts office park",
+        "propertyIdentityCount": 4,
+        "classification": "MODERATE_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "detroit-novi",
+        "state": "MI",
+        "municipalityId": "livonia",
+        "name": "livonia corporate center",
+        "propertyIdentityCount": 4,
+        "classification": "MODERATE_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "east-bay",
+        "state": "CA",
+        "municipalityId": "hayward",
+        "name": "bay center i business park",
+        "propertyIdentityCount": 4,
+        "classification": "MODERATE_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "east-bay",
+        "state": "CA",
+        "municipalityId": "union-city",
+        "name": "clocktower commerce center",
+        "propertyIdentityCount": 4,
+        "classification": "MODERATE_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "east-bay",
+        "state": "CA",
+        "municipalityId": "hayward",
+        "name": "delta court industrial park building a",
+        "propertyIdentityCount": 4,
+        "classification": "MODERATE_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "east-bay",
+        "state": "CA",
+        "municipalityId": "union-city",
+        "name": "dowe business park phase i",
+        "propertyIdentityCount": 4,
+        "classification": "MODERATE_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "east-bay",
+        "state": "CA",
+        "municipalityId": "fremont",
+        "name": "fremont commerce center",
+        "propertyIdentityCount": 4,
+        "classification": "MODERATE_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "east-bay",
+        "state": "CA",
+        "municipalityId": "fremont",
+        "name": "fremont distribution center",
+        "propertyIdentityCount": 4,
+        "classification": "MODERATE_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "east-bay",
+        "state": "CA",
+        "municipalityId": "newark",
+        "name": "newark business park",
+        "propertyIdentityCount": 4,
+        "classification": "MODERATE_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "east-bay",
+        "state": "CA",
+        "municipalityId": "oakland",
+        "name": "oakland airport business park",
+        "propertyIdentityCount": 4,
+        "classification": "MODERATE_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "east-bay",
+        "state": "CA",
+        "municipalityId": "richmond",
+        "name": "pinole point business park phase ii",
+        "propertyIdentityCount": 4,
+        "classification": "MODERATE_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "east-bay",
+        "state": "CA",
+        "municipalityId": "richmond",
+        "name": "pinole point commerce center",
+        "propertyIdentityCount": 4,
+        "classification": "MODERATE_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "las-vegas-clark-county",
+        "state": "NV",
+        "municipalityId": "north-las-vegas",
+        "name": "civic center corporate park",
+        "propertyIdentityCount": 4,
+        "classification": "MODERATE_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "las-vegas-clark-county",
+        "state": "NV",
+        "municipalityId": "henderson",
+        "name": "henderson commerce center",
+        "propertyIdentityCount": 4,
+        "classification": "MODERATE_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "las-vegas-clark-county",
+        "state": "NV",
+        "municipalityId": "henderson",
+        "name": "traverse point commerce center",
+        "propertyIdentityCount": 4,
+        "classification": "MODERATE_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "san-jose-south-bay",
+        "state": "CA",
+        "municipalityId": "milpitas",
+        "name": "dixon landing business park",
+        "propertyIdentityCount": 4,
+        "classification": "MODERATE_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "san-jose-south-bay",
+        "state": "CA",
+        "municipalityId": "santa-clara",
+        "name": "edward business park",
+        "propertyIdentityCount": 4,
+        "classification": "MODERATE_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "san-jose-south-bay",
+        "state": "CA",
+        "municipalityId": "sunnyvale",
+        "name": "kifer commerce park",
+        "propertyIdentityCount": 4,
+        "classification": "MODERATE_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "san-jose-south-bay",
+        "state": "CA",
+        "municipalityId": "santa-clara",
+        "name": "oxford business park",
+        "propertyIdentityCount": 4,
+        "classification": "MODERATE_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "detroit-novi",
+        "state": "MI",
+        "municipalityId": "southfield",
+        "name": "american commerce center",
+        "propertyIdentityCount": 3,
+        "classification": "MODERATE_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "detroit-novi",
+        "state": "MI",
+        "municipalityId": "novi",
+        "name": "beck west corporate park",
+        "propertyIdentityCount": 3,
+        "classification": "MODERATE_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "detroit-novi",
+        "state": "MI",
+        "municipalityId": "southfield",
+        "name": "bridge industrial park",
+        "propertyIdentityCount": 3,
+        "classification": "MODERATE_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "detroit-novi",
+        "state": "MI",
+        "municipalityId": "troy",
+        "name": "maple industrial subdivision",
+        "propertyIdentityCount": 3,
+        "classification": "MODERATE_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "detroit-novi",
+        "state": "MI",
+        "municipalityId": "novi",
+        "name": "meadowbrook corporate park",
+        "propertyIdentityCount": 3,
+        "classification": "MODERATE_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "detroit-novi",
+        "state": "MI",
+        "municipalityId": "livonia",
+        "name": "pinebrooke office park",
+        "propertyIdentityCount": 3,
+        "classification": "MODERATE_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "detroit-novi",
+        "state": "MI",
+        "municipalityId": "troy",
+        "name": "troy commerce center ii",
+        "propertyIdentityCount": 3,
+        "classification": "MODERATE_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "east-bay",
+        "state": "CA",
+        "municipalityId": "union-city",
+        "name": "central pacific business park",
+        "propertyIdentityCount": 3,
+        "classification": "MODERATE_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "east-bay",
+        "state": "CA",
+        "municipalityId": "newark",
+        "name": "cherry business park",
+        "propertyIdentityCount": 3,
+        "classification": "MODERATE_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "east-bay",
+        "state": "CA",
+        "municipalityId": "union-city",
+        "name": "clocktower commerce center a",
+        "propertyIdentityCount": 3,
+        "classification": "MODERATE_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "east-bay",
+        "state": "CA",
+        "municipalityId": "san-leandro",
+        "name": "fairway business park",
+        "propertyIdentityCount": 3,
+        "classification": "MODERATE_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "east-bay",
+        "state": "CA",
+        "municipalityId": "fremont",
+        "name": "foothill industrial court ii",
+        "propertyIdentityCount": 3,
+        "classification": "MODERATE_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "east-bay",
+        "state": "CA",
+        "municipalityId": "fremont",
+        "name": "fremont industrial center",
+        "propertyIdentityCount": 3,
+        "classification": "MODERATE_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "east-bay",
+        "state": "CA",
+        "municipalityId": "san-leandro",
+        "name": "marina business park",
+        "propertyIdentityCount": 3,
+        "classification": "MODERATE_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "east-bay",
+        "state": "CA",
+        "municipalityId": "concord",
+        "name": "mason industrial park",
+        "propertyIdentityCount": 3,
+        "classification": "MODERATE_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "east-bay",
+        "state": "CA",
+        "municipalityId": "fremont",
+        "name": "mission falls business park",
+        "propertyIdentityCount": 3,
+        "classification": "MODERATE_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "east-bay",
+        "state": "CA",
+        "municipalityId": "fremont",
+        "name": "warm springs business park",
+        "propertyIdentityCount": 3,
+        "classification": "MODERATE_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "east-bay",
+        "state": "CA",
+        "municipalityId": "fremont",
+        "name": "warren corporate center",
+        "propertyIdentityCount": 3,
+        "classification": "MODERATE_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "east-bay",
+        "state": "CA",
+        "municipalityId": "union-city",
+        "name": "whipple commerce center",
+        "propertyIdentityCount": 3,
+        "classification": "MODERATE_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "east-bay",
+        "state": "CA",
+        "municipalityId": "hayward",
+        "name": "whipple road business park",
+        "propertyIdentityCount": 3,
+        "classification": "MODERATE_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "east-bay",
+        "state": "CA",
+        "municipalityId": "san-leandro",
+        "name": "wicks business park",
+        "propertyIdentityCount": 3,
+        "classification": "MODERATE_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "las-vegas-clark-county",
+        "state": "NV",
+        "municipalityId": "las-vegas",
+        "name": "carey industrial park",
+        "propertyIdentityCount": 3,
+        "classification": "MODERATE_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "las-vegas-clark-county",
+        "state": "NV",
+        "municipalityId": "las-vegas",
+        "name": "industrial lofts",
+        "propertyIdentityCount": 3,
+        "classification": "MODERATE_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "los-angeles-independent-cities",
+        "state": "CA",
+        "municipalityId": "santa-fe-springs",
+        "name": "bloomfield commerce center",
+        "propertyIdentityCount": 3,
+        "classification": "MODERATE_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "los-angeles-independent-cities",
+        "state": "CA",
+        "municipalityId": "commerce",
+        "name": "commerce office park",
+        "propertyIdentityCount": 3,
+        "classification": "MODERATE_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "los-angeles-independent-cities",
+        "state": "CA",
+        "municipalityId": "santa-fe-springs",
+        "name": "painter business park",
+        "propertyIdentityCount": 3,
+        "classification": "MODERATE_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "los-angeles-independent-cities",
+        "state": "CA",
+        "municipalityId": "city-of-industry",
+        "name": "stimson industrial center",
+        "propertyIdentityCount": 3,
+        "classification": "MODERATE_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "los-angeles-independent-cities",
+        "state": "CA",
+        "municipalityId": "torrance",
+        "name": "torrance commerce centre ii koll company",
+        "propertyIdentityCount": 3,
+        "classification": "MODERATE_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "los-angeles-independent-cities",
+        "state": "CA",
+        "municipalityId": "santa-fe-springs",
+        "name": "town center business park",
+        "propertyIdentityCount": 3,
+        "classification": "MODERATE_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "miami-doral-medley",
+        "state": "FL",
+        "municipalityId": "miami",
+        "name": "international corporate park condo",
+        "propertyIdentityCount": 3,
+        "classification": "MODERATE_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "miami-doral-medley",
+        "state": "FL",
+        "municipalityId": "miami",
+        "name": "lakeside corporate park",
+        "propertyIdentityCount": 3,
+        "classification": "MODERATE_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "nashville",
+        "state": "TN",
+        "municipalityId": "nashville",
+        "name": "maplewood business park",
+        "propertyIdentityCount": 3,
+        "classification": "MODERATE_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "san-jose-south-bay",
+        "state": "CA",
+        "municipalityId": "milpitas",
+        "name": "ames industrial park",
+        "propertyIdentityCount": 3,
+        "classification": "MODERATE_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "san-jose-south-bay",
+        "state": "CA",
+        "municipalityId": "san-jose",
+        "name": "corporate technology centre",
+        "propertyIdentityCount": 3,
+        "classification": "MODERATE_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "san-jose-south-bay",
+        "state": "CA",
+        "municipalityId": "san-jose",
+        "name": "junction industrial park",
+        "propertyIdentityCount": 3,
+        "classification": "MODERATE_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "san-jose-south-bay",
+        "state": "CA",
+        "municipalityId": "san-jose",
+        "name": "little orchard business park",
+        "propertyIdentityCount": 3,
+        "classification": "MODERATE_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "san-jose-south-bay",
+        "state": "CA",
+        "municipalityId": "milpitas",
+        "name": "montague east business park",
+        "propertyIdentityCount": 3,
+        "classification": "MODERATE_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "san-jose-south-bay",
+        "state": "CA",
+        "municipalityId": "san-jose",
+        "name": "montague industrial center",
+        "propertyIdentityCount": 3,
+        "classification": "MODERATE_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "san-jose-south-bay",
+        "state": "CA",
+        "municipalityId": "sunnyvale",
+        "name": "oakmead business park",
+        "propertyIdentityCount": 3,
+        "classification": "MODERATE_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "san-jose-south-bay",
+        "state": "CA",
+        "municipalityId": "cupertino",
+        "name": "results way corporate park",
+        "propertyIdentityCount": 3,
+        "classification": "MODERATE_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "san-jose-south-bay",
+        "state": "CA",
+        "municipalityId": "san-jose",
+        "name": "ringwood business park",
+        "propertyIdentityCount": 3,
+        "classification": "MODERATE_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "san-jose-south-bay",
+        "state": "CA",
+        "municipalityId": "sunnyvale",
+        "name": "san aleso business park",
+        "propertyIdentityCount": 3,
+        "classification": "MODERATE_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "san-jose-south-bay",
+        "state": "CA",
+        "municipalityId": "santa-clara",
+        "name": "tasman corporate center",
+        "propertyIdentityCount": 3,
+        "classification": "MODERATE_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "san-jose-south-bay",
+        "state": "CA",
+        "municipalityId": "milpitas",
+        "name": "town center business park",
+        "propertyIdentityCount": 3,
+        "classification": "MODERATE_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "san-jose-south-bay",
+        "state": "CA",
+        "municipalityId": "san-jose",
+        "name": "zanker charcot industrial park",
+        "propertyIdentityCount": 3,
+        "classification": "MODERATE_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "seattle-kent-eastside",
+        "state": "WA",
+        "municipalityId": "bellevue",
+        "name": "creekside office park",
+        "propertyIdentityCount": 3,
+        "classification": "MODERATE_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "seattle-kent-eastside",
+        "state": "WA",
+        "municipalityId": "kirkland",
+        "name": "totem ridge business park",
+        "propertyIdentityCount": 3,
+        "classification": "MODERATE_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "atlanta",
+        "state": "GA",
+        "municipalityId": "atlanta",
+        "name": "office warehouse",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "detroit-novi",
+        "state": "MI",
+        "municipalityId": "auburn-hills",
+        "name": "auburn hills corporate center",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "detroit-novi",
+        "state": "MI",
+        "municipalityId": "dearborn",
+        "name": "commerce park north",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "detroit-novi",
+        "state": "MI",
+        "municipalityId": "novi",
+        "name": "novi corporate center",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "detroit-novi",
+        "state": "MI",
+        "municipalityId": "livonia",
+        "name": "sarmor business park",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "detroit-novi",
+        "state": "MI",
+        "municipalityId": "troy",
+        "name": "sheffield office park",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "detroit-novi",
+        "state": "MI",
+        "municipalityId": "troy",
+        "name": "sheffield office park i",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "detroit-novi",
+        "state": "MI",
+        "municipalityId": "troy",
+        "name": "sheffield office park iii",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "detroit-novi",
+        "state": "MI",
+        "municipalityId": "troy",
+        "name": "sheffield office park iv",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "detroit-novi",
+        "state": "MI",
+        "municipalityId": "troy",
+        "name": "troy commerce center",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "detroit-novi",
+        "state": "MI",
+        "municipalityId": "troy",
+        "name": "troy trade center",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "east-bay",
+        "state": "CA",
+        "municipalityId": "hayward",
+        "name": "breakwater business park",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "east-bay",
+        "state": "CA",
+        "municipalityId": "union-city",
+        "name": "clocktower commerce center c",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "east-bay",
+        "state": "CA",
+        "municipalityId": "concord",
+        "name": "concord business park",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "east-bay",
+        "state": "CA",
+        "municipalityId": "concord",
+        "name": "concord north commerce",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "east-bay",
+        "state": "CA",
+        "municipalityId": "walnut-creek",
+        "name": "creekside oaks office park",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "east-bay",
+        "state": "CA",
+        "municipalityId": "san-leandro",
+        "name": "creekside plaza office park",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "east-bay",
+        "state": "CA",
+        "municipalityId": "hayward",
+        "name": "cypress industrial center",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "east-bay",
+        "state": "CA",
+        "municipalityId": "union-city",
+        "name": "decoto industrial park",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "east-bay",
+        "state": "CA",
+        "municipalityId": "union-city",
+        "name": "dowe business park phase ii",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "east-bay",
+        "state": "CA",
+        "municipalityId": "hayward",
+        "name": "enterprise distribution center",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "east-bay",
+        "state": "CA",
+        "municipalityId": "fremont",
+        "name": "gateway corporate center",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "east-bay",
+        "state": "CA",
+        "municipalityId": "concord",
+        "name": "gateway industrial park",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "east-bay",
+        "state": "CA",
+        "municipalityId": "hayward",
+        "name": "hayward 92 industrial center",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "east-bay",
+        "state": "CA",
+        "municipalityId": "hayward",
+        "name": "hayward bridge business park",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "east-bay",
+        "state": "CA",
+        "municipalityId": "hayward",
+        "name": "hayward commerce park",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "east-bay",
+        "state": "CA",
+        "municipalityId": "hayward",
+        "name": "hayward distribution center",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "east-bay",
+        "state": "CA",
+        "municipalityId": "union-city",
+        "name": "koll industrial center",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "east-bay",
+        "state": "CA",
+        "municipalityId": "fremont",
+        "name": "northport business park",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "east-bay",
+        "state": "CA",
+        "municipalityId": "fremont",
+        "name": "pacific commerce center",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "east-bay",
+        "state": "CA",
+        "municipalityId": "san-leandro",
+        "name": "polvorosa business park bldg b",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "east-bay",
+        "state": "CA",
+        "municipalityId": "fremont",
+        "name": "timber business park",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "east-bay",
+        "state": "CA",
+        "municipalityId": "oakland",
+        "name": "westlake building oakland commerce",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "las-vegas-clark-county",
+        "state": "NV",
+        "municipalityId": "las-vegas",
+        "name": "arville industrial park",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "las-vegas-clark-county",
+        "state": "NV",
+        "municipalityId": "las-vegas",
+        "name": "cheyenne corporate center",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "las-vegas-clark-county",
+        "state": "NV",
+        "municipalityId": "north-las-vegas",
+        "name": "craig corporate park",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "las-vegas-clark-county",
+        "state": "NV",
+        "municipalityId": "north-las-vegas",
+        "name": "craig losee industrial park",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "las-vegas-clark-county",
+        "state": "NV",
+        "municipalityId": "north-las-vegas",
+        "name": "golden triangle industrial park",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "las-vegas-clark-county",
+        "state": "NV",
+        "municipalityId": "henderson",
+        "name": "henderson commerce center iv phase 1",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "las-vegas-clark-county",
+        "state": "NV",
+        "municipalityId": "las-vegas",
+        "name": "industrial commonwealth",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "las-vegas-clark-county",
+        "state": "NV",
+        "municipalityId": "las-vegas",
+        "name": "m zoned strip mall with hvac warehouse",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "las-vegas-clark-county",
+        "state": "NV",
+        "municipalityId": "las-vegas",
+        "name": "marnell corporate center",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "las-vegas-clark-county",
+        "state": "NV",
+        "municipalityId": "las-vegas",
+        "name": "mccarran sunset business park",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "las-vegas-clark-county",
+        "state": "NV",
+        "municipalityId": "las-vegas",
+        "name": "patrick business park",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "las-vegas-clark-county",
+        "state": "NV",
+        "municipalityId": "las-vegas",
+        "name": "pecos industrial center",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "las-vegas-clark-county",
+        "state": "NV",
+        "municipalityId": "las-vegas",
+        "name": "post commerce center",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "las-vegas-clark-county",
+        "state": "NV",
+        "municipalityId": "las-vegas",
+        "name": "procyon west distribution center",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "las-vegas-clark-county",
+        "state": "NV",
+        "municipalityId": "north-las-vegas",
+        "name": "prologis nellis industrial park",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "las-vegas-clark-county",
+        "state": "NV",
+        "municipalityId": "las-vegas",
+        "name": "prologis sunrise industrial park",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "las-vegas-clark-county",
+        "state": "NV",
+        "municipalityId": "las-vegas",
+        "name": "rainbow corporate center south",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "las-vegas-clark-county",
+        "state": "NV",
+        "municipalityId": "las-vegas",
+        "name": "silverado business park",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "las-vegas-clark-county",
+        "state": "NV",
+        "municipalityId": "henderson",
+        "name": "sunset pointe industrial center",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "las-vegas-clark-county",
+        "state": "NV",
+        "municipalityId": "las-vegas",
+        "name": "valley view commerce center",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "las-vegas-clark-county",
+        "state": "NV",
+        "municipalityId": "las-vegas",
+        "name": "venture commerce center business park",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "los-angeles-independent-cities",
+        "state": "CA",
+        "municipalityId": "santa-fe-springs",
+        "name": "amb bell ranch distribution center",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "los-angeles-independent-cities",
+        "state": "CA",
+        "municipalityId": "commerce",
+        "name": "commerce corporate center",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "los-angeles-independent-cities",
+        "state": "CA",
+        "municipalityId": "santa-fe-springs",
+        "name": "heritage corporate center",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "los-angeles-independent-cities",
+        "state": "CA",
+        "municipalityId": "carson",
+        "name": "leapwood industrial park",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "los-angeles-independent-cities",
+        "state": "CA",
+        "municipalityId": "el-segundo",
+        "name": "pacific corporate towers",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "miami-doral-medley",
+        "state": "FL",
+        "municipalityId": "miami",
+        "name": "aiport west warehouse condo",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "miami-doral-medley",
+        "state": "FL",
+        "municipalityId": "miami",
+        "name": "allapattah warehouse",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "miami-doral-medley",
+        "state": "FL",
+        "municipalityId": "miami",
+        "name": "bay 1 2 low ceiling warehouse storage",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "miami-doral-medley",
+        "state": "FL",
+        "municipalityId": "miami",
+        "name": "doral commerce park",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "miami-doral-medley",
+        "state": "FL",
+        "municipalityId": "miami",
+        "name": "doral decor district showroom warehouse",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "miami-doral-medley",
+        "state": "FL",
+        "municipalityId": "miami",
+        "name": "fashion district condo",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "miami-doral-medley",
+        "state": "FL",
+        "municipalityId": "coral-gables",
+        "name": "gables plaza district loft style building redevelopment",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "miami-doral-medley",
+        "state": "FL",
+        "municipalityId": "miami",
+        "name": "garden of allah industrial land",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "miami-doral-medley",
+        "state": "FL",
+        "municipalityId": "miami",
+        "name": "miami business park",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "miami-doral-medley",
+        "state": "FL",
+        "municipalityId": "miami",
+        "name": "office condo at kendallwood office park",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "miami-doral-medley",
+        "state": "FL",
+        "municipalityId": "miami",
+        "name": "the offices at mia distribution center",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "san-jose-south-bay",
+        "state": "CA",
+        "municipalityId": "sunnyvale",
+        "name": "caribbean corporate center",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "san-jose-south-bay",
+        "state": "CA",
+        "municipalityId": "san-jose",
+        "name": "component industrial park",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "san-jose-south-bay",
+        "state": "CA",
+        "municipalityId": "mountain-view",
+        "name": "cypress business park",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "san-jose-south-bay",
+        "state": "CA",
+        "municipalityId": "palo-alto",
+        "name": "embarcadero corporate center",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "san-jose-south-bay",
+        "state": "CA",
+        "municipalityId": "milpitas",
+        "name": "golden bay business park",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "san-jose-south-bay",
+        "state": "CA",
+        "municipalityId": "san-jose",
+        "name": "great oaks business park",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "san-jose-south-bay",
+        "state": "CA",
+        "municipalityId": "san-jose",
+        "name": "link corporate court",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "san-jose-south-bay",
+        "state": "CA",
+        "municipalityId": "los-gatos",
+        "name": "los gatos business park",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "san-jose-south-bay",
+        "state": "CA",
+        "municipalityId": "santa-clara",
+        "name": "marriot business park",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "san-jose-south-bay",
+        "state": "CA",
+        "municipalityId": "san-jose",
+        "name": "montague corporate center",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "san-jose-south-bay",
+        "state": "CA",
+        "municipalityId": "san-jose",
+        "name": "river oaks business park",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "san-jose-south-bay",
+        "state": "CA",
+        "municipalityId": "mountain-view",
+        "name": "shoreline business park",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "san-jose-south-bay",
+        "state": "CA",
+        "municipalityId": "campbell",
+        "name": "sunnyoaks business park",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "san-jose-south-bay",
+        "state": "CA",
+        "municipalityId": "san-jose",
+        "name": "valley business park i",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "san-jose-south-bay",
+        "state": "CA",
+        "municipalityId": "san-jose",
+        "name": "venture commerce center",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "san-jose-south-bay",
+        "state": "CA",
+        "municipalityId": "san-jose",
+        "name": "wool industrial park",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "san-jose-south-bay",
+        "state": "CA",
+        "municipalityId": "milpitas",
+        "name": "wrigley creek industrial park",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "san-jose-south-bay",
+        "state": "CA",
+        "municipalityId": "milpitas",
+        "name": "wrigley oaks industrial park",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "seattle-kent-eastside",
+        "state": "WA",
+        "municipalityId": "bellevue",
+        "name": "belle view office park",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      },
+      {
+        "marketId": "seattle-kent-eastside",
+        "state": "WA",
+        "municipalityId": "kent",
+        "name": "west valley business park",
+        "propertyIdentityCount": 2,
+        "classification": "WEAK_DISCOVERY_SIGNAL",
+        "status": "GEOGRAPHY_LINK_CANDIDATE",
+        "provenance": [
+          "historical_semantic_property_names",
+          "normalized_identity_cluster"
+        ]
+      }
+    ],
+    "marketFindings": {
+      "seattle-kent-eastside": {
+        "municipalities": {
+          "Bellevue": 199,
+          "Bothell": 93,
+          "Issaquah": 64,
+          "Kent": 165,
+          "Kirkland": 94,
+          "Lynnwood": 84,
+          "Mercer Island": 52,
+          "Redmond": 77,
+          "Renton": 106,
+          "Seattle": 786
+        },
+        "stateMunicipalities": {
+          "WA:Bellevue": 199,
+          "WA:Bothell": 93,
+          "WA:Issaquah": 64,
+          "WA:Kent": 165,
+          "WA:Kirkland": 94,
+          "WA:Lynnwood": 84,
+          "WA:Mercer Island": 52,
+          "WA:Redmond": 77,
+          "WA:Renton": 106,
+          "WA:Seattle": 786
+        },
+        "canonicalMatches": 27,
+        "candidateLinks": 0,
+        "discoveryClusterCount": 4,
+        "architectureDrift": "CONTRACT_HANDLES_CLEANLY"
+      },
+      "san-jose-south-bay": {
+        "municipalities": {
+          "Campbell": 217,
+          "Cupertino": 142,
+          "East Palo Alto": 30,
+          "Los Gatos": 229,
+          "Milpitas": 370,
+          "Mountain View": 433,
+          "Palo Alto": 634,
+          "San Jose": 2313,
+          "Santa Clara": 727,
+          "Sunnyvale": 571
+        },
+        "stateMunicipalities": {
+          "CA:Campbell": 217,
+          "CA:Cupertino": 142,
+          "CA:East Palo Alto": 30,
+          "CA:Los Gatos": 229,
+          "CA:Milpitas": 370,
+          "CA:Mountain View": 433,
+          "CA:Palo Alto": 634,
+          "CA:San Jose": 2313,
+          "CA:Santa Clara": 727,
+          "CA:Sunnyvale": 571
+        },
+        "canonicalMatches": 174,
+        "candidateLinks": 0,
+        "discoveryClusterCount": 54,
+        "architectureDrift": "CONTRACT_HANDLES_CLEANLY"
+      },
+      "detroit-novi": {
+        "municipalities": {
+          "Auburn Hills": 234,
+          "Dearborn": 332,
+          "Detroit": 1261,
+          "Livonia": 593,
+          "Novi": 324,
+          "Southfield": 447,
+          "Troy": 474
+        },
+        "stateMunicipalities": {
+          "MI:Auburn Hills": 234,
+          "MI:Dearborn": 332,
+          "MI:Detroit": 1261,
+          "MI:Livonia": 593,
+          "MI:Novi": 324,
+          "MI:Southfield": 447,
+          "MI:Troy": 474
+        },
+        "canonicalMatches": 11,
+        "candidateLinks": 0,
+        "discoveryClusterCount": 25,
+        "architectureDrift": "CONTRACT_HANDLES_CLEANLY"
+      },
+      "atlanta": {
+        "municipalities": {
+          "Alpharetta": 568,
+          "Atlanta": 2165,
+          "Decatur": 190,
+          "Marietta": 566,
+          "Norcross": 378,
+          "Smyrna": 151
+        },
+        "stateMunicipalities": {
+          "GA:Alpharetta": 568,
+          "GA:Atlanta": 2165,
+          "GA:Decatur": 190,
+          "GA:Marietta": 566,
+          "GA:Norcross": 378,
+          "GA:Smyrna": 151
+        },
+        "canonicalMatches": 61,
+        "candidateLinks": 0,
+        "discoveryClusterCount": 1,
+        "architectureDrift": "CONTRACT_HANDLES_CLEANLY"
+      },
+      "nashville": {
+        "municipalities": {
+          "Brentwood": 44,
+          "Franklin": 54,
+          "Goodlettsville": 39,
+          "Hendersonville": 78,
+          "Murfreesboro": 182,
+          "Nashville": 319
+        },
+        "stateMunicipalities": {
+          "TN:Brentwood": 44,
+          "TN:Franklin": 54,
+          "TN:Goodlettsville": 39,
+          "TN:Hendersonville": 78,
+          "TN:Murfreesboro": 182,
+          "TN:Nashville": 319
+        },
+        "canonicalMatches": 16,
+        "candidateLinks": 0,
+        "discoveryClusterCount": 1,
+        "architectureDrift": "CONTRACT_HANDLES_CLEANLY"
+      },
+      "kansas-city-mo-ks": {
+        "municipalities": {
+          "Independence": 195,
+          "Kansas City": 316,
+          "Leawood": 33,
+          "Lenexa": 46,
+          "Olathe": 113,
+          "Overland Park": 124,
+          "Shawnee": 58
+        },
+        "stateMunicipalities": {
+          "MO:Independence": 68,
+          "KS:Independence": 127,
+          "MO:Kansas City": 262,
+          "KS:Kansas City": 54,
+          "KS:Leawood": 33,
+          "KS:Lenexa": 46,
+          "KS:Olathe": 113,
+          "KS:Overland Park": 124,
+          "KS:Shawnee": 58
+        },
+        "canonicalMatches": 12,
+        "candidateLinks": 0,
+        "discoveryClusterCount": 0,
+        "architectureDrift": "CONTRACT_HANDLES_CLEANLY"
+      },
+      "miami-doral-medley": {
+        "municipalities": {
+          "Coral Gables": 102,
+          "Hialeah": 91,
+          "Miami": 1640,
+          "Miami Beach": 234
+        },
+        "stateMunicipalities": {
+          "FL:Coral Gables": 102,
+          "FL:Hialeah": 91,
+          "FL:Miami": 1640,
+          "FL:Miami Beach": 234
+        },
+        "canonicalMatches": 32,
+        "candidateLinks": 0,
+        "discoveryClusterCount": 13,
+        "architectureDrift": "CONTRACT_HANDLES_CLEANLY"
+      },
+      "las-vegas-clark-county": {
+        "municipalities": {
+          "Henderson": 431,
+          "Las Vegas": 2012,
+          "North Las Vegas": 255
+        },
+        "stateMunicipalities": {
+          "NV:Henderson": 431,
+          "NV:Las Vegas": 2012,
+          "NV:North Las Vegas": 255
+        },
+        "canonicalMatches": 15,
+        "candidateLinks": 0,
+        "discoveryClusterCount": 29,
+        "architectureDrift": "BOUNDED_RULE_EXTENSION_NEEDED"
+      },
+      "east-bay": {
+        "municipalities": {
+          "Alameda": 1236,
+          "Berkeley": 3051,
+          "Concord": 1595,
+          "Emeryville": 337,
+          "Fremont": 2422,
+          "Hayward": 3612,
+          "Newark": 497,
+          "Oakland": 10131,
+          "Richmond": 1785,
+          "San Leandro": 1992,
+          "Union City": 543,
+          "Walnut Creek": 1155
+        },
+        "stateMunicipalities": {
+          "CA:Alameda": 1236,
+          "CA:Berkeley": 3051,
+          "CA:Concord": 1595,
+          "CA:Emeryville": 337,
+          "CA:Fremont": 2422,
+          "CA:Hayward": 3612,
+          "CA:Newark": 497,
+          "CA:Oakland": 10131,
+          "CA:Richmond": 1785,
+          "CA:San Leandro": 1992,
+          "CA:Union City": 543,
+          "CA:Walnut Creek": 1155
+        },
+        "canonicalMatches": 142,
+        "candidateLinks": 22,
+        "discoveryClusterCount": 67,
+        "architectureDrift": "CONTRACT_HANDLES_CLEANLY"
+      },
+      "los-angeles-independent-cities": {
+        "municipalities": {
+          "Burbank": 317,
+          "Carson": 165,
+          "City of Industry": 120,
+          "Commerce": 188,
+          "Compton": 158,
+          "Culver City": 230,
+          "El Segundo": 86,
+          "Gardena": 164,
+          "Glendale": 217,
+          "Hawthorne": 73,
+          "Inglewood": 125,
+          "Long Beach": 836,
+          "Los Angeles": 3837,
+          "Pasadena": 430,
+          "Santa Fe Springs": 283,
+          "Santa Monica": 420,
+          "Torrance": 421,
+          "Vernon": 172
+        },
+        "stateMunicipalities": {
+          "CA:Burbank": 317,
+          "CA:Carson": 165,
+          "CA:City of Industry": 120,
+          "CA:Commerce": 188,
+          "CA:Compton": 158,
+          "CA:Culver City": 230,
+          "CA:El Segundo": 86,
+          "CA:Gardena": 164,
+          "CA:Glendale": 217,
+          "CA:Hawthorne": 73,
+          "CA:Inglewood": 125,
+          "CA:Long Beach": 836,
+          "CA:Los Angeles": 3837,
+          "CA:Pasadena": 430,
+          "CA:Santa Fe Springs": 283,
+          "CA:Santa Monica": 420,
+          "CA:Torrance": 421,
+          "CA:Vernon": 172
+        },
+        "canonicalMatches": 268,
+        "candidateLinks": 0,
+        "discoveryClusterCount": 16,
+        "architectureDrift": "CONTRACT_HANDLES_CLEANLY"
+      }
+    }
+  }
+}

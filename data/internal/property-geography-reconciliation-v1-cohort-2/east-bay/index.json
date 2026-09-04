@@ -1,0 +1,48 @@
+{
+  "schemaVersion": "property-geography-reconciliation:v1",
+  "marketId": "east-bay",
+  "summary": {
+    "marketId": "east-bay",
+    "label": "East Bay",
+    "sourcePropertyObservations": 31115,
+    "historicalListingObservations": 23000,
+    "normalizedIdentities": 28356,
+    "canonicalMatches": 142,
+    "reconciledEntities": 196,
+    "geographyLinked": 0,
+    "humanReview": 193,
+    "discoveryOnly": 27887,
+    "rejected": 80,
+    "statuses": {
+      "CANONICAL_MATCH": 142,
+      "DISCOVERY_ONLY": 27887,
+      "HUMAN_REVIEW_REQUIRED": 193,
+      "RECONCILED_PROPERTY": 54,
+      "REJECTED": 80
+    },
+    "tiers": {
+      "AUTO_PROMOTABLE_INTERNAL": 142,
+      "AUTO_RECONCILE_QA": 54,
+      "DISCOVERY_ONLY": 27887,
+      "HUMAN_REVIEW": 193,
+      "REJECT": 80
+    },
+    "conflictCount": 1288,
+    "representativeCandidates": 22,
+    "publicCandidatesLater": 0
+  },
+  "parts": [
+    {
+      "file": "east-bay/part-01.json",
+      "bytes": 29361468,
+      "sha256": "c7f599695443d636bdad044d630a0305627e93e37670d1fe1d0d4b6772ee7014",
+      "entityCount": 16791
+    },
+    {
+      "file": "east-bay/part-02.json",
+      "bytes": 20191625,
+      "sha256": "5c14c4d9285ccbf8662bf50c17d7e95d9c55ec90efef2c0b8552ba7fad85fe73",
+      "entityCount": 11565
+    }
+  ]
+}
