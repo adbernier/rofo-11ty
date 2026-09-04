@@ -1,0 +1,314 @@
+{
+  "schemaVersion": "property-geography-reconciliation:v1:partitioned-deep-review",
+  "sourceSnapshot": "repository-controlled-inputs:2026-09-03",
+  "scope": {
+    "pilotMarkets": [
+      "san-francisco",
+      "sacramento",
+      "indianapolis",
+      "denver-aurora",
+      "orlando"
+    ],
+    "publicBehavior": "NONE",
+    "availabilitySemantics": "HISTORICAL_OBSERVATION_ONLY_NOT_CURRENT_AVAILABILITY"
+  },
+  "baseline": {
+    "sourcePropertyObservations": 51914,
+    "normalizedIdentities": 39944,
+    "canonicalMatches": 373,
+    "reconciledEntities": 1017,
+    "geographyLinked": 64,
+    "humanReview": 2497,
+    "discoveryOnly": 36229,
+    "rejected": 201,
+    "municipalityConflicts": 2442,
+    "typeConflicts": 3,
+    "strongRepresentatives": 8,
+    "possibleRepresentatives": 60,
+    "publicCandidatesLater": 64,
+    "autoQa": 644
+  },
+  "summaries": [
+    {
+      "marketId": "san-francisco",
+      "label": "San Francisco",
+      "sourcePropertyObservations": 27835,
+      "historicalListingObservations": 14336,
+      "normalizedIdentities": 26236,
+      "canonicalMatches": 157,
+      "reconciledEntities": 198,
+      "geographyLinked": 0,
+      "humanReview": 131,
+      "discoveryOnly": 25866,
+      "rejected": 41,
+      "statuses": {
+        "CANONICAL_MATCH": 157,
+        "DISCOVERY_ONLY": 25866,
+        "HUMAN_REVIEW_REQUIRED": 131,
+        "RECONCILED_PROPERTY": 41,
+        "REJECTED": 41
+      },
+      "tiers": {
+        "AUTO_PROMOTABLE_INTERNAL": 157,
+        "AUTO_RECONCILE_QA": 41,
+        "DISCOVERY_ONLY": 25866,
+        "HUMAN_REVIEW": 131,
+        "REJECT": 41
+      },
+      "conflictCount": 761,
+      "representativeCandidates": 43,
+      "publicCandidatesLater": 0
+    },
+    {
+      "marketId": "sacramento",
+      "label": "Sacramento",
+      "sourcePropertyObservations": 8849,
+      "historicalListingObservations": 16235,
+      "normalizedIdentities": 7450,
+      "canonicalMatches": 135,
+      "reconciledEntities": 159,
+      "geographyLinked": 3,
+      "humanReview": 1415,
+      "discoveryOnly": 5792,
+      "rejected": 84,
+      "statuses": {
+        "CANONICAL_MATCH": 135,
+        "DISCOVERY_ONLY": 5792,
+        "HUMAN_REVIEW_REQUIRED": 1415,
+        "RECONCILED_PROPERTY": 24,
+        "REJECTED": 84
+      },
+      "tiers": {
+        "AUTO_PROMOTABLE_INTERNAL": 135,
+        "AUTO_RECONCILE_QA": 24,
+        "DISCOVERY_ONLY": 5792,
+        "HUMAN_REVIEW": 1415,
+        "REJECT": 84
+      },
+      "conflictCount": 1889,
+      "representativeCandidates": 3,
+      "publicCandidatesLater": 3
+    },
+    {
+      "marketId": "indianapolis",
+      "label": "Indianapolis",
+      "sourcePropertyObservations": 4606,
+      "historicalListingObservations": 13539,
+      "normalizedIdentities": 2140,
+      "canonicalMatches": 23,
+      "reconciledEntities": 70,
+      "geographyLinked": 2,
+      "humanReview": 204,
+      "discoveryOnly": 1842,
+      "rejected": 24,
+      "statuses": {
+        "CANONICAL_MATCH": 23,
+        "DISCOVERY_ONLY": 1842,
+        "HUMAN_REVIEW_REQUIRED": 204,
+        "RECONCILED_PROPERTY": 47,
+        "REJECTED": 24
+      },
+      "tiers": {
+        "AUTO_PROMOTABLE_INTERNAL": 23,
+        "AUTO_RECONCILE_QA": 47,
+        "DISCOVERY_ONLY": 1842,
+        "HUMAN_REVIEW": 204,
+        "REJECT": 24
+      },
+      "conflictCount": 776,
+      "representativeCandidates": 2,
+      "publicCandidatesLater": 2
+    },
+    {
+      "marketId": "denver-aurora",
+      "label": "Denver / Aurora",
+      "sourcePropertyObservations": 6970,
+      "historicalListingObservations": 46030,
+      "normalizedIdentities": 2348,
+      "canonicalMatches": 53,
+      "reconciledEntities": 83,
+      "geographyLinked": 0,
+      "humanReview": 278,
+      "discoveryOnly": 1962,
+      "rejected": 25,
+      "statuses": {
+        "CANONICAL_MATCH": 53,
+        "DISCOVERY_ONLY": 1962,
+        "HUMAN_REVIEW_REQUIRED": 278,
+        "RECONCILED_PROPERTY": 30,
+        "REJECTED": 25
+      },
+      "tiers": {
+        "AUTO_PROMOTABLE_INTERNAL": 53,
+        "AUTO_RECONCILE_QA": 30,
+        "DISCOVERY_ONLY": 1962,
+        "HUMAN_REVIEW": 278,
+        "REJECT": 25
+      },
+      "conflictCount": 1012,
+      "representativeCandidates": 16,
+      "publicCandidatesLater": 0
+    },
+    {
+      "marketId": "orlando",
+      "label": "Orlando",
+      "sourcePropertyObservations": 3654,
+      "historicalListingObservations": 9336,
+      "normalizedIdentities": 1770,
+      "canonicalMatches": 5,
+      "reconciledEntities": 18,
+      "geographyLinked": 0,
+      "humanReview": 957,
+      "discoveryOnly": 771,
+      "rejected": 24,
+      "statuses": {
+        "CANONICAL_MATCH": 5,
+        "DISCOVERY_ONLY": 771,
+        "HUMAN_REVIEW_REQUIRED": 957,
+        "RECONCILED_PROPERTY": 13,
+        "REJECTED": 24
+      },
+      "tiers": {
+        "AUTO_PROMOTABLE_INTERNAL": 5,
+        "AUTO_RECONCILE_QA": 13,
+        "DISCOVERY_ONLY": 771,
+        "HUMAN_REVIEW": 957,
+        "REJECT": 24
+      },
+      "conflictCount": 1125,
+      "representativeCandidates": 1,
+      "publicCandidatesLater": 0
+    }
+  ],
+  "marketFiles": [
+    {
+      "marketId": "san-francisco",
+      "file": "san-francisco.json",
+      "bytes": 42681478,
+      "sha256": "242f3cbc1b268405ae260760a7f318037dde74f5cddd2b5c15ce4d1ea508276d",
+      "entityCount": 26236
+    },
+    {
+      "marketId": "sacramento",
+      "file": "sacramento.json",
+      "bytes": 12421865,
+      "sha256": "a2edb0896f5b9d4ec9a1efcf68e94f74f42fed7060217a5656158cab7eb36bad",
+      "entityCount": 7450
+    },
+    {
+      "marketId": "indianapolis",
+      "file": "indianapolis.json",
+      "bytes": 3932758,
+      "sha256": "1e3dc3eddf1d1b5a1d75254e8a1020a76fa6c963d982e93f713493d572a19a29",
+      "entityCount": 2140
+    },
+    {
+      "marketId": "denver-aurora",
+      "file": "denver-aurora.json",
+      "bytes": 4518227,
+      "sha256": "3c20fcb86ab6ec938abed938704f56a12540da4382ef021d5bdcd8516d6b6d70",
+      "entityCount": 2348
+    },
+    {
+      "marketId": "orlando",
+      "file": "orlando.json",
+      "bytes": 3209768,
+      "sha256": "9f098a0c4f3a7df1020243ff006ae974780bef645b54ae8b23412d1232445ddd",
+      "entityCount": 1770
+    }
+  ],
+  "deepReview": {
+    "architectureDecision": "B. READY TO SCALE TO NEXT 10 MARKETS WITH QA",
+    "totals": {
+      "sourcePropertyObservations": 51914,
+      "historicalListingObservations": 99476,
+      "normalizedIdentities": 39944,
+      "canonicalMatches": 373,
+      "reconciledEntities": 528,
+      "geographyLinked": 64,
+      "reviewedGeographyLinks": 5,
+      "downgradedGeographyLinks": 59,
+      "humanReview": 2985,
+      "discoveryOnly": 36233,
+      "rejected": 198,
+      "municipalityConflicts": 2442,
+      "municipalityConflictsClassified": 2442,
+      "autoQaReviewed": 644,
+      "autoQaPromoted": 155,
+      "autoQaDowngraded": 489,
+      "strongRepresentatives": 5,
+      "possibleRepresentatives": 60,
+      "publicReviewed": 5,
+      "publicNeedsEvidence": 59
+    },
+    "automation": {
+      "autoPromotableInternal": 373,
+      "autoReconcileQa": 155,
+      "humanReview": 2985,
+      "discoveryOnly": 36233,
+      "reject": 198
+    },
+    "marketFindings": {
+      "san-francisco": {
+        "role": "MATURE_CONTROL",
+        "canonicalMatches": 157,
+        "suiteAmbiguities": 7,
+        "typeConflicts": 3,
+        "candidateLinksDowngraded": 43
+      },
+      "sacramento": {
+        "reviewedLinks": 3,
+        "municipalities": {
+          "Rancho Cordova": 690,
+          "Sacramento": 6110,
+          "West Sacramento": 650
+        },
+        "ownershipBoundary": "WEST_SACRAMENTO_AND_RANCHO_CORDOVA_EXCLUDED"
+      },
+      "indianapolis": {
+        "reviewedLinks": 2,
+        "municipalities": {
+          "Indianapolis": 2048,
+          "Plainfield": 92
+        },
+        "ownershipBoundary": "PLAINFIELD_EXCLUDED_AND_558_AIRTECH_CONFIRMED_LEGACY_SOURCE_WRONG"
+      },
+      "denver-aurora": {
+        "municipalities": {
+          "Aurora": 405,
+          "Commerce City": 115,
+          "Denver": 1828
+        },
+        "candidateLinksDowngraded": 16,
+        "ownershipBoundary": "COMMERCE_CITY_EXCLUDED_FROM_DENVER_AURORA_PILOT_TARGET"
+      },
+      "orlando": {
+        "municipalities": {
+          "Kissimmee": 480,
+          "Lake Mary": 120,
+          "Orlando": 875,
+          "Sanford": 159,
+          "Winter Park": 136
+        },
+        "discoveryHypotheses": {
+          "seaboardIndustrial": {
+            "classification": "WEAKER",
+            "supportingIdentities": 0
+          },
+          "milleniaArea": {
+            "classification": "STRONGER_DISCOVERY_SIGNAL",
+            "supportingIdentities": 17
+          },
+          "downtownSouthStreet": {
+            "classification": "UNCHANGED",
+            "supportingIdentities": 3
+          },
+          "northwestOrlando": {
+            "classification": "UNCHANGED",
+            "supportingIdentities": 0
+          }
+        }
+      }
+    }
+  }
+}

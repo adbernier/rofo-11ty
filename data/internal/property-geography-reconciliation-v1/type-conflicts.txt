@@ -1,0 +1,9 @@
+Property-type conflicts
+
+Historical observations are preserved; reviewed canonical type prevails and multi-type is not inferred.
+
+| Market | Property | Historical | Canonical | Decision |
+|---|---|---|---|---|
+| san-francisco | 555 mission rock st | retail | office | CANONICAL_TYPE_PREVAILS |
+| san-francisco | 700 indiana st | industrial | office | CANONICAL_TYPE_PREVAILS |
+| san-francisco | 900 minnesota st | industrial | office | CANONICAL_TYPE_PREVAILS |

@@ -4,6 +4,7 @@
 const fs = require("node:fs");
 const path = require("node:path");
 const readline = require("node:readline");
+const crypto = require("node:crypto");
 const contract = require("../../lib/property-reconciliation/property-reconciliation-v1.js");
 
 const ROOT = path.join(__dirname, "../..");
@@ -39,9 +40,10 @@ const REVIEWED_MUNICIPALITY_OVERRIDES = Object.freeze({
 const STRONG_REPRESENTATIVES = new Set([
   "CA|sacramento|8583 elder creek rd", "CA|sacramento|5711 florin perkins rd", "CA|sacramento|1329 n market blvd",
   "IN|indianapolis|7601 winton dr", "IN|indianapolis|4557 w bradbury ave",
-  "IN|plainfield|558 airtech pkwy",
   "CO|denver|10445 e 49th ave", "CO|denver|11551 e 49th ave", "CO|denver|4550 kingston st",
 ]);
+
+const BASELINE = Object.freeze({ sourcePropertyObservations: 51914, normalizedIdentities: 39944, canonicalMatches: 373, reconciledEntities: 1017, geographyLinked: 64, humanReview: 2497, discoveryOnly: 36229, rejected: 201, municipalityConflicts: 2442, typeConflicts: 3, strongRepresentatives: 8, possibleRepresentatives: 60, publicCandidatesLater: 64, autoQa: 644 });
 
 function parseDelimited(value, delimiter = "|") { return String(value || "").split(delimiter).map((item) => item.trim()).filter(Boolean); }
 function csvRecord(line) {
@@ -92,6 +94,21 @@ function write(file, content) {
 function perMarketLimit(rows, limit = 100) {
   return Object.keys(PILOTS).flatMap((marketId) => rows.filter((row) => row.pilotMarketId === marketId).slice(0, limit));
 }
+function sha256(value) { return crypto.createHash("sha256").update(value).digest("hex"); }
+function hasAddressRange(value) { return /^\d+[a-z]?\s*[-–]\s*\d+|\b(?:and|&)\s+\d+\b/i.test(String(value || "")); }
+function coordinateSpread(rows) {
+  const points = rows.map(({ raw }) => [Number(raw.lat), Number(raw.lng)]).filter(([lat, lng]) => contract.coordinatesUsable(lat, lng));
+  if (points.length < 2) return 0;
+  const lats = points.map((point) => point[0]); const lngs = points.map((point) => point[1]);
+  return Math.max(Math.max(...lats) - Math.min(...lats), Math.max(...lngs) - Math.min(...lngs));
+}
+function municipalityReviewFor({ targetMunicipality, municipalityOverride, conflicts, coordinateConflict }) {
+  if (coordinateConflict) return { classification: "COORDINATE_CONFLICT", resolved: false, blocksGeographyPromotion: true, basis: "Historical coordinates disagree materially within one normalized identity." };
+  if (conflicts.includes("ADDRESS_CONFLICT")) return { classification: "ADDRESS_AMBIGUOUS", resolved: false, blocksGeographyPromotion: true, basis: "Source observations disagree on municipality for the normalized identity." };
+  if (municipalityOverride) return { classification: "LEGACY_SOURCE_WRONG", resolved: true, blocksGeographyPromotion: true, basis: municipalityOverride.reason };
+  if (!targetMunicipality) return { classification: "MARKET_LABEL_TOO_BROAD", resolved: true, blocksGeographyPromotion: true, basis: "The source municipality is reliable but lies outside the pilot's target city boundary." };
+  return { classification: "CONFIRMED_CURRENT_MUNICIPALITY", resolved: true, blocksGeographyPromotion: false, basis: "Normalized source city/state and current pilot ownership agree." };
+}
 
 (async () => {
   const rawById = new Map();
@@ -114,7 +131,9 @@ function perMarketLimit(rows, limit = 100) {
     if (!relationship.building_path || !["high", "reviewed"].includes(relationship.confidence)) continue;
     const area = areas.get(relationship.primary_area_id);
     if (!area) continue;
-    geographyByPath.set(relationship.building_path, { geographyId: area.id, label: area.canonical_name, municipality: area.city, confidence: relationship.confidence === "reviewed" ? "REVIEWED" : "HIGH_CONFIDENCE", relationshipStatus: relationship.relationship_status || "existing_reviewed_relationship", evidence: ["commercial_area_building_relationships_v1", `commercial_area:${area.id}`] });
+    const sourceStatus = relationship.relationship_status || "existing_reviewed_relationship";
+    const confirmed = relationship.confidence === "reviewed" && !/candidate|approximate|proximity/i.test(sourceStatus);
+    geographyByPath.set(relationship.building_path, { geographyId: area.id, label: area.canonical_name, municipality: area.city, confidence: confirmed ? "REVIEWED" : "CANDIDATE", relationshipStatus: sourceStatus, evidence: ["commercial_area_building_relationships_v1", `commercial_area:${area.id}`] });
   }
 
   const groups = new Map();
@@ -161,6 +180,8 @@ function perMarketLimit(rows, limit = 100) {
     if (canonical.length > 1) conflicts.push("DUPLICATE_ENTITY");
     const observedMunicipalities = new Set(group.rows.map((item) => contract.normalizeMunicipality(item.row.city || item.raw.city)));
     if (observedMunicipalities.size > 1) conflicts.push("ADDRESS_CONFLICT");
+    const coordinatesConflict = coordinateSpread(group.rows) > 0.01;
+    if (coordinatesConflict) conflicts.push("ADDRESS_CONFLICT");
     let geography = null; let forceDiscoveryOnly = false;
     const reviewed = REVIEWED_ADDRESS_GEOGRAPHIES[baseKey];
     if (reviewed && targetMunicipality) geography = { geographyId: reviewed[0], label: reviewed[1], municipality: reconciledMunicipality, confidence: "REVIEWED", relationshipStatus: "reviewed_exact_address_relationship", evidence: ["reviewed_market_evidence_foundation", `normalized_address:${contract.normalizeAddress(group.address).normalized}`] };
@@ -190,7 +211,17 @@ function perMarketLimit(rows, limit = 100) {
     const historicalSupport = group.rows.reduce((sum, item) => sum + Number(item.row.historical_listing_evidence_count || item.row.listing_count || 0), 0);
     const evidenceCount = 1 + (group.rows.some((item) => item.raw.zip) ? 1 : 0) + (group.rows.some((item) => Number.isFinite(Number(item.raw.lat)) && Number.isFinite(Number(item.raw.lng)) && Number(item.raw.lat) !== 0 && Number(item.raw.lng) !== 0) ? 1 : 0) + (canonicalMatch ? 1 : 0) + (historicalSupport >= 10 ? 1 : 0);
     const ownershipSafe = targetMunicipality && !conflicts.some((code) => ["MUNICIPALITY_CONFLICT", "CANONICAL_OWNERSHIP_CONFLICT", "ADDRESS_CONFLICT"].includes(code));
-    const representativePotential = ownershipSafe && STRONG_REPRESENTATIVES.has(baseKey) ? "STRONG_REPRESENTATIVE_CANDIDATE" : ownershipSafe && canonicalMatch && geography ? "POSSIBLE_REPRESENTATIVE" : "NOT_REPRESENTATIVE";
+    const municipalityReview = municipalityReviewFor({ targetMunicipality, municipalityOverride, conflicts, coordinateConflict: coordinatesConflict });
+    let geographyLinkReview = null;
+    if (geography && geography.relationshipStatus !== "atlas_discovery_candidate") {
+      if (!ownershipSafe) geographyLinkReview = { classification: "CONFLICTED", basis: "Municipality or canonical ownership conflict blocks promotion." };
+      else if (geography.relationshipStatus === "reviewed_exact_address_relationship") geographyLinkReview = { classification: "REVIEWED_CONFIRMED", basis: "Reviewed evidence-foundation address relationship." };
+      else if (geography.confidence === "REVIEWED" && !/candidate|approximate|proximity/i.test(geography.relationshipStatus)) geographyLinkReview = { classification: "HIGH_CONFIDENCE_CONFIRMED", basis: "Reviewed current relationship with non-proximity evidence." };
+      else geographyLinkReview = { classification: "DOWNGRADE_TO_CANDIDATE", basis: "Source relationship is candidate-level and does not independently prove a reviewed boundary relationship." };
+    }
+    const confirmedGeography = geographyLinkReview && ["REVIEWED_CONFIRMED", "HIGH_CONFIDENCE_CONFIRMED"].includes(geographyLinkReview.classification);
+    const representativeReview = ownershipSafe && confirmedGeography && STRONG_REPRESENTATIVES.has(baseKey) ? "STRONG_REPRESENTATIVE_CANDIDATE" : ownershipSafe && canonicalMatch && geography ? "POSSIBLE_REPRESENTATIVE" : "NOT_REPRESENTATIVE";
+    const representativePotential = representativeReview;
     const entity = contract.reconcileGroup({
       observations, address: group.address, municipality: reconciledMunicipality, state: group.state,
       postalCode: group.rows.find((item) => item.raw.zip)?.raw.zip || "",
@@ -198,9 +229,31 @@ function perMarketLimit(rows, limit = 100) {
       identityEvidenceCount: evidenceCount,
       canonicalMatch: canonicalMatch ? { buildingPath: canonicalMatch.building_path, canonicalId: canonicalMatch.building_id || canonicalMatch.id || null, matchMethod: "normalized_address_municipality_state" } : null,
       canonicalPropertyTypes: canonicalMatch ? currentTypes(canonicalMatch) : [],
-      geography, conflicts, forceDiscoveryOnly, representativePotential,
+      geography, conflicts, forceDiscoveryOnly, representativePotential, representativeReview, municipalityReview, geographyLinkReview,
       provenance: ["data/peter/derived/building_semantic_identity_v1.csv", "data/peter/raw/rofo_buildings.csv", ...(canonicalMatch ? ["_data/buildings.js"] : []), ...(municipalityOverride ? ["reviewed_market_evidence_foundation:municipality_override"] : []), ...(geography ? geography.evidence : [])],
     });
+    if (!entity.deepReview && coordinatesConflict && !canonicalMatch && targetMunicipality && evidenceCount >= 4 && entity.propertyType.reviewedTypes.length && !forceDiscoveryOnly) {
+      entity.deepReview = { baselineTier: "AUTO_RECONCILE_QA", decision: "HUMAN_REVIEW_REQUIRED", reasons: ["Historical coordinates disagree materially."] };
+    }
+    const wasAutoQa = entity.processingTier === "AUTO_RECONCILE_QA";
+    if (wasAutoQa) {
+      const deepReasons = [];
+      if (entity.conflictCodes.includes("MULTIPLE_LEGACY_IDS")) deepReasons.push("Multiple legacy IDs require duplicate/building-hierarchy review before durable reconciliation.");
+      if (entity.conflictCodes.includes("SOURCE_IDENTITY_INSUFFICIENT")) deepReasons.push("Street identity remains insufficient.");
+      if (hasAddressRange(group.address)) deepReasons.push("Address range may represent multiple buildings or a campus.");
+      if (coordinatesConflict) deepReasons.push("Historical coordinates disagree materially.");
+      if (deepReasons.length) {
+        entity.reconciliationStatus = entity.conflictCodes.includes("SOURCE_IDENTITY_INSUFFICIENT") ? "DISCOVERY_ONLY" : "HUMAN_REVIEW_REQUIRED";
+        entity.processingTier = entity.reconciliationStatus === "DISCOVERY_ONLY" ? "DISCOVERY_ONLY" : "HUMAN_REVIEW";
+        entity.deepReview = { baselineTier: "AUTO_RECONCILE_QA", decision: entity.reconciliationStatus, reasons: deepReasons };
+      } else {
+        entity.deepReview = { baselineTier: "AUTO_RECONCILE_QA", decision: "RECONCILED_PROPERTY", reasons: ["Normalized address, municipality, type, provenance, hierarchy, and duplicate checks passed deterministic reassessment."] };
+      }
+    }
+    if (entity.geographyLinkReview?.classification === "DOWNGRADE_TO_CANDIDATE") entity.relationshipConfidence = "CANDIDATE";
+    if (entity.conflictCodes.includes("PROPERTY_TYPE_CONFLICT")) entity.propertyType.review = { decision: "CANONICAL_TYPE_PREVAILS", multiTypeDefensible: false, historicalObservationsPreserved: true };
+    entity.publicCandidateReview = entity.reconciliationStatus === "REJECTED" ? "REJECT_PUBLIC" : entity.reconciliationStatus === "CANONICAL_MATCH" && confirmedGeography && entity.propertyType.reviewedTypes.length ? "PUBLIC_CANDIDATE_REVIEWED" : entity.reconciliationStatus === "CANONICAL_MATCH" && geography ? "NEEDS_MORE_EVIDENCE" : "INTERNAL_ONLY";
+    entity.publicReadiness = entity.publicCandidateReview === "PUBLIC_CANDIDATE_REVIEWED" ? "PUBLIC_CANDIDATE_LATER" : entity.publicCandidateReview;
     entity.pilotMarketId = group.pilotId;
     entities.push(entity);
   }
@@ -213,38 +266,72 @@ function perMarketLimit(rows, limit = 100) {
       marketId: id, label: pilot.label, sourcePropertyObservations: rows.reduce((sum, item) => sum + item.historicalObservationSummary.count, 0), historicalListingObservations: listingCounts[id], normalizedIdentities: rows.length,
       canonicalMatches: rows.filter((item) => item.reconciliationStatus === "CANONICAL_MATCH").length,
       reconciledEntities: rows.filter((item) => ["CANONICAL_MATCH", "RECONCILED_PROPERTY", "GEOGRAPHY_LINK_CANDIDATE"].includes(item.reconciliationStatus)).length,
-      geographyLinked: rows.filter((item) => item.commercialGeography && ["REVIEWED", "HIGH_CONFIDENCE"].includes(item.relationshipConfidence)).length,
+      geographyLinked: rows.filter((item) => item.geographyLinkReview && ["REVIEWED_CONFIRMED", "HIGH_CONFIDENCE_CONFIRMED"].includes(item.geographyLinkReview.classification)).length,
       humanReview: rows.filter((item) => item.processingTier === "HUMAN_REVIEW").length,
       discoveryOnly: rows.filter((item) => item.processingTier === "DISCOVERY_ONLY").length,
       rejected: rows.filter((item) => item.processingTier === "REJECT").length,
       statuses: statusCount(rows, "reconciliationStatus"), tiers: statusCount(rows, "processingTier"),
       conflictCount: rows.filter((item) => item.conflictCodes.length).length,
-      representativeCandidates: rows.filter((item) => item.representativePotential !== "NOT_REPRESENTATIVE").length,
-      publicCandidatesLater: rows.filter((item) => item.publicReadiness === "PUBLIC_CANDIDATE_LATER").length,
+      representativeCandidates: rows.filter((item) => item.representativeReview !== "NOT_REPRESENTATIVE").length,
+      publicCandidatesLater: rows.filter((item) => item.publicCandidateReview === "PUBLIC_CANDIDATE_REVIEWED").length,
     };
   });
-  const artifact = { schemaVersion: contract.schemaVersion, sourceSnapshot: "repository-controlled-inputs:2026-09-03", scope: { pilotMarkets: Object.keys(PILOTS), publicBehavior: "NONE", availabilitySemantics: "HISTORICAL_OBSERVATION_ONLY_NOT_CURRENT_AVAILABILITY" }, taxonomies: { reconciliationStatuses: contract.RECONCILIATION_STATUSES, relationshipConfidence: contract.RELATIONSHIP_CONFIDENCE, conflictCodes: contract.CONFLICT_CODES, entityKinds: contract.ENTITY_KINDS, processingTiers: contract.PROCESSING_TIERS }, summaries, entities };
-  // Keep the complete machine-readable corpus, but avoid tens of megabytes of
-  // indentation that add no review value. Operator summaries remain formatted.
-  write(path.join(OUTPUT_DIR, "pilot-reconciliation.json"), JSON.stringify(artifact) + "\n");
+  const taxonomies = { reconciliationStatuses: contract.RECONCILIATION_STATUSES, relationshipConfidence: contract.RELATIONSHIP_CONFIDENCE, conflictCodes: contract.CONFLICT_CODES, entityKinds: contract.ENTITY_KINDS, processingTiers: contract.PROCESSING_TIERS, municipalityReviewClassifications: contract.MUNICIPALITY_REVIEW_CLASSIFICATIONS, geographyLinkReviewClassifications: contract.GEOGRAPHY_LINK_REVIEW_CLASSIFICATIONS, representativeReviewClassifications: contract.REPRESENTATIVE_REVIEW_CLASSIFICATIONS, publicReviewClassifications: contract.PUBLIC_REVIEW_CLASSIFICATIONS };
+  const scope = { pilotMarkets: Object.keys(PILOTS), publicBehavior: "NONE", availabilitySemantics: "HISTORICAL_OBSERVATION_ONLY_NOT_CURRENT_AVAILABILITY" };
+  const marketFiles = [];
+  for (const summary of summaries) {
+    const marketEntities = entities.filter((item) => item.pilotMarketId === summary.marketId);
+    const marketArtifact = { schemaVersion: contract.schemaVersion, sourceSnapshot: "repository-controlled-inputs:2026-09-03", scope: { ...scope, pilotMarket: summary.marketId }, taxonomies, summary, entities: marketEntities };
+    const serialized = JSON.stringify(marketArtifact) + "\n";
+    const file = `${summary.marketId}.json`;
+    write(path.join(OUTPUT_DIR, file), serialized);
+    marketFiles.push({ marketId: summary.marketId, file, bytes: Buffer.byteLength(serialized), sha256: sha256(serialized), entityCount: marketEntities.length });
+  }
+  const indexArtifact = { schemaVersion: `${contract.schemaVersion}:partitioned-deep-review`, sourceSnapshot: "repository-controlled-inputs:2026-09-03", scope, baseline: BASELINE, summaries, marketFiles };
+  write(path.join(OUTPUT_DIR, "index.json"), JSON.stringify(indexArtifact, null, 2) + "\n");
+  const monolith = path.join(OUTPUT_DIR, "pilot-reconciliation.json");
+  if (fs.existsSync(monolith)) fs.unlinkSync(monolith);
 
-  const conflicts = entities.filter((item) => item.conflictCodes.length);
+  const municipalityConflicts = entities.filter((item) => item.conflictCodes.includes("MUNICIPALITY_CONFLICT"));
   const typeConflicts = entities.filter((item) => item.conflictCodes.includes("PROPERTY_TYPE_CONFLICT"));
-  const duplicateGroups = entities.filter((item) => item.conflictCodes.some((code) => ["DUPLICATE_ENTITY", "MULTIPLE_LEGACY_IDS", "SUITE_BUILDING_AMBIGUITY", "CAMPUS_COMPLEX_AMBIGUITY"].includes(code)));
-  const representatives = entities.filter((item) => item.representativePotential !== "NOT_REPRESENTATIVE");
+  const geographyLinks = entities.filter((item) => item.commercialGeography && item.geographyLinkReview);
+  const representatives = entities.filter((item) => item.representativeReview !== "NOT_REPRESENTATIVE" || (STRONG_REPRESENTATIVES.has(identityKey(item.state, item.municipality, item.normalizedAddress)) && !item.municipalityReview?.blocksGeographyPromotion));
+  const publicCandidates = entities.filter((item) => item.publicCandidateReview !== "INTERNAL_ONLY" && item.publicCandidateReview !== "REJECT_PUBLIC");
   const discovery = entities.filter((item) => item.processingTier === "DISCOVERY_ONLY" && item.commercialGeography);
   const summaryColumns = [["Market", (r) => r.label], ["Source properties", (r) => r.sourcePropertyObservations], ["Listing observations", (r) => r.historicalListingObservations], ["Identities", (r) => r.normalizedIdentities], ["Canonical", (r) => r.canonicalMatches], ["Reconciled", (r) => r.reconciledEntities], ["Geo linked", (r) => r.geographyLinked], ["Human", (r) => r.humanReview], ["Discovery", (r) => r.discoveryOnly], ["Reject", (r) => r.rejected]];
-  const totals = { sourcePropertyObservations: summaries.reduce((n, r) => n + r.sourcePropertyObservations, 0), historicalListingObservations: summaries.reduce((n, r) => n + r.historicalListingObservations, 0), normalizedIdentities: entities.length, canonicalMatches: entities.filter((r) => r.reconciliationStatus === "CANONICAL_MATCH").length, reconciledEntities: entities.filter((r) => ["CANONICAL_MATCH", "RECONCILED_PROPERTY", "GEOGRAPHY_LINK_CANDIDATE"].includes(r.reconciliationStatus)).length, geographyLinked: entities.filter((r) => r.commercialGeography && ["REVIEWED", "HIGH_CONFIDENCE"].includes(r.relationshipConfidence)).length, humanReview: entities.filter((r) => r.processingTier === "HUMAN_REVIEW").length, discoveryOnly: entities.filter((r) => r.processingTier === "DISCOVERY_ONLY").length, rejected: entities.filter((r) => r.processingTier === "REJECT").length };
+  const totals = { sourcePropertyObservations: summaries.reduce((n, r) => n + r.sourcePropertyObservations, 0), historicalListingObservations: summaries.reduce((n, r) => n + r.historicalListingObservations, 0), normalizedIdentities: entities.length, canonicalMatches: entities.filter((r) => r.reconciliationStatus === "CANONICAL_MATCH").length, reconciledEntities: entities.filter((r) => ["CANONICAL_MATCH", "RECONCILED_PROPERTY", "GEOGRAPHY_LINK_CANDIDATE"].includes(r.reconciliationStatus)).length, geographyLinked: geographyLinks.length, reviewedGeographyLinks: geographyLinks.filter((r) => ["REVIEWED_CONFIRMED", "HIGH_CONFIDENCE_CONFIRMED"].includes(r.geographyLinkReview.classification)).length, downgradedGeographyLinks: geographyLinks.filter((r) => r.geographyLinkReview.classification === "DOWNGRADE_TO_CANDIDATE").length, humanReview: entities.filter((r) => r.processingTier === "HUMAN_REVIEW").length, discoveryOnly: entities.filter((r) => r.processingTier === "DISCOVERY_ONLY").length, rejected: entities.filter((r) => r.processingTier === "REJECT").length, municipalityConflicts: municipalityConflicts.length, municipalityConflictsClassified: municipalityConflicts.filter((r) => r.municipalityReview).length, autoQaReviewed: entities.filter((r) => r.deepReview?.baselineTier === "AUTO_RECONCILE_QA").length, autoQaPromoted: entities.filter((r) => r.deepReview?.decision === "RECONCILED_PROPERTY").length, autoQaDowngraded: entities.filter((r) => r.deepReview?.baselineTier === "AUTO_RECONCILE_QA" && r.deepReview.decision !== "RECONCILED_PROPERTY").length, strongRepresentatives: entities.filter((r) => r.representativeReview === "STRONG_REPRESENTATIVE_CANDIDATE").length, possibleRepresentatives: entities.filter((r) => r.representativeReview === "POSSIBLE_REPRESENTATIVE").length, publicReviewed: entities.filter((r) => r.publicCandidateReview === "PUBLIC_CANDIDATE_REVIEWED").length, publicNeedsEvidence: entities.filter((r) => r.publicCandidateReview === "NEEDS_MORE_EVIDENCE").length };
   const percent = (number) => `${(number * 100).toFixed(1)}%`;
-  const autoQaCount = totals.reconciledEntities - totals.canonicalMatches;
-  write(path.join(REPORT_DIR, "README.md"), `# Historical Property → Commercial Geography Reconciliation v1\n\nInternal-only pilot. Nothing here is a public property, availability, Recommendation Intelligence, SEO, or runtime source.\n\n## Decision\n\n**B. V1 SUCCESS — RECONCILE THESE FIVE DEEPER FIRST.** The shared contract works, the known ownership controls resolve correctly, and conservative automation is viable. Geography coverage and review queues are not yet deep enough to scale responsibly.\n\n## Pilot summary\n\n${reportTable(summaries, summaryColumns)}\n## Aggregate\n\n- ${totals.sourcePropertyObservations.toLocaleString()} historical property observations representing ${totals.normalizedIdentities.toLocaleString()} normalized identities and ${totals.historicalListingObservations.toLocaleString()} historical listing observations.\n- ${totals.canonicalMatches.toLocaleString()} canonical matches; ${totals.reconciledEntities.toLocaleString()} total reconciled internal entities; ${totals.geographyLinked.toLocaleString()} reviewed/high-confidence geography links.\n- ${totals.humanReview.toLocaleString()} human-review identities; ${totals.discoveryOnly.toLocaleString()} discovery-only; ${totals.rejected.toLocaleString()} rejected.\n- AUTO_PROMOTABLE_INTERNAL: ${percent(totals.canonicalMatches / totals.normalizedIdentities)}. AUTO_RECONCILE_QA excluding canonical matches: ${percent((totals.reconciledEntities - totals.canonicalMatches) / totals.normalizedIdentities)}.\n\n## Contract\n\nHistorical observations retain source identity and historical listing counts. Durable entities contain only normalized identity, municipality, reviewed type where supportable, provenance, and explicit confidence. One durable property may retain many legacy IDs. Suite observations and campus/business-park ambiguity enter human review rather than becoming buildings.\n\n### Fact safety\n\n- Durable: normalized address, stable identity, verified municipality, reviewed parent geography.\n- Durable if independently verified: property type, physical attributes, representative role, and media rights.\n- Time-sensitive and excluded: availability, rent, occupancy, broker contact, parking availability, and current amenities.\n- Never reused without independent verification: marketing claims, loading, clear height, power, yard, trailer capacity, permitted use, hazardous capability, and tenant suitability.\n\nAll media defaults to RIGHTS_UNKNOWN. Public-candidate-later is only assigned to a canonical property with a reviewed/high-confidence geography and reviewed type; it is not publication approval.\n\n## Next horizontal sprint\n\nRun a bounded five-market reconciliation review: resolve municipality conflicts first, review the 654 non-canonical AUTO_RECONCILE_QA records by deterministic samples and high-value queues, adjudicate the three canonical type conflicts, and promote no additional geography until reviewed boundaries exist.\n\nMachine-readable output: \`data/internal/property-geography-reconciliation-v1/pilot-reconciliation.json\`.\n`);
-  const readmePath = path.join(REPORT_DIR, "README.txt");
-  write(readmePath, fs.readFileSync(readmePath, "utf8").replace("654 non-canonical", `${autoQaCount.toLocaleString()} non-canonical`));
-  const conflictColumns = [["Market", (r) => r.pilotMarketId], ["Property", (r) => r.normalizedAddress], ["Municipality", (r) => r.municipality], ["Conflicts", (r) => r.conflictCodes.join(", ")], ["Legacy IDs", (r) => r.sourceIds.map((v) => v.sourceId).join(", ")]];
-  write(path.join(REPORT_DIR, "ownership-and-identity-conflicts.md"), `# Ownership and identity conflicts\n\nGenerated internal review queue. A municipality conflict blocks geography promotion. The table includes up to 100 records per pilot so large control markets cannot hide smaller-market conflicts.\n\n${reportTable(perMarketLimit(conflicts, 100), conflictColumns)}`);
-  write(path.join(REPORT_DIR, "property-type-conflicts.md"), `# Property-type conflicts\n\nHistorical type never overrides a reviewed canonical type.\n\n${reportTable(typeConflicts.slice(0, 500), [["Market", (r) => r.pilotMarketId], ["Property", (r) => r.normalizedAddress], ["Historical", (r) => r.propertyType.historicalObservations.join(", ")], ["Reviewed", (r) => r.propertyType.reviewedTypes.join(", ")]])}`);
-  write(path.join(REPORT_DIR, "duplicate-suite-campus-review.md"), `# Duplicate, suite, and campus review\n\nSuite observations and ambiguous campuses are never auto-promoted as buildings.\n\n${reportTable(perMarketLimit(duplicateGroups, 100), conflictColumns)}`);
-  write(path.join(REPORT_DIR, "representative-and-public-candidates.md"), `# Representative and future public candidates\n\nCandidate generation only. No record is approved for Recommendation Intelligence or publication.\n\n${reportTable(representatives.slice(0, 500), [["Market", (r) => r.pilotMarketId], ["Property", (r) => r.normalizedAddress], ["Municipality", (r) => r.municipality], ["Geography", (r) => r.commercialGeography?.label || "unassigned"], ["Representative", (r) => r.representativePotential], ["Public", (r) => r.publicReadiness], ["Media", (r) => r.mediaRights]])}`);
-  write(path.join(REPORT_DIR, "atlas-integration.md"), `# Atlas integration findings\n\nAtlas levels are not changed by this output. Reviewed/high-confidence links support existing Level A/B research; candidate links remain Level C discovery only.\n\n## Discovery geography candidates\n\n${reportTable(discovery.slice(0, 500), [["Market", (r) => r.pilotMarketId], ["Property", (r) => r.normalizedAddress], ["Municipality", (r) => r.municipality], ["Candidate", (r) => r.commercialGeography?.label], ["Confidence", (r) => r.relationshipConfidence]])}`);
+  const autoPromotable = entities.filter((r) => r.processingTier === "AUTO_PROMOTABLE_INTERNAL").length;
+  const autoQa = entities.filter((r) => r.processingTier === "AUTO_RECONCILE_QA").length;
+  const architectureDecision = "B. READY TO SCALE TO NEXT 10 MARKETS WITH QA";
+  const municipalityCounts = (marketId) => Object.fromEntries(entities.filter((item) => item.pilotMarketId === marketId).reduce((map, item) => map.set(item.municipality, (map.get(item.municipality) || 0) + 1), new Map()));
+  const orlandoDiscovery = Object.fromEntries(entities.filter((item) => item.pilotMarketId === "orlando" && item.commercialGeography?.relationshipStatus === "atlas_discovery_candidate").reduce((map, item) => map.set(item.commercialGeography.geographyId, (map.get(item.commercialGeography.geographyId) || 0) + 1), new Map()));
+  indexArtifact.deepReview = {
+    architectureDecision,
+    totals,
+    automation: { autoPromotableInternal: autoPromotable, autoReconcileQa: autoQa, humanReview: totals.humanReview, discoveryOnly: totals.discoveryOnly, reject: totals.rejected },
+    marketFindings: {
+      "san-francisco": { role: "MATURE_CONTROL", canonicalMatches: 157, suiteAmbiguities: entities.filter((item) => item.pilotMarketId === "san-francisco" && item.conflictCodes.includes("SUITE_BUILDING_AMBIGUITY")).length, typeConflicts: 3, candidateLinksDowngraded: 43 },
+      sacramento: { reviewedLinks: 3, municipalities: municipalityCounts("sacramento"), ownershipBoundary: "WEST_SACRAMENTO_AND_RANCHO_CORDOVA_EXCLUDED" },
+      indianapolis: { reviewedLinks: 2, municipalities: municipalityCounts("indianapolis"), ownershipBoundary: "PLAINFIELD_EXCLUDED_AND_558_AIRTECH_CONFIRMED_LEGACY_SOURCE_WRONG" },
+      "denver-aurora": { municipalities: municipalityCounts("denver-aurora"), candidateLinksDowngraded: 16, ownershipBoundary: "COMMERCE_CITY_EXCLUDED_FROM_DENVER_AURORA_PILOT_TARGET" },
+      orlando: { municipalities: municipalityCounts("orlando"), discoveryHypotheses: { seaboardIndustrial: { classification: "WEAKER", supportingIdentities: 0 }, milleniaArea: { classification: "STRONGER_DISCOVERY_SIGNAL", supportingIdentities: orlandoDiscovery["orlando-millenia-commercial-candidate"] || 0 }, downtownSouthStreet: { classification: "UNCHANGED", supportingIdentities: orlandoDiscovery["orlando-downtown-south-industrial-candidate"] || 0 }, northwestOrlando: { classification: "UNCHANGED", supportingIdentities: 0 } } },
+    },
+  };
+  write(path.join(OUTPUT_DIR, "index.json"), JSON.stringify(indexArtifact, null, 2) + "\n");
+  for (const obsolete of ["ownership-and-identity-conflicts.txt", "property-type-conflicts.txt", "duplicate-suite-campus-review.txt", "representative-and-public-candidates.txt"]) {
+    const obsoletePath = path.join(REPORT_DIR, obsolete);
+    if (fs.existsSync(obsoletePath)) fs.unlinkSync(obsoletePath);
+  }
+  write(path.join(REPORT_DIR, "README.txt"), `Historical Property → Commercial Geography Reconciliation v1 Deep Review\n\nDecision: ${architectureDecision}\n\nThis partitioned, internal-only artifact changes no public, Recommendation Intelligence, availability, SEO, or runtime behavior.\n\n${reportTable(summaries, summaryColumns)}\nBaseline → final\n- Reconciled internal entities: ${BASELINE.reconciledEntities} → ${totals.reconciledEntities}\n- Reviewed/high-confidence geography links: ${BASELINE.geographyLinked} → ${totals.reviewedGeographyLinks}; ${totals.downgradedGeographyLinks} candidate-source links downgraded\n- Human review: ${BASELINE.humanReview} → ${totals.humanReview}\n- Discovery only: ${BASELINE.discoveryOnly} → ${totals.discoveryOnly}\n- Rejected: ${BASELINE.rejected} → ${totals.rejected}\n- AUTO_RECONCILE_QA reviewed: ${totals.autoQaReviewed}; confirmed ${totals.autoQaPromoted}; downgraded ${totals.autoQaDowngraded}\n- Municipality conflicts classified: ${totals.municipalityConflictsClassified}/${totals.municipalityConflicts}; all out-of-scope relationships remain blocked\n- Representative review: ${totals.strongRepresentatives} strong, ${totals.possibleRepresentatives} possible\n- Public review: ${totals.publicReviewed} reviewed-later, ${totals.publicNeedsEvidence} need evidence\n\nAutomation after review\n- AUTO_PROMOTABLE_INTERNAL: ${percent(autoPromotable / totals.normalizedIdentities)}\n- AUTO_RECONCILE_QA: ${percent(autoQa / totals.normalizedIdentities)}\n- HUMAN_REVIEW: ${percent(totals.humanReview / totals.normalizedIdentities)}\n- DISCOVERY_ONLY: ${percent(totals.discoveryOnly / totals.normalizedIdentities)}\n- REJECT: ${percent(totals.rejected / totals.normalizedIdentities)}\n\nThreshold assessment: APPROPRIATE in principle, but v1 was too permissive about multiple legacy IDs and candidate-level geography links. The deep-review gates correct both without loosening automation.\n\nNext horizontal recommendation: scale to exactly 10 additional markets with the same partitioned contract and mandatory sampled QA; do not publish properties.\n`);
+  const conflictColumns = [["Market", (r) => r.pilotMarketId], ["Property", (r) => r.normalizedAddress], ["Municipality", (r) => r.municipality], ["Classification", (r) => r.municipalityReview?.classification], ["Promotion blocked", (r) => r.municipalityReview?.blocksGeographyPromotion], ["Legacy IDs", (r) => r.sourceIds.map((v) => v.sourceId).join(", ")]];
+  write(path.join(REPORT_DIR, "municipality-conflicts.txt"), `Municipality conflicts — ranked review queue\n\nEvery listed record remains blocked from target-city geography promotion. Classification covers all ${municipalityConflicts.length} conflicts; this concise queue shows up to 50 per pilot.\n\n${reportTable(perMarketLimit(municipalityConflicts, 50), conflictColumns)}`);
+  write(path.join(REPORT_DIR, "geography-link-review.txt"), `Geography-link review\n\nAll ${geographyLinks.length} v1 links were reassessed. Candidate/proximity-grade source relationships do not count as reviewed geography.\n\n${reportTable(geographyLinks, [["Market", (r) => r.pilotMarketId], ["Property", (r) => r.normalizedAddress], ["Geography", (r) => r.commercialGeography.label], ["Decision", (r) => r.geographyLinkReview.classification], ["Basis", (r) => r.geographyLinkReview.basis]])}`);
+  write(path.join(REPORT_DIR, "type-conflicts.txt"), `Property-type conflicts\n\nHistorical observations are preserved; reviewed canonical type prevails and multi-type is not inferred.\n\n${reportTable(typeConflicts, [["Market", (r) => r.pilotMarketId], ["Property", (r) => r.normalizedAddress], ["Historical", (r) => r.propertyType.historicalObservations.join(", ")], ["Canonical", (r) => r.propertyType.reviewedTypes.join(", ")], ["Decision", (r) => r.propertyType.review?.decision]])}`);
+  write(path.join(REPORT_DIR, "representative-candidates.txt"), `Representative candidates\n\nCandidate generation only; live recommendation representative sets are unchanged.\n\n${reportTable(representatives, [["Market", (r) => r.pilotMarketId], ["Property", (r) => r.normalizedAddress], ["Municipality", (r) => r.municipality], ["Geography", (r) => r.commercialGeography?.label || "unassigned"], ["Decision", (r) => r.representativeReview], ["Media", (r) => r.mediaRights]])}`);
+  write(path.join(REPORT_DIR, "public-candidates-later.txt"), `Future public candidates\n\nNo publication approval. Media remains separately gated and all historical media remains non-public unless rights are explicit.\n\n${reportTable(publicCandidates, [["Market", (r) => r.pilotMarketId], ["Property", (r) => r.normalizedAddress], ["Municipality", (r) => r.municipality], ["Geography", (r) => r.commercialGeography?.label || "unassigned"], ["Decision", (r) => r.publicCandidateReview], ["Media", (r) => r.mediaRights]])}`);
+  const unresolvedHighValue = entities.filter((item) => item.deepReview?.baselineTier === "AUTO_RECONCILE_QA" && item.deepReview.decision !== "RECONCILED_PROPERTY").sort((a, b) => b.historicalObservationSummary.historicalListingObservationCount - a.historicalObservationSummary.historicalListingObservationCount);
+  write(path.join(REPORT_DIR, "unresolved-high-value.txt"), `Unresolved high-value queue\n\nHighest-observation records downgraded from v1 AUTO_RECONCILE_QA.\n\n${reportTable(perMarketLimit(unresolvedHighValue, 40), [["Market", (r) => r.pilotMarketId], ["Property", (r) => r.normalizedAddress], ["Municipality", (r) => r.municipality], ["Decision", (r) => r.deepReview.decision], ["Reason", (r) => r.deepReview.reasons.join("; ")], ["Listings", (r) => r.historicalObservationSummary.historicalListingObservationCount]])}`);
+  write(path.join(REPORT_DIR, "atlas-integration.txt"), `Atlas integration findings\n\nAtlas levels remain unchanged. Sacramento and Indianapolis reviewed address links remain confirmed. Candidate-source SF/Denver relationships were downgraded pending boundary evidence. Orlando remains discovery-only.\n\n${reportTable(discovery.slice(0, 500), [["Market", (r) => r.pilotMarketId], ["Property", (r) => r.normalizedAddress], ["Candidate", (r) => r.commercialGeography?.label], ["Confidence", (r) => r.relationshipConfidence]])}`);
   console.log(JSON.stringify({ summaries, totals }, null, 2));
 })().catch((error) => { console.error(error); process.exit(1); });
