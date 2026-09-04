@@ -36,6 +36,7 @@ eleventyComputed:
 {% set hasMapHero = neighborhood.map_hero and not neighborhood.map_hero.suppress_map_hero and (((neighborhood.map_hero.map_system == "v2" or neighborhood.map_hero.map_system == "v3") and neighborhood.map_hero.center_point and neighborhood.map_hero.label_position) or (neighborhood.map_hero.approximate_polygon and neighborhood.map_hero.label_position)) %}
 {% set approvedEditorialSignal = neighborhood.approved_editorial_signal %}
 {% set isAtlantaEditorialPilot = approvedEditorialSignal and neighborhood.city == "Atlanta" and neighborhood.state_abbr == "GA" %}
+{% set isSfCommercialGeographyExperience = neighborhood.city == "San Francisco" and neighborhood.state_abbr == "CA" and sfCommercialGeographyExperience.byGeographyId[neighborhood.slug] %}
 {% set editorialDistrictMap = editorialDistrictMaps.byDistrictPath[neighborhood.canonical_neighborhood_path] %}
 {% set searchProfileLocationSuggestions = [] %}
 {% if neighborhood.commercial_location_model and neighborhood.commercial_location_model.compare_with and neighborhood.commercial_location_model.compare_with.length %}
@@ -78,7 +79,7 @@ eleventyComputed:
   <div class="city-shell">
     {% set compactBreadcrumbs = true %}
     {% include "partials/breadcrumbs.njk" %}
-    {% if neighborhood.city == "San Francisco" and neighborhood.state_abbr == "CA" and sfCommercialGeographyExperience.byGeographyId[neighborhood.slug] %}
+    {% if isSfCommercialGeographyExperience %}
       {% include "partials/neighborhood/sf-commercial-geography-context.njk" %}
     {% endif %}
 
@@ -293,7 +294,7 @@ eleventyComputed:
           {% include "partials/neighborhood/nearby-commercial-districts.njk" %}
         {% endif %}
 
-        {% if hasBuildings and not neighborhood.representative_content.length %}
+        {% if not isSfCommercialGeographyExperience and hasBuildings and not neighborhood.representative_content.length %}
           <section class="city-card">
             <div class="eyebrow">Representative Buildings</div>
             <h2>Representative buildings in {{ neighborhoodDisplayNameWithArticle }}</h2>
@@ -310,7 +311,7 @@ eleventyComputed:
           </section>
         {% endif %}
 
-        {% include "partials/neighborhood/representative-building-cards.njk" %}
+        {% if not isSfCommercialGeographyExperience %}{% include "partials/neighborhood/representative-building-cards.njk" %}{% endif %}
 
         {% include "partials/neighborhood/example-location-briefs.njk" %}
 

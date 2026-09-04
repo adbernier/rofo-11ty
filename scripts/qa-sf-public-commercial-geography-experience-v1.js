@@ -80,6 +80,10 @@ for (const id of new Set(Object.values(sets).flat())) {
   const page = html(id);
   assert.ok(page.includes('data-commercial-geography-surface="sf_geography_route"'));
   assert.ok(page.includes("Area patterns describe geography context, not verified property capabilities."));
+  assert.ok(!page.includes("<strong>Property verified</strong>"));
+  assert.ok(!page.includes("too image-driven"));
+  assert.ok(!page.includes("too expensive"));
+  assert.ok(page.includes("Current availability and exact property configuration require current verification.") || page.includes("Specific properties, current conditions, and suitability require investigation.") || !experience.byGeographyId[id].some(item=>item.representatives.length));
 }
 
 const analytics = fs.readFileSync(path.join(root,"js/commercial-geography-experience.js"),"utf8");
