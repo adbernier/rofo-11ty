@@ -33,9 +33,11 @@ for (const item of review) {
   if (item.finalDisposition === "DIRECT_PROPERTY_REDIRECT_APPROVED") {
     assert.deepEqual(approved.get(item.legacyPath), { from: item.legacyPath, to: item.proposedCanonicalDestination, status: 301 });
     assert.equal(item.hierarchyReview, "BUILDING_IDENTITY_CONFIRMED");
+    assert.equal(item.productionVerification.status, "BLOCKED_BY_EXISTING_ZONE_CONTEXT_REDIRECT");
   } else {
     assert(!approved.has(item.legacyPath), `${item.legacyBuildingId} was not approved and must retain context behavior`);
     assert.equal(item.hierarchyReview, "SUITE_BUILDING_AMBIGUITY");
+    assert.equal(item.productionVerification.status, "UNCHANGED_CONTEXT_REDIRECT_AS_INTENDED");
   }
   if (fs.existsSync(SITE)) {
     const output = path.join(SITE, item.proposedCanonicalDestination.replace(/^\//, ""), "index.html");

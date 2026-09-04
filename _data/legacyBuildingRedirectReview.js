@@ -47,6 +47,9 @@ module.exports = Object.freeze(rows.map(([legacyBuildingId, state, municipality,
     canonicalRouteReview: Object.freeze({ expectedStatus: 200, selfCanonical: true, indexable: true, addressCenteredTitle: true, staleAvailabilityDetected: false }),
     finalDisposition,
     redirectStatus: finalDisposition === "DIRECT_PROPERTY_REDIRECT_APPROVED" ? 301 : null,
+    productionVerification: Object.freeze(finalDisposition === "DIRECT_PROPERTY_REDIRECT_APPROVED"
+      ? { status: "BLOCKED_BY_EXISTING_ZONE_CONTEXT_REDIRECT", observedStatus: 301, observedDestination: `/commercial-real-estate/${state}/${citySlug}/`, pagesRuleDeployed: true }
+      : { status: "UNCHANGED_CONTEXT_REDIRECT_AS_INTENDED", pagesRuleDeployed: false }),
     reviewScope: "LEGACY_BUILDING_REDIRECT_CLEANUP_16",
   });
 }));
