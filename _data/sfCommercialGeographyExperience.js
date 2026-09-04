@@ -4,7 +4,7 @@ const foundation = require("../data/internal/public-commercial-geography-v1/san-
 const representativeContent = require("./sfRepresentativeContent");
 
 const labels = { office: "Office", retail: "Retail", industrial: "Industrial", flex: "Flex" };
-const explorationTitles = { office:"Explore Office Districts", retail:"Explore Retail Districts & Corridors", industrial:"Explore Industrial Areas", flex:"Explore Flex Areas" };
+const explorationTitles = { office:"Explore Office Districts", retail:"Explore Retail Districts & Corridors", industrial:"Explore Industrial Districts", flex:"Explore Flex Districts" };
 const introductions = {
   office:"Compare the San Francisco districts that shape office environment, business context, and workplace character.",
   retail:"Compare the districts and corridors that shape customer context and storefront environment.",

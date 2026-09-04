@@ -39,13 +39,28 @@ for (const view of experience.spaceTypes) for (const geography of view.geographi
 
 const city = html("");
 assert.ok(city.includes("What kind of space are you looking for?"));
-for (const view of experience.spaceTypes) assert.ok(city.includes(`href="${view.path}"`));
+assert.ok(city.includes("Each opens a different set of San Francisco commercial districts."));
+assert.ok(!city.includes("commercial environments"));
+for (const view of experience.spaceTypes) {
+  assert.ok(city.includes(`href="${view.path}"`));
+  assert.ok(city.includes(`${view.geographies.length} commercial ${view.geographies.length === 1 ? "district" : "districts"}`));
+}
+
+assert.deepStrictEqual(experience.spaceTypes.map(view=>view.explorationTitle),[
+  "Explore Office Districts",
+  "Explore Retail Districts & Corridors",
+  "Explore Industrial Districts",
+  "Explore Flex Districts"
+]);
 
 for (const view of experience.spaceTypes) {
   const page = html(`${view.slug}`);
   assert.ok(page.includes('data-commercial-geography-experience'));
   assert.ok(page.includes('role="tablist"'));
-  assert.ok(page.includes(`Explore ${view.label === "Retail" ? "Retail Districts &amp; Corridors" : view.label + (view.label === "Office" ? " Districts" : " Areas")}`));
+  assert.ok(page.includes(view.explorationTitle.replace("&","&amp;")));
+  assert.ok(page.includes(`aria-label="${view.label} commercial districts"`));
+  assert.ok(page.includes(`<strong>Related ${view.label} districts</strong>`));
+  assert.ok(page.includes("Not sure which district fits your business?"));
   assert.ok(!page.includes("Browse by commercial area."));
   assert.ok(page.includes('data-selection-semantics="exploration_only"'));
   assert.ok(page.includes("Select an area to view its context."));
