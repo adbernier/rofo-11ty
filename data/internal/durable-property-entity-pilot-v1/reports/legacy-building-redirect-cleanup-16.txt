@@ -1,0 +1,21 @@
+Legacy Building Redirect Cleanup — fixed 16-URL cohort
+======================================================
+Legacy ID | Address / municipality | Before | After / disposition
+154540 | 400 W Capitol Ave, Little Rock AR | Little Rock context | 301 → /commercial-real-estate/building/AR/little-rock/400-w-capitol-ave/
+383180 | 67 E Weldon Ave, Phoenix AZ | Phoenix context | 301 → /commercial-real-estate/building/AZ/phoenix/67-e-weldon-ave/
+1703632 | 12100 Wilshire Blvd, Los Angeles CA | Los Angeles context | NEEDS_IDENTITY_REVIEW; unchanged (suite/building ambiguity)
+534247 | 7462 N Figueroa St, Los Angeles CA | Los Angeles context | 301 → /commercial-real-estate/building/CA/los-angeles/7462-n-figueroa-st/
+129041 | 2255 Watt Ave, Sacramento CA | Sacramento context | 301 → /commercial-real-estate/building/CA/sacramento/2255-watt-ave/
+163335 | 7248 S Land Park Dr, Sacramento CA | Sacramento context | 301 → /commercial-real-estate/building/CA/sacramento/7248-s-land-park-dr/
+1710380 | 8700 La Riviera Dr, Sacramento CA | Sacramento context | 301 → /commercial-real-estate/building/CA/sacramento/8700-la-riviera-dr/
+167767 | 8310 S Valley Hwy, Englewood CO | Englewood context | 301 → /commercial-real-estate/building/CO/englewood/8310-s-valley-hwy/
+171720 | 1900 Main St, Sarasota FL | Sarasota context | 301 → /commercial-real-estate/building/FL/sarasota/1900-main-st/
+145903 | 950 W Bannock St, Boise ID | Boise context | 301 → /commercial-real-estate/building/ID/boise/950-w-bannock-st/
+145945 | 401 N Michigan Ave, Chicago IL | Chicago context | 301 → /commercial-real-estate/building/IL/chicago/401-n-michigan-ave/
+918594 | 2300 Cabot Dr, Lisle IL | Lisle context | 301 → /commercial-real-estate/building/IL/lisle/2300-cabot-dr/
+1027086 | 1100 Kenmore Ave, Buffalo NY | Buffalo context | 301 → /commercial-real-estate/building/NY/buffalo/1100-kenmore-ave/
+1685574 | 400 Rella Blvd, Suffern NY | Suffern context | NEEDS_IDENTITY_REVIEW; unchanged (suite/building ambiguity)
+175144 | 10820 Kingston Pike, Knoxville TN | Knoxville context | 301 → /commercial-real-estate/building/TN/knoxville/10820-kingston-pike/
+175670 | 9051 Executive Park Dr, Knoxville TN | Knoxville context | 301 → /commercial-real-estate/building/TN/knoxville/9051-executive-park-dr/
+
+All approved destinations were independently confirmed as HTTP 200, self-canonical, indexable, address-centered, and free of historical availability fields before implementation. GSC “Redirect error” is not treated as proof of a broken redirect; the remaining sample keeps its existing context behavior.

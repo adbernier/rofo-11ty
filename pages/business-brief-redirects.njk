@@ -8,3 +8,6 @@ eleventyExcludeFromCollections: true
 {% for redirect in districtCompatibilityRedirects -%}
 {{ redirect.from }} {{ redirect.to }} {{ redirect.status }}
 {% endfor %}
+{% for redirect in legacyBuildingPropertyRedirects -%}
+{{ redirect.from }} {{ redirect.to }} {{ redirect.status }}
+{% endfor %}
