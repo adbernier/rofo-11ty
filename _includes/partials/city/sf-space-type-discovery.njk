@@ -1,23 +1,15 @@
-{% set discovery = sfPublicDiscovery.city %}
-<div class="city-card sf-space-type-discovery" data-sf-space-type-discovery>
-  <div class="eyebrow">{{ discovery.eyebrow }}</div>
-  <h2>{{ discovery.title }}</h2>
-  <p>{{ discovery.introduction }}</p>
-
+{% set discovery = sfCommercialGeographyExperience %}
+<section class="city-card sf-space-type-discovery" data-commercial-geography-surface="sf-city" aria-labelledby="sf-space-type-heading">
+  <div class="eyebrow">Explore San Francisco</div>
+  <h2 id="sf-space-type-heading">What kind of space are you looking for?</h2>
+  <p>Choose a space type first. Each opens a different set of San Francisco commercial environments.</p>
   <div class="sf-space-type-discovery__grid">
-    {% for decisionPath in discovery.paths %}
-      <article class="sf-space-type-discovery__card">
-        <h3><a href="{{ decisionPath.path }}">{{ decisionPath.name }}</a></h3>
-        <p>{{ decisionPath.summary }}</p>
-        <ul aria-label="Example {{ decisionPath.name }} locations">
-          {% for location in decisionPath.locations %}
-            <li><a href="{{ location.path }}">{{ location.name }}</a><span>{{ location.summary }}</span></li>
-          {% endfor %}
-        </ul>
-        <a class="building-link" href="{{ decisionPath.path }}">Explore {{ decisionPath.name }} locations →</a>
-      </article>
+    {% for choice in discovery.spaceTypes %}
+      <a class="sf-space-type-choice" href="{{ choice.path }}" data-geography-event="space_type_selected" data-market="san-francisco" data-property-type="{{ choice.id }}" data-source-surface="sf_city">
+        <strong>{{ choice.label }}</strong>
+        <span>{{ choice.geographies.length }} commercial environments</span>
+        <em>Explore {{ choice.label }} →</em>
+      </a>
     {% endfor %}
   </div>
-  <p class="semantic-footnote">These examples illustrate different location decisions. They are not a ranking or a complete shortlist.</p>
-  <p><a class="building-link" href="/example-location-brief/">See example San Francisco Location Briefs →</a></p>
-</div>
+</section>

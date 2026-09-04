@@ -11,6 +11,7 @@ const sacramentoIndustrialPublicDecision = require("./sacramentoIndustrialPublic
 const sanDiegoIndustrialPublicDecision = require("./sanDiegoIndustrialPublicDecision.js");
 const sanJoseIndustrialPublicDecision = require("./sanJoseIndustrialPublicDecision.js");
 const phoenixIndustrialPublicDecision = require("./phoenixIndustrialPublicDecision.js");
+const sfCommercialGeographyExperience = require("./sfCommercialGeographyExperience.js");
 
 function slugify(value) {
   return String(value || "")
@@ -228,6 +229,10 @@ module.exports = cities.flatMap((city) => {
         seoDescription: localDecisionGuide?.seoDescription || "",
         h1: localDecisionGuide?.h1 || "",
         heroLead: localDecisionGuide?.heroLead || "",
+        publicCommercialGeography:
+          normalizedCitySlug === "san-francisco" && normalizedStateAbbr === "ca"
+            ? sfCommercialGeographyExperience.bySpaceType[normalizedTypeSlug.replace("-space", "")]
+            : null,
       };
     })
     .filter((entry) => entry.representativeBuildings.length > 0 || entry.localDecisionGuide);

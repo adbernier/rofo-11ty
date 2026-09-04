@@ -17,6 +17,7 @@
   {% endif %}
 
   {% for item in allTypes %}
+    {% if not entry.publicCommercialGeography or item.slug == "coworking-space" %}
     {% set pageKey = (city.state_abbr | upper) + "/" + (city.slug | lower) + "/" + item.slug %}
     {% if spaceTypePageLookup[pageKey] %}
       <a
@@ -26,6 +27,7 @@
       >
         {{ item.label }} space in {{ city.city }}
       </a>
+    {% endif %}
     {% endif %}
   {% endfor %}
 

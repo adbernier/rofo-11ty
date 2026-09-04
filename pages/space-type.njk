@@ -69,13 +69,27 @@ eleventyComputed:
       "intelligence_state": "recommendation_ready" if city.slug == "san-francisco" else ("universal_with_local_context" if entry.localDecisionGuide else "universal_only")
     } %}
 
-    <div class="space-type-hero-layout">
+    {% if entry.publicCommercialGeography %}
+      <div class="sf-space-type-context-nav">
+        <div class="sf-geography-breadcrumb" aria-label="Commercial geography hierarchy"><a href="/commercial-real-estate/CA/san-francisco/">San Francisco</a><span>›</span><strong>{{ entry.publicCommercialGeography.label }}</strong></div>
+        <nav class="sf-space-type-selector" aria-label="San Francisco space types">
+          {% for choice in sfCommercialGeographyExperience.spaceTypes %}<a href="{{ choice.path }}" {% if choice.id == entry.publicCommercialGeography.id %}aria-current="page" class="is-current"{% endif %} data-geography-event="space_type_selected" data-market="san-francisco" data-property-type="{{ choice.id }}" data-source-surface="sf_space_type_selector">{{ choice.label }}</a>{% endfor %}
+        </nav>
+      </div>
+    {% endif %}
+
+    <div class="space-type-hero-layout{% if entry.publicCommercialGeography %} space-type-hero-layout--geography-first{% endif %}">
       {% include "partials/space-type/hero.njk" %}
 
-      <aside class="space-type-search-profile">
+      {% if not entry.publicCommercialGeography %}<aside class="space-type-search-profile">
         {% include "partials/shared/recommendation-prompt-card.njk" %}
-      </aside>
+      </aside>{% endif %}
     </div>
+
+    {% if entry.publicCommercialGeography %}
+      {% include "partials/space-type/sf-commercial-geography-experience.njk" %}
+      <div class="pill-nav-card sf-secondary-space-links"><span class="eyebrow">More ways to explore</span>{% include "partials/space-type/pill-nav.njk" %}</div>
+    {% endif %}
 
     <div class="space-type-content-layout">
       <div class="page-stack space-type-main-content">

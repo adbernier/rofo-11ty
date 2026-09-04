@@ -78,6 +78,9 @@ eleventyComputed:
   <div class="city-shell">
     {% set compactBreadcrumbs = true %}
     {% include "partials/breadcrumbs.njk" %}
+    {% if neighborhood.city == "San Francisco" and neighborhood.state_abbr == "CA" and sfCommercialGeographyExperience.byGeographyId[neighborhood.slug] %}
+      {% include "partials/neighborhood/sf-commercial-geography-context.njk" %}
+    {% endif %}
 
     <div class="neighborhood-layout neighborhood-layout--primary-rail">
       <div class="neighborhood-main">

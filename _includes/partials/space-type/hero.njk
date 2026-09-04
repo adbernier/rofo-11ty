@@ -1,8 +1,10 @@
 <div class="city-card">
   <div class="eyebrow">Space Type</div>
   <h1>{{ entry.h1 or (spaceType.pluralLabel + " in " + city.city + ", " + city.state_abbr) }}</h1>
-  <p class="lead">
-  {% if entry.heroLead %}
+  <p class="lead{% if entry.publicCommercialGeography %} lead--concise{% endif %}">
+  {% if entry.publicCommercialGeography %}
+    {{ entry.publicCommercialGeography.introduction }}
+  {% elseif entry.heroLead %}
     {{ entry.heroLead }}
   {% else %}
     {{ spaceType.label }} space in {{ city.city }} can vary widely depending on location, building type, and how the space is used.
@@ -11,9 +13,8 @@
   {% endif %}
   </p>
 
-  {% include "partials/shared/search-profile-mobile-entry.njk" %}
-
-  <div class="pill-nav-card">
-    {% include "partials/space-type/pill-nav.njk" %}
-  </div>
+  {% if not entry.publicCommercialGeography %}
+    {% include "partials/shared/search-profile-mobile-entry.njk" %}
+    <div class="pill-nav-card">{% include "partials/space-type/pill-nav.njk" %}</div>
+  {% endif %}
 </div>

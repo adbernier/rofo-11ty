@@ -85,6 +85,6 @@ fs.writeFileSync(path.join(output,"reports/coverage-summary.txt"), markets.map(m
 fs.writeFileSync(path.join(output,"reports/route-inventory.txt"), priority.flatMap(m=>m.geographies.flatMap(g=>g.spaceTypes.map(r=>`${m.marketId}\t${r.spaceType}\t${g.id}\t${r.routeState}\t${r.indexation}\t${r.route||"-"}`))).sort().join("\n")+"\n");
 fs.writeFileSync(path.join(output,"reports/first-public-cohort.txt"), `${firstCohort.decision}\n\n${firstCohort.markets.map(m=>`${m.marketId}: ${m.indexation}`).join("\n")}\n\nDeferred: ${firstCohort.deferred.map(d=>`${d.marketId}: ${d.reason}`).join("; ")}\n`);
 
-const files = fs.readdirSync(output).filter(name=>name.endsWith(".json")).sort().map(name=>{const body=fs.readFileSync(path.join(output,name));return {file:name,bytes:body.length,sha256:crypto.createHash("sha256").update(body).digest("hex")};});
+const files = fs.readdirSync(output).filter(name=>name.endsWith(".json") && name !== "artifact-manifest.json").sort().map(name=>{const body=fs.readFileSync(path.join(output,name));return {file:name,bytes:body.length,sha256:crypto.createHash("sha256").update(body).digest("hex")};});
 fs.writeFileSync(path.join(output,"artifact-manifest.json"), `${JSON.stringify({schemaVersion:contract.schemaVersion,files},null,2)}\n`);
 console.log(`Built ${markets.length} markets, ${priority.reduce((n,m)=>n+m.geographies.length,0)} detailed geographies, ${opportunities.length} opportunities.`);

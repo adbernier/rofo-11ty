@@ -183,7 +183,7 @@ eleventyComputed:
     <div class="city-primary-layout city-primary-layout--single-column">
       <div class="city-primary-main">
         <div class="city-hero city-hero--content-only city-hero--decision-v2">
-          <div class="city-card city-decision-hero">
+          <div class="city-card city-decision-hero{% if isSanFranciscoDecisionJourney %} city-decision-hero--sf-geography{% endif %}">
             <div class="city-hero-copy">
               <div class="eyebrow">{{ city.city }} Commercial Real Estate</div>
 
@@ -191,6 +191,10 @@ eleventyComputed:
 
               {% if city.growth_experiment and city.growth_experiment.heroLead %}
                 <p class="city-decision-hero__lead">{{ city.growth_experiment.heroLead }}</p>
+              {% endif %}
+
+              {% if isSanFranciscoDecisionJourney %}
+                {% include "partials/city/sf-space-type-discovery.njk" %}
               {% endif %}
 
               {% set recommendationPromptContext = {
@@ -295,10 +299,6 @@ eleventyComputed:
                 <p>The district often shapes the decision before the building does. Start by comparing which areas fit the business model, customer access, employee commute patterns, budget, and next stage of growth.</p>
               </div>
               <div class="city-decision-flow city-decision-flow--commercial-areas">
-          {% endif %}
-
-          {% if isSanFranciscoDecisionJourney %}
-            {% include "partials/city/sf-space-type-discovery.njk" %}
           {% endif %}
 
           {% if hasAreaChapter %}
