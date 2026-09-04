@@ -36,9 +36,9 @@ for (const marketFile of index.marketFiles) {
   records.push(...artifact.representatives, ...artifact.environments);
 }
 assert.equal(index.totals.markets, 15);
-assert.equal(index.totals.reviewedRepresentatives, 21);
+assert.equal(index.totals.reviewedRepresentatives, 14);
 assert.equal(index.totals.strongCandidates, 0);
-assert.equal(index.totals.possibleCandidates, 77);
+assert.equal(index.totals.possibleCandidates, 79);
 assert.equal(index.totals.environmentRepresentatives, 3);
 assert.equal(index.totals.notRepresentative, 1);
 
@@ -62,7 +62,7 @@ const mediaIndependent = contract.qualifyProperty({ entity: { ...candidateFixtur
 assert.equal(mediaIndependent.representativeStatus, "STRONG_REPRESENTATIVE_CANDIDATE");
 assert.equal(mediaIndependent.mediaRights, "RIGHTS_UNKNOWN");
 
-assert.equal(index.calibration["san-francisco"].matchRate, 0.8421);
+assert.equal(index.calibration["san-francisco"].matchRate, 0.75);
 assert.deepEqual(index.calibration["san-francisco"].missed, ["680 Folsom St", "Pier 70 Building 101", "1201 Illinois St"]);
 for (const market of ["sacramento", "indianapolis"]) assert.equal(index.calibration[market].matchRate, 1);
 for (const market of ["san-diego", "north-orange-county", "phoenix"]) assert.equal(index.calibration[market].liveSetMutation, "NONE");

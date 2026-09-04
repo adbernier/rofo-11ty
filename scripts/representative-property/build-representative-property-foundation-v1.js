@@ -84,10 +84,13 @@ function sfRepresentatives() {
   const live = require("../../_data/recommendationRepresentativeBuildings.js");
   const rows = [];
   const seen = new Set();
+  const perGeography = new Map();
   for (const district of Object.values(live.byDistrictSlug)) {
     for (const item of (district.buildings || []).slice(0, live.maxBuildingsPerDistrict)) {
       if (item.city !== "San Francisco" || seen.has(item.buildingId)) continue;
+      if ((perGeography.get(item.districtSlug) || 0) >= 3) continue;
       seen.add(item.buildingId);
+      perGeography.set(item.districtSlug, (perGeography.get(item.districtSlug) || 0) + 1);
       rows.push({
         marketId: "san-francisco", id: item.buildingId, label: item.address, kind: "BUILDING",
         path: item.canonicalUrl, municipality: item.city, state: item.state,
@@ -121,6 +124,7 @@ function roleFor(entity) {
 }
 
 function recordFor(entity, qualification, live = null) {
+  const sourceGeography = entity.commercialGeography;
   return {
     representativeId: live?.id || entity.durablePropertyId,
     kind: "PROPERTY_BUILDING",
@@ -129,7 +133,11 @@ function recordFor(entity, qualification, live = null) {
     aliases: unique([...(entity.aliases || []), ...(entity.sourceIds || []).map((item) => item.sourceId)]).sort(),
     municipality: entity.municipality,
     state: entity.state,
-    geography: live ? { id: live.geographyId, label: live.geographyLabel, relationship: "REVIEWED_EVIDENCE_FOUNDATION" } : entity.commercialGeography,
+    geography: live
+      ? { id: live.geographyId, label: live.geographyLabel, municipality: live.municipality, relationship: "REVIEWED_EVIDENCE_FOUNDATION" }
+      : sourceGeography
+        ? { id: sourceGeography.geographyId, label: sourceGeography.label, municipality: sourceGeography.municipality, relationship: sourceGeography.relationshipStatus, confidence: sourceGeography.confidence }
+        : null,
     propertyTypes: entity.propertyType?.reviewedTypes || [],
     representativeRole: live?.role || roleFor(entity),
     representativeStatus: qualification.representativeStatus,
