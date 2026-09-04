@@ -1,0 +1,4205 @@
+{
+  "schemaVersion": "public-commercial-geography:v1",
+  "generatedOn": "2026-09-04",
+  "markets": [
+    {
+      "marketId": "san-francisco",
+      "label": "San Francisco",
+      "state": "CA",
+      "atlasCounts": {
+        "levelA": 16,
+        "levelB": 3,
+        "levelC": 0
+      },
+      "atlasPropertyTypes": [
+        "office",
+        "retail",
+        "industrial",
+        "flex"
+      ],
+      "coverage": [
+        {
+          "spaceType": "office",
+          "knownGeographies": [
+            {
+              "geographyId": "financial-district",
+              "label": "Financial District",
+              "publicEvidenceTier": "PUBLIC_REVIEWED",
+              "applicability": "PRIMARY",
+              "routeState": "ROUTE_READY",
+              "indexation": "COMPONENT_READY"
+            },
+            {
+              "geographyId": "soma",
+              "label": "SoMa",
+              "publicEvidenceTier": "PUBLIC_REVIEWED",
+              "applicability": "PRIMARY",
+              "routeState": "ROUTE_READY",
+              "indexation": "COMPONENT_READY"
+            },
+            {
+              "geographyId": "mission-bay",
+              "label": "Mission Bay",
+              "publicEvidenceTier": "PUBLIC_REVIEWED",
+              "applicability": "PRIMARY",
+              "routeState": "ROUTE_READY",
+              "indexation": "COMPONENT_READY"
+            },
+            {
+              "geographyId": "jackson-square",
+              "label": "Jackson Square",
+              "publicEvidenceTier": "PUBLIC_REVIEWED",
+              "applicability": "PRIMARY",
+              "routeState": "ROUTE_READY",
+              "indexation": "COMPONENT_READY"
+            },
+            {
+              "geographyId": "union-square",
+              "label": "Union Square",
+              "publicEvidenceTier": "PUBLIC_REVIEWED",
+              "applicability": "SECONDARY",
+              "routeState": "ROUTE_READY",
+              "indexation": "COMPONENT_READY"
+            },
+            {
+              "geographyId": "mission-district",
+              "label": "Mission District",
+              "publicEvidenceTier": "PUBLIC_REVIEWED",
+              "applicability": "CONTEXTUAL",
+              "routeState": "ROUTE_READY",
+              "indexation": "COMPONENT_READY"
+            },
+            {
+              "geographyId": "hayes-valley",
+              "label": "Hayes Valley",
+              "publicEvidenceTier": "PUBLIC_REVIEWED",
+              "applicability": "CONTEXTUAL",
+              "routeState": "ROUTE_READY",
+              "indexation": "COMPONENT_READY"
+            }
+          ],
+          "publicReviewedCount": 7,
+          "publicContextualCount": 0,
+          "representativeCoverage": "PARTIAL_OR_REVIEWED",
+          "durablePropertyCoverage": "PARTIAL",
+          "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "routeCoverage": "ROUTE_READY",
+          "confidence": "BOUNDED_PUBLIC_FOUNDATION",
+          "majorGaps": []
+        },
+        {
+          "spaceType": "retail",
+          "knownGeographies": [
+            {
+              "geographyId": "financial-district",
+              "label": "Financial District",
+              "publicEvidenceTier": "PUBLIC_REVIEWED",
+              "applicability": "SECONDARY",
+              "routeState": "ROUTE_READY",
+              "indexation": "COMPONENT_READY"
+            },
+            {
+              "geographyId": "soma",
+              "label": "SoMa",
+              "publicEvidenceTier": "PUBLIC_REVIEWED",
+              "applicability": "CONTEXTUAL",
+              "routeState": "ROUTE_READY",
+              "indexation": "COMPONENT_READY"
+            },
+            {
+              "geographyId": "mission-bay",
+              "label": "Mission Bay",
+              "publicEvidenceTier": "PUBLIC_REVIEWED",
+              "applicability": "CONTEXTUAL",
+              "routeState": "ROUTE_READY",
+              "indexation": "COMPONENT_READY"
+            },
+            {
+              "geographyId": "jackson-square",
+              "label": "Jackson Square",
+              "publicEvidenceTier": "PUBLIC_REVIEWED",
+              "applicability": "SECONDARY",
+              "routeState": "ROUTE_READY",
+              "indexation": "COMPONENT_READY"
+            },
+            {
+              "geographyId": "union-square",
+              "label": "Union Square",
+              "publicEvidenceTier": "PUBLIC_REVIEWED",
+              "applicability": "PRIMARY",
+              "routeState": "ROUTE_READY",
+              "indexation": "COMPONENT_READY"
+            },
+            {
+              "geographyId": "mission-district",
+              "label": "Mission District",
+              "publicEvidenceTier": "PUBLIC_REVIEWED",
+              "applicability": "PRIMARY",
+              "routeState": "ROUTE_READY",
+              "indexation": "COMPONENT_READY"
+            },
+            {
+              "geographyId": "hayes-valley",
+              "label": "Hayes Valley",
+              "publicEvidenceTier": "PUBLIC_REVIEWED",
+              "applicability": "PRIMARY",
+              "routeState": "ROUTE_READY",
+              "indexation": "COMPONENT_READY"
+            },
+            {
+              "geographyId": "chestnut-street",
+              "label": "Chestnut Street",
+              "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+              "applicability": "PRIMARY",
+              "routeState": "ROUTE_READY",
+              "indexation": "COMPONENT_READY"
+            },
+            {
+              "geographyId": "union-street-cow-hollow",
+              "label": "Union Street / Cow Hollow",
+              "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+              "applicability": "PRIMARY",
+              "routeState": "ROUTE_READY",
+              "indexation": "COMPONENT_READY"
+            },
+            {
+              "geographyId": "valencia-street",
+              "label": "Valencia Street",
+              "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+              "applicability": "PRIMARY",
+              "routeState": "ROUTE_READY",
+              "indexation": "COMPONENT_READY"
+            },
+            {
+              "geographyId": "dogpatch",
+              "label": "Dogpatch",
+              "publicEvidenceTier": "PUBLIC_REVIEWED",
+              "applicability": "SECONDARY",
+              "routeState": "ROUTE_READY",
+              "indexation": "COMPONENT_READY"
+            },
+            {
+              "geographyId": "showplace-square",
+              "label": "Showplace Square",
+              "publicEvidenceTier": "PUBLIC_REVIEWED",
+              "applicability": "SECONDARY",
+              "routeState": "ROUTE_READY",
+              "indexation": "COMPONENT_READY"
+            }
+          ],
+          "publicReviewedCount": 9,
+          "publicContextualCount": 3,
+          "representativeCoverage": "PARTIAL_OR_REVIEWED",
+          "durablePropertyCoverage": "PARTIAL",
+          "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "routeCoverage": "ROUTE_READY",
+          "confidence": "BOUNDED_PUBLIC_FOUNDATION",
+          "majorGaps": []
+        },
+        {
+          "spaceType": "industrial",
+          "knownGeographies": [
+            {
+              "geographyId": "soma",
+              "label": "SoMa",
+              "publicEvidenceTier": "PUBLIC_REVIEWED",
+              "applicability": "SECONDARY",
+              "routeState": "ROUTE_READY",
+              "indexation": "COMPONENT_READY"
+            },
+            {
+              "geographyId": "bayview-industrial",
+              "label": "Bayview Industrial",
+              "publicEvidenceTier": "PUBLIC_REVIEWED",
+              "applicability": "PRIMARY",
+              "routeState": "ROUTE_READY",
+              "indexation": "COMPONENT_READY"
+            },
+            {
+              "geographyId": "central-waterfront",
+              "label": "Central Waterfront",
+              "publicEvidenceTier": "PUBLIC_REVIEWED",
+              "applicability": "PRIMARY",
+              "routeState": "ROUTE_READY",
+              "indexation": "COMPONENT_READY"
+            },
+            {
+              "geographyId": "dogpatch",
+              "label": "Dogpatch",
+              "publicEvidenceTier": "PUBLIC_REVIEWED",
+              "applicability": "PRIMARY",
+              "routeState": "ROUTE_READY",
+              "indexation": "COMPONENT_READY"
+            },
+            {
+              "geographyId": "showplace-square",
+              "label": "Showplace Square",
+              "publicEvidenceTier": "PUBLIC_REVIEWED",
+              "applicability": "SECONDARY",
+              "routeState": "ROUTE_READY",
+              "indexation": "COMPONENT_READY"
+            }
+          ],
+          "publicReviewedCount": 5,
+          "publicContextualCount": 0,
+          "representativeCoverage": "PARTIAL_OR_REVIEWED",
+          "durablePropertyCoverage": "PARTIAL",
+          "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "routeCoverage": "ROUTE_READY",
+          "confidence": "BOUNDED_PUBLIC_FOUNDATION",
+          "majorGaps": []
+        },
+        {
+          "spaceType": "flex",
+          "knownGeographies": [
+            {
+              "geographyId": "soma",
+              "label": "SoMa",
+              "publicEvidenceTier": "PUBLIC_REVIEWED",
+              "applicability": "PRIMARY",
+              "routeState": "ROUTE_READY",
+              "indexation": "COMPONENT_READY"
+            },
+            {
+              "geographyId": "mission-bay",
+              "label": "Mission Bay",
+              "publicEvidenceTier": "PUBLIC_REVIEWED",
+              "applicability": "SECONDARY",
+              "routeState": "ROUTE_READY",
+              "indexation": "COMPONENT_READY"
+            },
+            {
+              "geographyId": "bayview-industrial",
+              "label": "Bayview Industrial",
+              "publicEvidenceTier": "PUBLIC_REVIEWED",
+              "applicability": "SECONDARY",
+              "routeState": "ROUTE_READY",
+              "indexation": "COMPONENT_READY"
+            },
+            {
+              "geographyId": "central-waterfront",
+              "label": "Central Waterfront",
+              "publicEvidenceTier": "PUBLIC_REVIEWED",
+              "applicability": "SECONDARY",
+              "routeState": "ROUTE_READY",
+              "indexation": "COMPONENT_READY"
+            },
+            {
+              "geographyId": "dogpatch",
+              "label": "Dogpatch",
+              "publicEvidenceTier": "PUBLIC_REVIEWED",
+              "applicability": "PRIMARY",
+              "routeState": "ROUTE_READY",
+              "indexation": "COMPONENT_READY"
+            },
+            {
+              "geographyId": "showplace-square",
+              "label": "Showplace Square",
+              "publicEvidenceTier": "PUBLIC_REVIEWED",
+              "applicability": "PRIMARY",
+              "routeState": "ROUTE_READY",
+              "indexation": "COMPONENT_READY"
+            }
+          ],
+          "publicReviewedCount": 6,
+          "publicContextualCount": 0,
+          "representativeCoverage": "PARTIAL_OR_REVIEWED",
+          "durablePropertyCoverage": "PARTIAL",
+          "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "routeCoverage": "ROUTE_READY",
+          "confidence": "BOUNDED_PUBLIC_FOUNDATION",
+          "majorGaps": []
+        }
+      ]
+    },
+    {
+      "marketId": "san-diego",
+      "label": "San Diego",
+      "state": "CA",
+      "atlasCounts": {
+        "levelA": 8,
+        "levelB": 4,
+        "levelC": 1
+      },
+      "atlasPropertyTypes": [
+        "office",
+        "industrial",
+        "flex"
+      ],
+      "coverage": [
+        {
+          "spaceType": "office",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "retail",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "NO_CURRENT_EVIDENCE",
+          "majorGaps": [
+            "No supportable geography set in the current foundation."
+          ]
+        },
+        {
+          "spaceType": "industrial",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "flex",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        }
+      ]
+    },
+    {
+      "marketId": "orange-county",
+      "label": "Orange County",
+      "state": "CA",
+      "atlasCounts": {
+        "levelA": 2,
+        "levelB": 7,
+        "levelC": 2
+      },
+      "atlasPropertyTypes": [
+        "office",
+        "retail",
+        "industrial",
+        "flex"
+      ],
+      "coverage": [
+        {
+          "spaceType": "office",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "retail",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "industrial",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "flex",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        }
+      ]
+    },
+    {
+      "marketId": "phoenix",
+      "label": "Phoenix",
+      "state": "AZ",
+      "atlasCounts": {
+        "levelA": 3,
+        "levelB": 3,
+        "levelC": 1
+      },
+      "atlasPropertyTypes": [
+        "industrial",
+        "flex"
+      ],
+      "coverage": [
+        {
+          "spaceType": "office",
+          "knownGeographies": [
+            {
+              "geographyId": "downtown-phoenix",
+              "label": "Downtown Phoenix",
+              "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+              "applicability": "PRIMARY",
+              "routeState": "ROUTE_READY",
+              "indexation": "COMPONENT_READY"
+            },
+            {
+              "geographyId": "camelback-corridor",
+              "label": "Camelback Corridor",
+              "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+              "applicability": "PRIMARY",
+              "routeState": "ROUTE_READY",
+              "indexation": "COMPONENT_READY"
+            }
+          ],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 2,
+          "representativeCoverage": "NONE",
+          "durablePropertyCoverage": "NONE",
+          "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "routeCoverage": "ROUTE_READY",
+          "confidence": "BOUNDED_PUBLIC_FOUNDATION",
+          "majorGaps": []
+        },
+        {
+          "spaceType": "retail",
+          "knownGeographies": [
+            {
+              "geographyId": "downtown-phoenix",
+              "label": "Downtown Phoenix",
+              "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+              "applicability": "SECONDARY",
+              "routeState": "ROUTE_READY",
+              "indexation": "COMPONENT_READY"
+            },
+            {
+              "geographyId": "camelback-corridor",
+              "label": "Camelback Corridor",
+              "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+              "applicability": "PRIMARY",
+              "routeState": "ROUTE_READY",
+              "indexation": "COMPONENT_READY"
+            }
+          ],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 2,
+          "representativeCoverage": "NONE",
+          "durablePropertyCoverage": "NONE",
+          "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "routeCoverage": "ROUTE_READY",
+          "confidence": "BOUNDED_PUBLIC_FOUNDATION",
+          "majorGaps": []
+        },
+        {
+          "spaceType": "industrial",
+          "knownGeographies": [
+            {
+              "geographyId": "southwest-phoenix-industrial",
+              "label": "Southwest Phoenix Industrial",
+              "publicEvidenceTier": "PUBLIC_REVIEWED",
+              "applicability": "PRIMARY",
+              "routeState": "ROUTE_READY",
+              "indexation": "COMPONENT_READY"
+            },
+            {
+              "geographyId": "airport-south-central-industrial",
+              "label": "Airport / South Central Industrial",
+              "publicEvidenceTier": "PUBLIC_REVIEWED",
+              "applicability": "PRIMARY",
+              "routeState": "ROUTE_NEEDED_LATER",
+              "indexation": "BUILD_THEN_INDEX"
+            },
+            {
+              "geographyId": "north-phoenix-advanced-operations",
+              "label": "North Phoenix Advanced Operations",
+              "publicEvidenceTier": "PUBLIC_REVIEWED",
+              "applicability": "PRIMARY",
+              "routeState": "ROUTE_NEEDED_LATER",
+              "indexation": "BUILD_THEN_INDEX"
+            }
+          ],
+          "publicReviewedCount": 3,
+          "publicContextualCount": 0,
+          "representativeCoverage": "NONE",
+          "durablePropertyCoverage": "NONE",
+          "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "routeCoverage": "MIXED",
+          "confidence": "BOUNDED_PUBLIC_FOUNDATION",
+          "majorGaps": []
+        },
+        {
+          "spaceType": "flex",
+          "knownGeographies": [
+            {
+              "geographyId": "southwest-phoenix-industrial",
+              "label": "Southwest Phoenix Industrial",
+              "publicEvidenceTier": "PUBLIC_REVIEWED",
+              "applicability": "SECONDARY",
+              "routeState": "ROUTE_READY",
+              "indexation": "COMPONENT_READY"
+            },
+            {
+              "geographyId": "airport-south-central-industrial",
+              "label": "Airport / South Central Industrial",
+              "publicEvidenceTier": "PUBLIC_REVIEWED",
+              "applicability": "PRIMARY",
+              "routeState": "ROUTE_NEEDED_LATER",
+              "indexation": "BUILD_THEN_INDEX"
+            },
+            {
+              "geographyId": "north-phoenix-advanced-operations",
+              "label": "North Phoenix Advanced Operations",
+              "publicEvidenceTier": "PUBLIC_REVIEWED",
+              "applicability": "PRIMARY",
+              "routeState": "ROUTE_NEEDED_LATER",
+              "indexation": "BUILD_THEN_INDEX"
+            }
+          ],
+          "publicReviewedCount": 3,
+          "publicContextualCount": 0,
+          "representativeCoverage": "NONE",
+          "durablePropertyCoverage": "NONE",
+          "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "routeCoverage": "MIXED",
+          "confidence": "BOUNDED_PUBLIC_FOUNDATION",
+          "majorGaps": []
+        }
+      ]
+    },
+    {
+      "marketId": "indianapolis",
+      "label": "Indianapolis",
+      "state": "IN",
+      "atlasCounts": {
+        "levelA": 2,
+        "levelB": 3,
+        "levelC": 0
+      },
+      "atlasPropertyTypes": [
+        "industrial",
+        "flex"
+      ],
+      "coverage": [
+        {
+          "spaceType": "office",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "NO_CURRENT_EVIDENCE",
+          "majorGaps": [
+            "No supportable geography set in the current foundation."
+          ]
+        },
+        {
+          "spaceType": "retail",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "NO_CURRENT_EVIDENCE",
+          "majorGaps": [
+            "No supportable geography set in the current foundation."
+          ]
+        },
+        {
+          "spaceType": "industrial",
+          "knownGeographies": [
+            {
+              "geographyId": "indianapolis-airport-logistics",
+              "label": "Indianapolis Airport Logistics",
+              "publicEvidenceTier": "PUBLIC_REVIEWED",
+              "applicability": "PRIMARY",
+              "routeState": "ROUTE_READY",
+              "indexation": "COMPONENT_READY"
+            },
+            {
+              "geographyId": "park-100-northwest-indianapolis",
+              "label": "Park 100 / Northwest Indianapolis",
+              "publicEvidenceTier": "PUBLIC_REVIEWED",
+              "applicability": "PRIMARY",
+              "routeState": "ROUTE_NEEDED_LATER",
+              "indexation": "BUILD_THEN_INDEX"
+            }
+          ],
+          "publicReviewedCount": 2,
+          "publicContextualCount": 0,
+          "representativeCoverage": "PARTIAL_OR_REVIEWED",
+          "durablePropertyCoverage": "PARTIAL",
+          "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "routeCoverage": "MIXED",
+          "confidence": "BOUNDED_PUBLIC_FOUNDATION",
+          "majorGaps": []
+        },
+        {
+          "spaceType": "flex",
+          "knownGeographies": [
+            {
+              "geographyId": "indianapolis-airport-logistics",
+              "label": "Indianapolis Airport Logistics",
+              "publicEvidenceTier": "PUBLIC_REVIEWED",
+              "applicability": "SECONDARY",
+              "routeState": "ROUTE_READY",
+              "indexation": "COMPONENT_READY"
+            },
+            {
+              "geographyId": "park-100-northwest-indianapolis",
+              "label": "Park 100 / Northwest Indianapolis",
+              "publicEvidenceTier": "PUBLIC_REVIEWED",
+              "applicability": "PRIMARY",
+              "routeState": "ROUTE_NEEDED_LATER",
+              "indexation": "BUILD_THEN_INDEX"
+            }
+          ],
+          "publicReviewedCount": 2,
+          "publicContextualCount": 0,
+          "representativeCoverage": "PARTIAL_OR_REVIEWED",
+          "durablePropertyCoverage": "PARTIAL",
+          "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "routeCoverage": "MIXED",
+          "confidence": "BOUNDED_PUBLIC_FOUNDATION",
+          "majorGaps": []
+        }
+      ]
+    },
+    {
+      "marketId": "sacramento",
+      "label": "Sacramento",
+      "state": "CA",
+      "atlasCounts": {
+        "levelA": 3,
+        "levelB": 5,
+        "levelC": 2
+      },
+      "atlasPropertyTypes": [
+        "office",
+        "retail",
+        "industrial",
+        "flex"
+      ],
+      "coverage": [
+        {
+          "spaceType": "office",
+          "knownGeographies": [
+            {
+              "geographyId": "downtown-sacramento",
+              "label": "Downtown Sacramento",
+              "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+              "applicability": "PRIMARY",
+              "routeState": "ROUTE_READY",
+              "indexation": "COMPONENT_READY"
+            },
+            {
+              "geographyId": "midtown-sacramento",
+              "label": "Midtown Sacramento",
+              "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+              "applicability": "SECONDARY",
+              "routeState": "ROUTE_READY",
+              "indexation": "COMPONENT_READY"
+            }
+          ],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 2,
+          "representativeCoverage": "NONE",
+          "durablePropertyCoverage": "NONE",
+          "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "routeCoverage": "ROUTE_READY",
+          "confidence": "BOUNDED_PUBLIC_FOUNDATION",
+          "majorGaps": []
+        },
+        {
+          "spaceType": "retail",
+          "knownGeographies": [
+            {
+              "geographyId": "downtown-sacramento",
+              "label": "Downtown Sacramento",
+              "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+              "applicability": "SECONDARY",
+              "routeState": "ROUTE_READY",
+              "indexation": "COMPONENT_READY"
+            },
+            {
+              "geographyId": "midtown-sacramento",
+              "label": "Midtown Sacramento",
+              "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+              "applicability": "PRIMARY",
+              "routeState": "ROUTE_READY",
+              "indexation": "COMPONENT_READY"
+            }
+          ],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 2,
+          "representativeCoverage": "NONE",
+          "durablePropertyCoverage": "NONE",
+          "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "routeCoverage": "ROUTE_READY",
+          "confidence": "BOUNDED_PUBLIC_FOUNDATION",
+          "majorGaps": []
+        },
+        {
+          "spaceType": "industrial",
+          "knownGeographies": [
+            {
+              "geographyId": "power-inn-industrial",
+              "label": "Power Inn Industrial",
+              "publicEvidenceTier": "PUBLIC_REVIEWED",
+              "applicability": "PRIMARY",
+              "routeState": "ROUTE_READY",
+              "indexation": "COMPONENT_READY"
+            },
+            {
+              "geographyId": "northgate-north-market-industrial",
+              "label": "Northgate / North Market Industrial",
+              "publicEvidenceTier": "PUBLIC_REVIEWED",
+              "applicability": "PRIMARY",
+              "routeState": "ROUTE_NEEDED_LATER",
+              "indexation": "BUILD_THEN_INDEX"
+            }
+          ],
+          "publicReviewedCount": 2,
+          "publicContextualCount": 0,
+          "representativeCoverage": "PARTIAL_OR_REVIEWED",
+          "durablePropertyCoverage": "PARTIAL",
+          "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "routeCoverage": "MIXED",
+          "confidence": "BOUNDED_PUBLIC_FOUNDATION",
+          "majorGaps": []
+        },
+        {
+          "spaceType": "flex",
+          "knownGeographies": [
+            {
+              "geographyId": "power-inn-industrial",
+              "label": "Power Inn Industrial",
+              "publicEvidenceTier": "PUBLIC_REVIEWED",
+              "applicability": "SECONDARY",
+              "routeState": "ROUTE_READY",
+              "indexation": "COMPONENT_READY"
+            },
+            {
+              "geographyId": "northgate-north-market-industrial",
+              "label": "Northgate / North Market Industrial",
+              "publicEvidenceTier": "PUBLIC_REVIEWED",
+              "applicability": "PRIMARY",
+              "routeState": "ROUTE_NEEDED_LATER",
+              "indexation": "BUILD_THEN_INDEX"
+            }
+          ],
+          "publicReviewedCount": 2,
+          "publicContextualCount": 0,
+          "representativeCoverage": "PARTIAL_OR_REVIEWED",
+          "durablePropertyCoverage": "PARTIAL",
+          "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "routeCoverage": "MIXED",
+          "confidence": "BOUNDED_PUBLIC_FOUNDATION",
+          "majorGaps": []
+        }
+      ]
+    },
+    {
+      "marketId": "seattle",
+      "label": "Seattle",
+      "state": "WA",
+      "atlasCounts": {
+        "levelA": 3,
+        "levelB": 5,
+        "levelC": 1
+      },
+      "atlasPropertyTypes": [
+        "office",
+        "industrial",
+        "flex"
+      ],
+      "coverage": [
+        {
+          "spaceType": "office",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "retail",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "NO_CURRENT_EVIDENCE",
+          "majorGaps": [
+            "No supportable geography set in the current foundation."
+          ]
+        },
+        {
+          "spaceType": "industrial",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "flex",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        }
+      ]
+    },
+    {
+      "marketId": "denver",
+      "label": "Denver",
+      "state": "CO",
+      "atlasCounts": {
+        "levelA": 3,
+        "levelB": 7,
+        "levelC": 2
+      },
+      "atlasPropertyTypes": [
+        "office",
+        "retail",
+        "industrial",
+        "flex"
+      ],
+      "coverage": [
+        {
+          "spaceType": "office",
+          "knownGeographies": [
+            {
+              "geographyId": "central-business-district",
+              "label": "Central Business District",
+              "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+              "applicability": "PRIMARY",
+              "routeState": "ROUTE_READY",
+              "indexation": "COMPONENT_READY"
+            },
+            {
+              "geographyId": "lodo",
+              "label": "LoDo",
+              "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+              "applicability": "PRIMARY",
+              "routeState": "ROUTE_READY",
+              "indexation": "COMPONENT_READY"
+            },
+            {
+              "geographyId": "rino",
+              "label": "RiNo",
+              "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+              "applicability": "SECONDARY",
+              "routeState": "ROUTE_READY",
+              "indexation": "COMPONENT_READY"
+            },
+            {
+              "geographyId": "cherry-creek",
+              "label": "Cherry Creek",
+              "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+              "applicability": "PRIMARY",
+              "routeState": "ROUTE_READY",
+              "indexation": "COMPONENT_READY"
+            }
+          ],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 4,
+          "representativeCoverage": "NONE",
+          "durablePropertyCoverage": "NONE",
+          "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "routeCoverage": "ROUTE_READY",
+          "confidence": "BOUNDED_PUBLIC_FOUNDATION",
+          "majorGaps": []
+        },
+        {
+          "spaceType": "retail",
+          "knownGeographies": [
+            {
+              "geographyId": "central-business-district",
+              "label": "Central Business District",
+              "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+              "applicability": "SECONDARY",
+              "routeState": "ROUTE_READY",
+              "indexation": "COMPONENT_READY"
+            },
+            {
+              "geographyId": "lodo",
+              "label": "LoDo",
+              "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+              "applicability": "PRIMARY",
+              "routeState": "ROUTE_READY",
+              "indexation": "COMPONENT_READY"
+            },
+            {
+              "geographyId": "rino",
+              "label": "RiNo",
+              "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+              "applicability": "PRIMARY",
+              "routeState": "ROUTE_READY",
+              "indexation": "COMPONENT_READY"
+            },
+            {
+              "geographyId": "cherry-creek",
+              "label": "Cherry Creek",
+              "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+              "applicability": "PRIMARY",
+              "routeState": "ROUTE_READY",
+              "indexation": "COMPONENT_READY"
+            }
+          ],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 4,
+          "representativeCoverage": "NONE",
+          "durablePropertyCoverage": "NONE",
+          "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "routeCoverage": "ROUTE_READY",
+          "confidence": "BOUNDED_PUBLIC_FOUNDATION",
+          "majorGaps": []
+        },
+        {
+          "spaceType": "industrial",
+          "knownGeographies": [
+            {
+              "geographyId": "rino",
+              "label": "RiNo",
+              "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+              "applicability": "SECONDARY",
+              "routeState": "ROUTE_READY",
+              "indexation": "COMPONENT_READY"
+            },
+            {
+              "geographyId": "northeast-denver-industrial",
+              "label": "Northeast Denver Industrial",
+              "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+              "applicability": "PRIMARY",
+              "routeState": "ROUTE_READY",
+              "indexation": "COMPONENT_READY"
+            },
+            {
+              "geographyId": "north-washington-i-25-industrial",
+              "label": "North Washington / I-25 Industrial",
+              "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+              "applicability": "PRIMARY",
+              "routeState": "ROUTE_READY",
+              "indexation": "COMPONENT_READY"
+            }
+          ],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 3,
+          "representativeCoverage": "NONE",
+          "durablePropertyCoverage": "NONE",
+          "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "routeCoverage": "ROUTE_READY",
+          "confidence": "BOUNDED_PUBLIC_FOUNDATION",
+          "majorGaps": []
+        },
+        {
+          "spaceType": "flex",
+          "knownGeographies": [
+            {
+              "geographyId": "rino",
+              "label": "RiNo",
+              "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+              "applicability": "PRIMARY",
+              "routeState": "ROUTE_READY",
+              "indexation": "COMPONENT_READY"
+            },
+            {
+              "geographyId": "northeast-denver-industrial",
+              "label": "Northeast Denver Industrial",
+              "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+              "applicability": "SECONDARY",
+              "routeState": "ROUTE_READY",
+              "indexation": "COMPONENT_READY"
+            },
+            {
+              "geographyId": "north-washington-i-25-industrial",
+              "label": "North Washington / I-25 Industrial",
+              "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+              "applicability": "PRIMARY",
+              "routeState": "ROUTE_READY",
+              "indexation": "COMPONENT_READY"
+            }
+          ],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 3,
+          "representativeCoverage": "NONE",
+          "durablePropertyCoverage": "NONE",
+          "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "routeCoverage": "ROUTE_READY",
+          "confidence": "BOUNDED_PUBLIC_FOUNDATION",
+          "majorGaps": []
+        }
+      ]
+    },
+    {
+      "marketId": "los-angeles",
+      "label": "Los Angeles",
+      "state": "CA",
+      "atlasCounts": {
+        "levelA": 4,
+        "levelB": 9,
+        "levelC": 4
+      },
+      "atlasPropertyTypes": [
+        "office",
+        "retail",
+        "industrial",
+        "flex"
+      ],
+      "coverage": [
+        {
+          "spaceType": "office",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "retail",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "industrial",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "flex",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        }
+      ]
+    },
+    {
+      "marketId": "east-bay",
+      "label": "Oakland / East Bay",
+      "state": "CA",
+      "atlasCounts": {
+        "levelA": 4,
+        "levelB": 7,
+        "levelC": 3
+      },
+      "atlasPropertyTypes": [
+        "office",
+        "retail",
+        "industrial",
+        "flex"
+      ],
+      "coverage": [
+        {
+          "spaceType": "office",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "retail",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "industrial",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "flex",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        }
+      ]
+    },
+    {
+      "marketId": "san-jose",
+      "label": "San Jose",
+      "state": "CA",
+      "atlasCounts": {
+        "levelA": 1,
+        "levelB": 4,
+        "levelC": 2
+      },
+      "atlasPropertyTypes": [
+        "office",
+        "retail",
+        "industrial",
+        "flex"
+      ],
+      "coverage": [
+        {
+          "spaceType": "office",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "retail",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "industrial",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "flex",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        }
+      ]
+    },
+    {
+      "marketId": "peninsula",
+      "label": "Peninsula",
+      "state": "CA",
+      "atlasCounts": {
+        "levelA": 4,
+        "levelB": 6,
+        "levelC": 2
+      },
+      "atlasPropertyTypes": [
+        "office",
+        "retail",
+        "flex"
+      ],
+      "coverage": [
+        {
+          "spaceType": "office",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "retail",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "industrial",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "NO_CURRENT_EVIDENCE",
+          "majorGaps": [
+            "No supportable geography set in the current foundation."
+          ]
+        },
+        {
+          "spaceType": "flex",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        }
+      ]
+    },
+    {
+      "marketId": "chicago",
+      "label": "Chicago",
+      "state": "IL",
+      "atlasCounts": {
+        "levelA": 1,
+        "levelB": 4,
+        "levelC": 4
+      },
+      "atlasPropertyTypes": [
+        "office",
+        "retail",
+        "industrial",
+        "flex"
+      ],
+      "coverage": [
+        {
+          "spaceType": "office",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "retail",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "industrial",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "flex",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        }
+      ]
+    },
+    {
+      "marketId": "albuquerque",
+      "label": "Albuquerque",
+      "state": "NM",
+      "atlasCounts": {
+        "levelA": 0,
+        "levelB": 2,
+        "levelC": 4
+      },
+      "atlasPropertyTypes": [
+        "office",
+        "industrial",
+        "flex"
+      ],
+      "coverage": [
+        {
+          "spaceType": "office",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "retail",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "NO_CURRENT_EVIDENCE",
+          "majorGaps": [
+            "No supportable geography set in the current foundation."
+          ]
+        },
+        {
+          "spaceType": "industrial",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "flex",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        }
+      ]
+    },
+    {
+      "marketId": "baton-rouge",
+      "label": "Baton Rouge",
+      "state": "LA",
+      "atlasCounts": {
+        "levelA": 0,
+        "levelB": 2,
+        "levelC": 4
+      },
+      "atlasPropertyTypes": [
+        "office",
+        "retail",
+        "industrial",
+        "flex"
+      ],
+      "coverage": [
+        {
+          "spaceType": "office",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "retail",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "industrial",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "flex",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        }
+      ]
+    },
+    {
+      "marketId": "louisville",
+      "label": "Louisville",
+      "state": "KY",
+      "atlasCounts": {
+        "levelA": 1,
+        "levelB": 3,
+        "levelC": 2
+      },
+      "atlasPropertyTypes": [
+        "office",
+        "retail",
+        "industrial",
+        "flex"
+      ],
+      "coverage": [
+        {
+          "spaceType": "office",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "retail",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "industrial",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "flex",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        }
+      ]
+    },
+    {
+      "marketId": "sarasota",
+      "label": "Sarasota",
+      "state": "FL",
+      "atlasCounts": {
+        "levelA": 0,
+        "levelB": 2,
+        "levelC": 3
+      },
+      "atlasPropertyTypes": [
+        "office",
+        "retail",
+        "industrial",
+        "flex"
+      ],
+      "coverage": [
+        {
+          "spaceType": "office",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "retail",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "industrial",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "flex",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        }
+      ]
+    },
+    {
+      "marketId": "knoxville",
+      "label": "Knoxville",
+      "state": "TN",
+      "atlasCounts": {
+        "levelA": 0,
+        "levelB": 2,
+        "levelC": 3
+      },
+      "atlasPropertyTypes": [
+        "office",
+        "retail",
+        "industrial",
+        "flex"
+      ],
+      "coverage": [
+        {
+          "spaceType": "office",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "retail",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "industrial",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "flex",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        }
+      ]
+    },
+    {
+      "marketId": "tampa",
+      "label": "Tampa",
+      "state": "FL",
+      "atlasCounts": {
+        "levelA": 1,
+        "levelB": 4,
+        "levelC": 2
+      },
+      "atlasPropertyTypes": [
+        "office",
+        "retail",
+        "industrial",
+        "flex"
+      ],
+      "coverage": [
+        {
+          "spaceType": "office",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "retail",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "industrial",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "flex",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        }
+      ]
+    },
+    {
+      "marketId": "houston",
+      "label": "Houston",
+      "state": "TX",
+      "atlasCounts": {
+        "levelA": 1,
+        "levelB": 5,
+        "levelC": 3
+      },
+      "atlasPropertyTypes": [
+        "office",
+        "retail",
+        "industrial",
+        "flex"
+      ],
+      "coverage": [
+        {
+          "spaceType": "office",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "retail",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "industrial",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "flex",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        }
+      ]
+    },
+    {
+      "marketId": "miami",
+      "label": "Miami",
+      "state": "FL",
+      "atlasCounts": {
+        "levelA": 2,
+        "levelB": 4,
+        "levelC": 2
+      },
+      "atlasPropertyTypes": [
+        "office",
+        "retail",
+        "industrial",
+        "flex"
+      ],
+      "coverage": [
+        {
+          "spaceType": "office",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "retail",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "industrial",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "flex",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        }
+      ]
+    },
+    {
+      "marketId": "atlanta",
+      "label": "Atlanta",
+      "state": "GA",
+      "atlasCounts": {
+        "levelA": 1,
+        "levelB": 4,
+        "levelC": 3
+      },
+      "atlasPropertyTypes": [
+        "office",
+        "retail",
+        "industrial",
+        "flex"
+      ],
+      "coverage": [
+        {
+          "spaceType": "office",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "retail",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "industrial",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "flex",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        }
+      ]
+    },
+    {
+      "marketId": "jacksonville",
+      "label": "Jacksonville",
+      "state": "FL",
+      "atlasCounts": {
+        "levelA": 0,
+        "levelB": 4,
+        "levelC": 2
+      },
+      "atlasPropertyTypes": [
+        "office",
+        "retail",
+        "industrial",
+        "flex"
+      ],
+      "coverage": [
+        {
+          "spaceType": "office",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "retail",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "industrial",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "flex",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        }
+      ]
+    },
+    {
+      "marketId": "tallahassee",
+      "label": "Tallahassee",
+      "state": "FL",
+      "atlasCounts": {
+        "levelA": 0,
+        "levelB": 3,
+        "levelC": 2
+      },
+      "atlasPropertyTypes": [
+        "office",
+        "retail",
+        "industrial",
+        "flex"
+      ],
+      "coverage": [
+        {
+          "spaceType": "office",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "retail",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "industrial",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "flex",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        }
+      ]
+    },
+    {
+      "marketId": "oklahoma-city",
+      "label": "Oklahoma City",
+      "state": "OK",
+      "atlasCounts": {
+        "levelA": 1,
+        "levelB": 3,
+        "levelC": 3
+      },
+      "atlasPropertyTypes": [
+        "office",
+        "retail",
+        "industrial",
+        "flex"
+      ],
+      "coverage": [
+        {
+          "spaceType": "office",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "retail",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "industrial",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "flex",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        }
+      ]
+    },
+    {
+      "marketId": "corpus-christi",
+      "label": "Corpus Christi",
+      "state": "TX",
+      "atlasCounts": {
+        "levelA": 0,
+        "levelB": 2,
+        "levelC": 3
+      },
+      "atlasPropertyTypes": [
+        "office",
+        "retail",
+        "industrial",
+        "flex"
+      ],
+      "coverage": [
+        {
+          "spaceType": "office",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "retail",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "industrial",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "flex",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        }
+      ]
+    },
+    {
+      "marketId": "pensacola",
+      "label": "Pensacola",
+      "state": "FL",
+      "atlasCounts": {
+        "levelA": 0,
+        "levelB": 2,
+        "levelC": 3
+      },
+      "atlasPropertyTypes": [
+        "office",
+        "retail",
+        "industrial",
+        "flex"
+      ],
+      "coverage": [
+        {
+          "spaceType": "office",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "retail",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "industrial",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "flex",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        }
+      ]
+    },
+    {
+      "marketId": "san-antonio",
+      "label": "San Antonio",
+      "state": "TX",
+      "atlasCounts": {
+        "levelA": 2,
+        "levelB": 4,
+        "levelC": 2
+      },
+      "atlasPropertyTypes": [
+        "office",
+        "retail",
+        "industrial",
+        "flex"
+      ],
+      "coverage": [
+        {
+          "spaceType": "office",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "retail",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "industrial",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "flex",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        }
+      ]
+    },
+    {
+      "marketId": "buffalo",
+      "label": "Buffalo",
+      "state": "NY",
+      "atlasCounts": {
+        "levelA": 2,
+        "levelB": 4,
+        "levelC": 2
+      },
+      "atlasPropertyTypes": [
+        "office",
+        "retail",
+        "industrial",
+        "flex"
+      ],
+      "coverage": [
+        {
+          "spaceType": "office",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "retail",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "industrial",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "flex",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        }
+      ]
+    },
+    {
+      "marketId": "new-orleans",
+      "label": "New Orleans",
+      "state": "LA",
+      "atlasCounts": {
+        "levelA": 2,
+        "levelB": 3,
+        "levelC": 2
+      },
+      "atlasPropertyTypes": [
+        "office",
+        "retail",
+        "industrial",
+        "flex"
+      ],
+      "coverage": [
+        {
+          "spaceType": "office",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "retail",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "industrial",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "flex",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        }
+      ]
+    },
+    {
+      "marketId": "new-york-brooklyn",
+      "label": "New York / Brooklyn",
+      "state": "NY",
+      "atlasCounts": {
+        "levelA": 3,
+        "levelB": 4,
+        "levelC": 2
+      },
+      "atlasPropertyTypes": [
+        "office",
+        "retail",
+        "industrial",
+        "flex"
+      ],
+      "coverage": [
+        {
+          "spaceType": "office",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "retail",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "industrial",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "flex",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        }
+      ]
+    },
+    {
+      "marketId": "fort-wayne",
+      "label": "Fort Wayne",
+      "state": "IN",
+      "atlasCounts": {
+        "levelA": 1,
+        "levelB": 1,
+        "levelC": 3
+      },
+      "atlasPropertyTypes": [
+        "office",
+        "retail",
+        "industrial",
+        "flex"
+      ],
+      "coverage": [
+        {
+          "spaceType": "office",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "retail",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "industrial",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "flex",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        }
+      ]
+    },
+    {
+      "marketId": "detroit-novi",
+      "label": "Detroit / Novi",
+      "state": "MI",
+      "atlasCounts": {
+        "levelA": 1,
+        "levelB": 3,
+        "levelC": 3
+      },
+      "atlasPropertyTypes": [
+        "office",
+        "industrial",
+        "flex"
+      ],
+      "coverage": [
+        {
+          "spaceType": "office",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "retail",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "NO_CURRENT_EVIDENCE",
+          "majorGaps": [
+            "No supportable geography set in the current foundation."
+          ]
+        },
+        {
+          "spaceType": "industrial",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "flex",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        }
+      ]
+    },
+    {
+      "marketId": "austin",
+      "label": "Austin",
+      "state": "TX",
+      "atlasCounts": {
+        "levelA": 2,
+        "levelB": 4,
+        "levelC": 3
+      },
+      "atlasPropertyTypes": [
+        "office",
+        "retail",
+        "industrial",
+        "flex"
+      ],
+      "coverage": [
+        {
+          "spaceType": "office",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "retail",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "industrial",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "flex",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        }
+      ]
+    },
+    {
+      "marketId": "stockton",
+      "label": "Stockton",
+      "state": "CA",
+      "atlasCounts": {
+        "levelA": 0,
+        "levelB": 3,
+        "levelC": 2
+      },
+      "atlasPropertyTypes": [
+        "office",
+        "retail",
+        "industrial",
+        "flex"
+      ],
+      "coverage": [
+        {
+          "spaceType": "office",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "retail",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "industrial",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "flex",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        }
+      ]
+    },
+    {
+      "marketId": "boise",
+      "label": "Boise",
+      "state": "ID",
+      "atlasCounts": {
+        "levelA": 1,
+        "levelB": 3,
+        "levelC": 2
+      },
+      "atlasPropertyTypes": [
+        "office",
+        "retail",
+        "industrial",
+        "flex"
+      ],
+      "coverage": [
+        {
+          "spaceType": "office",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "retail",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "industrial",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "flex",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        }
+      ]
+    },
+    {
+      "marketId": "colorado-springs",
+      "label": "Colorado Springs",
+      "state": "CO",
+      "atlasCounts": {
+        "levelA": 0,
+        "levelB": 3,
+        "levelC": 3
+      },
+      "atlasPropertyTypes": [
+        "office",
+        "retail",
+        "industrial",
+        "flex"
+      ],
+      "coverage": [
+        {
+          "spaceType": "office",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "retail",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "industrial",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "flex",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        }
+      ]
+    },
+    {
+      "marketId": "las-vegas",
+      "label": "Las Vegas",
+      "state": "NV",
+      "atlasCounts": {
+        "levelA": 1,
+        "levelB": 3,
+        "levelC": 3
+      },
+      "atlasPropertyTypes": [
+        "office",
+        "retail",
+        "industrial",
+        "flex"
+      ],
+      "coverage": [
+        {
+          "spaceType": "office",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "retail",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "industrial",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "flex",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        }
+      ]
+    },
+    {
+      "marketId": "grand-rapids",
+      "label": "Grand Rapids",
+      "state": "MI",
+      "atlasCounts": {
+        "levelA": 0,
+        "levelB": 3,
+        "levelC": 2
+      },
+      "atlasPropertyTypes": [
+        "office",
+        "retail",
+        "industrial",
+        "flex"
+      ],
+      "coverage": [
+        {
+          "spaceType": "office",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "retail",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "industrial",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "flex",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        }
+      ]
+    },
+    {
+      "marketId": "spokane",
+      "label": "Spokane",
+      "state": "WA",
+      "atlasCounts": {
+        "levelA": 0,
+        "levelB": 2,
+        "levelC": 3
+      },
+      "atlasPropertyTypes": [
+        "office",
+        "retail",
+        "industrial",
+        "flex"
+      ],
+      "coverage": [
+        {
+          "spaceType": "office",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "retail",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "industrial",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "flex",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        }
+      ]
+    },
+    {
+      "marketId": "raleigh-durham",
+      "label": "Raleigh / Durham",
+      "state": "NC",
+      "atlasCounts": {
+        "levelA": 2,
+        "levelB": 4,
+        "levelC": 2
+      },
+      "atlasPropertyTypes": [
+        "office",
+        "retail",
+        "flex"
+      ],
+      "coverage": [
+        {
+          "spaceType": "office",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "retail",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "industrial",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "NO_CURRENT_EVIDENCE",
+          "majorGaps": [
+            "No supportable geography set in the current foundation."
+          ]
+        },
+        {
+          "spaceType": "flex",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        }
+      ]
+    },
+    {
+      "marketId": "dallas",
+      "label": "Dallas",
+      "state": "TX",
+      "atlasCounts": {
+        "levelA": 2,
+        "levelB": 4,
+        "levelC": 3
+      },
+      "atlasPropertyTypes": [
+        "office",
+        "retail",
+        "industrial",
+        "flex"
+      ],
+      "coverage": [
+        {
+          "spaceType": "office",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "retail",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "industrial",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "flex",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        }
+      ]
+    },
+    {
+      "marketId": "orlando",
+      "label": "Orlando",
+      "state": "FL",
+      "atlasCounts": {
+        "levelA": 1,
+        "levelB": 3,
+        "levelC": 4
+      },
+      "atlasPropertyTypes": [
+        "office",
+        "retail",
+        "industrial",
+        "flex"
+      ],
+      "coverage": [
+        {
+          "spaceType": "office",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "retail",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "industrial",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "flex",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        }
+      ]
+    },
+    {
+      "marketId": "nashville",
+      "label": "Nashville",
+      "state": "TN",
+      "atlasCounts": {
+        "levelA": 1,
+        "levelB": 3,
+        "levelC": 3
+      },
+      "atlasPropertyTypes": [
+        "office",
+        "retail",
+        "industrial",
+        "flex"
+      ],
+      "coverage": [
+        {
+          "spaceType": "office",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "retail",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "industrial",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "flex",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        }
+      ]
+    },
+    {
+      "marketId": "charlotte",
+      "label": "Charlotte",
+      "state": "NC",
+      "atlasCounts": {
+        "levelA": 1,
+        "levelB": 3,
+        "levelC": 3
+      },
+      "atlasPropertyTypes": [
+        "office",
+        "retail",
+        "industrial",
+        "flex"
+      ],
+      "coverage": [
+        {
+          "spaceType": "office",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "retail",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "industrial",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "flex",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        }
+      ]
+    },
+    {
+      "marketId": "kansas-city-mo-ks",
+      "label": "Kansas City MO / KS",
+      "state": "MO/KS",
+      "atlasCounts": {
+        "levelA": 2,
+        "levelB": 3,
+        "levelC": 3
+      },
+      "atlasPropertyTypes": [
+        "office",
+        "retail",
+        "industrial",
+        "flex"
+      ],
+      "coverage": [
+        {
+          "spaceType": "office",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "retail",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "industrial",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "flex",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        }
+      ]
+    },
+    {
+      "marketId": "manchester-region",
+      "label": "Manchester region",
+      "state": "NH",
+      "atlasCounts": {
+        "levelA": 1,
+        "levelB": 3,
+        "levelC": 3
+      },
+      "atlasPropertyTypes": [
+        "office",
+        "retail",
+        "industrial",
+        "flex"
+      ],
+      "coverage": [
+        {
+          "spaceType": "office",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "retail",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "industrial",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "flex",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        }
+      ]
+    },
+    {
+      "marketId": "bridgeport",
+      "label": "Bridgeport",
+      "state": "CT",
+      "atlasCounts": {
+        "levelA": 1,
+        "levelB": 2,
+        "levelC": 2
+      },
+      "atlasPropertyTypes": [
+        "office",
+        "retail",
+        "industrial",
+        "flex"
+      ],
+      "coverage": [
+        {
+          "spaceType": "office",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "retail",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "industrial",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "flex",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        }
+      ]
+    },
+    {
+      "marketId": "palmetto-bradenton",
+      "label": "Palmetto / Bradenton",
+      "state": "FL",
+      "atlasCounts": {
+        "levelA": 1,
+        "levelB": 3,
+        "levelC": 3
+      },
+      "atlasPropertyTypes": [
+        "office",
+        "retail",
+        "industrial",
+        "flex"
+      ],
+      "coverage": [
+        {
+          "spaceType": "office",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "retail",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "industrial",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "flex",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        }
+      ]
+    },
+    {
+      "marketId": "naperville",
+      "label": "Naperville",
+      "state": "IL",
+      "atlasCounts": {
+        "levelA": 1,
+        "levelB": 2,
+        "levelC": 2
+      },
+      "atlasPropertyTypes": [
+        "office",
+        "retail",
+        "flex"
+      ],
+      "coverage": [
+        {
+          "spaceType": "office",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "retail",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        },
+        {
+          "spaceType": "industrial",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "NO_CURRENT_EVIDENCE",
+          "majorGaps": [
+            "No supportable geography set in the current foundation."
+          ]
+        },
+        {
+          "spaceType": "flex",
+          "knownGeographies": [],
+          "publicReviewedCount": 0,
+          "publicContextualCount": 0,
+          "representativeCoverage": "UNASSESSED",
+          "durablePropertyCoverage": "UNASSESSED",
+          "accessReadiness": "SOURCE_NEEDED",
+          "routeCoverage": "UNASSESSED",
+          "confidence": "ATLAS_RESEARCH_ONLY",
+          "majorGaps": [
+            "Space-type applicability and public evidence require targeted review."
+          ]
+        }
+      ]
+    }
+  ]
+}

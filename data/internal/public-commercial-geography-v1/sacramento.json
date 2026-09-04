@@ -1,0 +1,447 @@
+{
+  "marketId": "sacramento",
+  "label": "Sacramento",
+  "state": "CA",
+  "atlasCounts": {
+    "levelA": 3,
+    "levelB": 5,
+    "levelC": 2
+  },
+  "atlasPropertyTypes": [
+    "office",
+    "retail",
+    "industrial",
+    "flex"
+  ],
+  "geographies": [
+    {
+      "id": "downtown-sacramento",
+      "label": "Downtown Sacramento",
+      "municipality": "Sacramento",
+      "parentCityId": "sacramento",
+      "geographyType": "OFFICE_DISTRICT",
+      "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+      "componentAreas": [],
+      "majorCorridor": null,
+      "relativeOrientation": null,
+      "boundaryType": "DESCRIPTIVE_ONLY",
+      "boundaryConfidence": "REVIEWED_DESCRIPTIVE",
+      "labelPoint": null,
+      "grid": {
+        "group": "commercial-core",
+        "order": 1
+      },
+      "shortDescription": "Downtown Sacramento is a reviewed commercial environment in Sacramento. Its public role is bounded by space type and source evidence.",
+      "commercialCharacter": [],
+      "investigationBoundaries": [
+        "Property availability and exact building capability require current verification."
+      ],
+      "representatives": [],
+      "provenance": [
+        {
+          "id": "rofo-location-knowledge-graph",
+          "type": "AUTHORITATIVE_OR_REVIEWED_REPOSITORY",
+          "title": "Rofo reviewed location knowledge graph and evidence foundations",
+          "url": "_data/locationKnowledgeGraph.js"
+        }
+      ],
+      "spaceTypes": [
+        {
+          "spaceType": "office",
+          "applicability": "PRIMARY",
+          "areaPatterns": [
+            {
+              "label": "Professional services",
+              "scope": "AREA_PATTERN"
+            },
+            {
+              "label": "Government-related office",
+              "scope": "AREA_PATTERN"
+            }
+          ],
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY",
+          "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "route": "/commercial-real-estate/CA/sacramento/downtown-sacramento/"
+        },
+        {
+          "spaceType": "retail",
+          "applicability": "SECONDARY",
+          "areaPatterns": [
+            {
+              "label": "Food/beverage",
+              "scope": "AREA_PATTERN"
+            },
+            {
+              "label": "Service retail",
+              "scope": "AREA_PATTERN"
+            }
+          ],
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY",
+          "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "route": "/commercial-real-estate/CA/sacramento/downtown-sacramento/"
+        }
+      ]
+    },
+    {
+      "id": "midtown-sacramento",
+      "label": "Midtown Sacramento",
+      "municipality": "Sacramento",
+      "parentCityId": "sacramento",
+      "geographyType": "MIXED_COMMERCIAL_DISTRICT",
+      "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+      "componentAreas": [],
+      "majorCorridor": null,
+      "relativeOrientation": null,
+      "boundaryType": "DESCRIPTIVE_ONLY",
+      "boundaryConfidence": "REVIEWED_DESCRIPTIVE",
+      "labelPoint": null,
+      "grid": {
+        "group": "commercial-core",
+        "order": 2
+      },
+      "shortDescription": "Midtown Sacramento is a reviewed commercial environment in Sacramento. Its public role is bounded by space type and source evidence.",
+      "commercialCharacter": [],
+      "investigationBoundaries": [
+        "Property availability and exact building capability require current verification."
+      ],
+      "representatives": [],
+      "provenance": [
+        {
+          "id": "rofo-location-knowledge-graph",
+          "type": "AUTHORITATIVE_OR_REVIEWED_REPOSITORY",
+          "title": "Rofo reviewed location knowledge graph and evidence foundations",
+          "url": "_data/locationKnowledgeGraph.js"
+        }
+      ],
+      "spaceTypes": [
+        {
+          "spaceType": "office",
+          "applicability": "SECONDARY",
+          "areaPatterns": [
+            {
+              "label": "Professional services",
+              "scope": "AREA_PATTERN"
+            },
+            {
+              "label": "Creative",
+              "scope": "AREA_PATTERN"
+            }
+          ],
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY",
+          "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "route": "/commercial-real-estate/CA/sacramento/midtown-sacramento/"
+        },
+        {
+          "spaceType": "retail",
+          "applicability": "PRIMARY",
+          "areaPatterns": [
+            {
+              "label": "Neighborhood retail",
+              "scope": "AREA_PATTERN"
+            },
+            {
+              "label": "Food/beverage",
+              "scope": "AREA_PATTERN"
+            }
+          ],
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY",
+          "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "route": "/commercial-real-estate/CA/sacramento/midtown-sacramento/"
+        }
+      ]
+    },
+    {
+      "id": "power-inn-industrial",
+      "label": "Power Inn Industrial",
+      "municipality": "Sacramento",
+      "parentCityId": "sacramento",
+      "geographyType": "INDUSTRIAL_DISTRICT",
+      "publicEvidenceTier": "PUBLIC_REVIEWED",
+      "componentAreas": [],
+      "majorCorridor": null,
+      "relativeOrientation": null,
+      "boundaryType": "DESCRIPTIVE_ONLY",
+      "boundaryConfidence": "REVIEWED_DESCRIPTIVE",
+      "labelPoint": null,
+      "grid": {
+        "group": "commercial-core",
+        "order": 3
+      },
+      "shortDescription": "Power Inn Industrial is a reviewed commercial environment in Sacramento. Its public role is bounded by space type and source evidence.",
+      "commercialCharacter": [],
+      "investigationBoundaries": [
+        "Property availability and exact building capability require current verification."
+      ],
+      "representatives": [
+        {
+          "id": "8583-elder-creek-rd",
+          "kind": "PROPERTY",
+          "status": "REVIEWED_REPRESENTATIVE",
+          "durablePropertyId": "sac-8583-elder-creek-rd",
+          "availabilityBoundary": "NO_AVAILABILITY_SEMANTICS"
+        },
+        {
+          "id": "5711-florin-perkins-rd",
+          "kind": "PROPERTY",
+          "status": "REVIEWED_REPRESENTATIVE",
+          "durablePropertyId": "sac-5711-florin-perkins-rd",
+          "availabilityBoundary": "NO_AVAILABILITY_SEMANTICS"
+        }
+      ],
+      "provenance": [
+        {
+          "id": "rofo-location-knowledge-graph",
+          "type": "AUTHORITATIVE_OR_REVIEWED_REPOSITORY",
+          "title": "Rofo reviewed location knowledge graph and evidence foundations",
+          "url": "_data/locationKnowledgeGraph.js"
+        }
+      ],
+      "spaceTypes": [
+        {
+          "spaceType": "industrial",
+          "applicability": "PRIMARY",
+          "areaPatterns": [
+            {
+              "label": "Distribution",
+              "scope": "AREA_PATTERN"
+            },
+            {
+              "label": "Manufacturing",
+              "scope": "AREA_PATTERN"
+            },
+            {
+              "label": "Contractor/service",
+              "scope": "AREA_PATTERN"
+            }
+          ],
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY",
+          "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "route": "/commercial-real-estate/CA/sacramento/power-inn-industrial/"
+        },
+        {
+          "spaceType": "flex",
+          "applicability": "SECONDARY",
+          "areaPatterns": [
+            {
+              "label": "Office/warehouse",
+              "scope": "AREA_PATTERN"
+            },
+            {
+              "label": "Production",
+              "scope": "AREA_PATTERN"
+            }
+          ],
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY",
+          "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "route": "/commercial-real-estate/CA/sacramento/power-inn-industrial/"
+        }
+      ]
+    },
+    {
+      "id": "northgate-north-market-industrial",
+      "label": "Northgate / North Market Industrial",
+      "municipality": "Sacramento",
+      "parentCityId": "sacramento",
+      "geographyType": "FLEX_BUSINESS_PARK_ENVIRONMENT",
+      "publicEvidenceTier": "PUBLIC_REVIEWED",
+      "componentAreas": [],
+      "majorCorridor": null,
+      "relativeOrientation": null,
+      "boundaryType": "DESCRIPTIVE_ONLY",
+      "boundaryConfidence": "REVIEWED_DESCRIPTIVE",
+      "labelPoint": null,
+      "grid": {
+        "group": "commercial-core",
+        "order": 4
+      },
+      "shortDescription": "Northgate / North Market Industrial is a reviewed commercial environment in Sacramento. Its public role is bounded by space type and source evidence.",
+      "commercialCharacter": [],
+      "investigationBoundaries": [
+        "Property availability and exact building capability require current verification."
+      ],
+      "representatives": [
+        {
+          "id": "1329-n-market-blvd",
+          "kind": "PROPERTY",
+          "status": "REVIEWED_REPRESENTATIVE",
+          "durablePropertyId": "sac-1329-n-market-blvd",
+          "availabilityBoundary": "NO_AVAILABILITY_SEMANTICS"
+        },
+        {
+          "id": "northgate-north-market-industrial-environment",
+          "kind": "ENVIRONMENT",
+          "status": "REVIEWED_ENVIRONMENT",
+          "availabilityBoundary": "NO_AVAILABILITY_SEMANTICS"
+        }
+      ],
+      "provenance": [
+        {
+          "id": "rofo-location-knowledge-graph",
+          "type": "AUTHORITATIVE_OR_REVIEWED_REPOSITORY",
+          "title": "Rofo reviewed location knowledge graph and evidence foundations",
+          "url": "_data/locationKnowledgeGraph.js"
+        }
+      ],
+      "spaceTypes": [
+        {
+          "spaceType": "industrial",
+          "applicability": "PRIMARY",
+          "areaPatterns": [
+            {
+              "label": "Lighter warehouse",
+              "scope": "AREA_PATTERN"
+            },
+            {
+              "label": "Contractor/service",
+              "scope": "AREA_PATTERN"
+            }
+          ],
+          "routeState": "ROUTE_NEEDED_LATER",
+          "indexation": "BUILD_THEN_INDEX",
+          "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW"
+        },
+        {
+          "spaceType": "flex",
+          "applicability": "PRIMARY",
+          "areaPatterns": [
+            {
+              "label": "Office/warehouse",
+              "scope": "AREA_PATTERN"
+            },
+            {
+              "label": "Multi-tenant Flex",
+              "scope": "AREA_PATTERN"
+            }
+          ],
+          "routeState": "ROUTE_NEEDED_LATER",
+          "indexation": "BUILD_THEN_INDEX",
+          "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW"
+        }
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "spaceType": "office",
+      "knownGeographies": [
+        {
+          "geographyId": "downtown-sacramento",
+          "label": "Downtown Sacramento",
+          "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+          "applicability": "PRIMARY",
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY"
+        },
+        {
+          "geographyId": "midtown-sacramento",
+          "label": "Midtown Sacramento",
+          "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+          "applicability": "SECONDARY",
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY"
+        }
+      ],
+      "publicReviewedCount": 0,
+      "publicContextualCount": 2,
+      "representativeCoverage": "NONE",
+      "durablePropertyCoverage": "NONE",
+      "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+      "routeCoverage": "ROUTE_READY",
+      "confidence": "BOUNDED_PUBLIC_FOUNDATION",
+      "majorGaps": []
+    },
+    {
+      "spaceType": "retail",
+      "knownGeographies": [
+        {
+          "geographyId": "downtown-sacramento",
+          "label": "Downtown Sacramento",
+          "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+          "applicability": "SECONDARY",
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY"
+        },
+        {
+          "geographyId": "midtown-sacramento",
+          "label": "Midtown Sacramento",
+          "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+          "applicability": "PRIMARY",
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY"
+        }
+      ],
+      "publicReviewedCount": 0,
+      "publicContextualCount": 2,
+      "representativeCoverage": "NONE",
+      "durablePropertyCoverage": "NONE",
+      "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+      "routeCoverage": "ROUTE_READY",
+      "confidence": "BOUNDED_PUBLIC_FOUNDATION",
+      "majorGaps": []
+    },
+    {
+      "spaceType": "industrial",
+      "knownGeographies": [
+        {
+          "geographyId": "power-inn-industrial",
+          "label": "Power Inn Industrial",
+          "publicEvidenceTier": "PUBLIC_REVIEWED",
+          "applicability": "PRIMARY",
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY"
+        },
+        {
+          "geographyId": "northgate-north-market-industrial",
+          "label": "Northgate / North Market Industrial",
+          "publicEvidenceTier": "PUBLIC_REVIEWED",
+          "applicability": "PRIMARY",
+          "routeState": "ROUTE_NEEDED_LATER",
+          "indexation": "BUILD_THEN_INDEX"
+        }
+      ],
+      "publicReviewedCount": 2,
+      "publicContextualCount": 0,
+      "representativeCoverage": "PARTIAL_OR_REVIEWED",
+      "durablePropertyCoverage": "PARTIAL",
+      "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+      "routeCoverage": "MIXED",
+      "confidence": "BOUNDED_PUBLIC_FOUNDATION",
+      "majorGaps": []
+    },
+    {
+      "spaceType": "flex",
+      "knownGeographies": [
+        {
+          "geographyId": "power-inn-industrial",
+          "label": "Power Inn Industrial",
+          "publicEvidenceTier": "PUBLIC_REVIEWED",
+          "applicability": "SECONDARY",
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY"
+        },
+        {
+          "geographyId": "northgate-north-market-industrial",
+          "label": "Northgate / North Market Industrial",
+          "publicEvidenceTier": "PUBLIC_REVIEWED",
+          "applicability": "PRIMARY",
+          "routeState": "ROUTE_NEEDED_LATER",
+          "indexation": "BUILD_THEN_INDEX"
+        }
+      ],
+      "publicReviewedCount": 2,
+      "publicContextualCount": 0,
+      "representativeCoverage": "PARTIAL_OR_REVIEWED",
+      "durablePropertyCoverage": "PARTIAL",
+      "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+      "routeCoverage": "MIXED",
+      "confidence": "BOUNDED_PUBLIC_FOUNDATION",
+      "majorGaps": []
+    }
+  ]
+}

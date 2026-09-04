@@ -1,0 +1,63 @@
+{
+  "decision": "San Francisco first, followed by bounded Sacramento, Indianapolis, and Phoenix Industrial/Flex components; Denver remains component-only pending ownership review.",
+  "markets": [
+    {
+      "marketId": "san-francisco",
+      "pages": [
+        "city orientation",
+        "Office/Retail/Industrial/Flex pages",
+        "existing geography routes"
+      ],
+      "modules": [
+        "space-type chooser",
+        "geography set",
+        "representative cards",
+        "Location Intelligence CTA"
+      ],
+      "indexation": "Reuse existing indexable routes; no net-new route required for first release."
+    },
+    {
+      "marketId": "sacramento",
+      "pages": [
+        "Industrial/Flex space-type components",
+        "Power Inn existing route"
+      ],
+      "modules": [
+        "two reviewed environments",
+        "reviewed representatives",
+        "investigation boundary"
+      ],
+      "indexation": "Power Inn component first; build Northgate route only after public-page review."
+    },
+    {
+      "marketId": "indianapolis",
+      "pages": [
+        "Industrial/Flex space-type components",
+        "Airport Logistics existing route"
+      ],
+      "modules": [
+        "two reviewed environments",
+        "reviewed representatives"
+      ],
+      "indexation": "Park 100 remains BUILD_THEN_INDEX."
+    },
+    {
+      "marketId": "phoenix",
+      "pages": [
+        "Industrial/Flex space-type components",
+        "existing geography routes"
+      ],
+      "modules": [
+        "three reviewed environments",
+        "Location Intelligence CTA"
+      ],
+      "indexation": "Reuse existing routes."
+    }
+  ],
+  "deferred": [
+    {
+      "marketId": "denver",
+      "reason": "Useful PUBLIC_CONTEXTUAL components exist, but municipality/alias and representative review should precede standalone expansion."
+    }
+  ]
+}

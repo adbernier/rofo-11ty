@@ -1,0 +1,480 @@
+{
+  "marketId": "phoenix",
+  "label": "Phoenix",
+  "state": "AZ",
+  "atlasCounts": {
+    "levelA": 3,
+    "levelB": 3,
+    "levelC": 1
+  },
+  "atlasPropertyTypes": [
+    "industrial",
+    "flex"
+  ],
+  "geographies": [
+    {
+      "id": "downtown-phoenix",
+      "label": "Downtown Phoenix",
+      "municipality": "Phoenix",
+      "parentCityId": "phoenix",
+      "geographyType": "OFFICE_DISTRICT",
+      "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+      "componentAreas": [],
+      "majorCorridor": null,
+      "relativeOrientation": null,
+      "boundaryType": "DESCRIPTIVE_ONLY",
+      "boundaryConfidence": "REVIEWED_DESCRIPTIVE",
+      "labelPoint": null,
+      "grid": {
+        "group": "commercial-core",
+        "order": 1
+      },
+      "shortDescription": "Downtown Phoenix is a reviewed commercial environment in Phoenix. Its public role is bounded by space type and source evidence.",
+      "commercialCharacter": [],
+      "investigationBoundaries": [
+        "Property availability and exact building capability require current verification."
+      ],
+      "representatives": [],
+      "provenance": [
+        {
+          "id": "rofo-location-knowledge-graph",
+          "type": "AUTHORITATIVE_OR_REVIEWED_REPOSITORY",
+          "title": "Rofo reviewed location knowledge graph and evidence foundations",
+          "url": "_data/locationKnowledgeGraph.js"
+        }
+      ],
+      "spaceTypes": [
+        {
+          "spaceType": "office",
+          "applicability": "PRIMARY",
+          "areaPatterns": [
+            {
+              "label": "Professional services",
+              "scope": "AREA_PATTERN"
+            },
+            {
+              "label": "Corporate office",
+              "scope": "AREA_PATTERN"
+            }
+          ],
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY",
+          "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "route": "/commercial-real-estate/AZ/phoenix/downtown-phoenix/"
+        },
+        {
+          "spaceType": "retail",
+          "applicability": "SECONDARY",
+          "areaPatterns": [
+            {
+              "label": "Food/beverage",
+              "scope": "AREA_PATTERN"
+            },
+            {
+              "label": "Service retail",
+              "scope": "AREA_PATTERN"
+            }
+          ],
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY",
+          "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "route": "/commercial-real-estate/AZ/phoenix/downtown-phoenix/"
+        }
+      ]
+    },
+    {
+      "id": "camelback-corridor",
+      "label": "Camelback Corridor",
+      "municipality": "Phoenix",
+      "parentCityId": "phoenix",
+      "geographyType": "MIXED_COMMERCIAL_DISTRICT",
+      "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+      "componentAreas": [],
+      "majorCorridor": null,
+      "relativeOrientation": null,
+      "boundaryType": "DESCRIPTIVE_ONLY",
+      "boundaryConfidence": "REVIEWED_DESCRIPTIVE",
+      "labelPoint": null,
+      "grid": {
+        "group": "commercial-core",
+        "order": 2
+      },
+      "shortDescription": "Camelback Corridor is a reviewed commercial environment in Phoenix. Its public role is bounded by space type and source evidence.",
+      "commercialCharacter": [],
+      "investigationBoundaries": [
+        "Property availability and exact building capability require current verification."
+      ],
+      "representatives": [],
+      "provenance": [
+        {
+          "id": "rofo-location-knowledge-graph",
+          "type": "AUTHORITATIVE_OR_REVIEWED_REPOSITORY",
+          "title": "Rofo reviewed location knowledge graph and evidence foundations",
+          "url": "_data/locationKnowledgeGraph.js"
+        }
+      ],
+      "spaceTypes": [
+        {
+          "spaceType": "office",
+          "applicability": "PRIMARY",
+          "areaPatterns": [
+            {
+              "label": "Professional office",
+              "scope": "AREA_PATTERN"
+            }
+          ],
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY",
+          "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "route": "/commercial-real-estate/AZ/phoenix/camelback-corridor/"
+        },
+        {
+          "spaceType": "retail",
+          "applicability": "PRIMARY",
+          "areaPatterns": [
+            {
+              "label": "Customer-facing retail",
+              "scope": "AREA_PATTERN"
+            }
+          ],
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY",
+          "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "route": "/commercial-real-estate/AZ/phoenix/camelback-corridor/"
+        }
+      ]
+    },
+    {
+      "id": "southwest-phoenix-industrial",
+      "label": "Southwest Phoenix Industrial",
+      "municipality": "Phoenix",
+      "parentCityId": "phoenix",
+      "geographyType": "INDUSTRIAL_DISTRICT",
+      "publicEvidenceTier": "PUBLIC_REVIEWED",
+      "componentAreas": [],
+      "majorCorridor": null,
+      "relativeOrientation": null,
+      "boundaryType": "DESCRIPTIVE_ONLY",
+      "boundaryConfidence": "REVIEWED_DESCRIPTIVE",
+      "labelPoint": null,
+      "grid": {
+        "group": "commercial-core",
+        "order": 3
+      },
+      "shortDescription": "Southwest Phoenix Industrial is a reviewed commercial environment in Phoenix. Its public role is bounded by space type and source evidence.",
+      "commercialCharacter": [],
+      "investigationBoundaries": [
+        "Property availability and exact building capability require current verification."
+      ],
+      "representatives": [],
+      "provenance": [
+        {
+          "id": "rofo-location-knowledge-graph",
+          "type": "AUTHORITATIVE_OR_REVIEWED_REPOSITORY",
+          "title": "Rofo reviewed location knowledge graph and evidence foundations",
+          "url": "_data/locationKnowledgeGraph.js"
+        }
+      ],
+      "spaceTypes": [
+        {
+          "spaceType": "industrial",
+          "applicability": "PRIMARY",
+          "areaPatterns": [
+            {
+              "label": "Distribution",
+              "scope": "AREA_PATTERN"
+            },
+            {
+              "label": "Warehouse",
+              "scope": "AREA_PATTERN"
+            }
+          ],
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY",
+          "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "route": "/commercial-real-estate/AZ/phoenix/southwest-phoenix-industrial/"
+        },
+        {
+          "spaceType": "flex",
+          "applicability": "SECONDARY",
+          "areaPatterns": [
+            {
+              "label": "Office/warehouse",
+              "scope": "AREA_PATTERN"
+            }
+          ],
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY",
+          "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "route": "/commercial-real-estate/AZ/phoenix/southwest-phoenix-industrial/"
+        }
+      ]
+    },
+    {
+      "id": "airport-south-central-industrial",
+      "label": "Airport / South Central Industrial",
+      "municipality": "Phoenix",
+      "parentCityId": "phoenix",
+      "geographyType": "LOGISTICS_ENVIRONMENT",
+      "publicEvidenceTier": "PUBLIC_REVIEWED",
+      "componentAreas": [],
+      "majorCorridor": null,
+      "relativeOrientation": null,
+      "boundaryType": "DESCRIPTIVE_ONLY",
+      "boundaryConfidence": "REVIEWED_DESCRIPTIVE",
+      "labelPoint": null,
+      "grid": {
+        "group": "commercial-core",
+        "order": 4
+      },
+      "shortDescription": "Airport / South Central Industrial is a reviewed commercial environment in Phoenix. Its public role is bounded by space type and source evidence.",
+      "commercialCharacter": [],
+      "investigationBoundaries": [
+        "Property availability and exact building capability require current verification."
+      ],
+      "representatives": [],
+      "provenance": [
+        {
+          "id": "rofo-location-knowledge-graph",
+          "type": "AUTHORITATIVE_OR_REVIEWED_REPOSITORY",
+          "title": "Rofo reviewed location knowledge graph and evidence foundations",
+          "url": "_data/locationKnowledgeGraph.js"
+        }
+      ],
+      "spaceTypes": [
+        {
+          "spaceType": "industrial",
+          "applicability": "PRIMARY",
+          "areaPatterns": [
+            {
+              "label": "Distribution",
+              "scope": "AREA_PATTERN"
+            },
+            {
+              "label": "Contractor/service",
+              "scope": "AREA_PATTERN"
+            }
+          ],
+          "routeState": "ROUTE_NEEDED_LATER",
+          "indexation": "BUILD_THEN_INDEX",
+          "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW"
+        },
+        {
+          "spaceType": "flex",
+          "applicability": "PRIMARY",
+          "areaPatterns": [
+            {
+              "label": "Office/warehouse",
+              "scope": "AREA_PATTERN"
+            }
+          ],
+          "routeState": "ROUTE_NEEDED_LATER",
+          "indexation": "BUILD_THEN_INDEX",
+          "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW"
+        }
+      ]
+    },
+    {
+      "id": "north-phoenix-advanced-operations",
+      "label": "North Phoenix Advanced Operations",
+      "municipality": "Phoenix",
+      "parentCityId": "phoenix",
+      "geographyType": "R_AND_D_TECHNICAL_CLUSTER",
+      "publicEvidenceTier": "PUBLIC_REVIEWED",
+      "componentAreas": [],
+      "majorCorridor": null,
+      "relativeOrientation": null,
+      "boundaryType": "DESCRIPTIVE_ONLY",
+      "boundaryConfidence": "REVIEWED_DESCRIPTIVE",
+      "labelPoint": null,
+      "grid": {
+        "group": "commercial-core",
+        "order": 5
+      },
+      "shortDescription": "North Phoenix Advanced Operations is a reviewed commercial environment in Phoenix. Its public role is bounded by space type and source evidence.",
+      "commercialCharacter": [],
+      "investigationBoundaries": [
+        "Property availability and exact building capability require current verification."
+      ],
+      "representatives": [],
+      "provenance": [
+        {
+          "id": "rofo-location-knowledge-graph",
+          "type": "AUTHORITATIVE_OR_REVIEWED_REPOSITORY",
+          "title": "Rofo reviewed location knowledge graph and evidence foundations",
+          "url": "_data/locationKnowledgeGraph.js"
+        }
+      ],
+      "spaceTypes": [
+        {
+          "spaceType": "industrial",
+          "applicability": "PRIMARY",
+          "areaPatterns": [
+            {
+              "label": "Advanced operations",
+              "scope": "AREA_PATTERN"
+            },
+            {
+              "label": "Production",
+              "scope": "AREA_PATTERN"
+            }
+          ],
+          "routeState": "ROUTE_NEEDED_LATER",
+          "indexation": "BUILD_THEN_INDEX",
+          "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW"
+        },
+        {
+          "spaceType": "flex",
+          "applicability": "PRIMARY",
+          "areaPatterns": [
+            {
+              "label": "R&D",
+              "scope": "AREA_PATTERN"
+            },
+            {
+              "label": "Technical operations",
+              "scope": "AREA_PATTERN"
+            }
+          ],
+          "routeState": "ROUTE_NEEDED_LATER",
+          "indexation": "BUILD_THEN_INDEX",
+          "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW"
+        }
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "spaceType": "office",
+      "knownGeographies": [
+        {
+          "geographyId": "downtown-phoenix",
+          "label": "Downtown Phoenix",
+          "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+          "applicability": "PRIMARY",
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY"
+        },
+        {
+          "geographyId": "camelback-corridor",
+          "label": "Camelback Corridor",
+          "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+          "applicability": "PRIMARY",
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY"
+        }
+      ],
+      "publicReviewedCount": 0,
+      "publicContextualCount": 2,
+      "representativeCoverage": "NONE",
+      "durablePropertyCoverage": "NONE",
+      "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+      "routeCoverage": "ROUTE_READY",
+      "confidence": "BOUNDED_PUBLIC_FOUNDATION",
+      "majorGaps": []
+    },
+    {
+      "spaceType": "retail",
+      "knownGeographies": [
+        {
+          "geographyId": "downtown-phoenix",
+          "label": "Downtown Phoenix",
+          "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+          "applicability": "SECONDARY",
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY"
+        },
+        {
+          "geographyId": "camelback-corridor",
+          "label": "Camelback Corridor",
+          "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+          "applicability": "PRIMARY",
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY"
+        }
+      ],
+      "publicReviewedCount": 0,
+      "publicContextualCount": 2,
+      "representativeCoverage": "NONE",
+      "durablePropertyCoverage": "NONE",
+      "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+      "routeCoverage": "ROUTE_READY",
+      "confidence": "BOUNDED_PUBLIC_FOUNDATION",
+      "majorGaps": []
+    },
+    {
+      "spaceType": "industrial",
+      "knownGeographies": [
+        {
+          "geographyId": "southwest-phoenix-industrial",
+          "label": "Southwest Phoenix Industrial",
+          "publicEvidenceTier": "PUBLIC_REVIEWED",
+          "applicability": "PRIMARY",
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY"
+        },
+        {
+          "geographyId": "airport-south-central-industrial",
+          "label": "Airport / South Central Industrial",
+          "publicEvidenceTier": "PUBLIC_REVIEWED",
+          "applicability": "PRIMARY",
+          "routeState": "ROUTE_NEEDED_LATER",
+          "indexation": "BUILD_THEN_INDEX"
+        },
+        {
+          "geographyId": "north-phoenix-advanced-operations",
+          "label": "North Phoenix Advanced Operations",
+          "publicEvidenceTier": "PUBLIC_REVIEWED",
+          "applicability": "PRIMARY",
+          "routeState": "ROUTE_NEEDED_LATER",
+          "indexation": "BUILD_THEN_INDEX"
+        }
+      ],
+      "publicReviewedCount": 3,
+      "publicContextualCount": 0,
+      "representativeCoverage": "NONE",
+      "durablePropertyCoverage": "NONE",
+      "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+      "routeCoverage": "MIXED",
+      "confidence": "BOUNDED_PUBLIC_FOUNDATION",
+      "majorGaps": []
+    },
+    {
+      "spaceType": "flex",
+      "knownGeographies": [
+        {
+          "geographyId": "southwest-phoenix-industrial",
+          "label": "Southwest Phoenix Industrial",
+          "publicEvidenceTier": "PUBLIC_REVIEWED",
+          "applicability": "SECONDARY",
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY"
+        },
+        {
+          "geographyId": "airport-south-central-industrial",
+          "label": "Airport / South Central Industrial",
+          "publicEvidenceTier": "PUBLIC_REVIEWED",
+          "applicability": "PRIMARY",
+          "routeState": "ROUTE_NEEDED_LATER",
+          "indexation": "BUILD_THEN_INDEX"
+        },
+        {
+          "geographyId": "north-phoenix-advanced-operations",
+          "label": "North Phoenix Advanced Operations",
+          "publicEvidenceTier": "PUBLIC_REVIEWED",
+          "applicability": "PRIMARY",
+          "routeState": "ROUTE_NEEDED_LATER",
+          "indexation": "BUILD_THEN_INDEX"
+        }
+      ],
+      "publicReviewedCount": 3,
+      "publicContextualCount": 0,
+      "representativeCoverage": "NONE",
+      "durablePropertyCoverage": "NONE",
+      "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+      "routeCoverage": "MIXED",
+      "confidence": "BOUNDED_PUBLIC_FOUNDATION",
+      "majorGaps": []
+    }
+  ]
+}

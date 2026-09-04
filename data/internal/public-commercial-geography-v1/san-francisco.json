@@ -1,0 +1,1295 @@
+{
+  "marketId": "san-francisco",
+  "label": "San Francisco",
+  "state": "CA",
+  "atlasCounts": {
+    "levelA": 16,
+    "levelB": 3,
+    "levelC": 0
+  },
+  "atlasPropertyTypes": [
+    "office",
+    "retail",
+    "industrial",
+    "flex"
+  ],
+  "geographies": [
+    {
+      "id": "financial-district",
+      "label": "Financial District",
+      "municipality": "San Francisco",
+      "parentCityId": "san-francisco",
+      "geographyType": "OFFICE_DISTRICT",
+      "publicEvidenceTier": "PUBLIC_REVIEWED",
+      "componentAreas": [],
+      "majorCorridor": null,
+      "relativeOrientation": null,
+      "boundaryType": "DESCRIPTIVE_ONLY",
+      "boundaryConfidence": "REVIEWED_DESCRIPTIVE",
+      "labelPoint": null,
+      "grid": {
+        "group": "commercial-core",
+        "order": 1
+      },
+      "shortDescription": "Financial District is a reviewed commercial environment in San Francisco. Its public role is bounded by space type and source evidence.",
+      "commercialCharacter": [],
+      "investigationBoundaries": [
+        "Property availability and exact building capability require current verification."
+      ],
+      "representatives": [
+        {
+          "id": "sf-financial-district-environment",
+          "kind": "ENVIRONMENT",
+          "status": "REVIEWED_ENVIRONMENT",
+          "availabilityBoundary": "NO_AVAILABILITY_SEMANTICS"
+        }
+      ],
+      "provenance": [
+        {
+          "id": "rofo-location-knowledge-graph",
+          "type": "AUTHORITATIVE_OR_REVIEWED_REPOSITORY",
+          "title": "Rofo reviewed location knowledge graph and evidence foundations",
+          "url": "_data/locationKnowledgeGraph.js"
+        }
+      ],
+      "spaceTypes": [
+        {
+          "spaceType": "office",
+          "applicability": "PRIMARY",
+          "areaPatterns": [
+            {
+              "label": "Professional services",
+              "scope": "AREA_PATTERN"
+            },
+            {
+              "label": "Corporate office",
+              "scope": "AREA_PATTERN"
+            }
+          ],
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY",
+          "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "route": "/commercial-real-estate/CA/san-francisco/financial-district/"
+        },
+        {
+          "spaceType": "retail",
+          "applicability": "SECONDARY",
+          "areaPatterns": [
+            {
+              "label": "Service retail",
+              "scope": "AREA_PATTERN"
+            }
+          ],
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY",
+          "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "route": "/commercial-real-estate/CA/san-francisco/financial-district/"
+        }
+      ]
+    },
+    {
+      "id": "soma",
+      "label": "SoMa",
+      "municipality": "San Francisco",
+      "parentCityId": "san-francisco",
+      "geographyType": "MIXED_COMMERCIAL_DISTRICT",
+      "publicEvidenceTier": "PUBLIC_REVIEWED",
+      "componentAreas": [],
+      "majorCorridor": null,
+      "relativeOrientation": null,
+      "boundaryType": "DESCRIPTIVE_ONLY",
+      "boundaryConfidence": "REVIEWED_DESCRIPTIVE",
+      "labelPoint": null,
+      "grid": {
+        "group": "commercial-core",
+        "order": 2
+      },
+      "shortDescription": "SoMa is a reviewed commercial environment in San Francisco. Its public role is bounded by space type and source evidence.",
+      "commercialCharacter": [],
+      "investigationBoundaries": [
+        "Property availability and exact building capability require current verification."
+      ],
+      "representatives": [
+        {
+          "id": "680-folsom-st",
+          "kind": "PROPERTY",
+          "status": "REVIEWED_REPRESENTATIVE",
+          "durablePropertyId": "sf-680-folsom-st",
+          "availabilityBoundary": "NO_AVAILABILITY_SEMANTICS"
+        }
+      ],
+      "provenance": [
+        {
+          "id": "rofo-location-knowledge-graph",
+          "type": "AUTHORITATIVE_OR_REVIEWED_REPOSITORY",
+          "title": "Rofo reviewed location knowledge graph and evidence foundations",
+          "url": "_data/locationKnowledgeGraph.js"
+        }
+      ],
+      "spaceTypes": [
+        {
+          "spaceType": "office",
+          "applicability": "PRIMARY",
+          "areaPatterns": [
+            {
+              "label": "Technology",
+              "scope": "AREA_PATTERN"
+            },
+            {
+              "label": "Creative",
+              "scope": "AREA_PATTERN"
+            }
+          ],
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY",
+          "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "route": "/commercial-real-estate/CA/san-francisco/soma/"
+        },
+        {
+          "spaceType": "retail",
+          "applicability": "CONTEXTUAL",
+          "areaPatterns": [
+            {
+              "label": "Customer-facing retail",
+              "scope": "AREA_PATTERN"
+            }
+          ],
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY",
+          "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "route": "/commercial-real-estate/CA/san-francisco/soma/"
+        },
+        {
+          "spaceType": "industrial",
+          "applicability": "SECONDARY",
+          "areaPatterns": [
+            {
+              "label": "Production",
+              "scope": "AREA_PATTERN"
+            }
+          ],
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY",
+          "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "route": "/commercial-real-estate/CA/san-francisco/soma/"
+        },
+        {
+          "spaceType": "flex",
+          "applicability": "PRIMARY",
+          "areaPatterns": [
+            {
+              "label": "Office/warehouse",
+              "scope": "AREA_PATTERN"
+            },
+            {
+              "label": "Technical operations",
+              "scope": "AREA_PATTERN"
+            }
+          ],
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY",
+          "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "route": "/commercial-real-estate/CA/san-francisco/soma/"
+        }
+      ]
+    },
+    {
+      "id": "mission-bay",
+      "label": "Mission Bay",
+      "municipality": "San Francisco",
+      "parentCityId": "san-francisco",
+      "geographyType": "R_AND_D_TECHNICAL_CLUSTER",
+      "publicEvidenceTier": "PUBLIC_REVIEWED",
+      "componentAreas": [],
+      "majorCorridor": null,
+      "relativeOrientation": null,
+      "boundaryType": "DESCRIPTIVE_ONLY",
+      "boundaryConfidence": "REVIEWED_DESCRIPTIVE",
+      "labelPoint": null,
+      "grid": {
+        "group": "commercial-core",
+        "order": 3
+      },
+      "shortDescription": "Mission Bay is a reviewed commercial environment in San Francisco. Its public role is bounded by space type and source evidence.",
+      "commercialCharacter": [],
+      "investigationBoundaries": [
+        "Property availability and exact building capability require current verification."
+      ],
+      "representatives": [],
+      "provenance": [
+        {
+          "id": "rofo-location-knowledge-graph",
+          "type": "AUTHORITATIVE_OR_REVIEWED_REPOSITORY",
+          "title": "Rofo reviewed location knowledge graph and evidence foundations",
+          "url": "_data/locationKnowledgeGraph.js"
+        }
+      ],
+      "spaceTypes": [
+        {
+          "spaceType": "office",
+          "applicability": "PRIMARY",
+          "areaPatterns": [
+            {
+              "label": "Life sciences",
+              "scope": "AREA_PATTERN"
+            },
+            {
+              "label": "Technical/R&D",
+              "scope": "AREA_PATTERN"
+            }
+          ],
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY",
+          "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "route": "/commercial-real-estate/CA/san-francisco/mission-bay/"
+        },
+        {
+          "spaceType": "retail",
+          "applicability": "CONTEXTUAL",
+          "areaPatterns": [
+            {
+              "label": "Neighborhood services",
+              "scope": "AREA_PATTERN"
+            }
+          ],
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY",
+          "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "route": "/commercial-real-estate/CA/san-francisco/mission-bay/"
+        },
+        {
+          "spaceType": "flex",
+          "applicability": "SECONDARY",
+          "areaPatterns": [
+            {
+              "label": "R&D",
+              "scope": "AREA_PATTERN"
+            }
+          ],
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY",
+          "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "route": "/commercial-real-estate/CA/san-francisco/mission-bay/"
+        }
+      ]
+    },
+    {
+      "id": "jackson-square",
+      "label": "Jackson Square",
+      "municipality": "San Francisco",
+      "parentCityId": "san-francisco",
+      "geographyType": "OFFICE_DISTRICT",
+      "publicEvidenceTier": "PUBLIC_REVIEWED",
+      "componentAreas": [],
+      "majorCorridor": null,
+      "relativeOrientation": null,
+      "boundaryType": "DESCRIPTIVE_ONLY",
+      "boundaryConfidence": "REVIEWED_DESCRIPTIVE",
+      "labelPoint": null,
+      "grid": {
+        "group": "commercial-core",
+        "order": 4
+      },
+      "shortDescription": "Jackson Square is a reviewed commercial environment in San Francisco. Its public role is bounded by space type and source evidence.",
+      "commercialCharacter": [],
+      "investigationBoundaries": [
+        "Property availability and exact building capability require current verification."
+      ],
+      "representatives": [],
+      "provenance": [
+        {
+          "id": "rofo-location-knowledge-graph",
+          "type": "AUTHORITATIVE_OR_REVIEWED_REPOSITORY",
+          "title": "Rofo reviewed location knowledge graph and evidence foundations",
+          "url": "_data/locationKnowledgeGraph.js"
+        }
+      ],
+      "spaceTypes": [
+        {
+          "spaceType": "office",
+          "applicability": "PRIMARY",
+          "areaPatterns": [
+            {
+              "label": "Professional services",
+              "scope": "AREA_PATTERN"
+            },
+            {
+              "label": "Creative",
+              "scope": "AREA_PATTERN"
+            }
+          ],
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY",
+          "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "route": "/commercial-real-estate/CA/san-francisco/jackson-square/"
+        },
+        {
+          "spaceType": "retail",
+          "applicability": "SECONDARY",
+          "areaPatterns": [
+            {
+              "label": "Destination retail",
+              "scope": "AREA_PATTERN"
+            }
+          ],
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY",
+          "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "route": "/commercial-real-estate/CA/san-francisco/jackson-square/"
+        }
+      ]
+    },
+    {
+      "id": "union-square",
+      "label": "Union Square",
+      "municipality": "San Francisco",
+      "parentCityId": "san-francisco",
+      "geographyType": "RETAIL_CORRIDOR",
+      "publicEvidenceTier": "PUBLIC_REVIEWED",
+      "componentAreas": [],
+      "majorCorridor": null,
+      "relativeOrientation": null,
+      "boundaryType": "DESCRIPTIVE_ONLY",
+      "boundaryConfidence": "REVIEWED_DESCRIPTIVE",
+      "labelPoint": null,
+      "grid": {
+        "group": "commercial-core",
+        "order": 5
+      },
+      "shortDescription": "Union Square is a reviewed commercial environment in San Francisco. Its public role is bounded by space type and source evidence.",
+      "commercialCharacter": [],
+      "investigationBoundaries": [
+        "Property availability and exact building capability require current verification."
+      ],
+      "representatives": [],
+      "provenance": [
+        {
+          "id": "rofo-location-knowledge-graph",
+          "type": "AUTHORITATIVE_OR_REVIEWED_REPOSITORY",
+          "title": "Rofo reviewed location knowledge graph and evidence foundations",
+          "url": "_data/locationKnowledgeGraph.js"
+        }
+      ],
+      "spaceTypes": [
+        {
+          "spaceType": "office",
+          "applicability": "SECONDARY",
+          "areaPatterns": [
+            {
+              "label": "Professional office",
+              "scope": "AREA_PATTERN"
+            }
+          ],
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY",
+          "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "route": "/commercial-real-estate/CA/san-francisco/union-square/"
+        },
+        {
+          "spaceType": "retail",
+          "applicability": "PRIMARY",
+          "areaPatterns": [
+            {
+              "label": "Destination retail",
+              "scope": "AREA_PATTERN"
+            },
+            {
+              "label": "Food/beverage",
+              "scope": "AREA_PATTERN"
+            }
+          ],
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY",
+          "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "route": "/commercial-real-estate/CA/san-francisco/union-square/"
+        }
+      ]
+    },
+    {
+      "id": "mission-district",
+      "label": "Mission District",
+      "municipality": "San Francisco",
+      "parentCityId": "san-francisco",
+      "geographyType": "MIXED_COMMERCIAL_DISTRICT",
+      "publicEvidenceTier": "PUBLIC_REVIEWED",
+      "componentAreas": [],
+      "majorCorridor": null,
+      "relativeOrientation": null,
+      "boundaryType": "DESCRIPTIVE_ONLY",
+      "boundaryConfidence": "REVIEWED_DESCRIPTIVE",
+      "labelPoint": null,
+      "grid": {
+        "group": "commercial-core",
+        "order": 6
+      },
+      "shortDescription": "Mission District is a reviewed commercial environment in San Francisco. Its public role is bounded by space type and source evidence.",
+      "commercialCharacter": [],
+      "investigationBoundaries": [
+        "Property availability and exact building capability require current verification."
+      ],
+      "representatives": [],
+      "provenance": [
+        {
+          "id": "rofo-location-knowledge-graph",
+          "type": "AUTHORITATIVE_OR_REVIEWED_REPOSITORY",
+          "title": "Rofo reviewed location knowledge graph and evidence foundations",
+          "url": "_data/locationKnowledgeGraph.js"
+        }
+      ],
+      "spaceTypes": [
+        {
+          "spaceType": "office",
+          "applicability": "CONTEXTUAL",
+          "areaPatterns": [
+            {
+              "label": "Creative",
+              "scope": "AREA_PATTERN"
+            }
+          ],
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY",
+          "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "route": "/commercial-real-estate/CA/san-francisco/mission-district/"
+        },
+        {
+          "spaceType": "retail",
+          "applicability": "PRIMARY",
+          "areaPatterns": [
+            {
+              "label": "Neighborhood retail",
+              "scope": "AREA_PATTERN"
+            },
+            {
+              "label": "Food/beverage",
+              "scope": "AREA_PATTERN"
+            },
+            {
+              "label": "Personal services",
+              "scope": "AREA_PATTERN"
+            }
+          ],
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY",
+          "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "route": "/commercial-real-estate/CA/san-francisco/mission-district/"
+        }
+      ]
+    },
+    {
+      "id": "hayes-valley",
+      "label": "Hayes Valley",
+      "municipality": "San Francisco",
+      "parentCityId": "san-francisco",
+      "geographyType": "MAIN_STREET",
+      "publicEvidenceTier": "PUBLIC_REVIEWED",
+      "componentAreas": [],
+      "majorCorridor": null,
+      "relativeOrientation": null,
+      "boundaryType": "DESCRIPTIVE_ONLY",
+      "boundaryConfidence": "REVIEWED_DESCRIPTIVE",
+      "labelPoint": null,
+      "grid": {
+        "group": "commercial-core",
+        "order": 7
+      },
+      "shortDescription": "Hayes Valley is a reviewed commercial environment in San Francisco. Its public role is bounded by space type and source evidence.",
+      "commercialCharacter": [],
+      "investigationBoundaries": [
+        "Property availability and exact building capability require current verification."
+      ],
+      "representatives": [],
+      "provenance": [
+        {
+          "id": "rofo-location-knowledge-graph",
+          "type": "AUTHORITATIVE_OR_REVIEWED_REPOSITORY",
+          "title": "Rofo reviewed location knowledge graph and evidence foundations",
+          "url": "_data/locationKnowledgeGraph.js"
+        }
+      ],
+      "spaceTypes": [
+        {
+          "spaceType": "retail",
+          "applicability": "PRIMARY",
+          "areaPatterns": [
+            {
+              "label": "Neighborhood retail",
+              "scope": "AREA_PATTERN"
+            },
+            {
+              "label": "Food/beverage",
+              "scope": "AREA_PATTERN"
+            }
+          ],
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY",
+          "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "route": "/commercial-real-estate/CA/san-francisco/hayes-valley/"
+        },
+        {
+          "spaceType": "office",
+          "applicability": "CONTEXTUAL",
+          "areaPatterns": [
+            {
+              "label": "Creative office",
+              "scope": "AREA_PATTERN"
+            }
+          ],
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY",
+          "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "route": "/commercial-real-estate/CA/san-francisco/hayes-valley/"
+        }
+      ]
+    },
+    {
+      "id": "chestnut-street",
+      "label": "Chestnut Street",
+      "municipality": "San Francisco",
+      "parentCityId": "san-francisco",
+      "geographyType": "RETAIL_CORRIDOR",
+      "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+      "componentAreas": [],
+      "majorCorridor": null,
+      "relativeOrientation": null,
+      "boundaryType": "DESCRIPTIVE_ONLY",
+      "boundaryConfidence": "REVIEWED_DESCRIPTIVE",
+      "labelPoint": null,
+      "grid": {
+        "group": "commercial-core",
+        "order": 8
+      },
+      "shortDescription": "Chestnut Street is a reviewed commercial environment in San Francisco. Its public role is bounded by space type and source evidence.",
+      "commercialCharacter": [],
+      "investigationBoundaries": [
+        "Property availability and exact building capability require current verification."
+      ],
+      "representatives": [],
+      "provenance": [
+        {
+          "id": "rofo-location-knowledge-graph",
+          "type": "AUTHORITATIVE_OR_REVIEWED_REPOSITORY",
+          "title": "Rofo reviewed location knowledge graph and evidence foundations",
+          "url": "_data/locationKnowledgeGraph.js"
+        }
+      ],
+      "spaceTypes": [
+        {
+          "spaceType": "retail",
+          "applicability": "PRIMARY",
+          "areaPatterns": [
+            {
+              "label": "Neighborhood retail",
+              "scope": "AREA_PATTERN"
+            },
+            {
+              "label": "Personal services",
+              "scope": "AREA_PATTERN"
+            }
+          ],
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY",
+          "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "route": "/commercial-real-estate/CA/san-francisco/chestnut-street/"
+        }
+      ]
+    },
+    {
+      "id": "union-street-cow-hollow",
+      "label": "Union Street / Cow Hollow",
+      "municipality": "San Francisco",
+      "parentCityId": "san-francisco",
+      "geographyType": "RETAIL_CORRIDOR",
+      "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+      "componentAreas": [],
+      "majorCorridor": null,
+      "relativeOrientation": null,
+      "boundaryType": "DESCRIPTIVE_ONLY",
+      "boundaryConfidence": "REVIEWED_DESCRIPTIVE",
+      "labelPoint": null,
+      "grid": {
+        "group": "commercial-core",
+        "order": 9
+      },
+      "shortDescription": "Union Street / Cow Hollow is a reviewed commercial environment in San Francisco. Its public role is bounded by space type and source evidence.",
+      "commercialCharacter": [],
+      "investigationBoundaries": [
+        "Property availability and exact building capability require current verification."
+      ],
+      "representatives": [],
+      "provenance": [
+        {
+          "id": "rofo-location-knowledge-graph",
+          "type": "AUTHORITATIVE_OR_REVIEWED_REPOSITORY",
+          "title": "Rofo reviewed location knowledge graph and evidence foundations",
+          "url": "_data/locationKnowledgeGraph.js"
+        }
+      ],
+      "spaceTypes": [
+        {
+          "spaceType": "retail",
+          "applicability": "PRIMARY",
+          "areaPatterns": [
+            {
+              "label": "Neighborhood retail",
+              "scope": "AREA_PATTERN"
+            },
+            {
+              "label": "Food/beverage",
+              "scope": "AREA_PATTERN"
+            }
+          ],
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY",
+          "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "route": "/commercial-real-estate/CA/san-francisco/union-street-cow-hollow/"
+        }
+      ]
+    },
+    {
+      "id": "valencia-street",
+      "label": "Valencia Street",
+      "municipality": "San Francisco",
+      "parentCityId": "san-francisco",
+      "geographyType": "RETAIL_CORRIDOR",
+      "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+      "componentAreas": [],
+      "majorCorridor": null,
+      "relativeOrientation": null,
+      "boundaryType": "DESCRIPTIVE_ONLY",
+      "boundaryConfidence": "REVIEWED_DESCRIPTIVE",
+      "labelPoint": null,
+      "grid": {
+        "group": "commercial-core",
+        "order": 10
+      },
+      "shortDescription": "Valencia Street is a reviewed commercial environment in San Francisco. Its public role is bounded by space type and source evidence.",
+      "commercialCharacter": [],
+      "investigationBoundaries": [
+        "Property availability and exact building capability require current verification."
+      ],
+      "representatives": [],
+      "provenance": [
+        {
+          "id": "rofo-location-knowledge-graph",
+          "type": "AUTHORITATIVE_OR_REVIEWED_REPOSITORY",
+          "title": "Rofo reviewed location knowledge graph and evidence foundations",
+          "url": "_data/locationKnowledgeGraph.js"
+        }
+      ],
+      "spaceTypes": [
+        {
+          "spaceType": "retail",
+          "applicability": "PRIMARY",
+          "areaPatterns": [
+            {
+              "label": "Food/beverage",
+              "scope": "AREA_PATTERN"
+            },
+            {
+              "label": "Neighborhood retail",
+              "scope": "AREA_PATTERN"
+            }
+          ],
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY",
+          "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "route": "/commercial-real-estate/CA/san-francisco/valencia-street/"
+        }
+      ]
+    },
+    {
+      "id": "bayview-industrial",
+      "label": "Bayview Industrial",
+      "municipality": "San Francisco",
+      "parentCityId": "san-francisco",
+      "geographyType": "INDUSTRIAL_DISTRICT",
+      "publicEvidenceTier": "PUBLIC_REVIEWED",
+      "componentAreas": [],
+      "majorCorridor": null,
+      "relativeOrientation": null,
+      "boundaryType": "DESCRIPTIVE_ONLY",
+      "boundaryConfidence": "REVIEWED_DESCRIPTIVE",
+      "labelPoint": null,
+      "grid": {
+        "group": "commercial-core",
+        "order": 11
+      },
+      "shortDescription": "Bayview Industrial is a reviewed commercial environment in San Francisco. Its public role is bounded by space type and source evidence.",
+      "commercialCharacter": [],
+      "investigationBoundaries": [
+        "Property availability and exact building capability require current verification."
+      ],
+      "representatives": [],
+      "provenance": [
+        {
+          "id": "rofo-location-knowledge-graph",
+          "type": "AUTHORITATIVE_OR_REVIEWED_REPOSITORY",
+          "title": "Rofo reviewed location knowledge graph and evidence foundations",
+          "url": "_data/locationKnowledgeGraph.js"
+        }
+      ],
+      "spaceTypes": [
+        {
+          "spaceType": "industrial",
+          "applicability": "PRIMARY",
+          "areaPatterns": [
+            {
+              "label": "Warehouse",
+              "scope": "AREA_PATTERN"
+            },
+            {
+              "label": "Contractor/service",
+              "scope": "AREA_PATTERN"
+            },
+            {
+              "label": "Production",
+              "scope": "AREA_PATTERN"
+            }
+          ],
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY",
+          "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "route": "/commercial-real-estate/CA/san-francisco/bayview-industrial/"
+        },
+        {
+          "spaceType": "flex",
+          "applicability": "SECONDARY",
+          "areaPatterns": [
+            {
+              "label": "Office/warehouse",
+              "scope": "AREA_PATTERN"
+            }
+          ],
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY",
+          "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "route": "/commercial-real-estate/CA/san-francisco/bayview-industrial/"
+        }
+      ]
+    },
+    {
+      "id": "central-waterfront",
+      "label": "Central Waterfront",
+      "municipality": "San Francisco",
+      "parentCityId": "san-francisco",
+      "geographyType": "INDUSTRIAL_DISTRICT",
+      "publicEvidenceTier": "PUBLIC_REVIEWED",
+      "componentAreas": [],
+      "majorCorridor": null,
+      "relativeOrientation": null,
+      "boundaryType": "DESCRIPTIVE_ONLY",
+      "boundaryConfidence": "REVIEWED_DESCRIPTIVE",
+      "labelPoint": null,
+      "grid": {
+        "group": "commercial-core",
+        "order": 12
+      },
+      "shortDescription": "Central Waterfront is a reviewed commercial environment in San Francisco. Its public role is bounded by space type and source evidence.",
+      "commercialCharacter": [],
+      "investigationBoundaries": [
+        "Property availability and exact building capability require current verification."
+      ],
+      "representatives": [],
+      "provenance": [
+        {
+          "id": "rofo-location-knowledge-graph",
+          "type": "AUTHORITATIVE_OR_REVIEWED_REPOSITORY",
+          "title": "Rofo reviewed location knowledge graph and evidence foundations",
+          "url": "_data/locationKnowledgeGraph.js"
+        }
+      ],
+      "spaceTypes": [
+        {
+          "spaceType": "industrial",
+          "applicability": "PRIMARY",
+          "areaPatterns": [
+            {
+              "label": "Production",
+              "scope": "AREA_PATTERN"
+            },
+            {
+              "label": "Contractor/service",
+              "scope": "AREA_PATTERN"
+            }
+          ],
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY",
+          "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "route": "/commercial-real-estate/CA/san-francisco/central-waterfront/"
+        },
+        {
+          "spaceType": "flex",
+          "applicability": "SECONDARY",
+          "areaPatterns": [
+            {
+              "label": "Technical operations",
+              "scope": "AREA_PATTERN"
+            }
+          ],
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY",
+          "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "route": "/commercial-real-estate/CA/san-francisco/central-waterfront/"
+        }
+      ]
+    },
+    {
+      "id": "dogpatch",
+      "label": "Dogpatch",
+      "municipality": "San Francisco",
+      "parentCityId": "san-francisco",
+      "geographyType": "MIXED_COMMERCIAL_DISTRICT",
+      "publicEvidenceTier": "PUBLIC_REVIEWED",
+      "componentAreas": [],
+      "majorCorridor": null,
+      "relativeOrientation": null,
+      "boundaryType": "DESCRIPTIVE_ONLY",
+      "boundaryConfidence": "REVIEWED_DESCRIPTIVE",
+      "labelPoint": null,
+      "grid": {
+        "group": "commercial-core",
+        "order": 13
+      },
+      "shortDescription": "Dogpatch is a reviewed commercial environment in San Francisco. Its public role is bounded by space type and source evidence.",
+      "commercialCharacter": [],
+      "investigationBoundaries": [
+        "Property availability and exact building capability require current verification."
+      ],
+      "representatives": [],
+      "provenance": [
+        {
+          "id": "rofo-location-knowledge-graph",
+          "type": "AUTHORITATIVE_OR_REVIEWED_REPOSITORY",
+          "title": "Rofo reviewed location knowledge graph and evidence foundations",
+          "url": "_data/locationKnowledgeGraph.js"
+        }
+      ],
+      "spaceTypes": [
+        {
+          "spaceType": "industrial",
+          "applicability": "PRIMARY",
+          "areaPatterns": [
+            {
+              "label": "Production",
+              "scope": "AREA_PATTERN"
+            }
+          ],
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY",
+          "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "route": "/commercial-real-estate/CA/san-francisco/dogpatch/"
+        },
+        {
+          "spaceType": "flex",
+          "applicability": "PRIMARY",
+          "areaPatterns": [
+            {
+              "label": "Office/warehouse",
+              "scope": "AREA_PATTERN"
+            },
+            {
+              "label": "R&D",
+              "scope": "AREA_PATTERN"
+            }
+          ],
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY",
+          "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "route": "/commercial-real-estate/CA/san-francisco/dogpatch/"
+        },
+        {
+          "spaceType": "retail",
+          "applicability": "SECONDARY",
+          "areaPatterns": [
+            {
+              "label": "Neighborhood retail",
+              "scope": "AREA_PATTERN"
+            }
+          ],
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY",
+          "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "route": "/commercial-real-estate/CA/san-francisco/dogpatch/"
+        }
+      ]
+    },
+    {
+      "id": "showplace-square",
+      "label": "Showplace Square",
+      "municipality": "San Francisco",
+      "parentCityId": "san-francisco",
+      "geographyType": "FLEX_BUSINESS_PARK_ENVIRONMENT",
+      "publicEvidenceTier": "PUBLIC_REVIEWED",
+      "componentAreas": [],
+      "majorCorridor": null,
+      "relativeOrientation": null,
+      "boundaryType": "DESCRIPTIVE_ONLY",
+      "boundaryConfidence": "REVIEWED_DESCRIPTIVE",
+      "labelPoint": null,
+      "grid": {
+        "group": "commercial-core",
+        "order": 14
+      },
+      "shortDescription": "Showplace Square is a reviewed commercial environment in San Francisco. Its public role is bounded by space type and source evidence.",
+      "commercialCharacter": [],
+      "investigationBoundaries": [
+        "Property availability and exact building capability require current verification."
+      ],
+      "representatives": [],
+      "provenance": [
+        {
+          "id": "rofo-location-knowledge-graph",
+          "type": "AUTHORITATIVE_OR_REVIEWED_REPOSITORY",
+          "title": "Rofo reviewed location knowledge graph and evidence foundations",
+          "url": "_data/locationKnowledgeGraph.js"
+        }
+      ],
+      "spaceTypes": [
+        {
+          "spaceType": "industrial",
+          "applicability": "SECONDARY",
+          "areaPatterns": [
+            {
+              "label": "Production",
+              "scope": "AREA_PATTERN"
+            }
+          ],
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY",
+          "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "route": "/commercial-real-estate/CA/san-francisco/showplace-square/"
+        },
+        {
+          "spaceType": "flex",
+          "applicability": "PRIMARY",
+          "areaPatterns": [
+            {
+              "label": "Creative",
+              "scope": "AREA_PATTERN"
+            },
+            {
+              "label": "Showroom",
+              "scope": "AREA_PATTERN"
+            },
+            {
+              "label": "Office/warehouse",
+              "scope": "AREA_PATTERN"
+            }
+          ],
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY",
+          "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "route": "/commercial-real-estate/CA/san-francisco/showplace-square/"
+        },
+        {
+          "spaceType": "retail",
+          "applicability": "SECONDARY",
+          "areaPatterns": [
+            {
+              "label": "Showroom",
+              "scope": "AREA_PATTERN"
+            }
+          ],
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY",
+          "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "route": "/commercial-real-estate/CA/san-francisco/showplace-square/"
+        }
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "spaceType": "office",
+      "knownGeographies": [
+        {
+          "geographyId": "financial-district",
+          "label": "Financial District",
+          "publicEvidenceTier": "PUBLIC_REVIEWED",
+          "applicability": "PRIMARY",
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY"
+        },
+        {
+          "geographyId": "soma",
+          "label": "SoMa",
+          "publicEvidenceTier": "PUBLIC_REVIEWED",
+          "applicability": "PRIMARY",
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY"
+        },
+        {
+          "geographyId": "mission-bay",
+          "label": "Mission Bay",
+          "publicEvidenceTier": "PUBLIC_REVIEWED",
+          "applicability": "PRIMARY",
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY"
+        },
+        {
+          "geographyId": "jackson-square",
+          "label": "Jackson Square",
+          "publicEvidenceTier": "PUBLIC_REVIEWED",
+          "applicability": "PRIMARY",
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY"
+        },
+        {
+          "geographyId": "union-square",
+          "label": "Union Square",
+          "publicEvidenceTier": "PUBLIC_REVIEWED",
+          "applicability": "SECONDARY",
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY"
+        },
+        {
+          "geographyId": "mission-district",
+          "label": "Mission District",
+          "publicEvidenceTier": "PUBLIC_REVIEWED",
+          "applicability": "CONTEXTUAL",
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY"
+        },
+        {
+          "geographyId": "hayes-valley",
+          "label": "Hayes Valley",
+          "publicEvidenceTier": "PUBLIC_REVIEWED",
+          "applicability": "CONTEXTUAL",
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY"
+        }
+      ],
+      "publicReviewedCount": 7,
+      "publicContextualCount": 0,
+      "representativeCoverage": "PARTIAL_OR_REVIEWED",
+      "durablePropertyCoverage": "PARTIAL",
+      "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+      "routeCoverage": "ROUTE_READY",
+      "confidence": "BOUNDED_PUBLIC_FOUNDATION",
+      "majorGaps": []
+    },
+    {
+      "spaceType": "retail",
+      "knownGeographies": [
+        {
+          "geographyId": "financial-district",
+          "label": "Financial District",
+          "publicEvidenceTier": "PUBLIC_REVIEWED",
+          "applicability": "SECONDARY",
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY"
+        },
+        {
+          "geographyId": "soma",
+          "label": "SoMa",
+          "publicEvidenceTier": "PUBLIC_REVIEWED",
+          "applicability": "CONTEXTUAL",
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY"
+        },
+        {
+          "geographyId": "mission-bay",
+          "label": "Mission Bay",
+          "publicEvidenceTier": "PUBLIC_REVIEWED",
+          "applicability": "CONTEXTUAL",
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY"
+        },
+        {
+          "geographyId": "jackson-square",
+          "label": "Jackson Square",
+          "publicEvidenceTier": "PUBLIC_REVIEWED",
+          "applicability": "SECONDARY",
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY"
+        },
+        {
+          "geographyId": "union-square",
+          "label": "Union Square",
+          "publicEvidenceTier": "PUBLIC_REVIEWED",
+          "applicability": "PRIMARY",
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY"
+        },
+        {
+          "geographyId": "mission-district",
+          "label": "Mission District",
+          "publicEvidenceTier": "PUBLIC_REVIEWED",
+          "applicability": "PRIMARY",
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY"
+        },
+        {
+          "geographyId": "hayes-valley",
+          "label": "Hayes Valley",
+          "publicEvidenceTier": "PUBLIC_REVIEWED",
+          "applicability": "PRIMARY",
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY"
+        },
+        {
+          "geographyId": "chestnut-street",
+          "label": "Chestnut Street",
+          "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+          "applicability": "PRIMARY",
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY"
+        },
+        {
+          "geographyId": "union-street-cow-hollow",
+          "label": "Union Street / Cow Hollow",
+          "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+          "applicability": "PRIMARY",
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY"
+        },
+        {
+          "geographyId": "valencia-street",
+          "label": "Valencia Street",
+          "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+          "applicability": "PRIMARY",
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY"
+        },
+        {
+          "geographyId": "dogpatch",
+          "label": "Dogpatch",
+          "publicEvidenceTier": "PUBLIC_REVIEWED",
+          "applicability": "SECONDARY",
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY"
+        },
+        {
+          "geographyId": "showplace-square",
+          "label": "Showplace Square",
+          "publicEvidenceTier": "PUBLIC_REVIEWED",
+          "applicability": "SECONDARY",
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY"
+        }
+      ],
+      "publicReviewedCount": 9,
+      "publicContextualCount": 3,
+      "representativeCoverage": "PARTIAL_OR_REVIEWED",
+      "durablePropertyCoverage": "PARTIAL",
+      "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+      "routeCoverage": "ROUTE_READY",
+      "confidence": "BOUNDED_PUBLIC_FOUNDATION",
+      "majorGaps": []
+    },
+    {
+      "spaceType": "industrial",
+      "knownGeographies": [
+        {
+          "geographyId": "soma",
+          "label": "SoMa",
+          "publicEvidenceTier": "PUBLIC_REVIEWED",
+          "applicability": "SECONDARY",
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY"
+        },
+        {
+          "geographyId": "bayview-industrial",
+          "label": "Bayview Industrial",
+          "publicEvidenceTier": "PUBLIC_REVIEWED",
+          "applicability": "PRIMARY",
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY"
+        },
+        {
+          "geographyId": "central-waterfront",
+          "label": "Central Waterfront",
+          "publicEvidenceTier": "PUBLIC_REVIEWED",
+          "applicability": "PRIMARY",
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY"
+        },
+        {
+          "geographyId": "dogpatch",
+          "label": "Dogpatch",
+          "publicEvidenceTier": "PUBLIC_REVIEWED",
+          "applicability": "PRIMARY",
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY"
+        },
+        {
+          "geographyId": "showplace-square",
+          "label": "Showplace Square",
+          "publicEvidenceTier": "PUBLIC_REVIEWED",
+          "applicability": "SECONDARY",
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY"
+        }
+      ],
+      "publicReviewedCount": 5,
+      "publicContextualCount": 0,
+      "representativeCoverage": "PARTIAL_OR_REVIEWED",
+      "durablePropertyCoverage": "PARTIAL",
+      "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+      "routeCoverage": "ROUTE_READY",
+      "confidence": "BOUNDED_PUBLIC_FOUNDATION",
+      "majorGaps": []
+    },
+    {
+      "spaceType": "flex",
+      "knownGeographies": [
+        {
+          "geographyId": "soma",
+          "label": "SoMa",
+          "publicEvidenceTier": "PUBLIC_REVIEWED",
+          "applicability": "PRIMARY",
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY"
+        },
+        {
+          "geographyId": "mission-bay",
+          "label": "Mission Bay",
+          "publicEvidenceTier": "PUBLIC_REVIEWED",
+          "applicability": "SECONDARY",
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY"
+        },
+        {
+          "geographyId": "bayview-industrial",
+          "label": "Bayview Industrial",
+          "publicEvidenceTier": "PUBLIC_REVIEWED",
+          "applicability": "SECONDARY",
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY"
+        },
+        {
+          "geographyId": "central-waterfront",
+          "label": "Central Waterfront",
+          "publicEvidenceTier": "PUBLIC_REVIEWED",
+          "applicability": "SECONDARY",
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY"
+        },
+        {
+          "geographyId": "dogpatch",
+          "label": "Dogpatch",
+          "publicEvidenceTier": "PUBLIC_REVIEWED",
+          "applicability": "PRIMARY",
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY"
+        },
+        {
+          "geographyId": "showplace-square",
+          "label": "Showplace Square",
+          "publicEvidenceTier": "PUBLIC_REVIEWED",
+          "applicability": "PRIMARY",
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY"
+        }
+      ],
+      "publicReviewedCount": 6,
+      "publicContextualCount": 0,
+      "representativeCoverage": "PARTIAL_OR_REVIEWED",
+      "durablePropertyCoverage": "PARTIAL",
+      "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+      "routeCoverage": "ROUTE_READY",
+      "confidence": "BOUNDED_PUBLIC_FOUNDATION",
+      "majorGaps": []
+    }
+  ]
+}

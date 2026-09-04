@@ -1,0 +1,177 @@
+{
+  "schemaVersion": "public-commercial-geography:v1",
+  "generatedOn": "2026-09-04",
+  "scope": "INTERNAL_FOUNDATION_NO_PUBLIC_BEHAVIOR",
+  "hierarchy": [
+    "CITY",
+    "SPACE_TYPE",
+    "COMMERCIAL_GEOGRAPHY",
+    "REPRESENTATIVE_PROPERTY_OR_ENVIRONMENT",
+    "LOCATION_INTELLIGENCE"
+  ],
+  "primaryCityDecision": "SPACE_TYPE",
+  "marketsAudited": 50,
+  "spaceTypeCells": 200,
+  "detailedMarkets": [
+    "san-francisco",
+    "phoenix",
+    "indianapolis",
+    "sacramento",
+    "denver"
+  ],
+  "geographyRecords": 31,
+  "evidenceTiers": [
+    "PUBLIC_REVIEWED",
+    "PUBLIC_CONTEXTUAL",
+    "INTERNAL_RESEARCH",
+    "DO_NOT_PUBLISH"
+  ],
+  "applicability": [
+    "PRIMARY",
+    "SECONDARY",
+    "CONTEXTUAL",
+    "NOT_APPLICABLE"
+  ],
+  "routeStates": [
+    "ROUTE_READY",
+    "ROUTE_EXISTS_NEEDS_CONTENT",
+    "ROUTE_NEEDED_LATER",
+    "DO_NOT_CREATE"
+  ],
+  "indexationStates": [
+    "INDEX_READY",
+    "COMPONENT_READY",
+    "BUILD_THEN_INDEX",
+    "INTERNAL_ONLY",
+    "DO_NOT_CREATE"
+  ],
+  "accessReadiness": [
+    "OBJECTIVE_ACCESS_READY",
+    "SOURCE_AVAILABLE_NEEDS_REVIEW",
+    "SOURCE_NEEDED",
+    "NOT_MATERIAL"
+  ],
+  "navigation": {
+    "desktop": "Persistent breadcrumb City › Space Type › Geography › Property; city routes to four space-type choices; geography and property levels expose sibling selectors without changing hierarchy.",
+    "mobile": "Compact stacked selectors: City, Space Type, then Geography. Property is the terminal label; back navigation returns one level without a mega-menu."
+  },
+  "pageRoles": {
+    "city": "Orientation and routing: What kind of space are you looking for?",
+    "spaceType": "Primary exploration surface for relevant commercial environments, their differences, representatives, known objective access, and investigation boundaries.",
+    "geography": "Evidence-gated identity, orientation, character, area patterns, access observations, representatives, related geographies, and Location Intelligence CTA.",
+    "property": "Availability-independent identity and geography context with area patterns clearly separated from property-verified facts."
+  },
+  "contentContract": {
+    "shortDescriptionWords": "40_TO_80",
+    "commercialCharacterItems": "2_TO_4",
+    "areaPatternItems": "2_TO_5",
+    "orientationFacts": "1_TO_2",
+    "access": "OBJECTIVE_ONLY",
+    "missingModules": "OMIT",
+    "longGeneratedEssays": "PROHIBITED"
+  },
+  "gridContract": {
+    "isMap": false,
+    "fields": [
+      "group",
+      "order",
+      "optional_span"
+    ],
+    "prohibitions": [
+      "geographic_scale_implication",
+      "boundary_implication",
+      "distance_implication"
+    ]
+  },
+  "areaPatternBoundary": {
+    "area": "AREA_PATTERN",
+    "property": "PROPERTY_VERIFIED_USE",
+    "uiRequirement": "Always label the evidence scope; never project an area pattern onto a property."
+  },
+  "availabilityFirewall": "Historical availability, rent, suites, brokers, tenants, loading, power, clear height, parking and permitted use are never public geography or durable-property facts.",
+  "routePolicy": "Reuse canonical routes; one route per entity; candidate-only geography cannot generate a route.",
+  "linkGraph": {
+    "city": [
+      "space_type"
+    ],
+    "spaceType": [
+      "geography"
+    ],
+    "geography": [
+      "parent_city_and_type",
+      "representative_property_or_environment",
+      "two_to_four_related_geographies",
+      "location_intelligence"
+    ],
+    "property": [
+      "geography",
+      "city_and_type",
+      "location_intelligence"
+    ]
+  },
+  "firstPublicCohort": {
+    "decision": "San Francisco first, followed by bounded Sacramento, Indianapolis, and Phoenix Industrial/Flex components; Denver remains component-only pending ownership review.",
+    "markets": [
+      {
+        "marketId": "san-francisco",
+        "pages": [
+          "city orientation",
+          "Office/Retail/Industrial/Flex pages",
+          "existing geography routes"
+        ],
+        "modules": [
+          "space-type chooser",
+          "geography set",
+          "representative cards",
+          "Location Intelligence CTA"
+        ],
+        "indexation": "Reuse existing indexable routes; no net-new route required for first release."
+      },
+      {
+        "marketId": "sacramento",
+        "pages": [
+          "Industrial/Flex space-type components",
+          "Power Inn existing route"
+        ],
+        "modules": [
+          "two reviewed environments",
+          "reviewed representatives",
+          "investigation boundary"
+        ],
+        "indexation": "Power Inn component first; build Northgate route only after public-page review."
+      },
+      {
+        "marketId": "indianapolis",
+        "pages": [
+          "Industrial/Flex space-type components",
+          "Airport Logistics existing route"
+        ],
+        "modules": [
+          "two reviewed environments",
+          "reviewed representatives"
+        ],
+        "indexation": "Park 100 remains BUILD_THEN_INDEX."
+      },
+      {
+        "marketId": "phoenix",
+        "pages": [
+          "Industrial/Flex space-type components",
+          "existing geography routes"
+        ],
+        "modules": [
+          "three reviewed environments",
+          "Location Intelligence CTA"
+        ],
+        "indexation": "Reuse existing routes."
+      }
+    ],
+    "deferred": [
+      {
+        "marketId": "denver",
+        "reason": "Useful PUBLIC_CONTEXTUAL components exist, but municipality/alias and representative review should precede standalone expansion."
+      }
+    ]
+  },
+  "decision": "A. FOUNDATION READY — IMPLEMENT PUBLIC EXPERIENCE",
+  "nextSprint": "Implement the San Francisco City → Space Type → Geography public exploration slice using existing routes, followed by bounded Industrial/Flex components in Sacramento, Indianapolis, and Phoenix; keep Denver component-only pending review."
+}

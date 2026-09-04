@@ -1,0 +1,266 @@
+{
+  "marketId": "indianapolis",
+  "label": "Indianapolis",
+  "state": "IN",
+  "atlasCounts": {
+    "levelA": 2,
+    "levelB": 3,
+    "levelC": 0
+  },
+  "atlasPropertyTypes": [
+    "industrial",
+    "flex"
+  ],
+  "geographies": [
+    {
+      "id": "indianapolis-airport-logistics",
+      "label": "Indianapolis Airport Logistics",
+      "municipality": "Indianapolis",
+      "parentCityId": "indianapolis",
+      "geographyType": "LOGISTICS_ENVIRONMENT",
+      "publicEvidenceTier": "PUBLIC_REVIEWED",
+      "componentAreas": [],
+      "majorCorridor": null,
+      "relativeOrientation": null,
+      "boundaryType": "DESCRIPTIVE_ONLY",
+      "boundaryConfidence": "REVIEWED_DESCRIPTIVE",
+      "labelPoint": null,
+      "grid": {
+        "group": "commercial-core",
+        "order": 1
+      },
+      "shortDescription": "Indianapolis Airport Logistics is a reviewed commercial environment in Indianapolis. Its public role is bounded by space type and source evidence.",
+      "commercialCharacter": [],
+      "investigationBoundaries": [
+        "Property availability and exact building capability require current verification."
+      ],
+      "representatives": [
+        {
+          "id": "4557-w-bradbury-ave",
+          "kind": "PROPERTY",
+          "status": "REVIEWED_REPRESENTATIVE",
+          "durablePropertyId": "ind-4557-w-bradbury-ave",
+          "availabilityBoundary": "NO_AVAILABILITY_SEMANTICS"
+        },
+        {
+          "id": "park-fletcher-stout-field-industrial-environment",
+          "kind": "ENVIRONMENT",
+          "status": "REVIEWED_ENVIRONMENT",
+          "availabilityBoundary": "NO_AVAILABILITY_SEMANTICS"
+        }
+      ],
+      "provenance": [
+        {
+          "id": "rofo-location-knowledge-graph",
+          "type": "AUTHORITATIVE_OR_REVIEWED_REPOSITORY",
+          "title": "Rofo reviewed location knowledge graph and evidence foundations",
+          "url": "_data/locationKnowledgeGraph.js"
+        }
+      ],
+      "spaceTypes": [
+        {
+          "spaceType": "industrial",
+          "applicability": "PRIMARY",
+          "areaPatterns": [
+            {
+              "label": "Distribution",
+              "scope": "AREA_PATTERN"
+            },
+            {
+              "label": "Warehouse",
+              "scope": "AREA_PATTERN"
+            }
+          ],
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY",
+          "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "route": "/commercial-real-estate/IN/indianapolis/indianapolis-airport-logistics/"
+        },
+        {
+          "spaceType": "flex",
+          "applicability": "SECONDARY",
+          "areaPatterns": [
+            {
+              "label": "Office/warehouse",
+              "scope": "AREA_PATTERN"
+            }
+          ],
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY",
+          "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "route": "/commercial-real-estate/IN/indianapolis/indianapolis-airport-logistics/"
+        }
+      ]
+    },
+    {
+      "id": "park-100-northwest-indianapolis",
+      "label": "Park 100 / Northwest Indianapolis",
+      "municipality": "Indianapolis",
+      "parentCityId": "indianapolis",
+      "geographyType": "FLEX_BUSINESS_PARK_ENVIRONMENT",
+      "publicEvidenceTier": "PUBLIC_REVIEWED",
+      "componentAreas": [],
+      "majorCorridor": null,
+      "relativeOrientation": null,
+      "boundaryType": "DESCRIPTIVE_ONLY",
+      "boundaryConfidence": "REVIEWED_DESCRIPTIVE",
+      "labelPoint": null,
+      "grid": {
+        "group": "commercial-core",
+        "order": 2
+      },
+      "shortDescription": "Park 100 / Northwest Indianapolis is a reviewed commercial environment in Indianapolis. Its public role is bounded by space type and source evidence.",
+      "commercialCharacter": [],
+      "investigationBoundaries": [
+        "Property availability and exact building capability require current verification."
+      ],
+      "representatives": [
+        {
+          "id": "7601-winton-dr",
+          "kind": "PROPERTY",
+          "status": "REVIEWED_REPRESENTATIVE",
+          "durablePropertyId": "ind-7601-winton-dr",
+          "availabilityBoundary": "NO_AVAILABILITY_SEMANTICS"
+        },
+        {
+          "id": "park-100-multitenant-industrial-flex-environment",
+          "kind": "ENVIRONMENT",
+          "status": "REVIEWED_ENVIRONMENT",
+          "availabilityBoundary": "NO_AVAILABILITY_SEMANTICS"
+        }
+      ],
+      "provenance": [
+        {
+          "id": "rofo-location-knowledge-graph",
+          "type": "AUTHORITATIVE_OR_REVIEWED_REPOSITORY",
+          "title": "Rofo reviewed location knowledge graph and evidence foundations",
+          "url": "_data/locationKnowledgeGraph.js"
+        }
+      ],
+      "spaceTypes": [
+        {
+          "spaceType": "industrial",
+          "applicability": "PRIMARY",
+          "areaPatterns": [
+            {
+              "label": "Warehouse",
+              "scope": "AREA_PATTERN"
+            },
+            {
+              "label": "Contractor/service",
+              "scope": "AREA_PATTERN"
+            }
+          ],
+          "routeState": "ROUTE_NEEDED_LATER",
+          "indexation": "BUILD_THEN_INDEX",
+          "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW"
+        },
+        {
+          "spaceType": "flex",
+          "applicability": "PRIMARY",
+          "areaPatterns": [
+            {
+              "label": "Office/warehouse",
+              "scope": "AREA_PATTERN"
+            },
+            {
+              "label": "Multi-tenant Flex",
+              "scope": "AREA_PATTERN"
+            }
+          ],
+          "routeState": "ROUTE_NEEDED_LATER",
+          "indexation": "BUILD_THEN_INDEX",
+          "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW"
+        }
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "spaceType": "office",
+      "knownGeographies": [],
+      "publicReviewedCount": 0,
+      "publicContextualCount": 0,
+      "representativeCoverage": "UNASSESSED",
+      "durablePropertyCoverage": "UNASSESSED",
+      "accessReadiness": "SOURCE_NEEDED",
+      "routeCoverage": "UNASSESSED",
+      "confidence": "NO_CURRENT_EVIDENCE",
+      "majorGaps": [
+        "No supportable geography set in the current foundation."
+      ]
+    },
+    {
+      "spaceType": "retail",
+      "knownGeographies": [],
+      "publicReviewedCount": 0,
+      "publicContextualCount": 0,
+      "representativeCoverage": "UNASSESSED",
+      "durablePropertyCoverage": "UNASSESSED",
+      "accessReadiness": "SOURCE_NEEDED",
+      "routeCoverage": "UNASSESSED",
+      "confidence": "NO_CURRENT_EVIDENCE",
+      "majorGaps": [
+        "No supportable geography set in the current foundation."
+      ]
+    },
+    {
+      "spaceType": "industrial",
+      "knownGeographies": [
+        {
+          "geographyId": "indianapolis-airport-logistics",
+          "label": "Indianapolis Airport Logistics",
+          "publicEvidenceTier": "PUBLIC_REVIEWED",
+          "applicability": "PRIMARY",
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY"
+        },
+        {
+          "geographyId": "park-100-northwest-indianapolis",
+          "label": "Park 100 / Northwest Indianapolis",
+          "publicEvidenceTier": "PUBLIC_REVIEWED",
+          "applicability": "PRIMARY",
+          "routeState": "ROUTE_NEEDED_LATER",
+          "indexation": "BUILD_THEN_INDEX"
+        }
+      ],
+      "publicReviewedCount": 2,
+      "publicContextualCount": 0,
+      "representativeCoverage": "PARTIAL_OR_REVIEWED",
+      "durablePropertyCoverage": "PARTIAL",
+      "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+      "routeCoverage": "MIXED",
+      "confidence": "BOUNDED_PUBLIC_FOUNDATION",
+      "majorGaps": []
+    },
+    {
+      "spaceType": "flex",
+      "knownGeographies": [
+        {
+          "geographyId": "indianapolis-airport-logistics",
+          "label": "Indianapolis Airport Logistics",
+          "publicEvidenceTier": "PUBLIC_REVIEWED",
+          "applicability": "SECONDARY",
+          "routeState": "ROUTE_READY",
+          "indexation": "COMPONENT_READY"
+        },
+        {
+          "geographyId": "park-100-northwest-indianapolis",
+          "label": "Park 100 / Northwest Indianapolis",
+          "publicEvidenceTier": "PUBLIC_REVIEWED",
+          "applicability": "PRIMARY",
+          "routeState": "ROUTE_NEEDED_LATER",
+          "indexation": "BUILD_THEN_INDEX"
+        }
+      ],
+      "publicReviewedCount": 2,
+      "publicContextualCount": 0,
+      "representativeCoverage": "PARTIAL_OR_REVIEWED",
+      "durablePropertyCoverage": "PARTIAL",
+      "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+      "routeCoverage": "MIXED",
+      "confidence": "BOUNDED_PUBLIC_FOUNDATION",
+      "majorGaps": []
+    }
+  ]
+}
