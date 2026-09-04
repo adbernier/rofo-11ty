@@ -1,3 +1,9 @@
+import legacyBuildingPropertyRedirects from "../_data/legacyBuildingPropertyRedirects.js";
+
+const DIRECT_PROPERTY_REDIRECTS = new Map(
+  legacyBuildingPropertyRedirects.map(({ from, to }) => [from, to])
+);
+
 const STATE_ABBREVIATIONS = new Set([
     "AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA",
     "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD",
@@ -163,6 +169,13 @@ const STATE_ABBREVIATIONS = new Set([
       // Legacy company detail page like /commercial-real-estate/company/test/123
       if (path.match(/^\/commercial-real-estate\/company\/[^\/]+\/[^\/]+\/?$/)) {
         return new Response("Gone", { status: 410 });
+      }
+
+      // Reviewed durable-property overrides must precede the generic building fallback.
+      const directPropertyPath = DIRECT_PROPERTY_REDIRECTS.get(path);
+
+      if (directPropertyPath) {
+        return redirectTo(url, directPropertyPath);
       }
 
       // Fix building .html redirect (single hop) like /commercial-real-estate/building/AL/Atmore/1-Jack-Springs-Rd-302810.html

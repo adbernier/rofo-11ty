@@ -1,0 +1,44 @@
+rofo-redirects Worker
+=====================
+
+This directory is the source-control owner for the production rofo-redirects
+Cloudflare Worker. The Worker executes before Cloudflare Pages on the currently
+configured routes:
+
+- rofo.com/*
+- www.rofo.com/*
+- m.rofo.com/*
+
+That precedence means a Worker response wins before Pages _redirects is
+evaluated. Requests the Worker passes through continue to the normal origin.
+
+The 14 reviewed legacy-building property overrides are not copied manually into
+the Worker. rofo-redirects.mjs imports _data/legacyBuildingPropertyRedirects.js,
+which derives the approved cohort from _data/legacyBuildingRedirectReview.js.
+The Pages _redirects artifact uses that same data source. Keeping the Pages
+rules is intentional defense-in-depth: they preserve the reviewed behavior if a
+request reaches Pages, without creating a second manually maintained mapping.
+
+The generic legacy-building-to-city fallback must remain after the exact
+property overrides. The two identity-review holds remain absent from the
+approved registry and continue to use the generic fallback.
+
+Validation
+----------
+
+  npm run qa:rofo-redirects-worker
+  npx wrangler deploy --dry-run --config workers/rofo-redirects.wrangler.jsonc
+
+Deployment ownership
+--------------------
+
+Normal Git-linked Pages deployments do not deploy this Worker. Worker deployment
+is a separate, explicit operator action and must not be folded into the ordinary
+Pages build:
+
+  npx wrangler deploy --config workers/rofo-redirects.wrangler.jsonc
+
+Future changes should be reviewed, tested, and committed here before that
+explicit deployment. The Wrangler file intentionally contains no routes
+declaration: the existing Cloudflare-managed routes listed above are not changed
+by this source-control reconciliation.
