@@ -1,0 +1,14 @@
+"use strict";
+const fs=require("fs"),path=require("path"),crypto=require("crypto");
+const data=require("./sf-commercial-district-intelligence-v1-source");
+const root=path.resolve(__dirname,"../.."),out=path.join(root,"data/internal/sf-commercial-district-intelligence-v1");
+fs.mkdirSync(out,{recursive:true});
+const write=(name,value)=>fs.writeFileSync(path.join(out,name),`${JSON.stringify(value,null,2)}\n`);
+for(const [spaceType,districts] of Object.entries(data.spaceTypes)) write(`${spaceType}.json`,{schemaVersion:data.schemaVersion,market:data.market,spaceType,districts});
+write("coverage-review.json",{schemaVersion:data.schemaVersion,market:data.market,...data.coverageReview,totalNewRelationships:Object.values(data.coverageReview).reduce((n,item)=>n+item.add.length,0)});
+write("sources.json",{schemaVersion:data.schemaVersion,sources:data.sources});
+write("index.json",{schemaVersion:data.schemaVersion,market:data.market,spaceTypes:Object.fromEntries(Object.entries(data.spaceTypes).map(([key,value])=>[key,{districtCount:value.length,file:`${key}.json`}]))});
+fs.writeFileSync(path.join(out,"README.txt"),"Internal deterministic editorial foundation for the live San Francisco public commercial-district experience. Public claims remain distinct from Recommendation Intelligence. Historical availability is excluded. Regenerate with npm run build:sf-commercial-district-intelligence-v1.\n");
+const files=fs.readdirSync(out).sort().map(name=>{const body=fs.readFileSync(path.join(out,name));return {name,bytes:body.length,sha256:crypto.createHash("sha256").update(body).digest("hex")};});
+write("artifact-manifest.json",{schemaVersion:data.schemaVersion,files:files.filter(item=>item.name!=="artifact-manifest.json")});
+console.log(`Wrote ${Object.values(data.spaceTypes).reduce((n,v)=>n+v.length,0)} SF district relationships with ${Object.values(data.coverageReview).reduce((n,v)=>n+v.add.length,0)} additions.`);

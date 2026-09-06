@@ -1,0 +1,203 @@
+{
+  "schemaVersion": "sf-commercial-district-intelligence:v1",
+  "market": {
+    "id": "san-francisco",
+    "label": "San Francisco",
+    "municipality": "San Francisco",
+    "state": "CA"
+  },
+  "spaceType": "industrial",
+  "districts": [
+    {
+      "id": "bayview-industrial",
+      "label": "Bayview Industrial",
+      "geographyType": "INDUSTRIAL_DISTRICT",
+      "publicEvidenceTier": "PUBLIC_REVIEWED",
+      "applicability": "PRIMARY",
+      "oneLineDistinction": "City-serving warehouse, contractor and production territory",
+      "shortDescription": "Bayview Industrial contains one of San Francisco’s broadest concentrations of practical industrial and PDR activity. Warehouse, contractor, food production, fleet, distribution and city-serving operations use a varied stock of industrial buildings and operational sites. Compared with Dogpatch or Showplace Square, the area is more industrial-led and less defined by adaptive office, showroom or neighborhood retail uses.",
+      "commonHere": [
+        "Warehouse",
+        "Contractor/service",
+        "Production",
+        "Distribution"
+      ],
+      "whatStandsOut": [
+        "Broad industrial and PDR base",
+        "Operational building formats",
+        "City-serving business concentration"
+      ],
+      "worthKnowing": [
+        "Loading, yard, power, circulation, environmental conditions and permitted use are property-specific."
+      ],
+      "compareWith": [
+        "central-waterfront",
+        "dogpatch",
+        "showplace-square"
+      ],
+      "sourceIds": [
+        "sf-central-waterfront-plan",
+        "sf-sfmta-t-third",
+        "rofo-public-foundation"
+      ],
+      "route": "/commercial-real-estate/CA/san-francisco/bayview-industrial/",
+      "accessReadiness": "OBJECTIVE_ACCESS_READY",
+      "accessObservations": [
+        "T Third light rail runs along Third Street through Bayview/Hunters Point."
+      ],
+      "coverageAction": "CURRENT",
+      "gridOrder": 1
+    },
+    {
+      "id": "central-waterfront",
+      "label": "Central Waterfront",
+      "geographyType": "INDUSTRIAL_DISTRICT",
+      "publicEvidenceTier": "PUBLIC_REVIEWED",
+      "applicability": "PRIMARY",
+      "oneLineDistinction": "Protected PDR core with fabrication and waterfront industry",
+      "shortDescription": "Central Waterfront combines a protected PDR core with fabrication, production, service and maritime-related activity around the eastern waterfront. The area includes mixed-use transition zones, historic Dogpatch and major Port-controlled sites, so it is not one uniform industrial district. Users should distinguish the core south of 23rd Street from Dogpatch and the evolving Pier 70 edges.",
+      "commonHere": [
+        "Production",
+        "Fabrication",
+        "Contractor/service",
+        "Light manufacturing"
+      ],
+      "whatStandsOut": [
+        "Protected PDR core",
+        "Waterfront and Port context",
+        "Industrial-to-mixed-use transitions"
+      ],
+      "worthKnowing": [
+        "Confirm the subarea, zoning, access, utilities and site condition for each property."
+      ],
+      "compareWith": [
+        "bayview-industrial",
+        "dogpatch",
+        "showplace-square"
+      ],
+      "sourceIds": [
+        "sf-central-waterfront-plan",
+        "sf-port-pier70",
+        "rofo-public-foundation"
+      ],
+      "route": "/commercial-real-estate/CA/san-francisco/central-waterfront/",
+      "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+      "accessObservations": [],
+      "coverageAction": "CURRENT",
+      "gridOrder": 2
+    },
+    {
+      "id": "dogpatch",
+      "label": "Dogpatch",
+      "geographyType": "MIXED_COMMERCIAL_DISTRICT",
+      "publicEvidenceTier": "PUBLIC_REVIEWED",
+      "applicability": "PRIMARY",
+      "oneLineDistinction": "Fine-grained production space inside a mixed neighborhood",
+      "shortDescription": "Dogpatch is a historic, fine-grained neighborhood where small PDR buildings, workshops and production spaces sit beside housing, restaurants and newer development. Industrial users may consider it for smaller-scale production or maker activity rather than broad warehouse or yard requirements. Its intimate parcel pattern contrasts with the larger operational sites of Bayview and the core Central Waterfront.",
+      "commonHere": [
+        "Small production",
+        "Maker space",
+        "Creative industrial",
+        "Workshop"
+      ],
+      "whatStandsOut": [
+        "Small parcels and historic fabric",
+        "Mixed residential and PDR context",
+        "Neighborhood commercial heart"
+      ],
+      "worthKnowing": [
+        "Noise, loading, circulation and permitted use are especially address-dependent."
+      ],
+      "compareWith": [
+        "central-waterfront",
+        "showplace-square",
+        "mission-bay"
+      ],
+      "sourceIds": [
+        "sf-central-waterfront-plan",
+        "sf-port-pier70",
+        "rofo-public-foundation"
+      ],
+      "route": "/commercial-real-estate/CA/san-francisco/dogpatch/",
+      "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+      "accessObservations": [],
+      "coverageAction": "CURRENT",
+      "gridOrder": 3
+    },
+    {
+      "id": "showplace-square",
+      "label": "Showplace Square",
+      "geographyType": "FLEX_BUSINESS_PARK_ENVIRONMENT",
+      "publicEvidenceTier": "PUBLIC_REVIEWED",
+      "applicability": "SECONDARY",
+      "oneLineDistinction": "Design production and showrooms in adapted warehouses",
+      "shortDescription": "Showplace Square grew from a warehouse and industrial district into a concentrated center for furniture, interiors, design, contractors and lighter PDR businesses. It remains useful for industrial searches that combine production, storage and showroom needs, but it is less suited to assuming heavy industrial capability. Former warehouse buildings and trade-facing uses set it apart from Bayview’s broader industrial base.",
+      "commonHere": [
+        "Design production",
+        "Showroom",
+        "Contractor/service",
+        "Light production"
+      ],
+      "whatStandsOut": [
+        "Adapted warehouse stock",
+        "Furniture and design cluster",
+        "Production and showroom overlap"
+      ],
+      "worthKnowing": [
+        "Verify loading, use approval and whether a property is operational or primarily showroom/office."
+      ],
+      "compareWith": [
+        "central-waterfront",
+        "dogpatch",
+        "soma"
+      ],
+      "sourceIds": [
+        "sf-showplace-potrero-plan",
+        "rofo-public-foundation",
+        "rofo-representatives"
+      ],
+      "route": "/commercial-real-estate/CA/san-francisco/showplace-square/",
+      "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+      "accessObservations": [],
+      "coverageAction": "CURRENT",
+      "gridOrder": 4
+    },
+    {
+      "id": "soma",
+      "label": "SoMa",
+      "geographyType": "MIXED_COMMERCIAL_DISTRICT",
+      "publicEvidenceTier": "PUBLIC_REVIEWED",
+      "applicability": "SECONDARY",
+      "oneLineDistinction": "Residual production space amid offices and mixed uses",
+      "shortDescription": "SoMa retains pockets of production, service and warehouse-style commercial space, but its industrial relevance is uneven and increasingly mixed with office, housing, events and retail. It can matter for smaller urban production or hybrid users that need a central location, not as a substitute for a protected industrial core. The specific SoMa subarea and building matter more than the umbrella name.",
+      "commonHere": [
+        "Urban production",
+        "Service commercial",
+        "Small warehouse",
+        "Hybrid operations"
+      ],
+      "whatStandsOut": [
+        "Adaptive-reuse buildings",
+        "Central mixed-use setting",
+        "Industrial uses dispersed by subarea"
+      ],
+      "worthKnowing": [
+        "Confirm zoning, neighbors, loading and building capability before treating a SoMa option as industrial."
+      ],
+      "compareWith": [
+        "showplace-square",
+        "central-waterfront",
+        "dogpatch"
+      ],
+      "sourceIds": [
+        "sf-central-soma-plan",
+        "rofo-public-foundation"
+      ],
+      "route": "/commercial-real-estate/CA/san-francisco/soma/",
+      "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+      "accessObservations": [],
+      "coverageAction": "CURRENT",
+      "gridOrder": 5
+    }
+  ]
+}

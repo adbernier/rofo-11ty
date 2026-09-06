@@ -1,0 +1,662 @@
+{
+  "schemaVersion": "sf-commercial-district-intelligence:v1",
+  "market": {
+    "id": "san-francisco",
+    "label": "San Francisco",
+    "municipality": "San Francisco",
+    "state": "CA"
+  },
+  "spaceType": "retail",
+  "districts": [
+    {
+      "id": "union-square",
+      "label": "Union Square",
+      "geographyType": "RETAIL_CORRIDOR",
+      "publicEvidenceTier": "PUBLIC_REVIEWED",
+      "applicability": "PRIMARY",
+      "oneLineDistinction": "San Francisco’s destination shopping and hotel core",
+      "shortDescription": "Union Square is San Francisco’s best-known destination retail district, combining major stores, hotels, restaurants and smaller specialty storefronts around a heavily visited downtown setting. Retailers consider it for citywide and visitor exposure rather than primarily neighborhood convenience. Storefront scale and street conditions vary across the wider district, so Powell, Post, Geary and nearby side streets should be evaluated individually.",
+      "commonHere": [
+        "Destination retail",
+        "Fashion",
+        "Food and beverage",
+        "Visitor services"
+      ],
+      "whatStandsOut": [
+        "Hotels and visitor activity",
+        "Large and small storefront formats",
+        "Downtown destination identity"
+      ],
+      "worthKnowing": [
+        "Confirm current pedestrian patterns, storefront visibility and block conditions."
+      ],
+      "compareWith": [
+        "chinatown",
+        "north-beach",
+        "financial-district"
+      ],
+      "sourceIds": [
+        "sf-downtown-plan",
+        "sf-sfmta-central-subway",
+        "rofo-public-foundation"
+      ],
+      "route": "/commercial-real-estate/CA/san-francisco/union-square/",
+      "accessReadiness": "OBJECTIVE_ACCESS_READY",
+      "accessObservations": [
+        "Union Square/Market Street station is on the Central Subway."
+      ],
+      "coverageAction": "CURRENT",
+      "gridOrder": 1
+    },
+    {
+      "id": "valencia-street",
+      "label": "Valencia Street",
+      "geographyType": "RETAIL_CORRIDOR",
+      "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+      "applicability": "PRIMARY",
+      "oneLineDistinction": "Independent dining, specialty retail and evening activity",
+      "shortDescription": "Valencia Street is a recognizable Mission corridor where restaurants, bars, specialty shops, wellness businesses and experiential concepts share fine-grained mixed-use blocks. It draws both neighborhood customers and intentional visitors, with activity extending into evenings. The corridor feels more independent and experience-led than Union Square and more destination-oriented than many daily-needs neighborhood streets.",
+      "commonHere": [
+        "Food and beverage",
+        "Specialty retail",
+        "Wellness",
+        "Entertainment"
+      ],
+      "whatStandsOut": [
+        "Independent storefront character",
+        "Strong day-to-evening use",
+        "Fine-grained mixed-use buildings"
+      ],
+      "worthKnowing": [
+        "Noise, late-hours compatibility, frontage and permitted use require address-level review."
+      ],
+      "compareWith": [
+        "mission-district",
+        "upper-market-castro",
+        "hayes-valley"
+      ],
+      "sourceIds": [
+        "sf-commercial-corridor-history",
+        "sf-market-octavia-plan",
+        "rofo-public-foundation"
+      ],
+      "route": "/commercial-real-estate/CA/san-francisco/valencia-street/",
+      "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+      "accessObservations": [],
+      "coverageAction": "CURRENT",
+      "gridOrder": 2
+    },
+    {
+      "id": "union-street-cow-hollow",
+      "label": "Union Street / Cow Hollow",
+      "geographyType": "RETAIL_CORRIDOR",
+      "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+      "applicability": "PRIMARY",
+      "oneLineDistinction": "Boutiques, wellness and dining in a neighborhood corridor",
+      "shortDescription": "Union Street through Cow Hollow is a compact neighborhood and destination corridor associated with boutiques, wellness, beauty, dining and customer-facing services. Its smaller storefronts and planned-visit character distinguish it from Chestnut Street’s broader daily-use mix. Businesses should evaluate the exact block, since the commercial intensity tapers quickly into surrounding residential streets.",
+      "commonHere": [
+        "Boutiques",
+        "Wellness",
+        "Personal services",
+        "Food and beverage"
+      ],
+      "whatStandsOut": [
+        "Small-scale storefronts",
+        "Lifestyle and planned-visit mix",
+        "Residential neighborhood edges"
+      ],
+      "worthKnowing": [
+        "Confirm frontage, accessibility and operating-hour compatibility for the specific address."
+      ],
+      "compareWith": [
+        "chestnut-street",
+        "sacramento-street",
+        "fillmore-street"
+      ],
+      "sourceIds": [
+        "sf-neighborhood-commercial-map",
+        "sf-commercial-corridor-history",
+        "rofo-public-foundation"
+      ],
+      "route": "/commercial-real-estate/CA/san-francisco/union-street-cow-hollow/",
+      "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+      "accessObservations": [],
+      "coverageAction": "CURRENT",
+      "gridOrder": 3
+    },
+    {
+      "id": "chestnut-street",
+      "label": "Chestnut Street",
+      "geographyType": "RETAIL_CORRIDOR",
+      "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+      "applicability": "PRIMARY",
+      "oneLineDistinction": "Daily-use retail, dining and services for the Marina",
+      "shortDescription": "Chestnut Street is a neighborhood-serving corridor with a broad mix of restaurants, fitness, personal services, convenience retail and specialty shops. It supports frequent local visits while also drawing customers from beyond the immediate Marina. Compared with Union Street, the mix generally reads as more daily-use and service-oriented, though individual blocks and storefront formats vary.",
+      "commonHere": [
+        "Food and beverage",
+        "Fitness",
+        "Personal services",
+        "Neighborhood retail"
+      ],
+      "whatStandsOut": [
+        "Continuous storefront blocks",
+        "Frequent neighborhood use",
+        "Broad service and convenience mix"
+      ],
+      "worthKnowing": [
+        "Delivery, parking, ventilation and operating constraints remain property-specific."
+      ],
+      "compareWith": [
+        "union-street-cow-hollow",
+        "fillmore-street",
+        "sacramento-street"
+      ],
+      "sourceIds": [
+        "sf-neighborhood-commercial-map",
+        "sf-commercial-corridor-history",
+        "rofo-public-foundation"
+      ],
+      "route": "/commercial-real-estate/CA/san-francisco/chestnut-street/",
+      "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+      "accessObservations": [],
+      "coverageAction": "CURRENT",
+      "gridOrder": 4
+    },
+    {
+      "id": "fillmore-street",
+      "label": "Fillmore Street",
+      "geographyType": "RETAIL_CORRIDOR",
+      "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+      "applicability": "PRIMARY",
+      "oneLineDistinction": "Fashion, dining and services on a walkable neighborhood street",
+      "shortDescription": "Upper Fillmore combines boutiques, restaurants, wellness and neighborhood services in small mixed-use buildings. The corridor attracts both repeat local customers and planned visits, with a polished but still neighborhood-scaled commercial identity. It offers a more continuous lifestyle-shopping setting than Sacramento Street and a different customer rhythm from the Marina corridors.",
+      "commonHere": [
+        "Boutiques",
+        "Food and beverage",
+        "Wellness",
+        "Personal services"
+      ],
+      "whatStandsOut": [
+        "Walkable mixed-use blocks",
+        "Lifestyle retail concentration",
+        "Neighborhood and destination demand"
+      ],
+      "worthKnowing": [
+        "The character and intensity change north and south along Fillmore; verify the exact segment."
+      ],
+      "compareWith": [
+        "sacramento-street",
+        "union-street-cow-hollow",
+        "hayes-valley"
+      ],
+      "sourceIds": [
+        "sf-neighborhood-commercial-map",
+        "sf-commercial-corridor-history",
+        "rofo-representatives"
+      ],
+      "route": "/commercial-real-estate/CA/san-francisco/fillmore-street/",
+      "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+      "accessObservations": [],
+      "coverageAction": "ADD",
+      "gridOrder": 5
+    },
+    {
+      "id": "sacramento-street",
+      "label": "Sacramento Street",
+      "geographyType": "RETAIL_CORRIDOR",
+      "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+      "applicability": "PRIMARY",
+      "oneLineDistinction": "Design, antiques and specialty shopping at neighborhood scale",
+      "shortDescription": "Sacramento Street is a small linear commercial district in Presidio Heights with boutiques, design and home stores, antiques, personal services and professional offices. It serves nearby residents while also drawing planned visits for specialty shopping. The corridor is quieter and more daytime-oriented than Union Square or Valencia Street, with storefronts interspersed into a low-scale residential setting.",
+      "commonHere": [
+        "Home and design",
+        "Specialty retail",
+        "Personal services",
+        "Professional services"
+      ],
+      "whatStandsOut": [
+        "Daytime-oriented commerce",
+        "Small linear district",
+        "Destination specialty shops"
+      ],
+      "worthKnowing": [
+        "Evening activity is limited; verify visibility and customer draw for the exact block."
+      ],
+      "compareWith": [
+        "fillmore-street",
+        "union-street-cow-hollow",
+        "chestnut-street"
+      ],
+      "sourceIds": [
+        "sf-sacramento-ncd",
+        "sf-commercial-corridor-history",
+        "rofo-representatives"
+      ],
+      "route": "/commercial-real-estate/CA/san-francisco/sacramento-street/",
+      "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+      "accessObservations": [],
+      "coverageAction": "ADD",
+      "gridOrder": 6
+    },
+    {
+      "id": "hayes-valley",
+      "label": "Hayes Valley",
+      "geographyType": "MAIN_STREET",
+      "publicEvidenceTier": "PUBLIC_REVIEWED",
+      "applicability": "PRIMARY",
+      "oneLineDistinction": "Design-forward shops, dining and neighborhood destinations",
+      "shortDescription": "Hayes Valley concentrates independent retail, restaurants, design businesses and personal services along compact mixed-use blocks. It combines neighborhood repeat visits with destination shopping and dining, without the large-format or hotel orientation of Union Square. Smaller storefronts and a strong public-realm identity make it useful for concepts that benefit from a curated neighborhood setting.",
+      "commonHere": [
+        "Design retail",
+        "Food and beverage",
+        "Boutiques",
+        "Personal services"
+      ],
+      "whatStandsOut": [
+        "Compact pedestrian-scaled blocks",
+        "Independent business mix",
+        "Strong dining and design identity"
+      ],
+      "worthKnowing": [
+        "Storefront size, servicing and permitted use vary within older mixed-use buildings."
+      ],
+      "compareWith": [
+        "fillmore-street",
+        "valencia-street",
+        "upper-market-castro"
+      ],
+      "sourceIds": [
+        "sf-market-octavia-plan",
+        "sf-commercial-corridor-history",
+        "rofo-public-foundation"
+      ],
+      "route": "/commercial-real-estate/CA/san-francisco/hayes-valley/",
+      "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+      "accessObservations": [],
+      "coverageAction": "CURRENT",
+      "gridOrder": 7
+    },
+    {
+      "id": "upper-market-castro",
+      "label": "Upper Market / Castro",
+      "geographyType": "RETAIL_CORRIDOR",
+      "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+      "applicability": "PRIMARY",
+      "oneLineDistinction": "Transit-oriented services, dining and day-to-evening activity",
+      "shortDescription": "Upper Market and the Castro combine neighborhood services, restaurants, bars, specialty businesses and customer-facing uses along a strong transit corridor. The district serves local daily needs while also supporting evening and destination activity. It differs from Valencia through its Market Street orientation and from Hayes Valley through a broader service and entertainment mix.",
+      "commonHere": [
+        "Food and beverage",
+        "Personal services",
+        "Neighborhood retail",
+        "Entertainment"
+      ],
+      "whatStandsOut": [
+        "Market Street transit spine",
+        "Day-to-evening activity",
+        "Neighborhood and visitor customer mix"
+      ],
+      "worthKnowing": [
+        "Hours, sound, ventilation and storefront condition require property-level confirmation."
+      ],
+      "compareWith": [
+        "valencia-street",
+        "mission-district",
+        "hayes-valley"
+      ],
+      "sourceIds": [
+        "sf-market-octavia-plan",
+        "sf-neighborhood-commercial-map",
+        "rofo-representatives"
+      ],
+      "route": "/commercial-real-estate/CA/san-francisco/upper-market-castro/",
+      "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+      "accessObservations": [],
+      "coverageAction": "ADD",
+      "gridOrder": 8
+    },
+    {
+      "id": "mission-district",
+      "label": "Mission District",
+      "geographyType": "MIXED_COMMERCIAL_DISTRICT",
+      "publicEvidenceTier": "PUBLIC_REVIEWED",
+      "applicability": "PRIMARY",
+      "oneLineDistinction": "Multiple neighborhood corridors with distinct retail rhythms",
+      "shortDescription": "The broader Mission contains several commercial streets rather than one uniform retail district. Mission Street, Valencia Street, 24th Street and smaller corridors support different combinations of food, services, specialty retail and community-serving businesses. Use the Mission as an orientation layer, then compare the specific corridor: a Valencia storefront can offer a very different setting from Mission Street or a neighborhood-serving block.",
+      "commonHere": [
+        "Food and beverage",
+        "Neighborhood retail",
+        "Personal services",
+        "Specialty retail"
+      ],
+      "whatStandsOut": [
+        "Multiple distinct corridors",
+        "Strong mixed-use street fabric",
+        "Local and destination customer patterns"
+      ],
+      "worthKnowing": [
+        "Choose the corridor first; broad neighborhood labels are not enough for site selection."
+      ],
+      "compareWith": [
+        "valencia-street",
+        "upper-market-castro",
+        "soma"
+      ],
+      "sourceIds": [
+        "sf-commercial-corridor-history",
+        "sf-neighborhood-commercial-map",
+        "rofo-public-foundation"
+      ],
+      "route": "/commercial-real-estate/CA/san-francisco/mission-district/",
+      "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+      "accessObservations": [],
+      "coverageAction": "CURRENT",
+      "gridOrder": 9
+    },
+    {
+      "id": "north-beach",
+      "label": "North Beach",
+      "geographyType": "RETAIL_CORRIDOR",
+      "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+      "applicability": "PRIMARY",
+      "oneLineDistinction": "Dining, cafes and specialty shops around Columbus Avenue",
+      "shortDescription": "North Beach is a nonlinear commercial district centered on Columbus Avenue, where restaurants, cafes, bars, specialty retail and neighborhood services share compact mixed-use blocks. It combines strong visitor activity with a continuing local customer base and an active evening economy. Its dining-led, fine-grained character differs from Chinatown’s denser specialty commerce and Union Square’s larger downtown retail setting.",
+      "commonHere": [
+        "Food and beverage",
+        "Cafes",
+        "Specialty retail",
+        "Neighborhood services"
+      ],
+      "whatStandsOut": [
+        "Columbus Avenue focus",
+        "Fine-grained storefront fabric",
+        "Visitor and neighborhood demand"
+      ],
+      "worthKnowing": [
+        "Visitor intensity, late-hour activity and servicing vary by block."
+      ],
+      "compareWith": [
+        "chinatown",
+        "jackson-square",
+        "union-square"
+      ],
+      "sourceIds": [
+        "sf-neighborhood-commercial-map",
+        "sf-commercial-corridor-history",
+        "rofo-representatives"
+      ],
+      "route": "/commercial-real-estate/CA/san-francisco/north-beach/",
+      "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+      "accessObservations": [],
+      "coverageAction": "ADD",
+      "gridOrder": 10
+    },
+    {
+      "id": "chinatown",
+      "label": "Chinatown",
+      "geographyType": "RETAIL_CORRIDOR",
+      "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+      "applicability": "PRIMARY",
+      "oneLineDistinction": "Dense specialty commerce serving community and visitors",
+      "shortDescription": "Chinatown’s closely spaced storefronts support food, specialty goods, services and culturally specific commerce within one of the city’s most concentrated pedestrian districts. It serves residents and regional customers as well as visitors, so its commercial identity is broader than tourism alone. Small spaces, intense street activity and delivery constraints distinguish it from nearby North Beach and Union Square.",
+      "commonHere": [
+        "Specialty retail",
+        "Food and beverage",
+        "Community services",
+        "Visitor retail"
+      ],
+      "whatStandsOut": [
+        "Dense storefront pattern",
+        "Community and visitor markets",
+        "Compact mixed-use buildings"
+      ],
+      "worthKnowing": [
+        "Servicing, accessibility, ventilation and upper-floor conditions need address-level review."
+      ],
+      "compareWith": [
+        "north-beach",
+        "union-square",
+        "jackson-square"
+      ],
+      "sourceIds": [
+        "sf-neighborhood-commercial-map",
+        "sf-sfmta-central-subway",
+        "rofo-representatives"
+      ],
+      "route": "/commercial-real-estate/CA/san-francisco/chinatown/",
+      "accessReadiness": "OBJECTIVE_ACCESS_READY",
+      "accessObservations": [
+        "Chinatown–Rose Pak station is the northern terminus of the Central Subway."
+      ],
+      "coverageAction": "ADD",
+      "gridOrder": 11
+    },
+    {
+      "id": "jackson-square",
+      "label": "Jackson Square",
+      "geographyType": "OFFICE_DISTRICT",
+      "publicEvidenceTier": "PUBLIC_REVIEWED",
+      "applicability": "SECONDARY",
+      "oneLineDistinction": "Design showrooms and specialty commerce in historic buildings",
+      "shortDescription": "Jackson Square’s historic commercial buildings support design showrooms, furnishings, galleries and destination businesses alongside offices. Retail here is typically more planned-visit and specialty-oriented than daily-needs shopping. The intimate building scale and historic streets distinguish it from Union Square’s visitor core and Showplace Square’s larger trade-showroom and production context.",
+      "commonHere": [
+        "Design showrooms",
+        "Specialty retail",
+        "Galleries",
+        "Professional services"
+      ],
+      "whatStandsOut": [
+        "Historic commercial buildings",
+        "Planned-visit businesses",
+        "Office and showroom overlap"
+      ],
+      "worthKnowing": [
+        "Street visibility and accessible customer entry vary in older buildings."
+      ],
+      "compareWith": [
+        "north-beach",
+        "union-square",
+        "showplace-square"
+      ],
+      "sourceIds": [
+        "sf-showplace-potrero-plan",
+        "rofo-public-foundation",
+        "rofo-representatives"
+      ],
+      "route": "/commercial-real-estate/CA/san-francisco/jackson-square/",
+      "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+      "accessObservations": [],
+      "coverageAction": "CURRENT",
+      "gridOrder": 12
+    },
+    {
+      "id": "financial-district",
+      "label": "Financial District",
+      "geographyType": "OFFICE_DISTRICT",
+      "publicEvidenceTier": "PUBLIC_REVIEWED",
+      "applicability": "SECONDARY",
+      "oneLineDistinction": "Weekday services and food beneath the office core",
+      "shortDescription": "Financial District retail is largely shaped by office-worker, commuter and visitor demand. Food, convenience, services and ground-floor commerce sit within a dense office setting rather than a continuous destination-shopping corridor. It can suit weekday-oriented concepts, but block conditions and activity outside business hours differ from Union Square, North Beach or neighborhood retail streets.",
+      "commonHere": [
+        "Food and beverage",
+        "Convenience",
+        "Personal services",
+        "Business services"
+      ],
+      "whatStandsOut": [
+        "Office-worker customer base",
+        "Ground-floor tower retail",
+        "Strong weekday orientation"
+      ],
+      "worthKnowing": [
+        "Confirm current foot traffic and daypart demand on the exact block."
+      ],
+      "compareWith": [
+        "union-square",
+        "jackson-square",
+        "south-beach"
+      ],
+      "sourceIds": [
+        "sf-downtown-plan",
+        "sf-bart-embarcadero",
+        "rofo-public-foundation"
+      ],
+      "route": "/commercial-real-estate/CA/san-francisco/financial-district/",
+      "accessReadiness": "OBJECTIVE_ACCESS_READY",
+      "accessObservations": [
+        "Embarcadero and Montgomery BART stations serve the district."
+      ],
+      "coverageAction": "CURRENT",
+      "gridOrder": 13
+    },
+    {
+      "id": "soma",
+      "label": "SoMa",
+      "geographyType": "MIXED_COMMERCIAL_DISTRICT",
+      "publicEvidenceTier": "PUBLIC_REVIEWED",
+      "applicability": "CONTEXTUAL",
+      "oneLineDistinction": "Event, service and neighborhood retail across varied subareas",
+      "shortDescription": "SoMa retail is dispersed across very different subareas, including convention and event streets, residential mixed-use blocks, neighborhood services and destination concepts. It should not be read as one continuous shopping district. Retail users may consider it for specific customer generators or emerging mixed-use blocks, but the exact subarea matters more here than the broad SoMa label.",
+      "commonHere": [
+        "Food and beverage",
+        "Customer services",
+        "Event-oriented retail",
+        "Neighborhood retail"
+      ],
+      "whatStandsOut": [
+        "Highly varied subareas",
+        "Convention and event generators",
+        "Mixed new and adaptive buildings"
+      ],
+      "worthKnowing": [
+        "Validate the immediate block, daypart and surrounding uses before relying on the SoMa label."
+      ],
+      "compareWith": [
+        "union-square",
+        "mission-district",
+        "south-beach"
+      ],
+      "sourceIds": [
+        "sf-central-soma-plan",
+        "sf-sfmta-central-subway",
+        "rofo-public-foundation"
+      ],
+      "route": "/commercial-real-estate/CA/san-francisco/soma/",
+      "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+      "accessObservations": [],
+      "coverageAction": "CURRENT",
+      "gridOrder": 14
+    },
+    {
+      "id": "mission-bay",
+      "label": "Mission Bay",
+      "geographyType": "R_AND_D_TECHNICAL_CLUSTER",
+      "publicEvidenceTier": "PUBLIC_REVIEWED",
+      "applicability": "CONTEXTUAL",
+      "oneLineDistinction": "Neighborhood services within a newer mixed-use district",
+      "shortDescription": "Mission Bay retail mainly supports residents, workers, medical visitors and event traffic within a newer planned district. Food, services and convenience uses appear around large blocks and institutional or residential projects rather than a traditional continuous shopping street. It is useful context for operators tied to the district’s daily populations, but less of a citywide retail comparison than Union Square or Valencia Street.",
+      "commonHere": [
+        "Food and beverage",
+        "Neighborhood services",
+        "Convenience",
+        "Medical visitor services"
+      ],
+      "whatStandsOut": [
+        "Newer mixed-use projects",
+        "Institutional and event demand",
+        "Large-block development pattern"
+      ],
+      "worthKnowing": [
+        "Confirm customer generators, event dependence and ground-floor visibility at the property."
+      ],
+      "compareWith": [
+        "dogpatch",
+        "south-beach",
+        "soma"
+      ],
+      "sourceIds": [
+        "sf-sfmta-t-third",
+        "rofo-public-foundation"
+      ],
+      "route": "/commercial-real-estate/CA/san-francisco/mission-bay/",
+      "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+      "accessObservations": [],
+      "coverageAction": "CURRENT",
+      "gridOrder": 15
+    },
+    {
+      "id": "dogpatch",
+      "label": "Dogpatch",
+      "geographyType": "MIXED_COMMERCIAL_DISTRICT",
+      "publicEvidenceTier": "PUBLIC_REVIEWED",
+      "applicability": "SECONDARY",
+      "oneLineDistinction": "Neighborhood retail beside historic and production buildings",
+      "shortDescription": "Dogpatch combines neighborhood restaurants, cafes, services and specialty storefronts with historic residential blocks and nearby production-oriented buildings. Its smaller-scale, local commercial heart differs from Mission Bay’s newer large blocks and Central Waterfront’s protected PDR core. Retail users may value the neighborhood identity, but should not treat the entire waterfront industrial area as a continuous customer-facing district.",
+      "commonHere": [
+        "Food and beverage",
+        "Neighborhood services",
+        "Specialty retail"
+      ],
+      "whatStandsOut": [
+        "Historic fine-grained blocks",
+        "Proximity to production uses",
+        "Local neighborhood identity"
+      ],
+      "worthKnowing": [
+        "Customer activity and compatible use vary sharply toward the industrial edges."
+      ],
+      "compareWith": [
+        "mission-bay",
+        "central-waterfront",
+        "showplace-square"
+      ],
+      "sourceIds": [
+        "sf-central-waterfront-plan",
+        "sf-port-pier70",
+        "rofo-public-foundation"
+      ],
+      "route": "/commercial-real-estate/CA/san-francisco/dogpatch/",
+      "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+      "accessObservations": [],
+      "coverageAction": "CURRENT",
+      "gridOrder": 16
+    },
+    {
+      "id": "showplace-square",
+      "label": "Showplace Square",
+      "geographyType": "FLEX_BUSINESS_PARK_ENVIRONMENT",
+      "publicEvidenceTier": "PUBLIC_REVIEWED",
+      "applicability": "SECONDARY",
+      "oneLineDistinction": "Trade showrooms and design businesses in former industrial stock",
+      "shortDescription": "Showplace Square is a specialized design and furnishings district where showrooms, makers, contractors and creative businesses occupy former warehouse and industrial buildings. Retail activity is commonly destination or trade-oriented rather than continuous neighborhood shopping. The larger commercial spaces and production adjacency distinguish it from Jackson Square’s historic boutique scale and Hayes Valley’s pedestrian retail mix.",
+      "commonHere": [
+        "Design showrooms",
+        "Home furnishings",
+        "Trade retail",
+        "Creative services"
+      ],
+      "whatStandsOut": [
+        "Former warehouse buildings",
+        "Design-industry concentration",
+        "Showroom and production overlap"
+      ],
+      "worthKnowing": [
+        "Confirm whether a space supports public retail, trade showroom or production use."
+      ],
+      "compareWith": [
+        "jackson-square",
+        "hayes-valley",
+        "dogpatch"
+      ],
+      "sourceIds": [
+        "sf-showplace-potrero-plan",
+        "rofo-public-foundation",
+        "rofo-representatives"
+      ],
+      "route": "/commercial-real-estate/CA/san-francisco/showplace-square/",
+      "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+      "accessObservations": [],
+      "coverageAction": "CURRENT",
+      "gridOrder": 17
+    }
+  ]
+}

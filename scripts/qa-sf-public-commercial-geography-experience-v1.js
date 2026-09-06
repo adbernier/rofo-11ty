@@ -22,16 +22,17 @@ assert.deepStrictEqual(["soma","dogpatch","showplace-square"].every(id=>sets.fle
 
 for (const view of experience.spaceTypes) for (const geography of view.geographies) {
   assert.ok(["PUBLIC_REVIEWED","PUBLIC_CONTEXTUAL"].includes(geography.evidenceTier));
-  assert.ok(geography.areaPatterns.length >= 1 && geography.areaPatterns.length <= 5);
-  assert.ok(geography.description.split(/\s+/).length >= 40 && geography.description.split(/\s+/).length <= 80);
-  assert.ok(geography.related.length <= 3);
-  assert.deepStrictEqual(geography.access,[]);
+  assert.ok(geography.oneLineDistinction.split(/\s+/).length >= 5 && geography.oneLineDistinction.split(/\s+/).length <= 12);
+  assert.ok(geography.areaPatterns.length >= 2 && geography.areaPatterns.length <= 5);
+  assert.ok(geography.description.split(/\s+/).length >= 45 && geography.description.split(/\s+/).length <= 90);
+  assert.ok(geography.related.length <= 4);
+  assert.ok(geography.sourceIds.length >= 2);
   for (const property of geography.representatives) {
     if (property.kind === "PROPERTY") assert.ok(property.canonicalUrl.startsWith("/commercial-real-estate/building/"));
     else assert.strictEqual(property.canonicalUrl,"");
     assert.strictEqual(property.propertyVerified,"");
     assert.ok(property.availabilityBoundary);
-    assert.ok(property.investigate.includes(property.kind === "PROPERTY" ? "exact property configuration" : "Specific properties"));
+    assert.strictEqual(property.investigate,"");
     assert.ok(!Object.hasOwn(property,"availability"));
     assert.ok(!Object.hasOwn(property,"rent"));
   }
@@ -63,8 +64,15 @@ for (const view of experience.spaceTypes) {
   assert.ok(page.includes("Not sure which district fits your business?"));
   assert.ok(!page.includes("Browse by commercial area."));
   assert.ok(page.includes('data-selection-semantics="exploration_only"'));
-  assert.ok(page.includes("Select an area to view its context."));
-  assert.ok(page.includes("Area pattern"));
+  assert.ok(page.includes("Choose one to see what makes it different."));
+  assert.ok(page.includes("Common here"));
+  assert.ok(page.includes("What stands out"));
+  assert.ok(page.includes("Worth knowing"));
+  assert.ok(page.includes("Common across the district; individual buildings vary."));
+  assert.ok(!page.includes("Area pattern"));
+  assert.ok(!page.includes("What still needs investigation"));
+  assert.ok(!page.includes("reviewed area evidence supports"));
+  assert.ok(!page.includes("geography-level patterns"));
   assert.ok(!page.includes("Property verified"));
   assert.ok(!page.includes("too image-driven"));
   assert.ok(!page.includes("too expensive"));
@@ -85,7 +93,7 @@ for (const view of experience.spaceTypes) {
   const initial = view.geographies[0];
   const page = html(view.slug);
   assert.ok(page.includes(`aria-selected="true" aria-controls="sf-geography-panel-${initial.id}"`));
-  assert.ok(page.includes(`${view.label} context · San Francisco`));
+  assert.ok(page.includes(`${initial.geographyTypeLabel} · San Francisco`));
   const explorer = page.match(/<div class="city-card sf-geography-explorer">[\s\S]*?<\/div>\s*<\/div>/)?.[0] || "";
   assert.ok(!/\b(best|top|recommended|recommendation|rank|ranking|preferred)\b/i.test(explorer));
   if (initial.canonicalPath) assert.ok(page.includes(`>Explore ${initial.label} →</a>`));
@@ -94,11 +102,13 @@ for (const view of experience.spaceTypes) {
 for (const id of new Set(Object.values(sets).flat())) {
   const page = html(id);
   assert.ok(page.includes('data-commercial-geography-surface="sf_geography_route"'));
-  assert.ok(page.includes("Area patterns describe geography context, not verified property capabilities."));
+  assert.ok(page.includes("Common across the district; individual buildings vary."));
+  assert.ok(page.includes("Worth knowing"));
+  assert.ok(!page.includes("Area patterns describe geography context"));
   assert.ok(!page.includes("<strong>Property verified</strong>"));
   assert.ok(!page.includes("too image-driven"));
   assert.ok(!page.includes("too expensive"));
-  assert.ok(page.includes("Current availability and exact property configuration require current verification.") || page.includes("Specific properties, current conditions, and suitability require investigation.") || !experience.byGeographyId[id].some(item=>item.representatives.length));
+  assert.ok(/confirm current availability and the exact condition, configuration, access, and permitted use/i.test(page) || !experience.byGeographyId[id].some(item=>item.representatives.length));
 }
 
 const analytics = fs.readFileSync(path.join(root,"js/commercial-geography-experience.js"),"utf8");

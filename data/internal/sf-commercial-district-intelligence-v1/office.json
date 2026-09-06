@@ -1,0 +1,399 @@
+{
+  "schemaVersion": "sf-commercial-district-intelligence:v1",
+  "market": {
+    "id": "san-francisco",
+    "label": "San Francisco",
+    "municipality": "San Francisco",
+    "state": "CA"
+  },
+  "spaceType": "office",
+  "districts": [
+    {
+      "id": "financial-district",
+      "label": "Financial District",
+      "geographyType": "OFFICE_DISTRICT",
+      "publicEvidenceTier": "PUBLIC_REVIEWED",
+      "applicability": "PRIMARY",
+      "oneLineDistinction": "San Francisco’s traditional business core",
+      "shortDescription": "The Financial District is San Francisco’s densest concentration of traditional downtown office buildings. Large office towers, older high-rises and smaller professional buildings support finance, legal, corporate and business-service users that value a recognizable central address and proximity to other downtown firms. Compared with SoMa, the area feels more formal, vertically concentrated and oriented around established office blocks.",
+      "commonHere": [
+        "Finance",
+        "Legal",
+        "Professional services",
+        "Corporate office"
+      ],
+      "whatStandsOut": [
+        "Dense high-rise office stock",
+        "Traditional downtown business setting",
+        "Close concentration of professional firms"
+      ],
+      "worthKnowing": [
+        "Building age, floorplate and street activity vary sharply by block."
+      ],
+      "compareWith": [
+        "soma",
+        "jackson-square",
+        "south-beach"
+      ],
+      "sourceIds": [
+        "sf-downtown-plan",
+        "sf-bart-embarcadero",
+        "rofo-public-foundation"
+      ],
+      "route": "/commercial-real-estate/CA/san-francisco/financial-district/",
+      "accessReadiness": "OBJECTIVE_ACCESS_READY",
+      "accessObservations": [
+        "Embarcadero and Montgomery BART stations serve the downtown office core."
+      ],
+      "coverageAction": "CURRENT",
+      "gridOrder": 1
+    },
+    {
+      "id": "soma",
+      "label": "SoMa",
+      "geographyType": "MIXED_COMMERCIAL_DISTRICT",
+      "publicEvidenceTier": "PUBLIC_REVIEWED",
+      "applicability": "PRIMARY",
+      "oneLineDistinction": "Large offices, tech and converted commercial buildings",
+      "shortDescription": "SoMa covers a broad mixed-use area where large modern offices sit near converted warehouses, creative workplaces, convention uses and smaller production-oriented buildings. Technology, creative and headquarters users often consider it for building variety and a less traditional downtown setting. The experience changes block by block, so Central SoMa, East SoMa and the waterfront edge should not be treated as interchangeable.",
+      "commonHere": [
+        "Technology",
+        "Creative",
+        "Corporate office",
+        "Professional services"
+      ],
+      "whatStandsOut": [
+        "Mix of modern and adaptive-reuse buildings",
+        "Larger blocks and varied floorplates",
+        "Commercial character changes across subareas"
+      ],
+      "worthKnowing": [
+        "Confirm the exact SoMa subarea and building format before comparing options."
+      ],
+      "compareWith": [
+        "financial-district",
+        "mission-bay",
+        "south-beach"
+      ],
+      "sourceIds": [
+        "sf-central-soma-plan",
+        "sf-sfmta-central-subway",
+        "rofo-public-foundation"
+      ],
+      "route": "/commercial-real-estate/CA/san-francisco/soma/",
+      "accessReadiness": "OBJECTIVE_ACCESS_READY",
+      "accessObservations": [
+        "The Central Subway serves SoMa at 4th & Brannan and Yerba Buena/Moscone."
+      ],
+      "coverageAction": "CURRENT",
+      "gridOrder": 2
+    },
+    {
+      "id": "mission-bay",
+      "label": "Mission Bay",
+      "geographyType": "R_AND_D_TECHNICAL_CLUSTER",
+      "publicEvidenceTier": "PUBLIC_REVIEWED",
+      "applicability": "PRIMARY",
+      "oneLineDistinction": "Newer research, medical and technical workplaces",
+      "shortDescription": "Mission Bay is a planned mixed-use district shaped by UCSF, medical facilities, research activity and newer commercial development. Life-science, technical and research users consider it for purpose-built or newer-generation workplaces and proximity to a larger institutional ecosystem. Its broad blocks and campus-like projects feel different from the older building fabric of SoMa or the traditional towers of the Financial District.",
+      "commonHere": [
+        "Life sciences",
+        "Research",
+        "Technical teams",
+        "Medical office"
+      ],
+      "whatStandsOut": [
+        "Newer large-scale development",
+        "Research and medical institutions",
+        "Campus and mixed-use blocks"
+      ],
+      "worthKnowing": [
+        "Laboratory suitability, building systems and permitted use remain property-specific."
+      ],
+      "compareWith": [
+        "soma",
+        "dogpatch",
+        "south-beach"
+      ],
+      "sourceIds": [
+        "sf-sfmta-t-third",
+        "rofo-public-foundation",
+        "rofo-representatives"
+      ],
+      "route": "/commercial-real-estate/CA/san-francisco/mission-bay/",
+      "accessReadiness": "OBJECTIVE_ACCESS_READY",
+      "accessObservations": [
+        "T Third light rail runs through Mission Bay along Third Street."
+      ],
+      "coverageAction": "CURRENT",
+      "gridOrder": 3
+    },
+    {
+      "id": "jackson-square",
+      "label": "Jackson Square",
+      "geographyType": "OFFICE_DISTRICT",
+      "publicEvidenceTier": "PUBLIC_REVIEWED",
+      "applicability": "PRIMARY",
+      "oneLineDistinction": "Historic, smaller-scale offices near the downtown core",
+      "shortDescription": "Jackson Square combines historic brick and masonry buildings with smaller offices, design businesses and client-facing professional firms. Users often consider it when they want character and a more intimate scale without leaving the downtown orbit. Its older, fine-grained building stock distinguishes it from Financial District towers and SoMa’s larger converted or newly developed spaces.",
+      "commonHere": [
+        "Creative firms",
+        "Design",
+        "Professional services",
+        "Boutique office"
+      ],
+      "whatStandsOut": [
+        "Historic commercial buildings",
+        "Smaller floorplates",
+        "Downtown-adjacent but lower-scale"
+      ],
+      "worthKnowing": [
+        "Older buildings can differ materially in access, systems and interior configuration."
+      ],
+      "compareWith": [
+        "financial-district",
+        "north-beach",
+        "soma"
+      ],
+      "sourceIds": [
+        "sf-downtown-plan",
+        "rofo-public-foundation",
+        "rofo-representatives"
+      ],
+      "route": "/commercial-real-estate/CA/san-francisco/jackson-square/",
+      "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+      "accessObservations": [],
+      "coverageAction": "CURRENT",
+      "gridOrder": 4
+    },
+    {
+      "id": "south-beach",
+      "label": "South Beach / Embarcadero",
+      "geographyType": "OFFICE_DISTRICT",
+      "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+      "applicability": "SECONDARY",
+      "oneLineDistinction": "Waterfront-edge offices south of the business core",
+      "shortDescription": "South Beach and the southern Embarcadero form a downtown-edge office setting between the Financial District, the waterfront and Mission Bay. Conventional office buildings mix with larger residential, event and mixed-use blocks. Businesses may consider it for a central-city location with a different street and waterfront context from the core Financial District, while still remaining connected to downtown commercial activity.",
+      "commonHere": [
+        "Professional office",
+        "Technology",
+        "Corporate office"
+      ],
+      "whatStandsOut": [
+        "Downtown-to-waterfront transition",
+        "Mix of office and mixed-use blocks",
+        "Connection toward Mission Bay"
+      ],
+      "worthKnowing": [
+        "Event activity and building formats vary considerably around the ballpark and waterfront."
+      ],
+      "compareWith": [
+        "financial-district",
+        "soma",
+        "mission-bay"
+      ],
+      "sourceIds": [
+        "sf-transit-center-plan",
+        "sf-bart-embarcadero",
+        "rofo-representatives"
+      ],
+      "route": "/commercial-real-estate/CA/san-francisco/south-beach/",
+      "accessReadiness": "OBJECTIVE_ACCESS_READY",
+      "accessObservations": [
+        "The area connects to downtown transit around Embarcadero and the Salesforce Transit Center."
+      ],
+      "coverageAction": "ADD",
+      "gridOrder": 5
+    },
+    {
+      "id": "union-square",
+      "label": "Union Square",
+      "geographyType": "RETAIL_CORRIDOR",
+      "publicEvidenceTier": "PUBLIC_REVIEWED",
+      "applicability": "SECONDARY",
+      "oneLineDistinction": "Client-facing offices amid hotels and destination retail",
+      "shortDescription": "Union Square is best known as a retail and visitor district, but its upper floors and smaller commercial buildings also support professional, showroom and client-facing office users. It offers a busier hospitality and shopping context than a conventional office core. Businesses should distinguish the district’s public-facing setting from the quieter or more business-dense conditions found in the Financial District and Jackson Square.",
+      "commonHere": [
+        "Professional office",
+        "Showroom",
+        "Client-facing services"
+      ],
+      "whatStandsOut": [
+        "Retail and hotel setting",
+        "Smaller upper-floor offices",
+        "High visitor orientation"
+      ],
+      "worthKnowing": [
+        "Street conditions and upper-floor access can differ substantially by building."
+      ],
+      "compareWith": [
+        "financial-district",
+        "jackson-square",
+        "soma"
+      ],
+      "sourceIds": [
+        "sf-downtown-plan",
+        "sf-sfmta-central-subway",
+        "rofo-public-foundation"
+      ],
+      "route": "/commercial-real-estate/CA/san-francisco/union-square/",
+      "accessReadiness": "OBJECTIVE_ACCESS_READY",
+      "accessObservations": [
+        "Union Square/Market Street station is on the Central Subway."
+      ],
+      "coverageAction": "CURRENT",
+      "gridOrder": 6
+    },
+    {
+      "id": "civic-center",
+      "label": "Civic Center / Mid-Market",
+      "geographyType": "MIXED_COMMERCIAL_DISTRICT",
+      "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+      "applicability": "SECONDARY",
+      "oneLineDistinction": "Government, nonprofit and institutional office concentration",
+      "shortDescription": "Civic Center and Mid-Market combine government offices, courts, cultural institutions, nonprofits and commercial buildings along and near Market Street. The area can suit organizations that work with public agencies or value an institutional setting, but the block-by-block experience is unusually varied. It is a different office proposition from the private-sector concentration of the Financial District or the creative and technology mix in SoMa.",
+      "commonHere": [
+        "Government-related office",
+        "Nonprofit",
+        "Legal services",
+        "Institutional users"
+      ],
+      "whatStandsOut": [
+        "Civic and cultural institutions",
+        "Market Street commercial buildings",
+        "Strong block-by-block variation"
+      ],
+      "worthKnowing": [
+        "Visit the exact block and verify building access, condition and surrounding activity."
+      ],
+      "compareWith": [
+        "hayes-valley",
+        "soma",
+        "financial-district"
+      ],
+      "sourceIds": [
+        "sf-market-octavia-plan",
+        "sf-neighborhood-commercial-map",
+        "rofo-representatives"
+      ],
+      "route": "/commercial-real-estate/CA/san-francisco/civic-center/",
+      "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+      "accessObservations": [],
+      "coverageAction": "ADD",
+      "gridOrder": 7
+    },
+    {
+      "id": "mission-district",
+      "label": "Mission District",
+      "geographyType": "MIXED_COMMERCIAL_DISTRICT",
+      "publicEvidenceTier": "PUBLIC_REVIEWED",
+      "applicability": "CONTEXTUAL",
+      "oneLineDistinction": "Neighborhood offices within active commercial streets",
+      "shortDescription": "The Mission is not a conventional office district. Its office options tend to sit in mixed-use buildings, converted commercial spaces and smaller workplaces near active neighborhood corridors. Creative firms, nonprofits and local service businesses may consider it for a neighborhood setting and proximity to food, retail and street life. It differs from SoMa through smaller scale and a more residential, corridor-based commercial fabric.",
+      "commonHere": [
+        "Creative firms",
+        "Nonprofit",
+        "Local services",
+        "Small professional office"
+      ],
+      "whatStandsOut": [
+        "Smaller mixed-use buildings",
+        "Neighborhood commercial setting",
+        "Office space dispersed across corridors"
+      ],
+      "worthKnowing": [
+        "Quiet office conditions, accessibility and building systems depend heavily on the property."
+      ],
+      "compareWith": [
+        "soma",
+        "hayes-valley",
+        "civic-center"
+      ],
+      "sourceIds": [
+        "sf-commercial-corridor-history",
+        "rofo-public-foundation",
+        "rofo-representatives"
+      ],
+      "route": "/commercial-real-estate/CA/san-francisco/mission-district/",
+      "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+      "accessObservations": [],
+      "coverageAction": "CURRENT",
+      "gridOrder": 8
+    },
+    {
+      "id": "hayes-valley",
+      "label": "Hayes Valley",
+      "geographyType": "MAIN_STREET",
+      "publicEvidenceTier": "PUBLIC_REVIEWED",
+      "applicability": "CONTEXTUAL",
+      "oneLineDistinction": "Small offices in a design-led neighborhood setting",
+      "shortDescription": "Hayes Valley offers smaller office and studio settings within a compact neighborhood known for design, dining and independent retail. Creative, design, wellness and professional-service users may value the client-friendly street context more than large floorplates or a traditional business address. Its scale is more intimate than nearby Civic Center, while its commercial identity is more concentrated and customer-facing than a broad residential neighborhood.",
+      "commonHere": [
+        "Creative firms",
+        "Design",
+        "Wellness",
+        "Professional services"
+      ],
+      "whatStandsOut": [
+        "Compact mixed-use blocks",
+        "Design and retail adjacency",
+        "Predominantly smaller commercial formats"
+      ],
+      "worthKnowing": [
+        "Large contiguous office requirements may be difficult to represent at district level."
+      ],
+      "compareWith": [
+        "civic-center",
+        "mission-district",
+        "soma"
+      ],
+      "sourceIds": [
+        "sf-market-octavia-plan",
+        "sf-commercial-corridor-history",
+        "rofo-public-foundation"
+      ],
+      "route": "/commercial-real-estate/CA/san-francisco/hayes-valley/",
+      "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+      "accessObservations": [],
+      "coverageAction": "CURRENT",
+      "gridOrder": 9
+    },
+    {
+      "id": "presidio",
+      "label": "Presidio",
+      "geographyType": "SPECIALIZED_OPERATING_ENVIRONMENT",
+      "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+      "applicability": "CONTEXTUAL",
+      "oneLineDistinction": "Historic campus workplaces inside a national park",
+      "shortDescription": "The Presidio offers a specialized office setting in reused military buildings within a federally managed national park. Technology, finance, education, nonprofit and creative organizations occupy a mix of multi-tenant and stand-alone buildings. The low-density campus character is unlike downtown towers or neighborhood storefront offices, making it a meaningful niche option rather than a substitute for every conventional San Francisco office search.",
+      "commonHere": [
+        "Technology",
+        "Nonprofit",
+        "Education",
+        "Professional office"
+      ],
+      "whatStandsOut": [
+        "Historic adaptive-reuse buildings",
+        "Landscaped campus setting",
+        "Stand-alone and multi-tenant formats"
+      ],
+      "worthKnowing": [
+        "Leasing rules, transportation, parking and building conditions require Presidio-specific review."
+      ],
+      "compareWith": [
+        "marina-district",
+        "financial-district",
+        "hayes-valley"
+      ],
+      "sourceIds": [
+        "sf-presidio-leasing",
+        "rofo-representatives"
+      ],
+      "route": "/commercial-real-estate/CA/san-francisco/presidio/",
+      "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+      "accessObservations": [],
+      "coverageAction": "ADD",
+      "gridOrder": 10
+    }
+  ]
+}

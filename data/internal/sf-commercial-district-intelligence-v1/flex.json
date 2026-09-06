@@ -1,0 +1,240 @@
+{
+  "schemaVersion": "sf-commercial-district-intelligence:v1",
+  "market": {
+    "id": "san-francisco",
+    "label": "San Francisco",
+    "municipality": "San Francisco",
+    "state": "CA"
+  },
+  "spaceType": "flex",
+  "districts": [
+    {
+      "id": "soma",
+      "label": "SoMa",
+      "geographyType": "MIXED_COMMERCIAL_DISTRICT",
+      "publicEvidenceTier": "PUBLIC_REVIEWED",
+      "applicability": "PRIMARY",
+      "oneLineDistinction": "Converted buildings for office, creative and technical work",
+      "shortDescription": "SoMa offers San Francisco’s broadest central-city mix of offices, converted warehouses, studios and hybrid commercial buildings. Flex users may consider it when office, creative, technical and limited production needs overlap. The range is a strength, but also a warning: one block may offer polished office space while another contains older operational stock, so the exact subarea and property format must lead the comparison.",
+      "commonHere": [
+        "Office/warehouse",
+        "Creative studio",
+        "Technical operations",
+        "Light production"
+      ],
+      "whatStandsOut": [
+        "Wide range of adaptive buildings",
+        "Central office-production overlap",
+        "Large variation between subareas"
+      ],
+      "worthKnowing": [
+        "Confirm loading, permitted use, building systems and customer-facing needs at the property."
+      ],
+      "compareWith": [
+        "showplace-square",
+        "dogpatch",
+        "mission-bay"
+      ],
+      "sourceIds": [
+        "sf-central-soma-plan",
+        "rofo-public-foundation"
+      ],
+      "route": "/commercial-real-estate/CA/san-francisco/soma/",
+      "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+      "accessObservations": [],
+      "coverageAction": "CURRENT",
+      "gridOrder": 1
+    },
+    {
+      "id": "dogpatch",
+      "label": "Dogpatch",
+      "geographyType": "MIXED_COMMERCIAL_DISTRICT",
+      "publicEvidenceTier": "PUBLIC_REVIEWED",
+      "applicability": "PRIMARY",
+      "oneLineDistinction": "Small-scale maker, studio and office-production mix",
+      "shortDescription": "Dogpatch supports a fine-grained mix of workshops, studios, small production buildings and office-like spaces within a historic mixed neighborhood. It can fit maker, design, technical or office-production users that do not need a conventional business park. The neighborhood scale and close residential adjacency distinguish it from Central Waterfront’s protected PDR core and SoMa’s broader commercial inventory.",
+      "commonHere": [
+        "Office/production",
+        "Maker space",
+        "Creative studio",
+        "R&D"
+      ],
+      "whatStandsOut": [
+        "Historic small-building fabric",
+        "Production beside neighborhood uses",
+        "Close connection to Central Waterfront"
+      ],
+      "worthKnowing": [
+        "Verify noise, loading, ventilation, circulation and use compatibility for the address."
+      ],
+      "compareWith": [
+        "central-waterfront",
+        "mission-bay",
+        "showplace-square"
+      ],
+      "sourceIds": [
+        "sf-central-waterfront-plan",
+        "sf-port-pier70",
+        "rofo-public-foundation"
+      ],
+      "route": "/commercial-real-estate/CA/san-francisco/dogpatch/",
+      "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+      "accessObservations": [],
+      "coverageAction": "CURRENT",
+      "gridOrder": 2
+    },
+    {
+      "id": "showplace-square",
+      "label": "Showplace Square",
+      "geographyType": "FLEX_BUSINESS_PARK_ENVIRONMENT",
+      "publicEvidenceTier": "PUBLIC_REVIEWED",
+      "applicability": "PRIMARY",
+      "oneLineDistinction": "Showroom, design and production in warehouse buildings",
+      "shortDescription": "Showplace Square is a strong flex environment for users combining showroom, design, office, storage and light production functions. Former warehouse and industrial buildings support a distinctive cluster of furniture, interiors, contractors and creative businesses. Its trade and showroom orientation differs from Dogpatch’s neighborhood-scale maker fabric and SoMa’s office-heavy adaptive reuse.",
+      "commonHere": [
+        "Showroom",
+        "Office/warehouse",
+        "Creative production",
+        "Contractor/service"
+      ],
+      "whatStandsOut": [
+        "Design-industry cluster",
+        "Warehouse-to-showroom conversions",
+        "Customer-facing and operational overlap"
+      ],
+      "worthKnowing": [
+        "Confirm loading, public access, use approval and the balance of office versus production space."
+      ],
+      "compareWith": [
+        "dogpatch",
+        "soma",
+        "central-waterfront"
+      ],
+      "sourceIds": [
+        "sf-showplace-potrero-plan",
+        "rofo-public-foundation",
+        "rofo-representatives"
+      ],
+      "route": "/commercial-real-estate/CA/san-francisco/showplace-square/",
+      "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+      "accessObservations": [],
+      "coverageAction": "CURRENT",
+      "gridOrder": 3
+    },
+    {
+      "id": "central-waterfront",
+      "label": "Central Waterfront",
+      "geographyType": "INDUSTRIAL_DISTRICT",
+      "publicEvidenceTier": "PUBLIC_REVIEWED",
+      "applicability": "SECONDARY",
+      "oneLineDistinction": "Production-led flex beside the protected PDR core",
+      "shortDescription": "Central Waterfront can support flex users whose mix leans toward fabrication, prototyping, assembly or production rather than conventional office. Its PDR core and mixed-use transition areas create different property contexts within the same broad geography. It is more operational than Mission Bay and generally less showroom-oriented than Showplace Square.",
+      "commonHere": [
+        "Office/production",
+        "Prototyping",
+        "Technical operations",
+        "Light manufacturing"
+      ],
+      "whatStandsOut": [
+        "Production-led hybrid space",
+        "PDR and transition subareas",
+        "Waterfront industrial context"
+      ],
+      "worthKnowing": [
+        "Subarea, zoning, utilities, loading and environmental conditions require property-level review."
+      ],
+      "compareWith": [
+        "dogpatch",
+        "showplace-square",
+        "bayview-industrial"
+      ],
+      "sourceIds": [
+        "sf-central-waterfront-plan",
+        "sf-port-pier70",
+        "rofo-public-foundation"
+      ],
+      "route": "/commercial-real-estate/CA/san-francisco/central-waterfront/",
+      "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+      "accessObservations": [],
+      "coverageAction": "CURRENT",
+      "gridOrder": 4
+    },
+    {
+      "id": "mission-bay",
+      "label": "Mission Bay",
+      "geographyType": "R_AND_D_TECHNICAL_CLUSTER",
+      "publicEvidenceTier": "PUBLIC_REVIEWED",
+      "applicability": "SECONDARY",
+      "oneLineDistinction": "Research-oriented space in a newer institutional district",
+      "shortDescription": "Mission Bay matters to flex searches primarily where laboratory, research, technical and office functions overlap. The district’s newer projects and institutional setting differ from warehouse-derived flex in SoMa or Showplace Square. It should not be treated as generic flex inventory: specialized systems, use approvals and building formats determine whether a particular space can support technical work.",
+      "commonHere": [
+        "R&D",
+        "Life sciences",
+        "Technical office",
+        "Research workspace"
+      ],
+      "whatStandsOut": [
+        "Research and medical ecosystem",
+        "Newer large-scale buildings",
+        "Institutional and campus context"
+      ],
+      "worthKnowing": [
+        "Laboratory infrastructure, use, ventilation, power and buildout must be verified per property."
+      ],
+      "compareWith": [
+        "dogpatch",
+        "soma",
+        "central-waterfront"
+      ],
+      "sourceIds": [
+        "sf-sfmta-t-third",
+        "rofo-public-foundation"
+      ],
+      "route": "/commercial-real-estate/CA/san-francisco/mission-bay/",
+      "accessReadiness": "OBJECTIVE_ACCESS_READY",
+      "accessObservations": [
+        "T Third light rail runs through Mission Bay along Third Street."
+      ],
+      "coverageAction": "CURRENT",
+      "gridOrder": 5
+    },
+    {
+      "id": "bayview-industrial",
+      "label": "Bayview Industrial",
+      "geographyType": "INDUSTRIAL_DISTRICT",
+      "publicEvidenceTier": "PUBLIC_REVIEWED",
+      "applicability": "SECONDARY",
+      "oneLineDistinction": "Operational flex for service, warehouse and production users",
+      "shortDescription": "Bayview can support flex requirements that remain operationally led, such as office paired with warehouse, service, production or fleet activity. The area’s practical industrial stock distinguishes it from polished office-flex or showroom environments. It is most useful when the business needs a real operating base and can investigate property-specific loading, circulation, utilities and compatibility.",
+      "commonHere": [
+        "Office/warehouse",
+        "Contractor/service",
+        "Production support",
+        "Technical operations"
+      ],
+      "whatStandsOut": [
+        "Industrial-led hybrid formats",
+        "City-serving operating base",
+        "Broader operational context"
+      ],
+      "worthKnowing": [
+        "Do not assume office quality, loading, yard, power or circulation without property verification."
+      ],
+      "compareWith": [
+        "central-waterfront",
+        "dogpatch",
+        "showplace-square"
+      ],
+      "sourceIds": [
+        "sf-central-waterfront-plan",
+        "sf-sfmta-t-third",
+        "rofo-public-foundation"
+      ],
+      "route": "/commercial-real-estate/CA/san-francisco/bayview-industrial/",
+      "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+      "accessObservations": [],
+      "coverageAction": "CURRENT",
+      "gridOrder": 6
+    }
+  ]
+}

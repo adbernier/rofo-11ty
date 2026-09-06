@@ -1,0 +1,1 @@
+Internal deterministic editorial foundation for the live San Francisco public commercial-district experience. Public claims remain distinct from Recommendation Intelligence. Historical availability is excluded. Regenerate with npm run build:sf-commercial-district-intelligence-v1.
