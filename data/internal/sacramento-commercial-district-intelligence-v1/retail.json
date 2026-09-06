@@ -1,0 +1,256 @@
+{
+  "schemaVersion": "sacramento-commercial-district-intelligence:v1",
+  "market": {
+    "id": "sacramento",
+    "label": "Sacramento",
+    "municipality": "Sacramento",
+    "state": "CA"
+  },
+  "spaceType": "retail",
+  "districts": [
+    {
+      "id": "midtown-sacramento",
+      "label": "Midtown Sacramento",
+      "geographyType": "MIXED_COMMERCIAL_DISTRICT",
+      "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+      "applicability": "PRIMARY",
+      "oneLineDistinction": "Restaurants, services and neighborhood retail across the central grid",
+      "shortDescription": "Midtown is Sacramento’s broadest central-city neighborhood retail setting, mixing restaurants, bars, personal services, boutiques and daily-use businesses with offices and housing. Customer activity is distributed across several corridors rather than concentrated on one shopping street. Retailers should compare the exact block and nearby anchors: J Street, 16th Street, the R Street edge and quieter residential blocks produce different storefront conditions.",
+      "commonHere": [
+        "Food and beverage",
+        "Personal services",
+        "Neighborhood retail",
+        "Boutiques"
+      ],
+      "whatStandsOut": [
+        "Mixed-use street grid",
+        "Multiple commercial corridors",
+        "Daytime and evening activity"
+      ],
+      "worthKnowing": [
+        "Midtown is broad; storefront visibility and customer rhythm vary by corridor."
+      ],
+      "compareWith": [
+        "downtown-sacramento",
+        "r-street-district",
+        "east-sacramento-j-street"
+      ],
+      "sourceIds": [
+        "sac-central-city-plan",
+        "sac-pbid",
+        "sac-public-foundation"
+      ],
+      "municipality": "Sacramento",
+      "state": "CA",
+      "route": "/commercial-real-estate/CA/sacramento/midtown-sacramento/",
+      "indexation": "COMPONENT_READY",
+      "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+      "accessObservations": [],
+      "gridOrder": 1,
+      "coverageAction": "CURRENT"
+    },
+    {
+      "id": "downtown-sacramento",
+      "label": "Downtown Sacramento",
+      "geographyType": "MIXED_COMMERCIAL_DISTRICT",
+      "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+      "applicability": "SECONDARY",
+      "oneLineDistinction": "Civic, entertainment and visitor-serving retail in the central core",
+      "shortDescription": "Downtown retail serves several overlapping audiences: government and office workers, arena and convention visitors, tourists, residents and evening entertainment customers. The result is not one continuous shopping district. Old Sacramento Waterfront, K Street, Capitol Mall and the arena area each have different customer patterns and storefront contexts, making subdistrict and daypart important when comparing locations.",
+      "commonHere": [
+        "Food and beverage",
+        "Visitor retail",
+        "Entertainment",
+        "Services"
+      ],
+      "whatStandsOut": [
+        "Government-worker demand",
+        "Arena and convention activity",
+        "Distinct visitor and entertainment subdistricts"
+      ],
+      "worthKnowing": [
+        "Customer traffic can vary sharply by subdistrict, event schedule and time of day."
+      ],
+      "compareWith": [
+        "midtown-sacramento",
+        "r-street-district",
+        "broadway-corridor"
+      ],
+      "sourceIds": [
+        "sac-central-city-plan",
+        "sac-pbid",
+        "sac-public-foundation"
+      ],
+      "municipality": "Sacramento",
+      "state": "CA",
+      "route": "/commercial-real-estate/CA/sacramento/downtown-sacramento/",
+      "indexation": "COMPONENT_READY",
+      "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+      "accessObservations": [],
+      "gridOrder": 2,
+      "coverageAction": "CURRENT"
+    },
+    {
+      "id": "r-street-district",
+      "label": "R Street District",
+      "geographyType": "MIXED_COMMERCIAL_DISTRICT",
+      "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+      "applicability": "PRIMARY",
+      "oneLineDistinction": "Adaptive-reuse warehouses filled with dining, studios and shops",
+      "shortDescription": "R Street is a former rail and industrial corridor reshaped by adaptive reuse, with historic warehouses and industrial shops now housing restaurants, galleries, design studios, offices and local retail. Businesses commonly consider it for a distinctive brick-and-industrial setting and a mix of destination dining and creative uses. The district remains linear and mixed, so frontage and activity differ along the R and S Street corridors.",
+      "commonHere": [
+        "Food and beverage",
+        "Creative studios",
+        "Local retail",
+        "Design"
+      ],
+      "whatStandsOut": [
+        "Adaptive-reuse warehouse character",
+        "Linear R and S Street corridors",
+        "Creative and dining concentration"
+      ],
+      "worthKnowing": [
+        "Activity and storefront continuity change along the corridor; verify the exact block."
+      ],
+      "compareWith": [
+        "midtown-sacramento",
+        "broadway-corridor",
+        "downtown-sacramento"
+      ],
+      "sourceIds": [
+        "sac-central-city-plan-pdf",
+        "sac-pbid"
+      ],
+      "municipality": "Sacramento",
+      "state": "CA",
+      "route": null,
+      "indexation": "COMPONENT_READY",
+      "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+      "accessObservations": [],
+      "gridOrder": 3,
+      "coverageAction": "ADD"
+    },
+    {
+      "id": "broadway-corridor",
+      "label": "Broadway Corridor",
+      "geographyType": "RETAIL_CORRIDOR",
+      "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+      "applicability": "PRIMARY",
+      "oneLineDistinction": "An eclectic low-rise corridor of restaurants, services and local commerce",
+      "shortDescription": "Broadway is a long, low-rise commercial corridor south of the central grid, mixing restaurants, neighborhood services, small retailers, offices and some industrial or heavy-commercial properties. It is less polished and less concentrated than Midtown, but its variety and established independent-business identity make it relevant to service and food operators. The corridor changes noticeably between the river, Land Park, Oak Park and Stockton Boulevard ends.",
+      "commonHere": [
+        "Food and beverage",
+        "Neighborhood services",
+        "Independent retail",
+        "Automotive services"
+      ],
+      "whatStandsOut": [
+        "Long linear corridor",
+        "Predominantly low-rise commercial buildings",
+        "Mix of retail, office and industrial uses"
+      ],
+      "worthKnowing": [
+        "The customer base and physical format vary considerably by segment."
+      ],
+      "compareWith": [
+        "r-street-district",
+        "stockton-boulevard",
+        "midtown-sacramento"
+      ],
+      "sourceIds": [
+        "sac-central-city-plan-pdf",
+        "sac-pbid"
+      ],
+      "municipality": "Sacramento",
+      "state": "CA",
+      "route": null,
+      "indexation": "COMPONENT_READY",
+      "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+      "accessObservations": [],
+      "gridOrder": 4,
+      "coverageAction": "ADD"
+    },
+    {
+      "id": "stockton-boulevard",
+      "label": "Stockton Boulevard",
+      "geographyType": "RETAIL_CORRIDOR",
+      "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+      "applicability": "SECONDARY",
+      "oneLineDistinction": "Culturally rooted restaurants, services and auto-oriented corridor retail",
+      "shortDescription": "Stockton Boulevard is a long commercial corridor linking Oak Park, the UC Davis medical area and South Sacramento neighborhoods. It supports restaurants, culturally specific businesses, neighborhood services, auto-oriented uses and institutional activity, including Sacramento’s officially recognized Little Saigon segment. Because the corridor spans many neighborhoods and crosses jurisdictional context farther south, users should evaluate the exact City of Sacramento segment rather than treating it as one uniform retail district.",
+      "commonHere": [
+        "Food and beverage",
+        "Cultural retail",
+        "Neighborhood services",
+        "Medical-area services"
+      ],
+      "whatStandsOut": [
+        "Little Saigon commercial identity",
+        "Long multi-neighborhood corridor",
+        "Institutional activity near UC Davis Health"
+      ],
+      "worthKnowing": [
+        "Use City-owned segments only; frontage, access and business mix change substantially along the corridor."
+      ],
+      "compareWith": [
+        "broadway-corridor",
+        "east-sacramento-j-street",
+        "midtown-sacramento"
+      ],
+      "sourceIds": [
+        "sac-stockton",
+        "sac-pbid"
+      ],
+      "municipality": "Sacramento",
+      "state": "CA",
+      "route": null,
+      "indexation": "COMPONENT_READY",
+      "accessReadiness": "OBJECTIVE_ACCESS_READY",
+      "accessObservations": [
+        "SacRT Route 51 follows Stockton Boulevard and connects through Broadway to Downtown."
+      ],
+      "gridOrder": 5,
+      "coverageAction": "ADD"
+    },
+    {
+      "id": "east-sacramento-j-street",
+      "label": "East Sacramento / J Street",
+      "geographyType": "RETAIL_CORRIDOR",
+      "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+      "applicability": "SECONDARY",
+      "oneLineDistinction": "Neighborhood services and small storefronts along an urban corridor",
+      "shortDescription": "J Street through Midtown’s eastern edge and East Sacramento supports restaurants, personal services, medical and professional offices, and neighborhood-oriented storefronts in small mixed-use buildings. It offers a more residential, local-serving context than Downtown and a less concentrated entertainment profile than central Midtown. The commercial pattern is linear and intermittent, so businesses should compare individual nodes rather than assume continuous retail frontage.",
+      "commonHere": [
+        "Neighborhood retail",
+        "Food and beverage",
+        "Personal services",
+        "Medical office"
+      ],
+      "whatStandsOut": [
+        "Small mixed-use buildings",
+        "Residential neighborhood context",
+        "Linear commercial nodes"
+      ],
+      "worthKnowing": [
+        "J Street is not continuously commercial; visibility and nearby anchors depend on the specific segment."
+      ],
+      "compareWith": [
+        "midtown-sacramento",
+        "stockton-boulevard",
+        "r-street-district"
+      ],
+      "sourceIds": [
+        "sac-east-plan",
+        "sac-central-city-plan"
+      ],
+      "municipality": "Sacramento",
+      "state": "CA",
+      "route": null,
+      "indexation": "COMPONENT_READY",
+      "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+      "accessObservations": [],
+      "gridOrder": 6,
+      "coverageAction": "ADD"
+    }
+  ]
+}

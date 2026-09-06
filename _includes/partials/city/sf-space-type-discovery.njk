@@ -1,11 +1,11 @@
-{% set discovery = sfCommercialGeographyExperience %}
-<section class="city-card sf-space-type-discovery" data-commercial-geography-surface="sf-city" aria-labelledby="sf-space-type-heading">
-  <div class="eyebrow">Explore San Francisco</div>
+{% set discovery = publicCommercialGeographyExperience or sfCommercialGeographyExperience %}
+<section class="city-card sf-space-type-discovery" data-commercial-geography-surface="{{ discovery.sourceSurfacePrefix or 'sf' }}-city" aria-labelledby="sf-space-type-heading">
+  <div class="eyebrow">Explore {{ discovery.city.label }}</div>
   <h2 id="sf-space-type-heading">What kind of space are you looking for?</h2>
-  <p>Choose a space type first. Each opens a different set of San Francisco commercial districts.</p>
+  <p>Choose a space type first. Each opens a different set of {{ discovery.city.label }} commercial districts.</p>
   <div class="sf-space-type-discovery__grid">
     {% for choice in discovery.spaceTypes %}
-      <a class="sf-space-type-choice" href="{{ choice.path }}" data-geography-event="space_type_selected" data-market="san-francisco" data-property-type="{{ choice.id }}" data-source-surface="sf_city">
+      <a class="sf-space-type-choice" href="{{ choice.path }}" data-geography-event="space_type_selected" data-market="{{ discovery.city.id or (discovery.city.label | lower) }}" data-property-type="{{ choice.id }}" data-source-surface="{{ discovery.sourceSurfacePrefix or 'sf' }}_city">
         <strong>{{ choice.label }}</strong>
         <span>{{ choice.geographies.length }} commercial {{ "district" if choice.geographies.length == 1 else "districts" }}</span>
         <em>Explore {{ choice.label }} →</em>

@@ -1,0 +1,128 @@
+{
+  "schemaVersion": "sacramento-commercial-district-intelligence:v1",
+  "market": {
+    "id": "sacramento",
+    "label": "Sacramento",
+    "municipality": "Sacramento",
+    "state": "CA"
+  },
+  "spaceType": "flex",
+  "districts": [
+    {
+      "id": "northgate-north-market-industrial",
+      "label": "Northgate / North Market Industrial",
+      "geographyType": "FLEX_BUSINESS_PARK_ENVIRONMENT",
+      "publicEvidenceTier": "PUBLIC_REVIEWED",
+      "applicability": "PRIMARY",
+      "oneLineDistinction": "Multi-tenant office/warehouse and lighter service formats",
+      "shortDescription": "Northgate / North Market provides Sacramento’s clearest reviewed setting for lighter Flex, multi-tenant office/warehouse, service-industrial and contractor uses. Its bounded identity centers on Northgate and North Market Boulevard rather than broad Natomas. Businesses should use the district to understand a northern, lighter operating context while confirming office ratio, unit configuration and use permissions at the property level.",
+      "commonHere": [
+        "Office/warehouse",
+        "Multi-tenant Flex",
+        "Contractor/service",
+        "Light operations"
+      ],
+      "whatStandsOut": [
+        "Lighter Flex orientation",
+        "Multi-tenant operating formats",
+        "Bounded northern Sacramento identity"
+      ],
+      "worthKnowing": [
+        "Exact office ratio, loading, parking and permitted use remain property-specific."
+      ],
+      "compareWith": [
+        "power-inn-industrial",
+        "river-district"
+      ],
+      "sourceIds": [
+        "sac-reviewed-industrial",
+        "sac-durable-properties"
+      ],
+      "municipality": "Sacramento",
+      "state": "CA",
+      "route": null,
+      "indexation": "COMPONENT_READY",
+      "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+      "accessObservations": [],
+      "gridOrder": 1,
+      "coverageAction": "CURRENT"
+    },
+    {
+      "id": "power-inn-industrial",
+      "label": "Power Inn Industrial",
+      "geographyType": "INDUSTRIAL_DISTRICT",
+      "publicEvidenceTier": "PUBLIC_REVIEWED",
+      "applicability": "PRIMARY",
+      "oneLineDistinction": "Industrial-led Flex for production and service operations",
+      "shortDescription": "Power Inn supports Flex when the requirement remains operational: office/warehouse, contractor/service, light production and industrial-led mixed use. It is the heavier, broader operating setting in Sacramento’s reviewed Flex universe, not a generic office-first Flex district. The area’s range is useful for comparison, but no district-level statement establishes the configuration or capability of a particular building.",
+      "commonHere": [
+        "Office/warehouse",
+        "Production Flex",
+        "Contractor/service",
+        "Industrial-led Flex"
+      ],
+      "whatStandsOut": [
+        "Heavier operating context",
+        "Production and service orientation",
+        "Broader industrial setting"
+      ],
+      "worthKnowing": [
+        "Confirm exact unit layout, building systems, loading and permitted use for each property."
+      ],
+      "compareWith": [
+        "northgate-north-market-industrial",
+        "river-district"
+      ],
+      "sourceIds": [
+        "sac-reviewed-industrial",
+        "sac-pbid",
+        "sac-durable-properties"
+      ],
+      "municipality": "Sacramento",
+      "state": "CA",
+      "route": "/commercial-real-estate/CA/sacramento/power-inn-industrial/",
+      "indexation": "COMPONENT_READY",
+      "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+      "accessObservations": [],
+      "gridOrder": 2,
+      "coverageAction": "CURRENT"
+    },
+    {
+      "id": "river-district",
+      "label": "River District / Richards Boulevard",
+      "geographyType": "MIXED_COMMERCIAL_DISTRICT",
+      "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+      "applicability": "CONTEXTUAL",
+      "oneLineDistinction": "Adaptive reuse and mixed employment on transitional industrial blocks",
+      "shortDescription": "The River District’s mix of legacy warehouses, government offices and redevelopment creates a contextual Flex story rather than a deep, standardized Flex market. Some buildings may support office/operational combinations or adaptive reuse, but the district is changing and formats are inconsistent. It is useful for businesses exploring close-in mixed employment settings, while Power Inn and Northgate remain the clearer reviewed operating districts.",
+      "commonHere": [
+        "Adaptive reuse",
+        "Office/operations",
+        "City-serving uses"
+      ],
+      "whatStandsOut": [
+        "Legacy warehouse fabric",
+        "Office and industrial overlap",
+        "Transitional redevelopment context"
+      ],
+      "worthKnowing": [
+        "Flex identity is contextual; verify building format, current use and redevelopment constraints."
+      ],
+      "compareWith": [
+        "northgate-north-market-industrial",
+        "power-inn-industrial"
+      ],
+      "sourceIds": [
+        "sac-river-plan"
+      ],
+      "municipality": "Sacramento",
+      "state": "CA",
+      "route": null,
+      "indexation": "COMPONENT_READY",
+      "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+      "accessObservations": [],
+      "gridOrder": 3,
+      "coverageAction": "ADD"
+    }
+  ]
+}

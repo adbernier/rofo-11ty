@@ -27,6 +27,7 @@ eleventyComputed:
   { "label": city.city + ", " + city.state_abbr, "url": page.url }
 ] %}
 {% set isSanFranciscoDecisionJourney = city.slug == "san-francisco" and city.state_abbr == "CA" %}
+{% set hasPublicCommercialGeographyExperience = isSanFranciscoDecisionJourney or (city.slug == "sacramento" and city.state_abbr == "CA") %}
 {% set commercialKnowledgeSnapshot = city.commercial_knowledge_snapshot or {} %}
 
 {% set cityBuildings = [] %}
@@ -183,7 +184,7 @@ eleventyComputed:
     <div class="city-primary-layout city-primary-layout--single-column">
       <div class="city-primary-main">
         <div class="city-hero city-hero--content-only city-hero--decision-v2">
-          <div class="city-card city-decision-hero{% if isSanFranciscoDecisionJourney %} city-decision-hero--sf-geography{% endif %}">
+          <div class="city-card city-decision-hero{% if hasPublicCommercialGeographyExperience %} city-decision-hero--sf-geography{% endif %}">
             <div class="city-hero-copy">
               <div class="eyebrow">{{ city.city }} Commercial Real Estate</div>
 
@@ -193,7 +194,8 @@ eleventyComputed:
                 <p class="city-decision-hero__lead">{{ city.growth_experiment.heroLead }}</p>
               {% endif %}
 
-              {% if isSanFranciscoDecisionJourney %}
+              {% if hasPublicCommercialGeographyExperience %}
+                {% set publicCommercialGeographyExperience = sfCommercialGeographyExperience if isSanFranciscoDecisionJourney else sacramentoCommercialGeographyExperience %}
                 {% include "partials/city/sf-space-type-discovery.njk" %}
               {% endif %}
 

@@ -1,0 +1,14 @@
+"use strict";
+const fs=require("node:fs"),path=require("node:path"),crypto=require("node:crypto");
+const source=require("./sacramento-commercial-district-intelligence-v1-source");
+const root=path.resolve(__dirname,"../.."),out=path.join(root,"data/internal/sacramento-commercial-district-intelligence-v1");
+fs.mkdirSync(out,{recursive:true});
+const write=(name,value)=>fs.writeFileSync(path.join(out,name),typeof value==="string"?value:`${JSON.stringify(value,null,2)}\n`);
+for(const [type,districts] of Object.entries(source.spaceTypes)) write(`${type}.json`,{schemaVersion:source.schemaVersion,market:source.market,spaceType:type,districts});
+write("index.json",{schemaVersion:source.schemaVersion,market:source.market,spaceTypes:Object.fromEntries(Object.entries(source.spaceTypes).map(([k,v])=>[k,{districtCount:v.length,file:`${k}.json`}]))});
+write("coverage-review.json",{schemaVersion:source.schemaVersion,market:source.market,...source.coverage,totalNewRelationships:source.totalNewRelationships});
+write("sources.json",{schemaVersion:source.schemaVersion,sources:source.sources});
+write("README.txt","Sacramento Commercial District Intelligence v1\nInternal governed editorial foundation. Public context is not Recommendation Intelligence. Historical availability is excluded.\n");
+const files=fs.readdirSync(out).filter(f=>f!=="artifact-manifest.json").sort();
+write("artifact-manifest.json",{schemaVersion:source.schemaVersion,artifacts:files.map(file=>{const b=fs.readFileSync(path.join(out,file));return{file,bytes:b.length,sha256:crypto.createHash("sha256").update(b).digest("hex")};})});
+console.log(`Wrote ${Object.values(source.spaceTypes).flat().length} Sacramento district relationships with ${source.totalNewRelationships} bounded additions.`);

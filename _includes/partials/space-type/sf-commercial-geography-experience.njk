@@ -1,13 +1,14 @@
 {% set experience = entry.publicCommercialGeography %}
-<section class="sf-commercial-geography" data-commercial-geography-experience data-market="san-francisco" data-property-type="{{ experience.id }}" aria-labelledby="sf-commercial-geography-heading">
+{% set experienceRoot = publicCommercialGeographyExperience or sfCommercialGeographyExperience %}
+<section class="sf-commercial-geography" data-commercial-geography-experience data-market="{{ experienceRoot.city.id or (experienceRoot.city.label | lower) }}" data-property-type="{{ experience.id }}" aria-labelledby="sf-commercial-geography-heading">
   <div class="city-card sf-geography-explorer">
-    <div class="eyebrow">Explore San Francisco</div>
+    <div class="eyebrow">Explore {{ experienceRoot.city.label }}</div>
     <h2 id="sf-commercial-geography-heading">{{ experience.explorationTitle }}</h2>
-    <p>Explore the San Francisco districts most relevant to {{ experience.label }} searches. Choose one to see what makes it different.</p>
+    <p>Explore the {{ experienceRoot.city.label }} districts most relevant to {{ experience.label }} searches. Choose one to see what makes it different.</p>
 
     <div class="sf-geography-grid" role="tablist" aria-label="{{ experience.label }} commercial districts" data-selection-semantics="exploration_only">
       {% for geography in experience.geographies %}
-        <button type="button" class="sf-geography-tile{% if loop.first %} is-selected{% endif %}" role="tab" aria-selected="{{ 'true' if loop.first else 'false' }}" aria-controls="sf-geography-panel-{{ geography.id }}" id="sf-geography-tab-{{ geography.id }}" data-geography-id="{{ geography.id }}" data-geography-event="commercial_geography_selected" data-source-surface="sf_geography_grid">
+        <button type="button" class="sf-geography-tile{% if loop.first %} is-selected{% endif %}" role="tab" aria-selected="{{ 'true' if loop.first else 'false' }}" aria-controls="sf-geography-panel-{{ geography.id }}" id="sf-geography-tab-{{ geography.id }}" data-geography-id="{{ geography.id }}" data-geography-event="commercial_geography_selected" data-source-surface="{{ experienceRoot.sourceSurfacePrefix or 'sf' }}_geography_grid">
           <strong>{{ geography.label }}</strong>
           <span>{{ geography.oneLineDistinction }}</span>
           <small>{{ geography.areaPatterns.slice(0, 3) | join(" · ") }}</small>
@@ -20,8 +21,8 @@
     {% for geography in experience.geographies %}
       <article class="city-card sf-geography-panel" id="sf-geography-panel-{{ geography.id }}" role="tabpanel" aria-labelledby="sf-geography-tab-{{ geography.id }}" {% if not loop.first %}hidden{% endif %} data-geography-panel="{{ geography.id }}">
         <header class="sf-geography-panel__identity">
-          <div><div class="eyebrow">{{ geography.geographyTypeLabel }} · San Francisco</div><h2>{{ geography.label }}</h2></div>
-          {% if geography.canonicalPath %}<a class="btn-secondary" href="{{ geography.canonicalPath }}" data-geography-event="commercial_geography_opened" data-geography-id="{{ geography.id }}" data-source-surface="sf_intelligence_panel">Explore {{ geography.label }} →</a>{% endif %}
+          <div><div class="eyebrow">{{ geography.geographyTypeLabel }} · {{ experienceRoot.city.label }}</div><h2>{{ geography.label }}</h2></div>
+          {% if geography.canonicalPath %}<a class="btn-secondary" href="{{ geography.canonicalPath }}" data-geography-event="commercial_geography_opened" data-geography-id="{{ geography.id }}" data-source-surface="{{ experienceRoot.sourceSurfacePrefix or 'sf' }}_intelligence_panel">Explore {{ geography.label }} →</a>{% endif %}
         </header>
 
         <section><h3>What it's like</h3><p>{{ geography.description }}</p></section>
@@ -37,12 +38,12 @@
                 <article class="sf-representative-card">
                   <div class="sf-representative-card__visual" aria-hidden="true"><span>{{ property.propertyType | first }}</span><i></i><i></i></div>
                   <div class="sf-representative-card__body">
-                    <div class="eyebrow">Example {{ "building" if property.kind == "PROPERTY" else "environment" }}</div><h4>{{ property.name }}</h4><p class="sf-representative-card__address">{% if property.address %}{{ property.address }} · {% endif %}{{ property.geography }}, San Francisco</p>
+                    <div class="eyebrow">Example {{ "building" if property.kind == "PROPERTY" else "environment" }}</div><h4>{{ property.name }}</h4><p class="sf-representative-card__address">{% if property.address %}{{ property.address }} · {% endif %}{{ property.geography }}, {{ experienceRoot.city.label }}</p>
                     <p><strong>Property type</strong><br>{{ property.propertyType }}</p>
                     <div class="sf-evidence-label">Common in this district</div><div class="semantic-chip-row">{% for pattern in property.areaPatterns.slice(0,3) %}<span>{{ pattern }}</span>{% endfor %}</div>
                     {% if property.propertyVerified %}<p><strong>About this building</strong><br>{{ property.propertyVerified }}</p>{% endif %}
                     {% if property.investigate %}<p class="sf-investigate"><strong>What to confirm</strong><br>{{ property.investigate }}</p>{% endif %}
-                    {% if property.canonicalUrl %}<a class="building-link" href="{{ property.canonicalUrl }}" data-geography-event="representative_property_selected" data-geography-id="{{ geography.id }}" data-property-id="{{ property.id }}" data-source-surface="sf_representative_card">Explore property →</a>{% elseif geography.canonicalPath %}<a class="building-link" href="{{ geography.canonicalPath }}" data-geography-event="commercial_geography_opened" data-geography-id="{{ geography.id }}" data-source-surface="sf_representative_environment">Explore geography →</a>{% endif %}
+                    {% if property.canonicalUrl %}<a class="building-link" href="{{ property.canonicalUrl }}" data-geography-event="representative_property_selected" data-geography-id="{{ geography.id }}" data-property-id="{{ property.id }}" data-source-surface="{{ experienceRoot.sourceSurfacePrefix or 'sf' }}_representative_card">Explore property →</a>{% elseif geography.canonicalPath %}<a class="building-link" href="{{ geography.canonicalPath }}" data-geography-event="commercial_geography_opened" data-geography-id="{{ geography.id }}" data-source-surface="{{ experienceRoot.sourceSurfacePrefix or 'sf' }}_representative_environment">Explore geography →</a>{% endif %}
                   </div>
                 </article>
               {% endfor %}
@@ -51,8 +52,8 @@
         {% endif %}
 
         <section class="sf-investigation-boundary"><h3>Worth knowing</h3><ul>{% for boundary in geography.investigationBoundaries %}<li>{{ boundary }}</li>{% endfor %}</ul><p><strong>For a specific space:</strong> confirm current availability, condition, configuration, access, and permitted use.</p></section>
-        {% if geography.related.length %}<nav class="sf-related-geographies" aria-label="Related {{ experience.label }} districts"><strong>Related {{ experience.label }} districts</strong>{% for related in geography.related %}{% if related.path %}<a href="{{ related.path }}" data-geography-event="related_geography_selected" data-geography-id="{{ related.id }}" data-source-surface="sf_related_geography">{{ related.label }}</a>{% else %}<button type="button" data-select-geography="{{ related.id }}" data-geography-event="related_geography_selected" data-geography-id="{{ related.id }}" data-source-surface="sf_related_geography">{{ related.label }}</button>{% endif %}{% endfor %}</nav>{% endif %}
-        <div class="sf-location-intelligence-cta"><div><h3>Not sure which district fits your business?</h3><p>Tell Rofo how the business operates and get a location-specific starting point.</p></div><a class="btn-primary" href="/find-locations/?city=San%20Francisco&state=CA&propertyType={{ experience.id }}&source=commercial_geography" data-geography-event="location_intelligence_cta_clicked" data-geography-id="{{ geography.id }}" data-source-surface="sf_geography_intelligence">See My Best-Fit Locations →</a></div>
+        {% if geography.related.length %}<nav class="sf-related-geographies" aria-label="Related {{ experience.label }} districts"><strong>Related {{ experience.label }} districts</strong>{% for related in geography.related %}{% if related.path %}<a href="{{ related.path }}" data-geography-event="related_geography_selected" data-geography-id="{{ related.id }}" data-source-surface="{{ experienceRoot.sourceSurfacePrefix or 'sf' }}_related_geography">{{ related.label }}</a>{% else %}<button type="button" data-select-geography="{{ related.id }}" data-geography-event="related_geography_selected" data-geography-id="{{ related.id }}" data-source-surface="{{ experienceRoot.sourceSurfacePrefix or 'sf' }}_related_geography">{{ related.label }}</button>{% endif %}{% endfor %}</nav>{% endif %}
+        <div class="sf-location-intelligence-cta"><div><h3>Not sure which district fits your business?</h3><p>Tell Rofo how the business operates and get a location-specific starting point.</p></div><a class="btn-primary" href="/find-locations/?city={{ experienceRoot.city.label | urlencode }}&state={{ experienceRoot.city.state }}&propertyType={{ experience.id }}&source=commercial_geography" data-geography-event="location_intelligence_cta_clicked" data-geography-id="{{ geography.id }}" data-source-surface="{{ experienceRoot.sourceSurfacePrefix or 'sf' }}_geography_intelligence">See My Best-Fit Locations →</a></div>
       </article>
     {% endfor %}
   </div>

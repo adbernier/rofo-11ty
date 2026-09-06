@@ -1,0 +1,131 @@
+{
+  "schemaVersion": "sacramento-commercial-district-intelligence:v1",
+  "market": {
+    "id": "sacramento",
+    "label": "Sacramento",
+    "municipality": "Sacramento",
+    "state": "CA"
+  },
+  "spaceType": "industrial",
+  "districts": [
+    {
+      "id": "power-inn-industrial",
+      "label": "Power Inn Industrial",
+      "geographyType": "INDUSTRIAL_DISTRICT",
+      "publicEvidenceTier": "PUBLIC_REVIEWED",
+      "applicability": "PRIMARY",
+      "oneLineDistinction": "Sacramento’s broadest established production and distribution district",
+      "shortDescription": "Power Inn is the City’s deepest reviewed industrial concentration, encompassing conventional warehouse, distribution, production, contractor and service operations across the Power Inn and Florin-Perkins area. It offers a broader and more industrial-led setting than Northgate / North Market. SCI and Ramona remain component contexts within this larger district rather than separate peers, and exact property capabilities still require building-level verification.",
+      "commonHere": [
+        "Distribution",
+        "Manufacturing",
+        "Contractor/service",
+        "Warehouse"
+      ],
+      "whatStandsOut": [
+        "Large established industrial concentration",
+        "Broad mix of operating formats",
+        "Power Inn and Florin-Perkins corridor identity"
+      ],
+      "worthKnowing": [
+        "SCI and Ramona are component areas, not separate public recommendation peers."
+      ],
+      "compareWith": [
+        "northgate-north-market-industrial",
+        "river-district"
+      ],
+      "sourceIds": [
+        "sac-reviewed-industrial",
+        "sac-pbid",
+        "sac-durable-properties"
+      ],
+      "municipality": "Sacramento",
+      "state": "CA",
+      "route": "/commercial-real-estate/CA/sacramento/power-inn-industrial/",
+      "indexation": "COMPONENT_READY",
+      "accessReadiness": "OBJECTIVE_ACCESS_READY",
+      "accessObservations": [
+        "The City-defined Power Inn district follows the Power Inn Road commercial and industrial corridor."
+      ],
+      "gridOrder": 1,
+      "coverageAction": "CURRENT"
+    },
+    {
+      "id": "northgate-north-market-industrial",
+      "label": "Northgate / North Market Industrial",
+      "geographyType": "FLEX_BUSINESS_PARK_ENVIRONMENT",
+      "publicEvidenceTier": "PUBLIC_REVIEWED",
+      "applicability": "PRIMARY",
+      "oneLineDistinction": "Lighter warehouse and service space in northern Sacramento",
+      "shortDescription": "Northgate / North Market is a bounded northern Sacramento industrial area centered on Northgate and North Market Boulevard—not all of Natomas or North Sacramento. It is characterized by lighter warehouse, service-industrial, contractor and office/warehouse formats, including multi-tenant operating properties. Compared with Power Inn, its reviewed public role is narrower and more oriented to lighter service and flexible operating formats.",
+      "commonHere": [
+        "Lighter warehouse",
+        "Contractor/service",
+        "Office/warehouse",
+        "Service industrial"
+      ],
+      "whatStandsOut": [
+        "Bounded Northgate and North Market identity",
+        "Lighter operating formats",
+        "Multi-tenant industrial and flex context"
+      ],
+      "worthKnowing": [
+        "Do not interpret this district as all of Natomas or all of North Sacramento."
+      ],
+      "compareWith": [
+        "power-inn-industrial",
+        "river-district"
+      ],
+      "sourceIds": [
+        "sac-reviewed-industrial",
+        "sac-durable-properties"
+      ],
+      "municipality": "Sacramento",
+      "state": "CA",
+      "route": null,
+      "indexation": "COMPONENT_READY",
+      "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+      "accessObservations": [],
+      "gridOrder": 2,
+      "coverageAction": "CURRENT"
+    },
+    {
+      "id": "river-district",
+      "label": "River District / Richards Boulevard",
+      "geographyType": "MIXED_COMMERCIAL_DISTRICT",
+      "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+      "applicability": "CONTEXTUAL",
+      "oneLineDistinction": "Legacy distribution blocks inside a district shifting toward mixed use",
+      "shortDescription": "The River District retains established industrial, wholesale and distribution properties from its historic employment base, but it is also transitioning toward government offices, housing and mixed-use redevelopment. Industrial users may encounter functional legacy buildings here, yet the district should not be presented as a substitute for Sacramento’s deeper Power Inn or Northgate industrial areas. Its public value is explaining a transitional city-core operating context.",
+      "commonHere": [
+        "Distribution",
+        "Wholesale",
+        "City-serving operations"
+      ],
+      "whatStandsOut": [
+        "Legacy industrial properties",
+        "Close-in urban setting",
+        "Active transition toward mixed use"
+      ],
+      "worthKnowing": [
+        "Existing industrial use and long-term redevelopment direction vary block by block."
+      ],
+      "compareWith": [
+        "power-inn-industrial",
+        "northgate-north-market-industrial"
+      ],
+      "sourceIds": [
+        "sac-river-plan",
+        "sac-pbid"
+      ],
+      "municipality": "Sacramento",
+      "state": "CA",
+      "route": null,
+      "indexation": "COMPONENT_READY",
+      "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+      "accessObservations": [],
+      "gridOrder": 3,
+      "coverageAction": "ADD"
+    }
+  ]
+}

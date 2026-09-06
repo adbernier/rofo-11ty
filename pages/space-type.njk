@@ -15,6 +15,7 @@ eleventyComputed:
 {% set stateAbbr = city.state_abbr | upper %}
 {% set spaceType = entry.spaceType %}
 {% set representativeBuildings = entry.representativeBuildings %}
+{% set publicCommercialGeographyExperience = sacramentoCommercialGeographyExperience if city.slug == "sacramento" else sfCommercialGeographyExperience %}
 {% set searchProfileDefaultSpaceType = "Industrial / Warehouse / Flex" if entry.localDecisionGuide and entry.localDecisionGuide.recommendation and spaceType.slug == "industrial-space" else ("Industrial / Warehouse" if spaceType.slug == "industrial-space" else spaceType.label) %}
 {% set searchProfileHeadlineType = "industrial" if spaceType.slug == "industrial-space" else (spaceType.label | lower) %}
 {% set searchProfileShortlistType = searchProfileHeadlineType | replace(" space", "") %}
@@ -71,9 +72,9 @@ eleventyComputed:
 
     {% if entry.publicCommercialGeography %}
       <div class="sf-space-type-context-nav">
-        <div class="sf-geography-breadcrumb" aria-label="Commercial geography hierarchy"><a href="/commercial-real-estate/CA/san-francisco/">San Francisco</a><span>›</span><strong>{{ entry.publicCommercialGeography.label }}</strong></div>
-        <nav class="sf-space-type-selector" aria-label="San Francisco space types">
-          {% for choice in sfCommercialGeographyExperience.spaceTypes %}<a href="{{ choice.path }}" {% if choice.id == entry.publicCommercialGeography.id %}aria-current="page" class="is-current"{% endif %} data-geography-event="space_type_selected" data-market="san-francisco" data-property-type="{{ choice.id }}" data-source-surface="sf_space_type_selector">{{ choice.label }}</a>{% endfor %}
+        <div class="sf-geography-breadcrumb" aria-label="Commercial geography hierarchy"><a href="{{ publicCommercialGeographyExperience.city.path }}">{{ publicCommercialGeographyExperience.city.label }}</a><span>›</span><strong>{{ entry.publicCommercialGeography.label }}</strong></div>
+        <nav class="sf-space-type-selector" aria-label="{{ publicCommercialGeographyExperience.city.label }} space types">
+          {% for choice in publicCommercialGeographyExperience.spaceTypes %}<a href="{{ choice.path }}" {% if choice.id == entry.publicCommercialGeography.id %}aria-current="page" class="is-current"{% endif %} data-geography-event="space_type_selected" data-market="{{ publicCommercialGeographyExperience.city.id or (publicCommercialGeographyExperience.city.label | lower) }}" data-property-type="{{ choice.id }}" data-source-surface="{{ publicCommercialGeographyExperience.sourceSurfacePrefix or 'sf' }}_space_type_selector">{{ choice.label }}</a>{% endfor %}
         </nav>
       </div>
     {% endif %}

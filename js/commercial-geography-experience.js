@@ -44,7 +44,7 @@
     if (initial) select(root, initial, false);
   });
 
-  document.querySelectorAll('[data-commercial-geography-surface="sf_geography_route"]').forEach(function (surface) {
+  document.querySelectorAll('[data-commercial-geography-surface$="_geography_route"]').forEach(function (surface) {
     track(surface, "commercial_geography_opened");
   });
 

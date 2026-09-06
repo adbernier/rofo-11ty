@@ -1,0 +1,178 @@
+{
+  "schemaVersion": "sacramento-commercial-district-intelligence:v1",
+  "market": {
+    "id": "sacramento",
+    "label": "Sacramento",
+    "municipality": "Sacramento",
+    "state": "CA"
+  },
+  "spaceType": "office",
+  "districts": [
+    {
+      "id": "downtown-sacramento",
+      "label": "Downtown Sacramento",
+      "geographyType": "OFFICE_DISTRICT",
+      "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+      "applicability": "PRIMARY",
+      "oneLineDistinction": "State government, civic institutions and traditional downtown offices",
+      "shortDescription": "Downtown is Sacramento’s formal civic and business core, anchored by the State Capitol, government offices, courts, professional firms and major downtown institutions. Office users commonly consider it when proximity to public agencies, legal and policy work, or a recognizable central address matters. The building stock ranges from office towers to older professional buildings, while entertainment and visitor activity vary across its distinct subdistricts.",
+      "commonHere": [
+        "Government",
+        "Legal",
+        "Professional services",
+        "Corporate office"
+      ],
+      "whatStandsOut": [
+        "State-capital and civic concentration",
+        "Traditional downtown office buildings",
+        "Multiple distinct downtown subdistricts"
+      ],
+      "worthKnowing": [
+        "The Capitol, entertainment, waterfront and railyards edges have different street activity and building formats."
+      ],
+      "compareWith": [
+        "midtown-sacramento",
+        "river-district",
+        "north-natomas-office"
+      ],
+      "sourceIds": [
+        "sac-central-city-plan",
+        "sac-pbid",
+        "sac-public-foundation"
+      ],
+      "municipality": "Sacramento",
+      "state": "CA",
+      "route": "/commercial-real-estate/CA/sacramento/downtown-sacramento/",
+      "indexation": "COMPONENT_READY",
+      "accessReadiness": "OBJECTIVE_ACCESS_READY",
+      "accessObservations": [
+        "SacRT light-rail stations serve the central city and downtown grid."
+      ],
+      "gridOrder": 1,
+      "coverageAction": "CURRENT"
+    },
+    {
+      "id": "midtown-sacramento",
+      "label": "Midtown Sacramento",
+      "geographyType": "MIXED_COMMERCIAL_DISTRICT",
+      "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+      "applicability": "PRIMARY",
+      "oneLineDistinction": "Smaller offices woven into Sacramento’s mixed-use central grid",
+      "shortDescription": "Midtown mixes professional and medical offices with restaurants, neighborhood retail, residences and arts-oriented businesses in a walkable, lower-scale street grid. Small firms, nonprofits, creative teams and client-facing practices often consider it for an address that feels less formal than Downtown. Converted houses, small commercial buildings and mixed-use properties create variety, but exact office format changes substantially from block to block.",
+      "commonHere": [
+        "Professional services",
+        "Medical office",
+        "Creative firms",
+        "Nonprofits"
+      ],
+      "whatStandsOut": [
+        "Fine-grained mixed-use blocks",
+        "Smaller office formats",
+        "Restaurants and services integrated with workplaces"
+      ],
+      "worthKnowing": [
+        "Older and converted buildings require address-level review for accessibility, layout and building systems."
+      ],
+      "compareWith": [
+        "downtown-sacramento",
+        "r-street-district",
+        "east-sacramento-j-street"
+      ],
+      "sourceIds": [
+        "sac-central-city-plan",
+        "sac-pbid",
+        "sac-public-foundation"
+      ],
+      "municipality": "Sacramento",
+      "state": "CA",
+      "route": "/commercial-real-estate/CA/sacramento/midtown-sacramento/",
+      "indexation": "COMPONENT_READY",
+      "accessReadiness": "OBJECTIVE_ACCESS_READY",
+      "accessObservations": [
+        "SacRT light rail crosses portions of the central-city grid."
+      ],
+      "gridOrder": 2,
+      "coverageAction": "CURRENT"
+    },
+    {
+      "id": "river-district",
+      "label": "River District / Richards Boulevard",
+      "geographyType": "MIXED_COMMERCIAL_DISTRICT",
+      "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+      "applicability": "SECONDARY",
+      "oneLineDistinction": "Government offices and redevelopment beside legacy industrial blocks",
+      "shortDescription": "Immediately north of Downtown, the River District and Richards Boulevard combine government office campuses, social-service organizations, hotels and legacy distribution or industrial properties within an area undergoing long-term redevelopment. Office users may consider it for institutional or public-sector adjacency and emerging mixed-use projects. It is not a uniform office district: established employment sites sit alongside transitional blocks and active redevelopment areas.",
+      "commonHere": [
+        "Government office",
+        "Institutional office",
+        "Professional services"
+      ],
+      "whatStandsOut": [
+        "Government-office campuses",
+        "Legacy industrial fabric",
+        "Large redevelopment areas"
+      ],
+      "worthKnowing": [
+        "Current block conditions and completed development vary across the district."
+      ],
+      "compareWith": [
+        "downtown-sacramento",
+        "north-natomas-office",
+        "midtown-sacramento"
+      ],
+      "sourceIds": [
+        "sac-river-plan",
+        "sac-pbid"
+      ],
+      "municipality": "Sacramento",
+      "state": "CA",
+      "route": null,
+      "indexation": "COMPONENT_READY",
+      "accessReadiness": "OBJECTIVE_ACCESS_READY",
+      "accessObservations": [
+        "The River District is directly north of Downtown; the City identifies Richards Boulevard as a primary I-5 access point for the district."
+      ],
+      "gridOrder": 3,
+      "coverageAction": "ADD"
+    },
+    {
+      "id": "north-natomas-office",
+      "label": "North Natomas Commercial Centers",
+      "geographyType": "MIXED_COMMERCIAL_DISTRICT",
+      "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+      "applicability": "SECONDARY",
+      "oneLineDistinction": "Suburban office and regional-commercial centers in North Natomas",
+      "shortDescription": "North Natomas contains planned employment and regional-commercial centers with office, service and larger-format commercial uses arranged in a suburban pattern. Businesses may consider it when they want modern low- or mid-rise formats outside the central grid. This is a bounded commercial-centers concept—not a claim that all of Natomas shares one office identity—and individual developments differ in scale, tenants and street relationship.",
+      "commonHere": [
+        "Professional office",
+        "Regional services",
+        "Corporate office"
+      ],
+      "whatStandsOut": [
+        "Planned commercial centers",
+        "Lower-density building pattern",
+        "Office mixed with regional commercial uses"
+      ],
+      "worthKnowing": [
+        "Compare the exact commercial center rather than treating North Natomas as one uniform district."
+      ],
+      "compareWith": [
+        "river-district",
+        "downtown-sacramento",
+        "midtown-sacramento"
+      ],
+      "sourceIds": [
+        "sac-natomas-office",
+        "sac-public-foundation"
+      ],
+      "municipality": "Sacramento",
+      "state": "CA",
+      "route": null,
+      "indexation": "COMPONENT_READY",
+      "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+      "accessObservations": [],
+      "gridOrder": 4,
+      "coverageAction": "ADD"
+    }
+  ]
+}
