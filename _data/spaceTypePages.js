@@ -13,6 +13,7 @@ const sanJoseIndustrialPublicDecision = require("./sanJoseIndustrialPublicDecisi
 const phoenixIndustrialPublicDecision = require("./phoenixIndustrialPublicDecision.js");
 const sfCommercialGeographyExperience = require("./sfCommercialGeographyExperience.js");
 const sacramentoCommercialGeographyExperience = require("./sacramentoCommercialGeographyExperience.js");
+const indianapolisCommercialGeographyExperience = require("./indianapolisCommercialGeographyExperience.js");
 
 function slugify(value) {
   return String(value || "")
@@ -174,7 +175,11 @@ module.exports = cities.flatMap((city) => {
       const normalizedTypeSlug = String(spaceType.slug || "").toLowerCase();
 
       const key = `${normalizedCitySlug}::${normalizedStateAbbr}::${normalizedTypeSlug}`;
-      const representativeBuildings = buildingIndex.get(key) || [];
+      const representativeBuildings = (buildingIndex.get(key) || []).filter((building) => !(
+        normalizedCitySlug === "indianapolis" &&
+        normalizedStateAbbr === "in" &&
+        building.building_slug === "558-airtech-parkway"
+      ));
       const cityStateSlug =
         city.city_state_slug || `${normalizedCitySlug}-${normalizedStateAbbr}`;
       const routingCounty = countyStateSlug(city.county || city.county_name, city.state_abbr);
@@ -235,8 +240,10 @@ module.exports = cities.flatMap((city) => {
             ? sfCommercialGeographyExperience.bySpaceType[normalizedTypeSlug.replace("-space", "")]
             : normalizedCitySlug === "sacramento" && normalizedStateAbbr === "ca"
               ? sacramentoCommercialGeographyExperience.bySpaceType[normalizedTypeSlug.replace("-space", "")]
+            : normalizedCitySlug === "indianapolis" && normalizedStateAbbr === "in"
+              ? indianapolisCommercialGeographyExperience.bySpaceType[normalizedTypeSlug.replace("-space", "")]
               : null,
       };
     })
-    .filter((entry) => entry.representativeBuildings.length > 0 || entry.localDecisionGuide);
+    .filter((entry) => entry.representativeBuildings.length > 0 || entry.localDecisionGuide || entry.publicCommercialGeography);
 });

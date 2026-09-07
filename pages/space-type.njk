@@ -15,7 +15,7 @@ eleventyComputed:
 {% set stateAbbr = city.state_abbr | upper %}
 {% set spaceType = entry.spaceType %}
 {% set representativeBuildings = entry.representativeBuildings %}
-{% set publicCommercialGeographyExperience = sacramentoCommercialGeographyExperience if city.slug == "sacramento" else sfCommercialGeographyExperience %}
+{% set publicCommercialGeographyExperience = sacramentoCommercialGeographyExperience if city.slug == "sacramento" else (indianapolisCommercialGeographyExperience if city.slug == "indianapolis" else sfCommercialGeographyExperience) %}
 {% set searchProfileDefaultSpaceType = "Industrial / Warehouse / Flex" if entry.localDecisionGuide and entry.localDecisionGuide.recommendation and spaceType.slug == "industrial-space" else ("Industrial / Warehouse" if spaceType.slug == "industrial-space" else spaceType.label) %}
 {% set searchProfileHeadlineType = "industrial" if spaceType.slug == "industrial-space" else (spaceType.label | lower) %}
 {% set searchProfileShortlistType = searchProfileHeadlineType | replace(" space", "") %}
@@ -95,7 +95,7 @@ eleventyComputed:
     <div class="space-type-content-layout">
       <div class="page-stack space-type-main-content">
         {% include "partials/space-type/market-snapshot.njk" %}
-        {% include "partials/space-type/local-decision-guide.njk" %}
+        {% if not (entry.publicCommercialGeography and city.slug == "indianapolis") %}{% include "partials/space-type/local-decision-guide.njk" %}{% endif %}
         {% include "partials/space-type/example-location-briefs.njk" %}
         {% include "partials/space-type/guide-card.njk" %}
         {% include "partials/space-type/business-briefs.njk" %}

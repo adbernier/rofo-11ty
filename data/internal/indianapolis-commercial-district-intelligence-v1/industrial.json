@@ -1,0 +1,138 @@
+{
+  "schemaVersion": "indianapolis-commercial-district-intelligence:v1",
+  "market": {
+    "id": "indianapolis",
+    "label": "Indianapolis",
+    "municipality": "Indianapolis",
+    "state": "IN"
+  },
+  "spaceType": "industrial",
+  "districts": [
+    {
+      "id": "indianapolis-airport-logistics",
+      "label": "Indianapolis Airport Logistics",
+      "geographyType": "LOGISTICS_ENVIRONMENT",
+      "publicEvidenceTier": "PUBLIC_REVIEWED",
+      "applicability": "PRIMARY",
+      "oneLineDistinction": "Large-scale warehouse and distribution on Indianapolis’s southwest side",
+      "shortDescription": "Indianapolis Airport Logistics is the City-owned industrial geography around Park Fletcher, Stout Field and the airport-side employment area. It supports conventional warehouse, distribution, service-industrial and broader operational uses, with larger-format properties and an air-cargo context. The label does not include Plainfield inventory: airport proximity and an Indianapolis mailing reference are not substitutes for municipal ownership, and exact building or transportation capabilities remain property-level questions.",
+      "commonHere": [
+        "Distribution",
+        "Warehouse",
+        "Service industrial",
+        "Broader operations"
+      ],
+      "whatStandsOut": [
+        "Park Fletcher and Stout Field industrial identity",
+        "Large-format operating context",
+        "Indianapolis International Airport cargo setting"
+      ],
+      "worthKnowing": [
+        "Plainfield is a separate municipality; verify exact loading, circulation, power, yard and permitted use by property."
+      ],
+      "compareWith": [
+        "park-100-northwest-indianapolis",
+        "park-fletcher-stout-field"
+      ],
+      "sourceIds": [
+        "indy-reviewed-industrial",
+        "indy-airport-cargo",
+        "indy-city-geographies",
+        "indy-durable-properties"
+      ],
+      "municipality": "Indianapolis",
+      "state": "IN",
+      "route": "/commercial-real-estate/IN/indianapolis/indianapolis-airport-logistics/",
+      "indexation": "COMPONENT_READY",
+      "accessReadiness": "OBJECTIVE_ACCESS_READY",
+      "accessObservations": [
+        "Indianapolis International Airport’s cargo facilities and providers operate within the airport employment area."
+      ],
+      "gridOrder": 1,
+      "coverageAction": "CURRENT"
+    },
+    {
+      "id": "park-100-northwest-indianapolis",
+      "label": "Park 100 / Northwest Indianapolis",
+      "geographyType": "FLEX_BUSINESS_PARK_ENVIRONMENT",
+      "publicEvidenceTier": "PUBLIC_REVIEWED",
+      "applicability": "PRIMARY",
+      "oneLineDistinction": "Established business-park mix from warehouses to office/flex",
+      "shortDescription": "Park 100 is an established northwest Indianapolis business-park district with conventional industrial buildings, office/warehouse properties and smaller multi-tenant flex formats. Contractors, service operations, distributors and businesses needing both office and operational space commonly compare it with Airport Logistics. Its building range is part of the district’s identity: Park 100 should not be reduced to either small flex units or large warehouses alone.",
+      "commonHere": [
+        "Warehouse",
+        "Contractor/service",
+        "Office/warehouse",
+        "Multi-tenant industrial"
+      ],
+      "whatStandsOut": [
+        "Recognized Park 100 business-park identity",
+        "Wide range of building formats",
+        "Industrial and office/flex overlap"
+      ],
+      "worthKnowing": [
+        "Unit size, office ratio, loading and permitted use vary substantially between properties."
+      ],
+      "compareWith": [
+        "indianapolis-airport-logistics",
+        "park-fletcher-stout-field",
+        "north-meridian-keystone-office"
+      ],
+      "sourceIds": [
+        "indy-reviewed-industrial",
+        "indy-city-geographies",
+        "indy-durable-properties"
+      ],
+      "municipality": "Indianapolis",
+      "state": "IN",
+      "route": null,
+      "indexation": "COMPONENT_READY",
+      "accessReadiness": "OBJECTIVE_ACCESS_READY",
+      "accessObservations": [
+        "IndyGo Route 37 serves Park 100."
+      ],
+      "gridOrder": 2,
+      "coverageAction": "CURRENT"
+    },
+    {
+      "id": "park-fletcher-stout-field",
+      "label": "Park Fletcher / Stout Field",
+      "geographyType": "INDUSTRIAL_DISTRICT",
+      "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+      "applicability": "CONTEXTUAL",
+      "oneLineDistinction": "Named industrial components within the Airport Logistics geography",
+      "shortDescription": "Park Fletcher and Stout Field are City-recognized southwest Indianapolis areas that help explain the finer-grained structure inside Airport Logistics. Industrial and research-park properties, warehouses and service operations occupy this component geography near Bradbury Road and the airport employment area. It appears here as public context—not as a third Recommendation Intelligence peer—and should not be expanded across the municipal line into Plainfield.",
+      "commonHere": [
+        "Warehouse",
+        "Service industrial",
+        "Distribution",
+        "Industrial/research"
+      ],
+      "whatStandsOut": [
+        "Official Park Fletcher and Stout Field identities",
+        "Component geography within Airport Logistics",
+        "Bradbury Road operating context"
+      ],
+      "worthKnowing": [
+        "Use this component to understand Airport Logistics, not as an independently ranked recommendation district."
+      ],
+      "compareWith": [
+        "indianapolis-airport-logistics",
+        "park-100-northwest-indianapolis"
+      ],
+      "sourceIds": [
+        "indy-reviewed-industrial",
+        "indy-city-geographies",
+        "indy-durable-properties"
+      ],
+      "municipality": "Indianapolis",
+      "state": "IN",
+      "route": null,
+      "indexation": "COMPONENT_READY",
+      "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+      "accessObservations": [],
+      "gridOrder": 3,
+      "coverageAction": "ADD"
+    }
+  ]
+}

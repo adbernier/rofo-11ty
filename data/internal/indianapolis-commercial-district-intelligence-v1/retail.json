@@ -1,0 +1,221 @@
+{
+  "schemaVersion": "indianapolis-commercial-district-intelligence:v1",
+  "market": {
+    "id": "indianapolis",
+    "label": "Indianapolis",
+    "municipality": "Indianapolis",
+    "state": "IN"
+  },
+  "spaceType": "retail",
+  "districts": [
+    {
+      "id": "mass-ave",
+      "label": "Mass Ave / Bottleworks",
+      "geographyType": "MIXED_COMMERCIAL_DISTRICT",
+      "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+      "applicability": "PRIMARY",
+      "oneLineDistinction": "Historic storefronts, dining and arts northeast of Downtown",
+      "shortDescription": "Massachusetts Avenue extends northeast from Downtown as a walkable mixed-use corridor of restaurants, bars, independent shops, theaters and creative businesses. Bottleworks adds a concentrated reuse destination at the corridor’s northeastern end, while older storefronts and residential blocks shape the rest of the avenue. Retailers commonly consider Mass Ave for an urban, entertainment-oriented setting where the exact block influences daytime, evening and event activity.",
+      "commonHere": [
+        "Food and beverage",
+        "Independent retail",
+        "Arts and entertainment",
+        "Personal services"
+      ],
+      "whatStandsOut": [
+        "Diagonal historic commercial corridor",
+        "Bottleworks adaptive-reuse destination",
+        "Strong dining and arts identity"
+      ],
+      "worthKnowing": [
+        "Activity changes between the Downtown end, established storefront blocks and Bottleworks."
+      ],
+      "compareWith": [
+        "downtown-indianapolis",
+        "fountain-square",
+        "broad-ripple"
+      ],
+      "sourceIds": [
+        "indy-pattern-book",
+        "indy-city-geographies",
+        "indy-special-districts"
+      ],
+      "municipality": "Indianapolis",
+      "state": "IN",
+      "route": null,
+      "indexation": "COMPONENT_READY",
+      "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+      "accessObservations": [],
+      "gridOrder": 1,
+      "coverageAction": "ADD"
+    },
+    {
+      "id": "fountain-square",
+      "label": "Fountain Square",
+      "geographyType": "MIXED_COMMERCIAL_DISTRICT",
+      "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+      "applicability": "PRIMARY",
+      "oneLineDistinction": "Independent dining and entertainment in a historic southside district",
+      "shortDescription": "Fountain Square is a compact mixed-use district southeast of Downtown, centered on Virginia Avenue and its historic commercial buildings. Restaurants, bars, music and entertainment venues, neighborhood services and independent shops give it a local destination identity distinct from the Downtown core. Smaller storefronts and converted buildings are common, but customer patterns and physical conditions change quickly beyond the central intersection and Virginia Avenue spine.",
+      "commonHere": [
+        "Food and beverage",
+        "Entertainment",
+        "Independent retail",
+        "Neighborhood services"
+      ],
+      "whatStandsOut": [
+        "Historic commercial center",
+        "Virginia Avenue connection to Downtown",
+        "Compact independent-business mix"
+      ],
+      "worthKnowing": [
+        "The strongest commercial identity is concentrated near the district center rather than spread uniformly across the neighborhood."
+      ],
+      "compareWith": [
+        "mass-ave",
+        "downtown-indianapolis",
+        "broad-ripple"
+      ],
+      "sourceIds": [
+        "indy-pattern-book",
+        "indy-city-geographies",
+        "indy-red-line"
+      ],
+      "municipality": "Indianapolis",
+      "state": "IN",
+      "route": null,
+      "indexation": "COMPONENT_READY",
+      "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+      "accessObservations": [],
+      "gridOrder": 2,
+      "coverageAction": "ADD"
+    },
+    {
+      "id": "broad-ripple",
+      "label": "Broad Ripple Village",
+      "geographyType": "MIXED_COMMERCIAL_DISTRICT",
+      "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+      "applicability": "PRIMARY",
+      "oneLineDistinction": "Northside village retail with dining, nightlife and local shops",
+      "shortDescription": "Broad Ripple Village is a northside commercial district centered on Broad Ripple Avenue and nearby College Avenue, combining restaurants, bars, independent shops, personal services and neighborhood-serving businesses. Its walkable village core and nightlife distinguish it from regional shopping centers and Downtown’s event-driven retail. Commercial intensity drops outside the central blocks, so storefront users should distinguish the village center from the wider Broad Ripple neighborhood.",
+      "commonHere": [
+        "Food and beverage",
+        "Nightlife",
+        "Independent retail",
+        "Personal services"
+      ],
+      "whatStandsOut": [
+        "Walkable village-scale core",
+        "Broad Ripple Avenue and College Avenue focus",
+        "Northside dining and nightlife concentration"
+      ],
+      "worthKnowing": [
+        "Evening activity is important, while quieter surrounding blocks serve a more neighborhood-oriented audience."
+      ],
+      "compareWith": [
+        "mass-ave",
+        "fountain-square",
+        "keystone-at-the-crossing"
+      ],
+      "sourceIds": [
+        "indy-pattern-book",
+        "indy-city-geographies",
+        "indy-red-line"
+      ],
+      "municipality": "Indianapolis",
+      "state": "IN",
+      "route": null,
+      "indexation": "COMPONENT_READY",
+      "accessReadiness": "OBJECTIVE_ACCESS_READY",
+      "accessObservations": [
+        "IndyGo’s Red Line runs between Broad Ripple and Downtown along the College Avenue corridor."
+      ],
+      "gridOrder": 3,
+      "coverageAction": "ADD"
+    },
+    {
+      "id": "downtown-indianapolis",
+      "label": "Downtown Indianapolis",
+      "geographyType": "MIXED_COMMERCIAL_DISTRICT",
+      "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+      "applicability": "SECONDARY",
+      "oneLineDistinction": "Visitor, event and worker-serving retail across the mile square",
+      "shortDescription": "Downtown retail serves office workers, residents, convention guests, sports audiences and visitors across several distinct subdistricts. Monument Circle, the Wholesale District, the Canal, Mass Ave’s lower blocks and venue areas do not behave as one continuous shopping street. Food, services and entertainment are more prominent than neighborhood convenience retail in many blocks, making event schedules, weekday activity and exact subdistrict important when comparing storefronts.",
+      "commonHere": [
+        "Food and beverage",
+        "Visitor services",
+        "Entertainment",
+        "Convenience retail"
+      ],
+      "whatStandsOut": [
+        "Convention and sports audiences",
+        "Daytime office-worker base",
+        "Several distinct downtown subdistricts"
+      ],
+      "worthKnowing": [
+        "Customer activity varies materially by event schedule, weekday pattern and subdistrict."
+      ],
+      "compareWith": [
+        "mass-ave",
+        "fountain-square",
+        "broad-ripple"
+      ],
+      "sourceIds": [
+        "indy-pattern-book",
+        "indy-special-districts",
+        "indy-routes"
+      ],
+      "municipality": "Indianapolis",
+      "state": "IN",
+      "route": null,
+      "indexation": "COMPONENT_READY",
+      "accessReadiness": "OBJECTIVE_ACCESS_READY",
+      "accessObservations": [
+        "The Julia M. Carson Transit Center anchors IndyGo service in Downtown."
+      ],
+      "gridOrder": 4,
+      "coverageAction": "ADD"
+    },
+    {
+      "id": "keystone-at-the-crossing",
+      "label": "Keystone at the Crossing",
+      "geographyType": "RETAIL_DISTRICT",
+      "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+      "applicability": "SECONDARY",
+      "oneLineDistinction": "Regional shopping, dining and offices at a northside node",
+      "shortDescription": "Keystone at the Crossing is a large northside commercial node where destination retail, restaurants, hotels and office buildings cluster around the Fashion Mall and major arterial roads. It differs from Indianapolis’s walkable neighborhood districts through larger buildings, extensive surface and structured parking, and a regional customer orientation. The public geography is limited to Indianapolis-owned commercial areas and does not absorb nearby Carmel or other suburban retail centers.",
+      "commonHere": [
+        "Destination retail",
+        "Food and beverage",
+        "Hotels",
+        "Professional services"
+      ],
+      "whatStandsOut": [
+        "Regional shopping concentration",
+        "Retail and office overlap",
+        "Larger-format commercial pattern"
+      ],
+      "worthKnowing": [
+        "Road access, visibility and internal circulation are property-specific; verify the exact site and Indianapolis municipal ownership."
+      ],
+      "compareWith": [
+        "broad-ripple",
+        "north-meridian-keystone-office",
+        "downtown-indianapolis"
+      ],
+      "sourceIds": [
+        "indy-city-geographies",
+        "indy-pattern-book",
+        "indy-land-use"
+      ],
+      "municipality": "Indianapolis",
+      "state": "IN",
+      "route": null,
+      "indexation": "COMPONENT_READY",
+      "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+      "accessObservations": [],
+      "gridOrder": 5,
+      "coverageAction": "ADD"
+    }
+  ]
+}

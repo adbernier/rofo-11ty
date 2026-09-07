@@ -1,0 +1,95 @@
+{
+  "schemaVersion": "indianapolis-commercial-district-intelligence:v1",
+  "market": {
+    "id": "indianapolis",
+    "label": "Indianapolis",
+    "municipality": "Indianapolis",
+    "state": "IN"
+  },
+  "spaceType": "office",
+  "districts": [
+    {
+      "id": "downtown-indianapolis",
+      "label": "Downtown Indianapolis",
+      "geographyType": "OFFICE_DISTRICT",
+      "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+      "applicability": "PRIMARY",
+      "oneLineDistinction": "Indiana’s civic and corporate core around Monument Circle",
+      "shortDescription": "Downtown is Indianapolis’s concentrated civic, legal and corporate office center, organized around Monument Circle and the mile-square street grid. Government agencies, law firms, financial and professional-services users share the district with convention, sports, hospitality and institutional destinations. Office buildings range from traditional towers to converted historic properties, while the Wholesale District, Canal and Mass Ave edges create noticeably different street settings.",
+      "commonHere": [
+        "Government",
+        "Legal",
+        "Finance",
+        "Professional services"
+      ],
+      "whatStandsOut": [
+        "Monument Circle and the mile-square grid",
+        "Largest concentration of traditional office towers",
+        "Convention and civic institutions"
+      ],
+      "worthKnowing": [
+        "The core, Canal, Wholesale District and Mass Ave edges differ in building stock and street activity."
+      ],
+      "compareWith": [
+        "north-meridian-keystone-office",
+        "mass-ave",
+        "indianapolis-airport-logistics"
+      ],
+      "sourceIds": [
+        "indy-pattern-book",
+        "indy-special-districts",
+        "indy-routes"
+      ],
+      "municipality": "Indianapolis",
+      "state": "IN",
+      "route": null,
+      "indexation": "COMPONENT_READY",
+      "accessReadiness": "OBJECTIVE_ACCESS_READY",
+      "accessObservations": [
+        "IndyGo’s downtown transit center and multiple local routes serve the mile-square core."
+      ],
+      "gridOrder": 1,
+      "coverageAction": "ADD"
+    },
+    {
+      "id": "north-meridian-keystone-office",
+      "label": "North Meridian / Keystone Office Corridor",
+      "geographyType": "OFFICE_CORRIDOR",
+      "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+      "applicability": "SECONDARY",
+      "oneLineDistinction": "Northside offices spread along Meridian and Keystone corridors",
+      "shortDescription": "The North Meridian and Keystone corridors contain established professional, medical and corporate offices in a more dispersed northside pattern than Downtown. Users commonly compare low- and mid-rise campuses, standalone professional buildings and larger commercial nodes near major east-west streets. This is a corridor-based office context rather than one compact district; Meridian, Keystone and Keystone at the Crossing each present different building scale and surrounding retail intensity.",
+      "commonHere": [
+        "Professional services",
+        "Medical office",
+        "Corporate office"
+      ],
+      "whatStandsOut": [
+        "Dispersed northside office concentrations",
+        "Low- and mid-rise campus formats",
+        "Office nodes mixed with regional retail"
+      ],
+      "worthKnowing": [
+        "Compare the specific corridor node; the combined label does not imply one continuous office district."
+      ],
+      "compareWith": [
+        "downtown-indianapolis",
+        "park-100-northwest-indianapolis",
+        "broad-ripple"
+      ],
+      "sourceIds": [
+        "indy-city-geographies",
+        "indy-land-use",
+        "indy-pattern-book"
+      ],
+      "municipality": "Indianapolis",
+      "state": "IN",
+      "route": null,
+      "indexation": "COMPONENT_READY",
+      "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+      "accessObservations": [],
+      "gridOrder": 2,
+      "coverageAction": "ADD"
+    }
+  ]
+}

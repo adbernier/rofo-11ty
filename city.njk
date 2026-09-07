@@ -27,7 +27,7 @@ eleventyComputed:
   { "label": city.city + ", " + city.state_abbr, "url": page.url }
 ] %}
 {% set isSanFranciscoDecisionJourney = city.slug == "san-francisco" and city.state_abbr == "CA" %}
-{% set hasPublicCommercialGeographyExperience = isSanFranciscoDecisionJourney or (city.slug == "sacramento" and city.state_abbr == "CA") %}
+{% set hasPublicCommercialGeographyExperience = isSanFranciscoDecisionJourney or (city.slug == "sacramento" and city.state_abbr == "CA") or (city.slug == "indianapolis" and city.state_abbr == "IN") %}
 {% set commercialKnowledgeSnapshot = city.commercial_knowledge_snapshot or {} %}
 
 {% set cityBuildings = [] %}
@@ -195,7 +195,7 @@ eleventyComputed:
               {% endif %}
 
               {% if hasPublicCommercialGeographyExperience %}
-                {% set publicCommercialGeographyExperience = sfCommercialGeographyExperience if isSanFranciscoDecisionJourney else sacramentoCommercialGeographyExperience %}
+                {% set publicCommercialGeographyExperience = sfCommercialGeographyExperience if isSanFranciscoDecisionJourney else (sacramentoCommercialGeographyExperience if city.slug == "sacramento" else indianapolisCommercialGeographyExperience) %}
                 {% include "partials/city/sf-space-type-discovery.njk" %}
               {% endif %}
 

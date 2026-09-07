@@ -38,7 +38,8 @@ eleventyComputed:
 {% set isAtlantaEditorialPilot = approvedEditorialSignal and neighborhood.city == "Atlanta" and neighborhood.state_abbr == "GA" %}
 {% set isSfCommercialGeographyExperience = neighborhood.city == "San Francisco" and neighborhood.state_abbr == "CA" and sfCommercialGeographyExperience.byGeographyId[neighborhood.slug] %}
 {% set isSacramentoCommercialGeographyExperience = neighborhood.city == "Sacramento" and neighborhood.state_abbr == "CA" and sacramentoCommercialGeographyExperience.byGeographyId[neighborhood.slug] %}
-{% set publicCommercialGeographyExperience = sacramentoCommercialGeographyExperience if isSacramentoCommercialGeographyExperience else sfCommercialGeographyExperience %}
+{% set isIndianapolisCommercialGeographyExperience = neighborhood.city == "Indianapolis" and neighborhood.state_abbr == "IN" and indianapolisCommercialGeographyExperience.byGeographyId[neighborhood.slug] %}
+{% set publicCommercialGeographyExperience = sacramentoCommercialGeographyExperience if isSacramentoCommercialGeographyExperience else (indianapolisCommercialGeographyExperience if isIndianapolisCommercialGeographyExperience else sfCommercialGeographyExperience) %}
 {% set editorialDistrictMap = editorialDistrictMaps.byDistrictPath[neighborhood.canonical_neighborhood_path] %}
 {% set searchProfileLocationSuggestions = [] %}
 {% if neighborhood.commercial_location_model and neighborhood.commercial_location_model.compare_with and neighborhood.commercial_location_model.compare_with.length %}
@@ -81,7 +82,7 @@ eleventyComputed:
   <div class="city-shell">
     {% set compactBreadcrumbs = true %}
     {% include "partials/breadcrumbs.njk" %}
-    {% if isSfCommercialGeographyExperience or isSacramentoCommercialGeographyExperience %}
+    {% if isSfCommercialGeographyExperience or isSacramentoCommercialGeographyExperience or isIndianapolisCommercialGeographyExperience %}
       {% include "partials/neighborhood/sf-commercial-geography-context.njk" %}
     {% endif %}
 
@@ -296,7 +297,7 @@ eleventyComputed:
           {% include "partials/neighborhood/nearby-commercial-districts.njk" %}
         {% endif %}
 
-        {% if not isSfCommercialGeographyExperience and hasBuildings and not neighborhood.representative_content.length %}
+        {% if not isSfCommercialGeographyExperience and not isSacramentoCommercialGeographyExperience and not isIndianapolisCommercialGeographyExperience and hasBuildings and not neighborhood.representative_content.length %}
           <section class="city-card">
             <div class="eyebrow">Representative Buildings</div>
             <h2>Representative buildings in {{ neighborhoodDisplayNameWithArticle }}</h2>
@@ -313,7 +314,7 @@ eleventyComputed:
           </section>
         {% endif %}
 
-        {% if not isSfCommercialGeographyExperience %}{% include "partials/neighborhood/representative-building-cards.njk" %}{% endif %}
+        {% if not isSfCommercialGeographyExperience and not isSacramentoCommercialGeographyExperience and not isIndianapolisCommercialGeographyExperience %}{% include "partials/neighborhood/representative-building-cards.njk" %}{% endif %}
 
         {% include "partials/neighborhood/example-location-briefs.njk" %}
 

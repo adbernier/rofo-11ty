@@ -1,0 +1,93 @@
+{
+  "schemaVersion": "indianapolis-commercial-district-intelligence:v1",
+  "market": {
+    "id": "indianapolis",
+    "label": "Indianapolis",
+    "municipality": "Indianapolis",
+    "state": "IN"
+  },
+  "spaceType": "flex",
+  "districts": [
+    {
+      "id": "park-100-northwest-indianapolis",
+      "label": "Park 100 / Northwest Indianapolis",
+      "geographyType": "FLEX_BUSINESS_PARK_ENVIRONMENT",
+      "publicEvidenceTier": "PUBLIC_REVIEWED",
+      "applicability": "PRIMARY",
+      "oneLineDistinction": "Multi-tenant office/warehouse for service and lighter operations",
+      "shortDescription": "Park 100 provides Indianapolis’s clearest reviewed flex setting, with multi-tenant office/warehouse buildings, contractor and service space, and lighter operating formats alongside conventional industrial properties. It suits exploration where office and operational functions need to coexist, but the district is not uniform. Users should confirm office ratio, loading, parking, unit configuration and permitted use for each property rather than infer them from the Park 100 name.",
+      "commonHere": [
+        "Office/warehouse",
+        "Multi-tenant flex",
+        "Contractor/service",
+        "Lighter operations"
+      ],
+      "whatStandsOut": [
+        "Seven-building office/flex environment in reviewed evidence",
+        "Range from flex to conventional industrial",
+        "Established northwest business-park identity"
+      ],
+      "worthKnowing": [
+        "Individual properties vary widely in size, office proportion and operating capability."
+      ],
+      "compareWith": [
+        "indianapolis-airport-logistics"
+      ],
+      "sourceIds": [
+        "indy-reviewed-industrial",
+        "indy-city-geographies",
+        "indy-durable-properties"
+      ],
+      "municipality": "Indianapolis",
+      "state": "IN",
+      "route": null,
+      "indexation": "COMPONENT_READY",
+      "accessReadiness": "OBJECTIVE_ACCESS_READY",
+      "accessObservations": [
+        "IndyGo Route 37 serves Park 100."
+      ],
+      "gridOrder": 1,
+      "coverageAction": "CURRENT"
+    },
+    {
+      "id": "indianapolis-airport-logistics",
+      "label": "Indianapolis Airport Logistics",
+      "geographyType": "LOGISTICS_ENVIRONMENT",
+      "publicEvidenceTier": "PUBLIC_REVIEWED",
+      "applicability": "SECONDARY",
+      "oneLineDistinction": "Industrial-led office/warehouse beside airport logistics operations",
+      "shortDescription": "Airport Logistics supports flex where the requirement remains operational: office/warehouse, service-industrial and distribution-support functions inside the City-owned Park Fletcher and Stout Field context. It is a heavier, logistics-led alternative to Park 100’s broader multi-tenant flex mix, not an office-first flex district. Exact office proportion, loading and other building capabilities remain property-specific, and nearby Plainfield properties are outside this geography.",
+      "commonHere": [
+        "Industrial-led flex",
+        "Office/warehouse",
+        "Service industrial"
+      ],
+      "whatStandsOut": [
+        "Airport-side operating context",
+        "Park Fletcher and Stout Field components",
+        "Closer relationship to warehouse and distribution uses"
+      ],
+      "worthKnowing": [
+        "The reviewed evidence does not establish a broad office-first or small-unit flex ecosystem."
+      ],
+      "compareWith": [
+        "park-100-northwest-indianapolis"
+      ],
+      "sourceIds": [
+        "indy-reviewed-industrial",
+        "indy-airport-cargo",
+        "indy-durable-properties"
+      ],
+      "municipality": "Indianapolis",
+      "state": "IN",
+      "route": "/commercial-real-estate/IN/indianapolis/indianapolis-airport-logistics/",
+      "indexation": "COMPONENT_READY",
+      "accessReadiness": "OBJECTIVE_ACCESS_READY",
+      "accessObservations": [
+        "The geography is within Indianapolis’s airport-side employment area; relative access performance is not ranked."
+      ],
+      "gridOrder": 2,
+      "coverageAction": "CURRENT"
+    }
+  ]
+}
