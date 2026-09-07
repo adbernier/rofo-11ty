@@ -1,0 +1,177 @@
+{
+  "schemaVersion": "phoenix-commercial-district-intelligence:v1",
+  "market": {
+    "id": "phoenix",
+    "label": "Phoenix",
+    "municipality": "Phoenix",
+    "state": "AZ"
+  },
+  "spaceType": "retail",
+  "districts": [
+    {
+      "id": "camelback-corridor",
+      "label": "Camelback / Biltmore",
+      "geographyType": "RETAIL_DISTRICT",
+      "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+      "applicability": "PRIMARY",
+      "oneLineDistinction": "Destination shopping and dining within an office-resort core",
+      "shortDescription": "Camelback/Biltmore is a destination-oriented retail and dining area anchored by major commercial centers, hotels and office activity near Camelback Road and 24th Street. Larger planned sites and landscaped commercial blocks distinguish it from Phoenix’s small-storefront arts corridors. The area is City of Phoenix context only; nearby Scottsdale and Paradise Valley addresses remain separate municipalities.",
+      "commonHere": [
+        "Destination retail",
+        "Food and beverage",
+        "Hotels",
+        "Personal services"
+      ],
+      "whatStandsOut": [
+        "Regional shopping concentration",
+        "Retail, office and hotel overlap",
+        "Larger planned commercial sites"
+      ],
+      "worthKnowing": [
+        "Visibility, parking, access and customer patterns depend on the exact center or street frontage."
+      ],
+      "compareWith": [
+        "roosevelt-row",
+        "melrose-district",
+        "downtown-phoenix"
+      ],
+      "sourceIds": [
+        "phx-general-plan",
+        "phx-camelback-core"
+      ],
+      "municipality": "Phoenix",
+      "state": "AZ",
+      "route": "/commercial-real-estate/AZ/phoenix/camelback-corridor/",
+      "indexation": "COMPONENT_READY",
+      "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+      "accessObservations": [],
+      "gridOrder": 1,
+      "coverageAction": "CURRENT"
+    },
+    {
+      "id": "roosevelt-row",
+      "label": "Roosevelt Row",
+      "geographyType": "RETAIL_CORRIDOR",
+      "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+      "applicability": "PRIMARY",
+      "oneLineDistinction": "Arts-led storefronts, restaurants and nightlife north of Downtown",
+      "shortDescription": "Roosevelt Row is a walkable arts and small-business corridor immediately north of Downtown, centered on Roosevelt Street between the avenues and Seventh Street. Galleries, independent restaurants, bars, shops, events and adapted older buildings give it a street-level identity unlike the Biltmore area’s larger commercial centers. New infill sits beside historic fabric, so storefront format and foot traffic can change quickly from block to block.",
+      "commonHere": [
+        "Independent retail",
+        "Food and beverage",
+        "Arts and galleries",
+        "Nightlife"
+      ],
+      "whatStandsOut": [
+        "Recognizable arts-district identity",
+        "Small-business and adaptive-reuse storefronts",
+        "First Friday and event activity"
+      ],
+      "worthKnowing": [
+        "Event-driven activity and rapid block-by-block change make current site conditions important to verify."
+      ],
+      "compareWith": [
+        "downtown-phoenix",
+        "melrose-district",
+        "camelback-corridor"
+      ],
+      "sourceIds": [
+        "phx-roosevelt-row",
+        "phx-local-districts",
+        "phx-central-city"
+      ],
+      "municipality": "Phoenix",
+      "state": "AZ",
+      "route": null,
+      "indexation": "COMPONENT_READY",
+      "accessReadiness": "OBJECTIVE_ACCESS_READY",
+      "accessObservations": [
+        "The Roosevelt/Central Avenue rail station serves the corridor’s Downtown edge."
+      ],
+      "gridOrder": 2,
+      "coverageAction": "ADD"
+    },
+    {
+      "id": "melrose-district",
+      "label": "Melrose District",
+      "geographyType": "RETAIL_CORRIDOR",
+      "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+      "applicability": "SECONDARY",
+      "oneLineDistinction": "Independent shops and dining along a mid-century Seventh Avenue strip",
+      "shortDescription": "Melrose is a locally recognized commercial stretch along Seventh Avenue between Indian School and Camelback roads. Antique and vintage shops, independent restaurants, bars, boutiques and personal services occupy a low-rise, mid-century corridor distinct from Downtown and destination shopping around Biltmore. It works as a neighborhood-oriented street rather than a regional mall node, with commercial intensity concentrated along the avenue.",
+      "commonHere": [
+        "Independent retail",
+        "Food and beverage",
+        "Vintage and antiques",
+        "Personal services"
+      ],
+      "whatStandsOut": [
+        "Low-rise Seventh Avenue corridor",
+        "Mid-century storefront character",
+        "Concentration of locally owned businesses"
+      ],
+      "worthKnowing": [
+        "The district is linear and narrow; evaluate the exact frontage, access and surrounding residential context."
+      ],
+      "compareWith": [
+        "roosevelt-row",
+        "camelback-corridor",
+        "downtown-phoenix"
+      ],
+      "sourceIds": [
+        "phx-local-districts",
+        "phx-general-plan"
+      ],
+      "municipality": "Phoenix",
+      "state": "AZ",
+      "route": null,
+      "indexation": "COMPONENT_READY",
+      "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+      "accessObservations": [],
+      "gridOrder": 3,
+      "coverageAction": "ADD"
+    },
+    {
+      "id": "downtown-phoenix",
+      "label": "Downtown Phoenix",
+      "geographyType": "MIXED_COMMERCIAL_DISTRICT",
+      "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+      "applicability": "SECONDARY",
+      "oneLineDistinction": "Event, worker and resident retail across several downtown nodes",
+      "shortDescription": "Downtown retail serves office workers, residents, students, convention guests and sports audiences rather than operating as one continuous shopping street. Restaurants, entertainment and services cluster around the central business core, venues, Roosevelt’s edge and adaptive-reuse blocks. Exact subdistrict matters: weekday office activity, event crowds and neighborhood demand create different customer patterns within a relatively compact area.",
+      "commonHere": [
+        "Food and beverage",
+        "Entertainment",
+        "Visitor services",
+        "Convenience retail"
+      ],
+      "whatStandsOut": [
+        "Sports and convention destinations",
+        "Daytime office and institutional demand",
+        "Several distinct downtown retail nodes"
+      ],
+      "worthKnowing": [
+        "Customer activity varies with events, weekdays and the exact downtown subdistrict."
+      ],
+      "compareWith": [
+        "roosevelt-row",
+        "camelback-corridor",
+        "melrose-district"
+      ],
+      "sourceIds": [
+        "phx-central-city",
+        "phx-general-plan"
+      ],
+      "municipality": "Phoenix",
+      "state": "AZ",
+      "route": "/commercial-real-estate/AZ/phoenix/downtown-phoenix/",
+      "indexation": "COMPONENT_READY",
+      "accessReadiness": "OBJECTIVE_ACCESS_READY",
+      "accessObservations": [
+        "Valley Metro rail serves multiple Downtown stations."
+      ],
+      "gridOrder": 4,
+      "coverageAction": "CURRENT"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "commercial-district-intelligence-scaling:v1",
+  "data": {
+    "DETERMINISTIC": [
+      "artifact generation and hashing",
+      "schema and evidence-tier validation",
+      "municipality deny-list checks",
+      "relationship-count stop gate",
+      "representative/durable-entity joins",
+      "route collision and indexation checks",
+      "availability firewall scans",
+      "render and analytics contract QA"
+    ],
+    "RESEARCH_AUTOMATABLE_WITH_QA": [
+      "authoritative-source discovery",
+      "initial geography inventory",
+      "space-type applicability draft",
+      "provenance capture",
+      "first editorial draft",
+      "objective access-source inventory",
+      "related-district suggestions",
+      "editorial similarity scan"
+    ],
+    "HUMAN_REVIEW_REQUIRED": [
+      "all municipality conflicts",
+      "all new PRIMARY relationships",
+      "geography identity and overlap decisions",
+      "public evidence-tier promotion",
+      "market-specific distinctions and tradeoffs",
+      "all route/indexation changes",
+      "representative identity conflicts",
+      "visual-density signoff"
+    ],
+    "MARKET_EXCEPTION": [
+      "consolidated city-county ownership",
+      "metro labels spanning municipalities or states",
+      "overlapping corridor/district aliases",
+      "component geography beneath a reviewed RI candidate",
+      "specialized ecosystems whose presence does not establish property capability"
+    ]
+  }
+}

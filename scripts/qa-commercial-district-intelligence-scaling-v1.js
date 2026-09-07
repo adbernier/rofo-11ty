@@ -1,0 +1,10 @@
+"use strict";
+const assert=require("node:assert/strict"),fs=require("node:fs"),path=require("node:path"),crypto=require("node:crypto"),source=require("./commercial-district-intelligence-scaling/commercial-district-intelligence-scaling-v1-source");
+const root=path.resolve(__dirname,".."),out=path.join(root,"data/internal/commercial-district-intelligence-scaling-v1");
+assert.deepEqual(source.referenceMarkets,["san-francisco","sacramento","indianapolis","phoenix"]);assert.equal(source.nextMarkets.length,10);assert.equal(new Set(source.nextMarkets.map(m=>m.marketId)).size,10);
+for(const tier of ["DETERMINISTIC","RESEARCH_AUTOMATABLE_WITH_QA","HUMAN_REVIEW_REQUIRED","MARKET_EXCEPTION"])assert(source.workflow[tier].length);
+for(const code of ["MUNICIPALITY_AMBIGUITY","RELATIONSHIP_EXPANSION","WEAK_SOURCE_COVERAGE","DUPLICATE_GEOGRAPHY_IDENTITY","CROSS_MARKET_OWNERSHIP_CONFLICT","CANDIDATE_PROMOTION","EDITORIAL_SIMILARITY","ROUTE_COLLISION","PROPERTY_TYPE_CONFLICT","REPRESENTATIVE_IDENTITY_CONFLICT"])assert(source.stopConditions.some(item=>item.code===code));
+assert.equal(source.reviewModel.mode,"REVIEW_BY_EXCEPTION");assert(source.editorialSafeguards.rules.some(rule=>rule.includes("similarity")));assert.equal(source.nextSprint,"Commercial District Intelligence Batch v1 — ten-market cohort");
+const manifest=JSON.parse(fs.readFileSync(path.join(out,"artifact-manifest.json")));for(const item of manifest.artifacts){const b=fs.readFileSync(path.join(out,item.file));assert.equal(b.length,item.bytes);assert.equal(crypto.createHash("sha256").update(b).digest("hex"),item.sha256);}
+for(const file of ["city.njk","pages/space-type.njk","_data/recommendationActivationRegistry.js"])assert(!fs.readFileSync(path.join(root,file),"utf8").includes("commercial-district-intelligence-scaling-v1"));
+console.log("Commercial District Intelligence Scaling v1 QA passed: four-market workflow classification, editorial safeguards, stop gates, exception review, and exact ten-market cohort are deterministic and customer-inert.");

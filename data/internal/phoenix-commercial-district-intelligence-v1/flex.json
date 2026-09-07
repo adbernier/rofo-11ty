@@ -1,0 +1,132 @@
+{
+  "schemaVersion": "phoenix-commercial-district-intelligence:v1",
+  "market": {
+    "id": "phoenix",
+    "label": "Phoenix",
+    "municipality": "Phoenix",
+    "state": "AZ"
+  },
+  "spaceType": "flex",
+  "districts": [
+    {
+      "id": "airport-south-central-industrial",
+      "label": "Airport / South Central Industrial",
+      "geographyType": "FLEX_BUSINESS_PARK_ENVIRONMENT",
+      "publicEvidenceTier": "PUBLIC_REVIEWED",
+      "applicability": "PRIMARY",
+      "oneLineDistinction": "Office-production and service flex in central operating districts",
+      "shortDescription": "The airport and South Central area supports Phoenix’s clearest reviewed mix of lighter office-production, contractor/service, warehouse-service and multi-function operating space. Cotton Center adds a recognizable business-park format within this broader employment geography. The area remains operationally oriented; customer-facing use, office proportion and building configuration vary substantially by property.",
+      "commonHere": [
+        "Office/warehouse",
+        "Office-production",
+        "Contractor/service",
+        "Light production"
+      ],
+      "whatStandsOut": [
+        "Cotton Center business-park context",
+        "Central infill operating formats",
+        "Office and production functions can coexist"
+      ],
+      "worthKnowing": [
+        "Confirm office ratio, loading, parking, buildout and permitted use for the specific space."
+      ],
+      "compareWith": [
+        "southwest-phoenix-industrial",
+        "north-phoenix-advanced-operations"
+      ],
+      "sourceIds": [
+        "phx-reviewed-industrial",
+        "phx-general-plan",
+        "phx-representatives"
+      ],
+      "municipality": "Phoenix",
+      "state": "AZ",
+      "route": null,
+      "indexation": "COMPONENT_READY",
+      "accessReadiness": "OBJECTIVE_ACCESS_READY",
+      "accessObservations": [
+        "The geography includes the Sky Harbor employment area; access performance is not comparatively ranked."
+      ],
+      "gridOrder": 1,
+      "coverageAction": "CURRENT"
+    },
+    {
+      "id": "north-phoenix-advanced-operations",
+      "label": "North Phoenix Advanced Operations",
+      "geographyType": "R_AND_D_TECHNICAL_CLUSTER",
+      "publicEvidenceTier": "PUBLIC_REVIEWED",
+      "applicability": "PRIMARY",
+      "oneLineDistinction": "Engineering and technical flex within northern employment ecosystems",
+      "shortDescription": "North Phoenix offers reviewed Flex context for engineering, technical operations, R&D-adjacent work and office-production in Deer Valley and the northern advanced-manufacturing ecosystem. It differs from ordinary office/warehouse districts because the public identity centers on specialized employment networks. That ecosystem does not guarantee technical infrastructure in any building, so power, ventilation, laboratory and production needs remain decisive property checks.",
+      "commonHere": [
+        "R&D",
+        "Engineering",
+        "Technical operations",
+        "Office-production"
+      ],
+      "whatStandsOut": [
+        "Advanced-manufacturing ecosystem",
+        "Deer Valley aerospace-support context",
+        "Technical rather than generic flex emphasis"
+      ],
+      "worthKnowing": [
+        "Specialized infrastructure and permitted capability must be independently verified; ordinary flex buildings may not support them."
+      ],
+      "compareWith": [
+        "airport-south-central-industrial",
+        "southwest-phoenix-industrial"
+      ],
+      "sourceIds": [
+        "phx-reviewed-industrial",
+        "phx-general-plan",
+        "phx-representatives"
+      ],
+      "municipality": "Phoenix",
+      "state": "AZ",
+      "route": null,
+      "indexation": "COMPONENT_READY",
+      "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+      "accessObservations": [],
+      "gridOrder": 2,
+      "coverageAction": "CURRENT"
+    },
+    {
+      "id": "southwest-phoenix-industrial",
+      "label": "Southwest Phoenix Industrial",
+      "geographyType": "INDUSTRIAL_DISTRICT",
+      "publicEvidenceTier": "PUBLIC_REVIEWED",
+      "applicability": "SECONDARY",
+      "oneLineDistinction": "Industrial-led office/warehouse for service and operational users",
+      "shortDescription": "Southwest Phoenix can support Flex exploration where the use remains industrial-led: office/warehouse, contractor/service and operational space within a broad conventional industrial district. It is a secondary Flex context because the reviewed evidence does not establish an office-first or technical R&D identity. Users should compare it with Airport / South Central for lighter operating formats and North Phoenix for specialized technical work.",
+      "commonHere": [
+        "Office/warehouse",
+        "Contractor/service",
+        "Industrial-led flex"
+      ],
+      "whatStandsOut": [
+        "Conventional industrial setting",
+        "Broad west-side operating geography",
+        "Flex is secondary to warehouse and service uses"
+      ],
+      "worthKnowing": [
+        "Confirm that the exact property’s office balance, loading and permitted use fit the operating mix."
+      ],
+      "compareWith": [
+        "airport-south-central-industrial",
+        "north-phoenix-advanced-operations"
+      ],
+      "sourceIds": [
+        "phx-reviewed-industrial",
+        "phx-general-plan"
+      ],
+      "municipality": "Phoenix",
+      "state": "AZ",
+      "route": "/commercial-real-estate/AZ/phoenix/southwest-phoenix-industrial/",
+      "indexation": "COMPONENT_READY",
+      "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+      "accessObservations": [],
+      "gridOrder": 3,
+      "coverageAction": "CURRENT"
+    }
+  ]
+}

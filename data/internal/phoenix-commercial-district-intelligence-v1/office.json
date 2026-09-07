@@ -1,0 +1,133 @@
+{
+  "schemaVersion": "phoenix-commercial-district-intelligence:v1",
+  "market": {
+    "id": "phoenix",
+    "label": "Phoenix",
+    "municipality": "Phoenix",
+    "state": "AZ"
+  },
+  "spaceType": "office",
+  "districts": [
+    {
+      "id": "downtown-phoenix",
+      "label": "Downtown Phoenix",
+      "geographyType": "OFFICE_DISTRICT",
+      "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+      "applicability": "PRIMARY",
+      "oneLineDistinction": "Civic, corporate and institutional offices in the urban core",
+      "shortDescription": "Downtown Phoenix concentrates government, legal, corporate, education and institutional work around the city’s compact central grid. Office users encounter towers, civic buildings, university and biomedical facilities alongside sports, convention and cultural destinations. Roosevelt Row and the Warehouse District add distinct creative and adaptive-reuse edges, but they should not be mistaken for one uniform office setting.",
+      "commonHere": [
+        "Government",
+        "Legal",
+        "Corporate office",
+        "Institutional"
+      ],
+      "whatStandsOut": [
+        "Phoenix’s civic and government center",
+        "Compact downtown blocks with major institutions",
+        "Office, education, convention and sports uses overlap"
+      ],
+      "worthKnowing": [
+        "The business core, biomedical campus, Roosevelt edge and Warehouse District differ materially by block and building."
+      ],
+      "compareWith": [
+        "midtown-central-avenue",
+        "camelback-corridor"
+      ],
+      "sourceIds": [
+        "phx-general-plan",
+        "phx-central-city"
+      ],
+      "municipality": "Phoenix",
+      "state": "AZ",
+      "route": "/commercial-real-estate/AZ/phoenix/downtown-phoenix/",
+      "indexation": "COMPONENT_READY",
+      "accessReadiness": "OBJECTIVE_ACCESS_READY",
+      "accessObservations": [
+        "Valley Metro rail serves Downtown along Washington and Jefferson streets and Central and First avenues."
+      ],
+      "gridOrder": 1,
+      "coverageAction": "CURRENT"
+    },
+    {
+      "id": "midtown-central-avenue",
+      "label": "Midtown / Central Avenue",
+      "geographyType": "OFFICE_CORRIDOR",
+      "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+      "applicability": "PRIMARY",
+      "oneLineDistinction": "Established office towers along Phoenix’s central spine",
+      "shortDescription": "Midtown follows Central Avenue north of Downtown, where mid-century towers, medical and professional offices, institutions and newer mixed-use projects form a linear employment corridor. It feels less like a compact business district than a sequence of office nodes connected by Central Avenue. The corridor’s rail stations and recognizable high-rise stock distinguish it from lower-density north Phoenix campuses and the resort-retail setting around Camelback and Biltmore.",
+      "commonHere": [
+        "Professional services",
+        "Medical office",
+        "Corporate office",
+        "Institutional"
+      ],
+      "whatStandsOut": [
+        "Linear high-rise office corridor",
+        "Concentration of mid-century office buildings",
+        "Office nodes connected along Central Avenue"
+      ],
+      "worthKnowing": [
+        "Midtown is a corridor, not one compact node; building age, parking arrangements and street activity vary along it."
+      ],
+      "compareWith": [
+        "downtown-phoenix",
+        "camelback-corridor"
+      ],
+      "sourceIds": [
+        "phx-general-plan",
+        "phx-midtown",
+        "phx-transit"
+      ],
+      "municipality": "Phoenix",
+      "state": "AZ",
+      "route": null,
+      "indexation": "COMPONENT_READY",
+      "accessReadiness": "OBJECTIVE_ACCESS_READY",
+      "accessObservations": [
+        "Valley Metro rail runs along Central Avenue through Midtown."
+      ],
+      "gridOrder": 2,
+      "coverageAction": "ADD"
+    },
+    {
+      "id": "camelback-corridor",
+      "label": "Camelback / Biltmore",
+      "geographyType": "MIXED_COMMERCIAL_DISTRICT",
+      "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+      "applicability": "PRIMARY",
+      "oneLineDistinction": "Corporate offices beside destination retail and resort-scale landmarks",
+      "shortDescription": "The Camelback/Biltmore commercial core combines corporate and professional offices with destination shopping, hotels and restaurants around Camelback Road, 24th Street and the Arizona Biltmore area. Its landscaped campuses, office buildings and regional retail differ from Downtown’s compact street grid and Midtown’s linear tower corridor. “Camelback Corridor” and “Biltmore” overlap here as customer concepts rather than appearing as competing duplicate districts.",
+      "commonHere": [
+        "Corporate office",
+        "Professional services",
+        "Medical office"
+      ],
+      "whatStandsOut": [
+        "Office and destination-retail overlap",
+        "Landscaped campus and mid-rise formats",
+        "Arizona Biltmore and Camelback Road identity"
+      ],
+      "worthKnowing": [
+        "The public label covers overlapping nodes; confirm the exact Phoenix municipality, block and building rather than inferring one continuous corridor."
+      ],
+      "compareWith": [
+        "midtown-central-avenue",
+        "downtown-phoenix"
+      ],
+      "sourceIds": [
+        "phx-general-plan",
+        "phx-camelback-core"
+      ],
+      "municipality": "Phoenix",
+      "state": "AZ",
+      "route": "/commercial-real-estate/AZ/phoenix/camelback-corridor/",
+      "indexation": "COMPONENT_READY",
+      "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+      "accessObservations": [],
+      "gridOrder": 3,
+      "coverageAction": "CURRENT"
+    }
+  ]
+}

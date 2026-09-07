@@ -1,0 +1,134 @@
+{
+  "schemaVersion": "phoenix-commercial-district-intelligence:v1",
+  "market": {
+    "id": "phoenix",
+    "label": "Phoenix",
+    "municipality": "Phoenix",
+    "state": "AZ"
+  },
+  "spaceType": "industrial",
+  "districts": [
+    {
+      "id": "southwest-phoenix-industrial",
+      "label": "Southwest Phoenix Industrial",
+      "geographyType": "INDUSTRIAL_DISTRICT",
+      "publicEvidenceTier": "PUBLIC_REVIEWED",
+      "applicability": "PRIMARY",
+      "oneLineDistinction": "Broad warehouse and distribution territory on the west side",
+      "shortDescription": "Southwest Phoenix is the city’s clearest reviewed setting for conventional warehouse, distribution, service-industrial and broader operating uses. The geography covers a substantial west-side employment area rather than one uniform business park, and its representative building illustrates only part of that range. It is distinct from the airport-side infill mix and North Phoenix’s specialized technical ecosystem.",
+      "commonHere": [
+        "Distribution",
+        "Warehouse",
+        "Contractor/service",
+        "Broader operations"
+      ],
+      "whatStandsOut": [
+        "Large City-designated employment geography",
+        "Conventional industrial emphasis",
+        "West-side warehouse and service context"
+      ],
+      "worthKnowing": [
+        "Building format is not uniform; loading, circulation, yard, power and permitted use require property review."
+      ],
+      "compareWith": [
+        "airport-south-central-industrial",
+        "north-phoenix-advanced-operations"
+      ],
+      "sourceIds": [
+        "phx-reviewed-industrial",
+        "phx-general-plan",
+        "phx-representatives"
+      ],
+      "municipality": "Phoenix",
+      "state": "AZ",
+      "route": "/commercial-real-estate/AZ/phoenix/southwest-phoenix-industrial/",
+      "indexation": "COMPONENT_READY",
+      "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+      "accessObservations": [],
+      "gridOrder": 1,
+      "coverageAction": "CURRENT"
+    },
+    {
+      "id": "airport-south-central-industrial",
+      "label": "Airport / South Central Industrial",
+      "geographyType": "LOGISTICS_ENVIRONMENT",
+      "publicEvidenceTier": "PUBLIC_REVIEWED",
+      "applicability": "PRIMARY",
+      "oneLineDistinction": "Central infill industry, service space and office-production near Sky Harbor",
+      "shortDescription": "Airport / South Central brings together City-recognized Sky Harbor and South Central employment areas with the reviewed Cotton Center office-production context. Users encounter lighter warehouse, service-industrial, contractor and production formats alongside airport-related employment. Airport identity is orientation—not proof that a particular building has superior freight access or aviation capability—and Tempe properties remain outside this Phoenix geography.",
+      "commonHere": [
+        "Service industrial",
+        "Lighter warehouse",
+        "Contractor/service",
+        "Light production"
+      ],
+      "whatStandsOut": [
+        "Sky Harbor employment context",
+        "Central infill industrial pattern",
+        "Cotton Center office-production formats"
+      ],
+      "worthKnowing": [
+        "The combined area contains varied formats; confirm exact use, loading, circulation and airport-related needs by property."
+      ],
+      "compareWith": [
+        "southwest-phoenix-industrial",
+        "north-phoenix-advanced-operations"
+      ],
+      "sourceIds": [
+        "phx-reviewed-industrial",
+        "phx-general-plan",
+        "phx-airport"
+      ],
+      "municipality": "Phoenix",
+      "state": "AZ",
+      "route": null,
+      "indexation": "COMPONENT_READY",
+      "accessReadiness": "OBJECTIVE_ACCESS_READY",
+      "accessObservations": [
+        "Phoenix Sky Harbor sits within this City employment context and is served by the PHX Sky Train connection to Valley Metro rail."
+      ],
+      "gridOrder": 2,
+      "coverageAction": "CURRENT"
+    },
+    {
+      "id": "north-phoenix-advanced-operations",
+      "label": "North Phoenix Advanced Operations",
+      "geographyType": "R_AND_D_TECHNICAL_CLUSTER",
+      "publicEvidenceTier": "PUBLIC_REVIEWED",
+      "applicability": "SECONDARY",
+      "oneLineDistinction": "Technical production and aerospace-support across two northern employment nodes",
+      "shortDescription": "North Phoenix Advanced Operations joins Deer Valley’s aerospace-support and mixed Industrial/Flex setting with the northern semiconductor-manufacturing and supplier ecosystem. It is a specialized alternative for technical, engineering and production-oriented exploration—not a generic warehouse district. The two component areas are separated geographically, and ecosystem presence never establishes clean-room, laboratory, power or production capability at an individual property.",
+      "commonHere": [
+        "Advanced operations",
+        "Engineering",
+        "Technical production",
+        "Aerospace support"
+      ],
+      "whatStandsOut": [
+        "Deer Valley aviation-employment context",
+        "Northern semiconductor supplier ecosystem",
+        "Specialized rather than general warehouse identity"
+      ],
+      "worthKnowing": [
+        "Treat the components separately during site review and verify every specialized facility requirement at the property level."
+      ],
+      "compareWith": [
+        "airport-south-central-industrial",
+        "southwest-phoenix-industrial"
+      ],
+      "sourceIds": [
+        "phx-reviewed-industrial",
+        "phx-general-plan",
+        "phx-representatives"
+      ],
+      "municipality": "Phoenix",
+      "state": "AZ",
+      "route": null,
+      "indexation": "COMPONENT_READY",
+      "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+      "accessObservations": [],
+      "gridOrder": 3,
+      "coverageAction": "CURRENT"
+    }
+  ]
+}

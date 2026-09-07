@@ -1,0 +1,55 @@
+{
+  "schemaVersion": "commercial-district-intelligence-scaling:v1",
+  "data": [
+    {
+      "code": "MUNICIPALITY_AMBIGUITY",
+      "action": "STOP_MARKET",
+      "threshold": "any unresolved public geography ownership"
+    },
+    {
+      "code": "RELATIONSHIP_EXPANSION",
+      "action": "STOP_MARKET",
+      "threshold": ">8 net-new public relationships"
+    },
+    {
+      "code": "WEAK_SOURCE_COVERAGE",
+      "action": "STOP_MARKET",
+      "threshold": "no authoritative or independently credible support for a surfaced relationship"
+    },
+    {
+      "code": "DUPLICATE_GEOGRAPHY_IDENTITY",
+      "action": "STOP_RELATIONSHIP",
+      "threshold": "overlapping names cannot be expressed hierarchically"
+    },
+    {
+      "code": "CROSS_MARKET_OWNERSHIP_CONFLICT",
+      "action": "STOP_MARKET",
+      "threshold": "city and metro evidence disagree"
+    },
+    {
+      "code": "CANDIDATE_PROMOTION",
+      "action": "STOP_BATCH",
+      "threshold": "candidate-only geography becomes PUBLIC_REVIEWED"
+    },
+    {
+      "code": "EDITORIAL_SIMILARITY",
+      "action": "REWRITE",
+      "threshold": ">0.78 normalized phrase similarity or a repeated distinction"
+    },
+    {
+      "code": "ROUTE_COLLISION",
+      "action": "STOP_MARKET",
+      "threshold": "two entities claim one canonical route or one entity gains duplicate URLs"
+    },
+    {
+      "code": "PROPERTY_TYPE_CONFLICT",
+      "action": "STOP_RELATIONSHIP",
+      "threshold": "unresolved canonical versus observed type"
+    },
+    {
+      "code": "REPRESENTATIVE_IDENTITY_CONFLICT",
+      "action": "STOP_RELATIONSHIP",
+      "threshold": "municipality, hierarchy or durable identity disagreement"
+    }
+  ]
+}

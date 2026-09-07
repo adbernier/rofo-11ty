@@ -1,0 +1,20 @@
+"use strict";
+const evidence=require("./phoenixIndustrialFlexEvidenceFoundation");
+const editorial=Object.fromEntries(["office","retail","industrial","flex"].map(type=>[type,require(`../data/internal/phoenix-commercial-district-intelligence-v1/${type}.json`).districts]));
+const labels={office:"Office",retail:"Retail",industrial:"Industrial",flex:"Flex"};
+const slugs={office:"office-space",retail:"retail-space",industrial:"industrial-space",flex:"flex-space"};
+const titles={office:"Explore Office Districts",retail:"Explore Retail Districts & Corridors",industrial:"Explore Industrial Districts",flex:"Explore Flex Districts"};
+const intros={office:"Compare Phoenix’s compact business core, Central Avenue tower corridor and Camelback/Biltmore office district.",retail:"Compare arts-led storefront corridors, Downtown activity and destination retail around Camelback/Biltmore.",industrial:"Compare Phoenix’s reviewed southwest, airport-side and specialized North Phoenix operating districts.",flex:"Compare central office-production, North Phoenix technical operations and industrial-led southwest flex."};
+const typeLabels={OFFICE_DISTRICT:"Office district",OFFICE_CORRIDOR:"Office corridor",INDUSTRIAL_DISTRICT:"Industrial district",RETAIL_DISTRICT:"Retail district",RETAIL_CORRIDOR:"Retail corridor",MIXED_COMMERCIAL_DISTRICT:"Mixed commercial district",FLEX_BUSINESS_PARK_ENVIRONMENT:"Flex / business-park area",LOGISTICS_ENVIRONMENT:"Industrial / logistics area",R_AND_D_TECHNICAL_CLUSTER:"Technical operations area"};
+function repsFor(geography,type){
+  const candidate=evidence.candidates[geography.id];
+  return (candidate?.representatives||[]).slice(0,3).map(rep=>({id:rep.id,kind:rep.kind==="COMMERCIAL_ENVIRONMENT"?"ENVIRONMENT":"PROPERTY",name:rep.label,address:rep.kind==="COMMERCIAL_ENVIRONMENT"?"":rep.label,propertyType:labels[type],geography:geography.label,municipality:"Phoenix",canonicalUrl:rep.path||"",image:"",areaPatterns:geography.commonHere,propertyVerified:"",investigate:"",availabilityBoundary:rep.availabilitySemantics}));
+}
+const bySpaceType=Object.fromEntries(Object.keys(labels).map(type=>{
+  const base=editorial[type].filter(g=>["PUBLIC_REVIEWED","PUBLIC_CONTEXTUAL"].includes(g.publicEvidenceTier)).sort((a,b)=>a.gridOrder-b.gridOrder).map(g=>({id:g.id,label:g.label,geographyType:g.geographyType,geographyTypeLabel:typeLabels[g.geographyType]||"Commercial district",evidenceTier:g.publicEvidenceTier,applicability:g.applicability,routeState:g.route?"ROUTE_READY":"COMPONENT_ONLY",canonicalPath:g.route,grid:{group:"commercial-core",order:g.gridOrder},oneLineDistinction:g.oneLineDistinction,description:g.shortDescription,commercialCharacter:g.whatStandsOut,areaPatterns:g.commonHere,whatStandsOut:g.whatStandsOut,worthKnowing:g.worthKnowing,compareWith:g.compareWith,sourceIds:g.sourceIds,orientation:[],access:g.accessReadiness==="OBJECTIVE_ACCESS_READY"?g.accessObservations:[],representatives:repsFor(g,type),investigationBoundaries:g.worthKnowing}));
+  const geographies=base.map(g=>({...g,related:g.compareWith.map(id=>base.find(x=>x.id===id)).filter(Boolean).slice(0,4).map(x=>({id:x.id,label:x.label,path:x.canonicalPath}))}));
+  return [type,{id:type,label:labels[type],slug:slugs[type],path:`/commercial-real-estate/AZ/phoenix/${slugs[type]}/`,explorationTitle:titles[type],introduction:intros[type],geographies}];
+}));
+const byGeographyId={};
+for(const [type,view] of Object.entries(bySpaceType))for(const geography of view.geographies){if(!byGeographyId[geography.id])byGeographyId[geography.id]=[];byGeographyId[geography.id].push({spaceType:type,spaceTypeLabel:labels[type],spaceTypePath:view.path,...geography});}
+module.exports=Object.freeze({schemaVersion:"phoenix-public-commercial-geography-experience:v1",city:{id:"phoenix",label:"Phoenix",state:"AZ",path:"/commercial-real-estate/AZ/phoenix/"},sourceSurfacePrefix:"phoenix",spaceTypes:Object.values(bySpaceType),bySpaceType,byGeographyId,availabilityFirewall:"Confirm current availability and the exact condition, configuration, access, and permitted use of any specific space."});

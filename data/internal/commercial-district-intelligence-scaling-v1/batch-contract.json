@@ -1,0 +1,33 @@
+{
+  "schemaVersion": "commercial-district-intelligence-scaling:v1",
+  "data": {
+    "name": "Commercial District Intelligence Batch v1",
+    "marketCount": {
+      "target": 10,
+      "min": 8,
+      "max": 10
+    },
+    "inputs": [
+      "market ID, city, state and municipality boundary sources",
+      "Public Commercial Geography Foundation record",
+      "Atlas and reconciliation evidence",
+      "reviewed Recommendation Intelligence foundations where present",
+      "Representative Property Foundation",
+      "Durable Property Entity records",
+      "existing route/indexation inventory",
+      "approved editorial vocabulary and QA thresholds"
+    ],
+    "outputs": [
+      "municipality audit",
+      "Office/Retail/Industrial/Flex coverage decisions",
+      "evidence tiers and provenance",
+      "one-line distinction, description, Common here, What stands out, Worth knowing and Compare with",
+      "access-readiness inventory",
+      "representative projection",
+      "route/indexation state",
+      "visual-review manifest",
+      "deterministic artifact hashes",
+      "QA and stop report"
+    ]
+  }
+}
