@@ -1,0 +1,322 @@
+{
+  "schemaVersion": "commercial-district-intelligence-batch:v1",
+  "market": {
+    "id": "nashville",
+    "label": "Nashville",
+    "state": "TN"
+  },
+  "classification": "READY_WITH_MINOR_REVIEW",
+  "excludedMunicipalities": [
+    "Franklin",
+    "Murfreesboro",
+    "Goodlettsville"
+  ],
+  "sources": [
+    {
+      "id": "nashville-official",
+      "title": "Nashville official planning resources",
+      "url": "https://www.nashville.gov/departments/planning",
+      "publisher": "Metropolitan Government of Nashville and Davidson County"
+    }
+  ],
+  "spaceTypes": {
+    "office": [
+      {
+        "id": "downtown-nashville",
+        "label": "Downtown Nashville",
+        "geographyType": "OFFICE_DISTRICT",
+        "oneLineDistinction": "Office, hospitality and entertainment in the urban core",
+        "shortDescription": "Downtown Nashville brings together offices, government, hospitality, convention activity and entertainment within the city’s central street grid. Its business core operates alongside Lower Broadway’s visitor economy, making it distinct from Music Row’s specialized industry cluster and MetroCenter’s campus-like setting.",
+        "commonHere": [
+          "Professional services",
+          "Office"
+        ],
+        "whatStandsOut": [
+          "Office, hospitality and entertainment in the urban core",
+          "Employment concentration"
+        ],
+        "worthKnowing": [
+          "Confirm the exact block, building format and current space conditions."
+        ],
+        "compareWith": [
+          "music-row-midtown",
+          "the-gulch"
+        ],
+        "sourceIds": [
+          "nashville-official"
+        ],
+        "accessObservations": [],
+        "geographyId": "downtown-nashville",
+        "applicability": "PRIMARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "municipality": "Nashville",
+        "state": "TN",
+        "gridOrder": 1,
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "representatives": []
+      },
+      {
+        "id": "music-row-midtown",
+        "label": "Music Row / Midtown",
+        "geographyType": "OFFICE_DISTRICT",
+        "oneLineDistinction": "Music-business offices in a specialized creative district",
+        "shortDescription": "Music Row and Midtown center on Nashville’s music-business ecosystem, with offices, studios, institutions, hotels and mixed-use buildings between Downtown and Vanderbilt. The concentration of music-industry work gives it a commercial identity that broader downtown office language cannot explain.",
+        "commonHere": [
+          "Professional services",
+          "Office"
+        ],
+        "whatStandsOut": [
+          "Music-business offices in a specialized creative district",
+          "Employment concentration"
+        ],
+        "worthKnowing": [
+          "Confirm the exact block, building format and current space conditions."
+        ],
+        "compareWith": [
+          "the-gulch",
+          "12-south"
+        ],
+        "sourceIds": [
+          "nashville-official"
+        ],
+        "accessObservations": [],
+        "geographyId": "music-row-midtown",
+        "applicability": "PRIMARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "municipality": "Nashville",
+        "state": "TN",
+        "gridOrder": 2,
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "representatives": []
+      }
+    ],
+    "retail": [
+      {
+        "id": "the-gulch",
+        "label": "The Gulch",
+        "geographyType": "RETAIL_DISTRICT",
+        "oneLineDistinction": "Newer mixed-use blocks beside Downtown",
+        "shortDescription": "The Gulch is a compact, newer mixed-use district immediately southwest of Downtown, with restaurants, shops, hotels, offices and residential towers arranged around former rail land. Its contemporary building stock and walkable concentration differ from 12 South’s low-rise neighborhood corridor.",
+        "commonHere": [
+          "Retail",
+          "Food and beverage"
+        ],
+        "whatStandsOut": [
+          "Newer mixed-use blocks beside Downtown",
+          "Customer-facing street activity"
+        ],
+        "worthKnowing": [
+          "Confirm the exact block, building format and current space conditions."
+        ],
+        "compareWith": [
+          "12-south",
+          "airport-elm-hill"
+        ],
+        "sourceIds": [
+          "nashville-official"
+        ],
+        "accessObservations": [],
+        "geographyId": "the-gulch",
+        "applicability": "PRIMARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "municipality": "Nashville",
+        "state": "TN",
+        "gridOrder": 1,
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "representatives": []
+      },
+      {
+        "id": "12-south",
+        "label": "12 South",
+        "geographyType": "RETAIL_CORRIDOR",
+        "oneLineDistinction": "Neighborhood shops and dining along 12th Avenue",
+        "shortDescription": "12 South follows 12th Avenue South as a low-rise neighborhood shopping and dining corridor. Independent storefronts, restaurants and personal services occupy smaller street-facing formats, unlike the larger mixed-use buildings in The Gulch or Downtown.",
+        "commonHere": [
+          "Retail",
+          "Food and beverage"
+        ],
+        "whatStandsOut": [
+          "Neighborhood shops and dining along 12th Avenue",
+          "Customer-facing street activity"
+        ],
+        "worthKnowing": [
+          "Confirm the exact block, building format and current space conditions."
+        ],
+        "compareWith": [
+          "airport-elm-hill",
+          "metrocenter"
+        ],
+        "sourceIds": [
+          "nashville-official"
+        ],
+        "accessObservations": [],
+        "geographyId": "12-south",
+        "applicability": "PRIMARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "municipality": "Nashville",
+        "state": "TN",
+        "gridOrder": 2,
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "representatives": []
+      }
+    ],
+    "industrial": [
+      {
+        "id": "airport-elm-hill",
+        "label": "Airport / Elm Hill",
+        "geographyType": "INDUSTRIAL_DISTRICT",
+        "oneLineDistinction": "Warehouse and service space near the airport employment area",
+        "shortDescription": "Airport and Elm Hill industrial areas support warehouse, service and light-operating uses east of central Nashville near the airport employment geography. The label is not a metro-wide airport claim, and exact building access or logistics performance remains property-specific.",
+        "commonHere": [
+          "Industrial operations",
+          "Service businesses"
+        ],
+        "whatStandsOut": [
+          "Warehouse and service space near the airport employment area",
+          "Operating-space concentration"
+        ],
+        "worthKnowing": [
+          "Confirm the exact block, building format and current space conditions."
+        ],
+        "compareWith": [
+          "metrocenter",
+          "downtown-nashville"
+        ],
+        "sourceIds": [
+          "nashville-official"
+        ],
+        "accessObservations": [],
+        "geographyId": "airport-elm-hill",
+        "applicability": "PRIMARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "municipality": "Nashville",
+        "state": "TN",
+        "gridOrder": 1,
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "representatives": []
+      },
+      {
+        "id": "metrocenter",
+        "label": "MetroCenter",
+        "geographyType": "MIXED_COMMERCIAL_DISTRICT",
+        "oneLineDistinction": "Office and flex campuses north of Downtown",
+        "shortDescription": "MetroCenter groups offices, service businesses and flexible operating space in a planned employment area north of Downtown along the Cumberland River. Its campus and business-park formats differ from Downtown towers and the specialized creative buildings around Music Row.",
+        "commonHere": [
+          "Industrial operations",
+          "Service businesses"
+        ],
+        "whatStandsOut": [
+          "Office and flex campuses north of Downtown",
+          "Operating-space concentration"
+        ],
+        "worthKnowing": [
+          "Confirm the exact block, building format and current space conditions."
+        ],
+        "compareWith": [
+          "downtown-nashville",
+          "music-row-midtown"
+        ],
+        "sourceIds": [
+          "nashville-official"
+        ],
+        "accessObservations": [],
+        "geographyId": "metrocenter",
+        "applicability": "SECONDARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "municipality": "Nashville",
+        "state": "TN",
+        "gridOrder": 2,
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "representatives": []
+      }
+    ],
+    "flex": [
+      {
+        "id": "metrocenter",
+        "label": "MetroCenter",
+        "geographyType": "MIXED_COMMERCIAL_DISTRICT",
+        "oneLineDistinction": "Office and flex campuses north of Downtown",
+        "shortDescription": "MetroCenter groups offices, service businesses and flexible operating space in a planned employment area north of Downtown along the Cumberland River. Its campus and business-park formats differ from Downtown towers and the specialized creative buildings around Music Row.",
+        "commonHere": [
+          "Industrial operations",
+          "Service businesses"
+        ],
+        "whatStandsOut": [
+          "Office and flex campuses north of Downtown",
+          "Operating-space concentration"
+        ],
+        "worthKnowing": [
+          "Confirm the exact block, building format and current space conditions."
+        ],
+        "compareWith": [
+          "downtown-nashville",
+          "music-row-midtown"
+        ],
+        "sourceIds": [
+          "nashville-official"
+        ],
+        "accessObservations": [],
+        "geographyId": "metrocenter",
+        "applicability": "PRIMARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "municipality": "Nashville",
+        "state": "TN",
+        "gridOrder": 1,
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "representatives": []
+      },
+      {
+        "id": "airport-elm-hill",
+        "label": "Airport / Elm Hill",
+        "geographyType": "INDUSTRIAL_DISTRICT",
+        "oneLineDistinction": "Warehouse and service space near the airport employment area",
+        "shortDescription": "Airport and Elm Hill industrial areas support warehouse, service and light-operating uses east of central Nashville near the airport employment geography. The label is not a metro-wide airport claim, and exact building access or logistics performance remains property-specific.",
+        "commonHere": [
+          "Industrial operations",
+          "Service businesses"
+        ],
+        "whatStandsOut": [
+          "Warehouse and service space near the airport employment area",
+          "Operating-space concentration"
+        ],
+        "worthKnowing": [
+          "Confirm the exact block, building format and current space conditions."
+        ],
+        "compareWith": [
+          "metrocenter",
+          "downtown-nashville"
+        ],
+        "sourceIds": [
+          "nashville-official"
+        ],
+        "accessObservations": [],
+        "geographyId": "airport-elm-hill",
+        "applicability": "SECONDARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "municipality": "Nashville",
+        "state": "TN",
+        "gridOrder": 2,
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "representatives": []
+      }
+    ]
+  },
+  "totalNewRelationships": 8,
+  "stopGate": "PASS"
+}

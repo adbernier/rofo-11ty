@@ -15,6 +15,7 @@ const sfCommercialGeographyExperience = require("./sfCommercialGeographyExperien
 const sacramentoCommercialGeographyExperience = require("./sacramentoCommercialGeographyExperience.js");
 const indianapolisCommercialGeographyExperience = require("./indianapolisCommercialGeographyExperience.js");
 const phoenixCommercialGeographyExperience = require("./phoenixCommercialGeographyExperience.js");
+const commercialDistrictIntelligenceBatchV1 = require("./commercialDistrictIntelligenceBatchV1.js");
 
 function slugify(value) {
   return String(value || "")
@@ -245,7 +246,7 @@ module.exports = cities.flatMap((city) => {
               ? indianapolisCommercialGeographyExperience.bySpaceType[normalizedTypeSlug.replace("-space", "")]
             : normalizedCitySlug === "phoenix" && normalizedStateAbbr === "az"
               ? phoenixCommercialGeographyExperience.bySpaceType[normalizedTypeSlug.replace("-space", "")]
-            : null,
+            : commercialDistrictIntelligenceBatchV1.byMarketKey[`${stateAbbr}/${normalizedCitySlug}`]?.bySpaceType[normalizedTypeSlug.replace("-space", "")] || null,
       };
     })
     .filter((entry) => entry.representativeBuildings.length > 0 || entry.localDecisionGuide || entry.publicCommercialGeography);

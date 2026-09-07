@@ -1,0 +1,327 @@
+{
+  "schemaVersion": "commercial-district-intelligence-batch:v1",
+  "market": {
+    "id": "los-angeles",
+    "label": "Los Angeles",
+    "state": "CA"
+  },
+  "classification": "HOLD_FOR_MARKET_REVIEW",
+  "excludedMunicipalities": [
+    "Long Beach",
+    "Pasadena",
+    "Torrance",
+    "Santa Monica",
+    "Burbank",
+    "Culver City",
+    "Vernon",
+    "Santa Fe Springs"
+  ],
+  "sources": [
+    {
+      "id": "los-angeles-official",
+      "title": "Los Angeles official planning resources",
+      "url": "https://planning.lacity.gov/plans-policies/community-plans",
+      "publisher": "City of Los Angeles"
+    }
+  ],
+  "spaceTypes": {
+    "office": [
+      {
+        "id": "downtown-los-angeles",
+        "label": "Downtown Los Angeles",
+        "geographyType": "OFFICE_DISTRICT",
+        "oneLineDistinction": "The city’s densest office, civic and wholesale districts",
+        "shortDescription": "Downtown Los Angeles is a customer-recognizable office district within Los Angeles. The city’s densest office, civic and wholesale districts. The public relationship is bounded to Los Angeles municipal ownership and is presented as market context, not a personalized recommendation or a claim about any individual building.",
+        "commonHere": [
+          "Professional services",
+          "Office"
+        ],
+        "whatStandsOut": [
+          "The city’s densest office, civic and wholesale districts",
+          "Employment concentration"
+        ],
+        "worthKnowing": [
+          "Confirm the exact block, building format and current space conditions."
+        ],
+        "compareWith": [
+          "century-city",
+          "hollywood"
+        ],
+        "sourceIds": [
+          "los-angeles-official"
+        ],
+        "accessObservations": [],
+        "geographyId": "downtown-los-angeles",
+        "applicability": "PRIMARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "municipality": "Los Angeles",
+        "state": "CA",
+        "gridOrder": 1,
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "representatives": []
+      },
+      {
+        "id": "century-city",
+        "label": "Century City",
+        "geographyType": "OFFICE_DISTRICT",
+        "oneLineDistinction": "High-rise offices and professional services on the Westside",
+        "shortDescription": "Century City is a customer-recognizable office district within Los Angeles. High-rise offices and professional services on the Westside. The public relationship is bounded to Los Angeles municipal ownership and is presented as market context, not a personalized recommendation or a claim about any individual building.",
+        "commonHere": [
+          "Professional services",
+          "Office"
+        ],
+        "whatStandsOut": [
+          "High-rise offices and professional services on the Westside",
+          "Employment concentration"
+        ],
+        "worthKnowing": [
+          "Confirm the exact block, building format and current space conditions."
+        ],
+        "compareWith": [
+          "hollywood",
+          "melrose-fairfax"
+        ],
+        "sourceIds": [
+          "los-angeles-official"
+        ],
+        "accessObservations": [],
+        "geographyId": "century-city",
+        "applicability": "PRIMARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "municipality": "Los Angeles",
+        "state": "CA",
+        "gridOrder": 2,
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "representatives": []
+      }
+    ],
+    "retail": [
+      {
+        "id": "hollywood",
+        "label": "Hollywood",
+        "geographyType": "RETAIL_DISTRICT",
+        "oneLineDistinction": "Entertainment offices, studios and visitor commerce",
+        "shortDescription": "Hollywood is a customer-recognizable retail district within Los Angeles. Entertainment offices, studios and visitor commerce. The public relationship is bounded to Los Angeles municipal ownership and is presented as market context, not a personalized recommendation or a claim about any individual building.",
+        "commonHere": [
+          "Retail",
+          "Food and beverage"
+        ],
+        "whatStandsOut": [
+          "Entertainment offices, studios and visitor commerce",
+          "Customer-facing street activity"
+        ],
+        "worthKnowing": [
+          "Confirm the exact block, building format and current space conditions."
+        ],
+        "compareWith": [
+          "melrose-fairfax",
+          "arts-district"
+        ],
+        "sourceIds": [
+          "los-angeles-official"
+        ],
+        "accessObservations": [],
+        "geographyId": "hollywood",
+        "applicability": "PRIMARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "municipality": "Los Angeles",
+        "state": "CA",
+        "gridOrder": 1,
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "representatives": []
+      },
+      {
+        "id": "melrose-fairfax",
+        "label": "Melrose / Fairfax",
+        "geographyType": "RETAIL_CORRIDOR",
+        "oneLineDistinction": "Street retail, design and dining along central LA corridors",
+        "shortDescription": "Melrose / Fairfax is a customer-recognizable retail corridor within Los Angeles. Street retail, design and dining along central LA corridors. The public relationship is bounded to Los Angeles municipal ownership and is presented as market context, not a personalized recommendation or a claim about any individual building.",
+        "commonHere": [
+          "Retail",
+          "Food and beverage"
+        ],
+        "whatStandsOut": [
+          "Street retail, design and dining along central LA corridors",
+          "Customer-facing street activity"
+        ],
+        "worthKnowing": [
+          "Confirm the exact block, building format and current space conditions."
+        ],
+        "compareWith": [
+          "arts-district",
+          "san-fernando-valley-industrial"
+        ],
+        "sourceIds": [
+          "los-angeles-official"
+        ],
+        "accessObservations": [],
+        "geographyId": "melrose-fairfax",
+        "applicability": "PRIMARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "municipality": "Los Angeles",
+        "state": "CA",
+        "gridOrder": 2,
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "representatives": []
+      }
+    ],
+    "industrial": [
+      {
+        "id": "arts-district",
+        "label": "Arts District",
+        "geographyType": "INDUSTRIAL_DISTRICT",
+        "oneLineDistinction": "Creative businesses in converted industrial blocks east of Downtown",
+        "shortDescription": "Arts District is a customer-recognizable industrial district within Los Angeles. Creative businesses in converted industrial blocks east of Downtown. The public relationship is bounded to Los Angeles municipal ownership and is presented as market context, not a personalized recommendation or a claim about any individual building.",
+        "commonHere": [
+          "Industrial operations",
+          "Service businesses"
+        ],
+        "whatStandsOut": [
+          "Creative businesses in converted industrial blocks east of Downtown",
+          "Operating-space concentration"
+        ],
+        "worthKnowing": [
+          "Confirm the exact block, building format and current space conditions."
+        ],
+        "compareWith": [
+          "san-fernando-valley-industrial",
+          "downtown-los-angeles"
+        ],
+        "sourceIds": [
+          "los-angeles-official"
+        ],
+        "accessObservations": [],
+        "geographyId": "arts-district",
+        "applicability": "PRIMARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "municipality": "Los Angeles",
+        "state": "CA",
+        "gridOrder": 1,
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "representatives": []
+      },
+      {
+        "id": "san-fernando-valley-industrial",
+        "label": "San Fernando Valley Industrial",
+        "geographyType": "MIXED_COMMERCIAL_DISTRICT",
+        "oneLineDistinction": "Production, warehouse and service industry across City valley districts",
+        "shortDescription": "San Fernando Valley Industrial is a customer-recognizable mixed commercial district within Los Angeles. Production, warehouse and service industry across City valley districts. The public relationship is bounded to Los Angeles municipal ownership and is presented as market context, not a personalized recommendation or a claim about any individual building.",
+        "commonHere": [
+          "Industrial operations",
+          "Service businesses"
+        ],
+        "whatStandsOut": [
+          "Production, warehouse and service industry across City valley districts",
+          "Operating-space concentration"
+        ],
+        "worthKnowing": [
+          "Confirm the exact block, building format and current space conditions."
+        ],
+        "compareWith": [
+          "downtown-los-angeles",
+          "century-city"
+        ],
+        "sourceIds": [
+          "los-angeles-official"
+        ],
+        "accessObservations": [],
+        "geographyId": "san-fernando-valley-industrial",
+        "applicability": "SECONDARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "municipality": "Los Angeles",
+        "state": "CA",
+        "gridOrder": 2,
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "representatives": []
+      }
+    ],
+    "flex": [
+      {
+        "id": "san-fernando-valley-industrial",
+        "label": "San Fernando Valley Industrial",
+        "geographyType": "MIXED_COMMERCIAL_DISTRICT",
+        "oneLineDistinction": "Production, warehouse and service industry across City valley districts",
+        "shortDescription": "San Fernando Valley Industrial is a customer-recognizable mixed commercial district within Los Angeles. Production, warehouse and service industry across City valley districts. The public relationship is bounded to Los Angeles municipal ownership and is presented as market context, not a personalized recommendation or a claim about any individual building.",
+        "commonHere": [
+          "Industrial operations",
+          "Service businesses"
+        ],
+        "whatStandsOut": [
+          "Production, warehouse and service industry across City valley districts",
+          "Operating-space concentration"
+        ],
+        "worthKnowing": [
+          "Confirm the exact block, building format and current space conditions."
+        ],
+        "compareWith": [
+          "downtown-los-angeles",
+          "century-city"
+        ],
+        "sourceIds": [
+          "los-angeles-official"
+        ],
+        "accessObservations": [],
+        "geographyId": "san-fernando-valley-industrial",
+        "applicability": "PRIMARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "municipality": "Los Angeles",
+        "state": "CA",
+        "gridOrder": 1,
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "representatives": []
+      },
+      {
+        "id": "arts-district",
+        "label": "Arts District",
+        "geographyType": "INDUSTRIAL_DISTRICT",
+        "oneLineDistinction": "Creative businesses in converted industrial blocks east of Downtown",
+        "shortDescription": "Arts District is a customer-recognizable industrial district within Los Angeles. Creative businesses in converted industrial blocks east of Downtown. The public relationship is bounded to Los Angeles municipal ownership and is presented as market context, not a personalized recommendation or a claim about any individual building.",
+        "commonHere": [
+          "Industrial operations",
+          "Service businesses"
+        ],
+        "whatStandsOut": [
+          "Creative businesses in converted industrial blocks east of Downtown",
+          "Operating-space concentration"
+        ],
+        "worthKnowing": [
+          "Confirm the exact block, building format and current space conditions."
+        ],
+        "compareWith": [
+          "san-fernando-valley-industrial",
+          "downtown-los-angeles"
+        ],
+        "sourceIds": [
+          "los-angeles-official"
+        ],
+        "accessObservations": [],
+        "geographyId": "arts-district",
+        "applicability": "SECONDARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "municipality": "Los Angeles",
+        "state": "CA",
+        "gridOrder": 2,
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "representatives": []
+      }
+    ]
+  },
+  "totalNewRelationships": 8,
+  "stopGate": "PASS"
+}

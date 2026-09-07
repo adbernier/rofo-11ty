@@ -1,0 +1,340 @@
+{
+  "schemaVersion": "commercial-district-intelligence-batch:v1",
+  "market": {
+    "id": "seattle",
+    "label": "Seattle",
+    "state": "WA"
+  },
+  "classification": "READY_WITH_MINOR_REVIEW",
+  "excludedMunicipalities": [
+    "Bellevue",
+    "Kent",
+    "Renton",
+    "Tukwila",
+    "Redmond",
+    "Kirkland"
+  ],
+  "sources": [
+    {
+      "id": "sea-snapshots",
+      "title": "Neighborhood snapshots",
+      "url": "https://www.seattle.gov/planning-and-community-development/population-and-demographics/neighborhood-snapshots",
+      "publisher": "City of Seattle"
+    },
+    {
+      "id": "sea-industrial",
+      "title": "Industrial and Maritime Strategy",
+      "url": "https://www.seattle.gov/planning-and-community-development/current-projects/industrial-and-maritime-strategy",
+      "publisher": "City of Seattle"
+    }
+  ],
+  "spaceTypes": {
+    "office": [
+      {
+        "id": "downtown-seattle",
+        "label": "Downtown Seattle",
+        "geographyType": "OFFICE_DISTRICT",
+        "oneLineDistinction": "The city’s tower core for major employers and institutions",
+        "shortDescription": "Downtown Seattle brings together high-rise offices, government, hotels, retail and visitor destinations in the city’s densest commercial core. Its tower stock and regional civic role differ from South Lake Union’s campus-like technology concentration and Pioneer Square’s older masonry buildings.",
+        "commonHere": [
+          "Corporate office",
+          "Government",
+          "Professional services"
+        ],
+        "whatStandsOut": [
+          "High-rise office concentration",
+          "Regional civic and visitor center"
+        ],
+        "worthKnowing": [
+          "Downtown contains several subdistricts with different street conditions."
+        ],
+        "compareWith": [
+          "south-lake-union",
+          "pioneer-square"
+        ],
+        "sourceIds": [
+          "sea-snapshots"
+        ],
+        "accessObservations": [],
+        "geographyId": "downtown-seattle",
+        "applicability": "PRIMARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "municipality": "Seattle",
+        "state": "WA",
+        "gridOrder": 1,
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "representatives": []
+      },
+      {
+        "id": "south-lake-union",
+        "label": "South Lake Union",
+        "geographyType": "OFFICE_DISTRICT",
+        "oneLineDistinction": "Technology and life-science campuses beside the lake",
+        "shortDescription": "South Lake Union is a modern employment district shaped by large technology offices, research uses and newer mixed-use development. Bigger contemporary buildings and campus-style occupancies distinguish it from Downtown’s traditional tower core and Pioneer Square’s historic loft stock.",
+        "commonHere": [
+          "Technology",
+          "Life sciences",
+          "R&D"
+        ],
+        "whatStandsOut": [
+          "Newer large-floorplate buildings",
+          "Research and technology concentration"
+        ],
+        "worthKnowing": [
+          "Laboratory and technical infrastructure must be confirmed by building."
+        ],
+        "compareWith": [
+          "downtown-seattle",
+          "pioneer-square"
+        ],
+        "sourceIds": [
+          "sea-snapshots"
+        ],
+        "accessObservations": [],
+        "geographyId": "south-lake-union",
+        "applicability": "PRIMARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "municipality": "Seattle",
+        "state": "WA",
+        "gridOrder": 2,
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "representatives": []
+      }
+    ],
+    "retail": [
+      {
+        "id": "pike-pine",
+        "label": "Pike / Pine",
+        "geographyType": "RETAIL_CORRIDOR",
+        "oneLineDistinction": "Independent storefronts, dining and nightlife on Capitol Hill",
+        "shortDescription": "The Pike/Pine corridor combines independent shops, restaurants, bars, entertainment and neighborhood services in a dense Capitol Hill setting. Smaller storefronts and strong evening activity distinguish it from Downtown’s visitor-oriented retail and Ballard’s neighborhood commercial core.",
+        "commonHere": [
+          "Independent retail",
+          "Food and beverage",
+          "Nightlife"
+        ],
+        "whatStandsOut": [
+          "Dense storefront rhythm",
+          "Day-to-evening activity"
+        ],
+        "worthKnowing": [
+          "Noise, hours and storefront conditions vary by block."
+        ],
+        "compareWith": [
+          "downtown-seattle",
+          "ballard"
+        ],
+        "sourceIds": [
+          "sea-snapshots"
+        ],
+        "accessObservations": [],
+        "geographyId": "pike-pine",
+        "applicability": "PRIMARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "municipality": "Seattle",
+        "state": "WA",
+        "gridOrder": 1,
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "representatives": []
+      },
+      {
+        "id": "ballard",
+        "label": "Ballard",
+        "geographyType": "MIXED_COMMERCIAL_DISTRICT",
+        "oneLineDistinction": "Neighborhood retail beside a working maritime-industrial district",
+        "shortDescription": "Ballard combines a walkable neighborhood retail core with industrial and maritime land toward the Ship Canal. That dual identity supports shops and restaurants as well as smaller production and service businesses, but the commercial core and industrial shoreline should not be treated as one uniform setting.",
+        "commonHere": [
+          "Neighborhood retail",
+          "Food and beverage",
+          "Maritime services"
+        ],
+        "whatStandsOut": [
+          "Retail core and working waterfront",
+          "Older low-rise commercial stock"
+        ],
+        "worthKnowing": [
+          "Choose the correct Ballard component for customer-facing or operating uses."
+        ],
+        "compareWith": [
+          "pike-pine",
+          "ballard-interbay"
+        ],
+        "sourceIds": [
+          "sea-snapshots",
+          "sea-industrial"
+        ],
+        "accessObservations": [],
+        "geographyId": "ballard",
+        "applicability": "PRIMARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "municipality": "Seattle",
+        "state": "WA",
+        "gridOrder": 2,
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "representatives": []
+      }
+    ],
+    "industrial": [
+      {
+        "id": "sodo-duwamish",
+        "label": "SODO / Greater Duwamish",
+        "geographyType": "INDUSTRIAL_DISTRICT",
+        "oneLineDistinction": "Seattle’s largest concentration of industrial and logistics land",
+        "shortDescription": "SODO and the Greater Duwamish Manufacturing/Industrial Center form Seattle’s principal warehouse, manufacturing, logistics and service-industrial geography. Stadium and retail edges sit beside working industrial land, so SODO is a customer label within a larger operating district rather than a single consistent building market.",
+        "commonHere": [
+          "Warehouse",
+          "Manufacturing",
+          "Distribution",
+          "Service industrial"
+        ],
+        "whatStandsOut": [
+          "Large protected industrial geography",
+          "Port and freight-oriented setting"
+        ],
+        "worthKnowing": [
+          "Building access and operating capability require site-level review."
+        ],
+        "compareWith": [
+          "ballard-interbay"
+        ],
+        "sourceIds": [
+          "sea-industrial"
+        ],
+        "accessObservations": [],
+        "geographyId": "sodo-duwamish",
+        "applicability": "PRIMARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "municipality": "Seattle",
+        "state": "WA",
+        "gridOrder": 1,
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "representatives": []
+      },
+      {
+        "id": "ballard-interbay",
+        "label": "Ballard / Interbay Industrial",
+        "geographyType": "INDUSTRIAL_CORRIDOR",
+        "oneLineDistinction": "Maritime, production and service businesses around the Ship Canal",
+        "shortDescription": "The Ballard-Interbay manufacturing area follows the Ship Canal and rail corridor, supporting maritime trades, production, service-industrial and smaller warehouse formats. It is physically and commercially distinct from SODO’s larger southern industrial concentration and from Ballard’s retail core.",
+        "commonHere": [
+          "Maritime services",
+          "Production",
+          "Contractor/service"
+        ],
+        "whatStandsOut": [
+          "Working waterfront identity",
+          "Mixed smaller industrial formats"
+        ],
+        "worthKnowing": [
+          "Industrial and customer-facing uses occupy different components."
+        ],
+        "compareWith": [
+          "sodo-duwamish",
+          "ballard"
+        ],
+        "sourceIds": [
+          "sea-industrial"
+        ],
+        "accessObservations": [],
+        "geographyId": "ballard-interbay",
+        "applicability": "PRIMARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "municipality": "Seattle",
+        "state": "WA",
+        "gridOrder": 2,
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "representatives": []
+      }
+    ],
+    "flex": [
+      {
+        "id": "ballard-interbay",
+        "label": "Ballard / Interbay Industrial",
+        "geographyType": "INDUSTRIAL_CORRIDOR",
+        "oneLineDistinction": "Maritime, production and service businesses around the Ship Canal",
+        "shortDescription": "The Ballard-Interbay manufacturing area follows the Ship Canal and rail corridor, supporting maritime trades, production, service-industrial and smaller warehouse formats. It is physically and commercially distinct from SODO’s larger southern industrial concentration and from Ballard’s retail core.",
+        "commonHere": [
+          "Maritime services",
+          "Production",
+          "Contractor/service"
+        ],
+        "whatStandsOut": [
+          "Working waterfront identity",
+          "Mixed smaller industrial formats"
+        ],
+        "worthKnowing": [
+          "Industrial and customer-facing uses occupy different components."
+        ],
+        "compareWith": [
+          "sodo-duwamish",
+          "ballard"
+        ],
+        "sourceIds": [
+          "sea-industrial"
+        ],
+        "accessObservations": [],
+        "geographyId": "ballard-interbay",
+        "applicability": "PRIMARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "municipality": "Seattle",
+        "state": "WA",
+        "gridOrder": 1,
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "representatives": []
+      },
+      {
+        "id": "sodo-duwamish",
+        "label": "SODO / Greater Duwamish",
+        "geographyType": "INDUSTRIAL_DISTRICT",
+        "oneLineDistinction": "Seattle’s largest concentration of industrial and logistics land",
+        "shortDescription": "SODO and the Greater Duwamish Manufacturing/Industrial Center form Seattle’s principal warehouse, manufacturing, logistics and service-industrial geography. Stadium and retail edges sit beside working industrial land, so SODO is a customer label within a larger operating district rather than a single consistent building market.",
+        "commonHere": [
+          "Warehouse",
+          "Manufacturing",
+          "Distribution",
+          "Service industrial"
+        ],
+        "whatStandsOut": [
+          "Large protected industrial geography",
+          "Port and freight-oriented setting"
+        ],
+        "worthKnowing": [
+          "Building access and operating capability require site-level review."
+        ],
+        "compareWith": [
+          "ballard-interbay"
+        ],
+        "sourceIds": [
+          "sea-industrial"
+        ],
+        "accessObservations": [],
+        "geographyId": "sodo-duwamish",
+        "applicability": "SECONDARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "municipality": "Seattle",
+        "state": "WA",
+        "gridOrder": 2,
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "representatives": []
+      }
+    ]
+  },
+  "totalNewRelationships": 8,
+  "stopGate": "PASS"
+}

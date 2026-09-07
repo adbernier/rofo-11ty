@@ -15,7 +15,8 @@ eleventyComputed:
 {% set stateAbbr = city.state_abbr | upper %}
 {% set spaceType = entry.spaceType %}
 {% set representativeBuildings = entry.representativeBuildings %}
-{% set publicCommercialGeographyExperience = sacramentoCommercialGeographyExperience if city.slug == "sacramento" else (indianapolisCommercialGeographyExperience if city.slug == "indianapolis" else (phoenixCommercialGeographyExperience if city.slug == "phoenix" else sfCommercialGeographyExperience)) %}
+{% set batchMarketKey = (city.state_abbr | upper) + "/" + city.slug %}
+{% set publicCommercialGeographyExperience = sacramentoCommercialGeographyExperience if city.slug == "sacramento" else (indianapolisCommercialGeographyExperience if city.slug == "indianapolis" else (phoenixCommercialGeographyExperience if city.slug == "phoenix" else (commercialDistrictIntelligenceBatchV1.byMarketKey[batchMarketKey] or sfCommercialGeographyExperience))) %}
 {% set searchProfileDefaultSpaceType = "Industrial / Warehouse / Flex" if entry.localDecisionGuide and entry.localDecisionGuide.recommendation and spaceType.slug == "industrial-space" else ("Industrial / Warehouse" if spaceType.slug == "industrial-space" else spaceType.label) %}
 {% set searchProfileHeadlineType = "industrial" if spaceType.slug == "industrial-space" else (spaceType.label | lower) %}
 {% set searchProfileShortlistType = searchProfileHeadlineType | replace(" space", "") %}

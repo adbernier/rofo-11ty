@@ -1,0 +1,384 @@
+{
+  "schemaVersion": "commercial-district-intelligence-batch:v1",
+  "market": {
+    "id": "denver",
+    "label": "Denver",
+    "state": "CO"
+  },
+  "classification": "READY_WITH_MINOR_REVIEW",
+  "excludedMunicipalities": [
+    "Aurora",
+    "Commerce City",
+    "Lakewood",
+    "Englewood",
+    "Greenwood Village",
+    "Centennial"
+  ],
+  "sources": [
+    {
+      "id": "denver-plans",
+      "title": "Neighborhood planning",
+      "url": "https://www.denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Community-Planning-and-Development/Planning-and-Design/Plans-in-Progress",
+      "publisher": "City and County of Denver"
+    },
+    {
+      "id": "denver-design",
+      "title": "Design review districts",
+      "url": "https://www.denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Community-Planning-and-Development/Denver-Zoning-Code/Urban-Design-Design-Review-Design-Standards-and-Guidelines",
+      "publisher": "City and County of Denver"
+    },
+    {
+      "id": "denver-foundation",
+      "title": "Public Commercial Geography Coverage Foundation",
+      "url": "data/internal/public-commercial-geography-v1/denver.json",
+      "publisher": "Rofo"
+    }
+  ],
+  "spaceTypes": {
+    "office": [
+      {
+        "id": "central-business-district",
+        "label": "Downtown Denver",
+        "geographyType": "OFFICE_DISTRICT",
+        "oneLineDistinction": "Towers, government and civic institutions in the central core",
+        "shortDescription": "Downtown concentrates Denver’s traditional office towers, government functions, convention activity and cultural institutions within the central street grid. It offers the city’s most recognizably urban office setting, distinct from LoDo’s older warehouse blocks and Cherry Creek’s lower-scale office and retail mix.",
+        "commonHere": [
+          "Corporate office",
+          "Government",
+          "Professional services"
+        ],
+        "whatStandsOut": [
+          "Central tower district",
+          "Civic and convention anchors"
+        ],
+        "worthKnowing": [
+          "Building age and street activity vary across the core."
+        ],
+        "compareWith": [
+          "lodo",
+          "cherry-creek"
+        ],
+        "sourceIds": [
+          "denver-plans"
+        ],
+        "accessObservations": [],
+        "geographyId": "central-business-district",
+        "applicability": "PRIMARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "municipality": "Denver",
+        "state": "CO",
+        "gridOrder": 1,
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "representatives": []
+      },
+      {
+        "id": "lodo",
+        "label": "LoDo",
+        "geographyType": "MIXED_COMMERCIAL_DISTRICT",
+        "oneLineDistinction": "Historic warehouse blocks adapted for office, dining and retail",
+        "shortDescription": "LoDo pairs Denver’s oldest commercial blocks and former warehouses with offices, restaurants, hotels and entertainment near Union Station. The smaller blocks and adapted buildings give it a different feel from the tower-heavy business core, while visitor and evening activity make it relevant to both office and customer-facing searches.",
+        "commonHere": [
+          "Creative office",
+          "Food and beverage",
+          "Visitor retail"
+        ],
+        "whatStandsOut": [
+          "Historic warehouse fabric",
+          "Union Station setting"
+        ],
+        "worthKnowing": [
+          "Floorplates and building systems vary in adapted properties."
+        ],
+        "compareWith": [
+          "central-business-district",
+          "rino"
+        ],
+        "sourceIds": [
+          "denver-plans"
+        ],
+        "accessObservations": [],
+        "geographyId": "lodo",
+        "applicability": "PRIMARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "municipality": "Denver",
+        "state": "CO",
+        "gridOrder": 2,
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "representatives": []
+      },
+      {
+        "id": "cherry-creek",
+        "label": "Cherry Creek",
+        "geographyType": "MIXED_COMMERCIAL_DISTRICT",
+        "oneLineDistinction": "Destination retail paired with professional offices and services",
+        "shortDescription": "Cherry Creek combines a major shopping destination with professional offices, restaurants and personal services in a polished, lower-scale district southeast of Downtown. Retail centers and street-facing shops coexist with office buildings, making it useful for customer-facing firms that want a commercial setting unlike Denver’s central business core.",
+        "commonHere": [
+          "Destination retail",
+          "Professional services",
+          "Food and beverage"
+        ],
+        "whatStandsOut": [
+          "Retail and office overlap",
+          "Recognizable shopping district"
+        ],
+        "worthKnowing": [
+          "Confirm whether a location sits within Denver rather than nearby Glendale."
+        ],
+        "compareWith": [
+          "central-business-district",
+          "rino"
+        ],
+        "sourceIds": [
+          "denver-design"
+        ],
+        "accessObservations": [],
+        "geographyId": "cherry-creek",
+        "applicability": "PRIMARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "municipality": "Denver",
+        "state": "CO",
+        "gridOrder": 3,
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "representatives": []
+      }
+    ],
+    "retail": [
+      {
+        "id": "cherry-creek",
+        "label": "Cherry Creek",
+        "geographyType": "MIXED_COMMERCIAL_DISTRICT",
+        "oneLineDistinction": "Destination retail paired with professional offices and services",
+        "shortDescription": "Cherry Creek combines a major shopping destination with professional offices, restaurants and personal services in a polished, lower-scale district southeast of Downtown. Retail centers and street-facing shops coexist with office buildings, making it useful for customer-facing firms that want a commercial setting unlike Denver’s central business core.",
+        "commonHere": [
+          "Destination retail",
+          "Professional services",
+          "Food and beverage"
+        ],
+        "whatStandsOut": [
+          "Retail and office overlap",
+          "Recognizable shopping district"
+        ],
+        "worthKnowing": [
+          "Confirm whether a location sits within Denver rather than nearby Glendale."
+        ],
+        "compareWith": [
+          "central-business-district",
+          "rino"
+        ],
+        "sourceIds": [
+          "denver-design"
+        ],
+        "accessObservations": [],
+        "geographyId": "cherry-creek",
+        "applicability": "PRIMARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "municipality": "Denver",
+        "state": "CO",
+        "gridOrder": 1,
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "representatives": []
+      },
+      {
+        "id": "lodo",
+        "label": "LoDo",
+        "geographyType": "MIXED_COMMERCIAL_DISTRICT",
+        "oneLineDistinction": "Historic warehouse blocks adapted for office, dining and retail",
+        "shortDescription": "LoDo pairs Denver’s oldest commercial blocks and former warehouses with offices, restaurants, hotels and entertainment near Union Station. The smaller blocks and adapted buildings give it a different feel from the tower-heavy business core, while visitor and evening activity make it relevant to both office and customer-facing searches.",
+        "commonHere": [
+          "Creative office",
+          "Food and beverage",
+          "Visitor retail"
+        ],
+        "whatStandsOut": [
+          "Historic warehouse fabric",
+          "Union Station setting"
+        ],
+        "worthKnowing": [
+          "Floorplates and building systems vary in adapted properties."
+        ],
+        "compareWith": [
+          "central-business-district",
+          "rino"
+        ],
+        "sourceIds": [
+          "denver-plans"
+        ],
+        "accessObservations": [],
+        "geographyId": "lodo",
+        "applicability": "PRIMARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "municipality": "Denver",
+        "state": "CO",
+        "gridOrder": 2,
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "representatives": []
+      }
+    ],
+    "industrial": [
+      {
+        "id": "northeast-denver-industrial",
+        "label": "Northeast Denver Industrial",
+        "geographyType": "INDUSTRIAL_DISTRICT",
+        "oneLineDistinction": "Warehouse and production areas within Denver’s northeast employment land",
+        "shortDescription": "Northeast Denver contains broad employment areas with warehouse, distribution, manufacturing and service-industrial buildings. It is a City-of-Denver operating context, not a label for Aurora or Commerce City inventory. Larger sites and conventional industrial formats distinguish it from RiNo’s converted and mixed-use blocks.",
+        "commonHere": [
+          "Warehouse",
+          "Distribution",
+          "Manufacturing",
+          "Contractor/service"
+        ],
+        "whatStandsOut": [
+          "Conventional industrial formats",
+          "Broad northeast employment area"
+        ],
+        "worthKnowing": [
+          "Verify municipality and exact operating attributes for each property."
+        ],
+        "compareWith": [
+          "rino"
+        ],
+        "sourceIds": [
+          "denver-foundation"
+        ],
+        "accessObservations": [],
+        "geographyId": "northeast-denver-industrial",
+        "applicability": "PRIMARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "municipality": "Denver",
+        "state": "CO",
+        "gridOrder": 1,
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "representatives": []
+      },
+      {
+        "id": "rino",
+        "label": "RiNo",
+        "geographyType": "MIXED_COMMERCIAL_DISTRICT",
+        "oneLineDistinction": "Creative businesses and adapted industrial buildings north of Downtown",
+        "shortDescription": "RiNo’s former industrial blocks now mix studios, creative offices, food and beverage, production businesses and newer development. Its retained warehouses and active street-level uses create a hybrid setting: more production-rooted than Downtown, but more mixed and customer-facing than Denver’s outer industrial areas.",
+        "commonHere": [
+          "Creative office",
+          "Studios",
+          "Light production",
+          "Food and beverage"
+        ],
+        "whatStandsOut": [
+          "Adapted industrial stock",
+          "Mixed production and visitor uses"
+        ],
+        "worthKnowing": [
+          "Industrial compatibility and building capability vary block by block."
+        ],
+        "compareWith": [
+          "lodo",
+          "northeast-denver-industrial"
+        ],
+        "sourceIds": [
+          "denver-plans"
+        ],
+        "accessObservations": [],
+        "geographyId": "rino",
+        "applicability": "SECONDARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "municipality": "Denver",
+        "state": "CO",
+        "gridOrder": 2,
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "representatives": []
+      }
+    ],
+    "flex": [
+      {
+        "id": "rino",
+        "label": "RiNo",
+        "geographyType": "MIXED_COMMERCIAL_DISTRICT",
+        "oneLineDistinction": "Creative businesses and adapted industrial buildings north of Downtown",
+        "shortDescription": "RiNo’s former industrial blocks now mix studios, creative offices, food and beverage, production businesses and newer development. Its retained warehouses and active street-level uses create a hybrid setting: more production-rooted than Downtown, but more mixed and customer-facing than Denver’s outer industrial areas.",
+        "commonHere": [
+          "Creative office",
+          "Studios",
+          "Light production",
+          "Food and beverage"
+        ],
+        "whatStandsOut": [
+          "Adapted industrial stock",
+          "Mixed production and visitor uses"
+        ],
+        "worthKnowing": [
+          "Industrial compatibility and building capability vary block by block."
+        ],
+        "compareWith": [
+          "lodo",
+          "northeast-denver-industrial"
+        ],
+        "sourceIds": [
+          "denver-plans"
+        ],
+        "accessObservations": [],
+        "geographyId": "rino",
+        "applicability": "PRIMARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "municipality": "Denver",
+        "state": "CO",
+        "gridOrder": 1,
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "representatives": []
+      },
+      {
+        "id": "northeast-denver-industrial",
+        "label": "Northeast Denver Industrial",
+        "geographyType": "INDUSTRIAL_DISTRICT",
+        "oneLineDistinction": "Warehouse and production areas within Denver’s northeast employment land",
+        "shortDescription": "Northeast Denver contains broad employment areas with warehouse, distribution, manufacturing and service-industrial buildings. It is a City-of-Denver operating context, not a label for Aurora or Commerce City inventory. Larger sites and conventional industrial formats distinguish it from RiNo’s converted and mixed-use blocks.",
+        "commonHere": [
+          "Warehouse",
+          "Distribution",
+          "Manufacturing",
+          "Contractor/service"
+        ],
+        "whatStandsOut": [
+          "Conventional industrial formats",
+          "Broad northeast employment area"
+        ],
+        "worthKnowing": [
+          "Verify municipality and exact operating attributes for each property."
+        ],
+        "compareWith": [
+          "rino"
+        ],
+        "sourceIds": [
+          "denver-foundation"
+        ],
+        "accessObservations": [],
+        "geographyId": "northeast-denver-industrial",
+        "applicability": "SECONDARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "municipality": "Denver",
+        "state": "CO",
+        "gridOrder": 2,
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "representatives": []
+      }
+    ]
+  },
+  "totalNewRelationships": 0,
+  "stopGate": "PASS"
+}

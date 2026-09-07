@@ -1,0 +1,97 @@
+{
+  "schemaVersion": "commercial-district-intelligence-batch:v1",
+  "marketCount": 10,
+  "counts": {
+    "total": 81,
+    "new": 72,
+    "accessReady": 0,
+    "bySpaceType": {
+      "office": 21,
+      "retail": 20,
+      "industrial": 20,
+      "flex": 20
+    }
+  },
+  "markets": [
+    {
+      "id": "denver",
+      "label": "Denver",
+      "state": "CO",
+      "file": "markets/denver.json",
+      "classification": "READY_WITH_MINOR_REVIEW",
+      "stopGate": "PASS"
+    },
+    {
+      "id": "seattle",
+      "label": "Seattle",
+      "state": "WA",
+      "file": "markets/seattle.json",
+      "classification": "READY_WITH_MINOR_REVIEW",
+      "stopGate": "PASS"
+    },
+    {
+      "id": "san-jose",
+      "label": "San Jose",
+      "state": "CA",
+      "file": "markets/san-jose.json",
+      "classification": "READY_WITH_MINOR_REVIEW",
+      "stopGate": "PASS"
+    },
+    {
+      "id": "atlanta",
+      "label": "Atlanta",
+      "state": "GA",
+      "file": "markets/atlanta.json",
+      "classification": "READY_WITH_MINOR_REVIEW",
+      "stopGate": "PASS"
+    },
+    {
+      "id": "nashville",
+      "label": "Nashville",
+      "state": "TN",
+      "file": "markets/nashville.json",
+      "classification": "READY_WITH_MINOR_REVIEW",
+      "stopGate": "PASS"
+    },
+    {
+      "id": "miami",
+      "label": "Miami",
+      "state": "FL",
+      "file": "markets/miami.json",
+      "classification": "HOLD_FOR_MARKET_REVIEW",
+      "stopGate": "PASS"
+    },
+    {
+      "id": "detroit",
+      "label": "Detroit",
+      "state": "MI",
+      "file": "markets/detroit.json",
+      "classification": "READY_WITH_MINOR_REVIEW",
+      "stopGate": "PASS"
+    },
+    {
+      "id": "kansas-city",
+      "label": "Kansas City",
+      "state": "MO",
+      "file": "markets/kansas-city.json",
+      "classification": "READY_WITH_MINOR_REVIEW",
+      "stopGate": "PASS"
+    },
+    {
+      "id": "las-vegas",
+      "label": "Las Vegas",
+      "state": "NV",
+      "file": "markets/las-vegas.json",
+      "classification": "HOLD_FOR_MARKET_REVIEW",
+      "stopGate": "PASS"
+    },
+    {
+      "id": "los-angeles",
+      "label": "Los Angeles",
+      "state": "CA",
+      "file": "markets/los-angeles.json",
+      "classification": "HOLD_FOR_MARKET_REVIEW",
+      "stopGate": "PASS"
+    }
+  ]
+}

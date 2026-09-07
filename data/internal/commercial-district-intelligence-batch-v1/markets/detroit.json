@@ -1,0 +1,325 @@
+{
+  "schemaVersion": "commercial-district-intelligence-batch:v1",
+  "market": {
+    "id": "detroit",
+    "label": "Detroit",
+    "state": "MI"
+  },
+  "classification": "READY_WITH_MINOR_REVIEW",
+  "excludedMunicipalities": [
+    "Novi",
+    "Southfield",
+    "Livonia",
+    "Troy",
+    "Dearborn",
+    "Auburn Hills"
+  ],
+  "sources": [
+    {
+      "id": "detroit-official",
+      "title": "Detroit official planning resources",
+      "url": "https://detroitmi.gov/departments/planning-and-development-department",
+      "publisher": "City of Detroit"
+    }
+  ],
+  "spaceTypes": {
+    "office": [
+      {
+        "id": "downtown-detroit",
+        "label": "Downtown Detroit",
+        "geographyType": "OFFICE_DISTRICT",
+        "oneLineDistinction": "Corporate, civic and entertainment uses in the central core",
+        "shortDescription": "Downtown Detroit concentrates corporate offices, government, sports, entertainment and hospitality around the riverfront and central business core. Its towers and civic destinations distinguish it from New Center’s institutional corridor and Corktown’s smaller historic commercial blocks.",
+        "commonHere": [
+          "Professional services",
+          "Office"
+        ],
+        "whatStandsOut": [
+          "Corporate, civic and entertainment uses in the central core",
+          "Employment concentration"
+        ],
+        "worthKnowing": [
+          "Confirm the exact block, building format and current space conditions."
+        ],
+        "compareWith": [
+          "new-center",
+          "midtown-detroit"
+        ],
+        "sourceIds": [
+          "detroit-official"
+        ],
+        "accessObservations": [],
+        "geographyId": "downtown-detroit",
+        "applicability": "PRIMARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "municipality": "Detroit",
+        "state": "MI",
+        "gridOrder": 1,
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "representatives": []
+      },
+      {
+        "id": "new-center",
+        "label": "New Center",
+        "geographyType": "OFFICE_DISTRICT",
+        "oneLineDistinction": "Institutional and office buildings around West Grand Boulevard",
+        "shortDescription": "New Center centers on office and institutional buildings around West Grand Boulevard, with a building stock shaped by Detroit’s automotive and civic history. The district is a distinct northern employment node rather than an extension of Downtown or suburban Southfield.",
+        "commonHere": [
+          "Professional services",
+          "Office"
+        ],
+        "whatStandsOut": [
+          "Institutional and office buildings around West Grand Boulevard",
+          "Employment concentration"
+        ],
+        "worthKnowing": [
+          "Confirm the exact block, building format and current space conditions."
+        ],
+        "compareWith": [
+          "midtown-detroit",
+          "corktown"
+        ],
+        "sourceIds": [
+          "detroit-official"
+        ],
+        "accessObservations": [],
+        "geographyId": "new-center",
+        "applicability": "PRIMARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "municipality": "Detroit",
+        "state": "MI",
+        "gridOrder": 2,
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "representatives": []
+      }
+    ],
+    "retail": [
+      {
+        "id": "midtown-detroit",
+        "label": "Midtown Detroit",
+        "geographyType": "RETAIL_DISTRICT",
+        "oneLineDistinction": "Medical, cultural and neighborhood commerce north of Downtown",
+        "shortDescription": "Midtown Detroit combines medical and university institutions, cultural destinations, offices, restaurants and neighborhood retail north of Downtown. Those anchors produce a mixed institutional and customer-facing district unlike Downtown’s corporate core or Corktown’s lower-scale historic blocks.",
+        "commonHere": [
+          "Retail",
+          "Food and beverage"
+        ],
+        "whatStandsOut": [
+          "Medical, cultural and neighborhood commerce north of Downtown",
+          "Customer-facing street activity"
+        ],
+        "worthKnowing": [
+          "Confirm the exact block, building format and current space conditions."
+        ],
+        "compareWith": [
+          "corktown",
+          "southwest-detroit-industrial"
+        ],
+        "sourceIds": [
+          "detroit-official"
+        ],
+        "accessObservations": [],
+        "geographyId": "midtown-detroit",
+        "applicability": "PRIMARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "municipality": "Detroit",
+        "state": "MI",
+        "gridOrder": 1,
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "representatives": []
+      },
+      {
+        "id": "corktown",
+        "label": "Corktown",
+        "geographyType": "RETAIL_CORRIDOR",
+        "oneLineDistinction": "Historic commercial blocks beside mobility-focused redevelopment",
+        "shortDescription": "Corktown’s historic commercial blocks, restaurants and small businesses sit beside former industrial and rail land now associated with mobility-focused redevelopment. Its compact older fabric and adaptive-reuse opportunities distinguish it from Midtown’s institutional spine.",
+        "commonHere": [
+          "Retail",
+          "Food and beverage"
+        ],
+        "whatStandsOut": [
+          "Historic commercial blocks beside mobility-focused redevelopment",
+          "Customer-facing street activity"
+        ],
+        "worthKnowing": [
+          "Confirm the exact block, building format and current space conditions."
+        ],
+        "compareWith": [
+          "southwest-detroit-industrial",
+          "eastern-market"
+        ],
+        "sourceIds": [
+          "detroit-official"
+        ],
+        "accessObservations": [],
+        "geographyId": "corktown",
+        "applicability": "PRIMARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "municipality": "Detroit",
+        "state": "MI",
+        "gridOrder": 2,
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "representatives": []
+      }
+    ],
+    "industrial": [
+      {
+        "id": "southwest-detroit-industrial",
+        "label": "Southwest Detroit Industrial",
+        "geographyType": "INDUSTRIAL_DISTRICT",
+        "oneLineDistinction": "Heavy industrial and logistics land along the river and rail corridors",
+        "shortDescription": "Southwest Detroit contains heavy industrial, manufacturing, logistics and service land tied to river, rail and major road infrastructure. It is a City-of-Detroit operating geography and must not absorb Dearborn, Livonia or other suburban industrial inventory.",
+        "commonHere": [
+          "Industrial operations",
+          "Service businesses"
+        ],
+        "whatStandsOut": [
+          "Heavy industrial and logistics land along the river and rail corridors",
+          "Operating-space concentration"
+        ],
+        "worthKnowing": [
+          "Confirm the exact block, building format and current space conditions."
+        ],
+        "compareWith": [
+          "eastern-market",
+          "downtown-detroit"
+        ],
+        "sourceIds": [
+          "detroit-official"
+        ],
+        "accessObservations": [],
+        "geographyId": "southwest-detroit-industrial",
+        "applicability": "PRIMARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "municipality": "Detroit",
+        "state": "MI",
+        "gridOrder": 1,
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "representatives": []
+      },
+      {
+        "id": "eastern-market",
+        "label": "Eastern Market",
+        "geographyType": "MIXED_COMMERCIAL_DISTRICT",
+        "oneLineDistinction": "Food wholesale, production and market activity in a historic district",
+        "shortDescription": "Eastern Market combines food wholesaling, production, distribution, public market activity and restaurants in a historic district northeast of Downtown. Its mix of working food businesses and customer-facing market uses creates a specialized Flex context rather than a generic office/warehouse area.",
+        "commonHere": [
+          "Industrial operations",
+          "Service businesses"
+        ],
+        "whatStandsOut": [
+          "Food wholesale, production and market activity in a historic district",
+          "Operating-space concentration"
+        ],
+        "worthKnowing": [
+          "Confirm the exact block, building format and current space conditions."
+        ],
+        "compareWith": [
+          "downtown-detroit",
+          "new-center"
+        ],
+        "sourceIds": [
+          "detroit-official"
+        ],
+        "accessObservations": [],
+        "geographyId": "eastern-market",
+        "applicability": "SECONDARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "municipality": "Detroit",
+        "state": "MI",
+        "gridOrder": 2,
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "representatives": []
+      }
+    ],
+    "flex": [
+      {
+        "id": "eastern-market",
+        "label": "Eastern Market",
+        "geographyType": "MIXED_COMMERCIAL_DISTRICT",
+        "oneLineDistinction": "Food wholesale, production and market activity in a historic district",
+        "shortDescription": "Eastern Market combines food wholesaling, production, distribution, public market activity and restaurants in a historic district northeast of Downtown. Its mix of working food businesses and customer-facing market uses creates a specialized Flex context rather than a generic office/warehouse area.",
+        "commonHere": [
+          "Industrial operations",
+          "Service businesses"
+        ],
+        "whatStandsOut": [
+          "Food wholesale, production and market activity in a historic district",
+          "Operating-space concentration"
+        ],
+        "worthKnowing": [
+          "Confirm the exact block, building format and current space conditions."
+        ],
+        "compareWith": [
+          "downtown-detroit",
+          "new-center"
+        ],
+        "sourceIds": [
+          "detroit-official"
+        ],
+        "accessObservations": [],
+        "geographyId": "eastern-market",
+        "applicability": "PRIMARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "municipality": "Detroit",
+        "state": "MI",
+        "gridOrder": 1,
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "representatives": []
+      },
+      {
+        "id": "southwest-detroit-industrial",
+        "label": "Southwest Detroit Industrial",
+        "geographyType": "INDUSTRIAL_DISTRICT",
+        "oneLineDistinction": "Heavy industrial and logistics land along the river and rail corridors",
+        "shortDescription": "Southwest Detroit contains heavy industrial, manufacturing, logistics and service land tied to river, rail and major road infrastructure. It is a City-of-Detroit operating geography and must not absorb Dearborn, Livonia or other suburban industrial inventory.",
+        "commonHere": [
+          "Industrial operations",
+          "Service businesses"
+        ],
+        "whatStandsOut": [
+          "Heavy industrial and logistics land along the river and rail corridors",
+          "Operating-space concentration"
+        ],
+        "worthKnowing": [
+          "Confirm the exact block, building format and current space conditions."
+        ],
+        "compareWith": [
+          "eastern-market",
+          "downtown-detroit"
+        ],
+        "sourceIds": [
+          "detroit-official"
+        ],
+        "accessObservations": [],
+        "geographyId": "southwest-detroit-industrial",
+        "applicability": "SECONDARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "municipality": "Detroit",
+        "state": "MI",
+        "gridOrder": 2,
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "representatives": []
+      }
+    ]
+  },
+  "totalNewRelationships": 8,
+  "stopGate": "PASS"
+}

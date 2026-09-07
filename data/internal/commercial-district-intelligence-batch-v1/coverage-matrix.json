@@ -1,0 +1,658 @@
+[
+  {
+    "market": {
+      "id": "denver",
+      "label": "Denver",
+      "state": "CO"
+    },
+    "coverage": {
+      "office": [
+        {
+          "id": "central-business-district",
+          "label": "Downtown Denver",
+          "tier": "PUBLIC_CONTEXTUAL",
+          "applicability": "PRIMARY"
+        },
+        {
+          "id": "lodo",
+          "label": "LoDo",
+          "tier": "PUBLIC_CONTEXTUAL",
+          "applicability": "PRIMARY"
+        },
+        {
+          "id": "cherry-creek",
+          "label": "Cherry Creek",
+          "tier": "PUBLIC_CONTEXTUAL",
+          "applicability": "PRIMARY"
+        }
+      ],
+      "retail": [
+        {
+          "id": "cherry-creek",
+          "label": "Cherry Creek",
+          "tier": "PUBLIC_CONTEXTUAL",
+          "applicability": "PRIMARY"
+        },
+        {
+          "id": "lodo",
+          "label": "LoDo",
+          "tier": "PUBLIC_CONTEXTUAL",
+          "applicability": "PRIMARY"
+        }
+      ],
+      "industrial": [
+        {
+          "id": "northeast-denver-industrial",
+          "label": "Northeast Denver Industrial",
+          "tier": "PUBLIC_CONTEXTUAL",
+          "applicability": "PRIMARY"
+        },
+        {
+          "id": "rino",
+          "label": "RiNo",
+          "tier": "PUBLIC_CONTEXTUAL",
+          "applicability": "SECONDARY"
+        }
+      ],
+      "flex": [
+        {
+          "id": "rino",
+          "label": "RiNo",
+          "tier": "PUBLIC_CONTEXTUAL",
+          "applicability": "PRIMARY"
+        },
+        {
+          "id": "northeast-denver-industrial",
+          "label": "Northeast Denver Industrial",
+          "tier": "PUBLIC_CONTEXTUAL",
+          "applicability": "SECONDARY"
+        }
+      ]
+    }
+  },
+  {
+    "market": {
+      "id": "seattle",
+      "label": "Seattle",
+      "state": "WA"
+    },
+    "coverage": {
+      "office": [
+        {
+          "id": "downtown-seattle",
+          "label": "Downtown Seattle",
+          "tier": "PUBLIC_CONTEXTUAL",
+          "applicability": "PRIMARY"
+        },
+        {
+          "id": "south-lake-union",
+          "label": "South Lake Union",
+          "tier": "PUBLIC_CONTEXTUAL",
+          "applicability": "PRIMARY"
+        }
+      ],
+      "retail": [
+        {
+          "id": "pike-pine",
+          "label": "Pike / Pine",
+          "tier": "PUBLIC_CONTEXTUAL",
+          "applicability": "PRIMARY"
+        },
+        {
+          "id": "ballard",
+          "label": "Ballard",
+          "tier": "PUBLIC_CONTEXTUAL",
+          "applicability": "PRIMARY"
+        }
+      ],
+      "industrial": [
+        {
+          "id": "sodo-duwamish",
+          "label": "SODO / Greater Duwamish",
+          "tier": "PUBLIC_CONTEXTUAL",
+          "applicability": "PRIMARY"
+        },
+        {
+          "id": "ballard-interbay",
+          "label": "Ballard / Interbay Industrial",
+          "tier": "PUBLIC_CONTEXTUAL",
+          "applicability": "PRIMARY"
+        }
+      ],
+      "flex": [
+        {
+          "id": "ballard-interbay",
+          "label": "Ballard / Interbay Industrial",
+          "tier": "PUBLIC_CONTEXTUAL",
+          "applicability": "PRIMARY"
+        },
+        {
+          "id": "sodo-duwamish",
+          "label": "SODO / Greater Duwamish",
+          "tier": "PUBLIC_CONTEXTUAL",
+          "applicability": "SECONDARY"
+        }
+      ]
+    }
+  },
+  {
+    "market": {
+      "id": "san-jose",
+      "label": "San Jose",
+      "state": "CA"
+    },
+    "coverage": {
+      "office": [
+        {
+          "id": "downtown-san-jose",
+          "label": "Downtown San Jose",
+          "tier": "PUBLIC_CONTEXTUAL",
+          "applicability": "PRIMARY"
+        },
+        {
+          "id": "north-san-jose",
+          "label": "North San Jose",
+          "tier": "PUBLIC_CONTEXTUAL",
+          "applicability": "PRIMARY"
+        }
+      ],
+      "retail": [
+        {
+          "id": "santana-row-west-san-jose",
+          "label": "Santana Row / West San Jose",
+          "tier": "PUBLIC_CONTEXTUAL",
+          "applicability": "PRIMARY"
+        },
+        {
+          "id": "willow-glen",
+          "label": "Willow Glen / Lincoln Avenue",
+          "tier": "PUBLIC_CONTEXTUAL",
+          "applicability": "PRIMARY"
+        }
+      ],
+      "industrial": [
+        {
+          "id": "edenvale",
+          "label": "Edenvale",
+          "tier": "PUBLIC_CONTEXTUAL",
+          "applicability": "PRIMARY"
+        },
+        {
+          "id": "monterey-corridor",
+          "label": "Monterey Corridor",
+          "tier": "PUBLIC_CONTEXTUAL",
+          "applicability": "PRIMARY"
+        }
+      ],
+      "flex": [
+        {
+          "id": "north-san-jose",
+          "label": "North San Jose",
+          "tier": "PUBLIC_CONTEXTUAL",
+          "applicability": "PRIMARY"
+        },
+        {
+          "id": "edenvale",
+          "label": "Edenvale",
+          "tier": "PUBLIC_CONTEXTUAL",
+          "applicability": "SECONDARY"
+        }
+      ]
+    }
+  },
+  {
+    "market": {
+      "id": "atlanta",
+      "label": "Atlanta",
+      "state": "GA"
+    },
+    "coverage": {
+      "office": [
+        {
+          "id": "downtown-atlanta",
+          "label": "Downtown Atlanta",
+          "tier": "PUBLIC_CONTEXTUAL",
+          "applicability": "PRIMARY"
+        },
+        {
+          "id": "midtown-atlanta",
+          "label": "Midtown Atlanta",
+          "tier": "PUBLIC_CONTEXTUAL",
+          "applicability": "PRIMARY"
+        }
+      ],
+      "retail": [
+        {
+          "id": "buckhead",
+          "label": "Buckhead",
+          "tier": "PUBLIC_CONTEXTUAL",
+          "applicability": "PRIMARY"
+        },
+        {
+          "id": "old-fourth-ward",
+          "label": "Old Fourth Ward",
+          "tier": "PUBLIC_CONTEXTUAL",
+          "applicability": "PRIMARY"
+        }
+      ],
+      "industrial": [
+        {
+          "id": "upper-westside-bankhead",
+          "label": "Upper Westside / Bankhead",
+          "tier": "PUBLIC_CONTEXTUAL",
+          "applicability": "PRIMARY"
+        },
+        {
+          "id": "southside-lakewood",
+          "label": "Southside / Lakewood",
+          "tier": "PUBLIC_CONTEXTUAL",
+          "applicability": "SECONDARY"
+        }
+      ],
+      "flex": [
+        {
+          "id": "southside-lakewood",
+          "label": "Southside / Lakewood",
+          "tier": "PUBLIC_CONTEXTUAL",
+          "applicability": "PRIMARY"
+        },
+        {
+          "id": "upper-westside-bankhead",
+          "label": "Upper Westside / Bankhead",
+          "tier": "PUBLIC_CONTEXTUAL",
+          "applicability": "SECONDARY"
+        }
+      ]
+    }
+  },
+  {
+    "market": {
+      "id": "nashville",
+      "label": "Nashville",
+      "state": "TN"
+    },
+    "coverage": {
+      "office": [
+        {
+          "id": "downtown-nashville",
+          "label": "Downtown Nashville",
+          "tier": "PUBLIC_CONTEXTUAL",
+          "applicability": "PRIMARY"
+        },
+        {
+          "id": "music-row-midtown",
+          "label": "Music Row / Midtown",
+          "tier": "PUBLIC_CONTEXTUAL",
+          "applicability": "PRIMARY"
+        }
+      ],
+      "retail": [
+        {
+          "id": "the-gulch",
+          "label": "The Gulch",
+          "tier": "PUBLIC_CONTEXTUAL",
+          "applicability": "PRIMARY"
+        },
+        {
+          "id": "12-south",
+          "label": "12 South",
+          "tier": "PUBLIC_CONTEXTUAL",
+          "applicability": "PRIMARY"
+        }
+      ],
+      "industrial": [
+        {
+          "id": "airport-elm-hill",
+          "label": "Airport / Elm Hill",
+          "tier": "PUBLIC_CONTEXTUAL",
+          "applicability": "PRIMARY"
+        },
+        {
+          "id": "metrocenter",
+          "label": "MetroCenter",
+          "tier": "PUBLIC_CONTEXTUAL",
+          "applicability": "SECONDARY"
+        }
+      ],
+      "flex": [
+        {
+          "id": "metrocenter",
+          "label": "MetroCenter",
+          "tier": "PUBLIC_CONTEXTUAL",
+          "applicability": "PRIMARY"
+        },
+        {
+          "id": "airport-elm-hill",
+          "label": "Airport / Elm Hill",
+          "tier": "PUBLIC_CONTEXTUAL",
+          "applicability": "SECONDARY"
+        }
+      ]
+    }
+  },
+  {
+    "market": {
+      "id": "miami",
+      "label": "Miami",
+      "state": "FL"
+    },
+    "coverage": {
+      "office": [
+        {
+          "id": "downtown-brickell",
+          "label": "Downtown / Brickell",
+          "tier": "PUBLIC_CONTEXTUAL",
+          "applicability": "PRIMARY"
+        },
+        {
+          "id": "wynwood",
+          "label": "Wynwood",
+          "tier": "PUBLIC_CONTEXTUAL",
+          "applicability": "PRIMARY"
+        }
+      ],
+      "retail": [
+        {
+          "id": "miami-design-district",
+          "label": "Miami Design District",
+          "tier": "PUBLIC_CONTEXTUAL",
+          "applicability": "PRIMARY"
+        },
+        {
+          "id": "little-havana-calle-ocho",
+          "label": "Little Havana / Calle Ocho",
+          "tier": "PUBLIC_CONTEXTUAL",
+          "applicability": "PRIMARY"
+        }
+      ],
+      "industrial": [
+        {
+          "id": "allapattah",
+          "label": "Allapattah",
+          "tier": "PUBLIC_CONTEXTUAL",
+          "applicability": "PRIMARY"
+        },
+        {
+          "id": "little-river",
+          "label": "Little River",
+          "tier": "PUBLIC_CONTEXTUAL",
+          "applicability": "SECONDARY"
+        }
+      ],
+      "flex": [
+        {
+          "id": "little-river",
+          "label": "Little River",
+          "tier": "PUBLIC_CONTEXTUAL",
+          "applicability": "PRIMARY"
+        },
+        {
+          "id": "allapattah",
+          "label": "Allapattah",
+          "tier": "PUBLIC_CONTEXTUAL",
+          "applicability": "SECONDARY"
+        }
+      ]
+    }
+  },
+  {
+    "market": {
+      "id": "detroit",
+      "label": "Detroit",
+      "state": "MI"
+    },
+    "coverage": {
+      "office": [
+        {
+          "id": "downtown-detroit",
+          "label": "Downtown Detroit",
+          "tier": "PUBLIC_CONTEXTUAL",
+          "applicability": "PRIMARY"
+        },
+        {
+          "id": "new-center",
+          "label": "New Center",
+          "tier": "PUBLIC_CONTEXTUAL",
+          "applicability": "PRIMARY"
+        }
+      ],
+      "retail": [
+        {
+          "id": "midtown-detroit",
+          "label": "Midtown Detroit",
+          "tier": "PUBLIC_CONTEXTUAL",
+          "applicability": "PRIMARY"
+        },
+        {
+          "id": "corktown",
+          "label": "Corktown",
+          "tier": "PUBLIC_CONTEXTUAL",
+          "applicability": "PRIMARY"
+        }
+      ],
+      "industrial": [
+        {
+          "id": "southwest-detroit-industrial",
+          "label": "Southwest Detroit Industrial",
+          "tier": "PUBLIC_CONTEXTUAL",
+          "applicability": "PRIMARY"
+        },
+        {
+          "id": "eastern-market",
+          "label": "Eastern Market",
+          "tier": "PUBLIC_CONTEXTUAL",
+          "applicability": "SECONDARY"
+        }
+      ],
+      "flex": [
+        {
+          "id": "eastern-market",
+          "label": "Eastern Market",
+          "tier": "PUBLIC_CONTEXTUAL",
+          "applicability": "PRIMARY"
+        },
+        {
+          "id": "southwest-detroit-industrial",
+          "label": "Southwest Detroit Industrial",
+          "tier": "PUBLIC_CONTEXTUAL",
+          "applicability": "SECONDARY"
+        }
+      ]
+    }
+  },
+  {
+    "market": {
+      "id": "kansas-city",
+      "label": "Kansas City",
+      "state": "MO"
+    },
+    "coverage": {
+      "office": [
+        {
+          "id": "downtown-kansas-city",
+          "label": "Downtown Kansas City",
+          "tier": "PUBLIC_CONTEXTUAL",
+          "applicability": "PRIMARY"
+        },
+        {
+          "id": "crossroads-arts-district",
+          "label": "Crossroads Arts District",
+          "tier": "PUBLIC_CONTEXTUAL",
+          "applicability": "PRIMARY"
+        }
+      ],
+      "retail": [
+        {
+          "id": "country-club-plaza",
+          "label": "Country Club Plaza",
+          "tier": "PUBLIC_CONTEXTUAL",
+          "applicability": "PRIMARY"
+        },
+        {
+          "id": "westport",
+          "label": "Westport",
+          "tier": "PUBLIC_CONTEXTUAL",
+          "applicability": "PRIMARY"
+        }
+      ],
+      "industrial": [
+        {
+          "id": "east-bottoms",
+          "label": "East Bottoms",
+          "tier": "PUBLIC_CONTEXTUAL",
+          "applicability": "PRIMARY"
+        },
+        {
+          "id": "northland-employment-areas",
+          "label": "Northland Employment Areas",
+          "tier": "PUBLIC_CONTEXTUAL",
+          "applicability": "SECONDARY"
+        }
+      ],
+      "flex": [
+        {
+          "id": "northland-employment-areas",
+          "label": "Northland Employment Areas",
+          "tier": "PUBLIC_CONTEXTUAL",
+          "applicability": "PRIMARY"
+        },
+        {
+          "id": "east-bottoms",
+          "label": "East Bottoms",
+          "tier": "PUBLIC_CONTEXTUAL",
+          "applicability": "SECONDARY"
+        }
+      ]
+    }
+  },
+  {
+    "market": {
+      "id": "las-vegas",
+      "label": "Las Vegas",
+      "state": "NV"
+    },
+    "coverage": {
+      "office": [
+        {
+          "id": "downtown-las-vegas",
+          "label": "Downtown Las Vegas",
+          "tier": "PUBLIC_CONTEXTUAL",
+          "applicability": "PRIMARY"
+        },
+        {
+          "id": "civic-business-district",
+          "label": "Civic & Business District",
+          "tier": "PUBLIC_CONTEXTUAL",
+          "applicability": "PRIMARY"
+        }
+      ],
+      "retail": [
+        {
+          "id": "18b-arts-district",
+          "label": "18b Arts District",
+          "tier": "PUBLIC_CONTEXTUAL",
+          "applicability": "PRIMARY"
+        },
+        {
+          "id": "fremont-east",
+          "label": "Fremont East",
+          "tier": "PUBLIC_CONTEXTUAL",
+          "applicability": "PRIMARY"
+        }
+      ],
+      "industrial": [
+        {
+          "id": "las-vegas-medical-district",
+          "label": "Las Vegas Medical District",
+          "tier": "PUBLIC_CONTEXTUAL",
+          "applicability": "PRIMARY"
+        },
+        {
+          "id": "downtown-design-district",
+          "label": "Downtown Design District",
+          "tier": "PUBLIC_CONTEXTUAL",
+          "applicability": "SECONDARY"
+        }
+      ],
+      "flex": [
+        {
+          "id": "downtown-design-district",
+          "label": "Downtown Design District",
+          "tier": "PUBLIC_CONTEXTUAL",
+          "applicability": "PRIMARY"
+        },
+        {
+          "id": "las-vegas-medical-district",
+          "label": "Las Vegas Medical District",
+          "tier": "PUBLIC_CONTEXTUAL",
+          "applicability": "SECONDARY"
+        }
+      ]
+    }
+  },
+  {
+    "market": {
+      "id": "los-angeles",
+      "label": "Los Angeles",
+      "state": "CA"
+    },
+    "coverage": {
+      "office": [
+        {
+          "id": "downtown-los-angeles",
+          "label": "Downtown Los Angeles",
+          "tier": "PUBLIC_CONTEXTUAL",
+          "applicability": "PRIMARY"
+        },
+        {
+          "id": "century-city",
+          "label": "Century City",
+          "tier": "PUBLIC_CONTEXTUAL",
+          "applicability": "PRIMARY"
+        }
+      ],
+      "retail": [
+        {
+          "id": "hollywood",
+          "label": "Hollywood",
+          "tier": "PUBLIC_CONTEXTUAL",
+          "applicability": "PRIMARY"
+        },
+        {
+          "id": "melrose-fairfax",
+          "label": "Melrose / Fairfax",
+          "tier": "PUBLIC_CONTEXTUAL",
+          "applicability": "PRIMARY"
+        }
+      ],
+      "industrial": [
+        {
+          "id": "arts-district",
+          "label": "Arts District",
+          "tier": "PUBLIC_CONTEXTUAL",
+          "applicability": "PRIMARY"
+        },
+        {
+          "id": "san-fernando-valley-industrial",
+          "label": "San Fernando Valley Industrial",
+          "tier": "PUBLIC_CONTEXTUAL",
+          "applicability": "SECONDARY"
+        }
+      ],
+      "flex": [
+        {
+          "id": "san-fernando-valley-industrial",
+          "label": "San Fernando Valley Industrial",
+          "tier": "PUBLIC_CONTEXTUAL",
+          "applicability": "PRIMARY"
+        },
+        {
+          "id": "arts-district",
+          "label": "Arts District",
+          "tier": "PUBLIC_CONTEXTUAL",
+          "applicability": "SECONDARY"
+        }
+      ]
+    }
+  }
+]

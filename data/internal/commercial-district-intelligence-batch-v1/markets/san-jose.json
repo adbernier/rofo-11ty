@@ -1,0 +1,351 @@
+{
+  "schemaVersion": "commercial-district-intelligence-batch:v1",
+  "market": {
+    "id": "san-jose",
+    "label": "San Jose",
+    "state": "CA"
+  },
+  "classification": "READY_WITH_MINOR_REVIEW",
+  "excludedMunicipalities": [
+    "Santa Clara",
+    "Sunnyvale",
+    "Milpitas",
+    "Campbell",
+    "Cupertino",
+    "Mountain View"
+  ],
+  "sources": [
+    {
+      "id": "sj-general",
+      "title": "Envision San José 2040 General Plan",
+      "url": "https://www.sanjoseca.gov/home/showpublisheddocument/121586/639125444969600000",
+      "publisher": "City of San José"
+    },
+    {
+      "id": "sj-north",
+      "title": "North San José Area Development Policy",
+      "url": "https://www.sanjoseca.gov/your-government/departments-offices/planning-building-code-enforcement/planning-division/citywide-planning/area-specific-plans/north-san-jos-area-development-policy",
+      "publisher": "City of San José"
+    },
+    {
+      "id": "sj-edenvale",
+      "title": "Edenvale Area Development Policy",
+      "url": "https://www.sanjoseca.gov/your-government/departments-offices/planning-building-code-enforcement/planning-division/environmental-planning/environmental-review/completed-eirs/edenvale-area-development-policy",
+      "publisher": "City of San José"
+    }
+  ],
+  "spaceTypes": {
+    "office": [
+      {
+        "id": "downtown-san-jose",
+        "label": "Downtown San Jose",
+        "geographyType": "OFFICE_DISTRICT",
+        "oneLineDistinction": "Civic, technology and university activity in the urban core",
+        "shortDescription": "Downtown San Jose concentrates civic institutions, offices, San José State University, entertainment and convention uses in the city’s most walkable commercial core. Mid- and high-rise buildings distinguish it from North San Jose’s spread-out employment campuses and the lower-rise commercial corridors serving surrounding neighborhoods.",
+        "commonHere": [
+          "Technology",
+          "Professional services",
+          "Government"
+        ],
+        "whatStandsOut": [
+          "Urban office core",
+          "University and convention anchors"
+        ],
+        "worthKnowing": [
+          "Street activity and building stock vary across downtown subareas."
+        ],
+        "compareWith": [
+          "north-san-jose"
+        ],
+        "sourceIds": [
+          "sj-general"
+        ],
+        "accessObservations": [],
+        "geographyId": "downtown-san-jose",
+        "applicability": "PRIMARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "municipality": "San Jose",
+        "state": "CA",
+        "gridOrder": 1,
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "representatives": []
+      },
+      {
+        "id": "north-san-jose",
+        "label": "North San Jose",
+        "geographyType": "R_AND_D_TECHNICAL_CLUSTER",
+        "oneLineDistinction": "Large technology campuses and R&D employment north of I-880",
+        "shortDescription": "North San Jose is one of the city’s largest job centers, with corporate campuses, R&D buildings, office and industrial uses between I-880 and State Route 237. Its broad blocks and campus formats differ sharply from Downtown’s urban grid. Santa Clara, Milpitas and Sunnyvale properties remain outside this City geography.",
+        "commonHere": [
+          "Technology",
+          "R&D",
+          "Corporate office",
+          "Light industrial"
+        ],
+        "whatStandsOut": [
+          "Large employment campuses",
+          "Office, R&D and industrial overlap"
+        ],
+        "worthKnowing": [
+          "Technical capability and municipality must be verified for each address."
+        ],
+        "compareWith": [
+          "downtown-san-jose",
+          "edenvale"
+        ],
+        "sourceIds": [
+          "sj-north"
+        ],
+        "accessObservations": [],
+        "geographyId": "north-san-jose",
+        "applicability": "PRIMARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "municipality": "San Jose",
+        "state": "CA",
+        "gridOrder": 2,
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "representatives": []
+      }
+    ],
+    "retail": [
+      {
+        "id": "santana-row-west-san-jose",
+        "label": "Santana Row / West San Jose",
+        "geographyType": "RETAIL_DISTRICT",
+        "oneLineDistinction": "Destination shopping, dining and services in a planned district",
+        "shortDescription": "Santana Row and its West San Jose surroundings create a destination-oriented retail setting with restaurants, shops, hotels, offices and residential activity in a planned, walkable format. It differs from Downtown’s civic and entertainment mix and Willow Glen’s smaller neighborhood storefront corridor.",
+        "commonHere": [
+          "Destination retail",
+          "Food and beverage",
+          "Personal services"
+        ],
+        "whatStandsOut": [
+          "Planned pedestrian district",
+          "Retail, hotel and office mix"
+        ],
+        "worthKnowing": [
+          "The district edge approaches Santa Clara; verify municipal ownership."
+        ],
+        "compareWith": [
+          "downtown-san-jose",
+          "willow-glen"
+        ],
+        "sourceIds": [
+          "sj-general"
+        ],
+        "accessObservations": [],
+        "geographyId": "santana-row-west-san-jose",
+        "applicability": "PRIMARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "municipality": "San Jose",
+        "state": "CA",
+        "gridOrder": 1,
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "representatives": []
+      },
+      {
+        "id": "willow-glen",
+        "label": "Willow Glen / Lincoln Avenue",
+        "geographyType": "RETAIL_CORRIDOR",
+        "oneLineDistinction": "Neighborhood storefronts and dining along Lincoln Avenue",
+        "shortDescription": "Lincoln Avenue forms Willow Glen’s recognizable neighborhood commercial spine, with smaller shops, restaurants and services in a low-rise main-street setting. The format is more local and storefront-oriented than Santana Row’s destination retail or Downtown’s larger civic and entertainment context.",
+        "commonHere": [
+          "Neighborhood retail",
+          "Food and beverage",
+          "Personal services"
+        ],
+        "whatStandsOut": [
+          "Low-rise main-street format",
+          "Local storefront concentration"
+        ],
+        "worthKnowing": [
+          "Customer patterns and frontage vary beyond the core avenue blocks."
+        ],
+        "compareWith": [
+          "santana-row-west-san-jose",
+          "downtown-san-jose"
+        ],
+        "sourceIds": [
+          "sj-general"
+        ],
+        "accessObservations": [],
+        "geographyId": "willow-glen",
+        "applicability": "PRIMARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "municipality": "San Jose",
+        "state": "CA",
+        "gridOrder": 2,
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "representatives": []
+      }
+    ],
+    "industrial": [
+      {
+        "id": "edenvale",
+        "label": "Edenvale",
+        "geographyType": "INDUSTRIAL_DISTRICT",
+        "oneLineDistinction": "Southern employment land for manufacturing, warehouse and R&D",
+        "shortDescription": "Edenvale is a City-recognized employment area in south San Jose with industrial, warehouse, manufacturing and R&D-oriented land. Low-rise operating buildings and larger employment parcels distinguish it from North San Jose’s corporate-campus mix and Downtown’s office core.",
+        "commonHere": [
+          "Manufacturing",
+          "Warehouse",
+          "R&D",
+          "Light industrial"
+        ],
+        "whatStandsOut": [
+          "Designated employment land",
+          "Southern San Jose operating geography"
+        ],
+        "worthKnowing": [
+          "Old and New Edenvale are related components, not interchangeable addresses."
+        ],
+        "compareWith": [
+          "north-san-jose",
+          "monterey-corridor"
+        ],
+        "sourceIds": [
+          "sj-edenvale",
+          "sj-general"
+        ],
+        "accessObservations": [],
+        "geographyId": "edenvale",
+        "applicability": "PRIMARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "municipality": "San Jose",
+        "state": "CA",
+        "gridOrder": 1,
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "representatives": []
+      },
+      {
+        "id": "monterey-corridor",
+        "label": "Monterey Corridor",
+        "geographyType": "INDUSTRIAL_CORRIDOR",
+        "oneLineDistinction": "Linear warehouse and service-industrial land along Monterey Road",
+        "shortDescription": "The Monterey Corridor is a long south San Jose employment spine with warehouse, light-industrial, automotive and service-commercial uses along Monterey Road. Its linear frontage and varied parcel formats differ from Edenvale’s broader employment districts and North San Jose’s campus-oriented technology landscape.",
+        "commonHere": [
+          "Warehouse",
+          "Service industrial",
+          "Automotive",
+          "Contractor/service"
+        ],
+        "whatStandsOut": [
+          "Long arterial employment corridor",
+          "Mixed industrial and service frontage"
+        ],
+        "worthKnowing": [
+          "Exact zoning and operating suitability change along the corridor."
+        ],
+        "compareWith": [
+          "edenvale",
+          "north-san-jose"
+        ],
+        "sourceIds": [
+          "sj-general"
+        ],
+        "accessObservations": [],
+        "geographyId": "monterey-corridor",
+        "applicability": "PRIMARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "municipality": "San Jose",
+        "state": "CA",
+        "gridOrder": 2,
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "representatives": []
+      }
+    ],
+    "flex": [
+      {
+        "id": "north-san-jose",
+        "label": "North San Jose",
+        "geographyType": "R_AND_D_TECHNICAL_CLUSTER",
+        "oneLineDistinction": "Large technology campuses and R&D employment north of I-880",
+        "shortDescription": "North San Jose is one of the city’s largest job centers, with corporate campuses, R&D buildings, office and industrial uses between I-880 and State Route 237. Its broad blocks and campus formats differ sharply from Downtown’s urban grid. Santa Clara, Milpitas and Sunnyvale properties remain outside this City geography.",
+        "commonHere": [
+          "Technology",
+          "R&D",
+          "Corporate office",
+          "Light industrial"
+        ],
+        "whatStandsOut": [
+          "Large employment campuses",
+          "Office, R&D and industrial overlap"
+        ],
+        "worthKnowing": [
+          "Technical capability and municipality must be verified for each address."
+        ],
+        "compareWith": [
+          "downtown-san-jose",
+          "edenvale"
+        ],
+        "sourceIds": [
+          "sj-north"
+        ],
+        "accessObservations": [],
+        "geographyId": "north-san-jose",
+        "applicability": "PRIMARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "municipality": "San Jose",
+        "state": "CA",
+        "gridOrder": 1,
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "representatives": []
+      },
+      {
+        "id": "edenvale",
+        "label": "Edenvale",
+        "geographyType": "INDUSTRIAL_DISTRICT",
+        "oneLineDistinction": "Southern employment land for manufacturing, warehouse and R&D",
+        "shortDescription": "Edenvale is a City-recognized employment area in south San Jose with industrial, warehouse, manufacturing and R&D-oriented land. Low-rise operating buildings and larger employment parcels distinguish it from North San Jose’s corporate-campus mix and Downtown’s office core.",
+        "commonHere": [
+          "Manufacturing",
+          "Warehouse",
+          "R&D",
+          "Light industrial"
+        ],
+        "whatStandsOut": [
+          "Designated employment land",
+          "Southern San Jose operating geography"
+        ],
+        "worthKnowing": [
+          "Old and New Edenvale are related components, not interchangeable addresses."
+        ],
+        "compareWith": [
+          "north-san-jose",
+          "monterey-corridor"
+        ],
+        "sourceIds": [
+          "sj-edenvale",
+          "sj-general"
+        ],
+        "accessObservations": [],
+        "geographyId": "edenvale",
+        "applicability": "SECONDARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "municipality": "San Jose",
+        "state": "CA",
+        "gridOrder": 2,
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "representatives": []
+      }
+    ]
+  },
+  "totalNewRelationships": 8,
+  "stopGate": "PASS"
+}

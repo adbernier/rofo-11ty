@@ -1,0 +1,324 @@
+{
+  "schemaVersion": "commercial-district-intelligence-batch:v1",
+  "market": {
+    "id": "miami",
+    "label": "Miami",
+    "state": "FL"
+  },
+  "classification": "HOLD_FOR_MARKET_REVIEW",
+  "excludedMunicipalities": [
+    "Doral",
+    "Medley",
+    "Hialeah",
+    "Miami Gardens",
+    "Coral Gables"
+  ],
+  "sources": [
+    {
+      "id": "miami-official",
+      "title": "Miami official planning resources",
+      "url": "https://www.miami.gov/Planning-Zoning-Land-Use",
+      "publisher": "City of Miami"
+    }
+  ],
+  "spaceTypes": {
+    "office": [
+      {
+        "id": "downtown-brickell",
+        "label": "Downtown / Brickell",
+        "geographyType": "OFFICE_DISTRICT",
+        "oneLineDistinction": "Towers, finance and mixed-use density along Biscayne Bay",
+        "shortDescription": "Downtown / Brickell is a customer-recognizable office district within Miami. Towers, finance and mixed-use density along Biscayne Bay. The public relationship is bounded to Miami municipal ownership and is presented as market context, not a personalized recommendation or a claim about any individual building.",
+        "commonHere": [
+          "Professional services",
+          "Office"
+        ],
+        "whatStandsOut": [
+          "Towers, finance and mixed-use density along Biscayne Bay",
+          "Employment concentration"
+        ],
+        "worthKnowing": [
+          "Confirm the exact block, building format and current space conditions."
+        ],
+        "compareWith": [
+          "wynwood",
+          "miami-design-district"
+        ],
+        "sourceIds": [
+          "miami-official"
+        ],
+        "accessObservations": [],
+        "geographyId": "downtown-brickell",
+        "applicability": "PRIMARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "municipality": "Miami",
+        "state": "FL",
+        "gridOrder": 1,
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "representatives": []
+      },
+      {
+        "id": "wynwood",
+        "label": "Wynwood",
+        "geographyType": "OFFICE_DISTRICT",
+        "oneLineDistinction": "Creative offices, galleries and storefronts in adapted buildings",
+        "shortDescription": "Wynwood is a customer-recognizable office district within Miami. Creative offices, galleries and storefronts in adapted buildings. The public relationship is bounded to Miami municipal ownership and is presented as market context, not a personalized recommendation or a claim about any individual building.",
+        "commonHere": [
+          "Professional services",
+          "Office"
+        ],
+        "whatStandsOut": [
+          "Creative offices, galleries and storefronts in adapted buildings",
+          "Employment concentration"
+        ],
+        "worthKnowing": [
+          "Confirm the exact block, building format and current space conditions."
+        ],
+        "compareWith": [
+          "miami-design-district",
+          "little-havana-calle-ocho"
+        ],
+        "sourceIds": [
+          "miami-official"
+        ],
+        "accessObservations": [],
+        "geographyId": "wynwood",
+        "applicability": "PRIMARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "municipality": "Miami",
+        "state": "FL",
+        "gridOrder": 2,
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "representatives": []
+      }
+    ],
+    "retail": [
+      {
+        "id": "miami-design-district",
+        "label": "Miami Design District",
+        "geographyType": "RETAIL_DISTRICT",
+        "oneLineDistinction": "Design, showroom and destination retail north of Midtown",
+        "shortDescription": "Miami Design District is a customer-recognizable retail district within Miami. Design, showroom and destination retail north of Midtown. The public relationship is bounded to Miami municipal ownership and is presented as market context, not a personalized recommendation or a claim about any individual building.",
+        "commonHere": [
+          "Retail",
+          "Food and beverage"
+        ],
+        "whatStandsOut": [
+          "Design, showroom and destination retail north of Midtown",
+          "Customer-facing street activity"
+        ],
+        "worthKnowing": [
+          "Confirm the exact block, building format and current space conditions."
+        ],
+        "compareWith": [
+          "little-havana-calle-ocho",
+          "allapattah"
+        ],
+        "sourceIds": [
+          "miami-official"
+        ],
+        "accessObservations": [],
+        "geographyId": "miami-design-district",
+        "applicability": "PRIMARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "municipality": "Miami",
+        "state": "FL",
+        "gridOrder": 1,
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "representatives": []
+      },
+      {
+        "id": "little-havana-calle-ocho",
+        "label": "Little Havana / Calle Ocho",
+        "geographyType": "RETAIL_CORRIDOR",
+        "oneLineDistinction": "Neighborhood retail and dining along Southwest Eighth Street",
+        "shortDescription": "Little Havana / Calle Ocho is a customer-recognizable retail corridor within Miami. Neighborhood retail and dining along Southwest Eighth Street. The public relationship is bounded to Miami municipal ownership and is presented as market context, not a personalized recommendation or a claim about any individual building.",
+        "commonHere": [
+          "Retail",
+          "Food and beverage"
+        ],
+        "whatStandsOut": [
+          "Neighborhood retail and dining along Southwest Eighth Street",
+          "Customer-facing street activity"
+        ],
+        "worthKnowing": [
+          "Confirm the exact block, building format and current space conditions."
+        ],
+        "compareWith": [
+          "allapattah",
+          "little-river"
+        ],
+        "sourceIds": [
+          "miami-official"
+        ],
+        "accessObservations": [],
+        "geographyId": "little-havana-calle-ocho",
+        "applicability": "PRIMARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "municipality": "Miami",
+        "state": "FL",
+        "gridOrder": 2,
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "representatives": []
+      }
+    ],
+    "industrial": [
+      {
+        "id": "allapattah",
+        "label": "Allapattah",
+        "geographyType": "INDUSTRIAL_DISTRICT",
+        "oneLineDistinction": "Industrial, wholesale and creative uses west of Wynwood",
+        "shortDescription": "Allapattah is a customer-recognizable industrial district within Miami. Industrial, wholesale and creative uses west of Wynwood. The public relationship is bounded to Miami municipal ownership and is presented as market context, not a personalized recommendation or a claim about any individual building.",
+        "commonHere": [
+          "Industrial operations",
+          "Service businesses"
+        ],
+        "whatStandsOut": [
+          "Industrial, wholesale and creative uses west of Wynwood",
+          "Operating-space concentration"
+        ],
+        "worthKnowing": [
+          "Confirm the exact block, building format and current space conditions."
+        ],
+        "compareWith": [
+          "little-river",
+          "downtown-brickell"
+        ],
+        "sourceIds": [
+          "miami-official"
+        ],
+        "accessObservations": [],
+        "geographyId": "allapattah",
+        "applicability": "PRIMARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "municipality": "Miami",
+        "state": "FL",
+        "gridOrder": 1,
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "representatives": []
+      },
+      {
+        "id": "little-river",
+        "label": "Little River",
+        "geographyType": "MIXED_COMMERCIAL_DISTRICT",
+        "oneLineDistinction": "Smaller production and creative businesses in north Miami",
+        "shortDescription": "Little River is a customer-recognizable mixed commercial district within Miami. Smaller production and creative businesses in north Miami. The public relationship is bounded to Miami municipal ownership and is presented as market context, not a personalized recommendation or a claim about any individual building.",
+        "commonHere": [
+          "Industrial operations",
+          "Service businesses"
+        ],
+        "whatStandsOut": [
+          "Smaller production and creative businesses in north Miami",
+          "Operating-space concentration"
+        ],
+        "worthKnowing": [
+          "Confirm the exact block, building format and current space conditions."
+        ],
+        "compareWith": [
+          "downtown-brickell",
+          "wynwood"
+        ],
+        "sourceIds": [
+          "miami-official"
+        ],
+        "accessObservations": [],
+        "geographyId": "little-river",
+        "applicability": "SECONDARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "municipality": "Miami",
+        "state": "FL",
+        "gridOrder": 2,
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "representatives": []
+      }
+    ],
+    "flex": [
+      {
+        "id": "little-river",
+        "label": "Little River",
+        "geographyType": "MIXED_COMMERCIAL_DISTRICT",
+        "oneLineDistinction": "Smaller production and creative businesses in north Miami",
+        "shortDescription": "Little River is a customer-recognizable mixed commercial district within Miami. Smaller production and creative businesses in north Miami. The public relationship is bounded to Miami municipal ownership and is presented as market context, not a personalized recommendation or a claim about any individual building.",
+        "commonHere": [
+          "Industrial operations",
+          "Service businesses"
+        ],
+        "whatStandsOut": [
+          "Smaller production and creative businesses in north Miami",
+          "Operating-space concentration"
+        ],
+        "worthKnowing": [
+          "Confirm the exact block, building format and current space conditions."
+        ],
+        "compareWith": [
+          "downtown-brickell",
+          "wynwood"
+        ],
+        "sourceIds": [
+          "miami-official"
+        ],
+        "accessObservations": [],
+        "geographyId": "little-river",
+        "applicability": "PRIMARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "municipality": "Miami",
+        "state": "FL",
+        "gridOrder": 1,
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "representatives": []
+      },
+      {
+        "id": "allapattah",
+        "label": "Allapattah",
+        "geographyType": "INDUSTRIAL_DISTRICT",
+        "oneLineDistinction": "Industrial, wholesale and creative uses west of Wynwood",
+        "shortDescription": "Allapattah is a customer-recognizable industrial district within Miami. Industrial, wholesale and creative uses west of Wynwood. The public relationship is bounded to Miami municipal ownership and is presented as market context, not a personalized recommendation or a claim about any individual building.",
+        "commonHere": [
+          "Industrial operations",
+          "Service businesses"
+        ],
+        "whatStandsOut": [
+          "Industrial, wholesale and creative uses west of Wynwood",
+          "Operating-space concentration"
+        ],
+        "worthKnowing": [
+          "Confirm the exact block, building format and current space conditions."
+        ],
+        "compareWith": [
+          "little-river",
+          "downtown-brickell"
+        ],
+        "sourceIds": [
+          "miami-official"
+        ],
+        "accessObservations": [],
+        "geographyId": "allapattah",
+        "applicability": "SECONDARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "municipality": "Miami",
+        "state": "FL",
+        "gridOrder": 2,
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "representatives": []
+      }
+    ]
+  },
+  "totalNewRelationships": 8,
+  "stopGate": "PASS"
+}

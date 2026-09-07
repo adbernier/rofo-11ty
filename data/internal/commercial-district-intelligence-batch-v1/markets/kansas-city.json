@@ -1,0 +1,323 @@
+{
+  "schemaVersion": "commercial-district-intelligence-batch:v1",
+  "market": {
+    "id": "kansas-city",
+    "label": "Kansas City",
+    "state": "MO"
+  },
+  "classification": "READY_WITH_MINOR_REVIEW",
+  "excludedMunicipalities": [
+    "Kansas City, Kansas",
+    "Overland Park",
+    "Lenexa",
+    "Olathe"
+  ],
+  "sources": [
+    {
+      "id": "kansas-city-official",
+      "title": "Kansas City official planning resources",
+      "url": "https://www.kcmo.gov/city-hall/departments/city-planning-development",
+      "publisher": "City of Kansas City"
+    }
+  ],
+  "spaceTypes": {
+    "office": [
+      {
+        "id": "downtown-kansas-city",
+        "label": "Downtown Kansas City",
+        "geographyType": "OFFICE_DISTRICT",
+        "oneLineDistinction": "Office towers and civic uses in Missouri’s central business core",
+        "shortDescription": "Downtown Kansas City, Missouri concentrates office towers, government, convention uses and entertainment within the city’s central business core. Its high-rise setting differs from the Crossroads’ converted industrial buildings and the Country Club Plaza’s planned retail district.",
+        "commonHere": [
+          "Professional services",
+          "Office"
+        ],
+        "whatStandsOut": [
+          "Office towers and civic uses in Missouri’s central business core",
+          "Employment concentration"
+        ],
+        "worthKnowing": [
+          "Confirm the exact block, building format and current space conditions."
+        ],
+        "compareWith": [
+          "crossroads-arts-district",
+          "country-club-plaza"
+        ],
+        "sourceIds": [
+          "kansas-city-official"
+        ],
+        "accessObservations": [],
+        "geographyId": "downtown-kansas-city",
+        "applicability": "PRIMARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "municipality": "Kansas City",
+        "state": "MO",
+        "gridOrder": 1,
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "representatives": []
+      },
+      {
+        "id": "crossroads-arts-district",
+        "label": "Crossroads Arts District",
+        "geographyType": "OFFICE_DISTRICT",
+        "oneLineDistinction": "Creative offices and galleries in converted industrial buildings",
+        "shortDescription": "The Crossroads Arts District occupies former warehouse and industrial blocks south of Downtown, now mixing creative offices, galleries, studios, restaurants and production-oriented businesses. Its adapted building stock creates a distinct office setting within Kansas City, Missouri.",
+        "commonHere": [
+          "Professional services",
+          "Office"
+        ],
+        "whatStandsOut": [
+          "Creative offices and galleries in converted industrial buildings",
+          "Employment concentration"
+        ],
+        "worthKnowing": [
+          "Confirm the exact block, building format and current space conditions."
+        ],
+        "compareWith": [
+          "country-club-plaza",
+          "westport"
+        ],
+        "sourceIds": [
+          "kansas-city-official"
+        ],
+        "accessObservations": [],
+        "geographyId": "crossroads-arts-district",
+        "applicability": "PRIMARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "municipality": "Kansas City",
+        "state": "MO",
+        "gridOrder": 2,
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "representatives": []
+      }
+    ],
+    "retail": [
+      {
+        "id": "country-club-plaza",
+        "label": "Country Club Plaza",
+        "geographyType": "RETAIL_DISTRICT",
+        "oneLineDistinction": "Destination retail and offices in a landmark planned district",
+        "shortDescription": "Country Club Plaza is a landmark planned shopping district where destination retail, restaurants, hotels and professional offices share a recognizable architectural setting. Its regional customer draw differs from Westport’s smaller entertainment streets and Downtown’s office core.",
+        "commonHere": [
+          "Retail",
+          "Food and beverage"
+        ],
+        "whatStandsOut": [
+          "Destination retail and offices in a landmark planned district",
+          "Customer-facing street activity"
+        ],
+        "worthKnowing": [
+          "Confirm the exact block, building format and current space conditions."
+        ],
+        "compareWith": [
+          "westport",
+          "east-bottoms"
+        ],
+        "sourceIds": [
+          "kansas-city-official"
+        ],
+        "accessObservations": [],
+        "geographyId": "country-club-plaza",
+        "applicability": "PRIMARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "municipality": "Kansas City",
+        "state": "MO",
+        "gridOrder": 1,
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "representatives": []
+      },
+      {
+        "id": "westport",
+        "label": "Westport",
+        "geographyType": "RETAIL_CORRIDOR",
+        "oneLineDistinction": "Restaurants, nightlife and neighborhood storefronts",
+        "shortDescription": "Westport combines restaurants, bars, neighborhood storefronts and personal services in a compact historic commercial district. Its evening-oriented street activity and smaller spaces distinguish it from the Plaza’s planned regional retail format.",
+        "commonHere": [
+          "Retail",
+          "Food and beverage"
+        ],
+        "whatStandsOut": [
+          "Restaurants, nightlife and neighborhood storefronts",
+          "Customer-facing street activity"
+        ],
+        "worthKnowing": [
+          "Confirm the exact block, building format and current space conditions."
+        ],
+        "compareWith": [
+          "east-bottoms",
+          "northland-employment-areas"
+        ],
+        "sourceIds": [
+          "kansas-city-official"
+        ],
+        "accessObservations": [],
+        "geographyId": "westport",
+        "applicability": "PRIMARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "municipality": "Kansas City",
+        "state": "MO",
+        "gridOrder": 2,
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "representatives": []
+      }
+    ],
+    "industrial": [
+      {
+        "id": "east-bottoms",
+        "label": "East Bottoms",
+        "geographyType": "INDUSTRIAL_DISTRICT",
+        "oneLineDistinction": "Industrial and logistics uses east of the urban core",
+        "shortDescription": "East Bottoms contains industrial, logistics and service properties east of Kansas City’s urban core near rail and river infrastructure. It is explicitly Kansas City, Missouri—not Kansas City, Kansas—and differs from the Northland’s larger dispersed employment areas.",
+        "commonHere": [
+          "Industrial operations",
+          "Service businesses"
+        ],
+        "whatStandsOut": [
+          "Industrial and logistics uses east of the urban core",
+          "Operating-space concentration"
+        ],
+        "worthKnowing": [
+          "Confirm the exact block, building format and current space conditions."
+        ],
+        "compareWith": [
+          "northland-employment-areas",
+          "downtown-kansas-city"
+        ],
+        "sourceIds": [
+          "kansas-city-official"
+        ],
+        "accessObservations": [],
+        "geographyId": "east-bottoms",
+        "applicability": "PRIMARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "municipality": "Kansas City",
+        "state": "MO",
+        "gridOrder": 1,
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "representatives": []
+      },
+      {
+        "id": "northland-employment-areas",
+        "label": "Northland Employment Areas",
+        "geographyType": "MIXED_COMMERCIAL_DISTRICT",
+        "oneLineDistinction": "Large employment and operating sites north of the Missouri River",
+        "shortDescription": "Northland employment areas contain larger office, service, warehouse and operating sites north of the Missouri River within Kansas City, Missouri. The geography is distributed rather than one compact district, so exact municipality and building format remain essential checks.",
+        "commonHere": [
+          "Industrial operations",
+          "Service businesses"
+        ],
+        "whatStandsOut": [
+          "Large employment and operating sites north of the Missouri River",
+          "Operating-space concentration"
+        ],
+        "worthKnowing": [
+          "Confirm the exact block, building format and current space conditions."
+        ],
+        "compareWith": [
+          "downtown-kansas-city",
+          "crossroads-arts-district"
+        ],
+        "sourceIds": [
+          "kansas-city-official"
+        ],
+        "accessObservations": [],
+        "geographyId": "northland-employment-areas",
+        "applicability": "SECONDARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "municipality": "Kansas City",
+        "state": "MO",
+        "gridOrder": 2,
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "representatives": []
+      }
+    ],
+    "flex": [
+      {
+        "id": "northland-employment-areas",
+        "label": "Northland Employment Areas",
+        "geographyType": "MIXED_COMMERCIAL_DISTRICT",
+        "oneLineDistinction": "Large employment and operating sites north of the Missouri River",
+        "shortDescription": "Northland employment areas contain larger office, service, warehouse and operating sites north of the Missouri River within Kansas City, Missouri. The geography is distributed rather than one compact district, so exact municipality and building format remain essential checks.",
+        "commonHere": [
+          "Industrial operations",
+          "Service businesses"
+        ],
+        "whatStandsOut": [
+          "Large employment and operating sites north of the Missouri River",
+          "Operating-space concentration"
+        ],
+        "worthKnowing": [
+          "Confirm the exact block, building format and current space conditions."
+        ],
+        "compareWith": [
+          "downtown-kansas-city",
+          "crossroads-arts-district"
+        ],
+        "sourceIds": [
+          "kansas-city-official"
+        ],
+        "accessObservations": [],
+        "geographyId": "northland-employment-areas",
+        "applicability": "PRIMARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "municipality": "Kansas City",
+        "state": "MO",
+        "gridOrder": 1,
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "representatives": []
+      },
+      {
+        "id": "east-bottoms",
+        "label": "East Bottoms",
+        "geographyType": "INDUSTRIAL_DISTRICT",
+        "oneLineDistinction": "Industrial and logistics uses east of the urban core",
+        "shortDescription": "East Bottoms contains industrial, logistics and service properties east of Kansas City’s urban core near rail and river infrastructure. It is explicitly Kansas City, Missouri—not Kansas City, Kansas—and differs from the Northland’s larger dispersed employment areas.",
+        "commonHere": [
+          "Industrial operations",
+          "Service businesses"
+        ],
+        "whatStandsOut": [
+          "Industrial and logistics uses east of the urban core",
+          "Operating-space concentration"
+        ],
+        "worthKnowing": [
+          "Confirm the exact block, building format and current space conditions."
+        ],
+        "compareWith": [
+          "northland-employment-areas",
+          "downtown-kansas-city"
+        ],
+        "sourceIds": [
+          "kansas-city-official"
+        ],
+        "accessObservations": [],
+        "geographyId": "east-bottoms",
+        "applicability": "SECONDARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "municipality": "Kansas City",
+        "state": "MO",
+        "gridOrder": 2,
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "representatives": []
+      }
+    ]
+  },
+  "totalNewRelationships": 8,
+  "stopGate": "PASS"
+}

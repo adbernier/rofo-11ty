@@ -1,0 +1,322 @@
+{
+  "schemaVersion": "commercial-district-intelligence-batch:v1",
+  "market": {
+    "id": "atlanta",
+    "label": "Atlanta",
+    "state": "GA"
+  },
+  "classification": "READY_WITH_MINOR_REVIEW",
+  "excludedMunicipalities": [
+    "Hapeville",
+    "East Point",
+    "College Park"
+  ],
+  "sources": [
+    {
+      "id": "atlanta-official",
+      "title": "Atlanta official planning resources",
+      "url": "https://www.atlantaga.gov/government/departments/city-planning/plans-studies/neighborhood-and-small-area-plans",
+      "publisher": "City of Atlanta"
+    }
+  ],
+  "spaceTypes": {
+    "office": [
+      {
+        "id": "downtown-atlanta",
+        "label": "Downtown Atlanta",
+        "geographyType": "OFFICE_DISTRICT",
+        "oneLineDistinction": "Downtown towers and civic institutions",
+        "shortDescription": "Downtown Atlanta concentrates office towers, government, convention activity and major institutions around the city’s historic center. Its high-rise business setting differs from Midtown’s Peachtree corridor and Buckhead’s northern office-and-retail concentration; individual blocks also shift between daytime business activity, hospitality and event uses.",
+        "commonHere": [
+          "Professional services",
+          "Office"
+        ],
+        "whatStandsOut": [
+          "Downtown towers and civic institutions",
+          "Employment concentration"
+        ],
+        "worthKnowing": [
+          "Confirm the exact block, building format and current space conditions."
+        ],
+        "compareWith": [
+          "midtown-atlanta",
+          "buckhead"
+        ],
+        "sourceIds": [
+          "atlanta-official"
+        ],
+        "accessObservations": [],
+        "geographyId": "downtown-atlanta",
+        "applicability": "PRIMARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "municipality": "Atlanta",
+        "state": "GA",
+        "gridOrder": 1,
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "representatives": []
+      },
+      {
+        "id": "midtown-atlanta",
+        "label": "Midtown Atlanta",
+        "geographyType": "OFFICE_DISTRICT",
+        "oneLineDistinction": "Office, arts and institutions along Peachtree",
+        "shortDescription": "Midtown Atlanta follows Peachtree Street through a dense mix of offices, arts institutions, hotels and street-level restaurants. The corridor’s cultural anchors and continuous urban blocks distinguish it from Downtown’s civic core and Buckhead’s more dispersed commercial nodes.",
+        "commonHere": [
+          "Professional services",
+          "Office"
+        ],
+        "whatStandsOut": [
+          "Office, arts and institutions along Peachtree",
+          "Employment concentration"
+        ],
+        "worthKnowing": [
+          "Confirm the exact block, building format and current space conditions."
+        ],
+        "compareWith": [
+          "buckhead",
+          "old-fourth-ward"
+        ],
+        "sourceIds": [
+          "atlanta-official"
+        ],
+        "accessObservations": [],
+        "geographyId": "midtown-atlanta",
+        "applicability": "PRIMARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "municipality": "Atlanta",
+        "state": "GA",
+        "gridOrder": 2,
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "representatives": []
+      }
+    ],
+    "retail": [
+      {
+        "id": "buckhead",
+        "label": "Buckhead",
+        "geographyType": "RETAIL_DISTRICT",
+        "oneLineDistinction": "Regional offices and destination retail in north Atlanta",
+        "shortDescription": "Buckhead pairs major office buildings with destination shopping, hotels, restaurants and professional services in north Atlanta. Its regional retail role and multiple commercial nodes make it different from Midtown’s continuous Peachtree corridor and Downtown’s civic and convention center.",
+        "commonHere": [
+          "Retail",
+          "Food and beverage"
+        ],
+        "whatStandsOut": [
+          "Regional offices and destination retail in north Atlanta",
+          "Customer-facing street activity"
+        ],
+        "worthKnowing": [
+          "Confirm the exact block, building format and current space conditions."
+        ],
+        "compareWith": [
+          "old-fourth-ward",
+          "upper-westside-bankhead"
+        ],
+        "sourceIds": [
+          "atlanta-official"
+        ],
+        "accessObservations": [],
+        "geographyId": "buckhead",
+        "applicability": "PRIMARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "municipality": "Atlanta",
+        "state": "GA",
+        "gridOrder": 1,
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "representatives": []
+      },
+      {
+        "id": "old-fourth-ward",
+        "label": "Old Fourth Ward",
+        "geographyType": "RETAIL_CORRIDOR",
+        "oneLineDistinction": "Storefronts and dining around the BeltLine edge",
+        "shortDescription": "Old Fourth Ward combines neighborhood storefronts, restaurants and service businesses with former industrial buildings near the BeltLine’s Eastside Trail. Its smaller spaces and street-level activity create a more neighborhood-oriented retail setting than Buckhead’s regional centers.",
+        "commonHere": [
+          "Retail",
+          "Food and beverage"
+        ],
+        "whatStandsOut": [
+          "Storefronts and dining around the BeltLine edge",
+          "Customer-facing street activity"
+        ],
+        "worthKnowing": [
+          "Confirm the exact block, building format and current space conditions."
+        ],
+        "compareWith": [
+          "upper-westside-bankhead",
+          "southside-lakewood"
+        ],
+        "sourceIds": [
+          "atlanta-official"
+        ],
+        "accessObservations": [],
+        "geographyId": "old-fourth-ward",
+        "applicability": "PRIMARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "municipality": "Atlanta",
+        "state": "GA",
+        "gridOrder": 2,
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "representatives": []
+      }
+    ],
+    "industrial": [
+      {
+        "id": "upper-westside-bankhead",
+        "label": "Upper Westside / Bankhead",
+        "geographyType": "INDUSTRIAL_DISTRICT",
+        "oneLineDistinction": "Adaptive industrial buildings on Atlanta’s northwest side",
+        "shortDescription": "Upper Westside and Bankhead retain warehouses, workshops and adapted industrial buildings along Atlanta’s northwest rail and road corridors. The area’s mix of active operating space and redevelopment differs from the more conventional southside industrial geography.",
+        "commonHere": [
+          "Industrial operations",
+          "Service businesses"
+        ],
+        "whatStandsOut": [
+          "Adaptive industrial buildings on Atlanta’s northwest side",
+          "Operating-space concentration"
+        ],
+        "worthKnowing": [
+          "Confirm the exact block, building format and current space conditions."
+        ],
+        "compareWith": [
+          "southside-lakewood",
+          "downtown-atlanta"
+        ],
+        "sourceIds": [
+          "atlanta-official"
+        ],
+        "accessObservations": [],
+        "geographyId": "upper-westside-bankhead",
+        "applicability": "PRIMARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "municipality": "Atlanta",
+        "state": "GA",
+        "gridOrder": 1,
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "representatives": []
+      },
+      {
+        "id": "southside-lakewood",
+        "label": "Southside / Lakewood",
+        "geographyType": "MIXED_COMMERCIAL_DISTRICT",
+        "oneLineDistinction": "Industrial and service land south of the core",
+        "shortDescription": "Southside and Lakewood contain warehouse, service-industrial and production land south of Atlanta’s urban core. The district’s airport-adjacent market language requires care: only City-of-Atlanta locations belong here, while Hapeville, East Point and College Park remain separate.",
+        "commonHere": [
+          "Industrial operations",
+          "Service businesses"
+        ],
+        "whatStandsOut": [
+          "Industrial and service land south of the core",
+          "Operating-space concentration"
+        ],
+        "worthKnowing": [
+          "Confirm the exact block, building format and current space conditions."
+        ],
+        "compareWith": [
+          "downtown-atlanta",
+          "midtown-atlanta"
+        ],
+        "sourceIds": [
+          "atlanta-official"
+        ],
+        "accessObservations": [],
+        "geographyId": "southside-lakewood",
+        "applicability": "SECONDARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "municipality": "Atlanta",
+        "state": "GA",
+        "gridOrder": 2,
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "representatives": []
+      }
+    ],
+    "flex": [
+      {
+        "id": "southside-lakewood",
+        "label": "Southside / Lakewood",
+        "geographyType": "MIXED_COMMERCIAL_DISTRICT",
+        "oneLineDistinction": "Industrial and service land south of the core",
+        "shortDescription": "Southside and Lakewood contain warehouse, service-industrial and production land south of Atlanta’s urban core. The district’s airport-adjacent market language requires care: only City-of-Atlanta locations belong here, while Hapeville, East Point and College Park remain separate.",
+        "commonHere": [
+          "Industrial operations",
+          "Service businesses"
+        ],
+        "whatStandsOut": [
+          "Industrial and service land south of the core",
+          "Operating-space concentration"
+        ],
+        "worthKnowing": [
+          "Confirm the exact block, building format and current space conditions."
+        ],
+        "compareWith": [
+          "downtown-atlanta",
+          "midtown-atlanta"
+        ],
+        "sourceIds": [
+          "atlanta-official"
+        ],
+        "accessObservations": [],
+        "geographyId": "southside-lakewood",
+        "applicability": "PRIMARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "municipality": "Atlanta",
+        "state": "GA",
+        "gridOrder": 1,
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "representatives": []
+      },
+      {
+        "id": "upper-westside-bankhead",
+        "label": "Upper Westside / Bankhead",
+        "geographyType": "INDUSTRIAL_DISTRICT",
+        "oneLineDistinction": "Adaptive industrial buildings on Atlanta’s northwest side",
+        "shortDescription": "Upper Westside and Bankhead retain warehouses, workshops and adapted industrial buildings along Atlanta’s northwest rail and road corridors. The area’s mix of active operating space and redevelopment differs from the more conventional southside industrial geography.",
+        "commonHere": [
+          "Industrial operations",
+          "Service businesses"
+        ],
+        "whatStandsOut": [
+          "Adaptive industrial buildings on Atlanta’s northwest side",
+          "Operating-space concentration"
+        ],
+        "worthKnowing": [
+          "Confirm the exact block, building format and current space conditions."
+        ],
+        "compareWith": [
+          "southside-lakewood",
+          "downtown-atlanta"
+        ],
+        "sourceIds": [
+          "atlanta-official"
+        ],
+        "accessObservations": [],
+        "geographyId": "upper-westside-bankhead",
+        "applicability": "SECONDARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "municipality": "Atlanta",
+        "state": "GA",
+        "gridOrder": 2,
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "representatives": []
+      }
+    ]
+  },
+  "totalNewRelationships": 8,
+  "stopGate": "PASS"
+}

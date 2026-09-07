@@ -27,7 +27,8 @@ eleventyComputed:
   { "label": city.city + ", " + city.state_abbr, "url": page.url }
 ] %}
 {% set isSanFranciscoDecisionJourney = city.slug == "san-francisco" and city.state_abbr == "CA" %}
-{% set hasPublicCommercialGeographyExperience = isSanFranciscoDecisionJourney or (city.slug == "sacramento" and city.state_abbr == "CA") or (city.slug == "indianapolis" and city.state_abbr == "IN") or (city.slug == "phoenix" and city.state_abbr == "AZ") %}
+{% set batchMarketKey = (city.state_abbr | upper) + "/" + city.slug %}
+{% set hasPublicCommercialGeographyExperience = isSanFranciscoDecisionJourney or (city.slug == "sacramento" and city.state_abbr == "CA") or (city.slug == "indianapolis" and city.state_abbr == "IN") or (city.slug == "phoenix" and city.state_abbr == "AZ") or commercialDistrictIntelligenceBatchV1.byMarketKey[batchMarketKey] %}
 {% set commercialKnowledgeSnapshot = city.commercial_knowledge_snapshot or {} %}
 
 {% set cityBuildings = [] %}
@@ -195,7 +196,7 @@ eleventyComputed:
               {% endif %}
 
               {% if hasPublicCommercialGeographyExperience %}
-                {% set publicCommercialGeographyExperience = sfCommercialGeographyExperience if isSanFranciscoDecisionJourney else (sacramentoCommercialGeographyExperience if city.slug == "sacramento" else (indianapolisCommercialGeographyExperience if city.slug == "indianapolis" else phoenixCommercialGeographyExperience)) %}
+                {% set publicCommercialGeographyExperience = sfCommercialGeographyExperience if isSanFranciscoDecisionJourney else (sacramentoCommercialGeographyExperience if city.slug == "sacramento" else (indianapolisCommercialGeographyExperience if city.slug == "indianapolis" else (phoenixCommercialGeographyExperience if city.slug == "phoenix" else commercialDistrictIntelligenceBatchV1.byMarketKey[batchMarketKey]))) %}
                 {% include "partials/city/sf-space-type-discovery.njk" %}
               {% endif %}
 

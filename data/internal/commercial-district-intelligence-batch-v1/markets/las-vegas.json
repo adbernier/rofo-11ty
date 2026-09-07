@@ -1,0 +1,323 @@
+{
+  "schemaVersion": "commercial-district-intelligence-batch:v1",
+  "market": {
+    "id": "las-vegas",
+    "label": "Las Vegas",
+    "state": "NV"
+  },
+  "classification": "HOLD_FOR_MARKET_REVIEW",
+  "excludedMunicipalities": [
+    "Paradise",
+    "Henderson",
+    "North Las Vegas",
+    "unincorporated Clark County"
+  ],
+  "sources": [
+    {
+      "id": "las-vegas-official",
+      "title": "Las Vegas official planning resources",
+      "url": "https://www.lasvegasnevada.gov/Business/Economic-Development/Retail-Small-Business",
+      "publisher": "City of Las Vegas"
+    }
+  ],
+  "spaceTypes": {
+    "office": [
+      {
+        "id": "downtown-las-vegas",
+        "label": "Downtown Las Vegas",
+        "geographyType": "OFFICE_DISTRICT",
+        "oneLineDistinction": "Government, legal, gaming and visitor uses in the incorporated core",
+        "shortDescription": "Downtown Las Vegas is a customer-recognizable office district within Las Vegas. Government, legal, gaming and visitor uses in the incorporated core. The public relationship is bounded to Las Vegas municipal ownership and is presented as market context, not a personalized recommendation or a claim about any individual building.",
+        "commonHere": [
+          "Professional services",
+          "Office"
+        ],
+        "whatStandsOut": [
+          "Government, legal, gaming and visitor uses in the incorporated core",
+          "Employment concentration"
+        ],
+        "worthKnowing": [
+          "Confirm the exact block, building format and current space conditions."
+        ],
+        "compareWith": [
+          "civic-business-district",
+          "18b-arts-district"
+        ],
+        "sourceIds": [
+          "las-vegas-official"
+        ],
+        "accessObservations": [],
+        "geographyId": "downtown-las-vegas",
+        "applicability": "PRIMARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "municipality": "Las Vegas",
+        "state": "NV",
+        "gridOrder": 1,
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "representatives": []
+      },
+      {
+        "id": "civic-business-district",
+        "label": "Civic & Business District",
+        "geographyType": "OFFICE_DISTRICT",
+        "oneLineDistinction": "Courts, government and professional offices downtown",
+        "shortDescription": "Civic & Business District is a customer-recognizable office district within Las Vegas. Courts, government and professional offices downtown. The public relationship is bounded to Las Vegas municipal ownership and is presented as market context, not a personalized recommendation or a claim about any individual building.",
+        "commonHere": [
+          "Professional services",
+          "Office"
+        ],
+        "whatStandsOut": [
+          "Courts, government and professional offices downtown",
+          "Employment concentration"
+        ],
+        "worthKnowing": [
+          "Confirm the exact block, building format and current space conditions."
+        ],
+        "compareWith": [
+          "18b-arts-district",
+          "fremont-east"
+        ],
+        "sourceIds": [
+          "las-vegas-official"
+        ],
+        "accessObservations": [],
+        "geographyId": "civic-business-district",
+        "applicability": "PRIMARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "municipality": "Las Vegas",
+        "state": "NV",
+        "gridOrder": 2,
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "representatives": []
+      }
+    ],
+    "retail": [
+      {
+        "id": "18b-arts-district",
+        "label": "18b Arts District",
+        "geographyType": "RETAIL_DISTRICT",
+        "oneLineDistinction": "Galleries, vintage shops and restaurants in adapted low-rise blocks",
+        "shortDescription": "18b Arts District is a customer-recognizable retail district within Las Vegas. Galleries, vintage shops and restaurants in adapted low-rise blocks. The public relationship is bounded to Las Vegas municipal ownership and is presented as market context, not a personalized recommendation or a claim about any individual building.",
+        "commonHere": [
+          "Retail",
+          "Food and beverage"
+        ],
+        "whatStandsOut": [
+          "Galleries, vintage shops and restaurants in adapted low-rise blocks",
+          "Customer-facing street activity"
+        ],
+        "worthKnowing": [
+          "Confirm the exact block, building format and current space conditions."
+        ],
+        "compareWith": [
+          "fremont-east",
+          "las-vegas-medical-district"
+        ],
+        "sourceIds": [
+          "las-vegas-official"
+        ],
+        "accessObservations": [],
+        "geographyId": "18b-arts-district",
+        "applicability": "PRIMARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "municipality": "Las Vegas",
+        "state": "NV",
+        "gridOrder": 1,
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "representatives": []
+      },
+      {
+        "id": "fremont-east",
+        "label": "Fremont East",
+        "geographyType": "RETAIL_CORRIDOR",
+        "oneLineDistinction": "Entertainment and food-and-beverage east of Fremont Street",
+        "shortDescription": "Fremont East is a customer-recognizable retail corridor within Las Vegas. Entertainment and food-and-beverage east of Fremont Street. The public relationship is bounded to Las Vegas municipal ownership and is presented as market context, not a personalized recommendation or a claim about any individual building.",
+        "commonHere": [
+          "Retail",
+          "Food and beverage"
+        ],
+        "whatStandsOut": [
+          "Entertainment and food-and-beverage east of Fremont Street",
+          "Customer-facing street activity"
+        ],
+        "worthKnowing": [
+          "Confirm the exact block, building format and current space conditions."
+        ],
+        "compareWith": [
+          "las-vegas-medical-district",
+          "downtown-design-district"
+        ],
+        "sourceIds": [
+          "las-vegas-official"
+        ],
+        "accessObservations": [],
+        "geographyId": "fremont-east",
+        "applicability": "PRIMARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "municipality": "Las Vegas",
+        "state": "NV",
+        "gridOrder": 2,
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "representatives": []
+      }
+    ],
+    "industrial": [
+      {
+        "id": "las-vegas-medical-district",
+        "label": "Las Vegas Medical District",
+        "geographyType": "INDUSTRIAL_DISTRICT",
+        "oneLineDistinction": "Medical offices, hospitals and education west of Downtown",
+        "shortDescription": "Las Vegas Medical District is a customer-recognizable industrial district within Las Vegas. Medical offices, hospitals and education west of Downtown. The public relationship is bounded to Las Vegas municipal ownership and is presented as market context, not a personalized recommendation or a claim about any individual building.",
+        "commonHere": [
+          "Industrial operations",
+          "Service businesses"
+        ],
+        "whatStandsOut": [
+          "Medical offices, hospitals and education west of Downtown",
+          "Operating-space concentration"
+        ],
+        "worthKnowing": [
+          "Confirm the exact block, building format and current space conditions."
+        ],
+        "compareWith": [
+          "downtown-design-district",
+          "downtown-las-vegas"
+        ],
+        "sourceIds": [
+          "las-vegas-official"
+        ],
+        "accessObservations": [],
+        "geographyId": "las-vegas-medical-district",
+        "applicability": "PRIMARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "municipality": "Las Vegas",
+        "state": "NV",
+        "gridOrder": 1,
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "representatives": []
+      },
+      {
+        "id": "downtown-design-district",
+        "label": "Downtown Design District",
+        "geographyType": "MIXED_COMMERCIAL_DISTRICT",
+        "oneLineDistinction": "Showrooms and creative businesses along industrial-era blocks",
+        "shortDescription": "Downtown Design District is a customer-recognizable mixed commercial district within Las Vegas. Showrooms and creative businesses along industrial-era blocks. The public relationship is bounded to Las Vegas municipal ownership and is presented as market context, not a personalized recommendation or a claim about any individual building.",
+        "commonHere": [
+          "Industrial operations",
+          "Service businesses"
+        ],
+        "whatStandsOut": [
+          "Showrooms and creative businesses along industrial-era blocks",
+          "Operating-space concentration"
+        ],
+        "worthKnowing": [
+          "Confirm the exact block, building format and current space conditions."
+        ],
+        "compareWith": [
+          "downtown-las-vegas",
+          "civic-business-district"
+        ],
+        "sourceIds": [
+          "las-vegas-official"
+        ],
+        "accessObservations": [],
+        "geographyId": "downtown-design-district",
+        "applicability": "SECONDARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "municipality": "Las Vegas",
+        "state": "NV",
+        "gridOrder": 2,
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "representatives": []
+      }
+    ],
+    "flex": [
+      {
+        "id": "downtown-design-district",
+        "label": "Downtown Design District",
+        "geographyType": "MIXED_COMMERCIAL_DISTRICT",
+        "oneLineDistinction": "Showrooms and creative businesses along industrial-era blocks",
+        "shortDescription": "Downtown Design District is a customer-recognizable mixed commercial district within Las Vegas. Showrooms and creative businesses along industrial-era blocks. The public relationship is bounded to Las Vegas municipal ownership and is presented as market context, not a personalized recommendation or a claim about any individual building.",
+        "commonHere": [
+          "Industrial operations",
+          "Service businesses"
+        ],
+        "whatStandsOut": [
+          "Showrooms and creative businesses along industrial-era blocks",
+          "Operating-space concentration"
+        ],
+        "worthKnowing": [
+          "Confirm the exact block, building format and current space conditions."
+        ],
+        "compareWith": [
+          "downtown-las-vegas",
+          "civic-business-district"
+        ],
+        "sourceIds": [
+          "las-vegas-official"
+        ],
+        "accessObservations": [],
+        "geographyId": "downtown-design-district",
+        "applicability": "PRIMARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "municipality": "Las Vegas",
+        "state": "NV",
+        "gridOrder": 1,
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "representatives": []
+      },
+      {
+        "id": "las-vegas-medical-district",
+        "label": "Las Vegas Medical District",
+        "geographyType": "INDUSTRIAL_DISTRICT",
+        "oneLineDistinction": "Medical offices, hospitals and education west of Downtown",
+        "shortDescription": "Las Vegas Medical District is a customer-recognizable industrial district within Las Vegas. Medical offices, hospitals and education west of Downtown. The public relationship is bounded to Las Vegas municipal ownership and is presented as market context, not a personalized recommendation or a claim about any individual building.",
+        "commonHere": [
+          "Industrial operations",
+          "Service businesses"
+        ],
+        "whatStandsOut": [
+          "Medical offices, hospitals and education west of Downtown",
+          "Operating-space concentration"
+        ],
+        "worthKnowing": [
+          "Confirm the exact block, building format and current space conditions."
+        ],
+        "compareWith": [
+          "downtown-design-district",
+          "downtown-las-vegas"
+        ],
+        "sourceIds": [
+          "las-vegas-official"
+        ],
+        "accessObservations": [],
+        "geographyId": "las-vegas-medical-district",
+        "applicability": "SECONDARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "municipality": "Las Vegas",
+        "state": "NV",
+        "gridOrder": 2,
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "representatives": []
+      }
+    ]
+  },
+  "totalNewRelationships": 8,
+  "stopGate": "PASS"
+}
