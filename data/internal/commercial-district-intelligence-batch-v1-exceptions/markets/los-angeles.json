@@ -1,0 +1,430 @@
+{
+  "schemaVersion": "commercial-district-intelligence-exceptions:v1",
+  "market": {
+    "id": "los-angeles",
+    "label": "Los Angeles",
+    "state": "CA"
+  },
+  "classification": "READY_TO_RELEASE",
+  "excludedMunicipalities": [
+    "Long Beach",
+    "Pasadena",
+    "Torrance",
+    "Santa Monica",
+    "Burbank",
+    "Culver City",
+    "Vernon",
+    "Santa Fe Springs",
+    "City of San Fernando",
+    "West Hollywood",
+    "Beverly Hills"
+  ],
+  "sources": [
+    {
+      "id": "la-community-plans",
+      "title": "City of Los Angeles Community Plans",
+      "url": "https://planning.lacity.gov/plans-policies/community-plans",
+      "publisher": "Los Angeles City Planning"
+    },
+    {
+      "id": "la-downtown-plan",
+      "title": "Downtown Community Plan",
+      "url": "https://planning.lacity.gov/plans-policies/community-plan-area/downtown-community-plan",
+      "publisher": "Los Angeles City Planning"
+    },
+    {
+      "id": "la-downtown-text",
+      "title": "Downtown Community Plan text",
+      "url": "https://planning.lacity.gov/odocument/7ab92160-b323-4ce8-98bb-42a8db7009a1/Downtown_Community_Plan_Text_%28Final%29.pdf",
+      "publisher": "Los Angeles City Planning"
+    },
+    {
+      "id": "la-century-city",
+      "title": "Century City South Specific Plan",
+      "url": "https://planning.lacity.gov/plans-policies/overlays/century-city-south",
+      "publisher": "Los Angeles City Planning"
+    },
+    {
+      "id": "la-hollywood-plan",
+      "title": "Hollywood Community Plan",
+      "url": "https://planning.lacity.gov/odocument/006954e9-57e1-4f1f-ac48-d819e6450249/Hollywood%20Community%20Plan.pdf",
+      "publisher": "Los Angeles City Planning"
+    },
+    {
+      "id": "la-sun-valley",
+      "title": "Sun Valley–La Tuna Canyon Community Plan",
+      "url": "https://planning.lacity.gov/odocument/150fec66-d790-44ad-96cd-062484ac90d0/Sun_Valley-La_Tuna_Canyon_Community_Plan.pdf",
+      "publisher": "Los Angeles City Planning"
+    }
+  ],
+  "spaceTypes": {
+    "office": [
+      {
+        "id": "downtown-los-angeles",
+        "label": "Downtown Los Angeles",
+        "geographyType": "OFFICE_DISTRICT",
+        "spaceType": "office",
+        "applicability": "PRIMARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "oneLineDistinction": "Towers, government and professional services in the central core",
+        "shortDescription": "Downtown Los Angeles concentrates office towers, government, courts, financial services and major institutions across the city's central business core. Its dense high-rise and civic setting differs from Century City's planned Westside office cluster.",
+        "commonHere": [
+          "Corporate office",
+          "Government",
+          "Legal",
+          "Professional services"
+        ],
+        "whatStandsOut": [
+          "High-rise central business core",
+          "Civic and courthouse anchors",
+          "Multiple specialized subdistricts"
+        ],
+        "worthKnowing": [
+          "Downtown's subdistricts and building stock vary substantially; compare the exact location."
+        ],
+        "compareWith": [
+          "century-city"
+        ],
+        "sourceIds": [
+          "la-community-plans",
+          "la-downtown-plan"
+        ],
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "accessObservations": [],
+        "representatives": [],
+        "adjudication": "CONFIRMED",
+        "hierarchy": "INDEPENDENT_PUBLIC_GEOGRAPHY",
+        "municipality": "Los Angeles",
+        "state": "CA",
+        "gridOrder": 1
+      },
+      {
+        "id": "century-city",
+        "label": "Century City",
+        "geographyType": "OFFICE_DISTRICT",
+        "spaceType": "office",
+        "applicability": "PRIMARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "oneLineDistinction": "Planned Westside towers for corporate and professional offices",
+        "shortDescription": "Century City is a planned Westside office center with high-rise corporate, legal, financial and entertainment-industry workplaces clustered around Avenue of the Stars. Its concentrated tower campus is distinct from Downtown's larger civic and mixed commercial core.",
+        "commonHere": [
+          "Corporate office",
+          "Legal",
+          "Finance",
+          "Entertainment business"
+        ],
+        "whatStandsOut": [
+          "Planned high-rise office center",
+          "Avenue of the Stars concentration",
+          "Westside professional-services role"
+        ],
+        "worthKnowing": [
+          "Building access and current space conditions remain property-specific."
+        ],
+        "compareWith": [
+          "downtown-los-angeles"
+        ],
+        "sourceIds": [
+          "la-century-city",
+          "la-community-plans"
+        ],
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "accessObservations": [],
+        "representatives": [],
+        "adjudication": "CONFIRMED",
+        "hierarchy": "INDEPENDENT_PUBLIC_GEOGRAPHY",
+        "municipality": "Los Angeles",
+        "state": "CA",
+        "gridOrder": 2
+      }
+    ],
+    "retail": [
+      {
+        "id": "hollywood-boulevard",
+        "label": "Hollywood Boulevard",
+        "geographyType": "RETAIL_CORRIDOR",
+        "spaceType": "retail",
+        "applicability": "PRIMARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "oneLineDistinction": "Entertainment, dining and visitor storefronts along Hollywood Boulevard",
+        "shortDescription": "Hollywood Boulevard combines theaters, visitor attractions, restaurants, shops and entertainment-oriented businesses in a dense corridor through the Hollywood core. Its regional visitor draw and entertainment identity distinguish it from Melrose Avenue's smaller fashion, design and neighborhood storefronts.",
+        "commonHere": [
+          "Entertainment",
+          "Food and beverage",
+          "Visitor retail",
+          "Personal services"
+        ],
+        "whatStandsOut": [
+          "Theater and attraction anchors",
+          "Regional visitor activity",
+          "Continuous boulevard storefronts"
+        ],
+        "worthKnowing": [
+          "Customer intensity changes sharply outside the corridor's core blocks."
+        ],
+        "compareWith": [
+          "melrose-fairfax-corridor"
+        ],
+        "sourceIds": [
+          "la-hollywood-plan",
+          "la-community-plans"
+        ],
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "accessObservations": [],
+        "representatives": [],
+        "adjudication": "CONFIRMED_WITH_NARROWER_LABEL",
+        "hierarchy": "PARENT_COMPONENT",
+        "municipality": "Los Angeles",
+        "state": "CA",
+        "gridOrder": 1
+      },
+      {
+        "id": "melrose-fairfax-corridor",
+        "label": "Melrose Avenue / Fairfax",
+        "geographyType": "RETAIL_CORRIDOR",
+        "spaceType": "retail",
+        "applicability": "PRIMARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "oneLineDistinction": "Fashion, design, dining and small storefronts near Fairfax",
+        "shortDescription": "The Melrose Avenue corridor around Fairfax is known for fashion, design, galleries, restaurants and smaller street-facing businesses. Its pedestrian-scale storefronts offer a more independent retail setting than Hollywood Boulevard's visitor and entertainment concentration.",
+        "commonHere": [
+          "Fashion retail",
+          "Design",
+          "Food and beverage",
+          "Independent shops"
+        ],
+        "whatStandsOut": [
+          "Pedestrian-scale storefronts",
+          "Fashion and gallery identity",
+          "Corridor centered near Fairfax"
+        ],
+        "worthKnowing": [
+          "Commercial identity changes along Melrose; compare the exact block near Fairfax."
+        ],
+        "compareWith": [
+          "hollywood-boulevard"
+        ],
+        "sourceIds": [
+          "la-hollywood-plan",
+          "la-community-plans"
+        ],
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "accessObservations": [],
+        "representatives": [],
+        "adjudication": "CONFIRMED_WITH_NARROWER_LABEL",
+        "hierarchy": "OVERLAPPING_BUT_USEFUL",
+        "municipality": "Los Angeles",
+        "state": "CA",
+        "gridOrder": 2
+      }
+    ],
+    "industrial": [
+      {
+        "id": "arts-district",
+        "label": "Arts District",
+        "geographyType": "MIXED_COMMERCIAL_DISTRICT",
+        "spaceType": "industrial",
+        "applicability": "PRIMARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "oneLineDistinction": "Creative production and light industry in Downtown's warehouse blocks",
+        "shortDescription": "The Arts District retains manufacturing, fabrication, creative production and light-industrial activity among converted warehouses and newer mixed-use development east of Downtown. That overlap makes it a hybrid operating district rather than a conventional warehouse market.",
+        "commonHere": [
+          "Creative production",
+          "Light manufacturing",
+          "Fabrication",
+          "Studios"
+        ],
+        "whatStandsOut": [
+          "Retained warehouse building stock",
+          "Productive and creative uses",
+          "Rapid mixed-use transition"
+        ],
+        "worthKnowing": [
+          "Confirm zoning, loading, power and operating compatibility for a specific property."
+        ],
+        "compareWith": [
+          "sun-valley-industrial-area"
+        ],
+        "sourceIds": [
+          "la-downtown-plan",
+          "la-downtown-text"
+        ],
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "accessObservations": [],
+        "representatives": [],
+        "adjudication": "CONFIRMED",
+        "hierarchy": "INDEPENDENT_PUBLIC_GEOGRAPHY",
+        "municipality": "Los Angeles",
+        "state": "CA",
+        "gridOrder": 1
+      },
+      {
+        "id": "sun-valley-industrial-area",
+        "label": "Sun Valley Industrial Area",
+        "geographyType": "INDUSTRIAL_DISTRICT",
+        "spaceType": "industrial",
+        "applicability": "PRIMARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "oneLineDistinction": "Manufacturing, warehouse and service land in a bounded Valley district",
+        "shortDescription": "Sun Valley contains a substantial industrial and employment area with manufacturing, warehouse, recycling and service businesses. Its low-rise operating stock and production-oriented land make it a more conventional Industrial setting than the Arts District's converted, mixed-use blocks.",
+        "commonHere": [
+          "Manufacturing",
+          "Warehouse",
+          "Service industrial",
+          "Production"
+        ],
+        "whatStandsOut": [
+          "City-planned industrial employment land",
+          "Low-rise operating buildings",
+          "Bounded northeast Valley identity"
+        ],
+        "worthKnowing": [
+          "Verify environmental conditions, access and property capabilities at the site level."
+        ],
+        "compareWith": [
+          "arts-district"
+        ],
+        "sourceIds": [
+          "la-sun-valley",
+          "la-community-plans"
+        ],
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "accessObservations": [],
+        "representatives": [],
+        "adjudication": "CONFIRMED_WITH_NARROWER_LABEL",
+        "hierarchy": "INDEPENDENT_PUBLIC_GEOGRAPHY",
+        "municipality": "Los Angeles",
+        "state": "CA",
+        "gridOrder": 2
+      }
+    ],
+    "flex": [
+      {
+        "id": "sun-valley-industrial-area",
+        "label": "Sun Valley Industrial Area",
+        "geographyType": "INDUSTRIAL_DISTRICT",
+        "spaceType": "flex",
+        "applicability": "PRIMARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "oneLineDistinction": "Workshops and office-production formats in Sun Valley's industrial blocks",
+        "shortDescription": "Sun Valley's industrial area includes workshops, production buildings, service businesses and office/warehouse formats that provide a specific Flex search context in the northeast Valley. Its varied operating buildings contrast with the Arts District's creative reuse and rapid mixed-use transition.",
+        "commonHere": [
+          "Office/warehouse",
+          "Workshops",
+          "Light production",
+          "Service industrial"
+        ],
+        "whatStandsOut": [
+          "Varied operating formats",
+          "City-planned employment land",
+          "Bounded Sun Valley label"
+        ],
+        "worthKnowing": [
+          "Office ratio, loading, power and permitted use require property-level review."
+        ],
+        "compareWith": [
+          "arts-district"
+        ],
+        "sourceIds": [
+          "la-sun-valley",
+          "la-community-plans"
+        ],
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "accessObservations": [],
+        "representatives": [],
+        "adjudication": "CONFIRMED_WITH_NARROWER_LABEL",
+        "hierarchy": "INDEPENDENT_PUBLIC_GEOGRAPHY",
+        "municipality": "Los Angeles",
+        "state": "CA",
+        "gridOrder": 1
+      },
+      {
+        "id": "arts-district",
+        "label": "Arts District",
+        "geographyType": "MIXED_COMMERCIAL_DISTRICT",
+        "spaceType": "flex",
+        "applicability": "SECONDARY",
+        "publicEvidenceTier": "PUBLIC_CONTEXTUAL",
+        "route": null,
+        "indexation": "COMPONENT_READY",
+        "oneLineDistinction": "Converted warehouses for studios, production and creative workplaces",
+        "shortDescription": "The Arts District's converted warehouses and retained productive uses create a specialized Flex context for studios, fabrication, creative production and office-production. Mixed-use change means the district is not a substitute for verifying an individual building's operating capability.",
+        "commonHere": [
+          "Studios",
+          "Creative production",
+          "Office/production",
+          "Fabrication"
+        ],
+        "whatStandsOut": [
+          "Adapted warehouse stock",
+          "Creative and productive overlap",
+          "Downtown mixed-use transition"
+        ],
+        "worthKnowing": [
+          "Confirm permitted use, building systems and operating compatibility for every space."
+        ],
+        "compareWith": [
+          "sun-valley-industrial-area"
+        ],
+        "sourceIds": [
+          "la-downtown-plan",
+          "la-downtown-text"
+        ],
+        "accessReadiness": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+        "accessObservations": [],
+        "representatives": [],
+        "adjudication": "CONFIRMED",
+        "hierarchy": "INDEPENDENT_PUBLIC_GEOGRAPHY",
+        "municipality": "Los Angeles",
+        "state": "CA",
+        "gridOrder": 2
+      }
+    ]
+  },
+  "rejectedRelationships": [
+    {
+      "label": "San Fernando Valley Industrial",
+      "spaceType": "industrial/flex",
+      "decision": "REJECT",
+      "reason": "The regional label crosses multiple City and independent-municipality contexts and is not a bounded customer geography."
+    }
+  ],
+  "renamedRelationships": [
+    {
+      "from": "Hollywood",
+      "to": [
+        "Hollywood Boulevard"
+      ]
+    },
+    {
+      "from": "Melrose / Fairfax",
+      "to": [
+        "Melrose Avenue / Fairfax"
+      ]
+    },
+    {
+      "from": "San Fernando Valley Industrial",
+      "to": [
+        "Sun Valley Industrial Area"
+      ]
+    }
+  ],
+  "relationshipCount": 8,
+  "routeChanges": 0,
+  "indexationChanges": 0,
+  "representativesPromoted": 0
+}
