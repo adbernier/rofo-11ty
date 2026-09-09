@@ -15,6 +15,7 @@ eleventyComputed:
 {% set stateAbbr = city.state_abbr | upper %}
 {% set spaceType = entry.spaceType %}
 {% set representativeBuildings = entry.representativeBuildings %}
+{% set hasGovernedCommercialGeography = entry.publicCommercialGeography and entry.publicCommercialGeography.geographies.length %}
 {% set batchMarketKey = (city.state_abbr | upper) + "/" + city.slug %}
 {% set publicCommercialGeographyExperience = sacramentoCommercialGeographyExperience if city.slug == "sacramento" else (indianapolisCommercialGeographyExperience if city.slug == "indianapolis" else (phoenixCommercialGeographyExperience if city.slug == "phoenix" else (commercialDistrictIntelligenceBatchV1.byMarketKey[batchMarketKey] or sfCommercialGeographyExperience))) %}
 {% set searchProfileDefaultSpaceType = "Industrial / Warehouse / Flex" if entry.localDecisionGuide and entry.localDecisionGuide.recommendation and spaceType.slug == "industrial-space" else ("Industrial / Warehouse" if spaceType.slug == "industrial-space" else spaceType.label) %}
@@ -71,7 +72,7 @@ eleventyComputed:
       "intelligence_state": "recommendation_ready" if city.slug == "san-francisco" else ("universal_with_local_context" if entry.localDecisionGuide else "universal_only")
     } %}
 
-    {% if entry.publicCommercialGeography %}
+    {% if hasGovernedCommercialGeography %}
       <div class="sf-space-type-context-nav">
         <div class="sf-geography-breadcrumb" aria-label="Commercial geography hierarchy"><a href="{{ publicCommercialGeographyExperience.city.path }}">{{ publicCommercialGeographyExperience.city.label }}</a><span>›</span><strong>{{ entry.publicCommercialGeography.label }}</strong></div>
         <nav class="sf-space-type-selector" aria-label="{{ publicCommercialGeographyExperience.city.label }} space types">
@@ -80,15 +81,15 @@ eleventyComputed:
       </div>
     {% endif %}
 
-    <div class="space-type-hero-layout{% if entry.publicCommercialGeography %} space-type-hero-layout--geography-first{% endif %}">
+    <div class="space-type-hero-layout{% if hasGovernedCommercialGeography %} space-type-hero-layout--geography-first{% endif %}">
       {% include "partials/space-type/hero.njk" %}
 
-      {% if not entry.publicCommercialGeography %}<aside class="space-type-search-profile">
+      {% if not hasGovernedCommercialGeography %}<aside class="space-type-search-profile">
         {% include "partials/shared/recommendation-prompt-card.njk" %}
       </aside>{% endif %}
     </div>
 
-    {% if entry.publicCommercialGeography %}
+    {% if hasGovernedCommercialGeography %}
       {% include "partials/space-type/sf-commercial-geography-experience.njk" %}
       <div class="pill-nav-card sf-secondary-space-links"><span class="eyebrow">More ways to explore</span>{% include "partials/space-type/pill-nav.njk" %}</div>
     {% endif %}
@@ -96,7 +97,7 @@ eleventyComputed:
     <div class="space-type-content-layout">
       <div class="page-stack space-type-main-content">
         {% include "partials/space-type/market-snapshot.njk" %}
-        {% if not (entry.publicCommercialGeography and (city.slug == "indianapolis" or city.slug == "phoenix")) %}{% include "partials/space-type/local-decision-guide.njk" %}{% endif %}
+        {% if not (hasGovernedCommercialGeography and (city.slug == "indianapolis" or city.slug == "phoenix")) %}{% include "partials/space-type/local-decision-guide.njk" %}{% endif %}
         {% include "partials/space-type/example-location-briefs.njk" %}
         {% include "partials/space-type/guide-card.njk" %}
         {% include "partials/space-type/business-briefs.njk" %}
