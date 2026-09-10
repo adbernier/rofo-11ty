@@ -1,0 +1,549 @@
+{
+  "schemaVersion": "access-intelligence:v1",
+  "market": {
+    "id": "phoenix",
+    "label": "Phoenix",
+    "municipality": "Phoenix",
+    "state": "AZ"
+  },
+  "excludedMunicipalities": [
+    "Tempe",
+    "Scottsdale",
+    "Glendale"
+  ],
+  "relationships": [
+    {
+      "geographyId": "downtown-phoenix",
+      "geographyLabel": "Downtown Phoenix",
+      "municipalityVerified": true,
+      "referencePoint": {
+        "method": "DESCRIPTIVE_RELATIONSHIP_ONLY",
+        "coordinates": null,
+        "methodAvailable": false,
+        "distanceEligible": false,
+        "limitations": [
+          "The governed geography has no reviewed coordinate in this artifact; do not calculate distance until one is imported and QA-reviewed."
+        ]
+      },
+      "facts": [
+        {
+          "id": "phx-dt-rail",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "RAIL_TRANSIT",
+          "infrastructureName": "Valley Metro Rail",
+          "factType": "TRANSIT_INFRASTRUCTURE",
+          "measurementType": "TRANSIT_SERVICE_PRESENT",
+          "rawMeasurement": null,
+          "publicDisplayValue": "Valley Metro Rail serves the downtown street grid",
+          "sourceIds": [
+            "valley"
+          ],
+          "sourceDate": "2026-09-09",
+          "freshnessClass": "SERVICE_DEPENDENT",
+          "confidence": "HIGH",
+          "reviewState": "REVIEWED",
+          "publicEligibility": "OBJECTIVE_ACCESS_READY",
+          "interpretationEligibility": "ELIGIBLE_FOR_V2_METHOD_REVIEW",
+          "propertyTypeApplicability": [
+            {
+              "propertyType": "office",
+              "relevance": "CONTEXTUAL"
+            },
+            {
+              "propertyType": "retail",
+              "relevance": "CONTEXTUAL"
+            }
+          ],
+          "limitations": []
+        },
+        {
+          "id": "phx-dt-i10",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "ROAD",
+          "infrastructureName": "Interstate 10",
+          "factType": "ROAD_INFRASTRUCTURE",
+          "measurementType": "CORRIDOR_RELATIONSHIP",
+          "rawMeasurement": null,
+          "publicDisplayValue": "I-10 runs along Downtown's southern side",
+          "sourceIds": [
+            "adot"
+          ],
+          "sourceDate": "2026-09-09",
+          "freshnessClass": "DURABLE_INFRASTRUCTURE",
+          "confidence": "MEDIUM",
+          "reviewState": "NEEDS_REVIEW",
+          "publicEligibility": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "interpretationEligibility": "NOT_ELIGIBLE",
+          "propertyTypeApplicability": [
+            {
+              "propertyType": "office",
+              "relevance": "CONTEXTUAL"
+            },
+            {
+              "propertyType": "retail",
+              "relevance": "CONTEXTUAL"
+            },
+            {
+              "propertyType": "industrial",
+              "relevance": "CONTEXTUAL"
+            },
+            {
+              "propertyType": "flex",
+              "relevance": "CONTEXTUAL"
+            }
+          ],
+          "limitations": []
+        }
+      ]
+    },
+    {
+      "geographyId": "midtown-central-avenue",
+      "geographyLabel": "Midtown / Central Avenue",
+      "municipalityVerified": true,
+      "referencePoint": {
+        "method": "DETERMINISTIC_BOUNDED_REFERENCE",
+        "coordinates": null,
+        "methodAvailable": true,
+        "distanceEligible": false,
+        "limitations": [
+          "The governed geography has no reviewed coordinate in this artifact; do not calculate distance until one is imported and QA-reviewed."
+        ]
+      },
+      "facts": [
+        {
+          "id": "phx-mid-rail",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "RAIL_TRANSIT",
+          "infrastructureName": "Valley Metro Rail",
+          "factType": "TRANSIT_INFRASTRUCTURE",
+          "measurementType": "TRANSIT_SERVICE_PRESENT",
+          "rawMeasurement": null,
+          "publicDisplayValue": "Light rail runs along Central Avenue through Midtown",
+          "sourceIds": [
+            "valley"
+          ],
+          "sourceDate": "2026-09-09",
+          "freshnessClass": "SERVICE_DEPENDENT",
+          "confidence": "HIGH",
+          "reviewState": "REVIEWED",
+          "publicEligibility": "OBJECTIVE_ACCESS_READY",
+          "interpretationEligibility": "ELIGIBLE_FOR_V2_METHOD_REVIEW",
+          "propertyTypeApplicability": [
+            {
+              "propertyType": "office",
+              "relevance": "CONTEXTUAL"
+            },
+            {
+              "propertyType": "retail",
+              "relevance": "CONTEXTUAL"
+            }
+          ],
+          "limitations": []
+        },
+        {
+          "id": "phx-mid-central",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "LOCAL_ORIENTATION",
+          "infrastructureName": "Central Avenue",
+          "factType": "ORIENTATION",
+          "measurementType": "CORRIDOR_RELATIONSHIP",
+          "rawMeasurement": null,
+          "publicDisplayValue": "Central Avenue defines the district's spine",
+          "sourceIds": [
+            "valley"
+          ],
+          "sourceDate": "2026-09-09",
+          "freshnessClass": "DURABLE_INFRASTRUCTURE",
+          "confidence": "HIGH",
+          "reviewState": "REVIEWED",
+          "publicEligibility": "OBJECTIVE_ACCESS_READY",
+          "interpretationEligibility": "ELIGIBLE_FOR_V2_METHOD_REVIEW",
+          "propertyTypeApplicability": [
+            {
+              "propertyType": "office",
+              "relevance": "CONTEXTUAL"
+            },
+            {
+              "propertyType": "retail",
+              "relevance": "CONTEXTUAL"
+            }
+          ],
+          "limitations": []
+        }
+      ]
+    },
+    {
+      "geographyId": "camelback-biltmore",
+      "geographyLabel": "Camelback / Biltmore",
+      "municipalityVerified": true,
+      "referencePoint": {
+        "method": "DETERMINISTIC_BOUNDED_REFERENCE",
+        "coordinates": null,
+        "methodAvailable": true,
+        "distanceEligible": false,
+        "limitations": [
+          "The governed geography has no reviewed coordinate in this artifact; do not calculate distance until one is imported and QA-reviewed."
+        ]
+      },
+      "facts": [
+        {
+          "id": "phx-camel-road",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "ROAD",
+          "infrastructureName": "Camelback Road",
+          "factType": "ROAD_INFRASTRUCTURE",
+          "measurementType": "CORRIDOR_RELATIONSHIP",
+          "rawMeasurement": null,
+          "publicDisplayValue": "Camelback Road is the area's east-west commercial spine",
+          "sourceIds": [
+            "adot"
+          ],
+          "sourceDate": "2026-09-09",
+          "freshnessClass": "DURABLE_INFRASTRUCTURE",
+          "confidence": "HIGH",
+          "reviewState": "REVIEWED",
+          "publicEligibility": "OBJECTIVE_ACCESS_READY",
+          "interpretationEligibility": "ELIGIBLE_FOR_V2_METHOD_REVIEW",
+          "propertyTypeApplicability": [
+            {
+              "propertyType": "office",
+              "relevance": "CONTEXTUAL"
+            },
+            {
+              "propertyType": "retail",
+              "relevance": "CONTEXTUAL"
+            }
+          ],
+          "limitations": []
+        },
+        {
+          "id": "phx-camel-transit",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "RAIL_TRANSIT",
+          "infrastructureName": "Valley Metro local service",
+          "factType": "TRANSIT_INFRASTRUCTURE",
+          "measurementType": "TRANSIT_SERVICE_PRESENT",
+          "rawMeasurement": null,
+          "publicDisplayValue": "Local transit serves the Camelback corridor",
+          "sourceIds": [
+            "valley"
+          ],
+          "sourceDate": "2026-09-09",
+          "freshnessClass": "SERVICE_DEPENDENT",
+          "confidence": "MEDIUM",
+          "reviewState": "NEEDS_REVIEW",
+          "publicEligibility": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "interpretationEligibility": "NOT_ELIGIBLE",
+          "propertyTypeApplicability": [
+            {
+              "propertyType": "office",
+              "relevance": "CONTEXTUAL"
+            },
+            {
+              "propertyType": "retail",
+              "relevance": "CONTEXTUAL"
+            }
+          ],
+          "limitations": []
+        }
+      ]
+    },
+    {
+      "geographyId": "roosevelt-row",
+      "geographyLabel": "Roosevelt Row",
+      "municipalityVerified": true,
+      "referencePoint": {
+        "method": "DETERMINISTIC_BOUNDED_REFERENCE",
+        "coordinates": null,
+        "methodAvailable": true,
+        "distanceEligible": false,
+        "limitations": [
+          "The governed geography has no reviewed coordinate in this artifact; do not calculate distance until one is imported and QA-reviewed."
+        ]
+      },
+      "facts": [
+        {
+          "id": "phx-roose-rail",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "RAIL_TRANSIT",
+          "infrastructureName": "Valley Metro Rail",
+          "factType": "TRANSIT_INFRASTRUCTURE",
+          "measurementType": "TRANSIT_SERVICE_PRESENT",
+          "rawMeasurement": null,
+          "publicDisplayValue": "Light rail serves Roosevelt Street and the Downtown edge",
+          "sourceIds": [
+            "valley"
+          ],
+          "sourceDate": "2026-09-09",
+          "freshnessClass": "SERVICE_DEPENDENT",
+          "confidence": "HIGH",
+          "reviewState": "REVIEWED",
+          "publicEligibility": "OBJECTIVE_ACCESS_READY",
+          "interpretationEligibility": "ELIGIBLE_FOR_V2_METHOD_REVIEW",
+          "propertyTypeApplicability": [
+            {
+              "propertyType": "retail",
+              "relevance": "CONTEXTUAL"
+            }
+          ],
+          "limitations": []
+        },
+        {
+          "id": "phx-roose-core",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "LOCAL_ORIENTATION",
+          "infrastructureName": "Downtown Phoenix",
+          "factType": "ORIENTATION",
+          "measurementType": "ADJACENT_TO_GEOGRAPHY",
+          "rawMeasurement": null,
+          "publicDisplayValue": "Roosevelt Row borders the downtown core",
+          "sourceIds": [
+            "valley"
+          ],
+          "sourceDate": "2026-09-09",
+          "freshnessClass": "DURABLE_INFRASTRUCTURE",
+          "confidence": "MEDIUM",
+          "reviewState": "NEEDS_REVIEW",
+          "publicEligibility": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "interpretationEligibility": "NOT_ELIGIBLE",
+          "propertyTypeApplicability": [
+            {
+              "propertyType": "retail",
+              "relevance": "CONTEXTUAL"
+            }
+          ],
+          "limitations": []
+        }
+      ]
+    },
+    {
+      "geographyId": "southwest-phoenix-industrial",
+      "geographyLabel": "Southwest Phoenix Industrial",
+      "municipalityVerified": true,
+      "referencePoint": {
+        "method": "REPRESENTATIVE_ANCHOR",
+        "coordinates": null,
+        "methodAvailable": true,
+        "distanceEligible": false,
+        "limitations": [
+          "The governed geography has no reviewed coordinate in this artifact; do not calculate distance until one is imported and QA-reviewed."
+        ]
+      },
+      "facts": [
+        {
+          "id": "phx-sw-i10",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "ROAD",
+          "infrastructureName": "Interstate 10",
+          "factType": "ROAD_INFRASTRUCTURE",
+          "measurementType": "CORRIDOR_RELATIONSHIP",
+          "rawMeasurement": null,
+          "publicDisplayValue": "I-10 is the area's principal regional freeway",
+          "sourceIds": [
+            "adot"
+          ],
+          "sourceDate": "2026-09-09",
+          "freshnessClass": "DURABLE_INFRASTRUCTURE",
+          "confidence": "MEDIUM",
+          "reviewState": "NEEDS_REVIEW",
+          "publicEligibility": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "interpretationEligibility": "NOT_ELIGIBLE",
+          "propertyTypeApplicability": [
+            {
+              "propertyType": "industrial",
+              "relevance": "CONTEXTUAL"
+            },
+            {
+              "propertyType": "flex",
+              "relevance": "CONTEXTUAL"
+            }
+          ],
+          "limitations": []
+        },
+        {
+          "id": "phx-sw-arterials",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "ROAD",
+          "infrastructureName": "Buckeye Road and Lower Buckeye Road",
+          "factType": "ROAD_INFRASTRUCTURE",
+          "measurementType": "CORRIDOR_RELATIONSHIP",
+          "rawMeasurement": null,
+          "publicDisplayValue": "Major east-west arterials organize the industrial area",
+          "sourceIds": [
+            "adot"
+          ],
+          "sourceDate": "2026-09-09",
+          "freshnessClass": "DURABLE_INFRASTRUCTURE",
+          "confidence": "MEDIUM",
+          "reviewState": "NEEDS_REVIEW",
+          "publicEligibility": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "interpretationEligibility": "NOT_ELIGIBLE",
+          "propertyTypeApplicability": [
+            {
+              "propertyType": "industrial",
+              "relevance": "CONTEXTUAL"
+            },
+            {
+              "propertyType": "flex",
+              "relevance": "CONTEXTUAL"
+            }
+          ],
+          "limitations": []
+        }
+      ]
+    },
+    {
+      "geographyId": "airport-south-central-industrial",
+      "geographyLabel": "Airport / South Central",
+      "municipalityVerified": true,
+      "referencePoint": {
+        "method": "REPRESENTATIVE_ANCHOR",
+        "coordinates": null,
+        "methodAvailable": true,
+        "distanceEligible": false,
+        "limitations": [
+          "The governed geography has no reviewed coordinate in this artifact; do not calculate distance until one is imported and QA-reviewed."
+        ]
+      },
+      "facts": [
+        {
+          "id": "phx-air-airport",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "AIRPORT",
+          "infrastructureName": "Phoenix Sky Harbor International Airport",
+          "factType": "AIRPORT_INFRASTRUCTURE",
+          "measurementType": "ADJACENT_TO_GEOGRAPHY",
+          "rawMeasurement": null,
+          "publicDisplayValue": "The operating area borders Sky Harbor",
+          "sourceIds": [
+            "phx"
+          ],
+          "sourceDate": "2026-09-09",
+          "freshnessClass": "DURABLE_INFRASTRUCTURE",
+          "confidence": "HIGH",
+          "reviewState": "REVIEWED",
+          "publicEligibility": "OBJECTIVE_ACCESS_READY",
+          "interpretationEligibility": "ELIGIBLE_FOR_V2_METHOD_REVIEW",
+          "propertyTypeApplicability": [
+            {
+              "propertyType": "industrial",
+              "relevance": "CONTEXTUAL"
+            },
+            {
+              "propertyType": "flex",
+              "relevance": "CONTEXTUAL"
+            }
+          ],
+          "limitations": []
+        },
+        {
+          "id": "phx-air-i10",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "ROAD",
+          "infrastructureName": "Interstate 10",
+          "factType": "ROAD_INFRASTRUCTURE",
+          "measurementType": "CORRIDOR_RELATIONSHIP",
+          "rawMeasurement": null,
+          "publicDisplayValue": "I-10 and airport access roads cross the area",
+          "sourceIds": [
+            "phx",
+            "adot"
+          ],
+          "sourceDate": "2026-09-09",
+          "freshnessClass": "DURABLE_INFRASTRUCTURE",
+          "confidence": "HIGH",
+          "reviewState": "REVIEWED",
+          "publicEligibility": "OBJECTIVE_ACCESS_READY",
+          "interpretationEligibility": "ELIGIBLE_FOR_V2_METHOD_REVIEW",
+          "propertyTypeApplicability": [
+            {
+              "propertyType": "industrial",
+              "relevance": "CONTEXTUAL"
+            },
+            {
+              "propertyType": "flex",
+              "relevance": "CONTEXTUAL"
+            }
+          ],
+          "limitations": []
+        }
+      ]
+    },
+    {
+      "geographyId": "north-phoenix-advanced-operations",
+      "geographyLabel": "North Phoenix Advanced Operations",
+      "municipalityVerified": true,
+      "referencePoint": {
+        "method": "REPRESENTATIVE_ANCHOR",
+        "coordinates": null,
+        "methodAvailable": true,
+        "distanceEligible": false,
+        "limitations": [
+          "The governed geography has no reviewed coordinate in this artifact; do not calculate distance until one is imported and QA-reviewed."
+        ]
+      },
+      "facts": [
+        {
+          "id": "phx-north-101",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "ROAD",
+          "infrastructureName": "Loop 101",
+          "factType": "ROAD_INFRASTRUCTURE",
+          "measurementType": "CORRIDOR_RELATIONSHIP",
+          "rawMeasurement": null,
+          "publicDisplayValue": "Loop 101 frames the north Phoenix employment area",
+          "sourceIds": [
+            "adot"
+          ],
+          "sourceDate": "2026-09-09",
+          "freshnessClass": "DURABLE_INFRASTRUCTURE",
+          "confidence": "MEDIUM",
+          "reviewState": "NEEDS_REVIEW",
+          "publicEligibility": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "interpretationEligibility": "NOT_ELIGIBLE",
+          "propertyTypeApplicability": [
+            {
+              "propertyType": "industrial",
+              "relevance": "CONTEXTUAL"
+            },
+            {
+              "propertyType": "flex",
+              "relevance": "CONTEXTUAL"
+            }
+          ],
+          "limitations": []
+        },
+        {
+          "id": "phx-north-i17",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "ROAD",
+          "infrastructureName": "Interstate 17",
+          "factType": "ROAD_INFRASTRUCTURE",
+          "measurementType": "CORRIDOR_RELATIONSHIP",
+          "rawMeasurement": null,
+          "publicDisplayValue": "I-17 is the principal north-south freeway relationship",
+          "sourceIds": [
+            "adot"
+          ],
+          "sourceDate": "2026-09-09",
+          "freshnessClass": "DURABLE_INFRASTRUCTURE",
+          "confidence": "MEDIUM",
+          "reviewState": "NEEDS_REVIEW",
+          "publicEligibility": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "interpretationEligibility": "NOT_ELIGIBLE",
+          "propertyTypeApplicability": [
+            {
+              "propertyType": "industrial",
+              "relevance": "CONTEXTUAL"
+            },
+            {
+              "propertyType": "flex",
+              "relevance": "CONTEXTUAL"
+            }
+          ],
+          "limitations": []
+        }
+      ]
+    }
+  ]
+}

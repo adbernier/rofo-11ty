@@ -7,6 +7,8 @@
     "build:commercial-district-intelligence-batch-v1": "node scripts/commercial-district-intelligence-batch-v1/build-commercial-district-intelligence-batch-v1.js",
     "qa:commercial-district-intelligence-batch-v1": "npm run build:commercial-district-intelligence-batch-v1 && node scripts/qa-commercial-district-intelligence-batch-v1.js",
     "build:commercial-district-intelligence-exceptions-v1": "node scripts/commercial-district-intelligence-exceptions-v1/build-commercial-district-intelligence-exceptions-v1.js",
+    "build:access-intelligence-v1": "node scripts/access-intelligence-v1/build-access-intelligence-v1.js",
+    "qa:access-intelligence-v1": "npm run build:access-intelligence-v1 && node scripts/qa-access-intelligence-v1.js",
     "build:customer-voice-v1": "node scripts/customer-voice-v1/build-rofo-customer-voice-v1.js",
     "build:customer-voice-review-v1": "node scripts/customer-voice-v1/build-location-brief-voice-review.js",
     "qa:customer-voice-contract-v1": "npm run build:customer-voice-v1 && node scripts/qa-customer-voice-contract-v1.js",

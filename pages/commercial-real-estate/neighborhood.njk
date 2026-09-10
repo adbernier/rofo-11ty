@@ -280,6 +280,12 @@ eleventyComputed:
           </section>
         {% endif %}
 
+        {% if not (isSfCommercialGeographyExperience or isSacramentoCommercialGeographyExperience or isIndianapolisCommercialGeographyExperience or isPhoenixCommercialGeographyExperience) %}
+          {% set accessLocation = accessIntelligencePilotV1.forRoute(neighborhood.slug) %}
+          {% set accessLocationContext = "route" %}
+          {% if accessLocation %}<section class="city-card">{% include "partials/shared/access-location.njk" %}</section>{% endif %}
+        {% endif %}
+
         {% include "partials/neighborhood/location-decision.njk" %}
 
         {% include "partials/neighborhood/commercial-market-evidence.njk" %}

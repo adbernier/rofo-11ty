@@ -1,0 +1,472 @@
+{
+  "schemaVersion": "access-intelligence:v1",
+  "market": {
+    "id": "indianapolis",
+    "label": "Indianapolis",
+    "municipality": "Indianapolis",
+    "state": "IN"
+  },
+  "excludedMunicipalities": [
+    "Plainfield",
+    "Carmel",
+    "Fishers"
+  ],
+  "relationships": [
+    {
+      "geographyId": "downtown-indianapolis",
+      "geographyLabel": "Downtown Indianapolis",
+      "municipalityVerified": true,
+      "referencePoint": {
+        "method": "DESCRIPTIVE_RELATIONSHIP_ONLY",
+        "coordinates": null,
+        "methodAvailable": false,
+        "distanceEligible": false,
+        "limitations": [
+          "The governed geography has no reviewed coordinate in this artifact; do not calculate distance until one is imported and QA-reviewed."
+        ]
+      },
+      "facts": [
+        {
+          "id": "indy-dt-transit",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "RAIL_TRANSIT",
+          "infrastructureName": "IndyGo Red Line",
+          "factType": "TRANSIT_INFRASTRUCTURE",
+          "measurementType": "TRANSIT_SERVICE_PRESENT",
+          "rawMeasurement": null,
+          "publicDisplayValue": "The Red Line serves Downtown",
+          "sourceIds": [
+            "indygo"
+          ],
+          "sourceDate": "2026-09-09",
+          "freshnessClass": "SERVICE_DEPENDENT",
+          "confidence": "HIGH",
+          "reviewState": "REVIEWED",
+          "publicEligibility": "OBJECTIVE_ACCESS_READY",
+          "interpretationEligibility": "ELIGIBLE_FOR_V2_METHOD_REVIEW",
+          "propertyTypeApplicability": [
+            {
+              "propertyType": "office",
+              "relevance": "CONTEXTUAL"
+            },
+            {
+              "propertyType": "retail",
+              "relevance": "CONTEXTUAL"
+            }
+          ],
+          "limitations": []
+        },
+        {
+          "id": "indy-dt-interstates",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "ROAD",
+          "infrastructureName": "I-65 and I-70",
+          "factType": "ROAD_INFRASTRUCTURE",
+          "measurementType": "CORRIDOR_RELATIONSHIP",
+          "rawMeasurement": null,
+          "publicDisplayValue": "I-65 and I-70 frame the downtown core",
+          "sourceIds": [
+            "indot"
+          ],
+          "sourceDate": "2026-09-09",
+          "freshnessClass": "DURABLE_INFRASTRUCTURE",
+          "confidence": "MEDIUM",
+          "reviewState": "NEEDS_REVIEW",
+          "publicEligibility": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "interpretationEligibility": "NOT_ELIGIBLE",
+          "propertyTypeApplicability": [
+            {
+              "propertyType": "office",
+              "relevance": "CONTEXTUAL"
+            },
+            {
+              "propertyType": "retail",
+              "relevance": "CONTEXTUAL"
+            },
+            {
+              "propertyType": "industrial",
+              "relevance": "CONTEXTUAL"
+            },
+            {
+              "propertyType": "flex",
+              "relevance": "CONTEXTUAL"
+            }
+          ],
+          "limitations": []
+        }
+      ]
+    },
+    {
+      "geographyId": "mass-ave-bottleworks",
+      "geographyLabel": "Mass Ave / Bottleworks",
+      "municipalityVerified": true,
+      "referencePoint": {
+        "method": "DETERMINISTIC_BOUNDED_REFERENCE",
+        "coordinates": null,
+        "methodAvailable": true,
+        "distanceEligible": false,
+        "limitations": [
+          "The governed geography has no reviewed coordinate in this artifact; do not calculate distance until one is imported and QA-reviewed."
+        ]
+      },
+      "facts": [
+        {
+          "id": "indy-mass-transit",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "RAIL_TRANSIT",
+          "infrastructureName": "IndyGo local service",
+          "factType": "TRANSIT_INFRASTRUCTURE",
+          "measurementType": "TRANSIT_SERVICE_PRESENT",
+          "rawMeasurement": null,
+          "publicDisplayValue": "IndyGo routes serve the Mass Ave corridor",
+          "sourceIds": [
+            "indygo"
+          ],
+          "sourceDate": "2026-09-09",
+          "freshnessClass": "SERVICE_DEPENDENT",
+          "confidence": "MEDIUM",
+          "reviewState": "NEEDS_REVIEW",
+          "publicEligibility": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "interpretationEligibility": "NOT_ELIGIBLE",
+          "propertyTypeApplicability": [
+            {
+              "propertyType": "retail",
+              "relevance": "CONTEXTUAL"
+            },
+            {
+              "propertyType": "office",
+              "relevance": "CONTEXTUAL"
+            }
+          ],
+          "limitations": []
+        },
+        {
+          "id": "indy-mass-corridor",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "LOCAL_ORIENTATION",
+          "infrastructureName": "Massachusetts Avenue",
+          "factType": "ORIENTATION",
+          "measurementType": "CORRIDOR_RELATIONSHIP",
+          "rawMeasurement": null,
+          "publicDisplayValue": "The district follows Massachusetts Avenue northeast of Downtown",
+          "sourceIds": [
+            "indygo"
+          ],
+          "sourceDate": "2026-09-09",
+          "freshnessClass": "DURABLE_INFRASTRUCTURE",
+          "confidence": "HIGH",
+          "reviewState": "REVIEWED",
+          "publicEligibility": "OBJECTIVE_ACCESS_READY",
+          "interpretationEligibility": "ELIGIBLE_FOR_V2_METHOD_REVIEW",
+          "propertyTypeApplicability": [
+            {
+              "propertyType": "retail",
+              "relevance": "CONTEXTUAL"
+            },
+            {
+              "propertyType": "office",
+              "relevance": "CONTEXTUAL"
+            }
+          ],
+          "limitations": []
+        }
+      ]
+    },
+    {
+      "geographyId": "broad-ripple",
+      "geographyLabel": "Broad Ripple",
+      "municipalityVerified": true,
+      "referencePoint": {
+        "method": "DESCRIPTIVE_RELATIONSHIP_ONLY",
+        "coordinates": null,
+        "methodAvailable": false,
+        "distanceEligible": false,
+        "limitations": [
+          "The governed geography has no reviewed coordinate in this artifact; do not calculate distance until one is imported and QA-reviewed."
+        ]
+      },
+      "facts": [
+        {
+          "id": "indy-br-red",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "RAIL_TRANSIT",
+          "infrastructureName": "IndyGo Red Line",
+          "factType": "TRANSIT_INFRASTRUCTURE",
+          "measurementType": "TRANSIT_SERVICE_PRESENT",
+          "rawMeasurement": null,
+          "publicDisplayValue": "The Red Line serves the College Avenue edge of Broad Ripple",
+          "sourceIds": [
+            "indygo"
+          ],
+          "sourceDate": "2026-09-09",
+          "freshnessClass": "SERVICE_DEPENDENT",
+          "confidence": "HIGH",
+          "reviewState": "REVIEWED",
+          "publicEligibility": "OBJECTIVE_ACCESS_READY",
+          "interpretationEligibility": "ELIGIBLE_FOR_V2_METHOD_REVIEW",
+          "propertyTypeApplicability": [
+            {
+              "propertyType": "retail",
+              "relevance": "CONTEXTUAL"
+            }
+          ],
+          "limitations": []
+        },
+        {
+          "id": "indy-br-college",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "LOCAL_ORIENTATION",
+          "infrastructureName": "College Avenue",
+          "factType": "ORIENTATION",
+          "measurementType": "CORRIDOR_RELATIONSHIP",
+          "rawMeasurement": null,
+          "publicDisplayValue": "College Avenue is the district's principal transit corridor",
+          "sourceIds": [
+            "indygo"
+          ],
+          "sourceDate": "2026-09-09",
+          "freshnessClass": "DURABLE_INFRASTRUCTURE",
+          "confidence": "HIGH",
+          "reviewState": "REVIEWED",
+          "publicEligibility": "OBJECTIVE_ACCESS_READY",
+          "interpretationEligibility": "ELIGIBLE_FOR_V2_METHOD_REVIEW",
+          "propertyTypeApplicability": [
+            {
+              "propertyType": "retail",
+              "relevance": "CONTEXTUAL"
+            }
+          ],
+          "limitations": []
+        }
+      ]
+    },
+    {
+      "geographyId": "indianapolis-airport-logistics",
+      "geographyLabel": "Indianapolis Airport Logistics",
+      "municipalityVerified": true,
+      "referencePoint": {
+        "method": "REPRESENTATIVE_ANCHOR",
+        "coordinates": null,
+        "methodAvailable": true,
+        "distanceEligible": false,
+        "limitations": [
+          "The governed geography has no reviewed coordinate in this artifact; do not calculate distance until one is imported and QA-reviewed."
+        ]
+      },
+      "facts": [
+        {
+          "id": "indy-air-airport",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "AIRPORT",
+          "infrastructureName": "Indianapolis International Airport",
+          "factType": "AIRPORT_INFRASTRUCTURE",
+          "measurementType": "ADJACENT_TO_GEOGRAPHY",
+          "rawMeasurement": null,
+          "publicDisplayValue": "The operating area adjoins Indianapolis International Airport",
+          "sourceIds": [
+            "ind"
+          ],
+          "sourceDate": "2026-09-09",
+          "freshnessClass": "DURABLE_INFRASTRUCTURE",
+          "confidence": "HIGH",
+          "reviewState": "REVIEWED",
+          "publicEligibility": "OBJECTIVE_ACCESS_READY",
+          "interpretationEligibility": "ELIGIBLE_FOR_V2_METHOD_REVIEW",
+          "propertyTypeApplicability": [
+            {
+              "propertyType": "industrial",
+              "relevance": "CONTEXTUAL"
+            },
+            {
+              "propertyType": "flex",
+              "relevance": "CONTEXTUAL"
+            }
+          ],
+          "limitations": []
+        },
+        {
+          "id": "indy-air-i70",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "ROAD",
+          "infrastructureName": "Interstate 70",
+          "factType": "ROAD_INFRASTRUCTURE",
+          "measurementType": "CORRIDOR_RELATIONSHIP",
+          "rawMeasurement": null,
+          "publicDisplayValue": "I-70 serves the airport/logistics area at Exit 68",
+          "sourceIds": [
+            "ind"
+          ],
+          "sourceDate": "2026-09-09",
+          "freshnessClass": "DURABLE_INFRASTRUCTURE",
+          "confidence": "HIGH",
+          "reviewState": "REVIEWED",
+          "publicEligibility": "OBJECTIVE_ACCESS_READY",
+          "interpretationEligibility": "ELIGIBLE_FOR_V2_METHOD_REVIEW",
+          "propertyTypeApplicability": [
+            {
+              "propertyType": "industrial",
+              "relevance": "CONTEXTUAL"
+            },
+            {
+              "propertyType": "flex",
+              "relevance": "CONTEXTUAL"
+            }
+          ],
+          "limitations": []
+        }
+      ]
+    },
+    {
+      "geographyId": "park-100-northwest-indianapolis",
+      "geographyLabel": "Park 100 / Northwest Indianapolis",
+      "municipalityVerified": true,
+      "referencePoint": {
+        "method": "REPRESENTATIVE_ANCHOR",
+        "coordinates": null,
+        "methodAvailable": true,
+        "distanceEligible": false,
+        "limitations": [
+          "The governed geography has no reviewed coordinate in this artifact; do not calculate distance until one is imported and QA-reviewed."
+        ]
+      },
+      "facts": [
+        {
+          "id": "indy-p100-i465",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "ROAD",
+          "infrastructureName": "Interstate 465",
+          "factType": "ROAD_INFRASTRUCTURE",
+          "measurementType": "CORRIDOR_RELATIONSHIP",
+          "rawMeasurement": null,
+          "publicDisplayValue": "I-465 is the area's regional freeway spine",
+          "sourceIds": [
+            "indot"
+          ],
+          "sourceDate": "2026-09-09",
+          "freshnessClass": "DURABLE_INFRASTRUCTURE",
+          "confidence": "MEDIUM",
+          "reviewState": "NEEDS_REVIEW",
+          "publicEligibility": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "interpretationEligibility": "NOT_ELIGIBLE",
+          "propertyTypeApplicability": [
+            {
+              "propertyType": "industrial",
+              "relevance": "CONTEXTUAL"
+            },
+            {
+              "propertyType": "flex",
+              "relevance": "CONTEXTUAL"
+            }
+          ],
+          "limitations": []
+        },
+        {
+          "id": "indy-p100-arterial",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "ROAD",
+          "infrastructureName": "West 71st Street",
+          "factType": "ROAD_INFRASTRUCTURE",
+          "measurementType": "CORRIDOR_RELATIONSHIP",
+          "rawMeasurement": null,
+          "publicDisplayValue": "West 71st Street organizes access through Park 100",
+          "sourceIds": [
+            "indot"
+          ],
+          "sourceDate": "2026-09-09",
+          "freshnessClass": "DURABLE_INFRASTRUCTURE",
+          "confidence": "MEDIUM",
+          "reviewState": "NEEDS_REVIEW",
+          "publicEligibility": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "interpretationEligibility": "NOT_ELIGIBLE",
+          "propertyTypeApplicability": [
+            {
+              "propertyType": "industrial",
+              "relevance": "CONTEXTUAL"
+            },
+            {
+              "propertyType": "flex",
+              "relevance": "CONTEXTUAL"
+            }
+          ],
+          "limitations": []
+        }
+      ]
+    },
+    {
+      "geographyId": "park-fletcher-stout-field",
+      "geographyLabel": "Park Fletcher / Stout Field",
+      "municipalityVerified": true,
+      "referencePoint": {
+        "method": "REPRESENTATIVE_ANCHOR",
+        "coordinates": null,
+        "methodAvailable": true,
+        "distanceEligible": false,
+        "limitations": [
+          "The governed geography has no reviewed coordinate in this artifact; do not calculate distance until one is imported and QA-reviewed."
+        ]
+      },
+      "facts": [
+        {
+          "id": "indy-pf-airport",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "AIRPORT",
+          "infrastructureName": "Indianapolis International Airport",
+          "factType": "AIRPORT_INFRASTRUCTURE",
+          "measurementType": "CORRIDOR_RELATIONSHIP",
+          "rawMeasurement": null,
+          "publicDisplayValue": "The district is within the airport-side employment area",
+          "sourceIds": [
+            "ind"
+          ],
+          "sourceDate": "2026-09-09",
+          "freshnessClass": "DURABLE_INFRASTRUCTURE",
+          "confidence": "MEDIUM",
+          "reviewState": "NEEDS_REVIEW",
+          "publicEligibility": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "interpretationEligibility": "NOT_ELIGIBLE",
+          "propertyTypeApplicability": [
+            {
+              "propertyType": "industrial",
+              "relevance": "CONTEXTUAL"
+            },
+            {
+              "propertyType": "flex",
+              "relevance": "CONTEXTUAL"
+            }
+          ],
+          "limitations": []
+        },
+        {
+          "id": "indy-pf-i70",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "ROAD",
+          "infrastructureName": "Interstate 70",
+          "factType": "ROAD_INFRASTRUCTURE",
+          "measurementType": "CORRIDOR_RELATIONSHIP",
+          "rawMeasurement": null,
+          "publicDisplayValue": "I-70 is the principal regional road relationship",
+          "sourceIds": [
+            "indot"
+          ],
+          "sourceDate": "2026-09-09",
+          "freshnessClass": "DURABLE_INFRASTRUCTURE",
+          "confidence": "MEDIUM",
+          "reviewState": "NEEDS_REVIEW",
+          "publicEligibility": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "interpretationEligibility": "NOT_ELIGIBLE",
+          "propertyTypeApplicability": [
+            {
+              "propertyType": "industrial",
+              "relevance": "CONTEXTUAL"
+            },
+            {
+              "propertyType": "flex",
+              "relevance": "CONTEXTUAL"
+            }
+          ],
+          "limitations": []
+        }
+      ]
+    }
+  ]
+}

@@ -28,8 +28,11 @@
         <section><h3>What it's like</h3><p>{{ geography.description }}</p></section>
         <section><h3>Common here</h3><div class="semantic-chip-row">{% for pattern in geography.areaPatterns %}<span>{{ pattern }}</span>{% endfor %}</div><p class="semantic-footnote">Common across the district; individual buildings vary.</p></section>
         {% if geography.whatStandsOut.length %}<section><h3>What stands out</h3><ul>{% for item in geography.whatStandsOut %}<li>{{ item }}</li>{% endfor %}</ul></section>{% endif %}
+        {% set accessLocation = accessIntelligencePilotV1.forGeography(geography.id, experience.id) %}
+        {% set accessLocationContext = experience.id %}
+        {% include "partials/shared/access-location.njk" %}
         {% if geography.orientation.length %}<section><h3>Orientation</h3><ul>{% for fact in geography.orientation.slice(0,2) %}<li>{{ fact }}</li>{% endfor %}</ul></section>{% endif %}
-        {% if geography.access.length %}<section><h3>Access & location</h3><ul>{% for fact in geography.access %}<li>{{ fact }}</li>{% endfor %}</ul></section>{% endif %}
+        {% if geography.access.length and not accessLocation %}<section><h3>Access & location</h3><ul>{% for fact in geography.access %}<li>{{ fact }}</li>{% endfor %}</ul></section>{% endif %}
 
         {% if geography.representatives.length %}
           <section><h3>Example buildings</h3><p>A few examples that show the range of commercial space found in {{ geography.label }}.</p>

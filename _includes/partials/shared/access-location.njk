@@ -1,0 +1,13 @@
+{% if accessLocation and accessLocation.facts and accessLocation.facts.length %}
+  <section class="access-location" aria-labelledby="access-location-{{ accessLocation.geographyId }}-{{ accessLocationContext or 'district' }}">
+    <h3 id="access-location-{{ accessLocation.geographyId }}-{{ accessLocationContext or 'district' }}">{{ accessLocation.heading }}</h3>
+    <dl class="access-location__rows">
+      {% for fact in accessLocation.facts %}
+        <div class="access-location__row">
+          <dt>{{ fact.label }}</dt>
+          <dd>{{ fact.relationship }}</dd>
+        </div>
+      {% endfor %}
+    </dl>
+  </section>
+{% endif %}

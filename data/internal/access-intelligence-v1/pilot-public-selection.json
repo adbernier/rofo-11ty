@@ -1,0 +1,402 @@
+{
+  "schemaVersion": "access-intelligence-pilot-review:v1",
+  "maximumFacts": 4,
+  "recommendedFacts": "2-3",
+  "selections": [
+    {
+      "marketId": "san-francisco",
+      "geographyId": "financial-district",
+      "geographyLabel": "Financial District",
+      "facts": [
+        {
+          "id": "sf-fidi-bart",
+          "priorState": "OBJECTIVE_ACCESS_READY",
+          "disposition": "SELECT_PUBLIC_USEFUL",
+          "usefulnessClass": "PUBLIC_USEFUL",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "RAIL_TRANSIT",
+          "customerLabel": "BART",
+          "customerRelationship": "Montgomery St. Station is in the Financial District; Embarcadero Station serves its eastern side.",
+          "measurementType": "TRANSIT_SERVICE_PRESENT",
+          "sourceIds": [
+            "bart-montgomery",
+            "bart-stations"
+          ],
+          "propertyTypes": [
+            "office",
+            "retail"
+          ],
+          "reviewDate": "2026-09-10",
+          "publicDistanceEligible": false,
+          "interpretationEligibility": false,
+          "personalizedConclusionEligible": false,
+          "notes": null
+        },
+        {
+          "id": "sf-fidi-muni",
+          "priorState": "NEW_REVIEWED_DERIVATION",
+          "disposition": "SELECT_PUBLIC_USEFUL",
+          "usefulnessClass": "PUBLIC_USEFUL",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "RAIL_TRANSIT",
+          "customerLabel": "Muni Metro",
+          "customerRelationship": "Muni Metro shares the Market Street stations at Montgomery and Embarcadero.",
+          "measurementType": "TRANSIT_SERVICE_PRESENT",
+          "sourceIds": [
+            "bart-montgomery"
+          ],
+          "propertyTypes": [
+            "office",
+            "retail"
+          ],
+          "reviewDate": "2026-09-10",
+          "publicDistanceEligible": false,
+          "interpretationEligibility": false,
+          "personalizedConclusionEligible": false,
+          "notes": null
+        }
+      ]
+    },
+    {
+      "marketId": "san-francisco",
+      "geographyId": "soma",
+      "geographyLabel": "SoMa",
+      "facts": [
+        {
+          "id": "sf-soma-rail",
+          "priorState": "OBJECTIVE_ACCESS_READY",
+          "disposition": "SELECT_PUBLIC_USEFUL",
+          "usefulnessClass": "PUBLIC_USEFUL",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "RAIL_TRANSIT",
+          "customerLabel": "Regional rail",
+          "customerRelationship": "BART serves SoMa's Market Street edge, while Caltrain's San Francisco terminal sits at 4th and King.",
+          "measurementType": "TRANSIT_SERVICE_PRESENT",
+          "sourceIds": [
+            "bart-stations",
+            "sf-planning-railyards"
+          ],
+          "propertyTypes": [
+            "office",
+            "flex"
+          ],
+          "reviewDate": "2026-09-10",
+          "publicDistanceEligible": false,
+          "interpretationEligibility": false,
+          "personalizedConclusionEligible": false,
+          "notes": null
+        },
+        {
+          "id": "sf-soma-muni",
+          "priorState": "OBJECTIVE_ACCESS_READY",
+          "disposition": "SELECT_PUBLIC_USEFUL",
+          "usefulnessClass": "PUBLIC_USEFUL",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "RAIL_TRANSIT",
+          "customerLabel": "Muni Metro",
+          "customerRelationship": "Muni Metro serves the Market Street and Fourth Street sides of SoMa.",
+          "measurementType": "TRANSIT_SERVICE_PRESENT",
+          "sourceIds": [
+            "sfmta-t-third"
+          ],
+          "propertyTypes": [
+            "office",
+            "flex"
+          ],
+          "reviewDate": "2026-09-10",
+          "publicDistanceEligible": false,
+          "interpretationEligibility": false,
+          "personalizedConclusionEligible": false,
+          "notes": null
+        }
+      ]
+    },
+    {
+      "marketId": "san-francisco",
+      "geographyId": "mission-bay",
+      "geographyLabel": "Mission Bay",
+      "facts": [
+        {
+          "id": "sf-mb-muni",
+          "priorState": "OBJECTIVE_ACCESS_READY",
+          "disposition": "SELECT_PUBLIC_USEFUL",
+          "usefulnessClass": "PUBLIC_USEFUL",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "RAIL_TRANSIT",
+          "customerLabel": "T Third",
+          "customerRelationship": "T Third light rail runs through Mission Bay along Third Street.",
+          "measurementType": "TRANSIT_SERVICE_PRESENT",
+          "sourceIds": [
+            "sfmta-t-third"
+          ],
+          "propertyTypes": [
+            "office"
+          ],
+          "reviewDate": "2026-09-10",
+          "publicDistanceEligible": false,
+          "interpretationEligibility": false,
+          "personalizedConclusionEligible": false,
+          "notes": null
+        },
+        {
+          "id": "sf-mb-caltrain",
+          "priorState": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "disposition": "PROMOTE_TO_OBJECTIVE_ACCESS_READY",
+          "usefulnessClass": "PROMOTE_TO_OBJECTIVE_ACCESS_READY",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "RAIL_TRANSIT",
+          "customerLabel": "Caltrain",
+          "customerRelationship": "The 4th and King terminal sits at the north edge of Mission Bay.",
+          "measurementType": "ADJACENT_TO_GEOGRAPHY",
+          "sourceIds": [
+            "sf-planning-railyards"
+          ],
+          "propertyTypes": [
+            "office"
+          ],
+          "reviewDate": "2026-09-10",
+          "publicDistanceEligible": false,
+          "interpretationEligibility": false,
+          "personalizedConclusionEligible": false,
+          "notes": null
+        }
+      ]
+    },
+    {
+      "marketId": "sacramento",
+      "geographyId": "power-inn-industrial",
+      "geographyLabel": "Power Inn Industrial",
+      "facts": [
+        {
+          "id": "sac-power-corridor",
+          "priorState": "NEW_REVIEWED_DERIVATION",
+          "disposition": "SELECT_PUBLIC_USEFUL",
+          "usefulnessClass": "PUBLIC_USEFUL",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "ROAD",
+          "customerLabel": "Power Inn Road",
+          "customerRelationship": "The commercial and industrial area is organized along Power Inn Road.",
+          "measurementType": "CORRIDOR_RELATIONSHIP",
+          "sourceIds": [
+            "sacramento-power-inn"
+          ],
+          "propertyTypes": [
+            "industrial",
+            "flex"
+          ],
+          "reviewDate": "2026-09-10",
+          "publicDistanceEligible": false,
+          "interpretationEligibility": false,
+          "personalizedConclusionEligible": false,
+          "notes": null
+        },
+        {
+          "id": "sac-power-rail",
+          "priorState": "OBJECTIVE_ACCESS_READY",
+          "disposition": "SELECT_PUBLIC_USEFUL",
+          "usefulnessClass": "PUBLIC_USEFUL",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "RAIL_TRANSIT",
+          "customerLabel": "SacRT Gold Line",
+          "customerRelationship": "Power Inn station serves the corridor on SacRT's Gold Line.",
+          "measurementType": "TRANSIT_SERVICE_PRESENT",
+          "sourceIds": [
+            "sacrt-power-inn"
+          ],
+          "propertyTypes": [
+            "industrial",
+            "flex"
+          ],
+          "reviewDate": "2026-09-10",
+          "publicDistanceEligible": false,
+          "interpretationEligibility": false,
+          "personalizedConclusionEligible": false,
+          "notes": null
+        }
+      ]
+    },
+    {
+      "marketId": "indianapolis",
+      "geographyId": "indianapolis-airport-logistics",
+      "geographyLabel": "Indianapolis Airport Logistics",
+      "facts": [
+        {
+          "id": "indy-air-airport",
+          "priorState": "OBJECTIVE_ACCESS_READY",
+          "disposition": "SELECT_PUBLIC_USEFUL",
+          "usefulnessClass": "PUBLIC_USEFUL",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "AIRPORT",
+          "customerLabel": "Indianapolis International Airport",
+          "customerRelationship": "The district adjoins the Indianapolis airport area.",
+          "measurementType": "ADJACENT_TO_GEOGRAPHY",
+          "sourceIds": [
+            "ind-airport-directions"
+          ],
+          "propertyTypes": [
+            "industrial",
+            "flex"
+          ],
+          "reviewDate": "2026-09-10",
+          "publicDistanceEligible": false,
+          "interpretationEligibility": false,
+          "personalizedConclusionEligible": false,
+          "notes": null
+        },
+        {
+          "id": "indy-air-i70",
+          "priorState": "OBJECTIVE_ACCESS_READY",
+          "disposition": "SELECT_PUBLIC_USEFUL",
+          "usefulnessClass": "PUBLIC_USEFUL",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "ROAD",
+          "customerLabel": "I-70",
+          "customerRelationship": "I-70 serves the airport/logistics area at Exit 68.",
+          "measurementType": "CORRIDOR_RELATIONSHIP",
+          "sourceIds": [
+            "ind-airport-directions"
+          ],
+          "propertyTypes": [
+            "industrial",
+            "flex"
+          ],
+          "reviewDate": "2026-09-10",
+          "publicDistanceEligible": false,
+          "interpretationEligibility": false,
+          "personalizedConclusionEligible": false,
+          "notes": null
+        }
+      ]
+    },
+    {
+      "marketId": "phoenix",
+      "geographyId": "airport-south-central-industrial",
+      "geographyLabel": "Airport / South Central",
+      "facts": [
+        {
+          "id": "phx-air-airport",
+          "priorState": "OBJECTIVE_ACCESS_READY",
+          "disposition": "SELECT_PUBLIC_USEFUL",
+          "usefulnessClass": "PUBLIC_USEFUL",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "AIRPORT",
+          "customerLabel": "Phoenix Sky Harbor",
+          "customerRelationship": "The district borders the City of Phoenix airport area.",
+          "measurementType": "ADJACENT_TO_GEOGRAPHY",
+          "sourceIds": [
+            "phx-airport-directions"
+          ],
+          "propertyTypes": [
+            "industrial",
+            "flex"
+          ],
+          "reviewDate": "2026-09-10",
+          "publicDistanceEligible": false,
+          "interpretationEligibility": false,
+          "personalizedConclusionEligible": false,
+          "notes": null
+        },
+        {
+          "id": "phx-air-i10",
+          "priorState": "OBJECTIVE_ACCESS_READY",
+          "disposition": "SELECT_PUBLIC_USEFUL",
+          "usefulnessClass": "PUBLIC_USEFUL",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "ROAD",
+          "customerLabel": "I-10",
+          "customerRelationship": "I-10 connects to Sky Harbor Boulevard on the district's airport side.",
+          "measurementType": "CORRIDOR_RELATIONSHIP",
+          "sourceIds": [
+            "phx-airport-directions"
+          ],
+          "propertyTypes": [
+            "industrial",
+            "flex"
+          ],
+          "reviewDate": "2026-09-10",
+          "publicDistanceEligible": false,
+          "interpretationEligibility": false,
+          "personalizedConclusionEligible": false,
+          "notes": null
+        }
+      ]
+    },
+    {
+      "marketId": "seattle",
+      "geographyId": "sodo-duwamish",
+      "geographyLabel": "SODO / Greater Duwamish",
+      "facts": [
+        {
+          "id": "sea-sodo-port",
+          "priorState": "OBJECTIVE_ACCESS_READY",
+          "disposition": "SELECT_PUBLIC_USEFUL",
+          "usefulnessClass": "PUBLIC_USEFUL",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "PORT_FREIGHT",
+          "customerLabel": "Port and freight infrastructure",
+          "customerRelationship": "Port terminals, freight rail and industrial infrastructure occupy the Greater Duwamish area.",
+          "measurementType": "WITHIN_GEOGRAPHY",
+          "sourceIds": [
+            "seattle-freight",
+            "seattle-industrial"
+          ],
+          "propertyTypes": [
+            "industrial",
+            "flex"
+          ],
+          "reviewDate": "2026-09-10",
+          "publicDistanceEligible": false,
+          "interpretationEligibility": false,
+          "personalizedConclusionEligible": false,
+          "notes": null
+        },
+        {
+          "id": "sea-sodo-road",
+          "priorState": "OBJECTIVE_ACCESS_READY",
+          "disposition": "SELECT_PUBLIC_USEFUL",
+          "usefulnessClass": "PUBLIC_USEFUL",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "ROAD",
+          "customerLabel": "I-5 and I-90",
+          "customerRelationship": "Both interstates have access points within the Greater Duwamish industrial center.",
+          "measurementType": "WITHIN_GEOGRAPHY",
+          "sourceIds": [
+            "seattle-freight"
+          ],
+          "propertyTypes": [
+            "industrial",
+            "flex"
+          ],
+          "reviewDate": "2026-09-10",
+          "publicDistanceEligible": false,
+          "interpretationEligibility": false,
+          "personalizedConclusionEligible": false,
+          "notes": null
+        },
+        {
+          "id": "sea-sodo-link",
+          "priorState": "OBJECTIVE_ACCESS_READY",
+          "disposition": "SELECT_PUBLIC_USEFUL",
+          "usefulnessClass": "PUBLIC_USEFUL",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "RAIL_TRANSIT",
+          "customerLabel": "Link light rail",
+          "customerRelationship": "SODO Station serves the northern part of the district.",
+          "measurementType": "TRANSIT_SERVICE_PRESENT",
+          "sourceIds": [
+            "sound-sodo"
+          ],
+          "propertyTypes": [
+            "industrial",
+            "flex"
+          ],
+          "reviewDate": "2026-09-10",
+          "publicDistanceEligible": false,
+          "interpretationEligibility": false,
+          "personalizedConclusionEligible": false,
+          "notes": null
+        }
+      ]
+    }
+  ]
+}

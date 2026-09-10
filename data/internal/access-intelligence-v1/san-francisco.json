@@ -1,0 +1,684 @@
+{
+  "schemaVersion": "access-intelligence:v1",
+  "market": {
+    "id": "san-francisco",
+    "label": "San Francisco",
+    "municipality": "San Francisco",
+    "state": "CA"
+  },
+  "excludedMunicipalities": [
+    "Oakland",
+    "Daly City",
+    "South San Francisco"
+  ],
+  "relationships": [
+    {
+      "geographyId": "financial-district",
+      "geographyLabel": "Financial District",
+      "municipalityVerified": true,
+      "referencePoint": {
+        "method": "REVIEWED_LABEL_POINT",
+        "coordinates": null,
+        "methodAvailable": true,
+        "distanceEligible": false,
+        "limitations": [
+          "The governed geography has no reviewed coordinate in this artifact; do not calculate distance until one is imported and QA-reviewed."
+        ]
+      },
+      "facts": [
+        {
+          "id": "sf-fidi-bart",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "RAIL_TRANSIT",
+          "infrastructureName": "Montgomery Street and Embarcadero BART/Muni stations",
+          "factType": "TRANSIT_INFRASTRUCTURE",
+          "measurementType": "TRANSIT_SERVICE_PRESENT",
+          "rawMeasurement": null,
+          "publicDisplayValue": "BART and Muni Metro serve the Market Street edge",
+          "sourceIds": [
+            "bart",
+            "sfmta"
+          ],
+          "sourceDate": "2026-09-09",
+          "freshnessClass": "SERVICE_DEPENDENT",
+          "confidence": "HIGH",
+          "reviewState": "REVIEWED",
+          "publicEligibility": "OBJECTIVE_ACCESS_READY",
+          "interpretationEligibility": "ELIGIBLE_FOR_V2_METHOD_REVIEW",
+          "propertyTypeApplicability": [
+            {
+              "propertyType": "office",
+              "relevance": "CONTEXTUAL"
+            },
+            {
+              "propertyType": "retail",
+              "relevance": "CONTEXTUAL"
+            }
+          ],
+          "limitations": []
+        },
+        {
+          "id": "sf-fidi-waterfront",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "LOCAL_ORIENTATION",
+          "infrastructureName": "Embarcadero waterfront",
+          "factType": "ORIENTATION",
+          "measurementType": "CORRIDOR_RELATIONSHIP",
+          "rawMeasurement": null,
+          "publicDisplayValue": "The district meets the Embarcadero waterfront",
+          "sourceIds": [
+            "sfport"
+          ],
+          "sourceDate": "2026-09-09",
+          "freshnessClass": "DURABLE_INFRASTRUCTURE",
+          "confidence": "HIGH",
+          "reviewState": "REVIEWED",
+          "publicEligibility": "OBJECTIVE_ACCESS_READY",
+          "interpretationEligibility": "ELIGIBLE_FOR_V2_METHOD_REVIEW",
+          "propertyTypeApplicability": [
+            {
+              "propertyType": "office",
+              "relevance": "CONTEXTUAL"
+            },
+            {
+              "propertyType": "retail",
+              "relevance": "CONTEXTUAL"
+            }
+          ],
+          "limitations": []
+        }
+      ]
+    },
+    {
+      "geographyId": "soma",
+      "geographyLabel": "SoMa",
+      "municipalityVerified": true,
+      "referencePoint": {
+        "method": "REVIEWED_LABEL_POINT",
+        "coordinates": null,
+        "methodAvailable": true,
+        "distanceEligible": false,
+        "limitations": [
+          "The governed geography has no reviewed coordinate in this artifact; do not calculate distance until one is imported and QA-reviewed."
+        ]
+      },
+      "facts": [
+        {
+          "id": "sf-soma-transit",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "RAIL_TRANSIT",
+          "infrastructureName": "BART, Muni Metro and Caltrain",
+          "factType": "TRANSIT_INFRASTRUCTURE",
+          "measurementType": "TRANSIT_SERVICE_PRESENT",
+          "rawMeasurement": null,
+          "publicDisplayValue": "Regional and local rail serve different parts of SoMa",
+          "sourceIds": [
+            "bart",
+            "sfmta",
+            "caltrain"
+          ],
+          "sourceDate": "2026-09-09",
+          "freshnessClass": "SERVICE_DEPENDENT",
+          "confidence": "HIGH",
+          "reviewState": "REVIEWED",
+          "publicEligibility": "OBJECTIVE_ACCESS_READY",
+          "interpretationEligibility": "ELIGIBLE_FOR_V2_METHOD_REVIEW",
+          "propertyTypeApplicability": [
+            {
+              "propertyType": "office",
+              "relevance": "CONTEXTUAL"
+            },
+            {
+              "propertyType": "flex",
+              "relevance": "CONTEXTUAL"
+            }
+          ],
+          "limitations": []
+        },
+        {
+          "id": "sf-soma-i80",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "ROAD",
+          "infrastructureName": "Interstate 80",
+          "factType": "ROAD_INFRASTRUCTURE",
+          "measurementType": "CORRIDOR_RELATIONSHIP",
+          "rawMeasurement": null,
+          "publicDisplayValue": "I-80 enters San Francisco at SoMa's eastern side",
+          "sourceIds": [
+            "caltrans"
+          ],
+          "sourceDate": "2026-09-09",
+          "freshnessClass": "DURABLE_INFRASTRUCTURE",
+          "confidence": "MEDIUM",
+          "reviewState": "NEEDS_REVIEW",
+          "publicEligibility": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "interpretationEligibility": "NOT_ELIGIBLE",
+          "propertyTypeApplicability": [
+            {
+              "propertyType": "office",
+              "relevance": "CONTEXTUAL"
+            },
+            {
+              "propertyType": "retail",
+              "relevance": "CONTEXTUAL"
+            },
+            {
+              "propertyType": "industrial",
+              "relevance": "CONTEXTUAL"
+            },
+            {
+              "propertyType": "flex",
+              "relevance": "CONTEXTUAL"
+            }
+          ],
+          "limitations": []
+        }
+      ]
+    },
+    {
+      "geographyId": "mission-bay",
+      "geographyLabel": "Mission Bay",
+      "municipalityVerified": true,
+      "referencePoint": {
+        "method": "REVIEWED_LABEL_POINT",
+        "coordinates": null,
+        "methodAvailable": true,
+        "distanceEligible": false,
+        "limitations": [
+          "The governed geography has no reviewed coordinate in this artifact; do not calculate distance until one is imported and QA-reviewed."
+        ]
+      },
+      "facts": [
+        {
+          "id": "sf-mb-muni",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "RAIL_TRANSIT",
+          "infrastructureName": "Muni T Third",
+          "factType": "TRANSIT_INFRASTRUCTURE",
+          "measurementType": "TRANSIT_SERVICE_PRESENT",
+          "rawMeasurement": null,
+          "publicDisplayValue": "T Third light rail serves Mission Bay",
+          "sourceIds": [
+            "sfmta"
+          ],
+          "sourceDate": "2026-09-09",
+          "freshnessClass": "SERVICE_DEPENDENT",
+          "confidence": "HIGH",
+          "reviewState": "REVIEWED",
+          "publicEligibility": "OBJECTIVE_ACCESS_READY",
+          "interpretationEligibility": "ELIGIBLE_FOR_V2_METHOD_REVIEW",
+          "propertyTypeApplicability": [
+            {
+              "propertyType": "office",
+              "relevance": "CONTEXTUAL"
+            },
+            {
+              "propertyType": "retail",
+              "relevance": "CONTEXTUAL"
+            }
+          ],
+          "limitations": []
+        },
+        {
+          "id": "sf-mb-caltrain",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "RAIL_TRANSIT",
+          "infrastructureName": "Caltrain 4th & King",
+          "factType": "TRANSIT_INFRASTRUCTURE",
+          "measurementType": "ADJACENT_TO_GEOGRAPHY",
+          "rawMeasurement": null,
+          "publicDisplayValue": "Caltrain's San Francisco terminal is north of Mission Bay",
+          "sourceIds": [
+            "caltrain"
+          ],
+          "sourceDate": "2026-09-09",
+          "freshnessClass": "SERVICE_DEPENDENT",
+          "confidence": "MEDIUM",
+          "reviewState": "NEEDS_REVIEW",
+          "publicEligibility": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "interpretationEligibility": "NOT_ELIGIBLE",
+          "propertyTypeApplicability": [
+            {
+              "propertyType": "office",
+              "relevance": "CONTEXTUAL"
+            }
+          ],
+          "limitations": []
+        }
+      ]
+    },
+    {
+      "geographyId": "union-square",
+      "geographyLabel": "Union Square",
+      "municipalityVerified": true,
+      "referencePoint": {
+        "method": "REVIEWED_LABEL_POINT",
+        "coordinates": null,
+        "methodAvailable": true,
+        "distanceEligible": false,
+        "limitations": [
+          "The governed geography has no reviewed coordinate in this artifact; do not calculate distance until one is imported and QA-reviewed."
+        ]
+      },
+      "facts": [
+        {
+          "id": "sf-us-powell",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "RAIL_TRANSIT",
+          "infrastructureName": "Powell Street BART/Muni and Union Square/Market Street station",
+          "factType": "TRANSIT_INFRASTRUCTURE",
+          "measurementType": "TRANSIT_SERVICE_PRESENT",
+          "rawMeasurement": null,
+          "publicDisplayValue": "BART and Muni rail serve the district",
+          "sourceIds": [
+            "bart",
+            "sfmta"
+          ],
+          "sourceDate": "2026-09-09",
+          "freshnessClass": "SERVICE_DEPENDENT",
+          "confidence": "HIGH",
+          "reviewState": "REVIEWED",
+          "publicEligibility": "OBJECTIVE_ACCESS_READY",
+          "interpretationEligibility": "ELIGIBLE_FOR_V2_METHOD_REVIEW",
+          "propertyTypeApplicability": [
+            {
+              "propertyType": "retail",
+              "relevance": "CONTEXTUAL"
+            }
+          ],
+          "limitations": []
+        },
+        {
+          "id": "sf-us-corridors",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "LOCAL_ORIENTATION",
+          "infrastructureName": "Market, Powell and Stockton streets",
+          "factType": "ORIENTATION",
+          "measurementType": "CORRIDOR_RELATIONSHIP",
+          "rawMeasurement": null,
+          "publicDisplayValue": "Retail streets connect to Market Street transit",
+          "sourceIds": [
+            "sfmta"
+          ],
+          "sourceDate": "2026-09-09",
+          "freshnessClass": "DURABLE_INFRASTRUCTURE",
+          "confidence": "HIGH",
+          "reviewState": "REVIEWED",
+          "publicEligibility": "OBJECTIVE_ACCESS_READY",
+          "interpretationEligibility": "ELIGIBLE_FOR_V2_METHOD_REVIEW",
+          "propertyTypeApplicability": [
+            {
+              "propertyType": "retail",
+              "relevance": "CONTEXTUAL"
+            }
+          ],
+          "limitations": []
+        }
+      ]
+    },
+    {
+      "geographyId": "valencia-street",
+      "geographyLabel": "Valencia Street",
+      "municipalityVerified": true,
+      "referencePoint": {
+        "method": "DETERMINISTIC_BOUNDED_REFERENCE",
+        "coordinates": null,
+        "methodAvailable": true,
+        "distanceEligible": false,
+        "limitations": [
+          "The governed geography has no reviewed coordinate in this artifact; do not calculate distance until one is imported and QA-reviewed."
+        ]
+      },
+      "facts": [
+        {
+          "id": "sf-valencia-bart",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "RAIL_TRANSIT",
+          "infrastructureName": "16th Street and 24th Street BART stations",
+          "factType": "TRANSIT_INFRASTRUCTURE",
+          "measurementType": "TRANSIT_SERVICE_PRESENT",
+          "rawMeasurement": null,
+          "publicDisplayValue": "BART stations bookend the central Valencia corridor",
+          "sourceIds": [
+            "bart"
+          ],
+          "sourceDate": "2026-09-09",
+          "freshnessClass": "SERVICE_DEPENDENT",
+          "confidence": "HIGH",
+          "reviewState": "REVIEWED",
+          "publicEligibility": "OBJECTIVE_ACCESS_READY",
+          "interpretationEligibility": "ELIGIBLE_FOR_V2_METHOD_REVIEW",
+          "propertyTypeApplicability": [
+            {
+              "propertyType": "retail",
+              "relevance": "CONTEXTUAL"
+            }
+          ],
+          "limitations": []
+        },
+        {
+          "id": "sf-valencia-corridor",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "LOCAL_ORIENTATION",
+          "infrastructureName": "Valencia Street",
+          "factType": "ORIENTATION",
+          "measurementType": "CORRIDOR_RELATIONSHIP",
+          "rawMeasurement": null,
+          "publicDisplayValue": "The commercial area follows Valencia Street",
+          "sourceIds": [
+            "sfmta"
+          ],
+          "sourceDate": "2026-09-09",
+          "freshnessClass": "DURABLE_INFRASTRUCTURE",
+          "confidence": "HIGH",
+          "reviewState": "REVIEWED",
+          "publicEligibility": "OBJECTIVE_ACCESS_READY",
+          "interpretationEligibility": "ELIGIBLE_FOR_V2_METHOD_REVIEW",
+          "propertyTypeApplicability": [
+            {
+              "propertyType": "retail",
+              "relevance": "CONTEXTUAL"
+            }
+          ],
+          "limitations": []
+        }
+      ]
+    },
+    {
+      "geographyId": "dogpatch",
+      "geographyLabel": "Dogpatch",
+      "municipalityVerified": true,
+      "referencePoint": {
+        "method": "REVIEWED_LABEL_POINT",
+        "coordinates": null,
+        "methodAvailable": true,
+        "distanceEligible": false,
+        "limitations": [
+          "The governed geography has no reviewed coordinate in this artifact; do not calculate distance until one is imported and QA-reviewed."
+        ]
+      },
+      "facts": [
+        {
+          "id": "sf-dogpatch-t",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "RAIL_TRANSIT",
+          "infrastructureName": "Muni T Third",
+          "factType": "TRANSIT_INFRASTRUCTURE",
+          "measurementType": "TRANSIT_SERVICE_PRESENT",
+          "rawMeasurement": null,
+          "publicDisplayValue": "T Third light rail runs through Dogpatch",
+          "sourceIds": [
+            "sfmta"
+          ],
+          "sourceDate": "2026-09-09",
+          "freshnessClass": "SERVICE_DEPENDENT",
+          "confidence": "HIGH",
+          "reviewState": "REVIEWED",
+          "publicEligibility": "OBJECTIVE_ACCESS_READY",
+          "interpretationEligibility": "ELIGIBLE_FOR_V2_METHOD_REVIEW",
+          "propertyTypeApplicability": [
+            {
+              "propertyType": "industrial",
+              "relevance": "CONTEXTUAL"
+            },
+            {
+              "propertyType": "flex",
+              "relevance": "CONTEXTUAL"
+            }
+          ],
+          "limitations": []
+        },
+        {
+          "id": "sf-dogpatch-water",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "LOCAL_ORIENTATION",
+          "infrastructureName": "Central Waterfront",
+          "factType": "ORIENTATION",
+          "measurementType": "ADJACENT_TO_GEOGRAPHY",
+          "rawMeasurement": null,
+          "publicDisplayValue": "Dogpatch sits on the Central Waterfront",
+          "sourceIds": [
+            "sfport"
+          ],
+          "sourceDate": "2026-09-09",
+          "freshnessClass": "DURABLE_INFRASTRUCTURE",
+          "confidence": "HIGH",
+          "reviewState": "REVIEWED",
+          "publicEligibility": "OBJECTIVE_ACCESS_READY",
+          "interpretationEligibility": "ELIGIBLE_FOR_V2_METHOD_REVIEW",
+          "propertyTypeApplicability": [
+            {
+              "propertyType": "industrial",
+              "relevance": "CONTEXTUAL"
+            },
+            {
+              "propertyType": "flex",
+              "relevance": "CONTEXTUAL"
+            }
+          ],
+          "limitations": []
+        }
+      ]
+    },
+    {
+      "geographyId": "central-waterfront",
+      "geographyLabel": "Central Waterfront",
+      "municipalityVerified": true,
+      "referencePoint": {
+        "method": "DESCRIPTIVE_RELATIONSHIP_ONLY",
+        "coordinates": null,
+        "methodAvailable": false,
+        "distanceEligible": false,
+        "limitations": [
+          "The governed geography has no reviewed coordinate in this artifact; do not calculate distance until one is imported and QA-reviewed."
+        ]
+      },
+      "facts": [
+        {
+          "id": "sf-cw-port",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "PORT_FREIGHT",
+          "infrastructureName": "Port of San Francisco",
+          "factType": "FREIGHT_INFRASTRUCTURE",
+          "measurementType": "WITHIN_GEOGRAPHY",
+          "rawMeasurement": null,
+          "publicDisplayValue": "Port land and facilities define the waterfront relationship",
+          "sourceIds": [
+            "sfport"
+          ],
+          "sourceDate": "2026-09-09",
+          "freshnessClass": "DURABLE_INFRASTRUCTURE",
+          "confidence": "HIGH",
+          "reviewState": "REVIEWED",
+          "publicEligibility": "OBJECTIVE_ACCESS_READY",
+          "interpretationEligibility": "ELIGIBLE_FOR_V2_METHOD_REVIEW",
+          "propertyTypeApplicability": [
+            {
+              "propertyType": "industrial",
+              "relevance": "CONTEXTUAL"
+            },
+            {
+              "propertyType": "flex",
+              "relevance": "CONTEXTUAL"
+            }
+          ],
+          "limitations": []
+        },
+        {
+          "id": "sf-cw-t",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "RAIL_TRANSIT",
+          "infrastructureName": "Muni T Third",
+          "factType": "TRANSIT_INFRASTRUCTURE",
+          "measurementType": "TRANSIT_SERVICE_PRESENT",
+          "rawMeasurement": null,
+          "publicDisplayValue": "T Third serves the waterfront corridor",
+          "sourceIds": [
+            "sfmta"
+          ],
+          "sourceDate": "2026-09-09",
+          "freshnessClass": "SERVICE_DEPENDENT",
+          "confidence": "HIGH",
+          "reviewState": "REVIEWED",
+          "publicEligibility": "OBJECTIVE_ACCESS_READY",
+          "interpretationEligibility": "ELIGIBLE_FOR_V2_METHOD_REVIEW",
+          "propertyTypeApplicability": [
+            {
+              "propertyType": "industrial",
+              "relevance": "CONTEXTUAL"
+            },
+            {
+              "propertyType": "flex",
+              "relevance": "CONTEXTUAL"
+            }
+          ],
+          "limitations": []
+        }
+      ]
+    },
+    {
+      "geographyId": "bayview-industrial",
+      "geographyLabel": "Bayview Industrial",
+      "municipalityVerified": true,
+      "referencePoint": {
+        "method": "DESCRIPTIVE_RELATIONSHIP_ONLY",
+        "coordinates": null,
+        "methodAvailable": false,
+        "distanceEligible": false,
+        "limitations": [
+          "The governed geography has no reviewed coordinate in this artifact; do not calculate distance until one is imported and QA-reviewed."
+        ]
+      },
+      "facts": [
+        {
+          "id": "sf-bayview-101",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "ROAD",
+          "infrastructureName": "US 101",
+          "factType": "ROAD_INFRASTRUCTURE",
+          "measurementType": "CORRIDOR_RELATIONSHIP",
+          "rawMeasurement": null,
+          "publicDisplayValue": "US 101 forms a major north-south road relationship",
+          "sourceIds": [
+            "caltrans"
+          ],
+          "sourceDate": "2026-09-09",
+          "freshnessClass": "DURABLE_INFRASTRUCTURE",
+          "confidence": "MEDIUM",
+          "reviewState": "NEEDS_REVIEW",
+          "publicEligibility": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "interpretationEligibility": "NOT_ELIGIBLE",
+          "propertyTypeApplicability": [
+            {
+              "propertyType": "industrial",
+              "relevance": "CONTEXTUAL"
+            }
+          ],
+          "limitations": []
+        },
+        {
+          "id": "sf-bayview-muni",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "RAIL_TRANSIT",
+          "infrastructureName": "Muni T Third",
+          "factType": "TRANSIT_INFRASTRUCTURE",
+          "measurementType": "TRANSIT_SERVICE_PRESENT",
+          "rawMeasurement": null,
+          "publicDisplayValue": "T Third serves the Third Street corridor",
+          "sourceIds": [
+            "sfmta"
+          ],
+          "sourceDate": "2026-09-09",
+          "freshnessClass": "SERVICE_DEPENDENT",
+          "confidence": "HIGH",
+          "reviewState": "REVIEWED",
+          "publicEligibility": "OBJECTIVE_ACCESS_READY",
+          "interpretationEligibility": "ELIGIBLE_FOR_V2_METHOD_REVIEW",
+          "propertyTypeApplicability": [
+            {
+              "propertyType": "industrial",
+              "relevance": "CONTEXTUAL"
+            },
+            {
+              "propertyType": "flex",
+              "relevance": "CONTEXTUAL"
+            }
+          ],
+          "limitations": []
+        }
+      ]
+    },
+    {
+      "geographyId": "showplace-square",
+      "geographyLabel": "Showplace Square",
+      "municipalityVerified": true,
+      "referencePoint": {
+        "method": "REVIEWED_LABEL_POINT",
+        "coordinates": null,
+        "methodAvailable": true,
+        "distanceEligible": false,
+        "limitations": [
+          "The governed geography has no reviewed coordinate in this artifact; do not calculate distance until one is imported and QA-reviewed."
+        ]
+      },
+      "facts": [
+        {
+          "id": "sf-showplace-101",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "ROAD",
+          "infrastructureName": "US 101",
+          "factType": "ROAD_INFRASTRUCTURE",
+          "measurementType": "CORRIDOR_RELATIONSHIP",
+          "rawMeasurement": null,
+          "publicDisplayValue": "US 101 runs along the area's western edge",
+          "sourceIds": [
+            "caltrans"
+          ],
+          "sourceDate": "2026-09-09",
+          "freshnessClass": "DURABLE_INFRASTRUCTURE",
+          "confidence": "MEDIUM",
+          "reviewState": "NEEDS_REVIEW",
+          "publicEligibility": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "interpretationEligibility": "NOT_ELIGIBLE",
+          "propertyTypeApplicability": [
+            {
+              "propertyType": "industrial",
+              "relevance": "CONTEXTUAL"
+            },
+            {
+              "propertyType": "flex",
+              "relevance": "CONTEXTUAL"
+            }
+          ],
+          "limitations": []
+        },
+        {
+          "id": "sf-showplace-muni",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "RAIL_TRANSIT",
+          "infrastructureName": "Muni local service",
+          "factType": "TRANSIT_INFRASTRUCTURE",
+          "measurementType": "TRANSIT_SERVICE_PRESENT",
+          "rawMeasurement": null,
+          "publicDisplayValue": "Muni routes serve the Showplace and Potrero street grid",
+          "sourceIds": [
+            "sfmta"
+          ],
+          "sourceDate": "2026-09-09",
+          "freshnessClass": "SERVICE_DEPENDENT",
+          "confidence": "MEDIUM",
+          "reviewState": "NEEDS_REVIEW",
+          "publicEligibility": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "interpretationEligibility": "NOT_ELIGIBLE",
+          "propertyTypeApplicability": [
+            {
+              "propertyType": "flex",
+              "relevance": "CONTEXTUAL"
+            }
+          ],
+          "limitations": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "schemaVersion": "access-intelligence:v1",
+  "evidenceLevels": [
+    "OBJECTIVE_ACCESS_FACT",
+    "CONTEXTUAL_INTERPRETATION",
+    "PERSONALIZED_ACCESS_CONCLUSION"
+  ],
+  "categories": [
+    "ROAD",
+    "RAIL_TRANSIT",
+    "AIRPORT",
+    "PORT_FREIGHT",
+    "LOCAL_ORIENTATION"
+  ],
+  "measurementTypes": [
+    "WITHIN_GEOGRAPHY",
+    "ADJACENT_TO_GEOGRAPHY",
+    "STRAIGHT_LINE_DISTANCE",
+    "ROAD_DISTANCE",
+    "WALK_DISTANCE",
+    "TRANSIT_SERVICE_PRESENT",
+    "CORRIDOR_RELATIONSHIP"
+  ],
+  "referenceMethods": [
+    "REVIEWED_GEOGRAPHY_CENTROID",
+    "REVIEWED_LABEL_POINT",
+    "REPRESENTATIVE_ANCHOR",
+    "DETERMINISTIC_BOUNDED_REFERENCE",
+    "DESCRIPTIVE_RELATIONSHIP_ONLY"
+  ],
+  "precision": {
+    "internal": "Retain source precision and method.",
+    "public": {
+      "underOneMile": "nearest sensible 0.1 mile",
+      "oneToTenMiles": "nearest sensible 0.5 or whole mile",
+      "overTenMiles": "whole miles"
+    },
+    "rule": "Never display a distance without a reviewed reference point and measurement method."
+  },
+  "freshnessClasses": [
+    "DURABLE_INFRASTRUCTURE",
+    "SERVICE_DEPENDENT",
+    "TIME_SENSITIVE"
+  ],
+  "publicEligibilityStates": [
+    "OBJECTIVE_ACCESS_READY",
+    "SOURCE_AVAILABLE_NEEDS_REVIEW",
+    "SOURCE_NEEDED",
+    "CONFLICTED",
+    "NOT_MATERIAL"
+  ],
+  "publicFactMaximum": 4,
+  "prohibited": [
+    "access scores",
+    "star ratings",
+    "comparative superiority",
+    "commute or logistics conclusions",
+    "schedules",
+    "frequencies",
+    "live travel times",
+    "property-level inference"
+  ]
+}

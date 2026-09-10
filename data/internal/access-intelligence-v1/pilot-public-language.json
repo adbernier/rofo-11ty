@@ -1,0 +1,118 @@
+{
+  "schemaVersion": "access-intelligence-pilot-review:v1",
+  "moduleLabel": "Access & location",
+  "prohibitedInterpretiveLanguage": [
+    "strong access",
+    "easy access",
+    "convenient",
+    "excellent",
+    "strategic",
+    "ideal",
+    "well connected",
+    "superior"
+  ],
+  "examples": [
+    {
+      "geographyId": "financial-district",
+      "geographyLabel": "Financial District",
+      "rows": [
+        {
+          "label": "BART",
+          "relationship": "Montgomery St. Station is in the Financial District; Embarcadero Station serves its eastern side."
+        },
+        {
+          "label": "Muni Metro",
+          "relationship": "Muni Metro shares the Market Street stations at Montgomery and Embarcadero."
+        }
+      ]
+    },
+    {
+      "geographyId": "soma",
+      "geographyLabel": "SoMa",
+      "rows": [
+        {
+          "label": "Regional rail",
+          "relationship": "BART serves SoMa's Market Street edge, while Caltrain's San Francisco terminal sits at 4th and King."
+        },
+        {
+          "label": "Muni Metro",
+          "relationship": "Muni Metro serves the Market Street and Fourth Street sides of SoMa."
+        }
+      ]
+    },
+    {
+      "geographyId": "mission-bay",
+      "geographyLabel": "Mission Bay",
+      "rows": [
+        {
+          "label": "T Third",
+          "relationship": "T Third light rail runs through Mission Bay along Third Street."
+        },
+        {
+          "label": "Caltrain",
+          "relationship": "The 4th and King terminal sits at the north edge of Mission Bay."
+        }
+      ]
+    },
+    {
+      "geographyId": "power-inn-industrial",
+      "geographyLabel": "Power Inn Industrial",
+      "rows": [
+        {
+          "label": "Power Inn Road",
+          "relationship": "The commercial and industrial area is organized along Power Inn Road."
+        },
+        {
+          "label": "SacRT Gold Line",
+          "relationship": "Power Inn station serves the corridor on SacRT's Gold Line."
+        }
+      ]
+    },
+    {
+      "geographyId": "indianapolis-airport-logistics",
+      "geographyLabel": "Indianapolis Airport Logistics",
+      "rows": [
+        {
+          "label": "Indianapolis International Airport",
+          "relationship": "The district adjoins the Indianapolis airport area."
+        },
+        {
+          "label": "I-70",
+          "relationship": "I-70 serves the airport/logistics area at Exit 68."
+        }
+      ]
+    },
+    {
+      "geographyId": "airport-south-central-industrial",
+      "geographyLabel": "Airport / South Central",
+      "rows": [
+        {
+          "label": "Phoenix Sky Harbor",
+          "relationship": "The district borders the City of Phoenix airport area."
+        },
+        {
+          "label": "I-10",
+          "relationship": "I-10 connects to Sky Harbor Boulevard on the district's airport side."
+        }
+      ]
+    },
+    {
+      "geographyId": "sodo-duwamish",
+      "geographyLabel": "SODO / Greater Duwamish",
+      "rows": [
+        {
+          "label": "Port and freight infrastructure",
+          "relationship": "Port terminals, freight rail and industrial infrastructure occupy the Greater Duwamish area."
+        },
+        {
+          "label": "I-5 and I-90",
+          "relationship": "Both interstates have access points within the Greater Duwamish industrial center."
+        },
+        {
+          "label": "Link light rail",
+          "relationship": "SODO Station serves the northern part of the district."
+        }
+      ]
+    }
+  ]
+}

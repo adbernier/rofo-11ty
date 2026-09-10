@@ -1,0 +1,76 @@
+{
+  "schemaVersion": "access-intelligence:v1",
+  "generatedAt": "2026-09-09",
+  "markets": [
+    {
+      "id": "san-francisco",
+      "file": "san-francisco.json",
+      "relationships": 9,
+      "facts": 18
+    },
+    {
+      "id": "sacramento",
+      "file": "sacramento.json",
+      "relationships": 7,
+      "facts": 14
+    },
+    {
+      "id": "indianapolis",
+      "file": "indianapolis.json",
+      "relationships": 6,
+      "facts": 12
+    },
+    {
+      "id": "phoenix",
+      "file": "phoenix.json",
+      "relationships": 7,
+      "facts": 14
+    },
+    {
+      "id": "seattle",
+      "file": "seattle.json",
+      "relationships": 6,
+      "facts": 13
+    }
+  ],
+  "totals": {
+    "markets": 5,
+    "relationships": 35,
+    "candidateFacts": 71,
+    "OBJECTIVE_ACCESS_READY": 42,
+    "SOURCE_AVAILABLE_NEEDS_REVIEW": 29,
+    "SOURCE_NEEDED": 0,
+    "CONFLICTED": 0,
+    "NOT_MATERIAL": 0,
+    "averageFactsPerGeography": 2.03,
+    "conflicts": 0
+  },
+  "customerUse": {
+    "publicFactMaximum": 4,
+    "proposedPilot": [
+      "financial-district",
+      "soma",
+      "mission-bay",
+      "power-inn-industrial",
+      "indianapolis-airport-logistics",
+      "airport-south-central-industrial",
+      "sodo-duwamish"
+    ]
+  },
+  "personalizedBridge": {
+    "requirementSignals": [
+      "employee commute importance",
+      "customer access",
+      "airport frequency",
+      "regional distribution",
+      "supplier access",
+      "transit preference",
+      "vehicle dependency"
+    ],
+    "rule": "Future Requirement logic may interpret reviewed facts; v1 never ranks or recommends."
+  },
+  "propertyBridge": {
+    "rule": "Property facts require a property reference point and separate provenance; geography facts never inherit to a building.",
+    "status": "NOT_IMPLEMENTED"
+  }
+}

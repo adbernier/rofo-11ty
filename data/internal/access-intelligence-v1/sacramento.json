@@ -1,0 +1,559 @@
+{
+  "schemaVersion": "access-intelligence:v1",
+  "market": {
+    "id": "sacramento",
+    "label": "Sacramento",
+    "municipality": "Sacramento",
+    "state": "CA"
+  },
+  "excludedMunicipalities": [
+    "West Sacramento",
+    "Rancho Cordova"
+  ],
+  "relationships": [
+    {
+      "geographyId": "downtown-sacramento",
+      "geographyLabel": "Downtown Sacramento",
+      "municipalityVerified": true,
+      "referencePoint": {
+        "method": "DESCRIPTIVE_RELATIONSHIP_ONLY",
+        "coordinates": null,
+        "methodAvailable": false,
+        "distanceEligible": false,
+        "limitations": [
+          "The governed geography has no reviewed coordinate in this artifact; do not calculate distance until one is imported and QA-reviewed."
+        ]
+      },
+      "facts": [
+        {
+          "id": "sac-dt-rail",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "RAIL_TRANSIT",
+          "infrastructureName": "SacRT Blue and Gold lines",
+          "factType": "TRANSIT_INFRASTRUCTURE",
+          "measurementType": "TRANSIT_SERVICE_PRESENT",
+          "rawMeasurement": null,
+          "publicDisplayValue": "Multiple SacRT light-rail stations serve Downtown",
+          "sourceIds": [
+            "sacrt"
+          ],
+          "sourceDate": "2026-09-09",
+          "freshnessClass": "SERVICE_DEPENDENT",
+          "confidence": "HIGH",
+          "reviewState": "REVIEWED",
+          "publicEligibility": "OBJECTIVE_ACCESS_READY",
+          "interpretationEligibility": "ELIGIBLE_FOR_V2_METHOD_REVIEW",
+          "propertyTypeApplicability": [
+            {
+              "propertyType": "office",
+              "relevance": "CONTEXTUAL"
+            },
+            {
+              "propertyType": "retail",
+              "relevance": "CONTEXTUAL"
+            }
+          ],
+          "limitations": []
+        },
+        {
+          "id": "sac-dt-i5",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "ROAD",
+          "infrastructureName": "Interstate 5",
+          "factType": "ROAD_INFRASTRUCTURE",
+          "measurementType": "CORRIDOR_RELATIONSHIP",
+          "rawMeasurement": null,
+          "publicDisplayValue": "I-5 runs along Downtown's western edge",
+          "sourceIds": [
+            "caltrans"
+          ],
+          "sourceDate": "2026-09-09",
+          "freshnessClass": "DURABLE_INFRASTRUCTURE",
+          "confidence": "MEDIUM",
+          "reviewState": "NEEDS_REVIEW",
+          "publicEligibility": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "interpretationEligibility": "NOT_ELIGIBLE",
+          "propertyTypeApplicability": [
+            {
+              "propertyType": "office",
+              "relevance": "CONTEXTUAL"
+            },
+            {
+              "propertyType": "retail",
+              "relevance": "CONTEXTUAL"
+            },
+            {
+              "propertyType": "industrial",
+              "relevance": "CONTEXTUAL"
+            },
+            {
+              "propertyType": "flex",
+              "relevance": "CONTEXTUAL"
+            }
+          ],
+          "limitations": []
+        }
+      ]
+    },
+    {
+      "geographyId": "midtown-sacramento",
+      "geographyLabel": "Midtown Sacramento",
+      "municipalityVerified": true,
+      "referencePoint": {
+        "method": "DESCRIPTIVE_RELATIONSHIP_ONLY",
+        "coordinates": null,
+        "methodAvailable": false,
+        "distanceEligible": false,
+        "limitations": [
+          "The governed geography has no reviewed coordinate in this artifact; do not calculate distance until one is imported and QA-reviewed."
+        ]
+      },
+      "facts": [
+        {
+          "id": "sac-mid-rail",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "RAIL_TRANSIT",
+          "infrastructureName": "SacRT light rail",
+          "factType": "TRANSIT_INFRASTRUCTURE",
+          "measurementType": "TRANSIT_SERVICE_PRESENT",
+          "rawMeasurement": null,
+          "publicDisplayValue": "Light rail serves the central-city street grid",
+          "sourceIds": [
+            "sacrt"
+          ],
+          "sourceDate": "2026-09-09",
+          "freshnessClass": "SERVICE_DEPENDENT",
+          "confidence": "HIGH",
+          "reviewState": "REVIEWED",
+          "publicEligibility": "OBJECTIVE_ACCESS_READY",
+          "interpretationEligibility": "ELIGIBLE_FOR_V2_METHOD_REVIEW",
+          "propertyTypeApplicability": [
+            {
+              "propertyType": "office",
+              "relevance": "CONTEXTUAL"
+            },
+            {
+              "propertyType": "retail",
+              "relevance": "CONTEXTUAL"
+            }
+          ],
+          "limitations": []
+        },
+        {
+          "id": "sac-mid-grid",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "LOCAL_ORIENTATION",
+          "infrastructureName": "Central city street grid",
+          "factType": "ORIENTATION",
+          "measurementType": "CORRIDOR_RELATIONSHIP",
+          "rawMeasurement": null,
+          "publicDisplayValue": "Midtown sits directly east of Downtown in the central grid",
+          "sourceIds": [
+            "sacrt"
+          ],
+          "sourceDate": "2026-09-09",
+          "freshnessClass": "DURABLE_INFRASTRUCTURE",
+          "confidence": "MEDIUM",
+          "reviewState": "NEEDS_REVIEW",
+          "publicEligibility": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "interpretationEligibility": "NOT_ELIGIBLE",
+          "propertyTypeApplicability": [
+            {
+              "propertyType": "office",
+              "relevance": "CONTEXTUAL"
+            },
+            {
+              "propertyType": "retail",
+              "relevance": "CONTEXTUAL"
+            },
+            {
+              "propertyType": "industrial",
+              "relevance": "CONTEXTUAL"
+            },
+            {
+              "propertyType": "flex",
+              "relevance": "CONTEXTUAL"
+            }
+          ],
+          "limitations": []
+        }
+      ]
+    },
+    {
+      "geographyId": "r-street-corridor",
+      "geographyLabel": "R Street Corridor",
+      "municipalityVerified": true,
+      "referencePoint": {
+        "method": "DETERMINISTIC_BOUNDED_REFERENCE",
+        "coordinates": null,
+        "methodAvailable": true,
+        "distanceEligible": false,
+        "limitations": [
+          "The governed geography has no reviewed coordinate in this artifact; do not calculate distance until one is imported and QA-reviewed."
+        ]
+      },
+      "facts": [
+        {
+          "id": "sac-r-rail",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "RAIL_TRANSIT",
+          "infrastructureName": "13th Street and 16th Street light-rail stations",
+          "factType": "TRANSIT_INFRASTRUCTURE",
+          "measurementType": "TRANSIT_SERVICE_PRESENT",
+          "rawMeasurement": null,
+          "publicDisplayValue": "SacRT light rail serves the R Street corridor",
+          "sourceIds": [
+            "sacrt"
+          ],
+          "sourceDate": "2026-09-09",
+          "freshnessClass": "SERVICE_DEPENDENT",
+          "confidence": "HIGH",
+          "reviewState": "REVIEWED",
+          "publicEligibility": "OBJECTIVE_ACCESS_READY",
+          "interpretationEligibility": "ELIGIBLE_FOR_V2_METHOD_REVIEW",
+          "propertyTypeApplicability": [
+            {
+              "propertyType": "retail",
+              "relevance": "CONTEXTUAL"
+            },
+            {
+              "propertyType": "office",
+              "relevance": "CONTEXTUAL"
+            }
+          ],
+          "limitations": []
+        },
+        {
+          "id": "sac-r-corridor",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "LOCAL_ORIENTATION",
+          "infrastructureName": "R Street",
+          "factType": "ORIENTATION",
+          "measurementType": "CORRIDOR_RELATIONSHIP",
+          "rawMeasurement": null,
+          "publicDisplayValue": "The district follows the historic R Street corridor",
+          "sourceIds": [
+            "sacrt"
+          ],
+          "sourceDate": "2026-09-09",
+          "freshnessClass": "DURABLE_INFRASTRUCTURE",
+          "confidence": "HIGH",
+          "reviewState": "REVIEWED",
+          "publicEligibility": "OBJECTIVE_ACCESS_READY",
+          "interpretationEligibility": "ELIGIBLE_FOR_V2_METHOD_REVIEW",
+          "propertyTypeApplicability": [
+            {
+              "propertyType": "retail",
+              "relevance": "CONTEXTUAL"
+            }
+          ],
+          "limitations": []
+        }
+      ]
+    },
+    {
+      "geographyId": "broadway-corridor",
+      "geographyLabel": "Broadway Corridor",
+      "municipalityVerified": true,
+      "referencePoint": {
+        "method": "DETERMINISTIC_BOUNDED_REFERENCE",
+        "coordinates": null,
+        "methodAvailable": true,
+        "distanceEligible": false,
+        "limitations": [
+          "The governed geography has no reviewed coordinate in this artifact; do not calculate distance until one is imported and QA-reviewed."
+        ]
+      },
+      "facts": [
+        {
+          "id": "sac-broadway-rail",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "RAIL_TRANSIT",
+          "infrastructureName": "Broadway light-rail station",
+          "factType": "TRANSIT_INFRASTRUCTURE",
+          "measurementType": "TRANSIT_SERVICE_PRESENT",
+          "rawMeasurement": null,
+          "publicDisplayValue": "SacRT's Broadway station serves the corridor",
+          "sourceIds": [
+            "sacrt"
+          ],
+          "sourceDate": "2026-09-09",
+          "freshnessClass": "SERVICE_DEPENDENT",
+          "confidence": "HIGH",
+          "reviewState": "REVIEWED",
+          "publicEligibility": "OBJECTIVE_ACCESS_READY",
+          "interpretationEligibility": "ELIGIBLE_FOR_V2_METHOD_REVIEW",
+          "propertyTypeApplicability": [
+            {
+              "propertyType": "retail",
+              "relevance": "CONTEXTUAL"
+            }
+          ],
+          "limitations": []
+        },
+        {
+          "id": "sac-broadway-road",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "ROAD",
+          "infrastructureName": "Broadway",
+          "factType": "ROAD_INFRASTRUCTURE",
+          "measurementType": "CORRIDOR_RELATIONSHIP",
+          "rawMeasurement": null,
+          "publicDisplayValue": "The commercial geography is organized around Broadway",
+          "sourceIds": [
+            "caltrans"
+          ],
+          "sourceDate": "2026-09-09",
+          "freshnessClass": "DURABLE_INFRASTRUCTURE",
+          "confidence": "HIGH",
+          "reviewState": "REVIEWED",
+          "publicEligibility": "OBJECTIVE_ACCESS_READY",
+          "interpretationEligibility": "ELIGIBLE_FOR_V2_METHOD_REVIEW",
+          "propertyTypeApplicability": [
+            {
+              "propertyType": "retail",
+              "relevance": "CONTEXTUAL"
+            }
+          ],
+          "limitations": []
+        }
+      ]
+    },
+    {
+      "geographyId": "power-inn-industrial",
+      "geographyLabel": "Power Inn Industrial",
+      "municipalityVerified": true,
+      "referencePoint": {
+        "method": "REPRESENTATIVE_ANCHOR",
+        "coordinates": null,
+        "methodAvailable": true,
+        "distanceEligible": false,
+        "limitations": [
+          "The governed geography has no reviewed coordinate in this artifact; do not calculate distance until one is imported and QA-reviewed."
+        ]
+      },
+      "facts": [
+        {
+          "id": "sac-power-rail",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "RAIL_TRANSIT",
+          "infrastructureName": "Power Inn light-rail station",
+          "factType": "TRANSIT_INFRASTRUCTURE",
+          "measurementType": "TRANSIT_SERVICE_PRESENT",
+          "rawMeasurement": null,
+          "publicDisplayValue": "SacRT Gold Line serves Power Inn Road",
+          "sourceIds": [
+            "sacrt"
+          ],
+          "sourceDate": "2026-09-09",
+          "freshnessClass": "SERVICE_DEPENDENT",
+          "confidence": "HIGH",
+          "reviewState": "REVIEWED",
+          "publicEligibility": "OBJECTIVE_ACCESS_READY",
+          "interpretationEligibility": "ELIGIBLE_FOR_V2_METHOD_REVIEW",
+          "propertyTypeApplicability": [
+            {
+              "propertyType": "industrial",
+              "relevance": "CONTEXTUAL"
+            },
+            {
+              "propertyType": "flex",
+              "relevance": "CONTEXTUAL"
+            }
+          ],
+          "limitations": []
+        },
+        {
+          "id": "sac-power-us50",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "ROAD",
+          "infrastructureName": "US 50",
+          "factType": "ROAD_INFRASTRUCTURE",
+          "measurementType": "CORRIDOR_RELATIONSHIP",
+          "rawMeasurement": null,
+          "publicDisplayValue": "US 50 is the area's principal regional freeway relationship",
+          "sourceIds": [
+            "caltrans"
+          ],
+          "sourceDate": "2026-09-09",
+          "freshnessClass": "DURABLE_INFRASTRUCTURE",
+          "confidence": "MEDIUM",
+          "reviewState": "NEEDS_REVIEW",
+          "publicEligibility": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "interpretationEligibility": "NOT_ELIGIBLE",
+          "propertyTypeApplicability": [
+            {
+              "propertyType": "industrial",
+              "relevance": "CONTEXTUAL"
+            },
+            {
+              "propertyType": "flex",
+              "relevance": "CONTEXTUAL"
+            }
+          ],
+          "limitations": []
+        }
+      ]
+    },
+    {
+      "geographyId": "northgate-north-market-industrial",
+      "geographyLabel": "Northgate / North Market",
+      "municipalityVerified": true,
+      "referencePoint": {
+        "method": "REPRESENTATIVE_ANCHOR",
+        "coordinates": null,
+        "methodAvailable": true,
+        "distanceEligible": false,
+        "limitations": [
+          "The governed geography has no reviewed coordinate in this artifact; do not calculate distance until one is imported and QA-reviewed."
+        ]
+      },
+      "facts": [
+        {
+          "id": "sac-north-i80",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "ROAD",
+          "infrastructureName": "Interstate 80",
+          "factType": "ROAD_INFRASTRUCTURE",
+          "measurementType": "CORRIDOR_RELATIONSHIP",
+          "rawMeasurement": null,
+          "publicDisplayValue": "I-80 frames the north Sacramento operating area",
+          "sourceIds": [
+            "caltrans"
+          ],
+          "sourceDate": "2026-09-09",
+          "freshnessClass": "DURABLE_INFRASTRUCTURE",
+          "confidence": "MEDIUM",
+          "reviewState": "NEEDS_REVIEW",
+          "publicEligibility": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "interpretationEligibility": "NOT_ELIGIBLE",
+          "propertyTypeApplicability": [
+            {
+              "propertyType": "industrial",
+              "relevance": "CONTEXTUAL"
+            },
+            {
+              "propertyType": "flex",
+              "relevance": "CONTEXTUAL"
+            }
+          ],
+          "limitations": []
+        },
+        {
+          "id": "sac-north-arterial",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "ROAD",
+          "infrastructureName": "Northgate Boulevard and North Market Boulevard",
+          "factType": "ROAD_INFRASTRUCTURE",
+          "measurementType": "CORRIDOR_RELATIONSHIP",
+          "rawMeasurement": null,
+          "publicDisplayValue": "The area is organized around Northgate and North Market boulevards",
+          "sourceIds": [
+            "caltrans"
+          ],
+          "sourceDate": "2026-09-09",
+          "freshnessClass": "DURABLE_INFRASTRUCTURE",
+          "confidence": "HIGH",
+          "reviewState": "REVIEWED",
+          "publicEligibility": "OBJECTIVE_ACCESS_READY",
+          "interpretationEligibility": "ELIGIBLE_FOR_V2_METHOD_REVIEW",
+          "propertyTypeApplicability": [
+            {
+              "propertyType": "industrial",
+              "relevance": "CONTEXTUAL"
+            },
+            {
+              "propertyType": "flex",
+              "relevance": "CONTEXTUAL"
+            }
+          ],
+          "limitations": []
+        }
+      ]
+    },
+    {
+      "geographyId": "river-district",
+      "geographyLabel": "River District / Richards",
+      "municipalityVerified": true,
+      "referencePoint": {
+        "method": "DETERMINISTIC_BOUNDED_REFERENCE",
+        "coordinates": null,
+        "methodAvailable": true,
+        "distanceEligible": false,
+        "limitations": [
+          "The governed geography has no reviewed coordinate in this artifact; do not calculate distance until one is imported and QA-reviewed."
+        ]
+      },
+      "facts": [
+        {
+          "id": "sac-river-rail",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "RAIL_TRANSIT",
+          "infrastructureName": "7th & Richards/Township 9 station",
+          "factType": "TRANSIT_INFRASTRUCTURE",
+          "measurementType": "WITHIN_GEOGRAPHY",
+          "rawMeasurement": null,
+          "publicDisplayValue": "SacRT light rail terminates at 7th & Richards/Township 9",
+          "sourceIds": [
+            "sacrt"
+          ],
+          "sourceDate": "2026-09-09",
+          "freshnessClass": "SERVICE_DEPENDENT",
+          "confidence": "HIGH",
+          "reviewState": "REVIEWED",
+          "publicEligibility": "OBJECTIVE_ACCESS_READY",
+          "interpretationEligibility": "ELIGIBLE_FOR_V2_METHOD_REVIEW",
+          "propertyTypeApplicability": [
+            {
+              "propertyType": "office",
+              "relevance": "CONTEXTUAL"
+            },
+            {
+              "propertyType": "retail",
+              "relevance": "CONTEXTUAL"
+            }
+          ],
+          "limitations": []
+        },
+        {
+          "id": "sac-river-i5",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "ROAD",
+          "infrastructureName": "Interstate 5",
+          "factType": "ROAD_INFRASTRUCTURE",
+          "measurementType": "CORRIDOR_RELATIONSHIP",
+          "rawMeasurement": null,
+          "publicDisplayValue": "I-5 runs along the River District",
+          "sourceIds": [
+            "caltrans"
+          ],
+          "sourceDate": "2026-09-09",
+          "freshnessClass": "DURABLE_INFRASTRUCTURE",
+          "confidence": "MEDIUM",
+          "reviewState": "NEEDS_REVIEW",
+          "publicEligibility": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "interpretationEligibility": "NOT_ELIGIBLE",
+          "propertyTypeApplicability": [
+            {
+              "propertyType": "office",
+              "relevance": "CONTEXTUAL"
+            },
+            {
+              "propertyType": "retail",
+              "relevance": "CONTEXTUAL"
+            },
+            {
+              "propertyType": "industrial",
+              "relevance": "CONTEXTUAL"
+            },
+            {
+              "propertyType": "flex",
+              "relevance": "CONTEXTUAL"
+            }
+          ],
+          "limitations": []
+        }
+      ]
+    }
+  ]
+}

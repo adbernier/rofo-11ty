@@ -1,0 +1,503 @@
+{
+  "schemaVersion": "access-intelligence:v1",
+  "market": {
+    "id": "seattle",
+    "label": "Seattle",
+    "municipality": "Seattle",
+    "state": "WA"
+  },
+  "excludedMunicipalities": [
+    "Bellevue",
+    "Kent",
+    "Renton",
+    "Tukwila"
+  ],
+  "relationships": [
+    {
+      "geographyId": "downtown-seattle",
+      "geographyLabel": "Downtown Seattle",
+      "municipalityVerified": true,
+      "referencePoint": {
+        "method": "DESCRIPTIVE_RELATIONSHIP_ONLY",
+        "coordinates": null,
+        "methodAvailable": false,
+        "distanceEligible": false,
+        "limitations": [
+          "The governed geography has no reviewed coordinate in this artifact; do not calculate distance until one is imported and QA-reviewed."
+        ]
+      },
+      "facts": [
+        {
+          "id": "sea-dt-link",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "RAIL_TRANSIT",
+          "infrastructureName": "Sound Transit Link",
+          "factType": "TRANSIT_INFRASTRUCTURE",
+          "measurementType": "TRANSIT_SERVICE_PRESENT",
+          "rawMeasurement": null,
+          "publicDisplayValue": "Multiple Link stations serve Downtown",
+          "sourceIds": [
+            "sound"
+          ],
+          "sourceDate": "2026-09-09",
+          "freshnessClass": "SERVICE_DEPENDENT",
+          "confidence": "HIGH",
+          "reviewState": "REVIEWED",
+          "publicEligibility": "OBJECTIVE_ACCESS_READY",
+          "interpretationEligibility": "ELIGIBLE_FOR_V2_METHOD_REVIEW",
+          "propertyTypeApplicability": [
+            {
+              "propertyType": "office",
+              "relevance": "CONTEXTUAL"
+            },
+            {
+              "propertyType": "retail",
+              "relevance": "CONTEXTUAL"
+            }
+          ],
+          "limitations": []
+        },
+        {
+          "id": "sea-dt-i5",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "ROAD",
+          "infrastructureName": "Interstate 5",
+          "factType": "ROAD_INFRASTRUCTURE",
+          "measurementType": "CORRIDOR_RELATIONSHIP",
+          "rawMeasurement": null,
+          "publicDisplayValue": "I-5 runs along Downtown's eastern edge",
+          "sourceIds": [
+            "wsdot"
+          ],
+          "sourceDate": "2026-09-09",
+          "freshnessClass": "DURABLE_INFRASTRUCTURE",
+          "confidence": "MEDIUM",
+          "reviewState": "NEEDS_REVIEW",
+          "publicEligibility": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "interpretationEligibility": "NOT_ELIGIBLE",
+          "propertyTypeApplicability": [
+            {
+              "propertyType": "office",
+              "relevance": "CONTEXTUAL"
+            },
+            {
+              "propertyType": "retail",
+              "relevance": "CONTEXTUAL"
+            },
+            {
+              "propertyType": "industrial",
+              "relevance": "CONTEXTUAL"
+            },
+            {
+              "propertyType": "flex",
+              "relevance": "CONTEXTUAL"
+            }
+          ],
+          "limitations": []
+        }
+      ]
+    },
+    {
+      "geographyId": "south-lake-union",
+      "geographyLabel": "South Lake Union",
+      "municipalityVerified": true,
+      "referencePoint": {
+        "method": "REVIEWED_LABEL_POINT",
+        "coordinates": null,
+        "methodAvailable": true,
+        "distanceEligible": false,
+        "limitations": [
+          "The governed geography has no reviewed coordinate in this artifact; do not calculate distance until one is imported and QA-reviewed."
+        ]
+      },
+      "facts": [
+        {
+          "id": "sea-slu-transit",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "RAIL_TRANSIT",
+          "infrastructureName": "Seattle Streetcar and local transit",
+          "factType": "TRANSIT_INFRASTRUCTURE",
+          "measurementType": "TRANSIT_SERVICE_PRESENT",
+          "rawMeasurement": null,
+          "publicDisplayValue": "Local transit connects South Lake Union with Downtown",
+          "sourceIds": [
+            "sound"
+          ],
+          "sourceDate": "2026-09-09",
+          "freshnessClass": "SERVICE_DEPENDENT",
+          "confidence": "MEDIUM",
+          "reviewState": "NEEDS_REVIEW",
+          "publicEligibility": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "interpretationEligibility": "NOT_ELIGIBLE",
+          "propertyTypeApplicability": [
+            {
+              "propertyType": "office",
+              "relevance": "CONTEXTUAL"
+            }
+          ],
+          "limitations": []
+        },
+        {
+          "id": "sea-slu-i5",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "ROAD",
+          "infrastructureName": "Interstate 5",
+          "factType": "ROAD_INFRASTRUCTURE",
+          "measurementType": "CORRIDOR_RELATIONSHIP",
+          "rawMeasurement": null,
+          "publicDisplayValue": "I-5 runs along the district's eastern side",
+          "sourceIds": [
+            "wsdot"
+          ],
+          "sourceDate": "2026-09-09",
+          "freshnessClass": "DURABLE_INFRASTRUCTURE",
+          "confidence": "MEDIUM",
+          "reviewState": "NEEDS_REVIEW",
+          "publicEligibility": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "interpretationEligibility": "NOT_ELIGIBLE",
+          "propertyTypeApplicability": [
+            {
+              "propertyType": "office",
+              "relevance": "CONTEXTUAL"
+            },
+            {
+              "propertyType": "retail",
+              "relevance": "CONTEXTUAL"
+            },
+            {
+              "propertyType": "industrial",
+              "relevance": "CONTEXTUAL"
+            },
+            {
+              "propertyType": "flex",
+              "relevance": "CONTEXTUAL"
+            }
+          ],
+          "limitations": []
+        }
+      ]
+    },
+    {
+      "geographyId": "pike-pine",
+      "geographyLabel": "Pike / Pine",
+      "municipalityVerified": true,
+      "referencePoint": {
+        "method": "DETERMINISTIC_BOUNDED_REFERENCE",
+        "coordinates": null,
+        "methodAvailable": true,
+        "distanceEligible": false,
+        "limitations": [
+          "The governed geography has no reviewed coordinate in this artifact; do not calculate distance until one is imported and QA-reviewed."
+        ]
+      },
+      "facts": [
+        {
+          "id": "sea-pike-link",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "RAIL_TRANSIT",
+          "infrastructureName": "Capitol Hill and Westlake Link stations",
+          "factType": "TRANSIT_INFRASTRUCTURE",
+          "measurementType": "TRANSIT_SERVICE_PRESENT",
+          "rawMeasurement": null,
+          "publicDisplayValue": "Link stations serve the corridor's Capitol Hill and Downtown ends",
+          "sourceIds": [
+            "sound"
+          ],
+          "sourceDate": "2026-09-09",
+          "freshnessClass": "SERVICE_DEPENDENT",
+          "confidence": "HIGH",
+          "reviewState": "REVIEWED",
+          "publicEligibility": "OBJECTIVE_ACCESS_READY",
+          "interpretationEligibility": "ELIGIBLE_FOR_V2_METHOD_REVIEW",
+          "propertyTypeApplicability": [
+            {
+              "propertyType": "retail",
+              "relevance": "CONTEXTUAL"
+            }
+          ],
+          "limitations": []
+        },
+        {
+          "id": "sea-pike-corridor",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "LOCAL_ORIENTATION",
+          "infrastructureName": "Pike and Pine streets",
+          "factType": "ORIENTATION",
+          "measurementType": "CORRIDOR_RELATIONSHIP",
+          "rawMeasurement": null,
+          "publicDisplayValue": "The retail geography follows Pike and Pine streets",
+          "sourceIds": [
+            "sound"
+          ],
+          "sourceDate": "2026-09-09",
+          "freshnessClass": "DURABLE_INFRASTRUCTURE",
+          "confidence": "HIGH",
+          "reviewState": "REVIEWED",
+          "publicEligibility": "OBJECTIVE_ACCESS_READY",
+          "interpretationEligibility": "ELIGIBLE_FOR_V2_METHOD_REVIEW",
+          "propertyTypeApplicability": [
+            {
+              "propertyType": "retail",
+              "relevance": "CONTEXTUAL"
+            }
+          ],
+          "limitations": []
+        }
+      ]
+    },
+    {
+      "geographyId": "ballard",
+      "geographyLabel": "Ballard",
+      "municipalityVerified": true,
+      "referencePoint": {
+        "method": "DESCRIPTIVE_RELATIONSHIP_ONLY",
+        "coordinates": null,
+        "methodAvailable": false,
+        "distanceEligible": false,
+        "limitations": [
+          "The governed geography has no reviewed coordinate in this artifact; do not calculate distance until one is imported and QA-reviewed."
+        ]
+      },
+      "facts": [
+        {
+          "id": "sea-ballard-99",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "ROAD",
+          "infrastructureName": "State Route 99",
+          "factType": "ROAD_INFRASTRUCTURE",
+          "measurementType": "CORRIDOR_RELATIONSHIP",
+          "rawMeasurement": null,
+          "publicDisplayValue": "SR 99 is the nearest major north-south highway relationship",
+          "sourceIds": [
+            "wsdot"
+          ],
+          "sourceDate": "2026-09-09",
+          "freshnessClass": "DURABLE_INFRASTRUCTURE",
+          "confidence": "MEDIUM",
+          "reviewState": "NEEDS_REVIEW",
+          "publicEligibility": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "interpretationEligibility": "NOT_ELIGIBLE",
+          "propertyTypeApplicability": [
+            {
+              "propertyType": "retail",
+              "relevance": "CONTEXTUAL"
+            }
+          ],
+          "limitations": []
+        },
+        {
+          "id": "sea-ballard-transit",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "RAIL_TRANSIT",
+          "infrastructureName": "King County Metro service",
+          "factType": "TRANSIT_INFRASTRUCTURE",
+          "measurementType": "TRANSIT_SERVICE_PRESENT",
+          "rawMeasurement": null,
+          "publicDisplayValue": "Bus service, rather than current Link rail, serves Ballard",
+          "sourceIds": [
+            "sound"
+          ],
+          "sourceDate": "2026-09-09",
+          "freshnessClass": "SERVICE_DEPENDENT",
+          "confidence": "MEDIUM",
+          "reviewState": "NEEDS_REVIEW",
+          "publicEligibility": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "interpretationEligibility": "NOT_ELIGIBLE",
+          "propertyTypeApplicability": [
+            {
+              "propertyType": "retail",
+              "relevance": "CONTEXTUAL"
+            }
+          ],
+          "limitations": []
+        }
+      ]
+    },
+    {
+      "geographyId": "sodo-duwamish",
+      "geographyLabel": "SODO / Greater Duwamish",
+      "municipalityVerified": true,
+      "referencePoint": {
+        "method": "DESCRIPTIVE_RELATIONSHIP_ONLY",
+        "coordinates": null,
+        "methodAvailable": false,
+        "distanceEligible": false,
+        "limitations": [
+          "The governed geography has no reviewed coordinate in this artifact; do not calculate distance until one is imported and QA-reviewed."
+        ]
+      },
+      "facts": [
+        {
+          "id": "sea-sodo-port",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "PORT_FREIGHT",
+          "infrastructureName": "Port of Seattle and Greater Duwamish MIC",
+          "factType": "FREIGHT_INFRASTRUCTURE",
+          "measurementType": "WITHIN_GEOGRAPHY",
+          "rawMeasurement": null,
+          "publicDisplayValue": "Port, freight and industrial infrastructure occupy the district",
+          "sourceIds": [
+            "seattle",
+            "portsea"
+          ],
+          "sourceDate": "2026-09-09",
+          "freshnessClass": "DURABLE_INFRASTRUCTURE",
+          "confidence": "HIGH",
+          "reviewState": "REVIEWED",
+          "publicEligibility": "OBJECTIVE_ACCESS_READY",
+          "interpretationEligibility": "ELIGIBLE_FOR_V2_METHOD_REVIEW",
+          "propertyTypeApplicability": [
+            {
+              "propertyType": "industrial",
+              "relevance": "CONTEXTUAL"
+            },
+            {
+              "propertyType": "flex",
+              "relevance": "CONTEXTUAL"
+            }
+          ],
+          "limitations": []
+        },
+        {
+          "id": "sea-sodo-road",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "ROAD",
+          "infrastructureName": "I-5, I-90 and SR 519",
+          "factType": "ROAD_INFRASTRUCTURE",
+          "measurementType": "CORRIDOR_RELATIONSHIP",
+          "rawMeasurement": null,
+          "publicDisplayValue": "Freight routes connect the district to I-5 and I-90",
+          "sourceIds": [
+            "seattle",
+            "wsdot"
+          ],
+          "sourceDate": "2026-09-09",
+          "freshnessClass": "DURABLE_INFRASTRUCTURE",
+          "confidence": "HIGH",
+          "reviewState": "REVIEWED",
+          "publicEligibility": "OBJECTIVE_ACCESS_READY",
+          "interpretationEligibility": "ELIGIBLE_FOR_V2_METHOD_REVIEW",
+          "propertyTypeApplicability": [
+            {
+              "propertyType": "industrial",
+              "relevance": "CONTEXTUAL"
+            },
+            {
+              "propertyType": "flex",
+              "relevance": "CONTEXTUAL"
+            }
+          ],
+          "limitations": []
+        },
+        {
+          "id": "sea-sodo-link",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "RAIL_TRANSIT",
+          "infrastructureName": "Sound Transit Link",
+          "factType": "TRANSIT_INFRASTRUCTURE",
+          "measurementType": "TRANSIT_SERVICE_PRESENT",
+          "rawMeasurement": null,
+          "publicDisplayValue": "Link stations serve SODO",
+          "sourceIds": [
+            "sound"
+          ],
+          "sourceDate": "2026-09-09",
+          "freshnessClass": "SERVICE_DEPENDENT",
+          "confidence": "HIGH",
+          "reviewState": "REVIEWED",
+          "publicEligibility": "OBJECTIVE_ACCESS_READY",
+          "interpretationEligibility": "ELIGIBLE_FOR_V2_METHOD_REVIEW",
+          "propertyTypeApplicability": [
+            {
+              "propertyType": "industrial",
+              "relevance": "CONTEXTUAL"
+            },
+            {
+              "propertyType": "flex",
+              "relevance": "CONTEXTUAL"
+            }
+          ],
+          "limitations": []
+        }
+      ]
+    },
+    {
+      "geographyId": "ballard-interbay",
+      "geographyLabel": "Ballard / Interbay Industrial",
+      "municipalityVerified": true,
+      "referencePoint": {
+        "method": "DESCRIPTIVE_RELATIONSHIP_ONLY",
+        "coordinates": null,
+        "methodAvailable": false,
+        "distanceEligible": false,
+        "limitations": [
+          "The governed geography has no reviewed coordinate in this artifact; do not calculate distance until one is imported and QA-reviewed."
+        ]
+      },
+      "facts": [
+        {
+          "id": "sea-binmic-port",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "PORT_FREIGHT",
+          "infrastructureName": "Ballard-Interbay Northend Manufacturing Industrial Center",
+          "factType": "FREIGHT_INFRASTRUCTURE",
+          "measurementType": "WITHIN_GEOGRAPHY",
+          "rawMeasurement": null,
+          "publicDisplayValue": "Maritime and manufacturing infrastructure defines the industrial center",
+          "sourceIds": [
+            "seattle",
+            "portsea"
+          ],
+          "sourceDate": "2026-09-09",
+          "freshnessClass": "DURABLE_INFRASTRUCTURE",
+          "confidence": "HIGH",
+          "reviewState": "REVIEWED",
+          "publicEligibility": "OBJECTIVE_ACCESS_READY",
+          "interpretationEligibility": "ELIGIBLE_FOR_V2_METHOD_REVIEW",
+          "propertyTypeApplicability": [
+            {
+              "propertyType": "industrial",
+              "relevance": "CONTEXTUAL"
+            },
+            {
+              "propertyType": "flex",
+              "relevance": "CONTEXTUAL"
+            }
+          ],
+          "limitations": []
+        },
+        {
+          "id": "sea-binmic-rail",
+          "level": "OBJECTIVE_ACCESS_FACT",
+          "category": "PORT_FREIGHT",
+          "infrastructureName": "Freight rail and Fishermen's Terminal",
+          "factType": "FREIGHT_INFRASTRUCTURE",
+          "measurementType": "CORRIDOR_RELATIONSHIP",
+          "rawMeasurement": null,
+          "publicDisplayValue": "Freight rail and maritime facilities run through the area",
+          "sourceIds": [
+            "seattle",
+            "portsea"
+          ],
+          "sourceDate": "2026-09-09",
+          "freshnessClass": "DURABLE_INFRASTRUCTURE",
+          "confidence": "MEDIUM",
+          "reviewState": "NEEDS_REVIEW",
+          "publicEligibility": "SOURCE_AVAILABLE_NEEDS_REVIEW",
+          "interpretationEligibility": "NOT_ELIGIBLE",
+          "propertyTypeApplicability": [
+            {
+              "propertyType": "industrial",
+              "relevance": "CONTEXTUAL"
+            },
+            {
+              "propertyType": "flex",
+              "relevance": "CONTEXTUAL"
+            }
+          ],
+          "limitations": []
+        }
+      ]
+    }
+  ]
+}

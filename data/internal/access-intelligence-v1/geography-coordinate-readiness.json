@@ -1,0 +1,301 @@
+{
+  "totalRelationships": 35,
+  "referenceMethodAvailable": 24,
+  "referenceMethodAvailablePercent": 68.6,
+  "reviewedCoordinatesPresent": 0,
+  "distanceEligible": 0,
+  "percent": 0,
+  "conclusion": "Reference methods exist for many geographies, but no reviewed coordinates are imported into v1; deterministic distance is therefore blocked rather than inferred.",
+  "markets": [
+    {
+      "marketId": "san-francisco",
+      "total": 9,
+      "referenceMethodAvailable": 7,
+      "distanceEligible": 0,
+      "descriptiveOnly": 2,
+      "relationships": [
+        {
+          "geographyId": "financial-district",
+          "referenceMethod": "REVIEWED_LABEL_POINT",
+          "methodAvailable": true,
+          "reviewedCoordinatesPresent": false,
+          "distanceEligible": false
+        },
+        {
+          "geographyId": "soma",
+          "referenceMethod": "REVIEWED_LABEL_POINT",
+          "methodAvailable": true,
+          "reviewedCoordinatesPresent": false,
+          "distanceEligible": false
+        },
+        {
+          "geographyId": "mission-bay",
+          "referenceMethod": "REVIEWED_LABEL_POINT",
+          "methodAvailable": true,
+          "reviewedCoordinatesPresent": false,
+          "distanceEligible": false
+        },
+        {
+          "geographyId": "union-square",
+          "referenceMethod": "REVIEWED_LABEL_POINT",
+          "methodAvailable": true,
+          "reviewedCoordinatesPresent": false,
+          "distanceEligible": false
+        },
+        {
+          "geographyId": "valencia-street",
+          "referenceMethod": "DETERMINISTIC_BOUNDED_REFERENCE",
+          "methodAvailable": true,
+          "reviewedCoordinatesPresent": false,
+          "distanceEligible": false
+        },
+        {
+          "geographyId": "dogpatch",
+          "referenceMethod": "REVIEWED_LABEL_POINT",
+          "methodAvailable": true,
+          "reviewedCoordinatesPresent": false,
+          "distanceEligible": false
+        },
+        {
+          "geographyId": "central-waterfront",
+          "referenceMethod": "DESCRIPTIVE_RELATIONSHIP_ONLY",
+          "methodAvailable": false,
+          "reviewedCoordinatesPresent": false,
+          "distanceEligible": false
+        },
+        {
+          "geographyId": "bayview-industrial",
+          "referenceMethod": "DESCRIPTIVE_RELATIONSHIP_ONLY",
+          "methodAvailable": false,
+          "reviewedCoordinatesPresent": false,
+          "distanceEligible": false
+        },
+        {
+          "geographyId": "showplace-square",
+          "referenceMethod": "REVIEWED_LABEL_POINT",
+          "methodAvailable": true,
+          "reviewedCoordinatesPresent": false,
+          "distanceEligible": false
+        }
+      ]
+    },
+    {
+      "marketId": "sacramento",
+      "total": 7,
+      "referenceMethodAvailable": 5,
+      "distanceEligible": 0,
+      "descriptiveOnly": 2,
+      "relationships": [
+        {
+          "geographyId": "downtown-sacramento",
+          "referenceMethod": "DESCRIPTIVE_RELATIONSHIP_ONLY",
+          "methodAvailable": false,
+          "reviewedCoordinatesPresent": false,
+          "distanceEligible": false
+        },
+        {
+          "geographyId": "midtown-sacramento",
+          "referenceMethod": "DESCRIPTIVE_RELATIONSHIP_ONLY",
+          "methodAvailable": false,
+          "reviewedCoordinatesPresent": false,
+          "distanceEligible": false
+        },
+        {
+          "geographyId": "r-street-corridor",
+          "referenceMethod": "DETERMINISTIC_BOUNDED_REFERENCE",
+          "methodAvailable": true,
+          "reviewedCoordinatesPresent": false,
+          "distanceEligible": false
+        },
+        {
+          "geographyId": "broadway-corridor",
+          "referenceMethod": "DETERMINISTIC_BOUNDED_REFERENCE",
+          "methodAvailable": true,
+          "reviewedCoordinatesPresent": false,
+          "distanceEligible": false
+        },
+        {
+          "geographyId": "power-inn-industrial",
+          "referenceMethod": "REPRESENTATIVE_ANCHOR",
+          "methodAvailable": true,
+          "reviewedCoordinatesPresent": false,
+          "distanceEligible": false
+        },
+        {
+          "geographyId": "northgate-north-market-industrial",
+          "referenceMethod": "REPRESENTATIVE_ANCHOR",
+          "methodAvailable": true,
+          "reviewedCoordinatesPresent": false,
+          "distanceEligible": false
+        },
+        {
+          "geographyId": "river-district",
+          "referenceMethod": "DETERMINISTIC_BOUNDED_REFERENCE",
+          "methodAvailable": true,
+          "reviewedCoordinatesPresent": false,
+          "distanceEligible": false
+        }
+      ]
+    },
+    {
+      "marketId": "indianapolis",
+      "total": 6,
+      "referenceMethodAvailable": 4,
+      "distanceEligible": 0,
+      "descriptiveOnly": 2,
+      "relationships": [
+        {
+          "geographyId": "downtown-indianapolis",
+          "referenceMethod": "DESCRIPTIVE_RELATIONSHIP_ONLY",
+          "methodAvailable": false,
+          "reviewedCoordinatesPresent": false,
+          "distanceEligible": false
+        },
+        {
+          "geographyId": "mass-ave-bottleworks",
+          "referenceMethod": "DETERMINISTIC_BOUNDED_REFERENCE",
+          "methodAvailable": true,
+          "reviewedCoordinatesPresent": false,
+          "distanceEligible": false
+        },
+        {
+          "geographyId": "broad-ripple",
+          "referenceMethod": "DESCRIPTIVE_RELATIONSHIP_ONLY",
+          "methodAvailable": false,
+          "reviewedCoordinatesPresent": false,
+          "distanceEligible": false
+        },
+        {
+          "geographyId": "indianapolis-airport-logistics",
+          "referenceMethod": "REPRESENTATIVE_ANCHOR",
+          "methodAvailable": true,
+          "reviewedCoordinatesPresent": false,
+          "distanceEligible": false
+        },
+        {
+          "geographyId": "park-100-northwest-indianapolis",
+          "referenceMethod": "REPRESENTATIVE_ANCHOR",
+          "methodAvailable": true,
+          "reviewedCoordinatesPresent": false,
+          "distanceEligible": false
+        },
+        {
+          "geographyId": "park-fletcher-stout-field",
+          "referenceMethod": "REPRESENTATIVE_ANCHOR",
+          "methodAvailable": true,
+          "reviewedCoordinatesPresent": false,
+          "distanceEligible": false
+        }
+      ]
+    },
+    {
+      "marketId": "phoenix",
+      "total": 7,
+      "referenceMethodAvailable": 6,
+      "distanceEligible": 0,
+      "descriptiveOnly": 1,
+      "relationships": [
+        {
+          "geographyId": "downtown-phoenix",
+          "referenceMethod": "DESCRIPTIVE_RELATIONSHIP_ONLY",
+          "methodAvailable": false,
+          "reviewedCoordinatesPresent": false,
+          "distanceEligible": false
+        },
+        {
+          "geographyId": "midtown-central-avenue",
+          "referenceMethod": "DETERMINISTIC_BOUNDED_REFERENCE",
+          "methodAvailable": true,
+          "reviewedCoordinatesPresent": false,
+          "distanceEligible": false
+        },
+        {
+          "geographyId": "camelback-biltmore",
+          "referenceMethod": "DETERMINISTIC_BOUNDED_REFERENCE",
+          "methodAvailable": true,
+          "reviewedCoordinatesPresent": false,
+          "distanceEligible": false
+        },
+        {
+          "geographyId": "roosevelt-row",
+          "referenceMethod": "DETERMINISTIC_BOUNDED_REFERENCE",
+          "methodAvailable": true,
+          "reviewedCoordinatesPresent": false,
+          "distanceEligible": false
+        },
+        {
+          "geographyId": "southwest-phoenix-industrial",
+          "referenceMethod": "REPRESENTATIVE_ANCHOR",
+          "methodAvailable": true,
+          "reviewedCoordinatesPresent": false,
+          "distanceEligible": false
+        },
+        {
+          "geographyId": "airport-south-central-industrial",
+          "referenceMethod": "REPRESENTATIVE_ANCHOR",
+          "methodAvailable": true,
+          "reviewedCoordinatesPresent": false,
+          "distanceEligible": false
+        },
+        {
+          "geographyId": "north-phoenix-advanced-operations",
+          "referenceMethod": "REPRESENTATIVE_ANCHOR",
+          "methodAvailable": true,
+          "reviewedCoordinatesPresent": false,
+          "distanceEligible": false
+        }
+      ]
+    },
+    {
+      "marketId": "seattle",
+      "total": 6,
+      "referenceMethodAvailable": 2,
+      "distanceEligible": 0,
+      "descriptiveOnly": 4,
+      "relationships": [
+        {
+          "geographyId": "downtown-seattle",
+          "referenceMethod": "DESCRIPTIVE_RELATIONSHIP_ONLY",
+          "methodAvailable": false,
+          "reviewedCoordinatesPresent": false,
+          "distanceEligible": false
+        },
+        {
+          "geographyId": "south-lake-union",
+          "referenceMethod": "REVIEWED_LABEL_POINT",
+          "methodAvailable": true,
+          "reviewedCoordinatesPresent": false,
+          "distanceEligible": false
+        },
+        {
+          "geographyId": "pike-pine",
+          "referenceMethod": "DETERMINISTIC_BOUNDED_REFERENCE",
+          "methodAvailable": true,
+          "reviewedCoordinatesPresent": false,
+          "distanceEligible": false
+        },
+        {
+          "geographyId": "ballard",
+          "referenceMethod": "DESCRIPTIVE_RELATIONSHIP_ONLY",
+          "methodAvailable": false,
+          "reviewedCoordinatesPresent": false,
+          "distanceEligible": false
+        },
+        {
+          "geographyId": "sodo-duwamish",
+          "referenceMethod": "DESCRIPTIVE_RELATIONSHIP_ONLY",
+          "methodAvailable": false,
+          "reviewedCoordinatesPresent": false,
+          "distanceEligible": false
+        },
+        {
+          "geographyId": "ballard-interbay",
+          "referenceMethod": "DESCRIPTIVE_RELATIONSHIP_ONLY",
+          "methodAvailable": false,
+          "reviewedCoordinatesPresent": false,
+          "distanceEligible": false
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "access-intelligence-pilot-review:v1",
+  "estimatedSafelyAutomatablePercent": 62,
+  "tasks": [
+    {
+      "task": "schema validation, source resolution, stable generation, lint",
+      "classification": "DETERMINISTIC"
+    },
+    {
+      "task": "official infrastructure inventory and service lookup",
+      "classification": "SOURCE_AUTOMATABLE_WITH_QA"
+    },
+    {
+      "task": "reference-method choice, usefulness and boundary adjudication",
+      "classification": "HUMAN_REVIEW_REQUIRED"
+    },
+    {
+      "task": "infer boundaries, suitability or commute quality",
+      "classification": "UNSAFE_TO_AUTOMATE"
+    }
+  ]
+}

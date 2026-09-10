@@ -1,0 +1,99 @@
+{
+  "schemaVersion": "access-intelligence-pilot-review:v1",
+  "reviewedOn": "2026-09-10",
+  "allowedMethods": [
+    "REVIEWED_GEOGRAPHY_CENTROID",
+    "REVIEWED_LABEL_POINT",
+    "REVIEWED_REPRESENTATIVE_ANCHOR",
+    "REVIEWED_CORRIDOR_REFERENCE",
+    "DESCRIPTIVE_RELATIONSHIP_ONLY"
+  ],
+  "coordinatesIntroduced": 0,
+  "numericDistanceFactsReady": 0,
+  "pilots": [
+    {
+      "marketId": "san-francisco",
+      "geographyId": "financial-district",
+      "geographyLabel": "Financial District",
+      "municipality": "San Francisco",
+      "referencePoint": {
+        "method": "DESCRIPTIVE_RELATIONSHIP_ONLY",
+        "coordinates": null,
+        "publicDistanceEligible": false,
+        "rationale": "Station presence is stronger than distance for a downtown district with multiple accepted edges."
+      }
+    },
+    {
+      "marketId": "san-francisco",
+      "geographyId": "soma",
+      "geographyLabel": "SoMa",
+      "municipality": "San Francisco",
+      "referencePoint": {
+        "method": "DESCRIPTIVE_RELATIONSHIP_ONLY",
+        "coordinates": null,
+        "publicDistanceEligible": false,
+        "rationale": "SoMa is broad; one point would misleadingly imply uniform access."
+      }
+    },
+    {
+      "marketId": "san-francisco",
+      "geographyId": "mission-bay",
+      "geographyLabel": "Mission Bay",
+      "municipality": "San Francisco",
+      "referencePoint": {
+        "method": "REVIEWED_CORRIDOR_REFERENCE",
+        "coordinates": null,
+        "publicDistanceEligible": false,
+        "rationale": "Third Street is an authoritative transit spine through Mission Bay; no point distance is needed."
+      }
+    },
+    {
+      "marketId": "sacramento",
+      "geographyId": "power-inn-industrial",
+      "geographyLabel": "Power Inn Industrial",
+      "municipality": "Sacramento",
+      "referencePoint": {
+        "method": "REVIEWED_CORRIDOR_REFERENCE",
+        "coordinates": null,
+        "publicDistanceEligible": false,
+        "rationale": "City evidence defines the commercial and industrial corridor along Power Inn Road."
+      }
+    },
+    {
+      "marketId": "indianapolis",
+      "geographyId": "indianapolis-airport-logistics",
+      "geographyLabel": "Indianapolis Airport Logistics",
+      "municipality": "Indianapolis",
+      "referencePoint": {
+        "method": "DESCRIPTIVE_RELATIONSHIP_ONLY",
+        "coordinates": null,
+        "publicDistanceEligible": false,
+        "rationale": "The governed geography is an airport-side operating area, not a reviewed polygon or point."
+      }
+    },
+    {
+      "marketId": "phoenix",
+      "geographyId": "airport-south-central-industrial",
+      "geographyLabel": "Airport / South Central",
+      "municipality": "Phoenix",
+      "referencePoint": {
+        "method": "DESCRIPTIVE_RELATIONSHIP_ONLY",
+        "coordinates": null,
+        "publicDistanceEligible": false,
+        "rationale": "The area spans multiple airport-side corridors and lacks a reviewed public measurement point."
+      }
+    },
+    {
+      "marketId": "seattle",
+      "geographyId": "sodo-duwamish",
+      "geographyLabel": "SODO / Greater Duwamish",
+      "municipality": "Seattle",
+      "referencePoint": {
+        "method": "DESCRIPTIVE_RELATIONSHIP_ONLY",
+        "coordinates": null,
+        "publicDistanceEligible": false,
+        "rationale": "Greater Duwamish is a large industrial center; infrastructure-within-area facts are more honest than one reference point."
+      }
+    }
+  ]
+}

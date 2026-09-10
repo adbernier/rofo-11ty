@@ -7321,6 +7321,10 @@ section.market-page--space-type .market-links a {
 .sf-geography-panel__identity { display:flex; align-items:flex-start; justify-content:space-between; gap:18px; }
 .sf-geography-panel__identity h2,.sf-geography-panel__identity p { margin-top:3px; margin-bottom:0; }
 .sf-geography-panel section > h3,.sf-geography-route-context h3 { margin:0 0 10px; font-size:1rem; }
+.access-location__rows { display:grid; gap:8px; margin:0; }
+.access-location__row { display:grid; grid-template-columns:minmax(130px, .7fr) minmax(0, 1.8fr); gap:10px 18px; padding:13px 15px; border:1px solid #dbe3ef; border-radius:10px; background:#f8fafc; }
+.access-location__row dt { font-weight:700; }
+.access-location__row dd { margin:0; color:#475569; }
 .sf-evidence-label { margin:8px 0 7px; color:#64748b; font-size:.72rem; font-weight:800; letter-spacing:.08em; text-transform:uppercase; }
 .sf-representative-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; margin-top:14px; }
 .sf-representative-card { display:grid; grid-template-columns:110px 1fr; overflow:hidden; border:1px solid #dbe3ef; border-radius:14px; background:#fff; }
@@ -7351,6 +7355,7 @@ section.market-page--space-type .market-links a {
   .sf-space-type-choice { min-height:112px; }
   .sf-representative-card { grid-template-columns:72px 1fr; }
   .sf-geography-panel,.sf-geography-explorer { padding:17px; }
+  .access-location__row { grid-template-columns:1fr; gap:4px; padding:12px; }
 }
 
 .location-comparison-panel-grid {
