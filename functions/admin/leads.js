@@ -194,10 +194,11 @@ function addSpamSignal(signals, score, label) {
   }
 }
 
-function detectAdminSpamSignals(lead, market) {
+export function detectAdminSpamSignals(lead, market) {
   const signals = [];
   const context = [];
   const phone = normalizeText(lead.phone);
+  const phoneReason = phoneDigitCountSpamReason(phone);
   const locationValues = [
     market,
     lead.market,
@@ -245,10 +246,7 @@ function detectAdminSpamSignals(lead, market) {
   const freeDomains = new Set(["gmail.com", "yahoo.com", "hotmail.com", "outlook.com", "icloud.com", "aol.com", "proton.me", "protonmail.com"]);
   const emailDomain = getEmailDomain(lead.email);
 
-  if (phone) {
-    const phoneReason = phoneDigitCountSpamReason(phone);
-    if (phoneReason) addSpamSignal(signals, phoneReason.includes("more than") ? 45 : 35, phoneReason);
-  }
+  if (phoneReason) addSpamSignal(signals, phoneReason.includes("more than") ? 45 : 35, phoneReason);
 
   if (locationValues.some((value) => countryOnlyLocations.has(value))) {
     addSpamSignal(signals, 35, "Location appears country-level only");
@@ -279,7 +277,7 @@ function detectAdminSpamSignals(lead, market) {
     risk,
     signals: signals.map((signal) => signal.label),
     context,
-    hasSuspiciousPhone: Boolean(phone && digits.length > 0 && digits.length !== 10),
+    hasSuspiciousPhone: Boolean(phoneReason),
     hasBroadLocation: locationValues.some((value) => countryOnlyLocations.has(value)),
   };
 }
