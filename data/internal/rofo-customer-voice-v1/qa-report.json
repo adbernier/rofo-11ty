@@ -1,0 +1,48 @@
+{
+  "generatedAt": "2026-09-09",
+  "baseline": {
+    "jargonFindings": 135,
+    "redundancyFindings": 7,
+    "emptyNonMaterialFindings": 9
+  },
+  "currentAudit": {
+    "jargonFindings": 110,
+    "sentenceComplexityFindings": 9,
+    "redundancyFindings": 5,
+    "emptyNonMaterialFindings": 6
+  },
+  "closestRedundancyPairs": [
+    {
+      "surface": "Location Brief v2",
+      "score": 1,
+      "a": "Strong\", GOOD: \"Good\", MODERATE: ",
+      "b": "STRONG\", \"GOOD\", \"MODERATE\", "
+    },
+    {
+      "surface": "Location Brief v2",
+      "score": 0.75,
+      "a": "lb2-comparison\"><div class=\"lb2-section-head",
+      "b": "><div class=\"lb2-section-head"
+    },
+    {
+      "surface": "Location Brief v2",
+      "score": 0.75,
+      "a": "lb2-comparison\"><div class=\"lb2-section-head",
+      "b": "><div class=\"lb2-section-head"
+    },
+    {
+      "surface": "Location Brief v2",
+      "score": 0.75,
+      "a": "lb2-comparison\"><div class=\"lb2-section-head",
+      "b": "><div class=\"lb2-section-head"
+    },
+    {
+      "surface": "Location Brief v2",
+      "score": 0.75,
+      "a": "/location-brief/${brief.publicId}",
+      "b": "/operator/location-brief-v2/${brief.publicId}"
+    }
+  ],
+  "productionProjection": "lib/presentation/customer-voice-v1.js",
+  "status": "PRODUCTION_INTEGRATED"
+}

@@ -1,8 +1,10 @@
 import { getBriefBundle, operatorAllowed, ownsBrief, privateHtml } from "../../api/location-brief-v2/_shared.js";
 import { renderSearchSummary } from "../../api/location-brief-v2/_search-summary.js";
 import universalIntelligence from "../../../lib/intelligence/universal-space-type-intelligence.js";
+import customerVoice from "../../../lib/presentation/customer-voice-v1.js";
 
 const { projectUniversalIntelligence } = universalIntelligence;
+const { customerSentence, projectLocationBrief } = customerVoice;
 
 function esc(value) { return String(value == null ? "" : value).replace(/[&<>"']/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[char])); }
 function criterion(requirement, dimension) { return (requirement.criteria || []).find((item) => item.dimension === dimension); }
@@ -14,14 +16,14 @@ function humanBand(value) {
   return { STRONG: "Strong", GOOD: "Good", MODERATE: "Mixed", MIXED: "Mixed", PARTIAL: "Mixed", WEAK: "Limited", UNKNOWN: "Not established" }[value] || "Not established";
 }
 function cleanStrength(value) {
-  return String(value || "")
+  return customerSentence(String(value || "")
     .replace(/Strong supported access for employees coming from (.+)\./, "Strong employee access from $1.")
     .replace(/Good supported access for employees coming from (.+)\./, "Good employee access from $1.")
     .replace(/Moderate supported access for employees coming from (.+)\./, "Mixed employee access from $1.")
     .replace(/(.+) is supported by this district's reviewed business-environment pattern\./, "Its business environment aligns with $1.")
     .replace(/It has strong reviewed Office fit\./, "Strong fit for ordinary office use.")
     .replace(/It has good reviewed Office fit for selective users\./, "Good office fit for selective users.")
-    .replace(/Its reviewed district parking environment supports/, "Its parking environment supports");
+    .replace(/Its reviewed district parking environment supports/, "Its parking environment supports"));
 }
 function conciseReason(item) {
   const environment = (item.environment?.reasons || []).find((reason) => !/^Business type:/i.test(reason));
@@ -45,46 +47,30 @@ function mediaMarkup(presentation, name) {
 function buildingsMarkup(presentation) {
   const buildings = presentation?.representativeBuildings || [];
   if (!buildings.length) return "";
-  const environments = buildings.some((building) => building.representativeKind === "COMMERCIAL_ENVIRONMENT");
-  return `<section class="lb2-buildings"><h4>${environments ? "Representative environments" : "Representative buildings"}</h4><p>These are representative examples, not current availability. They help explain the kinds of commercial environments to evaluate next.</p><div class="lb2-building-grid">${buildings.map((building) => building.representativeKind === "COMMERCIAL_ENVIRONMENT" ? `<article><strong>${esc(building.name)}</strong><span>${esc(building.representativeReason)}</span></article>` : `<a href="${esc(building.canonicalUrl)}"><strong>${esc(building.name)}</strong><span>${esc(building.representativeReason)}</span></a>`).join("")}</div></section>`;
+  return `<section class="lb2-buildings"><h4>Examples in the area</h4><p>These examples show the range of settings in the area; we'll confirm current spaces separately.</p><div class="lb2-building-grid">${buildings.map((building) => building.representativeKind === "COMMERCIAL_ENVIRONMENT" ? `<article><strong>${esc(building.name)}</strong><span>${esc(customerSentence(building.representativeReason))}</span></article>` : `<a href="${esc(building.canonicalUrl)}"><strong>${esc(building.name)}</strong><span>${esc(customerSentence(building.representativeReason))}</span></a>`).join("")}</div></section>`;
 }
 function districtCard(item, requirement, options = {}) {
   const path = districtPath(item, requirement);
-  const strengths = (item.strengths || item.reasons || []).map(cleanStrength).filter(Boolean).slice(0, 3);
-  const tradeoffs = [...new Set([...(item.tradeoffs || []), ...(options.candidate ? item.unknowns || [] : [])])].filter(Boolean).slice(0, options.candidate ? 3 : 2);
+  const voice = options.voice || {};
+  const strengths = (voice.why || item.strengths || item.reasons || []).map(cleanStrength).filter(Boolean).slice(0, 3);
+  const tradeoffs = (voice.worthKnowing || []).map(cleanStrength).filter(Boolean).slice(0, 2);
   const rich = Boolean(options.rich);
   const hasMedia = Boolean(rich && item.presentation?.image?.src);
   return `<article class="lb2-rec${rich ? " lb2-rec--rich" : ""}${hasMedia ? " lb2-rec--has-media" : ""}">
     ${rich ? mediaMarkup(item.presentation, item.districtName) : ""}<div class="lb2-rec__body"><p class="lb2-rec__role">${esc(options.role || "Worth investigating")}</p>
-    <h3>${esc(item.districtName)}</h3><p class="lb2-rec__reason">${esc(conciseReason(item))}</p>
-    ${strengths.length ? `<div class="lb2-rec__detail"><h4>${options.candidate ? "Why it may fit your search" : "Why consider this location"}</h4><ul>${strengths.map((value) => `<li>${esc(value)}</li>`).join("")}</ul></div>` : ""}
-    ${tradeoffs.length ? `<div class="lb2-rec__detail lb2-rec__detail--tradeoff"><h4>Things to weigh</h4><ul>${tradeoffs.map((value) => `<li>${esc(value)}</li>`).join("")}</ul></div>` : ""}
+    <h3>${esc(voice.name || item.districtName)}</h3><p class="lb2-rec__reason">${esc(voice.distinction || conciseReason(item))}</p>
+    ${strengths.length ? `<div class="lb2-rec__detail"><h4>Why consider it</h4><ul>${strengths.map((value) => `<li>${esc(value)}</li>`).join("")}</ul></div>` : ""}
+    ${tradeoffs.length ? `<div class="lb2-rec__detail lb2-rec__detail--tradeoff"><h4>Worth knowing</h4><ul>${tradeoffs.map((value) => `<li>${esc(value)}</li>`).join("")}</ul></div>` : ""}
     ${path ? `<a class="lb2-text-link" href="${esc(path)}" data-brief-explore>Explore ${esc(item.districtName)} <span aria-hidden="true">→</span></a>` : ""}
     ${rich ? buildingsMarkup(item.presentation) : ""}</div></article>`;
 }
-function recommendationFocus(snapshot, requirement, omittedIds = []) {
+function recommendationFocus(snapshot, requirement, presentation, omittedIds = []) {
   const omitted = new Set(omittedIds); const items = (snapshot.shortlist || []).filter((item) => !omitted.has(item.districtId));
   if (!items.length) return "";
-  return `<div class="lb2-location-focus" data-location-focus-root><div class="lb2-focus-tabs" aria-label="Locations worth investigating">${items.map((item, index) => `<button type="button" class="${index ? "" : "is-active"}" data-focus-button="${esc(item.districtId)}">${esc(item.districtName)}</button>`).join("")}</div>${items.map((item, index) => `<div data-focus-panel="${esc(item.districtId)}"${index ? " hidden" : ""}>${districtCard(item, requirement, { rich: true, role: "Worth investigating" })}</div>`).join("")}</div>`;
+  return `<div class="lb2-location-focus" data-location-focus-root><div class="lb2-focus-tabs" aria-label="Areas worth comparing">${items.map((item, index) => `<button type="button" class="${index ? "" : "is-active"}" data-focus-button="${esc(item.districtId)}">${esc(item.districtName)}</button>`).join("")}</div>${items.map((item, index) => `<div data-focus-panel="${esc(item.districtId)}"${index ? " hidden" : ""}>${districtCard(item, requirement, { rich: true, role: "Area to compare", voice: presentation.locations.find(location => location.id === item.districtId) })}</div>`).join("")}</div>`;
 }
-function comparisonRows(snapshot, requirement) {
-  const items = snapshot.shortlist || [];
-  const propertyType = requirement.propertyTypes?.[0];
-  const retail = propertyType === "retail_service";
-  const industrialFlex = propertyType === "industrial_flex";
-  const fitLabel = industrialFlex ? `${titleCase(items[0]?.model || "Industrial / Flex")} character` : retail ? "Retail environment" : "Office character";
-  const accessLabel = industrialFlex ? "Employee / operational access" : retail ? "Customer access" : "Employee access";
-  const definitions = [
-    ["Why consider it", (item) => conciseReason(item)],
-    [fitLabel, (item) => item.propertyTypeFit?.summary || item.industrialFlex?.summary || item.retail?.summary || item.office?.summary || humanBand(item.propertyTypeFit?.band || item.industrialFlex?.band || item.retail?.band || item.office?.band)],
-    ["Parking", (item) => item.parkingRelevant ? humanBand(item.parkingEnvironment) : "Not a stated priority"],
-    ["Key tradeoff", (item) => cleanStrength((item.tradeoffs || item.unknowns || [])[0]) || "No material tradeoff established"],
-    [accessLabel, (item) => item.employeeAccessSummary?.label || humanBand(item.accessComponent?.band)],
-  ];
-  return definitions.map(([label, getter]) => ({ label, values: items.map(getter) })).filter((row) => row.values.some(Boolean) && (!["Employee access", "Customer access", "Employee / operational access"].includes(row.label) || new Set(row.values).size > 1));
-}
-function comparison(snapshot, requirement) {
-  const items = snapshot.shortlist || []; const rows = comparisonRows(snapshot, requirement);
+function comparison(snapshot, presentation) {
+  const items = snapshot.shortlist || []; const rows = presentation.comparison || [];
   if (items.length < 2 || !rows.length) return "";
   return `<section class="lb2-comparison"><div class="lb2-section-head"><p class="lb2-eyebrow">Compare</p><h2>How they differ</h2></div><div class="lb2-compare" style="--lb2-cols:${items.length}" role="table" aria-label="Location comparison"><div class="lb2-compare__row lb2-compare__head" role="row"><span role="columnheader">Priority</span>${items.map((item) => `<strong role="columnheader">${esc(item.districtName)}</strong>`).join("")}</div>${rows.map((row) => `<div class="lb2-compare__row" role="row"><strong role="rowheader">${esc(row.label)}</strong>${row.values.map((value, index) => `<span role="cell" data-label="${esc(items[index].districtName)}: ">${esc(value)}</span>`).join("")}</div>`).join("")}</div></section>`;
 }
@@ -147,22 +133,10 @@ function universalGuidance(requirement) {
   const matters = `<section class="lb2-universal" aria-labelledby="lb2-matters-heading"><div class="lb2-section-head"><p class="lb2-eyebrow">Your requirement</p><h2 id="lb2-matters-heading">What matters for this search</h2></div><div class="lb2-matter-grid">${items.map((item) => `<article><h3>${esc(item.label)}</h3>${item.statedRequirement ? `<p class="lb2-matter-signal">${esc(item.statedRequirement)}</p>` : ""}<p>${esc(item.whyItMatters)}</p></article>`).join("")}</div></section>`;
   return { projection, items, matters };
 }
-function investigationGuidance(projection, certified, market, substantiveItems = []) {
-  if (!projection.foundations.length) return "";
-  const topics = certified || substantiveItems.length
-    ? projection.investigationTopics.slice(0, 6)
-    : ["Current availability", "Relevant nearby markets", "Comparable properties", "Location and property tradeoffs"];
-  if (!topics.length) return "";
-  const boundary = certified
-    ? "These locations fit the requirement based on reviewed location intelligence. Individual buildings, current availability, economics, and use compatibility still need property-level investigation."
-    : `Rofo has not produced a personalized local market ranking for this search. ${market || "The selected market"} is the starting point; relevant alternatives, availability, and property-specific details require live investigation.`;
-  return `<section class="lb2-investigation" aria-labelledby="lb2-investigation-heading"><div class="lb2-section-head"><p class="lb2-eyebrow">Investigation</p><h2 id="lb2-investigation-heading">What Rofo will investigate</h2></div><p class="lb2-guidance__intro">${esc(boundary)}</p><ul class="lb2-investigate-list">${topics.map((item) => `<li>${esc(item)}</li>`).join("")}</ul></section>`;
-}
-function nextStep(readiness, propertyContinuationSupported) {
-  if (!propertyContinuationSupported) return { heading: "Find spaces that fit this search", action: "Find Spaces That Fit →", copy: "Rofo will use your existing Business Profile and Location Brief to help identify spaces that fit your requirement. Actual availability and property-specific details require investigation." };
-  if (readiness === "BOUNDED") return { heading: "See available spaces in these locations", action: "Continue →", copy: "Tell Rofo a little more about what you need, then continue to available options while keeping the broader market open." };
-  if (readiness === "INVESTIGATE") return { heading: "See available spaces that fit your search", action: "Continue →", copy: "Tell Rofo a little more about what you need so the property search can focus on compatible options." };
-  return { heading: "See available spaces in these locations", action: "Continue →", copy: "Tell Rofo a little more about what you need, then continue to available options." };
+function confirmationGuidance(presentation) {
+  if (!(presentation.confirm || []).length) return "";
+  const copy = presentation.mode === "INVESTIGATE" ? "These answers will help us narrow the location without guessing." : "We'll check these details at the property level before you choose a space.";
+  return `<section class="lb2-investigation" aria-labelledby="lb2-investigation-heading"><div class="lb2-section-head"><p class="lb2-eyebrow">Next questions</p><h2 id="lb2-investigation-heading">${esc(presentation.confirmHeading)}</h2></div><p class="lb2-guidance__intro">${esc(copy)}</p><ul class="lb2-investigate-list">${presentation.confirm.map((item) => `<li>${esc(item)}</li>`).join("")}</ul></section>`;
 }
 function debugPanel(bundle) {
   const { brief, currentRevision, currentSnapshot, candidates } = bundle;
@@ -192,18 +166,14 @@ export function renderLocationBriefV2Page(bundle, owner, debug, options = {}) {
     || (currentSnapshot.foundationVersions?.composition === "phoenix-industrial-flex-evidence-foundation:v1" && requirement.propertyTypes?.[0] === "industrial_flex")
     || (currentSnapshot.foundationVersions?.composition === "indianapolis-industrial-flex-evidence-foundation:v1" && requirement.propertyTypes?.[0] === "industrial_flex")
     || (currentSnapshot.foundationVersions?.composition === "sacramento-industrial-flex-evidence-foundation:v1" && requirement.propertyTypes?.[0] === "industrial_flex");
-  const northOrangeCounty = currentSnapshot.foundationVersions?.composition === "north-orange-county-industrial-flex-evidence-foundation:v1";
   const certified = reviewedLocalIntelligence && ["FULL", "BOUNDED"].includes(readiness) && (currentSnapshot.shortlist || []).length > 0;
   const universal = universalGuidance(requirement);
   const priorities = readiness === "INVESTIGATE" ? investigationPriorities(requirement) : [];
   const hasCandidates = marketId === "san-francisco" && (candidates || []).length > 0;
-  const phoenix = requirement.propertyTypes?.[0] === "industrial_flex" && currentSnapshot.foundationVersions?.composition?.startsWith("phoenix-industrial-flex-evidence-foundation");
-  const indianapolis = requirement.propertyTypes?.[0] === "industrial_flex" && currentSnapshot.foundationVersions?.composition?.startsWith("indianapolis-industrial-flex-evidence-foundation");
-  const sacramento = marketId === "sacramento" && requirement.propertyTypes?.[0] === "industrial_flex" && currentSnapshot.foundationVersions?.composition === "sacramento-industrial-flex-evidence-foundation:v1";
-  const guidanceHeading = readiness === "INVESTIGATE" ? "What matters most" : northOrangeCounty || phoenix || indianapolis || sacramento ? currentSnapshot.productResponse?.heading || "Peer locations worth investigating" : hasCandidates ? "Also worth investigating" : "Locations worth investigating";
-  const comparedCandidate = currentSnapshot.candidateAssessments?.[0]; const comparedAlternative = currentSnapshot.comparisonAlternatives?.[0];
-  const guidanceCopy = northOrangeCounty && readiness !== "INVESTIGATE" ? "This is a bounded North Orange County comparison between Anaheim Canyon and the Fullerton Industrial / Service Area—not a countywide ranking. Individual property capabilities and access questions still require investigation." : phoenix && readiness !== "INVESTIGATE" ? "This is a bounded City of Phoenix Industrial/Flex comparison—not a Phoenix Metro or Valley-wide ranking. Individual property capabilities and access questions still require investigation." : indianapolis && readiness !== "INVESTIGATE" ? "This is a bounded City of Indianapolis Industrial/Flex comparison between Indianapolis Airport Logistics and Park 100 / Northwest Indianapolis—not an Indianapolis Metro ranking. Individual property capabilities and access questions still require investigation." : sacramento && readiness !== "INVESTIGATE" ? "This is a bounded City of Sacramento Industrial/Flex comparison between Power Inn Industrial and Northgate / North Market Industrial—not a Sacramento Metro ranking. Individual property capabilities and access questions still require investigation." : readiness === "FULL" ? `Based on your business and priorities, these are the ${market} areas we'd investigate first. Each offers a different combination of operating environment, business context, and practical tradeoffs.` : readiness === "BOUNDED" ? "These are peer locations supported by reviewed local evidence for this search. Individual property capabilities and some location questions still require investigation." : comparedCandidate && comparedAlternative ? `${comparedCandidate.districtName} is worth considering based on the business environment and ${isRetail ? "Retail" : "Office"} fit you described. Comparing it with ${comparedAlternative.districtName} helps show a different set of district tradeoffs.` : "Use these priorities to evaluate the areas and properties you investigate next.";
-  const next = nextStep(certified ? readiness : "INVESTIGATE", propertyContinuationSupported);
+  const presentation = projectLocationBrief({ snapshot: certified ? currentSnapshot : { ...currentSnapshot, readiness: "INVESTIGATE", shortlist: [] }, requirement, market });
+  const guidanceHeading = presentation.heading;
+  const guidanceCopy = presentation.intro;
+  const next = presentation.next;
   const publicExperience = options.publicExperience === true;
   const briefUrl = publicExperience ? `/location-brief/${brief.publicId}` : `/operator/location-brief-v2/${brief.publicId}`;
   const editUrl = publicExperience ? `/location-requirement/?journey=edit&brief=${encodeURIComponent(brief.publicId)}` : `/prototype/requirement-v1/?locationBriefV2=edit&brief=${encodeURIComponent(brief.publicId)}`;
@@ -218,9 +188,9 @@ export function renderLocationBriefV2Page(bundle, owner, debug, options = {}) {
   <header class="lb2-hero"><div><a class="lb2-brand" href="/">Rofo</a><p class="lb2-eyebrow">Location search</p><h1>Your Location Brief</h1><p class="lb2-hero__context">${esc(property)} · ${esc(market)}</p></div><a class="lb2-button lb2-button--quiet" href="${esc(newSearchUrl)}">Start a new search</a></header>
   <div class="lb2-layout"><div class="lb2-main">${universal.matters}${hasCandidates ? candidateSection(candidates, currentSnapshot, requirement) : ""}
   ${reviewedLocalIntelligence && readiness === "INVESTIGATE" ? comparisonAlternatives(currentSnapshot, requirement) : ""}
-  ${certified || priorities.length ? `<section class="lb2-guidance"><div class="lb2-section-head"><p class="lb2-eyebrow">Location guidance</p><h2>${esc(guidanceHeading)}</h2></div><p class="lb2-guidance__intro">${esc(guidanceCopy)}</p>${certified ? recommendationFocus(currentSnapshot, requirement, candidateIds) : `<ul class="lb2-investigate-list">${priorities.map((item) => `<li>${esc(item)}</li>`).join("")}</ul>`}</section>` : ""}
-  ${certified ? comparison(currentSnapshot, requirement) : ""}
-  ${investigationGuidance(universal.projection, certified, market, universal.items)}
+  ${certified || priorities.length || presentation.mode === "INVESTIGATE" ? `<section class="lb2-guidance"><div class="lb2-section-head"><p class="lb2-eyebrow">Location guidance</p><h2>${esc(guidanceHeading)}</h2></div><p class="lb2-guidance__intro">${esc(guidanceCopy)}</p>${certified ? recommendationFocus(currentSnapshot, requirement, presentation, candidateIds) : priorities.length ? `<ul class="lb2-investigate-list">${priorities.map((item) => `<li>${esc(customerSentence(item))}</li>`).join("")}</ul>` : ""}</section>` : ""}
+  ${certified ? comparison(currentSnapshot, presentation) : ""}
+  ${confirmationGuidance(presentation)}
   <section class="lb2-next"><div class="lb2-next__panel"><div><p class="lb2-eyebrow">Next step</p><h2>${esc(next.heading)}</h2><p>${esc(next.copy)}</p></div>${owner ? `<a class="lb2-button" href="${esc(propertyContinuationSupported ? findSpacesUrl : researchSpacesUrl)}" ${propertyContinuationSupported ? "data-vnext-find-spaces" : "data-vnext-research"}>${esc(next.action)}</a>` : `<a class="lb2-button" href="${esc(newSearchUrl)}">Start my own search →</a>`}</div></section></div><div class="lb2-summary-column">${renderSearchSummary(bundle, esc, { includeLocations: certified })}${owner ? `<a class="lb2-button lb2-button--quiet" href="${esc(editUrl)}">Edit my search</a>` : ""}</div></div>
   ${debug ? debugPanel(bundle) : ""}
   </main><script>(function(){var endpoint='/api/analytics/search-profile',journeyId='';try{journeyId=sessionStorage.getItem('rofoVnextJourneyId')||''}catch(error){}function track(name,extra){${publicExperience ? `try{fetch(endpoint,{method:'POST',headers:{'content-type':'application/json'},credentials:'same-origin',keepalive:true,body:JSON.stringify({event_name:name,profile_version:'location-brief:v2',context:Object.assign({page_type:'location_brief_v2',page_url:location.pathname,city:${JSON.stringify(market)},location_display:${JSON.stringify(market)},space_type:${JSON.stringify(requirement.propertyTypes?.[0] || "")},readiness:${JSON.stringify(readiness)},brief_id:${JSON.stringify(brief.publicId)},journey_id:journeyId},extra||{}),profile:{profile_version:'location-brief:v2',space_type:${JSON.stringify(requirement.propertyTypes?.[0] || "")}},attribution:{entry_page_type:${JSON.stringify(entryContext.sourceType || '')},landing_page:${JSON.stringify(entryContext.landingPage || '')},session_id:journeyId}})})}catch(error){}` : ``}}track('vnext_brief_viewed');var key='rofoLocationBriefV2Return';document.querySelectorAll('[data-brief-explore]').forEach(function(link){link.addEventListener('click',function(){try{sessionStorage.setItem(key,JSON.stringify({url:${JSON.stringify(briefUrl)},label:'Back to my Location Brief'}));}catch(error){}track('vnext_district_explored',{district:link.textContent.replace(/Explore|→/g,'').trim()});});});document.querySelectorAll('a[href*="journey=edit"]').forEach(function(link){link.addEventListener('click',function(){track('vnext_requirement_edited')})});document.querySelectorAll('[data-vnext-find-spaces]').forEach(function(link){link.addEventListener('click',function(){track('vnext_find_spaces_clicked')})});document.querySelectorAll('[data-vnext-research]').forEach(function(link){link.addEventListener('click',function(){track('vnext_research_clicked')})});})();</script><script src="/assets/location-brief-v2.js" defer data-cfasync="false"></script></body></html>`;

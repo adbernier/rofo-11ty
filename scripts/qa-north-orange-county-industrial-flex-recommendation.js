@@ -88,12 +88,13 @@ const snapshot = { id: "snapshot", createdAt: "2026-09-02T00:00:00.000Z", ...sha
 const bundleRecord = { brief: { publicId: "LB2-000000000000000000000000", lifecycleStage: "LOCATIONS_RECOMMENDED", currentRequirementRevisionId: "revision", currentRecommendationSnapshotId: "snapshot" }, entryContext: { marketId: "fullerton", propertyType: "industrial_flex", sourceType: "district" }, currentRevision: { id: "revision", revisionNumber: 1, requirement: renderedRequirement }, currentSnapshot: snapshot, candidates: [], revisions: [], snapshots: [] };
 const html = renderer.renderLocationBriefV2Page(bundleRecord, true, false, { publicExperience: true });
 assert(html.includes("Locations worth investigating"));
-assert(html.includes("bounded North Orange County comparison"));
+assert(html.includes("Two areas worth comparing"));
 assert(html.includes("Fullerton Industrial / Service Area"));
-assert(html.includes("Representative environments"));
+assert(html.includes("Examples in the area"));
 assert(html.includes("Orangethorpe Industrial Corridor"));
 assert(html.includes("Walnut–Truslow–Raymond Manufacturing Area"));
-assert(html.includes("representative examples, not current availability"));
+assert(html.includes("What we&#39;ll confirm"));
+assert(!html.includes("Not a stated priority"));
 assert(!html.includes("2671 La Palma"));
 assert(snapshot.shortlist.every((item) => item.presentation.representativeBuildings.every((entry) => entry.availabilitySemantics === "REPRESENTATIVE_ONLY_NOT_AVAILABILITY" && entry.provenance.length)));
 fs.rmSync(temp, { recursive: true, force: true });

@@ -54,7 +54,7 @@ function v2Bundle(req, snapshot) {
 const emptySnapshot = { id: "snapshot-1", readiness: "INVESTIGATE", shortlist: [], candidateAssessments: [], comparisonAlternatives: [], intelligenceGaps: [] };
 const sparseRequirement = requirement({ marketId: "manchester", market: "Manchester", state: "NH", propertyType: "retail_service", activities: ["host_visitors", "sell_serve"], size: "2,000–5,000 SF", timing: "6_12_months", hasPreference: false });
 const sparseV2 = v2.renderLocationBriefV2Page(v2Bundle(sparseRequirement, emptySnapshot), true, false, { publicExperience: true });
-for (const expected of ["Starting market", "Manchester, NH", "Space type", "Retail", "2,000–5,000 SF", "6–12 months", "Compare with nearby markets", "What Rofo will investigate", "Current availability", "Relevant nearby markets", "Comparable properties", "Find Spaces That Fit →"]) assert(sparseV2.includes(expected), `Sparse v2 Brief should render ${expected}`);
+for (const expected of ["Starting market", "Manchester, NH", "Space type", "Retail", "2,000–5,000 SF", "6–12 months", "Compare with nearby markets", "A little more detail will help narrow the location", "What we&#39;ll ask next", "Tell us what the space needs to support"]) assert(sparseV2.includes(expected), `Sparse v2 Brief should render ${expected}`);
 for (const forbidden of ["What matters for this search", "Locations worth investigating", "Recommended", "Representative buildings", "No priorities", "6_12_months"]) assert(!sparseV2.includes(forbidden), `Sparse v2 Brief must omit ${forbidden}`);
 
 const richRequirement = requirement({
@@ -65,7 +65,7 @@ const richRequirement = requirement({
 const richUniversal = v2.renderLocationBriefV2Page(v2Bundle(richRequirement, emptySnapshot), true, false, { publicExperience: true });
 assert(richUniversal.includes("What matters for this search"));
 assert(richUniversal.includes("Visibility and storefront"));
-assert(richUniversal.includes("What Rofo will investigate"));
+assert(richUniversal.includes("What we&#39;ll"));
 assert(!richUniversal.includes("Locations worth investigating"));
 
 const certifiedRequirement = requirement({
@@ -81,7 +81,7 @@ const certifiedSnapshot = {
   }],
 };
 const certified = v2.renderLocationBriefV2Page(v2Bundle(certifiedRequirement, certifiedSnapshot), true, false, { publicExperience: true });
-for (const expected of ["Locations worth investigating", "Valencia Street", "Why consider this location", "Things to weigh", "Representative buildings", "Representative storefront environment"]) assert(certified.includes(expected), `Certified Brief should retain ${expected}`);
+for (const expected of ["One area to start with", "Valencia Street", "Why consider it", "Examples in the area", "Representative storefront environment"]) assert(certified.includes(expected), `Certified Brief should retain ${expected}`);
 
 const v2Source = fs.readFileSync(path.join(ROOT, "functions/operator/location-brief-v2/[publicId].js"), "utf8");
 assert(v2Source.includes("@media(max-width:600px)"));

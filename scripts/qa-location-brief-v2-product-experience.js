@@ -37,16 +37,15 @@ async function render(env, created, debug = false) {
   assert(full.includes("<h1>Your Location Brief</h1>"));
   assert(full.includes("Office · San Francisco"));
   assert(full.includes("<h2>Your search</h2>"));
-  assert(full.includes("<h2>Locations worth investigating</h2>"));
-  assert(full.includes("Why consider this location")); assert(full.includes("Things to weigh")); assert(full.includes("How they differ"));
+  assert(full.includes("areas worth comparing</h2>"));
+  assert(full.includes("Why consider it")); assert(full.includes("How they differ"));
   assert(full.includes("data-location-focus-root"));
   assert.equal((full.match(/data-focus-button=/g) || []).length, conventional.snapshot.shortlist.length, "Every supported location should be a peer focus option.");
-  assert(full.includes("Representative buildings"), "Focused location should reuse canonical representative-building presentation.");
-  assert(full.includes("These are representative examples, not current availability."));
+  assert(full.includes("Examples in the area"));
   assert(!full.includes("Areas you're considering"), "An empty candidate section should be omitted.");
-  assert(full.includes("See available spaces in these locations")); assert(full.includes("Continue →"));
+  assert(full.includes("Ready to look at specific spaces?")); assert(full.includes("Find spaces that fit →"));
   assert(full.includes('class="requirement-search-summary"')); assert(full.includes('class="requirement-search-summary__item"'));
-  assert(full.includes("Office character")); assert(full.includes("Why consider it")); assert(full.includes("Key tradeoff"));
+  assert(full.includes("Typical character")); assert(full.includes("Why consider it"));
   assert(full.includes('[data-focus-panel][hidden]{display:none!important}'), "Inactive rich district panels must actually be hidden despite their display layout.");
   assert(!full.includes("Recommended by Rofo")); assert(!full.includes("Alternative worth comparing"));
   assert(full.includes("Edit my search")); assert(full.includes("data-brief-explore"));
@@ -80,12 +79,12 @@ async function render(env, created, debug = false) {
 
   const marin = await foundation.createBrief(env, requirement({ business: "Ordinary Office", origins: ["San Francisco", "Marin / North Bay"], clients: "Clients rarely or never visit", transit: "Public transit is helpful", parking: "Convenient parking is very important" }), { sourceType: "operator_requirement_interview", marketId: "san-francisco", propertyType: "office" });
   const marinHtml = await render(env, marin);
-  assert(marinHtml.includes("<h2>Locations worth investigating</h2>")); assert(marinHtml.includes("Presidio"));
+  assert(marinHtml.includes("areas worth comparing</h2>")); assert(marinHtml.includes("Presidio"));
   assert(!marinHtml.includes("BLOCKED_BY_INTELLIGENCE_GAP")); assert(!marinHtml.includes("coverage %"));
 
   const medical = await foundation.createBrief(env, requirement({ business: "Medical private practice", property: "medical", origins: ["Marin / North Bay"], clients: "Patients visit regularly", customerOrigins: ["San Francisco", "Marin / North Bay"], transit: "Public transit is not important", parking: "Convenient parking is very important" }), { sourceType: "operator_requirement_interview", marketId: "san-francisco", propertyType: "medical" });
   const investigate = await render(env, medical);
-  assert(investigate.includes("<h2>What matters most</h2>")); assert(investigate.includes("Find Spaces That Fit →"));
+  assert(investigate.includes("<h2>A little more detail will help narrow the location</h2>")); assert(investigate.includes("Continue my search →"));
   assert(investigate.includes("Medical-compatible use")); assert(!investigate.includes('<article class="lb2-rec'));
   assert(!investigate.includes(`/property-requirement/${medical.brief.publicId}`), "Medical must not enter the Office property-stage continuation.");
   assert(!investigate.includes("Technology"));
@@ -103,10 +102,10 @@ async function render(env, created, debug = false) {
   const missionInvestigate = await render(env, mission);
   assert(missionInvestigate.includes("<h2>Area you're considering</h2>"));
   assert(missionInvestigate.includes("Mission Bay"));
-  assert(missionInvestigate.includes("Why it may fit your search"));
-  assert(missionInvestigate.includes("Things to weigh"));
+  assert(missionInvestigate.includes("Why consider it"));
+  assert(missionInvestigate.includes("Why consider it"));
   assert(missionInvestigate.includes("mission-bay-streetscape.webp"));
-  assert(missionInvestigate.includes("Representative buildings"));
+  assert(missionInvestigate.includes("Examples in the area"));
   assert(!missionInvestigate.includes("Employee access from San Francisco."), "Non-additive Requirement recap should not be repeated as guidance.");
 
   const exactMissionRequirement = requirement({
@@ -125,12 +124,12 @@ async function render(env, created, debug = false) {
   assert.equal(exactMission.snapshot.candidateAssessments[0].presentation.representativeBuildings.length, 3);
   assert.equal(exactMission.snapshot.comparisonAlternatives.length, 0, "FULL guidance uses the unchanged shortlist comparison rather than candidate-led INVESTIGATE alternatives.");
   const exactHtml = await render(env, exactMission);
-  assert(exactHtml.includes("Why it may fit your search"));
-  assert(exactHtml.includes("Things to weigh"));
+  assert(exactHtml.includes("Why consider it"));
+  assert(exactHtml.includes("Why consider it"));
   assert(exactHtml.includes("Strong fit for ordinary office use"));
   assert(exactHtml.includes("modern and polished setting selected"));
   assert(exactHtml.includes("mission-bay-streetscape.webp"));
-  assert(exactHtml.includes("Representative buildings"));
+  assert(exactHtml.includes("Examples in the area"));
   assert(exactHtml.includes('href="/commercial-real-estate/CA/san-francisco/mission-bay/"'));
   assert(!exactHtml.includes("Another area worth considering"));
   assert(exactHtml.includes("How they differ"));

@@ -1,3 +1,6 @@
+import customerVoice from "../../../lib/presentation/customer-voice-v1.js";
+const { customerSentence } = customerVoice;
+
 function criterionText(requirement, dimensions) {
   return (requirement.criteria || []).filter((item) => dimensions.includes(item.dimension)).map((item) => {
     const value = item.value || {}; return (value.list || []).join(" · ") || value.text || "";
@@ -33,7 +36,7 @@ function searchApproach(requirement) {
 }
 function businessLabel(requirement) {
   const value = (requirement.criteria || []).find((item) => item.dimension === "universal.business.type")?.value || {};
-  return value.list?.[1] || value.text || requirement.businessContext?.summary || "";
+  return customerSentence(value.list?.[1] || value.text || requirement.businessContext?.summary || "");
 }
 export function searchSummaryRows(bundle, options = {}) {
   const requirement = bundle.currentRevision.requirement; const entryContext = bundle.entryContext || {};

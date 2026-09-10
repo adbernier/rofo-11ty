@@ -35,7 +35,7 @@ for (const item of cases) {
   const projection = projectUniversalIntelligence(item.requirement);
   const html = renderer.renderLocationBriefV2Page(bundle(item), true, false, { publicExperience: true });
   assert(html.includes("What matters for this search"), `${item.id} lacks useful universal guidance`);
-  assert(html.includes("What Rofo will investigate"), `${item.id} lacks investigation guidance`);
+  assert(html.includes("What we&#39;ll"), `${item.id} lacks customer-facing next questions`);
   for (const label of item.expected) assert(html.includes(label), `${item.id} lacks ${label}`);
   assert(html.includes("Rofo has not produced a personalized local market ranking for this search."));
   assert(!html.includes("Locations worth investigating"), `${item.id} must not render a false shortlist`);

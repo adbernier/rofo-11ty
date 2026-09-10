@@ -1,0 +1,72 @@
+{
+  "schemaVersion": "rofo-customer-voice:v1",
+  "principle": "INTERNAL_CONTRACT_NE_CUSTOMER_LANGUAGE",
+  "voice": [
+    "KNOWLEDGEABLE",
+    "CLEAR",
+    "USEFUL",
+    "CONCISE",
+    "CONFIDENT_BUT_CALIBRATED",
+    "HUMAN"
+  ],
+  "sequence": [
+    "CONCLUSION",
+    "EXPLANATION",
+    "NEXT_QUESTION"
+  ],
+  "moduleQuestions": {
+    "recommendation": "Why should I consider this area?",
+    "comparison": "How are these locations different?",
+    "verification": "What do we still need to confirm?",
+    "examples": "What kinds of buildings are here?",
+    "cta": "What happens next?"
+  },
+  "omissionRule": "Do not render a value merely because the canonical system has a field for it. Omit empty, unknown, unstated, or non-material values unless the absence itself affects the decision.",
+  "repetitionRule": "A conclusion may appear once. Repeat it only when the later occurrence adds a different decision-relevant consequence.",
+  "evidenceRule": "Translate supported intelligence; never alter provenance, confidence, recommendation logic, or availability boundaries.",
+  "toneBoundaries": {
+    "salesy": [
+      "perfect",
+      "amazing",
+      "unbeatable",
+      "ideal",
+      "incredible"
+    ],
+    "overconfident": [
+      "best",
+      "clearly superior",
+      "definitely",
+      "guaranteed"
+    ],
+    "robotic": [
+      "applicability",
+      "bounded universe",
+      "deterministic ordering"
+    ],
+    "defensive": [
+      "repeated guarantees and investigation disclaimers"
+    ]
+  },
+  "creVocabulary": [
+    "office",
+    "retail",
+    "warehouse",
+    "distribution",
+    "production",
+    "manufacturing",
+    "contractor space",
+    "service-industrial",
+    "office/warehouse",
+    "loading",
+    "clear height",
+    "power",
+    "yard",
+    "parking",
+    "building size",
+    "location",
+    "district",
+    "corridor",
+    "building",
+    "space"
+  ]
+}

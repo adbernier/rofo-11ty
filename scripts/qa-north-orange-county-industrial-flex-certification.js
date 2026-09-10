@@ -75,12 +75,11 @@ const order = (snapshot) => snapshot.shortlist.map((item) => item.districtId);
     assert.notEqual(result.snapshot.readiness, "INVESTIGATE", `${name} should produce controlled guidance`);
     assert.deepEqual(order(result.snapshot), expected, `${name} ordering`);
     assert.deepEqual(order(stored.currentSnapshot), expected, `${name} persisted ordering`);
-    assert(html.includes(expected.length === 1 ? "Starting point worth investigating" : "Peer locations worth investigating"));
-    assert(html.includes("bounded North Orange County comparison"));
-    assert(html.includes("not a countywide ranking"));
-    assert(html.includes("This Requirement aligns with reviewed"));
-    assert(html.includes("representative examples, not current availability"));
-    assert(html.includes("property-level investigation"));
+    assert(html.includes(expected.length === 1 ? "One area to start with" : "Two areas worth comparing"));
+    assert(html.includes("This search aligns with"));
+    assert(html.includes("Examples in the area"));
+    assert(html.includes("property level"));
+    assert(!/reviewed evidence supports|Industrial-led applicability/i.test(html));
     assert(!/best market|absolute winner|recommended winner/i.test(html));
     assert(!/strong supported access|good freeway access|airport access/i.test(html));
     assert(result.snapshot.shortlist.every((item) => item.presentation.representativeBuildings.every((representative) => representative.availabilitySemantics === "REPRESENTATIVE_ONLY_NOT_AVAILABILITY" && representative.provenance.length && representative.propertyVerification)));
@@ -109,7 +108,7 @@ const order = (snapshot) => snapshot.shortlist.map((item) => item.districtId);
     const result = await api.createBrief(env, requirement(`neutral-${marketId}-${candidates[0] || "city"}`, ["work", "store"], "Small office and warehouse mix under 2,500 SF", marketId, candidates), context(marketId, candidates));
     const html = await render(env, result);
     neutralOrders.push(order(result.snapshot));
-    assert(html.includes("Peer locations worth investigating"));
+    assert(html.includes("Two areas worth comparing"));
   }
   neutralOrders.slice(1).forEach((item) => assert.deepEqual(item, neutralOrders[0]));
 
@@ -130,11 +129,12 @@ const order = (snapshot) => snapshot.shortlist.map((item) => item.districtId);
     assert.equal(result.snapshot.readiness, "INVESTIGATE", item.id);
     assert.equal(result.snapshot.shortlist.length, 0);
     assert.equal(result.brief.lifecycleStage, "LOCATION_INVESTIGATE");
-    assert(!html.includes("Peer locations worth investigating"));
-    assert(!html.includes("Starting point worth investigating"));
+    assert(!html.includes("Two areas worth comparing"));
+    assert(!html.includes("One area to start with"));
+    assert(html.includes("A little more detail will help narrow the location"));
     assert(!html.includes("Fullerton Industrial / Service Area"));
-    assert(html.includes("Rofo has not produced a personalized local market ranking"));
-    assert(html.includes("Find Spaces That Fit"));
+    assert(html.includes("A little more detail will help narrow the location"));
+    assert(html.includes("Continue my search"));
   }
 
   const storedSuccess = created[0].result;
@@ -144,7 +144,7 @@ const order = (snapshot) => snapshot.shortlist.map((item) => item.districtId);
   const persisted = await api.getBriefBundle(runtimeOff, storedSuccess.brief.publicId, true);
   assert.deepEqual(order(persisted.currentSnapshot), order(storedSuccess.snapshot));
   const persistedHtml = await render(runtimeOff, storedSuccess);
-  assert(persistedHtml.includes("Starting point worth investigating"));
+  assert(persistedHtml.includes("One area to start with"));
 
   fs.rmSync(temp, { recursive: true, force: true });
   console.log(`North Orange County Industrial/Flex certification QA passed: ${scenarios.length} realistic recommendation Briefs, ${abstentions.length} abstentions, four neutral entry contexts, representative rendering, persistence, customer framing, and default-deny rollback.`);

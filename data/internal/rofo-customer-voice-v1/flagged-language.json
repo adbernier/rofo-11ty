@@ -1,0 +1,958 @@
+{
+  "auditedFiles": [
+    "functions/operator/location-brief-v2/[publicId].js",
+    "functions/location-brief/[publicId].js",
+    "functions/location-requirement/index.js",
+    "functions/property-requirement/[publicId].js",
+    "functions/_shared/project-snapshot.js",
+    "pages/location-requirement.njk",
+    "pages/example-location-brief-detail.njk",
+    "_includes/partials/neighborhood/public-decision-surface.njk",
+    "_includes/partials/neighborhood/commercial-market-evidence.njk"
+  ],
+  "findings": [
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "REVIEW",
+      "term": "unknown",
+      "surface": "functions/operator/location-brief-v2/[publicId].js",
+      "line": 16,
+      "excerpt": "return { STRONG: \"Strong\", GOOD: \"Good\", MODERATE: \"Mixed\", MIXED: \"Mixed\", PARTIAL: \"Mixed\", WEAK: \"Limited\", UNKNOWN: \"Not established\" }[value] || \"Not established\";"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "ERROR",
+      "term": "eligibility",
+      "surface": "functions/operator/location-brief-v2/[publicId].js",
+      "line": 31,
+      "excerpt": "if (item.eligibilitySource === \"SHADOW_ACCESS_ACTIVATION\" && employee) return cleanStrength(employee);"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "ERROR",
+      "term": "canonical",
+      "surface": "functions/operator/location-brief-v2/[publicId].js",
+      "line": 50,
+      "excerpt": "return `<section class=\"lb2-buildings\"><h4>Examples in the area</h4><p>These examples show the range of settings in the area; we'll confirm current spaces separately.</p><div class=\"lb2-building-grid\">${buildings.map((bu"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "REVIEW",
+      "term": "candidate",
+      "surface": "functions/operator/location-brief-v2/[publicId].js",
+      "line": 77,
+      "excerpt": "function candidateName(candidate, snapshot) {"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "REVIEW",
+      "term": "candidate",
+      "surface": "functions/operator/location-brief-v2/[publicId].js",
+      "line": 78,
+      "excerpt": "const match = (snapshot.shortlist || []).find((item) => item.districtId === candidate.canonicalDistrictId || item.districtId === candidate.sourceIdentity);"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "ERROR",
+      "term": "canonical",
+      "surface": "functions/operator/location-brief-v2/[publicId].js",
+      "line": 78,
+      "excerpt": "const match = (snapshot.shortlist || []).find((item) => item.districtId === candidate.canonicalDistrictId || item.districtId === candidate.sourceIdentity);"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "REVIEW",
+      "term": "candidate",
+      "surface": "functions/operator/location-brief-v2/[publicId].js",
+      "line": 80,
+      "excerpt": "if (candidate.canonicalDistrictId === \"showplace-square\") return \"Showplace Square / Design District\";"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "ERROR",
+      "term": "canonical",
+      "surface": "functions/operator/location-brief-v2/[publicId].js",
+      "line": 80,
+      "excerpt": "if (candidate.canonicalDistrictId === \"showplace-square\") return \"Showplace Square / Design District\";"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "REVIEW",
+      "term": "candidate",
+      "surface": "functions/operator/location-brief-v2/[publicId].js",
+      "line": 81,
+      "excerpt": "return titleCase(candidate.canonicalDistrictId);"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "ERROR",
+      "term": "canonical",
+      "surface": "functions/operator/location-brief-v2/[publicId].js",
+      "line": 81,
+      "excerpt": "return titleCase(candidate.canonicalDistrictId);"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "REVIEW",
+      "term": "unknown",
+      "surface": "functions/operator/location-brief-v2/[publicId].js",
+      "line": 83,
+      "excerpt": "function assessmentItem(assessment) { return { ...assessment.componentResult, unknowns: assessment.unknowns, presentation: assessment.presentation }; }"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "REVIEW",
+      "term": "candidate",
+      "surface": "functions/operator/location-brief-v2/[publicId].js",
+      "line": 84,
+      "excerpt": "function candidateSection(candidates, snapshot, requirement) {"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "REVIEW",
+      "term": "candidate",
+      "surface": "functions/operator/location-brief-v2/[publicId].js",
+      "line": 85,
+      "excerpt": "if (!(candidates || []).length) return \"\";"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "REVIEW",
+      "term": "candidate",
+      "surface": "functions/operator/location-brief-v2/[publicId].js",
+      "line": 86,
+      "excerpt": "const assessments = snapshot.candidateAssessments || [];"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "ERROR",
+      "term": "readiness",
+      "surface": "functions/operator/location-brief-v2/[publicId].js",
+      "line": 87,
+      "excerpt": "const alternative = snapshot.readiness === \"INVESTIGATE\" ? (snapshot.comparisonAlternatives || [])[0] : null;"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "REVIEW",
+      "term": "candidate",
+      "surface": "functions/operator/location-brief-v2/[publicId].js",
+      "line": 88,
+      "excerpt": "return `<section class=\"lb2-considering\" data-comparison-focus-root><div class=\"lb2-section-head\"><p class=\"lb2-eyebrow\">Your list</p><h2>${snapshot.readiness === \"INVESTIGATE\" ? \"Area you're considering\" : \"Areas you're"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "ERROR",
+      "term": "readiness",
+      "surface": "functions/operator/location-brief-v2/[publicId].js",
+      "line": 88,
+      "excerpt": "return `<section class=\"lb2-considering\" data-comparison-focus-root><div class=\"lb2-section-head\"><p class=\"lb2-eyebrow\">Your list</p><h2>${snapshot.readiness === \"INVESTIGATE\" ? \"Area you're considering\" : \"Areas you're"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "REVIEW",
+      "term": "candidate",
+      "surface": "functions/operator/location-brief-v2/[publicId].js",
+      "line": 89,
+      "excerpt": "const assessment = assessments.find((item) => item.districtId === candidate.canonicalDistrictId || item.sourceDistrictIds?.includes(candidate.sourceIdentity));"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "ERROR",
+      "term": "canonical",
+      "surface": "functions/operator/location-brief-v2/[publicId].js",
+      "line": 89,
+      "excerpt": "const assessment = assessments.find((item) => item.districtId === candidate.canonicalDistrictId || item.sourceDistrictIds?.includes(candidate.sourceIdentity));"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "REVIEW",
+      "term": "candidate",
+      "surface": "functions/operator/location-brief-v2/[publicId].js",
+      "line": 90,
+      "excerpt": "if ([\"WELL_SUPPORTED\", \"PARTIALLY_SUPPORTED\", \"ASSESSABLE\"].includes(assessment?.assessmentStatus)) return `<div data-focus-panel=\"candidate\"${index ? \"\" : \" data-focus-anchor\"}>${districtCard(assessmentItem(assessment),"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "REVIEW",
+      "term": "candidate",
+      "surface": "functions/operator/location-brief-v2/[publicId].js",
+      "line": 91,
+      "excerpt": "if (assessment) return `<div class=\"lb2-candidate-limited\"><strong>${esc(assessment.districtName)}</strong><span>Already on your list</span><p>Rofo does not yet have enough reviewed intelligence to assess this area fairl"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "REVIEW",
+      "term": "candidate",
+      "surface": "functions/operator/location-brief-v2/[publicId].js",
+      "line": 92,
+      "excerpt": "return `<div class=\"lb2-candidate-limited\"><strong>${esc(candidateName(candidate, snapshot))}</strong><span>Already on your list</span></div>`;"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "REVIEW",
+      "term": "unknown",
+      "surface": "functions/operator/location-brief-v2/[publicId].js",
+      "line": 96,
+      "excerpt": "if (difference.sharedUnknown) return \"Not established for your mixed Bay Area workforce\";"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "REVIEW",
+      "term": "unknown",
+      "surface": "functions/operator/location-brief-v2/[publicId].js",
+      "line": 97,
+      "excerpt": "if ([\"STRONG\", \"GOOD\", \"MODERATE\", \"MIXED\", \"PARTIAL\", \"WEAK\", \"UNKNOWN\"].includes(value)) return humanBand(value);"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "REVIEW",
+      "term": "candidate",
+      "surface": "functions/operator/location-brief-v2/[publicId].js",
+      "line": 103,
+      "excerpt": "const candidate = (snapshot.candidateAssessments || [])[0]; const item = items[0];"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "REVIEW",
+      "term": "unknown",
+      "surface": "functions/operator/location-brief-v2/[publicId].js",
+      "line": 104,
+      "excerpt": "const supported = (item.differences || []).filter((difference) => !difference.sharedUnknown).slice(0, 2);"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "REVIEW",
+      "term": "candidate",
+      "surface": "functions/operator/location-brief-v2/[publicId].js",
+      "line": 105,
+      "excerpt": "return `<section class=\"lb2-alternatives\"><div class=\"lb2-section-head\"><p class=\"lb2-eyebrow\">Compare</p><h2>Another area worth considering</h2></div><article class=\"lb2-compare-card\"><p class=\"lb2-rec__role\">Worth comp"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "REVIEW",
+      "term": "unknown",
+      "surface": "functions/operator/location-brief-v2/[publicId].js",
+      "line": 105,
+      "excerpt": "return `<section class=\"lb2-alternatives\"><div class=\"lb2-section-head\"><p class=\"lb2-eyebrow\">Compare</p><h2>Another area worth considering</h2></div><article class=\"lb2-compare-card\"><p class=\"lb2-rec__role\">Worth comp"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "REVIEW",
+      "term": "candidate",
+      "surface": "functions/operator/location-brief-v2/[publicId].js",
+      "line": 106,
+      "excerpt": "<div class=\"lb2-pair-differences\"><div class=\"lb2-section-head\"><h2>How they differ</h2></div><div class=\"lb2-compare\" style=\"--lb2-cols:2\" role=\"table\" aria-label=\"Candidate district comparison\"><div class=\"lb2-compare_"
+    },
+    {
+      "rule": "SENTENCE_COMPLEXITY",
+      "severity": "WARNING",
+      "excerpt": "<div class=\"lb2-pair-differences\"><div class=\"lb2-section-head\"><h2>How they differ</h2></div><div class=\"lb2-compare\" style=\"--lb2-cols:2\" role=\"table\" aria-label=\"Candidate district comparison\"><div class=\"lb2-compare_",
+      "surface": "functions/operator/location-brief-v2/[publicId].js",
+      "line": 106
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "ERROR",
+      "term": "projection",
+      "surface": "functions/operator/location-brief-v2/[publicId].js",
+      "line": 125,
+      "excerpt": "function substantiveUniversalItems(requirement, projection) {"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "ERROR",
+      "term": "projection",
+      "surface": "functions/operator/location-brief-v2/[publicId].js",
+      "line": 127,
+      "excerpt": "return projection.whatMatters.filter((item) => item.activatedBy.some((signal) => signal.startsWith(\"dimension:\") || signal.startsWith(\"field:\") || (signal.startsWith(\"activity:\") && !defaults.has(signal.slice(9)))));"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "ERROR",
+      "term": "projection",
+      "surface": "functions/operator/location-brief-v2/[publicId].js",
+      "line": 130,
+      "excerpt": "const projection = projectUniversalIntelligence(requirement);"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "ERROR",
+      "term": "projection",
+      "surface": "functions/operator/location-brief-v2/[publicId].js",
+      "line": 131,
+      "excerpt": "const items = substantiveUniversalItems(requirement, projection);"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "ERROR",
+      "term": "projection",
+      "surface": "functions/operator/location-brief-v2/[publicId].js",
+      "line": 132,
+      "excerpt": "if (!projection.foundations.length || !items.length) return { projection, items, matters: \"\" };"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "ERROR",
+      "term": "projection",
+      "surface": "functions/operator/location-brief-v2/[publicId].js",
+      "line": 134,
+      "excerpt": "return { projection, items, matters };"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "REVIEW",
+      "term": "candidate",
+      "surface": "functions/operator/location-brief-v2/[publicId].js",
+      "line": 142,
+      "excerpt": "const { brief, currentRevision, currentSnapshot, candidates } = bundle;"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "ERROR",
+      "term": "readiness",
+      "surface": "functions/operator/location-brief-v2/[publicId].js",
+      "line": 144,
+      "excerpt": "<dl><dt>Brief</dt><dd>${esc(brief.publicId)}</dd><dt>Lifecycle</dt><dd>${esc(brief.lifecycleStage)}</dd><dt>Requirement revision</dt><dd>${esc(currentRevision.revisionNumber)}</dd><dt>Snapshot</dt><dd>${esc(currentSnapsh"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "ERROR",
+      "term": "readiness",
+      "surface": "functions/operator/location-brief-v2/[publicId].js",
+      "line": 147,
+      "excerpt": "<h3>Recommendation snapshots</h3><ol>${bundle.snapshots.map((item) => `<li>${esc(item.id)} · ${esc(item.readiness)} · ${esc(item.createdAt)}${item.id === brief.currentRecommendationSnapshotId ? \" · current\" : \" · superse"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "REVIEW",
+      "term": "candidate",
+      "surface": "functions/operator/location-brief-v2/[publicId].js",
+      "line": 149,
+      "excerpt": "<h3>Candidate provenance</h3><pre>${esc(JSON.stringify(candidates, null, 2))}</pre>"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "ERROR",
+      "term": "provenance",
+      "surface": "functions/operator/location-brief-v2/[publicId].js",
+      "line": 149,
+      "excerpt": "<h3>Candidate provenance</h3><pre>${esc(JSON.stringify(candidates, null, 2))}</pre>"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "REVIEW",
+      "term": "candidate",
+      "surface": "functions/operator/location-brief-v2/[publicId].js",
+      "line": 150,
+      "excerpt": "<h3>Candidate comparison</h3><pre>${esc(JSON.stringify(currentSnapshot.comparisonAlternatives || [], null, 2))}</pre>"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "ERROR",
+      "term": "canonical",
+      "surface": "functions/operator/location-brief-v2/[publicId].js",
+      "line": 151,
+      "excerpt": "<h3>Canonical current Requirement</h3><pre>${esc(JSON.stringify(currentRevision.requirement, null, 2))}</pre>"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "REVIEW",
+      "term": "candidate",
+      "surface": "functions/operator/location-brief-v2/[publicId].js",
+      "line": 156,
+      "excerpt": "const { brief, entryContext, currentRevision, currentSnapshot, candidates } = bundle;"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "ERROR",
+      "term": "readiness",
+      "surface": "functions/operator/location-brief-v2/[publicId].js",
+      "line": 162,
+      "excerpt": "const readiness = currentSnapshot.readiness;"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "ERROR",
+      "term": "composition",
+      "surface": "functions/operator/location-brief-v2/[publicId].js",
+      "line": 165,
+      "excerpt": "|| (currentSnapshot.foundationVersions?.composition === \"north-orange-county-industrial-flex-evidence-foundation:v1\" && requirement.propertyTypes?.[0] === \"industrial_flex\")"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "ERROR",
+      "term": "composition",
+      "surface": "functions/operator/location-brief-v2/[publicId].js",
+      "line": 166,
+      "excerpt": "|| (currentSnapshot.foundationVersions?.composition === \"phoenix-industrial-flex-evidence-foundation:v1\" && requirement.propertyTypes?.[0] === \"industrial_flex\")"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "ERROR",
+      "term": "composition",
+      "surface": "functions/operator/location-brief-v2/[publicId].js",
+      "line": 167,
+      "excerpt": "|| (currentSnapshot.foundationVersions?.composition === \"indianapolis-industrial-flex-evidence-foundation:v1\" && requirement.propertyTypes?.[0] === \"industrial_flex\")"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "ERROR",
+      "term": "composition",
+      "surface": "functions/operator/location-brief-v2/[publicId].js",
+      "line": 168,
+      "excerpt": "|| (currentSnapshot.foundationVersions?.composition === \"sacramento-industrial-flex-evidence-foundation:v1\" && requirement.propertyTypes?.[0] === \"industrial_flex\");"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "ERROR",
+      "term": "bounded",
+      "surface": "functions/operator/location-brief-v2/[publicId].js",
+      "line": 169,
+      "excerpt": "const certified = reviewedLocalIntelligence && [\"FULL\", \"BOUNDED\"].includes(readiness) && (currentSnapshot.shortlist || []).length > 0;"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "ERROR",
+      "term": "readiness",
+      "surface": "functions/operator/location-brief-v2/[publicId].js",
+      "line": 169,
+      "excerpt": "const certified = reviewedLocalIntelligence && [\"FULL\", \"BOUNDED\"].includes(readiness) && (currentSnapshot.shortlist || []).length > 0;"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "ERROR",
+      "term": "readiness",
+      "surface": "functions/operator/location-brief-v2/[publicId].js",
+      "line": 171,
+      "excerpt": "const priorities = readiness === \"INVESTIGATE\" ? investigationPriorities(requirement) : [];"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "REVIEW",
+      "term": "candidate",
+      "surface": "functions/operator/location-brief-v2/[publicId].js",
+      "line": 172,
+      "excerpt": "const hasCandidates = marketId === \"san-francisco\" && (candidates || []).length > 0;"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "ERROR",
+      "term": "readiness",
+      "surface": "functions/operator/location-brief-v2/[publicId].js",
+      "line": 173,
+      "excerpt": "const presentation = projectLocationBrief({ snapshot: certified ? currentSnapshot : { ...currentSnapshot, readiness: \"INVESTIGATE\", shortlist: [] }, requirement, market });"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "REVIEW",
+      "term": "candidate",
+      "surface": "functions/operator/location-brief-v2/[publicId].js",
+      "line": 181,
+      "excerpt": "const candidateIds = hasCandidates ? (candidates || []).map((item) => item.canonicalDistrictId) : [];"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "ERROR",
+      "term": "canonical",
+      "surface": "functions/operator/location-brief-v2/[publicId].js",
+      "line": 181,
+      "excerpt": "const candidateIds = hasCandidates ? (candidates || []).map((item) => item.canonicalDistrictId) : [];"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "REVIEW",
+      "term": "candidate",
+      "surface": "functions/operator/location-brief-v2/[publicId].js",
+      "line": 185,
+      "excerpt": ":root{font-family:Inter,ui-sans-serif,system-ui,sans-serif;color:#0f172a;background:#f5f8fc;line-height:1.55}*{box-sizing:border-box}body{margin:0}.lb2{max-width:1160px;margin:auto;padding:34px 22px 80px}.lb2 a{color:#17"
+    },
+    {
+      "rule": "SENTENCE_COMPLEXITY",
+      "severity": "WARNING",
+      "excerpt": ":root{font-family:Inter,ui-sans-serif,system-ui,sans-serif;color:#0f172a;background:#f5f8fc;line-height:1.55}*{box-sizing:border-box}body{margin:0}.lb2{max-width:1160px;margin:auto;padding:34px 22px 80px}.lb2 a{color:#17",
+      "surface": "functions/operator/location-brief-v2/[publicId].js",
+      "line": 185
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "REVIEW",
+      "term": "candidate",
+      "surface": "functions/operator/location-brief-v2/[publicId].js",
+      "line": 189,
+      "excerpt": "<div class=\"lb2-layout\"><div class=\"lb2-main\">${universal.matters}${hasCandidates ? candidateSection(candidates, currentSnapshot, requirement) : \"\"}"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "ERROR",
+      "term": "readiness",
+      "surface": "functions/operator/location-brief-v2/[publicId].js",
+      "line": 190,
+      "excerpt": "${reviewedLocalIntelligence && readiness === \"INVESTIGATE\" ? comparisonAlternatives(currentSnapshot, requirement) : \"\"}"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "REVIEW",
+      "term": "candidate",
+      "surface": "functions/operator/location-brief-v2/[publicId].js",
+      "line": 191,
+      "excerpt": "${certified || priorities.length || presentation.mode === \"INVESTIGATE\" ? `<section class=\"lb2-guidance\"><div class=\"lb2-section-head\"><p class=\"lb2-eyebrow\">Location guidance</p><h2>${esc(guidanceHeading)}</h2></div><p "
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "ERROR",
+      "term": "readiness",
+      "surface": "functions/operator/location-brief-v2/[publicId].js",
+      "line": 196,
+      "excerpt": "</main><script>(function(){var endpoint='/api/analytics/search-profile',journeyId='';try{journeyId=sessionStorage.getItem('rofoVnextJourneyId')||''}catch(error){}function track(name,extra){${publicExperience ? `try{fetch"
+    },
+    {
+      "rule": "SENTENCE_COMPLEXITY",
+      "severity": "WARNING",
+      "excerpt": "const completion = `<div class=\"property-stage__complete\"><p class=\"requirement-prototype__eyebrow\">Space needs</p><h2>Your space requirements are ready.</h2><p>Rofo has saved the initial details needed for the next stag",
+      "surface": "functions/property-requirement/[publicId].js",
+      "line": 33
+    },
+    {
+      "rule": "SENTENCE_COMPLEXITY",
+      "severity": "WARNING",
+      "excerpt": "return `${completion}<section class=\"property-stage__share\"><p class=\"requirement-prototype__eyebrow\">Next step</p><h2>Ready to see what's available?</h2><p>Rofo can use your search to investigate current and upcoming av",
+      "surface": "functions/property-requirement/[publicId].js",
+      "line": 35
+    },
+    {
+      "rule": "SENTENCE_COMPLEXITY",
+      "severity": "WARNING",
+      "excerpt": "body{margin:0;background:#f5f8fc;font-family:Inter,ui-sans-serif,system-ui,sans-serif;color:#0f172a}.property-stage{max-width:1160px;margin:auto;padding:clamp(2rem,5vw,4rem) 1rem 5rem}.property-stage__header{margin-botto",
+      "surface": "functions/property-requirement/[publicId].js",
+      "line": 41
+    },
+    {
+      "rule": "SENTENCE_COMPLEXITY",
+      "severity": "WARNING",
+      "excerpt": "</style></head><body><main class=\"property-stage requirement-prototype\"><header class=\"property-stage__header\"><p class=\"requirement-prototype__eyebrow\">Space search</p><h1>Tell us what you need in a space.</h1><p>A few ",
+      "surface": "functions/property-requirement/[publicId].js",
+      "line": 42
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "REVIEW",
+      "term": "candidate",
+      "surface": "functions/property-requirement/[publicId].js",
+      "line": 80,
+      "excerpt": "recommendation: { snapshotId: bundle.currentSnapshot.id, snapshotVersion: bundle.currentSnapshot.schemaVersion, readiness: bundle.currentSnapshot.readiness, locationsWorthInvestigating: context.guidanceDistricts, candida"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "ERROR",
+      "term": "readiness",
+      "surface": "functions/property-requirement/[publicId].js",
+      "line": 80,
+      "excerpt": "recommendation: { snapshotId: bundle.currentSnapshot.id, snapshotVersion: bundle.currentSnapshot.schemaVersion, readiness: bundle.currentSnapshot.readiness, locationsWorthInvestigating: context.guidanceDistricts, candida"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "REVIEW",
+      "term": "candidate",
+      "surface": "functions/property-requirement/[publicId].js",
+      "line": 87,
+      "excerpt": "`Locations worth investigating: ${context.guidanceDistricts.join(\", \")}`, context.candidateDistrictIds.length ? `Areas already considered: ${(context.candidateDistrictNames.length ? context.candidateDistrictNames : conte"
+    },
+    {
+      "rule": "SENTENCE_COMPLEXITY",
+      "severity": "WARNING",
+      "excerpt": "else if (step === 2) { answers.approximateSquareFeet = form.get(\"approximateSquareFeet\"); answers.approximatePeople = form.get(\"approximatePeople\"); if (!(Number(answers.approximateSquareFeet) > 0) && !(Number(answers.ap",
+      "surface": "functions/property-requirement/[publicId].js",
+      "line": 170
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "ERROR",
+      "term": "canonical",
+      "surface": "functions/_shared/project-snapshot.js",
+      "line": 67,
+      "excerpt": "export function businessPresentation({ canonical = \"\", specific = \"\", propertyType = \"\" } = {}) {"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "ERROR",
+      "term": "canonical",
+      "surface": "functions/_shared/project-snapshot.js",
+      "line": 69,
+      "excerpt": "let canonicalType = clean(canonical, 140);"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "ERROR",
+      "term": "canonical",
+      "surface": "functions/_shared/project-snapshot.js",
+      "line": 74,
+      "excerpt": "if (retailContext && officeOnlyCategories.has(canonicalType)) {"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "ERROR",
+      "term": "canonical",
+      "surface": "functions/_shared/project-snapshot.js",
+      "line": 75,
+      "excerpt": "canonicalType = /\\b(?:food|foods|meat|grocery|frozen|restaurant|cafe|bakery|beverage)\\b/i.test(suppliedUse)"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "ERROR",
+      "term": "canonical",
+      "surface": "functions/_shared/project-snapshot.js",
+      "line": 78,
+      "excerpt": "classificationStatus = canonicalType === \"other\" ? \"investigate\" : \"classified\";"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "ERROR",
+      "term": "canonical",
+      "surface": "functions/_shared/project-snapshot.js",
+      "line": 79,
+      "excerpt": "} else if (retailContext && canonicalType && !retailCategories.has(canonicalType)) {"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "ERROR",
+      "term": "canonical",
+      "surface": "functions/_shared/project-snapshot.js",
+      "line": 80,
+      "excerpt": "canonicalType = \"other\";"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "ERROR",
+      "term": "canonical",
+      "surface": "functions/_shared/project-snapshot.js",
+      "line": 83,
+      "excerpt": "if (/\\bbarber(?:shop)?\\b/i.test(suppliedUse) && /retail|service/i.test(propertyType)) canonicalType = \"neighborhood_service\";"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "ERROR",
+      "term": "canonical",
+      "surface": "functions/_shared/project-snapshot.js",
+      "line": 84,
+      "excerpt": "if (/\\bdealership\\b/i.test(suppliedUse) && canonicalType === \"professional_services\") classificationStatus = \"investigate\";"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "ERROR",
+      "term": "canonical",
+      "surface": "functions/_shared/project-snapshot.js",
+      "line": 86,
+      "excerpt": "businessUse: suppliedUse || humanizeTaxonomyLabel(canonicalType),"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "ERROR",
+      "term": "canonical",
+      "surface": "functions/_shared/project-snapshot.js",
+      "line": 87,
+      "excerpt": "businessCategory: requirementDisplayLabel(\"business_category\", canonicalType),"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "ERROR",
+      "term": "canonical",
+      "surface": "functions/_shared/project-snapshot.js",
+      "line": 88,
+      "excerpt": "canonicalBusinessType: canonicalType,"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "ERROR",
+      "term": "canonical",
+      "surface": "functions/_shared/project-snapshot.js",
+      "line": 180,
+      "excerpt": "const business = businessPresentation({ canonical: requirements.businessType || searchProfile.businessType || searchProfile.business_type, specific: requirements.businessTypeOther || searchProfile.businessUse || searchPr"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "ERROR",
+      "term": "canonical",
+      "surface": "functions/_shared/project-snapshot.js",
+      "line": 199,
+      "excerpt": "businessType: business.canonicalBusinessType,"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "ERROR",
+      "term": "canonical",
+      "surface": "functions/_shared/project-snapshot.js",
+      "line": 225,
+      "excerpt": "canonical: parsed.canonicalBusinessType || parsed.businessType || lead && (lead.business_type || lead.location_profile_business_type),"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "ERROR",
+      "term": "canonical",
+      "surface": "functions/_shared/project-snapshot.js",
+      "line": 232,
+      "excerpt": "businessType: business.canonicalBusinessType,"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "ERROR",
+      "term": "canonical",
+      "surface": "functions/_shared/project-snapshot.js",
+      "line": 255,
+      "excerpt": "const business = businessPresentation({ canonical: lead && (lead.location_profile_business_type || lead.business_type) || v2Location.businessCategory || v2Location.business, specific: lead && (lead.location_profile_busin"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "ERROR",
+      "term": "canonical",
+      "surface": "functions/_shared/project-snapshot.js",
+      "line": 259,
+      "excerpt": "businessType: business.canonicalBusinessType,"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "ERROR",
+      "term": "readiness",
+      "surface": "functions/_shared/project-snapshot.js",
+      "line": 306,
+      "excerpt": "export const BROKER_READINESS = Object.freeze({"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "ERROR",
+      "term": "canonical",
+      "surface": "functions/_shared/project-snapshot.js",
+      "line": 324,
+      "excerpt": "const canonical = normalizedBusinessUse(snapshot.canonicalBusinessType || snapshot.businessType);"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "ERROR",
+      "term": "canonical",
+      "surface": "functions/_shared/project-snapshot.js",
+      "line": 325,
+      "excerpt": "return Boolean(canonical && !GENERIC_BUSINESS_USES.has(canonical) && canonical !== \"professional services\");"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "ERROR",
+      "term": "readiness",
+      "surface": "functions/_shared/project-snapshot.js",
+      "line": 340,
+      "excerpt": "function readinessGap(code, label) {"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "ERROR",
+      "term": "readiness",
+      "surface": "functions/_shared/project-snapshot.js",
+      "line": 344,
+      "excerpt": "export function assessBrokerReadiness(lead) {"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "ERROR",
+      "term": "readiness",
+      "surface": "functions/_shared/project-snapshot.js",
+      "line": 351,
+      "excerpt": "if (!snapshot.market) coreGaps.push(readinessGap(\"geography\", \"Add a usable market or geography.\"));"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "ERROR",
+      "term": "readiness",
+      "surface": "functions/_shared/project-snapshot.js",
+      "line": 352,
+      "excerpt": "if (!snapshot.propertyType) coreGaps.push(readinessGap(\"property_type\", \"Confirm the property type.\"));"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "ERROR",
+      "term": "readiness",
+      "surface": "functions/_shared/project-snapshot.js",
+      "line": 353,
+      "excerpt": "if (!snapshot.approximateSize) coreGaps.push(readinessGap(\"size\", \"Add a usable size or headcount context.\"));"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "ERROR",
+      "term": "readiness",
+      "surface": "functions/_shared/project-snapshot.js",
+      "line": 354,
+      "excerpt": "if (!snapshot.timing) coreGaps.push(readinessGap(\"timing\", \"Confirm the search timing.\"));"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "ERROR",
+      "term": "readiness",
+      "surface": "functions/_shared/project-snapshot.js",
+      "line": 355,
+      "excerpt": "if (!snapshot.businessUse && !snapshot.businessCategory) coreGaps.push(readinessGap(\"specific_business_use\", \"Clarify what the business does.\"));"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "ERROR",
+      "term": "readiness",
+      "surface": "functions/_shared/project-snapshot.js",
+      "line": 358,
+      "excerpt": "status: BROKER_READINESS.INSUFFICIENT,"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "ERROR",
+      "term": "readiness",
+      "surface": "functions/_shared/project-snapshot.js",
+      "line": 376,
+      "excerpt": "gaps.push(readinessGap(\"specific_business_use\", \"Clarify the actual customer-facing business or use.\"));"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "ERROR",
+      "term": "readiness",
+      "surface": "functions/_shared/project-snapshot.js",
+      "line": 378,
+      "excerpt": "if (!specificUse) gaps.push(readinessGap(\"specific_business_use\", \"Clarify what the business does in the Industrial/Flex space.\"));"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "ERROR",
+      "term": "readiness",
+      "surface": "functions/_shared/project-snapshot.js",
+      "line": 379,
+      "excerpt": "if (!operatingSignals.length) gaps.push(readinessGap(\"operating_need\", \"Clarify the warehouse, loading, production, service, showroom, or office/warehouse need.\"));"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "ERROR",
+      "term": "readiness",
+      "surface": "functions/_shared/project-snapshot.js",
+      "line": 381,
+      "excerpt": "gaps.push(readinessGap(\"specific_business_use\", \"Clarify the business or the work patterns the Office must support.\"));"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "ERROR",
+      "term": "readiness",
+      "surface": "functions/_shared/project-snapshot.js",
+      "line": 383,
+      "excerpt": "gaps.push(readinessGap(\"specific_business_use\", \"Clarify what the business does and how the space will be used.\"));"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "ERROR",
+      "term": "readiness",
+      "surface": "functions/_shared/project-snapshot.js",
+      "line": 387,
+      "excerpt": "gaps.push(readinessGap(\"specialized_requirement_clarification\", \"Clarify the specialized use and material property requirements before routing.\"));"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "ERROR",
+      "term": "readiness",
+      "surface": "functions/_shared/project-snapshot.js",
+      "line": 392,
+      "excerpt": "status: BROKER_READINESS.READY,"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "ERROR",
+      "term": "readiness",
+      "surface": "functions/_shared/project-snapshot.js",
+      "line": 404,
+      "excerpt": "status: BROKER_READINESS.NEEDS_QUALIFICATION,"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "ERROR",
+      "term": "composition",
+      "surface": "pages/location-requirement.njk",
+      "line": 15,
+      "excerpt": "<script type=\"application/json\" data-sf-office-composition-foundation>{{ sfOfficeCompositionFoundation | dump | safe }}</script>"
+    },
+    {
+      "rule": "SENTENCE_COMPLEXITY",
+      "severity": "WARNING",
+      "excerpt": "<div class=\"requirement-question\" data-question-card><p class=\"requirement-prototype__eyebrow\" data-question-kicker>Location search</p><h2 data-question-prompt></h2><p class=\"requirement-question__help requirement-questi",
+      "surface": "pages/location-requirement.njk",
+      "line": 22
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "ERROR",
+      "term": "readiness",
+      "surface": "pages/location-requirement.njk",
+      "line": 26,
+      "excerpt": "<section class=\"requirement-complete\" data-requirement-complete hidden><header><p class=\"requirement-prototype__eyebrow\">Your search</p><h2 data-requirement-title>Location search</h2><p>Rofo has enough context to create "
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "REVIEW",
+      "term": "candidate",
+      "surface": "pages/location-requirement.njk",
+      "line": 27,
+      "excerpt": "<section class=\"requirement-preview\" data-recommendation-preview hidden><h2 data-preview-heading></h2><p data-preview-intro></p><div data-preview-results></div><div data-candidate-comparisons></div><button type=\"button\" "
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "ERROR",
+      "term": "composition",
+      "surface": "pages/location-requirement.njk",
+      "line": 28,
+      "excerpt": "<section hidden aria-hidden=\"true\"><div data-preview-coverage></div><div data-access-shadow></div><div data-composition-debug></div><div data-debug-meta></div><div data-requirement-criteria></div><pre data-debug-json></p"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "ERROR",
+      "term": "composition",
+      "surface": "pages/location-requirement.njk",
+      "line": 30,
+      "excerpt": "<script src=\"/js/recommendations/normalize-sf-office-profile.js\" defer></script><script src=\"/js/recommendations/sf-office-recommendation-resolver.js\" defer></script><script src=\"/js/requirements/requirement-to-sf-office"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "ERROR",
+      "term": "resolver",
+      "surface": "pages/location-requirement.njk",
+      "line": 30,
+      "excerpt": "<script src=\"/js/recommendations/normalize-sf-office-profile.js\" defer></script><script src=\"/js/recommendations/sf-office-recommendation-resolver.js\" defer></script><script src=\"/js/requirements/requirement-to-sf-office"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "ERROR",
+      "term": "readiness",
+      "surface": "pages/location-requirement.njk",
+      "line": 30,
+      "excerpt": "<script src=\"/js/recommendations/normalize-sf-office-profile.js\" defer></script><script src=\"/js/recommendations/sf-office-recommendation-resolver.js\" defer></script><script src=\"/js/requirements/requirement-to-sf-office"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "ERROR",
+      "term": "canonical",
+      "surface": "pages/example-location-brief-detail.njk",
+      "line": 11,
+      "excerpt": "canonical: \"{{ metadata.siteUrl }}{{ sample.url }}\""
+    },
+    {
+      "rule": "SENTENCE_COMPLEXITY",
+      "severity": "WARNING",
+      "excerpt": "<div><div class=\"eyebrow\">Your business will be different</div><h2>See which San Francisco locations fit your business.</h2><p>Answer a few questions about your business, team, access needs, and priorities to create a fr",
+      "surface": "pages/example-location-brief-detail.njk",
+      "line": 71
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "WARNING",
+      "term": "representative environment",
+      "surface": "_includes/partials/neighborhood/commercial-market-evidence.njk",
+      "line": 4,
+      "excerpt": "<div class=\"eyebrow\">Representative environments</div>"
+    },
+    {
+      "rule": "INTERNAL_JARGON",
+      "severity": "WARNING",
+      "term": "representative environment",
+      "surface": "_includes/partials/neighborhood/commercial-market-evidence.njk",
+      "line": 10,
+      "excerpt": "{% set evidenceKind = \"Representative environment\" %}"
+    }
+  ]
+}

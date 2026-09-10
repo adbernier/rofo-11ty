@@ -1,0 +1,176 @@
+{
+  "invariant": {
+    "foundationVersion": "sacramento-industrial-flex-evidence-foundation:v1",
+    "scenarios": [
+      {
+        "id": "two-peer",
+        "readiness": "FULL",
+        "shortlist": [
+          "northgate-north-market-industrial",
+          "power-inn-industrial"
+        ]
+      },
+      {
+        "id": "one-peer",
+        "readiness": "BOUNDED",
+        "shortlist": [
+          "power-inn-industrial"
+        ]
+      },
+      {
+        "id": "investigate",
+        "readiness": "INVESTIGATE",
+        "shortlist": []
+      }
+    ]
+  },
+  "before": {
+    "heading": "Peer locations worth investigating",
+    "scope": "This is a bounded City of Sacramento Industrial/Flex comparison.",
+    "labels": [
+      "Industrial-led applicability",
+      "Why consider this location",
+      "Things to weigh",
+      "Representative environments",
+      "How they differ",
+      "What Rofo will investigate"
+    ],
+    "nonMaterialRow": "Parking — Not a stated priority"
+  },
+  "after": [
+    {
+      "id": "two-peer",
+      "presentation": {
+        "mode": "TWO_PEER_FULL",
+        "search": {
+          "heading": "Your search",
+          "summary": "Warehouse and distribution operation in Sacramento",
+          "detail": "Industrial / Warehouse / Flex"
+        },
+        "heading": "Two areas worth comparing",
+        "intro": "Both are worth considering: Northgate / North Market covers the lighter warehouse and service-industrial side of the search, while Power Inn offers the deeper conventional warehouse, distribution and production setting.",
+        "locations": [
+          {
+            "name": "Northgate / North Market",
+            "distinction": "Lighter warehouse and service space in north Sacramento",
+            "why": [
+              "A practical starting point for contractor, service-industrial and office/warehouse searches.",
+              "Multi-tenant space in the area can combine workspace, storage and field operations."
+            ],
+            "worth": [],
+            "examples": [
+              "1329 N Market Boulevard",
+              "Northgate / North Market industrial area"
+            ]
+          },
+          {
+            "name": "Power Inn",
+            "distinction": "Sacramento's deeper industrial and production district",
+            "why": [
+              "A stronger place to start for conventional warehouse, distribution and production searches.",
+              "The broader district includes a wider range of industrial formats than Northgate / North Market."
+            ],
+            "worth": [],
+            "examples": [
+              "8583 Elder Creek Road",
+              "5711 Florin Perkins Road"
+            ]
+          }
+        ],
+        "comparison": [
+          {
+            "label": "Best starting point for",
+            "values": [
+              "Contractor, service-industrial and office/warehouse",
+              "Warehouse, distribution and production"
+            ]
+          },
+          {
+            "label": "Typical character",
+            "values": [
+              "Lighter, multi-tenant operating space",
+              "Broader conventional industrial building mix"
+            ]
+          },
+          {
+            "label": "What to confirm",
+            "values": [
+              "Suite configuration and vehicle needs",
+              "Building systems and operational requirements"
+            ]
+          }
+        ],
+        "confirm": [
+          "Loading, clear height, power and yard needs",
+          "Suite configuration, permitted use and current availability"
+        ],
+        "next": {
+          "heading": "Ready to look at specific spaces?",
+          "action": "Find spaces that fit →"
+        }
+      }
+    },
+    {
+      "id": "one-peer",
+      "presentation": {
+        "mode": "ONE_PEER_BOUNDED",
+        "search": {
+          "heading": "Your search",
+          "summary": "Manufacturing and production operation in Sacramento",
+          "detail": "Industrial / Warehouse / Flex"
+        },
+        "heading": "One area to start with",
+        "intro": "Power Inn is the clearest starting point for the search you described.",
+        "locations": [
+          {
+            "name": "Power Inn",
+            "distinction": "Sacramento's deeper industrial and production district",
+            "why": [
+              "A stronger place to start for conventional warehouse, distribution and production searches.",
+              "The broader district includes a wider range of industrial formats than Northgate / North Market."
+            ],
+            "worth": [],
+            "examples": [
+              "8583 Elder Creek Road",
+              "5711 Florin Perkins Road"
+            ]
+          }
+        ],
+        "comparison": [],
+        "confirm": [
+          "Loading, clear height, power and yard needs",
+          "Suite configuration, permitted use and current availability"
+        ],
+        "next": {
+          "heading": "Ready to look at specific spaces?",
+          "action": "Find spaces that fit →"
+        }
+      }
+    },
+    {
+      "id": "investigate",
+      "presentation": {
+        "mode": "INVESTIGATE",
+        "search": {
+          "heading": "Your search",
+          "summary": "Industrial or flex space in Sacramento",
+          "detail": "Industrial / Warehouse / Flex"
+        },
+        "heading": "A little more detail will help narrow the location",
+        "intro": "We need to understand a few building and operating requirements before pointing you to a district.",
+        "locations": [],
+        "comparison": [],
+        "confirm": [
+          "The work happening in the space",
+          "Required building size and layout",
+          "Loading, power, parking or yard needs",
+          "Where employees, customers and suppliers need to reach you"
+        ],
+        "next": {
+          "heading": "Tell us what the space needs to support",
+          "action": "Continue my search →"
+        }
+      }
+    }
+  ]
+}

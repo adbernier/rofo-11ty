@@ -59,11 +59,11 @@ const ids = (snapshot) => snapshot.shortlist.map((item) => item.districtId);
     const html = await render(env, result);
     assert.notEqual(result.snapshot.readiness, "INVESTIGATE", `${name} should produce controlled guidance`);
     assert.equal(ids(result.snapshot)[0], expectedFirst, `${name} primary ordering`);
-    assert(html.includes("Peer locations") || html.includes("Locations worth investigating"));
-    assert(html.includes("These are representative examples, not current availability."));
-    assert(html.includes("property-level investigation"));
-    assert(html.includes("Industrial-led fit:") || html.includes("Flex-led fit:") || html.includes("Mixed Industrial/Flex applicability:"));
-    assert(html.includes("This Requirement aligns with the reviewed"), `${name} should connect fit to Requirement signals`);
+    assert(html.includes(result.snapshot.shortlist.length === 1 ? "One area to start with" : result.snapshot.shortlist.length === 2 ? "Two areas worth comparing" : `${result.snapshot.shortlist.length} areas worth comparing`));
+    assert(html.includes("Examples in the area"));
+    assert(html.includes("property level"));
+    assert(html.includes("Why consider it"));
+    assert(html.includes("This search aligns with"), `${name} should connect fit to Requirement signals`);
     assert(!html.includes("Retail environment"));
     assert(!html.includes("Customer access</strong>"));
     assert(!html.includes("Best market"));
@@ -113,8 +113,8 @@ const ids = (snapshot) => snapshot.shortlist.map((item) => item.districtId);
     assert.equal(result.snapshot.shortlist.length, 0);
     assert.equal(result.brief.lifecycleStage, "LOCATION_INVESTIGATE");
     assert(!html.includes("Locations worth investigating"));
-    assert(html.includes("Rofo has not produced a personalized local market ranking"));
-    assert(html.includes("Find Spaces That Fit"));
+    assert(html.includes("A little more detail will help narrow the location"));
+    assert(html.includes("Continue my search"));
   }
 
   const enabledBrief = created[0].result;
