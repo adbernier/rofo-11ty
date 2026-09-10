@@ -1314,6 +1314,194 @@ body.mobile-menu-open .mobile-menu {
     font-weight: 600;
 }
 
+/* About + Trust v1: historical proof supports the current product story. */
+.about-trust__hero {
+    padding: 88px 0 76px;
+    background: linear-gradient(135deg, #f7f9fb 0%, #fff 64%);
+}
+
+.about-trust__hero h1 {
+    max-width: 900px;
+    margin: 12px 0 24px;
+    color: #172235;
+    font-size: clamp(44px, 6vw, 72px);
+    line-height: 1.02;
+    letter-spacing: -0.045em;
+}
+
+.about-trust__hero .lead {
+    max-width: 760px;
+    margin: 0;
+    color: #415065;
+    font-size: clamp(18px, 1.7vw, 22px);
+    line-height: 1.55;
+}
+
+.about-trust__origin-chip {
+    display: inline-flex;
+    margin: 30px 0 0;
+    padding: 8px 13px;
+    border: 1px solid var(--rofo-border);
+    border-radius: 999px;
+    background: #fff;
+    color: #243247;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.about-trust__section {
+    padding: 74px 0;
+    border-top: 1px solid var(--rofo-border);
+}
+
+.about-trust__section h2,
+.about-trust__cta h2 {
+    max-width: 920px;
+    margin: 10px 0 18px;
+    color: #172235;
+    font-size: clamp(32px, 4vw, 50px);
+    line-height: 1.08;
+    letter-spacing: -0.035em;
+}
+
+.about-trust__split {
+    display: grid;
+    grid-template-columns: minmax(0, .85fr) minmax(0, 1.3fr);
+    gap: 72px;
+}
+
+.about-trust__problem-copy p,
+.about-trust__section-intro {
+    max-width: 880px;
+    color: #445267;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.about-trust__problem-copy .about-trust__statement {
+    color: #172235;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: -0.025em;
+}
+
+.about-trust__timeline,
+.about-trust__steps {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1px;
+    margin-top: 38px;
+    border: 1px solid var(--rofo-border);
+    background: var(--rofo-border);
+}
+
+.about-trust__timeline article,
+.about-trust__steps article {
+    padding: 30px;
+    background: #fff;
+}
+
+.about-trust__timeline span,
+.about-trust__steps span,
+.about-trust__source-date {
+    display: block;
+    margin: 0 0 20px;
+    color: #1346d8;
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.about-trust__timeline h3,
+.about-trust__steps h3,
+.about-trust__coverage-grid h3 {
+    margin: 0 0 12px;
+    color: #172235;
+    font-size: 22px;
+    line-height: 1.25;
+}
+
+.about-trust__timeline p,
+.about-trust__steps p,
+.about-trust__coverage-grid p {
+    color: #445267;
+    line-height: 1.6;
+}
+
+.about-trust__coverage-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+    margin-top: 34px;
+}
+
+.about-trust__coverage-grid article {
+    padding: 28px;
+    border: 1px solid var(--rofo-border);
+    border-radius: 12px;
+    background: #fff;
+}
+
+.about-trust__coverage-grid a {
+    color: #1346d8;
+    font-weight: 750;
+    text-decoration: none;
+}
+
+.about-trust__coverage-grid a:hover {
+    text-decoration: underline;
+}
+
+.about-trust__today {
+    background: #f4f7fa;
+}
+
+.about-trust__steps {
+    gap: 18px;
+    border: 0;
+    background: transparent;
+}
+
+.about-trust__steps article {
+    border: 1px solid var(--rofo-border);
+    border-radius: 10px;
+}
+
+.about-trust__cta {
+    padding: 78px 0;
+    background: #18283c;
+}
+
+.about-trust__cta h2 {
+    max-width: 720px;
+    color: #fff;
+}
+
+.about-trust__cta p {
+    max-width: 640px;
+    color: #cbd5e1;
+    font-size: 18px;
+}
+
+.about-trust__cta .btn {
+    margin-top: 12px;
+}
+
+@media (max-width: 760px) {
+    .about-trust__hero { padding: 52px 0 50px; }
+    .about-trust__section { padding: 52px 0; }
+    .about-trust__split,
+    .about-trust__timeline,
+    .about-trust__coverage-grid,
+    .about-trust__steps { grid-template-columns: 1fr; }
+    .about-trust__split { gap: 18px; }
+    .about-trust__timeline article,
+    .about-trust__steps article,
+    .about-trust__coverage-grid article { padding: 24px; }
+    .about-trust__problem-copy .about-trust__statement { font-size: 26px; }
+    .about-trust__cta { padding: 58px 0; }
+}
+
 .homepage-recommendation-cta {
     padding-top: 0;
 }
