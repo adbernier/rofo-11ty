@@ -1,0 +1,117 @@
+{
+  "schemaVersion": "industrial-flex-market-pack-proof:v1",
+  "status": "TEST_ONLY_DEFAULT_OFF",
+  "market": {
+    "id": "sacramento",
+    "label": "Sacramento",
+    "municipality": "Sacramento",
+    "stateAliases": ["ca", "california"],
+    "propertyType": "industrial_flex",
+    "boundaryLabel": "City of Sacramento",
+    "evidenceFoundation": "sacramento-industrial-flex-evidence-foundation:v1"
+  },
+  "membership": {
+    "marketAliases": ["sacramento"],
+    "rejectedMarketAliases": ["sacramento-metro", "greater-sacramento"],
+    "reasonCodes": {
+      "outsideMunicipality": "OUTSIDE_CITY_OF_SACRAMENTO",
+      "rejectedMarket": "GENERIC_SACRAMENTO_METRO",
+      "unsupportedPropertyType": "UNSUPPORTED_PROPERTY_TYPE",
+      "unsupportedCandidate": "OUT_OF_UNIVERSE_CANDIDATE"
+    },
+    "candidateOwners": {
+      "power-inn-industrial": "power-inn-industrial",
+      "florin-perkins-industrial": "power-inn-industrial",
+      "sci-ramona-component": "power-inn-industrial",
+      "sci": "power-inn-industrial",
+      "ramona": "power-inn-industrial",
+      "northgate-north-market-industrial": "northgate-north-market-industrial",
+      "northgate-industrial-park": "northgate-north-market-industrial",
+      "northgate": "northgate-north-market-industrial",
+      "north-market-boulevard": "northgate-north-market-industrial",
+      "north-market": "northgate-north-market-industrial"
+    }
+  },
+  "intent": {
+    "industrialActivities": ["dispatch", "operate_vehicles", "store", "receive", "ship_distribute", "outdoor_operations", "repair_service", "make_assemble"],
+    "flexActivities": ["display_present", "product_development", "prototype", "research", "work", "meet_collaborate", "host_visitors"],
+    "industrialTextBoost": "warehouse|distribution|fleet|contractor|dispatch|storage|manufactur|assembly|production|receiving|shipping|service.?industrial",
+    "flexTextBoost": "office.?warehouse|office.?production|prototype|r&d|research|technical|team workspace|lighter flex|multi.?tenant flex|showroom",
+    "boostWeight": 2,
+    "dominanceRatio": 2
+  },
+  "abstention": {
+    "outsideScopePattern": "sacramento metro|greater sacramento|west sacramento|rancho cordova|elk grove|roseville|rocklin|folsom|citrus heights|northern california",
+    "specializedPattern": "hazard|hazmat|laboratory|\\blab\\b|clean.?room|medical|food production|commercial kitchen|specialized ventilation|specialized manufacturing",
+    "capabilityPattern": "(?:exact|required|must|minimum|decisive|dominated by)[^.;]{0,60}(?:loading|clear height|power|yard|outdoor storage|trailer parking|truck circulation|ventilation|building format|zoning|permitted use)|(?:loading|clear height|power|yard|outdoor storage|trailer parking|truck circulation|ventilation|building format|zoning|permitted use)[^.;]{0,60}(?:exact|required|must|minimum|decisive|dominates)|(?:loading configuration|clear-height-dominant|power-dominant|yard-dominant|property capability dominates)",
+    "accessPattern": "(?:employee|customer|supplier|service territory|labor|commute|freeway|interstate|airport|transit|regional distribution reach)[^.;]{0,55}(?:decisive|required|must|only|dominates)|(?:decisive|required|must|only)[^.;]{0,55}(?:employee|customer|supplier|service territory|labor|commute|freeway|interstate|airport|transit|regional distribution reach)",
+    "heavyActivities": ["ship_distribute", "operate_vehicles", "make_assemble", "outdoor_operations"],
+    "customerActivities": ["display_present", "host_visitors", "sell_serve"],
+    "messages": {
+      "outsideBoundary": "Only the bounded City of Sacramento Industrial/Flex comparison is implemented; metro and independent municipalities remain outside it.",
+      "unsupportedPropertyType": "Only City of Sacramento Industrial/Flex is implemented.",
+      "regionalScope": "Sacramento Metro, West Sacramento, Rancho Cordova, and other independent municipalities are outside this bounded universe.",
+      "specializedUse": "This specialized use requires property and authority investigation before comparing Sacramento operating environments.",
+      "propertyCapability": "The Requirement depends on an exact property capability that geography evidence cannot establish.",
+      "accessGap": "A decisive access or service-geography need lacks reviewed comparative Sacramento access intelligence.",
+      "conflictingUse": "The Requirement combines heavy operational and customer-facing needs without enough reviewed evidence to compare these Sacramento environments fairly.",
+      "unresolvedIntent": "The Requirement does not establish whether Industrial, Flex, or a supported hybrid need leads."
+    }
+  },
+  "composition": {
+    "candidateOrder": ["power-inn-industrial", "northgate-north-market-industrial"],
+    "fit": {
+      "industrial": { "power-inn-industrial": "STRONG", "northgate-north-market-industrial": "STRONG" },
+      "flex": { "power-inn-industrial": "GOOD", "northgate-north-market-industrial": "STRONG" }
+    },
+    "fitOrder": { "STRONG": 2, "GOOD": 1 },
+    "traitLabels": {
+      "CONVENTIONAL_INDUSTRIAL": "conventional Industrial",
+      "WAREHOUSE_DISTRIBUTION": "warehouse/distribution",
+      "MANUFACTURING_PRODUCTION_CONTEXT": "manufacturing/production",
+      "CONTRACTOR_SERVICE": "contractor/service",
+      "BROADER_OPERATIONAL_USE": "broader operational use",
+      "OFFICE_WAREHOUSE": "office/warehouse",
+      "INDUSTRIAL_LED_FLEX": "Industrial-led Flex",
+      "PRODUCTION_FLEX": "production Flex",
+      "WAREHOUSE_LIGHT_INDUSTRIAL": "lighter warehouse",
+      "SERVICE_INDUSTRIAL": "service-industrial",
+      "DISTRIBUTION_CONTEXT": "distribution",
+      "MULTI_TENANT_OPERATING_FORMATS": "multi-tenant operating formats",
+      "LIGHTER_FLEX": "lighter Flex",
+      "MULTI_TENANT_FLEX": "multi-tenant Flex",
+      "LIGHTER_OPERATIONS": "lighter operations"
+    },
+    "derivedSignals": {
+      "lighter": { "textPattern": "under 2,500|2,500|small(?:er)?[- ]format|compact|lighter" },
+      "broader": { "textPattern": "broader|larger|large[- ]format|10,000|25,000|50,000|conventional industrial|heavier" },
+      "production": { "activitiesAny": ["make_assemble"], "textPattern": "manufactur|assembly|production" },
+      "office": { "activitiesAny": ["work", "meet_collaborate"] },
+      "operational": { "activitiesAny": ["store", "receive", "ship_distribute", "make_assemble", "repair_service", "dispatch", "operate_vehicles"] },
+      "multiTenant": { "textPattern": "multi.?tenant" }
+    },
+    "traitRules": [
+      { "activitiesAny": ["store", "receive", "ship_distribute"], "add": ["WAREHOUSE_DISTRIBUTION", "DISTRIBUTION_CONTEXT"] },
+      { "derivedAll": ["production"], "add": ["MANUFACTURING_PRODUCTION_CONTEXT"], "addByMode": { "flex": ["PRODUCTION_FLEX"], "industrial": ["BROADER_OPERATIONAL_USE"] } },
+      { "activitiesAny": ["dispatch", "repair_service", "operate_vehicles"], "add": ["SERVICE_INDUSTRIAL", "CONTRACTOR_SERVICE"] },
+      { "derivedAll": ["office", "operational"], "add": ["OFFICE_WAREHOUSE"] },
+      { "mode": "industrial", "derivedAll": ["broader"], "add": ["CONVENTIONAL_INDUSTRIAL", "BROADER_OPERATIONAL_USE"] },
+      { "mode": "industrial", "derivedAll": ["lighter"], "add": ["WAREHOUSE_LIGHT_INDUSTRIAL", "MULTI_TENANT_OPERATING_FORMATS"] },
+      { "mode": "flex", "derivedAll": ["lighter"], "add": ["LIGHTER_FLEX", "LIGHTER_OPERATIONS", "MULTI_TENANT_FLEX"] },
+      { "mode": "flex", "derivedAll": ["operational"], "add": ["INDUSTRIAL_LED_FLEX"] },
+      { "derivedAll": ["multiTenant"], "addByMode": { "flex": ["MULTI_TENANT_FLEX"], "industrial": ["MULTI_TENANT_OPERATING_FORMATS"] } }
+    ],
+    "decisiveRules": [
+      { "mode": "industrial", "activitiesAny": ["make_assemble"], "textPattern": "manufactur|production|broader industrial|broader operating|heavier operating", "match": "ANY", "traits": ["MANUFACTURING_PRODUCTION_CONTEXT", "BROADER_OPERATIONAL_USE"] },
+      { "mode": "industrial", "textPattern": "lighter warehouse|multi.?tenant operating|smaller-format warehouse", "traits": ["WAREHOUSE_LIGHT_INDUSTRIAL", "MULTI_TENANT_OPERATING_FORMATS"] },
+      { "mode": "flex", "textPattern": "lighter flex|multi.?tenant flex|smaller-format flex", "traits": ["LIGHTER_FLEX", "MULTI_TENANT_FLEX"] },
+      { "activitiesAny": ["dispatch"], "textPattern": "lighter|multi.?tenant|service.?industrial", "traits": ["SERVICE_INDUSTRIAL", "MULTI_TENANT_OPERATING_FORMATS"] }
+    ]
+  },
+  "certification": {
+    "status": "certified_for_bounded_real_user_cohort",
+    "activationKey": "sacramento:industrial_flex:bounded",
+    "activationEligible": true,
+    "proofMode": "TEST_ONLY_NO_RUNTIME_INTEGRATION"
+  }
+}
