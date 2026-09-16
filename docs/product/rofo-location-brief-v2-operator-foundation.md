@@ -114,15 +114,25 @@ Evaluator internals are absent by default. `?debug=1` adds revisions, snapshots,
 The normal v2 renderer now approximates the intended tenant experience rather than an infrastructure console. Its hierarchy is:
 
 1. **Your Location Brief**, with the plain-language property and market context.
-2. **Your search**, as a compact projection of known canonical Requirement facts and a nearby **Edit my search** action.
-3. Readiness-appropriate guidance:
+2. **Here's what we're looking for**, a deterministic shared-search projection of the current canonical Requirement and recommendation snapshot:
+   - Your business.
+   - The ideal environment.
+   - Likely space.
+   - Where we'd start.
+   - What we're flexible about.
+   - What really matters.
+3. **Does this sound right?**, a revision-scoped browser confirmation with an existing Requirement edit path. Confirmation is stored against the immutable Requirement revision ID and is therefore stale automatically after an edit; the existing analytics pipeline records the confirmation event. No new persistence schema or approval workflow is introduced.
+4. **Your search**, as a compact supporting projection of known canonical Requirement facts and a nearby **Edit my search** action.
+5. Readiness-appropriate guidance:
    - **Recommended locations** for FULL.
    - **Strong starting points** for BOUNDED.
    - **What matters most** for INVESTIGATE.
-4. Requirement-connected recommendation cards with a concise reason, two or three useful strengths, one or two tradeoffs, and a district exploration action.
-5. **How they differ**, containing only supported human-readable dimensions whose values differ across the displayed alternatives. Internal scores are never shown.
-6. **Areas you're considering**, using the durable candidate state already supported by v2.
-7. A disabled next-stage preview that explains the transition from choosing where to look toward defining what an actual space must support.
+6. Requirement-connected recommendation cards with a concise reason, two or three useful strengths, one or two tradeoffs, and a district exploration action.
+7. **How they differ**, containing only supported human-readable dimensions whose values differ across the displayed alternatives. Internal scores are never shown.
+8. **Areas you're considering**, using the durable candidate state already supported by v2.
+9. **Put Rofo to work finding it**, using the existing property-requirement or research continuation. It promises investigation of current and upcoming possibilities and material property details, not exhaustive inventory or guaranteed availability.
+
+The shared-search projection is presentation only. It does not replace or mutate the Requirement, alter recommendation ordering/readiness, or infer missing facts. Missing size is stated plainly. Only criteria explicitly marked flexible—or preferred inputs whose customer wording says they are helpful/preferred—appear as flexibility. Unknown and unasked information never becomes flexibility.
 
 Normal output does not display schema versions, public IDs, lifecycle/readiness enums, fit enums, revisions, snapshot IDs, confidence internals, evidence traces, or provenance. Debug mode remains available through `?debug=1` and includes Brief identity, lifecycle, revisions, snapshots, readiness, plausible universe/component details, intelligence gaps, engine/foundation versions, candidate provenance, and canonical Requirement JSON.
 

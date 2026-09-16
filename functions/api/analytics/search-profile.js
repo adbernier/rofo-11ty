@@ -41,6 +41,7 @@ const ALLOWED_EVENTS = new Set([
   "vnext_creation_rejected",
   "vnext_entry_fallback",
   "vnext_brief_viewed",
+  "vnext_brief_confirmed",
   "vnext_district_explored",
   "vnext_requirement_edited",
   "vnext_find_spaces_clicked",

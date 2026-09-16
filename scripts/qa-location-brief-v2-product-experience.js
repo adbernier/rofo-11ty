@@ -43,7 +43,13 @@ async function render(env, created, debug = false) {
   assert.equal((full.match(/data-focus-button=/g) || []).length, conventional.snapshot.shortlist.length, "Every supported location should be a peer focus option.");
   assert(full.includes("Examples in the area"));
   assert(!full.includes("Areas you're considering"), "An empty candidate section should be omitted.");
-  assert(full.includes("Ready to look at specific spaces?")); assert(full.includes("Find spaces that fit →"));
+  assert(full.includes("Here&#39;s what we&#39;re looking for"));
+  for (const heading of ["Your business", "The ideal environment", "Likely space", "Where we&#39;d start", "What we&#39;re flexible about", "What really matters"]) assert(full.includes(heading));
+  assert(full.includes("Does this sound right?")); assert(full.includes("Yes, this sounds right")); assert(full.includes("Change something"));
+  assert(full.includes("Put Rofo to work finding it")); assert(full.includes("Put Rofo to work →"));
+  assert(full.indexOf("Here&#39;s what we&#39;re looking for") < full.indexOf('<aside class="requirement-search-summary"'), "The shared search must precede the field recap in document order.");
+  assert(full.includes(".lb2-summary-column{order:initial}"), "Mobile must not move the field recap above the primary Brief.");
+  assert(full.includes("grid-template-columns:minmax(0,1fr)"), "Mobile layout must allow customer copy to wrap without horizontal overflow.");
   assert(full.includes('class="requirement-search-summary"')); assert(full.includes('class="requirement-search-summary__item"'));
   assert(full.includes("Typical character")); assert(full.includes("Why consider it"));
   assert(full.includes('[data-focus-panel][hidden]{display:none!important}'), "Inactive rich district panels must actually be hidden despite their display layout.");

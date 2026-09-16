@@ -63,8 +63,8 @@ const requirement = {
   assert(!publicHtml.includes("Alternative worth comparing"));
   assert(!/>\s*#(?:1|2|3)\s*</.test(publicHtml));
   assert(!publicHtml.includes("Areas you're considering"));
-  assert(publicHtml.includes("Ready to look at specific spaces?"));
-  assert(publicHtml.includes("Find spaces that fit →"));
+  assert(publicHtml.includes("Put Rofo to work finding it"));
+  assert(publicHtml.includes("Put Rofo to work →"));
   assert(publicHtml.includes('class="requirement-search-summary"'));
   assert(publicHtml.includes('class="requirement-search-summary__item"'));
   assert(publicHtml.includes(`/property-requirement/${created.brief.publicId}`));
