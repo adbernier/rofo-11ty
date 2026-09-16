@@ -2,11 +2,11 @@
 
 ## Executive Verdict
 
-**GO.** Sacramento's certified Industrial/Flex behavior can be reproduced from a small declarative Market Pack plus shared evaluation logic. A default-off, test-only path reproduced the current Requirement projection, abstention, candidate evaluation, ordering, shortlist, evidence references, representative projection, and Location Brief recommendation snapshot across 18 decision cases. No production path imports the proof.
+**GO, now supported by two control markets.** Sacramento's and Phoenix's certified Industrial/Flex behavior can be reproduced from declarative Market Packs plus shared evaluation logic. Default-off, test-only paths reproduced the current Requirement projection, abstention, candidate evaluation, ordering, shortlist, evidence references, representative projection, and Location Brief recommendation snapshots across 58 combined decision cases and 13 Brief cases. No production path imports either proof.
 
-This does not prove that every Industrial/Flex market fits one schema. It proves the narrower point the sprint was designed to test: most of Sacramento's adapter and composition code is market knowledge expressed procedurally. The remaining algorithm is reusable. Sacramento's reviewed evidence foundation remains canonical and is referenced rather than copied into the pack.
+This does not prove that every Industrial/Flex market fits one schema. It proves the narrower point the sprints were designed to test: most Sacramento and Phoenix adapter/composition code is market knowledge expressed procedurally. The remaining algorithm is reusable. Both reviewed evidence foundations remain canonical and are referenced rather than copied into the packs.
 
-The next prudent step is a second controlled conversion of a contrasting existing market, not a new-market launch and not a wholesale refactor. Phoenix is the best proof case because its conventional, advanced-operations, and mixed operating environments should expose whether the contract handles more than Sacramento's two-peer universe.
+Phoenix was the contrasting second proof. Its three-peer universe, advanced-operations participation gate, technical intent, and different ordering policy exposed reusable contract capabilities that Sacramento alone did not reveal. The direction is now strong enough to use for the next new Industrial/Flex market as a knowledge-first implementation, while keeping production migration separate and default-deny.
 
 ## Sacramento Today
 
@@ -123,6 +123,43 @@ The two certified Location Brief cases also matched on shortlist, recommendation
 
 Only implementation metadata such as module version labels and explanatory ordering-policy strings was excluded from structural comparison. No customer or decision semantics were excluded.
 
+## Phoenix Proof
+
+Phoenix uses the same pack schema and shared evaluator, with its own reviewed evidence foundation. The broad cohort covered 40 decisions:
+
+- conventional warehouse, distribution, broader Industrial, contractor/service, lighter warehouse, office-production, lighter Flex, technical, engineering-production, office/warehouse, and mixed contractor/production cases;
+- multi-peer, local service/distribution, aerospace-support, production-ecosystem, and conflict-exempt customer-facing operational cases;
+- required and preferred operational criteria;
+- canonical Phoenix Metro plus City-qualified membership and compatibility entry;
+- Airport/South Central, Deer Valley, and North Phoenix component aliases;
+- unresolved, exact-capability, specialized-use, decisive-access, generic-metro, wrong-municipality, outside-text, outside-market, outside-candidate, conflicting-use, and unsupported-property abstentions; and
+- seven neutral City/component entry contexts proving that entry identity does not alter ordering.
+
+Eleven existing Phoenix certification cases were also passed through the production-shaped Location Brief snapshot path and compared with the Market Pack result. Shortlists, ordering, explanations, comparison context after the existing readiness guard, representatives, provenance, and evidence-foundation version were identical.
+
+Phoenix deterministic decision fingerprint:
+
+`c39ccd4b29453c5f1832d9fa98cd69180a06f1b5b5dc425bd500275833294e6f`
+
+### Where Phoenix did not fit the Sacramento contract
+
+Phoenix exposed twelve differences. Each was represented as reusable configuration rather than a Phoenix branch:
+
+1. **Multiple accepted entry identities.** Canonical `phoenix-metro` requires `city=Phoenix`; compatibility `phoenix` permits an absent city. Sacramento had one optional-city identity. The contract now supports accepted membership rules with named flags.
+2. **A rejection dependent on missing city.** `phoenix-metro` without a city is the generic-metro abstention, while `phoenix-metro` with another city is outside Phoenix. Rejected membership rules can now specify an empty-city condition.
+3. **Different state semantics.** Phoenix's current adapter does not emit or validate state in its membership projection; Sacramento does. Membership projection can now omit state when exact control behavior requires it.
+4. **Conditional intent boosts.** Technical manufacturing adds an Industrial boost only when `make_assemble` appears with technical/research language. Intent configuration now supports activity-plus-text conditional boosts.
+5. **Conflict exemptions.** Heavy operational plus customer-facing activity abstains unless the text establishes showroom, customer-facing operational, or office/warehouse context. Conflict rules now accept a reviewed exemption pattern and configurable abstention code.
+6. **Negative derived conditions.** Phoenix distinguishes lighter warehouse from ordinary warehouse, and advanced manufacturing from light production, by the absence as well as presence of a derived signal. Trait rules now support `derivedNone`.
+7. **Model-specific decisive traits.** The same technical trigger produces different decisive Industrial and Flex trait sets. Decisive rules can now supply traits by resolved model.
+8. **Candidate-specific participation.** North Phoenix Advanced Operations cannot participate without a technical/advanced reviewed trait, even if generic matching might otherwise occur. Candidate gates are now declarative.
+9. **Different ordering precedence.** Phoenix orders by matched reviewed traits before fit band; Sacramento orders by fit band before matched traits. Ordering fields are now configured.
+10. **Three-candidate shortlist.** Phoenix permits up to three peers; Sacramento permits two. The shortlist limit is now data.
+11. **Public-context path fallback.** Two Phoenix candidate families use the first reviewed public context path when they have no canonical candidate route. The shared projection now supports that existing evidence-foundation shape.
+12. **Different mixed internal representation.** Sacramento records a combined fit total for mixed ordering; Phoenix does not and orders mixed results by matched traits then fit. The pack controls whether combined fit is materialized and separately configures mixed ordering.
+
+None required market-specific evaluator code. All capabilities are meaningful for another market with alternate entry ownership, asymmetric candidate participation, or different reviewed ordering policy. Sacramento's original 18-case fingerprint remained unchanged after the shared extensions.
+
 ## What Could Disappear
 
 If a shared Market Pack path eventually became canonical after another proof and a controlled migration:
@@ -176,10 +213,10 @@ QA becomes simpler in structure, not smaller in responsibility. One generic cont
 
 ## Go / No-Go
 
-**GO for the Market Pack direction; no-go for immediate production migration.** Sacramento demonstrates that market knowledge can replace most Sacramento-specific adapter/composition software without changing behavior. It does not yet demonstrate that the rule vocabulary covers a structurally different market or that current runtime branching can be removed safely.
+**GO for the Market Pack direction; no-go for an unreviewed wholesale runtime migration.** Sacramento demonstrates the simple two-peer case. Phoenix demonstrates a structurally different three-peer market with asymmetric participation, technical signals, compatibility entry, and distinct ordering. Both preserve exact decision and Location Brief behavior.
 
 ## Recommended Next Step
 
-Run one more default-off equivalence proof using **Phoenix Industrial/Flex**. Reuse this exact pack contract and shared evaluator first; extend the shared rule vocabulary only if Phoenix exposes a genuinely reusable need. If both controls pass, migrate Sacramento and Phoenix through a separately reviewed runtime change with default-deny activation unchanged, then use the model for the next new Industrial/Flex market.
+Use the contract for the **next new Industrial/Flex market** as a knowledge-first proof, while keeping its pack default-off until normal evidence, recommendation, Location Brief, municipality, abstention, and activation certification passes. Do not first migrate every existing market.
 
-Do not migrate all markets, introduce a generic recommendation rewrite, redesign evidence, or add a new market during that proof.
+Separately, if production simplification is desired, migrate Sacramento and Phoenix together in a bounded runtime-equivalence sprint with their existing adapters/composers retained as controls and default-deny activation unchanged. Do not combine that migration with new-market launch, evidence redesign, or a generic recommendation rewrite.

@@ -1,0 +1,136 @@
+{
+  "schemaVersion": "industrial-flex-market-pack-proof:v1",
+  "status": "TEST_ONLY_DEFAULT_OFF",
+  "market": {
+    "id": "phoenix",
+    "label": "Phoenix",
+    "municipality": "Phoenix",
+    "stateAliases": ["az", "arizona"],
+    "propertyType": "industrial_flex",
+    "boundaryLabel": "City of Phoenix",
+    "evidenceFoundation": "phoenix-industrial-flex-evidence-foundation:v1"
+  },
+  "membership": {
+    "includeState": false,
+    "marketAliases": ["phoenix-metro", "phoenix"],
+    "rejectedMarketAliases": ["phoenix-metro"],
+    "rejectedRules": [
+      { "marketAliases": ["phoenix-metro"], "city": "EMPTY" }
+    ],
+    "acceptedRules": [
+      { "id": "canonical", "flag": "canonicalRegionalMembership", "marketAliases": ["phoenix-metro"], "city": "REQUIRED" },
+      { "id": "compatibility", "flag": "compatibilityMembership", "marketAliases": ["phoenix"], "city": "OPTIONAL" }
+    ],
+    "reasonCodes": {
+      "outsideMunicipality": "OUTSIDE_CITY_OF_PHOENIX",
+      "rejectedMarket": "GENERIC_PHOENIX_METRO",
+      "unsupportedPropertyType": "UNSUPPORTED_PROPERTY_TYPE",
+      "unsupportedCandidate": "OUT_OF_UNIVERSE_CANDIDATE"
+    },
+    "candidateOwners": {
+      "southwest-phoenix-industrial": "southwest-phoenix-industrial",
+      "airport-south-central-industrial": "airport-south-central-industrial",
+      "phoenix-airport-sky-harbor-area": "airport-south-central-industrial",
+      "north-phoenix-advanced-operations": "north-phoenix-advanced-operations",
+      "deer-valley": "north-phoenix-advanced-operations",
+      "north-phoenix-tsmc-corridor": "north-phoenix-advanced-operations"
+    }
+  },
+  "intent": {
+    "industrialActivities": ["dispatch", "operate_vehicles", "store", "receive", "ship_distribute", "outdoor_operations", "repair_service", "make_assemble"],
+    "flexActivities": ["display_present", "product_development", "prototype", "research", "work", "meet_collaborate", "host_visitors"],
+    "industrialTextBoost": "warehouse|distribution|logistics|fleet|contractor|dispatch|storage|manufactur|assembly|receiving|shipping",
+    "flexTextBoost": "showroom|prototype|r&d|research|technical|engineering|office.{0,12}production|office.{0,12}warehouse|team workspace|lighter flex",
+    "conditionalBoosts": [
+      { "activitiesAny": ["make_assemble"], "textPattern": "r&d|research|technical|engineering|prototype", "industrial": 2 }
+    ],
+    "boostWeight": 2,
+    "dominanceRatio": 2
+  },
+  "abstention": {
+    "outsideScopePattern": "phoenix metro|greater phoenix|valley[- ]wide|tempe|mesa|chandler|scottsdale|glendale|goodyear|avondale",
+    "specializedPattern": "hazard|hazmat|laboratory|\\blab\\b|clean.?room|semiconductor fabrication|medical|food production|commercial kitchen|specialized ventilation|specialized manufacturing (?:capability|infrastructure)",
+    "capabilityPattern": "(?:exact|required|must|minimum|decisive|dominated by)[^.;]{0,55}(?:loading|clear height|power|yard|outdoor storage|trailer parking|ventilation|zoning|permitted use)|(?:loading configuration|clear-height-dominant|power-dominant|yard-dominant|property capability dominates)|permitted use[^.;]{0,35}(?:decisive|required|must|dependency)",
+    "accessPattern": "(?:employee|customer|supplier|service territory|commute|freeway|airport)[^.;]{0,55}(?:decisive|required|must|only|dominates)|(?:decisive|required|must|only)[^.;]{0,55}(?:employee|customer|supplier|service territory|commute|freeway|airport)",
+    "heavyActivities": ["operate_vehicles", "ship_distribute", "outdoor_operations"],
+    "customerActivities": ["display_present", "host_visitors"],
+    "conflictExemptionPattern": "showroom|customer-facing operational|office.?warehouse",
+    "codes": { "conflictingUse": "CONFLICTING_OPERATING_CONTEXT" },
+    "messages": {
+      "outsideBoundary": "Only the city-qualified bounded City of Phoenix Industrial/Flex comparison is implemented; generic Phoenix Metro and Valley municipalities remain outside it.",
+      "unsupportedPropertyType": "Only City of Phoenix Industrial/Flex is implemented.",
+      "regionalScope": "Phoenix Metro, Valley-wide, Tempe, and other municipal comparisons are outside this bounded universe.",
+      "specializedUse": "This specialized use requires property and authority investigation before comparing Phoenix operating environments.",
+      "propertyCapability": "The Requirement depends on an exact property capability that geography evidence cannot establish.",
+      "accessGap": "A decisive access or service-geography need lacks certified comparative Phoenix access intelligence.",
+      "conflictingUse": "Heavy operating and customer-facing needs conflict without enough detail to compare Phoenix environments fairly.",
+      "unresolvedIntent": "The Requirement does not establish whether Industrial, Flex, or a supported hybrid need leads."
+    }
+  },
+  "composition": {
+    "candidateOrder": ["southwest-phoenix-industrial", "airport-south-central-industrial", "north-phoenix-advanced-operations"],
+    "shortlistLimit": 3,
+    "ordering": ["matchedReviewedTraitCount", "reviewedFitBand", "districtId"],
+    "mixedOrdering": ["matchedReviewedTraitCount", "reviewedFitBand", "districtId"],
+    "includeCombinedReviewedFit": false,
+    "fit": {
+      "industrial": { "southwest-phoenix-industrial": "STRONG", "airport-south-central-industrial": "GOOD", "north-phoenix-advanced-operations": "GOOD" },
+      "flex": { "southwest-phoenix-industrial": "GOOD", "airport-south-central-industrial": "STRONG", "north-phoenix-advanced-operations": "STRONG" }
+    },
+    "fitOrder": { "STRONG": 2, "GOOD": 1 },
+    "candidateGates": [
+      { "candidateId": "north-phoenix-advanced-operations", "anyTraits": ["ADVANCED_MANUFACTURING_CONTEXT", "TECHNICAL_OPERATIONS", "AEROSPACE_SUPPORT_CONTEXT", "PRODUCTION_ECOSYSTEM", "TECHNICAL_WORKSPACE", "R_AND_D_PRODUCTION_HYBRID", "ENGINEERING_OPERATIONS"] }
+    ],
+    "traitLabels": {
+      "CONVENTIONAL_INDUSTRIAL": "conventional Industrial", "WAREHOUSE_STORAGE": "warehouse/storage", "DISTRIBUTION": "distribution", "CONTRACTOR_SERVICE": "contractor/service", "BROADER_OPERATIONAL_USE": "broader operational use", "OFFICE_WAREHOUSE": "office/warehouse", "INDUSTRIAL_LED_FLEX": "Industrial-led Flex",
+      "CENTRAL_INFILL_INDUSTRIAL": "central infill Industrial", "LIGHTER_WAREHOUSE": "lighter warehouse", "SERVICE_DISTRIBUTION": "service distribution", "LIGHT_PRODUCTION": "light production", "OFFICE_PRODUCTION": "office-production", "LIGHTER_FLEX": "lighter Flex", "SERVICE_DISTRIBUTION_HYBRID": "service/distribution hybrid",
+      "ADVANCED_MANUFACTURING_CONTEXT": "advanced-manufacturing context", "TECHNICAL_OPERATIONS": "technical operations", "AEROSPACE_SUPPORT_CONTEXT": "aerospace-support context", "PRODUCTION_ECOSYSTEM": "production ecosystem", "TECHNICAL_WORKSPACE": "technical workspace", "R_AND_D_PRODUCTION_HYBRID": "R&D/production hybrid", "ENGINEERING_OPERATIONS": "engineering operations"
+    },
+    "derivedSignals": {
+      "lighter": { "textPattern": "under 2,500|2,500|small(?:er)?[- ]format|compact|lighter" },
+      "broader": { "textPattern": "broader|larger|large[- ]format|10,000|25,000|50,000|conventional industrial" },
+      "technical": { "activitiesAny": ["product_development", "prototype", "research"], "textPattern": "technical|engineering|r&d|research|prototype|advanced[- ]manufacturing (?:context|ecosystem)|aerospace[- ]support" },
+      "office": { "activitiesAny": ["work", "meet_collaborate"] },
+      "operational": { "activitiesAny": ["store", "receive", "ship_distribute", "make_assemble", "repair_service", "dispatch"] },
+      "central": { "textPattern": "central|infill" },
+      "serviceDistribution": { "textPattern": "service distribution|local distribution" },
+      "serviceDistributionHybrid": { "textPattern": "service.{0,20}distribution|distribution.{0,20}service" },
+      "aerospaceSupport": { "textPattern": "aerospace[- ]support" },
+      "productionEcosystem": { "textPattern": "production ecosystem" }
+    },
+    "traitRules": [
+      { "activitiesAny": ["store"], "derivedAll": ["lighter"], "add": ["LIGHTER_WAREHOUSE"] },
+      { "activitiesAny": ["store"], "derivedNone": ["lighter"], "add": ["WAREHOUSE_STORAGE"] },
+      { "activitiesAny": ["receive", "ship_distribute"], "derivedAll": ["serviceDistribution"], "add": ["SERVICE_DISTRIBUTION"] },
+      { "activitiesAny": ["receive", "ship_distribute"], "derivedNone": ["serviceDistribution"], "add": ["DISTRIBUTION"] },
+      { "activitiesAny": ["dispatch", "operate_vehicles", "repair_service"], "add": ["CONTRACTOR_SERVICE"] },
+      { "derivedAll": ["central"], "add": ["CENTRAL_INFILL_INDUSTRIAL"] },
+      { "activitiesAny": ["make_assemble"], "derivedAll": ["technical"], "add": ["ADVANCED_MANUFACTURING_CONTEXT"] },
+      { "activitiesAny": ["make_assemble"], "derivedNone": ["technical"], "add": ["LIGHT_PRODUCTION"] },
+      { "mode": "industrial", "derivedAll": ["office", "operational"], "add": ["OFFICE_WAREHOUSE"] },
+      { "mode": "flex", "derivedAll": ["office", "operational"], "add": ["OFFICE_PRODUCTION"] },
+      { "mode": "flex", "activitiesAny": ["store"], "derivedAll": ["office", "operational"], "add": ["OFFICE_WAREHOUSE"] },
+      { "mode": "industrial", "derivedAll": ["broader"], "add": ["CONVENTIONAL_INDUSTRIAL", "BROADER_OPERATIONAL_USE"] },
+      { "mode": "industrial", "derivedNone": ["lighter"], "textPattern": "warehouse|distribution|logistics", "add": ["CONVENTIONAL_INDUSTRIAL", "BROADER_OPERATIONAL_USE"] },
+      { "mode": "flex", "derivedAll": ["lighter"], "add": ["LIGHTER_FLEX"] },
+      { "mode": "flex", "activitiesAny": ["dispatch", "repair_service", "store"], "add": ["INDUSTRIAL_LED_FLEX"] },
+      { "derivedAll": ["serviceDistributionHybrid"], "add": ["SERVICE_DISTRIBUTION_HYBRID"] },
+      { "mode": "industrial", "derivedAll": ["technical"], "add": ["TECHNICAL_OPERATIONS", "ENGINEERING_OPERATIONS"] },
+      { "mode": "flex", "derivedAll": ["technical"], "add": ["TECHNICAL_WORKSPACE", "ENGINEERING_OPERATIONS"] },
+      { "mode": "flex", "derivedAll": ["technical", "operational"], "add": ["R_AND_D_PRODUCTION_HYBRID"] },
+      { "derivedAll": ["aerospaceSupport"], "add": ["AEROSPACE_SUPPORT_CONTEXT"] },
+      { "derivedAll": ["productionEcosystem"], "add": ["PRODUCTION_ECOSYSTEM"] }
+    ],
+    "decisiveRules": [
+      { "textPattern": "technical|engineering|r&d|research|prototype|advanced[- ]manufacturing (?:context|ecosystem)|aerospace[- ]support", "traitsByMode": { "industrial": ["TECHNICAL_OPERATIONS", "ADVANCED_MANUFACTURING_CONTEXT", "AEROSPACE_SUPPORT_CONTEXT"], "flex": ["TECHNICAL_WORKSPACE", "ENGINEERING_OPERATIONS", "R_AND_D_PRODUCTION_HYBRID"] } },
+      { "mode": "industrial", "activitiesAny": ["ship_distribute"], "textPattern": "distribution|logistics|broader|larger", "match": "ANY", "traits": ["DISTRIBUTION", "CONVENTIONAL_INDUSTRIAL"] },
+      { "mode": "flex", "textPattern": "office.?production|lighter flex", "traits": ["OFFICE_PRODUCTION", "LIGHTER_FLEX"] }
+    ]
+  },
+  "certification": {
+    "status": "certified_for_bounded_real_user_cohort",
+    "activationKey": "phoenix:industrial_flex:bounded",
+    "activationEligible": true,
+    "proofMode": "TEST_ONLY_NO_RUNTIME_INTEGRATION"
+  }
+}
