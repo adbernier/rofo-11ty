@@ -17,6 +17,7 @@ import northOrangeCountyRequirementAdapter from "../../../lib/requirements/requi
 import phoenixRequirementAdapter from "../../../lib/requirements/requirement-to-phoenix-industrial-flex-recommendation.js";
 import indianapolisRequirementAdapter from "../../../lib/requirements/requirement-to-indianapolis-industrial-flex-recommendation.js";
 import sacramentoRequirementAdapter from "../../../lib/requirements/requirement-to-sacramento-industrial-flex-recommendation.js";
+import { normalizeAcquisition } from "../../_shared/acquisition-attribution.js";
 
 const { projectUniversalIntelligence } = universalIntelligence;
 
@@ -266,6 +267,14 @@ export function normalizeEntryContext(input = {}) {
   const sourceType = clean(input.sourceType || "operator_blank", 80);
   const marketId = clean(input.marketId, 120);
   const propertyType = clean(input.propertyType, 80);
+  const acquisition = normalizeAcquisition({
+    journeyId: input.journeyId,
+    sourceType,
+    sourcePath: input.sourcePath,
+    referrer: input.referrer,
+    landingPage: input.landingPage,
+    capturedAt: input.capturedAt,
+  });
   return {
     schemaVersion: ENTRY_CONTEXT_VERSION,
     entryContextId: clean(input.entryContextId, 100) || crypto.randomUUID(),
@@ -281,6 +290,7 @@ export function normalizeEntryContext(input = {}) {
     propertyId: clean(input.propertyId, 180),
     campaign: clean(input.campaign, 180), queryFamily: clean(input.queryFamily, 180),
     referrer: clean(input.referrer, 500), landingPage: clean(input.landingPage, 500),
+    journeyId: acquisition?.journeyId || "",
     capturedAt: clean(input.capturedAt, 80) || new Date().toISOString(),
   };
 }
@@ -493,6 +503,8 @@ export function commercialContextForBundle(bundle) {
   const business = businessIdentity(requirement);
   const marketAnchor = requirement.locationLogic?.marketAnchor || {};
   return {
+    schemaVersion: "vnext-commercial-context:v1",
+    briefId: bundle?.brief?.id || "",
     briefPublicId: bundle?.brief?.publicId || "",
     marketId: marketAnchor.marketId || marketAnchor.geographyId || "",
     marketName: marketAnchor.marketName || marketAnchor.displayName || marketAnchor.city || "",
@@ -514,6 +526,7 @@ export function commercialContextForBundle(bundle) {
     readiness: snapshot.readiness || "",
     sourceType: bundle?.entryContext?.sourceType || "",
     sourcePath: bundle?.entryContext?.sourcePath || "",
+    acquisition: normalizeAcquisition(bundle?.entryContext),
     requirementRevisionId: bundle?.currentRevision?.id || "",
     requirementRevisionNumber: bundle?.currentRevision?.revisionNumber || 0,
     recommendationSnapshotId: snapshot.id || "",

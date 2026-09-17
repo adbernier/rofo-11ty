@@ -10,6 +10,7 @@ import {
   executionTimingLabel,
   projectSnapshotTextLines,
 } from "../../_shared/project-snapshot.js";
+import { normalizeAcquisition } from "../../_shared/acquisition-attribution.js";
 
 export { escapeHtml, htmlResponse, jsonResponse };
 
@@ -314,6 +315,7 @@ export function canonicalizeBrief(input, request, existing = {}) {
     createdAt: existing.createdAt || now,
     updatedAt: now,
     status: "submitted",
+    acquisition: normalizeAcquisition(input.acquisition),
     searchProfile,
     recommendation,
     marketPath,

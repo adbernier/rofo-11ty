@@ -1,6 +1,7 @@
 (function () {
   const STORAGE_KEY = "rofoSearchProfileV1";
   const ATTRIBUTION_KEY = "rofoSearchProfileAttributionV1";
+  const ACQUISITION_KEY = "rofoOriginalAcquisitionV1";
   const root = document.querySelector("[data-search-profile]");
   if (!root) return;
 
@@ -554,11 +555,15 @@
   }
 
   function defaultAttribution(context) {
+    const storedOriginal = parseStoredJson(safeSessionGet(ACQUISITION_KEY), {}) || {};
+    const originalMatchesEntry = (!recommendationEntryContext.source || !storedOriginal.sourceType || storedOriginal.sourceType === recommendationEntryContext.source)
+      && (!recommendationEntryContext.sourcePath || !storedOriginal.sourcePath || storedOriginal.sourcePath === recommendationEntryContext.sourcePath);
+    const original = originalMatchesEntry ? storedOriginal : {};
     return {
-      session_id: (window.crypto && window.crypto.randomUUID) ? window.crypto.randomUUID() : `${Date.now()}-${Math.random().toString(16).slice(2)}`,
-      landing_page: context.page_url,
-      referrer: context.referrer,
-      entry_page_type: context.page_type,
+      session_id: original.journeyId || ((window.crypto && window.crypto.randomUUID) ? window.crypto.randomUUID() : `${Date.now()}-${Math.random().toString(16).slice(2)}`),
+      landing_page: original.landingPage || context.page_url,
+      referrer: original.referrer || context.referrer,
+      entry_page_type: original.sourceType || context.page_type,
       entry_city: context.city,
       entry_district: context.district,
       entry_comparison: context.comparison,
@@ -580,14 +585,29 @@
   function loadAttribution() {
     const context = profilePageContext();
     const stored = parseStoredJson(safeSessionGet(ATTRIBUTION_KEY), null);
-    return {
+    const storedOriginal = parseStoredJson(safeSessionGet(ACQUISITION_KEY), null);
+    const originalMatchesEntry = storedOriginal
+      && (!recommendationEntryContext.source || !storedOriginal.sourceType || storedOriginal.sourceType === recommendationEntryContext.source)
+      && (!recommendationEntryContext.sourcePath || !storedOriginal.sourcePath || storedOriginal.sourcePath === recommendationEntryContext.sourcePath);
+    const original = originalMatchesEntry ? storedOriginal : null;
+    const storedAttribution = recommendationEntryContext.hasContext
+      ? (original?.journeyId && stored?.session_id === original.journeyId ? stored : null)
+      : stored;
+    const value = {
       ...defaultAttribution(context),
-      ...(stored || {}),
+      ...(storedAttribution || {}),
       page_type_counts: {
         ...defaultAttribution(context).page_type_counts,
-        ...((stored && stored.page_type_counts) || {}),
+        ...((storedAttribution && storedAttribution.page_type_counts) || {}),
       },
     };
+    if (original && original.journeyId) {
+      value.session_id = original.journeyId;
+      value.landing_page = original.landingPage || value.landing_page;
+      value.referrer = original.referrer || value.referrer;
+      value.entry_page_type = original.sourceType || value.entry_page_type;
+    }
+    return value;
   }
 
   function saveAttribution() {
@@ -1342,6 +1362,12 @@
 
   function recommendationContextData() {
     const summary = profileSummaryData();
+    const storedOriginal = parseStoredJson(safeSessionGet(ACQUISITION_KEY), {}) || {};
+    const originalMatchesEntry = (!recommendationEntryContext.source || !storedOriginal.sourceType || storedOriginal.sourceType === recommendationEntryContext.source)
+      && (!recommendationEntryContext.sourcePath || !storedOriginal.sourcePath || storedOriginal.sourcePath === recommendationEntryContext.sourcePath);
+    const original = originalMatchesEntry ? storedOriginal : {};
+    const leadAttribution = analyticsAttribution("search_profile_submitted");
+    const externalReferrer = (() => { try { const value = new URL(leadAttribution.referrer); return value.origin === location.origin ? "" : value.href; } catch { return ""; } })();
     return {
       modelKey: recommendationModelKey(summary),
       locations: normalizeSelectedLocations(summary.selectedLocations, selectedLocationLabels(profile)).map((item) => ({
@@ -1385,6 +1411,14 @@
       priorities: {
         officeEnvironment: summary.officeEnvironment || "",
         growth: summary.expectedGrowth || "",
+      },
+      acquisition: {
+        journeyId: original.journeyId || leadAttribution.session_id || "",
+        sourceType: original.sourceType || recommendationEntryContext.source || leadAttribution.entry_page_type || "",
+        sourcePath: original.sourcePath || recommendationEntryContext.sourcePath || "",
+        referrer: original.referrer || externalReferrer,
+        landingPage: original.landingPage || (recommendationEntryContext.sourcePath ? new URL(recommendationEntryContext.sourcePath, location.origin).href : leadAttribution.landing_page || ""),
+        capturedAt: original.capturedAt || new Date().toISOString(),
       },
       timestamp: new Date().toISOString(),
     };

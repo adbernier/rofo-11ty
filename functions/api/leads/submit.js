@@ -35,6 +35,10 @@ export async function onRequestPost({ request, env }) {
         const context = commercialContextForBundle(briefBundle);
         const business = businessPresentation({ canonical: context.businessCategory, specific: context.businessUse, propertyType: context.propertyType });
         lead.location_brief_v2_context = context;
+        lead.acquisition = context.acquisition || null;
+        lead.originating_journey_id = context.acquisition?.journeyId || "";
+        lead.originating_brief_id = context.briefId || briefBundle.brief.id;
+        lead.originating_requirement_revision_id = context.requirementRevisionId || "";
         lead.location_brief_v2_url = `${new URL(request.url).origin}/location-brief/${briefBundle.brief.publicId}`;
         lead.market = context.marketName || lead.market;
         lead.city = context.marketCity || lead.city;

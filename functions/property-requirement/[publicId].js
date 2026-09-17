@@ -91,6 +91,10 @@ async function createCommercialRequest(request, env, bundle, draft, form, waitUn
   Object.assign(lead, {
     location_brief_public_id: bundle.brief.publicId, location_brief_url: briefUrl, location_brief_status: bundle.brief.lifecycleStage,
     location_brief_v2_context: structuredContext, location_brief_v2_url: briefUrl,
+    acquisition: context.acquisition || null,
+    originating_journey_id: context.acquisition?.journeyId || "",
+    originating_brief_id: context.briefId || bundle.brief.id,
+    originating_requirement_revision_id: context.requirementRevisionId || bundle.currentRevision.id,
     location_requirement_revision_id: bundle.currentRevision.id, location_requirement_revision_number: bundle.currentRevision.revisionNumber,
     recommendation_snapshot_id: bundle.currentSnapshot.id, recommendation_snapshot_version: bundle.currentSnapshot.schemaVersion,
     property_requirement_revision: draft.draftRevision, property_requirement_schema_version: draft.schemaVersion,

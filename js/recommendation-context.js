@@ -172,6 +172,14 @@
       facts: value.facts && typeof value.facts === "object" ? value.facts : {},
       constraints: value.constraints && typeof value.constraints === "object" ? value.constraints : {},
       priorities: value.priorities && typeof value.priorities === "object" ? value.priorities : {},
+      acquisition: value.acquisition && typeof value.acquisition === "object" ? {
+        journeyId: String(value.acquisition.journeyId || "").trim(),
+        sourceType: String(value.acquisition.sourceType || "").trim(),
+        sourcePath: String(value.acquisition.sourcePath || "").trim(),
+        referrer: String(value.acquisition.referrer || "").trim(),
+        landingPage: String(value.acquisition.landingPage || "").trim(),
+        capturedAt: String(value.acquisition.capturedAt || "").trim(),
+      } : null,
       timestamp: String(value.timestamp || "").trim(),
     };
   }
@@ -1739,6 +1747,7 @@
     const existing = readStoredBrief() || {};
     return {
       searchProfile: context,
+      acquisition: context.acquisition || existing.acquisition || null,
       marketPath: {
         mode: state.mode,
         title: state.title,

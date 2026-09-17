@@ -22,6 +22,7 @@ import {
   MISSION_CONTROL_NAV_CSS,
   renderMissionControlHeader,
 } from "./mission-control-nav.js";
+import { acquisitionPresentation, normalizeAcquisition } from "../_shared/acquisition-attribution.js";
 
 const DEFAULT_LIMIT = 50;
 const MAX_LIMIT = 200;
@@ -171,6 +172,10 @@ function isLocationBriefLead(lead) {
 
 function isInvestigationLead(lead) {
   return lead.lead_type === "live_market_investigation" || lead.investigation_requested === "yes";
+}
+
+function canonicalAcquisition(lead) {
+  return normalizeAcquisition(lead && lead.acquisition);
 }
 
 function getEmailDomain(email) {
@@ -739,6 +744,7 @@ function renderBusinessProfileSummary(lead) {
 }
 
 function renderLocationBriefAdvanced({ lead, row, route, officeFinderStatus, officeFinderPayload, latestAttempt, referrals, spamReasons, timeZone = DEFAULT_OPERATOR_TIME_ZONE }) {
+  const acquisition = canonicalAcquisition(lead);
   const officeFinderAttempt = latestAttempt
     ? `<div class="lead-grid lead-grid--compact">
         ${field("Attempted at", formatDate(latestAttempt.attempted_at, timeZone))}
@@ -755,6 +761,15 @@ function renderLocationBriefAdvanced({ lead, row, route, officeFinderStatus, off
     <details class="admin-details lead-card__advanced">
       <summary>More Details</summary>
       <div class="advanced-stack">
+        <section class="message-block">
+          <h3>Original acquisition</h3>
+          <div class="lead-grid lead-grid--compact">
+            ${field("Channel / referrer", acquisitionPresentation(acquisition).channel)}
+            ${field("Originating Rofo page", acquisitionPresentation(acquisition).pageLabel)}
+            ${field("Source path", acquisition?.sourcePath)}
+            ${field("Journey ID", acquisition?.journeyId)}
+          </div>
+        </section>
         <section class="message-block">
           <h3>Location Brief summary</h3>
           <div class="lead-grid lead-grid--compact">
@@ -844,6 +859,7 @@ function renderLeadCard(row, token, brokerPartners = [], referrals = [], timeZon
   const eligibleBrokers = eligibleBrokerMatches(lead, market, brokerPartners);
   const activeReferral = getActiveReferral(referrals);
   const operatorStatus = leadOperatorStatus(row, activeReferral);
+  const acquisition = acquisitionPresentation(canonicalAcquisition(lead));
 
   return `
     <article class="lead-card${isSpam ? " lead-card--spam" : ""}">
@@ -857,6 +873,8 @@ function renderLeadCard(row, token, brokerPartners = [], referrals = [], timeZon
           ${simpleStatusBadge(operatorStatus)}
         </div>
       </div>
+
+      <p class="lead-card__acquisition">${escapeHtml(acquisition.line)}</p>
 
       ${isLocationBrief ? "" : `<div class="lead-grid lead-grid--review">
         ${field(lead.lead_type === "location_profile" || isLocationBrief ? "Location" : "City / market", market, { className: locationClass })}
@@ -1149,6 +1167,7 @@ function renderPage({ rows, token, filters, fetchedCount, counts, notice, leadQu
     .lead-card--spam { background: #fffaf5; border-color: #fed7aa; box-shadow: none; }
     .lead-card__header { display: flex; justify-content: space-between; gap: 20px; align-items: flex-start; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
     .lead-card__time { color: var(--muted); font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; }
+    .lead-card__acquisition { margin: 12px 0 0; color: #40536d; font-size: 14px; font-weight: 700; }
     .lead-card__notes { margin-top: 12px; max-width: 760px; white-space: pre-wrap; color: #26364d; font-size: 15px; line-height: 22px; }
     .lead-card__status { display: flex; flex-wrap: wrap; gap: 8px; justify-content: flex-end; }
     .badge { display: inline-flex; align-items: center; border-radius: 999px; padding: 6px 10px; background: #eef3f8; color: #24364d; font-size: 12px; font-weight: 800; }

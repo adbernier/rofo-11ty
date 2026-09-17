@@ -99,10 +99,39 @@
 <script>
   (() => {
     const endpoint = "/api/analytics/search-profile";
+    const acquisitionKey = "rofoOriginalAcquisitionV1";
+    const journeyKeys = ["rofoVnextJourneyId", "rofo_recommendation_session_id"];
+    let pageJourneyId = "";
     const prompts = document.querySelectorAll("[data-recommendation-prompt]:not([data-prompt-bound])");
     if (!prompts.length) return;
 
+    function journeyId() {
+      try {
+        if (!pageJourneyId) pageJourneyId = window.crypto?.randomUUID ? window.crypto.randomUUID() : `${Date.now()}-${Math.random().toString(16).slice(2)}`;
+        journeyKeys.forEach((key) => sessionStorage.setItem(key, pageJourneyId));
+        return pageJourneyId;
+      } catch (error) {
+        return "";
+      }
+    }
+
+    function preserveOriginalAcquisition(card) {
+      const id = journeyId();
+      try {
+        sessionStorage.setItem(acquisitionKey, JSON.stringify({
+          journeyId: id,
+          sourceType: card.dataset.promptSource || "",
+          sourcePath: card.dataset.promptSourcePath || location.pathname,
+          referrer: document.referrer || "",
+          landingPage: location.href,
+          capturedAt: new Date().toISOString(),
+        }));
+      } catch (error) {}
+      return id;
+    }
+
     function send(eventName, card) {
+      const id = preserveOriginalAcquisition(card);
       const payload = {
         event_name: eventName,
         profile_version: "recommendation_prompt_v1",
@@ -125,6 +154,7 @@
           referrer: document.referrer || "",
           landing_page: window.location.href,
           entry_page_type: card.dataset.promptSource || "",
+          session_id: id,
         },
       };
 

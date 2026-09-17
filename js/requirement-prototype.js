@@ -16,6 +16,7 @@ const root = document.querySelector("[data-requirement-prototype]");
 if (root) {
   const SESSION_KEY = "rofoRequirementAdaptiveInterviewV1";
   const SESSION_STATE_VERSION = "requirement-prototype-session:v2";
+  const ACQUISITION_KEY = "rofoOriginalAcquisitionV1";
   const query = new URLSearchParams(location.search);
   const publicExperience = root.dataset.requirementExperience === "public";
   const requestedIntent = publicExperience ? query.get("journey") : query.get("locationBriefV2");
@@ -66,17 +67,27 @@ if (root) {
   }
 
   const entryPropertyValue = query.get("propertyType") || query.get("spaceType") || "";
-  const vnextJourneyId = (() => { try { const key = "rofoVnextJourneyId"; let value = sessionStorage.getItem(key); if (!value) { value = window.crypto?.randomUUID ? window.crypto.randomUUID() : `${Date.now()}-${Math.random().toString(16).slice(2)}`; sessionStorage.setItem(key, value); } return value; } catch { return ""; } })();
+  const storedAcquisition = (() => { try { const value = JSON.parse(sessionStorage.getItem(ACQUISITION_KEY) || "null"); return value && typeof value === "object" ? value : {}; } catch { return {}; } })();
+  const querySource = query.get("source") || "";
+  const querySourcePath = query.get("sourcePath") || "";
+  const acquisitionMatchesEntry = (!querySource || !storedAcquisition.sourceType || storedAcquisition.sourceType === querySource)
+    && (!querySourcePath || !storedAcquisition.sourcePath || storedAcquisition.sourcePath === querySourcePath);
+  const originalAcquisition = acquisitionMatchesEntry ? storedAcquisition : {};
+  const entryReferrer = (() => { try { const value = new URL(document.referrer); return value.origin === location.origin ? "" : value.href; } catch { return ""; } })();
+  const vnextJourneyId = (() => { try { const key = "rofoVnextJourneyId"; let value = originalAcquisition.journeyId || (locationBriefV2Intent === "edit" ? sessionStorage.getItem(key) : ""); if (!value) { value = window.crypto?.randomUUID ? window.crypto.randomUUID() : `${Date.now()}-${Math.random().toString(16).slice(2)}`; } sessionStorage.setItem(key, value); return value; } catch { return ""; } })();
   const publicEntryContext = {
-    sourceType: query.get("source") || (publicExperience ? "public_requirement" : "operator_requirement_interview"),
-    sourcePath: query.get("sourcePath") || document.referrer || location.pathname,
+    journeyId: vnextJourneyId,
+    sourceType: originalAcquisition.sourceType || querySource || (publicExperience ? "public_requirement" : "operator_requirement_interview"),
+    sourcePath: originalAcquisition.sourcePath || querySourcePath || document.referrer || location.pathname,
     marketId: query.get("marketId") || (/^san francisco$/i.test(query.get("city") || "") ? "san-francisco" : ""),
     propertyType: /retail|service/i.test(entryPropertyValue) ? "retail_service" : /industrial|warehouse|flex/i.test(entryPropertyValue) ? "industrial_flex" : /office/i.test(entryPropertyValue) ? "office" : "",
     candidateDistrictIds: [query.get("districtId") || ""].filter(Boolean),
     candidateDistrictNames: [query.get("district") || ""].filter(Boolean),
     businessIdentityId: query.get("businessIdentityId") || query.get("businessArchetype") || "",
     campaign: query.get("campaign") || "", queryFamily: query.get("queryFamily") || "",
-    referrer: document.referrer || "", landingPage: location.href,
+    referrer: originalAcquisition.referrer || entryReferrer,
+    landingPage: originalAcquisition.landingPage || (querySourcePath ? new URL(querySourcePath, location.origin).href : location.href),
+    capturedAt: originalAcquisition.capturedAt || new Date().toISOString(),
   };
 
   if (locationBriefV2Mode) clearPrototypePersistence();
