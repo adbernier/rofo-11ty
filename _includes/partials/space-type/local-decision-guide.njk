@@ -150,6 +150,7 @@
     {% if entry.localDecisionGuide.recommendation %}
       <div class="neighborhood-decision-guidance">
         <p><strong>{{ entry.localDecisionGuide.recommendation.prompt }}</strong></p>
+        <p>Rofo will help you define what you're looking for and create a Location Brief for your search.</p>
         <a class="btn-primary" href="{{ entry.localDecisionGuide.recommendation.path }}">{{ entry.localDecisionGuide.recommendation.label }}</a>
       </div>
     {% endif %}

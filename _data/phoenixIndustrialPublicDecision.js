@@ -98,7 +98,7 @@ module.exports = Object.freeze({
   suppressInventoryModule: true,
   recommendation: Object.freeze({
     prompt: "Which Phoenix operating environment fits your actual requirement?",
-    label: "See My Best-Fit Locations",
+    label: "Tell us what you need",
     path: "/best-fit-locations/?city=Phoenix&state=AZ&marketId=phoenix&spaceType=Industrial%20%2F%20Warehouse%20%2F%20Flex&source=space_type&sourcePath=%2Fcommercial-real-estate%2FAZ%2Fphoenix%2Findustrial-space%2F&journey=new",
   }),
 });

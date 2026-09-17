@@ -75,10 +75,10 @@
 {% set mobilePromptBase = "/best-fit-locations/" %}
 {% set mobilePromptHref = mobilePromptBase + ("?" + (mobileParams | join("&")) if mobileParams.length else "") %}
 
-<section class="search-profile-mobile-entry" aria-label="Create your Business Profile">
+<section class="search-profile-mobile-entry" aria-label="Tell us what you need">
   <div>
-    <h2>Create your Business Profile</h2>
-    <p>Get a location recommendation before you search for space.</p>
+    <h2>Tell us what you need</h2>
+    <p>Rofo will help you define what you're looking for and create a Location Brief for your search.</p>
   </div>
-  <a class="btn-primary" href="{{ mobilePromptHref }}">See My Best-Fit Locations</a>
+  <a class="btn-primary" href="{{ mobilePromptHref }}">Tell us what you need</a>
 </section>
