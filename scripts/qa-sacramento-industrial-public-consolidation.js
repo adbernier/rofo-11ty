@@ -18,9 +18,13 @@ const guide = sacramento.localDecisionGuide;
 
 assert.equal(guide.experimentId, "growth-sacramento-industrial-v1");
 assert.equal(guide.suppressInventoryModule, true, "The generic building inventory must yield to the curated representative set");
-assert.match(guide.seoTitle, /Sacramento Industrial and Warehouse Location Guide/);
-assert.match(guide.seoDescription, /Power Inn, Natomas/);
+assert.equal(guide.seoTitle, "Sacramento Industrial Space: Find the Right Location | Rofo");
+assert.equal(guide.seoDescription, "Tell Rofo what your business needs. We will help you compare Sacramento industrial areas, find where to start, and define the right space for your operation.");
 assert.match(guide.h1, /Industrial and Warehouse Space in Sacramento/);
+assert.equal(guide.heroLead, "The right Sacramento location depends on how your business actually operates. Tell Rofo about your space, access, loading, customer and operating needs. We'll help define what you're looking for and recommend where to start.");
+assert.equal(guide.heroPrimaryCta.label, "Tell us what you need");
+assert.equal(guide.heroPrimaryCta.supportingCopy, "Rofo will help define the right space for your business, recommend where to start, and create your Location Brief.");
+assert.equal(guide.recommendation.label, "Tell us what you need");
 
 const powerInn = guide.entries.find((item) => item.id === "power-inn-industrial");
 const natomas = guide.entries.find((item) => item.id === "natomas");
@@ -74,19 +78,28 @@ assert.equal(entryUrl.searchParams.get("journey"), "new");
 
 const experiment = experiments.byId[guide.experimentId];
 assert(experiment && experiment.landingPath === route);
-assert.equal(experiment.baseline.propertyTypeImpressions, 31);
-assert.equal(experiment.baseline.averagePosition, 21.1);
-assert.match(experiment.hypothesis, /qualified Business Profile starts/);
-assert.equal(experiment.startVersion, "market-development-sprint-a");
+assert.equal(experiment.baseline.window, "2026-08-17/2026-09-14");
+assert.equal(experiment.baseline.query, "sacramento industrial space");
+assert.equal(experiment.baseline.selectedPath, route);
+assert.equal(experiment.baseline.impressions, 96);
+assert.equal(experiment.baseline.clicks, 0);
+assert.equal(experiment.baseline.ctr, 0);
+assert.equal(experiment.baseline.averagePosition, 18.3);
+assert.equal(experiment.observation.checkpointDays, 14);
+assert.equal(experiment.observation.decisionWindowCompleteDays, 28);
+assert.equal(experiment.primaryProductMetric, "Requirement starts attributable to the Sacramento Industrial landing page");
+assert.equal(experiment.startVersion, "sacramento-industrial-first-growth-intervention");
 assert.equal(experiments.cityProjection["CA/sacramento"].featuredSpaceType.path, route);
 assert.equal(experiments.cityProjection["CA/sacramento"].intelligenceState, "universal_with_local_context");
 
 const guideText = JSON.stringify(guide);
 assert(!/ranked #|district score|recommendation ready|best industrial district/i.test(guideText), "Public guidance must not claim Sacramento Recommendation Intelligence");
-assert.match(guideText, /without automatically ranking|not an automatically ranked alternative/i, "The non-ranked intelligence boundary must be explicit");
+assert.match(guideText, /automatically ranked alternative/i, "The non-ranked intelligence boundary must remain explicit in supporting district context");
 assert.match(guideText, /property-level|property review|property-specific/);
 const template = read("_includes/partials/space-type/local-decision-guide.njk");
 assert(template.includes("representativeEnvironments") && template.includes("operatingPatterns"));
+const heroTemplate = read("_includes/partials/space-type/hero.njk");
+assert(heroTemplate.includes("heroPrimaryCta") && heroTemplate.includes("supportingCopy"), "The bounded hero CTA must render from page data");
 assert(read("city.njk").includes("featuredSpaceType"), "The city must expose the bounded Industrial decision path");
 
 console.log("Sacramento Industrial Public Consolidation QA passed: canonical guide, reviewed contexts, four representative environments, controlled entry, growth evidence, and intelligence boundary verified.");

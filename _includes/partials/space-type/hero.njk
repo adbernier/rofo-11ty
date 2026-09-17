@@ -2,7 +2,9 @@
   <div class="eyebrow">Space Type</div>
   <h1>{{ entry.h1 or (spaceType.pluralLabel + " in " + city.city + ", " + city.state_abbr) }}</h1>
   <p class="lead{% if entry.publicCommercialGeography %} lead--concise{% endif %}">
-  {% if entry.publicCommercialGeography %}
+  {% if entry.localDecisionGuide and entry.localDecisionGuide.heroPrimaryCta and entry.heroLead %}
+    {{ entry.heroLead }}
+  {% elseif entry.publicCommercialGeography %}
     {{ entry.publicCommercialGeography.introduction }}
   {% elseif entry.heroLead %}
     {{ entry.heroLead }}
@@ -12,6 +14,13 @@
     The best way to approach your search is to define your requirements early and compare a small set of realistic options across different areas of the market.
   {% endif %}
   </p>
+
+  {% if entry.localDecisionGuide and entry.localDecisionGuide.heroPrimaryCta %}
+    <div class="space-type-hero-cta">
+      <p>{{ entry.localDecisionGuide.heroPrimaryCta.supportingCopy }}</p>
+      <div class="button-row"><a class="btn-primary" href="{{ entry.localDecisionGuide.recommendation.path }}">{{ entry.localDecisionGuide.heroPrimaryCta.label }}</a></div>
+    </div>
+  {% endif %}
 
   {% if not entry.publicCommercialGeography %}
     {% include "partials/shared/search-profile-mobile-entry.njk" %}
