@@ -56,6 +56,16 @@ for (const item of cohort) {
 assert.equal(spaceTypePages.some((page) => page.city_slug === "fullerton" && page.state_abbr === "CA"), false, "Fullerton must not link to a currently unbuildable space-type surface");
 assert(experiments.cityProjection["CA/fullerton"].decisionGuide.links.every((link) => !/\/(office|retail|industrial|flex)-space\/$/.test(link.path)), "Fullerton must preserve space-type ownership until a canonical surface is buildable");
 
+const costaMesaExperiment = experiments.byId["growth-harvest-costa-mesa-city-v1"];
+assert.equal(costaMesaExperiment.activeIntervention.experimentNumber, 2);
+assert.equal(costaMesaExperiment.activeIntervention.query, "costa mesa commercial real estate");
+assert.equal(costaMesaExperiment.activeIntervention.page, "/commercial-real-estate/CA/costa-mesa/");
+assert.deepEqual(costaMesaExperiment.activeIntervention.baseline, { window: "2026-08-17/2026-09-15", impressions: 154, clicks: 0, ctr: 0, averagePosition: 12.3 });
+assert.equal(costaMesaExperiment.activeIntervention.beforeTitle, "Costa Mesa Commercial Real Estate Location Guide | Rofo");
+assert.equal(costaMesaExperiment.activeIntervention.afterTitle, "Costa Mesa Commercial Real Estate: Find the Right Location | Rofo");
+assert.equal(experiments.cityProjection["CA/costa-mesa"].seoTitle, costaMesaExperiment.activeIntervention.afterTitle);
+assert.equal(costaMesaExperiment.activeIntervention.deploymentDate, null, "Experiment #2 must not claim deployment before production release");
+
 const cityTemplate = fs.readFileSync(path.join(ROOT, "city.njk"), "utf8");
 for (const token of ['"market_id": city.slug', '"journey": "new"', "city.growth_experiment.heroLead", "city.growth_experiment.decisionGuide"]) {
   assert(cityTemplate.includes(token), `city template must include ${token}`);
