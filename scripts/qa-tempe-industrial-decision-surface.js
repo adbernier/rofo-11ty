@@ -20,15 +20,15 @@ const destinationPaths = [
   "/commercial-real-estate/building/AZ/tempe/6840-s-harl-ave/",
 ];
 
-assert.match(html, /<title>Industrial Space in Tempe, AZ \| Rofo<\/title>/);
-assert.match(html, /<meta name="description" content="Compare industrial location options in Tempe, AZ\. Understand areas, buildings, and tradeoffs before narrowing the search\.">/);
-assert.match(html, /<h1>Industrial Space in Tempe, AZ<\/h1>/);
+assert.match(html, /<title>Tempe Industrial Space and I-10 Warehouse Location Guide \| Rofo<\/title>/);
+assert.match(html, /<meta name="description" content="Find the right Tempe industrial space for your operation\. Compare I-10 locations and build a Location Brief around your space and business needs\.">/);
+assert.match(html, /<h1>Industrial and Warehouse Space in Tempe, AZ<\/h1>/);
 assert.match(html, /<link rel="canonical" href="https:\/\/www\.rofo\.com\/commercial-real-estate\/AZ\/tempe\/industrial-space\/">/);
-assert.match(html, /data-experiment="tempe-industrial-decision-surface"/);
+assert.match(html, /data-experiment="growth-tempe-industrial-v1"/);
 assert.match(html, /Is Tempe the right Phoenix-area industrial location\?/);
 assert.match(html, /What to verify before comparing spaces/);
-assert.match(html, /source=tempe_industrial_decision_surface/);
-assert.match(html, /spaceType=Industrial%20%2F%20Warehouse/);
+assert.match(html, /source=space_type/);
+assert.match(html, /spaceType=Industrial%20%2F%20Warehouse%20%2F%20Flex/);
 assert.match(sitemap, /https:\/\/www\.rofo\.com\/commercial-real-estate\/AZ\/tempe\/industrial-space\//);
 
 for (const destinationPath of destinationPaths) {
@@ -38,7 +38,7 @@ for (const destinationPath of destinationPaths) {
   assert.match(sitemap, new RegExp(escapedPath));
 }
 
-const guide = html.match(/<section[^>]+data-experiment="tempe-industrial-decision-surface"[\s\S]*?<\/section>/);
+const guide = html.match(/<section[^>]+data-experiment="growth-tempe-industrial-v1"[\s\S]*?<\/section>/);
 assert.ok(guide, "Tempe Industrial decision surface should render once");
 assert.equal((guide[0].match(/neighborhood-comparison-card/g) || []).length, 3, "Decision surface should expose Tempe plus exactly two alternatives");
 for (const omittedAlternative of ["Chandler Airpark", "West Phoenix Industrial", "Southwest Phoenix Industrial", "Tolleson", "Goodyear"]) {
@@ -50,7 +50,7 @@ const tempeIndustrialPage = pages.find(
 );
 assert.ok(tempeIndustrialPage?.localDecisionGuide, "Tempe Industrial should receive the decision guide");
 assert.equal(tempeIndustrialPage.localDecisionGuide.entries.length, 3, "Guide data should contain one local path and two alternatives");
-assert.ok(!pages.some((entry) => entry.localDecisionGuide?.experimentId === "tempe-industrial-decision-surface" && entry !== tempeIndustrialPage), "No other property-type page should receive the experiment");
+assert.ok(!pages.some((entry) => entry.localDecisionGuide?.experimentId === "growth-tempe-industrial-v1" && entry !== tempeIndustrialPage), "No other property-type page should receive the experiment");
 
 const graphNodes = Array.isArray(graph) ? graph : Object.values(graph.nodes || graph);
 assert.equal(graphNodes.filter((node) => node.slug === "tempe-i-10-industrial").length, 1, "No new Tempe canonical geography should be created");

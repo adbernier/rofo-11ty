@@ -3,7 +3,7 @@ module.exports = {
   eyebrow: "Tempe industrial location guide",
   title: "Is Tempe the right Phoenix-area industrial location?",
   seoTitle: "Tempe Industrial Space and I-10 Warehouse Location Guide | Rofo",
-  seoDescription: "Evaluate Tempe Industrial and warehouse requirements through reviewed I-10 context, a representative office/warehouse environment, Phoenix-area orientation, and property-level questions.",
+  seoDescription: "Find the right Tempe industrial space for your operation. Compare I-10 locations and build a Location Brief around your space and business needs.",
   h1: "Industrial and Warehouse Space in Tempe, AZ",
   heroLead: "Tempe Industrial searches should begin with loading, vehicle movement, storage, production, employee and customer geography, and office/warehouse mix. Reviewed I-10 context helps orient the search without ranking Tempe against other Phoenix-area markets.",
   introduction:
