@@ -90,7 +90,7 @@ module.exports = Object.freeze({
   suppressInventoryModule: true,
   recommendation: Object.freeze({
     prompt: "Which San Jose operating environment fits your actual requirement?",
-    label: "Tell us what you need",
+    label: "Start My Location Brief",
     path: "/best-fit-locations/?city=San%20Jose&state=CA&marketId=san-jose&spaceType=Industrial%20%2F%20Warehouse%20%2F%20Flex&source=space_type&sourcePath=%2Fcommercial-real-estate%2FCA%2Fsan-jose%2Findustrial-space%2F&journey=new",
   }),
 });

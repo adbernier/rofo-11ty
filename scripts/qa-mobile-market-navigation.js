@@ -33,7 +33,7 @@ assert(breadcrumbs.includes("breadcrumbs__item--market"));
 assert(styles.includes(".breadcrumbs__item--mobile-hidden"));
 assert(styles.includes(".breadcrumbs__item--market a"));
 
-assert(prompt.includes("See My Best-Fit Locations"));
+assert(prompt.includes("Start My Location Brief"));
 assert(prompt.includes("district="));
 assert(prompt.includes("districtId="));
 assert(prompt.includes("sourcePath="));

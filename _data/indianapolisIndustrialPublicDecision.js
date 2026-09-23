@@ -31,7 +31,7 @@ module.exports = Object.freeze({
   ]),
   recommendation: Object.freeze({
     prompt: "What kind of Indianapolis Industrial environment fits your operation?",
-    label: "Tell us what you need",
+    label: "Start My Location Brief",
     path: "/best-fit-locations/?city=Indianapolis&state=IN&spaceType=Industrial%20%2F%20Warehouse%20%2F%20Flex&source=space_type&sourcePath=%2Fcommercial-real-estate%2FIN%2Findianapolis%2Findustrial-space%2F&journey=new",
   }),
 });

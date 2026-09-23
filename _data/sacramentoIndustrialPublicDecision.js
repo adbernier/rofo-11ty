@@ -7,7 +7,7 @@ module.exports = Object.freeze({
   h1: "Industrial and Warehouse Space in Sacramento, CA",
   heroLead: "The right Sacramento location depends on how your business actually operates. Tell Rofo about your space, access, loading, customer and operating needs. We'll help define what you're looking for and recommend where to start.",
   heroPrimaryCta: Object.freeze({
-    label: "Tell us what you need",
+    label: "Start My Location Brief",
     supportingCopy: "Rofo will help define the right space for your business, recommend where to start, and create your Location Brief.",
   }),
   introduction: "Power Inn and Natomas represent different in-city operating contexts. West Sacramento and Rancho Cordova add useful metro perspective. The right place depends on the operation, building requirements, employee and service geography, and property facts that still need verification.",
@@ -80,7 +80,7 @@ module.exports = Object.freeze({
   suppressInventoryModule: true,
   recommendation: Object.freeze({
     prompt: "Which Sacramento-area operating environment fits your actual requirement?",
-    label: "Tell us what you need",
+    label: "Start My Location Brief",
     path: "/best-fit-locations/?city=Sacramento&state=CA&marketId=sacramento&spaceType=Industrial%20%2F%20Warehouse%20%2F%20Flex&source=space_type&sourcePath=%2Fcommercial-real-estate%2FCA%2Fsacramento%2Findustrial-space%2F&journey=new",
   }),
 });

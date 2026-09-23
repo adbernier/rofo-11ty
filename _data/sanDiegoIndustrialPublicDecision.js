@@ -100,7 +100,7 @@ module.exports = Object.freeze({
   suppressInventoryModule: true,
   recommendation: Object.freeze({
     prompt: "Which San Diego operating environment fits your actual requirement?",
-    label: "Tell us what you need",
+    label: "Start My Location Brief",
     path: "/best-fit-locations/?city=San%20Diego&state=CA&marketId=san-diego&spaceType=Industrial%20%2F%20Warehouse%20%2F%20Flex&source=space_type&sourcePath=%2Fcommercial-real-estate%2FCA%2Fsan-diego%2Findustrial-space%2F&journey=new",
   }),
 });

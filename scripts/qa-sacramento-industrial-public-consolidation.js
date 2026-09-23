@@ -22,9 +22,9 @@ assert.equal(guide.seoTitle, "Sacramento Industrial Space: Find the Right Locati
 assert.equal(guide.seoDescription, "Tell Rofo what your business needs. We will help you compare Sacramento industrial areas, find where to start, and define the right space for your operation.");
 assert.match(guide.h1, /Industrial and Warehouse Space in Sacramento/);
 assert.equal(guide.heroLead, "The right Sacramento location depends on how your business actually operates. Tell Rofo about your space, access, loading, customer and operating needs. We'll help define what you're looking for and recommend where to start.");
-assert.equal(guide.heroPrimaryCta.label, "Tell us what you need");
+assert.equal(guide.heroPrimaryCta.label, "Start My Location Brief");
 assert.equal(guide.heroPrimaryCta.supportingCopy, "Rofo will help define the right space for your business, recommend where to start, and create your Location Brief.");
-assert.equal(guide.recommendation.label, "Tell us what you need");
+assert.equal(guide.recommendation.label, "Start My Location Brief");
 
 const powerInn = guide.entries.find((item) => item.id === "power-inn-industrial");
 const natomas = guide.entries.find((item) => item.id === "natomas");

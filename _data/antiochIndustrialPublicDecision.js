@@ -32,7 +32,7 @@ module.exports = Object.freeze({
   suppressInventoryModule: true,
   recommendation: Object.freeze({
     prompt: "Does Antioch fit the way your operation needs to work?",
-    label: "Tell us what you need",
+    label: "Start My Location Brief",
     path: "/best-fit-locations/?city=Antioch&state=CA&spaceType=Industrial%20%2F%20Warehouse%20%2F%20Flex&source=space_type&sourcePath=%2Fcommercial-real-estate%2FCA%2Fantioch%2Findustrial-space%2F&journey=new",
   }),
 });
