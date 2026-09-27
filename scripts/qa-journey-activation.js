@@ -72,7 +72,10 @@ assert(research.includes("@media(max-width:700px)") && research.includes("grid-t
 const analytics = read("functions/api/analytics/search-profile.js");
 for (const event of ["vnext_brief_created", "vnext_creation_rejected", "vnext_entry_fallback", "vnext_research_clicked", "vnext_research_submitted"]) assert(analytics.includes(`\"${event}\"`));
 assert(analytics.includes("persistenceConfigured"));
-const homepage = read("index.njk"); assert(homepage.includes("Locations worth investigating") && !homepage.includes("Recommended starting path"));
+const homepage = read("index.njk");
+assert(homepage.includes('{% include "partials/shared/location-brief-preview.njk" %}'));
+const homepageBriefPreview = read("_includes/partials/shared/location-brief-preview.njk");
+assert(homepageBriefPreview.includes("Locations worth investigating") && !homepageBriefPreview.includes("Recommended starting path"));
 
 fs.rmSync(temp, { recursive: true, force: true });
 console.log("Journey Activation QA passed: controlled routing, seven creation states, active continuation, analytics, and rollback contracts verified.");
