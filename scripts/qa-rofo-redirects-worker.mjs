@@ -81,6 +81,10 @@ try {
   assert.equal((await invoke("/assets/app.css")).status, 200);
   assert.equal(passthrough.length, assetsBefore + 1, "static asset must pass through");
 
+  const legacyAbout = await invoke("/commercial-real-estate/pages/about-us.html");
+  assert.equal(legacyAbout.status, 301);
+  assert.equal(legacyAbout.headers.get("location"), "https://www.rofo.com/about/");
+
   const unmatchedBefore = passthrough.length;
   assert.equal((await invoke("/about/")).status, 200);
   assert.equal(passthrough.length, unmatchedBefore + 1, "unmatched request must pass through");

@@ -39,6 +39,11 @@ const STATE_ABBREVIATIONS = new Set([
         return fetch(request);
       }
 
+      // Consolidate the historical company page into the current About page.
+      if (path === "/commercial-real-estate/pages/about-us.html") {
+        return redirectTo(url, "/about/");
+      }
+
       // Handle mobile subdomain (m.rofo.com) in one hop, like /AL/Cullman.
       if (url.hostname.startsWith("m.rofo.com")) {
         const mobileLegacyCityMatch = path.match(/^\/([A-Za-z]{2})\/([^\/]+)\/?$/);
