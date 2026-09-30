@@ -61,7 +61,7 @@ module.exports = {
   ],
   recommendation: {
     prompt: "Not sure whether Tempe or another Phoenix-area industrial location fits your operation?",
-    label: "Start My Location Brief",
+    label: "Start My Search",
     path: "/best-fit-locations/?city=Tempe&state=AZ&spaceType=Industrial%20%2F%20Warehouse%20%2F%20Flex&source=space_type&sourcePath=%2Fcommercial-real-estate%2FAZ%2Ftempe%2Findustrial-space%2F&journey=new",
   },
 };

@@ -2,7 +2,7 @@
 
 ## Historical audit (superseded by the final contract below)
 
-The following audit and proposals document the earlier language decision. They are retained as history; the final canonical contract is recorded in Implementation Status.
+The following audit and proposals document earlier language decisions. They are retained as history; the current canonical contract is recorded in the final Start My Search section.
 
 ### Original Executive Answer
 
@@ -246,7 +246,7 @@ Before implementation, choose whether eligible/fallback promise selection happen
 
 ## Implementation Status — Start My Location Brief (September 23, 2026)
 
-Implemented locally; uncommitted and not deployed. This section supersedes the historical CTA proposals above.
+Historical implementation record. The Start My Search contract below supersedes this CTA wording.
 
 - **Canonical modern new-search CTA:** `Start My Location Brief`
 - **Universal promise (unchanged):** `Rofo will help you define what you're looking for and create a Location Brief for your search.`
@@ -287,3 +287,14 @@ Validation results: production build passed (13,971 files); 22,614 existing outp
 Journey Activation and Universal Projection retain the unrelated assertion expecting `Rofo has not produced a personalized local market ranking for this search.` The Journey Activation failure was reproduced before edits. Neither the renderer nor the failed boundary expectations was changed. Current rendered customer-voice/shared-search QA passes.
 
 Explicit examples inspected: homepage/blank; SF Office; Sacramento, Tempe, and Phoenix Industrial; Fullerton city (North Orange County); Howell city plus a Howell Flex shared-prompt fixture; Tempe and SoMa mobile entry; existing-Brief edit/confirmation; certified `Put Rofo to work` and unsupported `Continue my search` continuation; interview completion; 138 legacy availability pages; and specialized building-comparison actions. Howell Flex and Fullerton Industrial files left over in `_site` are not emitted by the current build and are not used as current-page evidence. No current emitted modern new-search CTA retains the old label.
+
+## Current cold-entry contract — Start My Search
+
+- **Canonical new-search CTA:** `Start My Search`.
+- **Rationale:** describe the familiar customer action before asking a first-time visitor to understand Rofo's product terminology.
+- **Output name:** `Location Brief`, unchanged. Preserve the supporting promise: `Rofo will help you define what you're looking for and create a Location Brief for your search.`
+- **Scope:** 41 customer-facing CTA, heading and accessibility-label occurrences across 25 presentation/data files, covering the same thirteen entry families above. Only the new-search label changes; destinations, context, attribution and recommendation eligibility remain unchanged.
+- **Distinct actions:** preserve interview completion, confirmation, editing, resume/reset, `Put Rofo to work`, fulfillment, availability forms and specialized building actions. The Partner preview retains `See what a Rofo assignment looks like`, its Location Brief artifact and partner invitation; its shared customer-search header follows the new label.
+- **SEO protection:** Sacramento, Costa Mesa, Tempe and Phoenix retain their metadata, H1s, market copy, structured data and experiment records. Their cold-entry CTA labels follow this universal copy change.
+
+Earlier CTA wording in the historical audit, implementation record and internal snapshots is documentation, not the current customer-facing contract. This copy migration is separate from the Requirement readiness hotfix.
