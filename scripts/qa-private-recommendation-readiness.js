@@ -1,4 +1,6 @@
 const assert = require("node:assert/strict");
+const fs = require("node:fs");
+const vm = require("node:vm");
 const gate = require("../lib/recommendations/private-recommendation-readiness");
 const accessFoundation = require("../_data/sfAccessFoundationV0");
 const compositionFoundation = require("../_data/sfOfficeCompositionFoundation");
@@ -52,7 +54,68 @@ const requestedResult = gate.evaluateRecommendationReadiness(requested, dependen
 assert.equal(requestedResult.composition.considered.find((item) => item.districtId === "potrero-hill").candidatePreference, true);
 assert.equal(requestedResult.composition.rawConsidered.find((item) => item.districtId === "potrero-hill").eligibilitySource, "NOT_ELIGIBLE", "Candidate preference must not create recommendation eligibility.");
 
-console.log("Private Recommendation Readiness QA passed.");
+// Exercise the browser UMD branch without CommonJS's eagerly loaded optional composers.
+const browserSource = fs.readFileSync(require.resolve("../lib/recommendations/private-recommendation-readiness"), "utf8");
+function browserGate(optionalGlobals = {}) {
+  const context = vm.createContext({ RofoPrivateLocationComposition: require("../lib/recommendations/private-location-composition"), ...optionalGlobals });
+  vm.runInContext(browserSource, context);
+  return context.RofoPrivateRecommendationReadiness;
+}
+const regionalCases = [
+  ["northOrangeCounty", "NorthOrangeCounty", "north-orange-county", "orange-county", "Anaheim", "CA"],
+  ["phoenix", "Phoenix", "phoenix", "phoenix", "Phoenix", "AZ"],
+  ["indianapolis", "Indianapolis", "indianapolis", "indianapolis", "Indianapolis", "IN"],
+  ["sacramento", "Sacramento", "sacramento", "sacramento", "Sacramento", "CA"],
+].map(([key, globalName, slug, market, city, state]) => {
+  const input = requirement(`browser-${slug}`, "Warehouse and distribution business", [], "", "", "", "industrial_flex", market);
+  input.activities = ["store", "receive", "ship_distribute"];
+  Object.assign(input.locationLogic.marketAnchor, { city, state });
+  return { key, globalName: `Rofo${globalName}IndustrialFlexLocationComposition`, slug, input };
+});
+const noOptionalComposers = browserGate();
+const disabledFlags = Object.fromEntries(regionalCases.map(({ key }) => [`${key}IndustrialFlexEnabled`, false]));
+const plain = value => JSON.parse(JSON.stringify(value));
+for (const flags of [{}, disabledFlags]) {
+  for (const input of [fixtures.conventional, ...regionalCases.map(item => item.input)]) {
+    const deps = { ...dependencies, ...flags };
+    const actual = noOptionalComposers.evaluateRecommendationReadiness(input, deps);
+    assert.deepEqual(plain(actual), plain(gate.evaluateRecommendationReadiness(input, deps)), `${input.id}: omitted/disabled optional composers must not change readiness`);
+  }
+}
+for (const { key, globalName, slug, input } of regionalCases) {
+  const enabledDependencies = {
+    ...dependencies, ...disabledFlags,
+    [`${key}IndustrialFlexEnabled`]: true,
+    [`${key}IndustrialFlexFoundation`]: require(`../_data/${key}IndustrialFlexEvidenceFoundation`),
+  };
+  // Only this market's optional global exists; disabled neighbors must never be read.
+  const enabledBrowser = browserGate({ [globalName]: require(`../lib/recommendations/${slug}-industrial-flex-location-composition`) });
+  const actual = enabledBrowser.evaluateRecommendationReadiness(input, enabledDependencies);
+  assert.notEqual(actual.readiness, gate.READINESS.INVESTIGATE, `${slug}: enabled market unexpectedly abstained`);
+  assert(actual.shortlist.length > 0, `${slug}: enabled market lost its shortlist`);
+  assert.deepEqual(plain(actual), plain(gate.evaluateRecommendationReadiness(input, enabledDependencies)), `${slug}: browser/server recommendation parity changed`);
+}
+
+// Run the real interview debug functions: the public interview also renders this hidden panel.
+const interviewSource = fs.readFileSync(require.resolve("../js/requirement-prototype.js"), "utf8");
+const debugStart = interviewSource.indexOf("  function renderCompositionDebug() {");
+const debugEnd = interviewSource.indexOf("  function renderScenarios() {", debugStart);
+assert(debugStart >= 0 && debugEnd > debugStart, "Interview debug functions must be covered");
+function debugNode(tag, className, textContent) {
+  return { textContent, children: [], append(...items) { this.children.push(...items); }, replaceChildren() { this.children = []; } };
+}
+for (const input of [fixtures.conventional, regionalCases.find(item => item.key === "phoenix").input]) {
+  const elements = { "composition-debug": debugNode(), "debug-meta": debugNode(), "debug-json": debugNode() };
+  const context = vm.createContext({
+    elements, node: debugNode, state: { interview: { requirement: input } },
+    interviewDebug: interview => interview, renderCoverage() {}, renderAccessShadow() {},
+    recommendationReadiness: () => noOptionalComposers.evaluateRecommendationReadiness(input, dependencies),
+  });
+  assert.doesNotThrow(() => vm.runInContext(`${interviewSource.slice(debugStart, debugEnd)}\nrenderDebug();`, context), `${input.id}: public interview debug rendering must not throw`);
+  assert(elements["composition-debug"].children.some(item => item.textContent.startsWith("Recommendation readiness:")), `${input.id}: composition debug did not render`);
+}
+
+console.log("Private Recommendation Readiness QA passed, including browser optional globals, enabled-market parity, and SF/Phoenix interview debug rendering.");
 for (const [id, result] of Object.entries(results)) console.log(`${id}: ${result.readiness}; plausible=${result.diagnostics.counts.plausible}; evaluated=${result.diagnostics.counts.evaluated}; partial=${result.diagnostics.counts.partial}; blocked=${result.diagnostics.counts.blocked}; ineligible=${result.diagnostics.counts.ineligible}`);
 
 module.exports = { fixtures, results };
