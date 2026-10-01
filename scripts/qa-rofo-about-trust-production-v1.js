@@ -17,13 +17,13 @@ assert(about.includes('canonical: "{{ metadata.siteUrl }}/about/"'), "About cano
 assert(about.includes("Since 2008") && about.includes("Started in San Francisco · 2008"), "Supported 2008 history missing");
 assert(!about.includes("2007") && !base.includes("since 2007"), "Unsupported company-history date remains");
 assert(about.includes("The technology has changed. The problem hasn't."), "Approved continuity statement missing");
-assert(about.includes("Finding commercial space shouldn't be this hard for a smaller business."), "Approved problem copy missing");
+assert(about.includes("Finding commercial space shouldn't be this hard for a business."), "Approved problem copy missing");
 assert(about.includes("commercial real estate professionals who believed technology could make the process work better"), "CRE-origin sentence missing");
 assert(about.includes(sfgate) && about.includes(inc), "Exact historical links missing");
 assert((about.match(/target="_blank" rel="noopener noreferrer"/g) || []).length === 2, "External-link safety contract failed");
 assert(!/<img\b|publisher-logo|press-logo|founder-note/i.test(about), "Forbidden imagery, branding, or founder treatment found");
 assert(!/endorsement|featured in|as seen in/i.test(visible), "Endorsement framing found");
-assert(about.includes('href="/find-locations/"'), "CTA destination changed");
+assert(about.includes('href="/best-fit-locations/?source=product_education&amp;sourcePath=%2Fabout%2F">Start My Search</a>'), "Canonical new-search CTA or About attribution changed");
 assert(lintCustomerText(visible).filter(item => item.severity === "ERROR").length === 0, "Customer Voice ERROR found");
 assert(!eleventy.includes("visual-review/rofo-about-trust-v1"), "Prototype-specific Eleventy integration is forbidden");
 console.log("Rofo About + Trust production QA passed.");
