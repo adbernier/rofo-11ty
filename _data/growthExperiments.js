@@ -90,7 +90,7 @@ const cityProjection = Object.freeze({
     decisionGuide: Object.freeze({
       eyebrow: "Fullerton commercial decisions",
       title: "Place Fullerton within a North Orange County search",
-      summary: "Fullerton has useful service-commercial and Industrial/Flex context, but Rofo does not yet have a sufficiently supported canonical space-type guide to foreground here. Use the existing city context and comparisons without treating a narrow Flex query as a complete market model.",
+      summary: "Explore Fullerton's commercial areas and compare nearby Buena Park to understand which settings could suit your business. Define your space and operating needs before checking individual buildings for fit.",
       links: Object.freeze([
         Object.freeze({ label: "Understand Fullerton commercial context", path: "/commercial-real-estate/CA/fullerton/fullerton/" }),
         Object.freeze({ label: "Compare Fullerton and Buena Park", path: "/commercial-real-estate/CA/fullerton/fullerton-vs-buena-park/" }),
