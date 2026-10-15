@@ -1,4 +1,5 @@
 module.exports = Object.freeze({
+  propertyType: "industrial",
   experimentId: "growth-phoenix-industrial-v1",
   eyebrow: "Phoenix Industrial and Flex location guide",
   title: "Compare Phoenix operating environments before comparing buildings",
