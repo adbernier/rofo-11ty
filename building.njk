@@ -25,6 +25,7 @@ eleventyComputed:
     {% endif %}
 ---
 
+{% set reviewedMap = reviewedMaps.byPropertyPath[page.url] %}
 {% set placeholderSrc = building | buildingPlaceholder %}
 {% set stateName = stateNames[building.state_abbr] or building.state_abbr %}
 {% set semanticEnvironment = semanticBuildingPreview[building.semantic_source_building_id] %}
@@ -120,6 +121,7 @@ eleventyComputed:
       </div>
     </div>
 
+    {% include "partials/shared/reviewed-map.njk" %}
     {% if isRepresentativeBuilding %}
       {% if buildingBrief %}
         {% include "partials/building/brief-journey.njk" %}

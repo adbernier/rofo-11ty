@@ -1,0 +1,15 @@
+{
+  "reviewedOn": "2026-10-17",
+  "policy": "Presentation-only holds; no canonical geography, recommendation, routing or production data changes. Municipal checks are not district boundaries.",
+  "districts": {},
+  "properties": {
+    "/commercial-real-estate/building/CA/sacramento/1329-n-market-blvd/": {
+      "disposition": "HOLD",
+      "reason": "Census address position falls outside the named municipality; postal-city matching alone does not verify municipal/district membership.",
+      "sources": [
+        "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/Places_CouSub_ConCity_SubMCD/MapServer/4/query?f=geojson&where=STATE%3D%2706%27+AND+BASENAME%3D%27Sacramento%27&outFields=GEOID%2CNAME%2CBASENAME%2CSTATE&outSR=4326&returnGeometry=true&geometryPrecision=6&maxAllowableOffset=1e-05",
+        "data/maps/geocoder-results-2026-10-17.csv"
+      ]
+    }
+  }
+}

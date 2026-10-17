@@ -1,0 +1,16 @@
+'use strict';
+const assert=require('node:assert/strict'),fs=require('fs'),path=require('path');
+const m=require('../data/maps/generated-manifest.json'),r=require('../lib/maps/reviewed-geography');
+assert.deepEqual(r.cities.map(c=>c.key).sort(),['CA/sacramento','CA/san-francisco']);
+const models=[...Object.values(m.byCityPath),...Object.values(m.byDistrictPath),...Object.values(m.byPropertyPath)];
+assert.equal(models.length,105);assert.equal(m.measurements.length,210);assert.equal(r.properties.length,106);
+const permitted=p=>p.includes('/CA/san-francisco/')||p.includes('/CA/sacramento/');
+for(const group of ['byCityPath','byDistrictPath','byPropertyPath','byDistrictReviewPath'])assert(Object.keys(m[group]).every(permitted));
+assert.equal(r.districts.filter(d=>d.status!=='APPROXIMATE_LOCATION_READY').length,15);
+assert.equal(r.properties.filter(p=>p.status!=='ADDRESS_LOCATION_READY').length,23);
+for(const model of models)for(const item of model.items)assert(permitted(item.url));
+const expected=new Set([...Object.keys(m.byCityPath),...Object.keys(m.byDistrictPath),...Object.keys(m.byPropertyPath)].map(p=>p.slice(1)+'index.html'));let found=0;
+function scan(dir){for(const item of fs.readdirSync(dir,{withFileTypes:true})){const file=path.join(dir,item.name);if(item.isDirectory())scan(file);else if(item.name.endsWith('.html')){const text=fs.readFileSync(file,'utf8');if(text.includes('data-rofo-map ')){assert(expected.has(path.relative('_site',file)),'out-of-scope map: '+file);found++}if(!permitted('/'+path.relative('_site',file)))assert(!text.includes('/js/reviewed-map.js'),'out-of-scope script: '+file)}}}scan('_site');assert.equal(found,105);
+assert(!Object.keys(m.byPropertyPath).some(p=>p.includes('1329-n-market')));
+assert.deepEqual(fs.readdirSync('data/maps/road-context').sort(),['CA-sacramento.json','CA-san-francisco.json']);
+console.log(JSON.stringify({allowedCities:[...r.cities.map(c=>c.key)],maps:found,svgs:210,heldAreas:15,heldProperties:23,outOfScopeMaps:0,outOfScopeMapScripts:0,withheldPropertyUnplotted:true},null,2));
