@@ -19,6 +19,12 @@ if (root) {
   const ACQUISITION_KEY = "rofoOriginalAcquisitionV1";
   const query = new URLSearchParams(location.search);
   const publicExperience = root.dataset.requirementExperience === "public";
+  let phoenixJourney = publicExperience && query.get("phoenixJourney") === "1" && query.get("marketId") === "phoenix" && query.get("propertyType") === "industrial_flex";
+  const phoenixDraftKey="rofoPhoenixRequirementDraftV1";
+  const phoenixDraftStorageKey = phoenixDraftKey + (query.get("journey") === "edit" ? ":" + query.get("brief") : "");
+  const phoenixSignature=[query.get("phoenixUse"),query.get("districtId"),query.get("propertyId")].join("|");
+  const phoenixDraft=(()=>{try{const draft=JSON.parse(sessionStorage.getItem(phoenixDraftStorageKey)||"null");return query.get("journey")==="edit" ? draft : phoenixJourney && draft?.signature===phoenixSignature ? draft : null}catch{return null}})();
+
   const requestedIntent = publicExperience ? query.get("journey") : query.get("locationBriefV2");
   const locationBriefV2Intent = ["new", "edit"].includes(requestedIntent) ? requestedIntent : publicExperience ? "new" : "";
   const locationBriefV2Mode = Boolean(locationBriefV2Intent);
@@ -31,6 +37,11 @@ if (root) {
   const districtGeography = (() => {
     try { return JSON.parse(root.querySelector("[data-requirement-districts]")?.textContent || "{\"markets\":{}}"); } catch (error) { return { markets: {} }; }
   })();
+  function configurePhoenixDistricts(){
+    if(!phoenixJourney)return;
+    try{const rows=JSON.parse(root.querySelector("[data-phoenix-industrial-districts]")?.textContent||"[]");districtGeography.markets.phoenix=rows.map(item=>({districtId:item.id,name:item.label,marketId:"phoenix",initiallyVisible:true}));}catch{ /* Existing interview still supports freeform geography. */ }
+  }
+  configurePhoenixDistricts();
   const sfOfficeRecommendationModel = (() => {
     try { return JSON.parse(root.querySelector("[data-sf-office-recommendation-model]")?.textContent || "{}"); } catch (error) { return {}; }
   })();
@@ -83,6 +94,9 @@ if (root) {
     propertyType: /retail|service/i.test(entryPropertyValue) ? "retail_service" : /industrial|warehouse|flex/i.test(entryPropertyValue) ? "industrial_flex" : /office/i.test(entryPropertyValue) ? "office" : "",
     candidateDistrictIds: [query.get("districtId") || ""].filter(Boolean),
     candidateDistrictNames: [query.get("district") || ""].filter(Boolean),
+    sourceEntityId: phoenixJourney ? "phoenix-industrial-journey:v1" : "",
+    propertyId: phoenixJourney && ["1002-s-56th-ave","3241-e-washington-st","4625-e-cotton-center-blvd"].includes(query.get("propertyId")) ? query.get("propertyId") : "",
+    businessArchetypeId: phoenixJourney && ["warehouse","service","mixed","technical","unsure"].includes(query.get("phoenixUse")) ? "phoenix-preliminary:"+query.get("phoenixUse") : "",
     businessIdentityId: query.get("businessIdentityId") || query.get("businessArchetype") || "",
     campaign: query.get("campaign") || "", queryFamily: query.get("queryFamily") || "",
     referrer: originalAcquisition.referrer || entryReferrer,
@@ -92,9 +106,11 @@ if (root) {
 
   if (locationBriefV2Mode) clearPrototypePersistence();
   const restoredState = locationBriefV2Mode ? initialState() : restore();
-  let state = { ...restoredState, interview: seedTrustedEntryContext(restoredState.interview, { ...publicEntryContext, intent: publicExperience ? locationBriefV2Intent : "" }, districtGeography) };
+  if(phoenixJourney && locationBriefV2Intent === "new" && phoenixDraft?.state) Object.assign(restoredState,phoenixDraft.state,{interview:hydrateInterviewState(phoenixDraft.state.interview)});
+  let state = { ...restoredState, interview: phoenixJourney && locationBriefV2Intent === "new" && phoenixDraft?.state ? restoredState.interview : seedTrustedEntryContext(restoredState.interview, { ...publicEntryContext, intent: publicExperience ? locationBriefV2Intent : "" }, districtGeography) };
+  if (phoenixJourney && !state.interview.seedRequirement) state.interview.seedRequirement = JSON.parse(JSON.stringify(state.interview.requirement));
   let locationBriefV2Context = { intent: locationBriefV2Intent, publicId: locationBriefV2PublicId, revisionNumber: null };
-  const creationRequestId = publicExperience && locationBriefV2Intent === "new" && window.crypto?.randomUUID ? window.crypto.randomUUID() : "";
+  const creationRequestId = phoenixDraft?.creationRequestId || (publicExperience && locationBriefV2Intent === "new" && window.crypto?.randomUUID ? window.crypto.randomUUID() : "");
 
   function trackVNext(eventName, extra = {}) {
     if (!publicExperience) return;
@@ -102,6 +118,9 @@ if (root) {
   }
 
   function persist() {
+    if (phoenixJourney) {
+      try { sessionStorage.setItem(phoenixDraftStorageKey,JSON.stringify({signature:phoenixSignature,state,creationRequestId,revisionNumber:locationBriefV2Context.revisionNumber})); } catch { /* Optional draft recovery. */ }
+    }
     if (locationBriefV2Mode) return;
     try { sessionStorage.setItem(SESSION_KEY, JSON.stringify({ ...state, sessionStateVersion: SESSION_STATE_VERSION })); } catch (error) { /* Never block the interview. */ }
   }
@@ -120,6 +139,7 @@ if (root) {
     trackVNext("vnext_requirement_completed", { readiness: result.readiness || "" });
     trackVNext("vnext_brief_created", { readiness: result.readiness || "" });
     clearPrototypePersistence();
+    if(phoenixJourney) sessionStorage.removeItem(phoenixDraftStorageKey);
     location.href = result.briefUrl || (publicExperience ? `/location-brief/${encodeURIComponent(result.publicId)}` : `/operator/location-brief-v2/${encodeURIComponent(result.publicId)}`);
   }
 
@@ -198,6 +218,7 @@ if (root) {
         await persistLocationBriefV2(nextInterview.requirement);
         return;
       }
+      if (phoenixJourney) state.phoenixAnswers = { ...state.phoenixAnswers, [question.id]: result };
       state.interview = nextInterview;
       state.draft = null;
       if (selection.action === "READY") state.mode = question.id === "final.unusual" ? "preview" : "complete";
@@ -343,7 +364,7 @@ if (root) {
     if (question.seededInformalText) otherButton.classList.add("is-selected");
     const other = document.createElement("textarea");
     other.rows = 3;
-    other.placeholder = "For example, near the Ferry Building";
+    other.placeholder = phoenixJourney ? "For example, near Sky Harbor" : "For example, near the Ferry Building";
     other.dataset.districtOtherText = "";
     other.value = question.seededInformalText || "";
     other.hidden = !question.seededInformalText;
@@ -501,6 +522,22 @@ if (root) {
       details.querySelector("p").textContent = question.help;
       visibleHelp.textContent = question.help;
     }
+    // Keep completed answers visible when stepping back; the engine still re-applies changes.
+    const previous = phoenixJourney && state.phoenixAnswers?.[question.id];
+    if (previous) {
+      const selected = new Set([...(previous.optionIds || []), ...(previous.districtIds || []), previous.optionId, previous.noPreference ? "__no_preference" : "", previous.unknown ? "__unknown" : ""]);
+      control.querySelectorAll("input[type=checkbox],input[type=radio]").forEach(input => { input.checked = selected.has(input.value); });
+      const text = control.querySelector("textarea:not([data-other-text]):not([data-district-other-text]),input[type=text],input[type=number]");
+      if (text && previous.text) text.value = previous.text;
+      if (previous.unknown && !control.querySelector("input[value=__unknown]")) control.dataset.specialAnswer = "unknown";
+      if (previous.optionId === "none") control.dataset.specialAnswer = "none";
+      const other = control.querySelector("[data-district-other-text],[data-other-text]");
+      if (other && (previous.otherText || (!text && previous.text))) {
+        other.hidden = false; other.value = previous.otherText || previous.text;
+        const otherButton = [...control.querySelectorAll("button")].find(button => button.textContent === "Something else");
+        if (otherButton) { otherButton.classList.add("is-selected"); otherButton.setAttribute("aria-pressed", "true"); }
+      }
+    }
     elements["back-question"].disabled = !state.interview.history.length;
     elements["continue-question"].onclick = () => submitAnswer(question);
     updateContinueState();
@@ -575,6 +612,37 @@ if (root) {
     return item.value.text || (item.value.list && item.value.list.join(" · ")) || (item.status === "UNKNOWN" ? "Not known yet" : "To verify");
   }
 
+  function renderPhoenixSizeEditor(target) {
+    const panel = node("section", "requirement-summary");
+    const label = node("label", "requirement-answer", "About how much space do you need?");
+    const input = node("input");
+    input.type = "text"; input.maxLength = 240; input.dataset.phoenixSize = "";
+    input.value = state.interview.requirement.sizeCapacity.summary || "";
+    input.placeholder = "For example, 30,000 square feet";
+    label.append(input);
+    const error = node("p"); error.setAttribute("role", "alert");
+    const save = node("button", "requirement-button", "Use this size"); save.type = "button"; save.dataset.phoenixSizeSave = "";
+    const cancel = node("button", "requirement-button", "Keep previous size"); cancel.type = "button"; cancel.dataset.phoenixSizeCancel = "";
+    save.addEventListener("click", () => {
+      const replacement = input.value.trim();
+      const amount = replacement.match(/[-+]?\d[\d,]*(?:\.\d+)?/);
+      if (!amount || Number(amount[0].replaceAll(",", "")) <= 0 || replacement.length > 240) {
+        error.textContent = "Enter a positive approximate size, such as 30,000 square feet, or keep your previous size.";
+        input.focus(); return;
+      }
+      const requirement = structuredClone(state.interview.requirement);
+      requirement.sizeCapacity.summary = replacement;
+      const existing = requirement.criteria.find(item => item.dimension === "universal.capacity.size");
+      const result = updateCriterion(requirement, { ...existing, id: existing?.id || "criterion_universal_capacity_size", dimension: "universal.capacity.size", label: "Approximate space size", value: { text: replacement, number: null, boolean: null, list: [] }, status: "PREFERRED", scope: "property", authority: "business", requiresConfirmation: false });
+      if (result.errors.length) { error.textContent = "That size could not be saved. Your previous size is unchanged."; return; }
+      state.interview = createInterviewState({ requirement: result.requirement, districtGeography });
+      persist(); render();
+      root.querySelector("[data-phoenix-size-edit]")?.focus();
+    });
+    cancel.addEventListener("click", () => { render(); root.querySelector("[data-phoenix-size-edit]")?.focus(); });
+    panel.append(label, error, save, cancel); target.replaceChildren(panel); input.focus();
+  }
+
   function renderComplete() {
     const requirement = state.interview.requirement;
     if (locationBriefV2Mode) root.querySelector("[data-view-recommendations]").textContent = "Show recommended locations";
@@ -588,6 +656,39 @@ if (root) {
       section.append(node("h3", "", label), node("p", "", content || "Not yet defined"));
       summary.append(section);
     });
+    if (phoenixJourney) {
+      const edits = node("section", "requirement-summary");
+      edits.dataset.phoenixEdits = "";
+      edits.append(node("h3", "", "Update your search"));
+      [["areas", "Change areas"], ["operations", "Review operating needs"], ["size", "Change space size"]].forEach(([target, label]) => {
+        const button = node("button", "requirement-button", label);
+        button.type = "button";
+        if (target === "size") button.dataset.phoenixSizeEdit = "";
+        button.addEventListener("click", () => {
+          const revised = JSON.parse(JSON.stringify(state.interview.requirement));
+          if (target === "size") { renderPhoenixSizeEditor(edits); return; }
+          if (target === "operations") {
+            revised.activities = [];
+            revised.criteria = revised.criteria.filter(item => !item.dimension.startsWith("industrial.") && item.dimension !== "universal.business.operating_pattern");
+          }
+          let interview = createInterviewState({ requirement: revised, districtGeography });
+          if (target !== "areas") {
+            const preference = revised.locationLogic.specificPreference;
+            interview = applyInterviewAnswer(interview, "location.district_candidates", { districtIds: preference.candidateDistrictIds, otherText: preference.informalText, noPreference: !preference.hasPreference });
+          }
+          interview.seedRequirement = revised;
+          if (target !== "operations") interview.deferredQuestionIds = ["final.unusual"];
+          state.phoenixAnswers = {};
+          state.interview = interview;
+          state.mode = "interview";
+          persist(); render();
+          elements["question-prompt"].setAttribute("tabindex", "-1");
+          elements["question-prompt"].focus();
+        });
+        edits.append(button);
+      });
+      summary.append(edits);
+    }
     const criteria = elements["requirement-criteria"];
     criteria.replaceChildren();
     STATUSES.forEach((status) => {
@@ -853,9 +954,16 @@ if (root) {
   root.querySelector("[data-toggle-understanding]")?.addEventListener("click", () => { elements.understanding.hidden = !elements.understanding.hidden; });
   root.querySelectorAll("[data-export-requirement]").forEach((button) => button.addEventListener("click", exportRequirement));
   root.querySelector("[data-reset-requirement]")?.addEventListener("click", () => { state = initialState(); sessionStorage.removeItem(SESSION_KEY); render(); });
+  function persistPhoenixAnswerDraft() {
+    if (!phoenixJourney || !state.draft || state.mode !== "interview") return;
+    state.phoenixAnswers = { ...state.phoenixAnswers, [state.draft.id]: selectedAnswer(state.draft) };
+    persist();
+  }
+  elements["answer-control"].addEventListener("input", persistPhoenixAnswerDraft);
+  elements["answer-control"].addEventListener("change", persistPhoenixAnswerDraft);
   elements["back-question"].addEventListener("click", () => { state.interview = backInterview(state.interview); persist(); render(); });
   elements["finish-early"]?.addEventListener("click", () => { state.mode = "complete"; persist(); render(); });
-  root.querySelector("[data-refine-requirement]").addEventListener("click", () => { state.mode = "interview"; persist(); render(); });
+  root.querySelector("[data-refine-requirement]").addEventListener("click", () => { if (phoenixJourney) { root.querySelector("[data-phoenix-edits] button")?.focus(); return; } state.mode = "interview"; persist(); render(); });
   root.querySelector("[data-view-recommendations]").addEventListener("click", async () => {
     if (locationBriefV2Mode) {
       const button = root.querySelector("[data-view-recommendations]");
@@ -878,8 +986,12 @@ if (root) {
         const response = await fetch(`/api/location-brief-v2/${encodeURIComponent(locationBriefV2PublicId)}`);
         const result = await response.json();
         if (!response.ok || !result.owner) throw new Error(result.error || "This browser cannot edit that Location Brief.");
+        if(result.entryContext?.marketId==="phoenix" && result.entryContext?.propertyType==="industrial_flex" && (String(result.entryContext?.businessArchetypeId||"").startsWith("phoenix-preliminary:") || result.entryContext?.sourceEntityId==="phoenix-industrial-journey:v1")){phoenixJourney=true;Object.assign(publicEntryContext,result.entryContext);configurePhoenixDistricts();}
         state = { interview: createInterviewState({ requirement: result.currentRevision.requirement, districtGeography }), mode: "complete", draft: null };
         locationBriefV2Context = { intent: "edit", publicId: result.brief.publicId, revisionNumber: result.currentRevision.revisionNumber };
+        if (phoenixJourney && phoenixDraft?.revisionNumber === result.currentRevision.revisionNumber && phoenixDraft?.state?.interview && ["interview", "complete"].includes(phoenixDraft.state.mode)) {
+          state = { ...phoenixDraft.state, interview: hydrateInterviewState({ ...phoenixDraft.state.interview, districtGeography }) };
+        }
       } catch (error) { alert(error.message); return; }
     }
     if (publicExperience && locationBriefV2Intent === "new") {
@@ -887,6 +999,16 @@ if (root) {
       const businessOption = businessMap[publicEntryContext.businessIdentityId];
       if (publicEntryContext.propertyType === "office" && businessOption) state = { interview: applyInterviewAnswer(state.interview, "business.identity", { optionId: businessOption }), mode: "interview", draft: null };
       trackVNext("vnext_requirement_started");
+    }
+    if(phoenixJourney){
+      root.classList.add("phoenix-industrial-interview");
+      const stylesheet=document.createElement("link");stylesheet.rel="stylesheet";stylesheet.href="/assets/phoenix-industrial-journey.css";document.head.append(stylesheet);
+      const uses={warehouse:"Store goods and make deliveries",service:"Run a service business with vehicles or supplies",mixed:"Combine office work with a workshop or storage",technical:"Do technical or aerospace-related work",unsure:"Something else / not sure"};
+      const context=node("section","requirement-search-summary");context.setAttribute("aria-label","Your Phoenix starting context");
+      const use=publicEntryContext.businessArchetypeId?.replace("phoenix-preliminary:","");
+      context.append(node("h2","","Your Phoenix starting point"),node("p","",uses[use]||"Phoenix Industrial search"),node("p","","Your first choice and explored area are context, not a personalized recommendation. Confirm the remaining business details so Rofo’s existing engine can assess the search."));
+      if(publicEntryContext.propertyId)context.append(node("p","","Property interest: "+publicEntryContext.propertyId.replaceAll("-"," ")+". Representative only; availability unconfirmed."));
+      const back=node("a","","Back to Phoenix areas");back.href="/commercial-real-estate/AZ/phoenix/industrial-space/#areas";context.append(back);root.querySelector(".requirement-prototype__header").append(context);
     }
     if (elements["requirement-loading"]) elements["requirement-loading"].hidden = true;
     render();

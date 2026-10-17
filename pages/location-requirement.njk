@@ -9,6 +9,7 @@ description: "Tell Rofo what matters to your business and create a Location Brie
 <link rel="stylesheet" href="/assets/requirement-prototype.css">
 <main class="requirement-prototype" data-requirement-prototype data-requirement-experience="public">
   <script type="application/json" data-requirement-markets>{{ commercialGeography.markets | dump | safe }}</script>
+  <script type="application/json" data-phoenix-industrial-districts>{{ phoenixCommercialGeographyExperience.bySpaceType.industrial.geographies | dump | safe }}</script>
   <script type="application/json" data-requirement-districts>{{ requirementPrototypeDistrictGeography | dump | safe }}</script>
   <script type="application/json" data-sf-office-recommendation-model>{{ sfOfficeRecommendationModel | dump | safe }}</script>
   <script type="application/json" data-sf-access-foundation>{{ sfAccessFoundationV0 | dump | safe }}</script>

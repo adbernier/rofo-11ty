@@ -1,0 +1,244 @@
+{
+  "version": 1,
+  "market": "phoenix",
+  "sourceDate": "2026-10-16",
+  "roadSource": "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/Transportation/MapServer",
+  "pointSource": "https://gis.maricopa.gov/arcgis/rest/services/Geocode/MaricopaCountyGeocodeService/GeocodeServer",
+  "licenseReference": "https://www.census.gov/about/policies/open-gov.html",
+  "points": {
+    "56th": {
+      "lon": -112.181481,
+      "lat": 33.4386,
+      "matchedAddress": "1002 S 56TH AVE, PHOENIX, AZ, 85043",
+      "matchType": "PointAddress",
+      "score": 100
+    },
+    "washington": {
+      "lon": -112.0107465,
+      "lat": 33.447816,
+      "matchedAddress": "3241 E WASHINGTON ST, PHOENIX, AZ, 85034",
+      "matchType": "PointAddress",
+      "score": 100
+    },
+    "cotton": {
+      "lon": -111.981276,
+      "lat": 33.400602,
+      "matchedAddress": "4625 E COTTON CENTER BLVD, PHOENIX, AZ, 85040",
+      "matchType": "PointAddress",
+      "score": 100
+    }
+  },
+  "landmarks": {
+    "downtown": {
+      "x": -112.0771035,
+      "y": 33.4485
+    },
+    "skyharbor": {
+      "x": -112.0088655,
+      "y": 33.435522
+    },
+    "deervalley": {
+      "x": -112.0831155,
+      "y": 33.685317
+    }
+  },
+  "areas": {
+    "southwest": {
+      "bbox": [
+        -112.28,
+        33.375,
+        -112.055,
+        33.485
+      ],
+      "properties": [
+        "56th"
+      ],
+      "outline": [
+        [
+          [
+            -112.265,
+            33.455
+          ],
+          [
+            -112.105,
+            33.455
+          ],
+          [
+            -112.105,
+            33.425
+          ],
+          [
+            -112.14,
+            33.386
+          ],
+          [
+            -112.26,
+            33.386
+          ],
+          [
+            -112.265,
+            33.455
+          ]
+        ]
+      ],
+      "landmarks": [
+        "downtown"
+      ],
+      "labels": [
+        "W Buckeye Rd",
+        "I- 10",
+        "I- 17",
+        "Loop 202"
+      ],
+      "boundaryStatus": "unavailable",
+      "focusExtents": [
+        [
+          -112.265,
+          33.386,
+          -112.105,
+          33.455
+        ]
+      ]
+    },
+    "airport": {
+      "bbox": [
+        -112.09,
+        33.365,
+        -111.94,
+        33.478
+      ],
+      "properties": [
+        "washington",
+        "cotton"
+      ],
+      "outline": [
+        [
+          [
+            -112.065,
+            33.452
+          ],
+          [
+            -111.957,
+            33.452
+          ],
+          [
+            -111.957,
+            33.382
+          ],
+          [
+            -112.07,
+            33.382
+          ],
+          [
+            -112.065,
+            33.452
+          ]
+        ]
+      ],
+      "landmarks": [
+        "downtown",
+        "skyharbor"
+      ],
+      "labels": [
+        "E Washington St",
+        "E Cotton Center Blvd",
+        "I- 10",
+        "I- 17"
+      ],
+      "boundaryStatus": "unavailable",
+      "focusExtents": [
+        [
+          -112.07,
+          33.382,
+          -111.957,
+          33.452
+        ]
+      ]
+    },
+    "north": {
+      "bbox": [
+        -112.22,
+        33.635,
+        -111.995,
+        33.855
+      ],
+      "properties": [],
+      "outline": [
+        [
+          [
+            -112.16,
+            33.66
+          ],
+          [
+            -112.06,
+            33.66
+          ],
+          [
+            -112.06,
+            33.72
+          ],
+          [
+            -112.16,
+            33.72
+          ],
+          [
+            -112.16,
+            33.66
+          ]
+        ],
+        [
+          [
+            -112.2,
+            33.77
+          ],
+          [
+            -112.1,
+            33.77
+          ],
+          [
+            -112.1,
+            33.835
+          ],
+          [
+            -112.2,
+            33.835
+          ],
+          [
+            -112.2,
+            33.77
+          ]
+        ]
+      ],
+      "landmarks": [
+        "deervalley"
+      ],
+      "labels": [
+        "I- 17",
+        "W Carefree Hwy",
+        "W Deer Valley Rd",
+        "State Rte 101"
+      ],
+      "boundaryStatus": "unavailable",
+      "focusExtents": [
+        [
+          -112.16,
+          33.66,
+          -112.06,
+          33.72
+        ],
+        [
+          -112.2,
+          33.77,
+          -112.1,
+          33.835
+        ]
+      ]
+    }
+  },
+  "coverage": {
+    "kind": "reviewed-industrial-contexts-only",
+    "officialDistrictBoundaries": false,
+    "overlapStatus": "not established",
+    "citywideCompleteness": false
+  }
+}

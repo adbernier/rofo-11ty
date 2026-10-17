@@ -747,7 +747,10 @@ export async function savePropertyRequirementDraft(env, bundle, answers, expecte
 
 export async function reviseBrief(env, bundle, rawRequirement, expectedRevision, changedBy = "anonymous_operator") {
   if (Number(expectedRevision) !== Number(bundle.currentRevision.revisionNumber)) { const error = new Error("The Brief changed in another session. Refresh before saving."); error.status = 409; throw error; }
-  const now = new Date().toISOString(); const requirement = canonicalRequirement(rawRequirement, bundle.entryContext); const revision = { id: crypto.randomUUID(), briefId: bundle.brief.id, schemaVersion: REQUIREMENT_REVISION_VERSION, revisionNumber: bundle.currentRevision.revisionNumber + 1, requirement, changedBy, createdAt: now };
+  // The original area remains acquisition context; an explicit Phoenix edit may remove it.
+  const phoenixJourney = bundle.entryContext?.marketId === "phoenix" && bundle.entryContext?.propertyType === "industrial_flex" && bundle.entryContext?.sourceEntityId === "phoenix-industrial-journey:v1";
+  const revisionContext = phoenixJourney ? { ...bundle.entryContext, candidateDistrictIds: [] } : bundle.entryContext;
+  const now = new Date().toISOString(); const requirement = canonicalRequirement(rawRequirement, revisionContext); const revision = { id: crypto.randomUUID(), briefId: bundle.brief.id, schemaVersion: REQUIREMENT_REVISION_VERSION, revisionNumber: bundle.currentRevision.revisionNumber + 1, requirement, changedBy, createdAt: now };
   const snapshot = { id: crypto.randomUUID(), briefId: bundle.brief.id, requirementRevisionId: revision.id, ...calculateSnapshot(requirement, await snapshotEnvironment(env, requirement)), createdAt: now };
   const lifecycleStage = snapshot.readiness === "INVESTIGATE" ? "LOCATION_INVESTIGATE" : "LOCATIONS_RECOMMENDED";
   if (storageKind(env) === "d1") {

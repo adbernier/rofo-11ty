@@ -1,3 +1,4 @@
+import phoenixIndustrialAdapter from "../../../lib/requirements/requirement-to-phoenix-industrial-flex-recommendation.js";
 import leadRoutes from "../../../_data/leadRoutes.json";
 import {
   BROKER_READINESS,
@@ -1702,6 +1703,14 @@ function vnextEmailProjection(lead, context) {
   };
 }
 
+function vnextCustomerFollowup(context) {
+  const location = context.locationRequirement || context;
+  if (phoenixIndustrialAdapter.resolvePhoenixIndustrialFlexMembership({ marketId: location.marketId || context.marketId, city: location.city || location.marketCity || context.marketCity, propertyType: location.propertyType || context.propertyType }).eligible) {
+    return "Your request is awaiting Rofo review for possible referral through OfficeFinder. A dedicated Phoenix partner, response time and available space are not confirmed. Your saved Brief remains available.";
+  }
+  return "Rofo can use your requirements to investigate current and upcoming spaces, asking rents, and opportunities worth considering. A local commercial real estate expert can also review the search and follow up when helpful.";
+}
+
 export function buildVnextTenantConfirmationText(lead) {
   const context = vnextCommercialContext(lead);
   if (!context) return "";
@@ -1727,7 +1736,7 @@ export function buildVnextTenantConfirmationText(lead) {
     value.spaceUse.length ? `Space use: ${value.spaceUse.join(" · ")}` : "",
     "",
     "WHAT HAPPENS NEXT",
-    "Rofo can use your requirements to investigate current and upcoming spaces, asking rents, and opportunities worth considering. A local commercial real estate expert can also review the search and follow up when helpful.",
+    vnextCustomerFollowup(context),
     "",
     "Thanks,",
     "Rofo",
@@ -1774,7 +1783,7 @@ export function buildVnextTenantConfirmationHtml(lead) {
                 </div>` : ""}
                 <div style="margin:0 0 18px;padding:14px;border-radius:10px;background:#f8fafc;border:1px solid #dbe5f2;">
                   <div style="margin:0 0 8px;color:#64748b;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;">What Happens Next</div>
-                  <p style="margin:0;color:#334155;">Rofo can use your requirements to investigate current and upcoming spaces, asking rents, and opportunities worth considering. A local commercial real estate expert can also review the search and follow up when helpful.</p>
+                  <p style="margin:0;color:#334155;">${escapeHtml(vnextCustomerFollowup(context))}</p>
                 </div>
                 <p style="margin:0;">Thanks,<br>Rofo</p>
               </td>

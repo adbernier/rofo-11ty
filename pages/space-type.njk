@@ -10,6 +10,10 @@ eleventyComputed:
   title: "{{ entry.seoTitle or (entry.spaceType.label + ' Space in ' + entry.city.city + ', ' + (entry.city.state_abbr | upper) + ' | Rofo') }}"
   description: "{{ entry.seoDescription or ('Compare ' + (entry.spaceType.label | lower) + ' location options in ' + entry.city.city + ', ' + (entry.city.state_abbr | upper) + '. Understand areas, buildings, and tradeoffs before narrowing the search.') }}"
 ---
+{% if entry.city_slug == "phoenix" and entry.page_slug == "industrial-space" %}
+{% include "partials/space-type/phoenix-industrial-journey.njk" %}
+{% else %}
+
 
 {% set city = entry.city %}
 {% set stateAbbr = city.state_abbr | upper %}
@@ -115,3 +119,5 @@ eleventyComputed:
     </div>
   </div>
 </section>
+
+{% endif %}
