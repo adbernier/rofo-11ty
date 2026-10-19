@@ -1,0 +1,713 @@
+{
+  "reviewedOn": "2026-10-19",
+  "scope": "Oakland only; presentation geography. Existing URLs, canonical associations, engines and content stay owned by existing records.",
+  "coordinatePolicy": "Existing Rofo area points are approximate orientation references with no measured accuracy; decimal places do not imply precision. Property positions are dated Census address-range interpolation, not parcel, suite or entrance verification. No default city-center points or invented boundaries.",
+  "reuse": "Original factual review notes and source links only. Census geometry/geocoder output is government open data. City/BID PDF images, design, listing text and photography are not republished.",
+  "sourceUrls": {
+    "downtown": "https://www.oaklandca.gov/Planning-Building/General-Plan-Neighborhood-Plans/Neighborhood-and-Citywide-Plans/Downtown-Oakland-Specific-Plan-DOSP",
+    "old": "https://www.oaklandca.gov/Planning-Building/Historic-Preservation/List-of-Preservation-Districts-S-7-and-S-20-Zones/Victorian-Row-Old-Oakland-S-7",
+    "uptown": "https://downtownoakland.org/our-neighborhoods/",
+    "west": "https://www.oaklandca.gov/files/assets/city/v/1/planning-amp-building/documents/sp/neighborhood-plans/wosp/wosp-chapter-1-introduction.pdf",
+    "jack": "https://ctycms.com/ca-jack-london/docs/jack-london-mdp-12323.pdf",
+    "jack-map": "https://ctycms.com/ca-jack-london/docs/attachment-a-district-maps.pdf",
+    "coliseum": "https://www.oaklandca.gov/Planning-Building/General-Plan-Neighborhood-Plans/Neighborhood-and-Citywide-Plans/Coliseum-Area-Specific-Plan",
+    "roads": "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/Transportation/MapServer",
+    "rockridge": "https://www.rockridgedistrict.com/rocknstroll",
+    "temescal": "https://www.oaklandca.gov/Business/For-Business-Owners/Business-Resources/Business-Improvement-Districts",
+    "fruitvale": "https://unitycouncil.org/renewal-of-the-fruitvale-property-business-improvement-district/"
+  },
+  "districts": {
+    "CA/oakland/downtown-oakland": {
+      "disposition": "READY",
+      "reason": "Broad Downtown context includes narrower Uptown and Old Oakland contexts; not an alias of either. Existing point retained only as approximate civic/business-core orientation.",
+      "point": {
+        "lat": 37.80795288,
+        "lon": -122.27173615
+      },
+      "pointSource": "_data/neighborhoodPages.js / existing commercial-area entity; numeric accuracy not certified",
+      "precision": "APPROXIMATE_AREA_REFERENCE",
+      "sources": [
+        "https://www.oaklandca.gov/Planning-Building/General-Plan-Neighborhood-Plans/Neighborhood-and-Citywide-Plans/Downtown-Oakland-Specific-Plan-DOSP",
+        "https://downtownoakland.org/our-neighborhoods/"
+      ],
+      "mapSummary": "Oakland\u2019s central business and civic area. Uptown and Old Oakland are related downtown contexts; these reference points do not divide them into separate territories.",
+      "coordinateEntityId": "oak-downtown-oakland",
+      "sourceAliases": [
+        "Downtown"
+      ],
+      "editorialSourceConfidence": "high",
+      "coordinateSourceTypes": [
+        "existing_rofo_neighborhood_data",
+        "recognized_commercial_district",
+        "prior_public_review_allowlist"
+      ],
+      "aliasDisposition": "Existing public canonical route retained. Alias spellings do not create additional markers; broad/narrow contexts are described explicitly and not merged."
+    },
+    "CA/oakland/uptown-oakland": {
+      "disposition": "READY",
+      "reason": "Named arts/theater context supported by district operator. Existing reference near Telegraph/20th and Fox Theater; part of broader Downtown context.",
+      "point": {
+        "lat": 37.81119537,
+        "lon": -122.26740265
+      },
+      "pointSource": "_data/neighborhoodPages.js / existing commercial-area entity; numeric accuracy not certified",
+      "precision": "APPROXIMATE_AREA_REFERENCE",
+      "sources": [
+        "https://downtownoakland.org/our-neighborhoods/",
+        "https://www.oaklandca.gov/Planning-Building/General-Plan-Neighborhood-Plans/Neighborhood-and-Citywide-Plans/Downtown-Oakland-Specific-Plan-DOSP"
+      ],
+      "mapSummary": "The theater and entertainment area around Telegraph Avenue and Broadway. It overlaps the broader Downtown context.",
+      "coordinateEntityId": "oak-uptown",
+      "sourceAliases": [
+        "Uptown"
+      ],
+      "editorialSourceConfidence": "high",
+      "coordinateSourceTypes": [
+        "existing_rofo_neighborhood_data",
+        "recognized_commercial_district",
+        "prior_editorial_neighborhoods"
+      ],
+      "aliasDisposition": "Existing public canonical route retained. Alias spellings do not create additional markers; broad/narrow contexts are described explicitly and not merged."
+    },
+    "CA/oakland/jack-london-square": {
+      "disposition": "READY",
+      "reason": "Waterfront reference consistent with district plan between I-880 and estuary; commercial district is broader than the square itself.",
+      "point": {
+        "lat": 37.79564285,
+        "lon": -122.2784729
+      },
+      "pointSource": "_data/neighborhoodPages.js / existing commercial-area entity; numeric accuracy not certified",
+      "precision": "APPROXIMATE_AREA_REFERENCE",
+      "sources": [
+        "https://ctycms.com/ca-jack-london/docs/jack-london-mdp-12323.pdf",
+        "https://ctycms.com/ca-jack-london/docs/attachment-a-district-maps.pdf"
+      ],
+      "mapSummary": "The waterfront around Jack London Square and nearby warehouse blocks. This commercial context is broader than the square itself.",
+      "coordinateEntityId": "oak-jack-london-square",
+      "sourceAliases": [
+        "Jack London"
+      ],
+      "editorialSourceConfidence": "high",
+      "coordinateSourceTypes": [
+        "existing_rofo_neighborhood_data",
+        "recognized_commercial_district",
+        "prior_public_review_allowlist"
+      ],
+      "aliasDisposition": "Existing public canonical route retained. Alias spellings do not create additional markers; broad/narrow contexts are described explicitly and not merged."
+    },
+    "CA/oakland/old-oakland": {
+      "disposition": "READY",
+      "reason": "City historic core is 7th\u201310th Streets, Broadway\u2013Clay; point near Washington/8th is consistent. Retain existing URL, do not merge with broad Downtown.",
+      "point": {
+        "lat": 37.80028915,
+        "lon": -122.27523804
+      },
+      "pointSource": "_data/neighborhoodPages.js / existing commercial-area entity; numeric accuracy not certified",
+      "precision": "APPROXIMATE_AREA_REFERENCE",
+      "sources": [
+        "https://www.oaklandca.gov/Planning-Building/Historic-Preservation/List-of-Preservation-Districts-S-7-and-S-20-Zones/Victorian-Row-Old-Oakland-S-7",
+        "https://www.oaklandca.gov/Planning-Building/General-Plan-Neighborhood-Plans/Neighborhood-and-Citywide-Plans/Downtown-Oakland-Specific-Plan-DOSP"
+      ],
+      "mapSummary": "The historic core near Washington Street, between 7th and 10th Streets. It is part of broader Downtown Oakland.",
+      "coordinateEntityId": "oak-old-oakland",
+      "sourceAliases": [
+        "Old Oakland Historic District"
+      ],
+      "editorialSourceConfidence": "high",
+      "coordinateSourceTypes": [
+        "existing_rofo_neighborhood_data",
+        "recognized_commercial_district",
+        "prior_public_review_allowlist"
+      ],
+      "aliasDisposition": "Existing public canonical route retained. Alias spellings do not create additional markers; broad/narrow contexts are described explicitly and not merged."
+    },
+    "CA/oakland/hegenberger-corridor": {
+      "disposition": "READY",
+      "reason": "Existing reference checked against named Hegenberger Road in Census geometry. Corridor reference only; no invented width or boundary.",
+      "point": {
+        "lat": 37.74991226,
+        "lon": -122.19623566
+      },
+      "pointSource": "_data/neighborhoodPages.js / existing commercial-area entity; numeric accuracy not certified",
+      "precision": "APPROXIMATE_AREA_REFERENCE",
+      "sources": [
+        "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/Transportation/MapServer"
+      ],
+      "mapSummary": "A reference along Hegenberger Road near I-880. It marks the road corridor, not a district boundary or a promise about any building.",
+      "coordinateEntityId": "oak-hegenberger-corridor",
+      "sourceAliases": [
+        "Hegenberger Road Corridor"
+      ],
+      "editorialSourceConfidence": "high",
+      "coordinateSourceTypes": [
+        "existing_rofo_neighborhood_data",
+        "recognized_commercial_corridor"
+      ],
+      "aliasDisposition": "Existing public canonical route retained. Alias spellings do not create additional markers; broad/narrow contexts are described explicitly and not merged."
+    },
+    "CA/oakland/west-oakland": {
+      "disposition": "READY",
+      "reason": "Reference within city plan freeway frame; city plan Figure 1.1.2 and section 1.1 distinguish the neighborhood from Downtown and Port.",
+      "point": {
+        "lat": 37.80398178,
+        "lon": -122.29528809
+      },
+      "pointSource": "_data/neighborhoodPages.js / existing commercial-area entity; numeric accuracy not certified",
+      "precision": "APPROXIMATE_AREA_REFERENCE",
+      "sources": [
+        "https://www.oaklandca.gov/files/assets/city/v/1/planning-amp-building/documents/sp/neighborhood-plans/wosp/wosp-chapter-1-introduction.pdf"
+      ],
+      "mapSummary": "The area west of I-980, with residential and industrial blocks. The city\u2019s plan uses I-580 and I-880 as major orientation edges, with some extensions.",
+      "coordinateEntityId": "oak-west-oakland",
+      "sourceAliases": [
+        "West Oakland"
+      ],
+      "editorialSourceConfidence": "high",
+      "coordinateSourceTypes": [
+        "existing_rofo_neighborhood_data",
+        "recognized_neighborhood",
+        "prior_public_review_allowlist"
+      ],
+      "aliasDisposition": "Existing public canonical route retained. Alias spellings do not create additional markers; broad/narrow contexts are described explicitly and not merged."
+    },
+    "CA/oakland/coliseum-industrial": {
+      "disposition": "HOLD",
+      "reason": "Existing industrial reference is outside the city\u2019s named Coliseum plan core; the Rofo label may intend a wider industrial area. Do not equate them or move to a stadium/city-center point without a supported scope decision.",
+      "point": {
+        "lat": 37.76266861,
+        "lon": -122.22124481
+      },
+      "pointSource": "_data/neighborhoodPages.js / existing commercial-area entity; numeric accuracy not certified",
+      "precision": "APPROXIMATE_AREA_REFERENCE",
+      "sources": [
+        "https://www.oaklandca.gov/Planning-Building/General-Plan-Neighborhood-Plans/Neighborhood-and-Citywide-Plans/Coliseum-Area-Specific-Plan",
+        "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/Transportation/MapServer"
+      ],
+      "coordinateEntityId": "oak-coliseum-industrial",
+      "sourceAliases": [
+        "Coliseum Industrial Area",
+        "Coliseum"
+      ],
+      "editorialSourceConfidence": "medium",
+      "coordinateSourceTypes": [
+        "existing_rofo_neighborhood_data",
+        "recognized_industrial_area"
+      ],
+      "aliasDisposition": "Existing public canonical route retained. Alias spellings do not create additional markers; broad/narrow contexts are described explicitly and not merged."
+    },
+    "CA/oakland/fruitvale": {
+      "disposition": "READY",
+      "reason": "Existing point near Fruitvale Avenue/East 12th; Unity Council identifies Fruitvale Avenue, International and Foothill as related commercial corridors. Reference is not the BID boundary.",
+      "point": {
+        "lat": 37.77295303,
+        "lon": -122.22135925
+      },
+      "pointSource": "_data/neighborhoodPages.js / existing commercial-area entity; numeric accuracy not certified",
+      "precision": "APPROXIMATE_AREA_REFERENCE",
+      "sources": [
+        "https://unitycouncil.org/renewal-of-the-fruitvale-property-business-improvement-district/",
+        "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/Transportation/MapServer"
+      ],
+      "mapSummary": "A reference near Fruitvale Avenue and East 12th Street. The wider commercial area also includes International and Foothill corridors.",
+      "coordinateEntityId": "oak-fruitvale",
+      "sourceAliases": [
+        "Fruitvale Oakland",
+        "Fruitvale Station"
+      ],
+      "editorialSourceConfidence": "high",
+      "coordinateSourceTypes": [
+        "existing_rofo_neighborhood_data",
+        "recognized_neighborhood"
+      ],
+      "aliasDisposition": "Existing public canonical route retained. Alias spellings do not create additional markers; broad/narrow contexts are described explicitly and not merged."
+    },
+    "CA/oakland/rockridge": {
+      "disposition": "READY",
+      "reason": "Operator identifies College Avenue commercial corridor between Broadway and Alcatraz; existing point is on that corridor.",
+      "point": {
+        "lat": 37.84300232,
+        "lon": -122.24882507
+      },
+      "pointSource": "_data/neighborhoodPages.js / existing commercial-area entity; numeric accuracy not certified",
+      "precision": "APPROXIMATE_AREA_REFERENCE",
+      "sources": [
+        "https://www.rockridgedistrict.com/rocknstroll",
+        "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/Transportation/MapServer"
+      ],
+      "mapSummary": "The College Avenue commercial corridor between Broadway and Alcatraz Avenue. The marker locates the corridor rather than all of residential Rockridge.",
+      "coordinateEntityId": "oak-rockridge",
+      "sourceAliases": [
+        "Rockridge Oakland"
+      ],
+      "editorialSourceConfidence": "high",
+      "coordinateSourceTypes": [
+        "existing_rofo_neighborhood_data",
+        "recognized_neighborhood"
+      ],
+      "aliasDisposition": "Existing public canonical route retained. Alias spellings do not create additional markers; broad/narrow contexts are described explicitly and not merged."
+    },
+    "CA/oakland/temescal": {
+      "disposition": "READY",
+      "reason": "City identifies Temescal/Telegraph business corridor; existing point is near Telegraph/49th. No boundary inferred from the BID name.",
+      "point": {
+        "lat": 37.8362236,
+        "lon": -122.26118469
+      },
+      "pointSource": "_data/neighborhoodPages.js / existing commercial-area entity; numeric accuracy not certified",
+      "precision": "APPROXIMATE_AREA_REFERENCE",
+      "sources": [
+        "https://www.oaklandca.gov/Business/For-Business-Owners/Business-Resources/Business-Improvement-Districts",
+        "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/Transportation/MapServer"
+      ],
+      "mapSummary": "A reference on the Telegraph Avenue commercial corridor near 49th Street. Neighborhood and business-district extents can differ.",
+      "coordinateEntityId": "oak-temescal",
+      "sourceAliases": [
+        "Temescal Oakland"
+      ],
+      "editorialSourceConfidence": "high",
+      "coordinateSourceTypes": [
+        "existing_rofo_neighborhood_data",
+        "recognized_neighborhood",
+        "prior_editorial_neighborhoods"
+      ],
+      "aliasDisposition": "Existing public canonical route retained. Alias spellings do not create additional markers; broad/narrow contexts are described explicitly and not merged."
+    }
+  },
+  "properties": {
+    "/commercial-real-estate/building/CA/oakland/1-kaiser-plz/": {
+      "disposition": "HOLD",
+      "reason": "No matching published district route; medical-campus association is not independently reviewed.",
+      "point": {
+        "lon": -122.264573810186,
+        "lat": 37.809674158032
+      },
+      "districtUrl": null,
+      "addressCheckedOn": "2026-10-17",
+      "precision": "CENSUS_ADDRESS_RANGE_INTERPOLATION",
+      "sources": [
+        "https://geocoding.geo.census.gov/geocoder/locations/addressbatch",
+        "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/Transportation/MapServer"
+      ]
+    },
+    "/commercial-real-estate/building/CA/oakland/1000-broadway/": {
+      "disposition": "HOLD",
+      "reason": "Address-range position lies at the 10th Street edge of the documented historic core; interpolation cannot certify which side/parcel belongs. Hold pending boundary/parcel evidence.",
+      "point": {
+        "lon": -122.272790287931,
+        "lat": 37.801565993348
+      },
+      "districtUrl": "/commercial-real-estate/CA/oakland/old-oakland/",
+      "addressCheckedOn": "2026-10-17",
+      "precision": "CENSUS_ADDRESS_RANGE_INTERPOLATION",
+      "sources": [
+        "https://geocoding.geo.census.gov/geocoder/locations/addressbatch",
+        "https://www.oaklandca.gov/Planning-Building/Historic-Preservation/List-of-Preservation-Districts-S-7-and-S-20-Zones/Victorian-Row-Old-Oakland-S-7"
+      ]
+    },
+    "/commercial-real-estate/building/CA/oakland/119-filbert-st/": {
+      "disposition": "HOLD",
+      "reason": "Address is west of the district plan\u2019s western street limits; a broader warehouse-district association may exist but is unresolved.",
+      "point": {
+        "lon": -122.286592613037,
+        "lat": 37.799158077777
+      },
+      "districtUrl": "/commercial-real-estate/CA/oakland/jack-london-square/",
+      "addressCheckedOn": "2026-10-17",
+      "precision": "CENSUS_ADDRESS_RANGE_INTERPOLATION",
+      "sources": [
+        "https://geocoding.geo.census.gov/geocoder/locations/addressbatch",
+        "https://ctycms.com/ca-jack-london/docs/jack-london-mdp-12323.pdf"
+      ]
+    },
+    "/commercial-real-estate/building/CA/oakland/1212-broadway/": {
+      "disposition": "HOLD",
+      "reason": "Address is north of city-documented Old Oakland historic core (7th\u201310th). Existing broader association is unresolved; hold rather than silently reassign its URL.",
+      "point": {
+        "lon": -122.271882546752,
+        "lat": 37.803032464458
+      },
+      "districtUrl": "/commercial-real-estate/CA/oakland/old-oakland/",
+      "addressCheckedOn": "2026-10-17",
+      "precision": "CENSUS_ADDRESS_RANGE_INTERPOLATION",
+      "sources": [
+        "https://geocoding.geo.census.gov/geocoder/locations/addressbatch",
+        "https://www.oaklandca.gov/Planning-Building/Historic-Preservation/List-of-Preservation-Districts-S-7-and-S-20-Zones/Victorian-Row-Old-Oakland-S-7"
+      ]
+    },
+    "/commercial-real-estate/building/CA/oakland/1320-wood-st/": {
+      "disposition": "READY",
+      "reason": "Within city plan freeway frame; Wood/13th shown west of I-980, south of I-580 and east of relocated I-880.",
+      "point": {
+        "lon": -122.29818865762,
+        "lat": 37.81277424368
+      },
+      "districtUrl": "/commercial-real-estate/CA/oakland/west-oakland/",
+      "addressCheckedOn": "2026-10-17",
+      "precision": "CENSUS_ADDRESS_RANGE_INTERPOLATION",
+      "sources": [
+        "https://geocoding.geo.census.gov/geocoder/locations/addressbatch",
+        "https://www.oaklandca.gov/files/assets/city/v/1/planning-amp-building/documents/sp/neighborhood-plans/wosp/wosp-chapter-1-introduction.pdf"
+      ]
+    },
+    "/commercial-real-estate/building/CA/oakland/1400-mandela-pkwy/": {
+      "disposition": "HOLD",
+      "reason": "No exact Census address match; no replacement or city-center coordinate used.",
+      "point": null,
+      "districtUrl": "/commercial-real-estate/CA/oakland/west-oakland/",
+      "addressCheckedOn": "2026-10-17",
+      "precision": "UNLOCATED",
+      "sources": [
+        "https://geocoding.geo.census.gov/geocoder/locations/addressbatch",
+        "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/Transportation/MapServer"
+      ]
+    },
+    "/commercial-real-estate/building/CA/oakland/1500-mandela-pkwy/": {
+      "disposition": "HOLD",
+      "reason": "No exact Census address match; no replacement or city-center coordinate used.",
+      "point": null,
+      "districtUrl": "/commercial-real-estate/CA/oakland/west-oakland/",
+      "addressCheckedOn": "2026-10-17",
+      "precision": "UNLOCATED",
+      "sources": [
+        "https://geocoding.geo.census.gov/geocoder/locations/addressbatch",
+        "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/Transportation/MapServer"
+      ]
+    },
+    "/commercial-real-estate/building/CA/oakland/160-franklin-st/": {
+      "disposition": "READY",
+      "reason": "Franklin near 1st, between I-880 and waterfront in Jack London district plan/map; broader district association, not a parcel-boundary assertion.",
+      "point": {
+        "lon": -122.275279265544,
+        "lat": 37.795238740883
+      },
+      "districtUrl": "/commercial-real-estate/CA/oakland/jack-london-square/",
+      "addressCheckedOn": "2026-10-17",
+      "precision": "CENSUS_ADDRESS_RANGE_INTERPOLATION",
+      "sources": [
+        "https://geocoding.geo.census.gov/geocoder/locations/addressbatch",
+        "https://ctycms.com/ca-jack-london/docs/jack-london-mdp-12323.pdf"
+      ]
+    },
+    "/commercial-real-estate/building/CA/oakland/2201-poplar-st/": {
+      "disposition": "READY",
+      "reason": "Poplar/22nd within city plan freeway frame; not inferred solely from proximity to the reference point.",
+      "point": {
+        "lon": -122.287229594226,
+        "lat": 37.816410928053
+      },
+      "districtUrl": "/commercial-real-estate/CA/oakland/west-oakland/",
+      "addressCheckedOn": "2026-10-17",
+      "precision": "CENSUS_ADDRESS_RANGE_INTERPOLATION",
+      "sources": [
+        "https://geocoding.geo.census.gov/geocoder/locations/addressbatch",
+        "https://www.oaklandca.gov/files/assets/city/v/1/planning-amp-building/documents/sp/neighborhood-plans/wosp/wosp-chapter-1-introduction.pdf"
+      ]
+    },
+    "/commercial-real-estate/building/CA/oakland/2400-filbert-st/": {
+      "disposition": "READY",
+      "reason": "Filbert/24th within city plan freeway frame.",
+      "point": {
+        "lon": -122.280142348538,
+        "lat": 37.81648632194
+      },
+      "districtUrl": "/commercial-real-estate/CA/oakland/west-oakland/",
+      "addressCheckedOn": "2026-10-17",
+      "precision": "CENSUS_ADDRESS_RANGE_INTERPOLATION",
+      "sources": [
+        "https://geocoding.geo.census.gov/geocoder/locations/addressbatch",
+        "https://www.oaklandca.gov/files/assets/city/v/1/planning-amp-building/documents/sp/neighborhood-plans/wosp/wosp-chapter-1-introduction.pdf"
+      ]
+    },
+    "/commercial-real-estate/building/CA/oakland/2855-mandela-pkwy/": {
+      "disposition": "READY",
+      "reason": "Mandela/28th within city plan freeway frame; south of I-580.",
+      "point": {
+        "lon": -122.289266457835,
+        "lat": 37.822457969318
+      },
+      "districtUrl": "/commercial-real-estate/CA/oakland/west-oakland/",
+      "addressCheckedOn": "2026-10-17",
+      "precision": "CENSUS_ADDRESS_RANGE_INTERPOLATION",
+      "sources": [
+        "https://geocoding.geo.census.gov/geocoder/locations/addressbatch",
+        "https://www.oaklandca.gov/files/assets/city/v/1/planning-amp-building/documents/sp/neighborhood-plans/wosp/wosp-chapter-1-introduction.pdf"
+      ]
+    },
+    "/commercial-real-estate/building/CA/oakland/2921-adeline-st/": {
+      "disposition": "READY",
+      "reason": "Adeline/29th within city plan freeway frame; city plan Figure 1.1.2 includes this northern context.",
+      "point": {
+        "lon": -122.282345453569,
+        "lat": 37.820506813858
+      },
+      "districtUrl": "/commercial-real-estate/CA/oakland/west-oakland/",
+      "addressCheckedOn": "2026-10-17",
+      "precision": "CENSUS_ADDRESS_RANGE_INTERPOLATION",
+      "sources": [
+        "https://geocoding.geo.census.gov/geocoder/locations/addressbatch",
+        "https://www.oaklandca.gov/files/assets/city/v/1/planning-amp-building/documents/sp/neighborhood-plans/wosp/wosp-chapter-1-introduction.pdf"
+      ]
+    },
+    "/commercial-real-estate/building/CA/oakland/303-hegenberger-rd/": {
+      "disposition": "READY",
+      "reason": "Exact named-road address; interpolated position checked against Hegenberger Road geometry. Road-corridor association only.",
+      "point": {
+        "lon": -122.197969623598,
+        "lat": 37.734432575813
+      },
+      "districtUrl": "/commercial-real-estate/CA/oakland/hegenberger-corridor/",
+      "addressCheckedOn": "2026-10-17",
+      "precision": "CENSUS_ADDRESS_RANGE_INTERPOLATION",
+      "sources": [
+        "https://geocoding.geo.census.gov/geocoder/locations/addressbatch",
+        "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/Transportation/MapServer"
+      ]
+    },
+    "/commercial-real-estate/building/CA/oakland/333-hegenberger-rd/": {
+      "disposition": "READY",
+      "reason": "Exact named-road address; interpolated position checked against Hegenberger Road geometry. Road-corridor association only.",
+      "point": {
+        "lon": -122.197752119596,
+        "lat": 37.734919642722
+      },
+      "districtUrl": "/commercial-real-estate/CA/oakland/hegenberger-corridor/",
+      "addressCheckedOn": "2026-10-17",
+      "precision": "CENSUS_ADDRESS_RANGE_INTERPOLATION",
+      "sources": [
+        "https://geocoding.geo.census.gov/geocoder/locations/addressbatch",
+        "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/Transportation/MapServer"
+      ]
+    },
+    "/commercial-real-estate/building/CA/oakland/424-3rd-st/": {
+      "disposition": "READY",
+      "reason": "3rd Street near Franklin in Jack London district plan/map, south of I-880 and north of waterfront.",
+      "point": {
+        "lon": -122.275077694753,
+        "lat": 37.796496386963
+      },
+      "districtUrl": "/commercial-real-estate/CA/oakland/jack-london-square/",
+      "addressCheckedOn": "2026-10-17",
+      "precision": "CENSUS_ADDRESS_RANGE_INTERPOLATION",
+      "sources": [
+        "https://geocoding.geo.census.gov/geocoder/locations/addressbatch",
+        "https://ctycms.com/ca-jack-london/docs/jack-london-mdp-12323.pdf"
+      ]
+    },
+    "/commercial-real-estate/building/CA/oakland/433-hegenberger-rd/": {
+      "disposition": "READY",
+      "reason": "Exact named-road address; interpolated position checked against Hegenberger Road geometry. Road-corridor association only.",
+      "point": {
+        "lon": -122.19710628497,
+        "lat": 37.736551736654
+      },
+      "districtUrl": "/commercial-real-estate/CA/oakland/hegenberger-corridor/",
+      "addressCheckedOn": "2026-10-17",
+      "precision": "CENSUS_ADDRESS_RANGE_INTERPOLATION",
+      "sources": [
+        "https://geocoding.geo.census.gov/geocoder/locations/addressbatch",
+        "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/Transportation/MapServer"
+      ]
+    },
+    "/commercial-real-estate/building/CA/oakland/5601-san-leandro-st/": {
+      "disposition": "HOLD",
+      "reason": "Exact address position exists, but parent Coliseum Industrial scope/reference is unresolved. No district association inferred from municipal membership or distance.",
+      "point": {
+        "lon": -122.207978926429,
+        "lat": 37.762778356201
+      },
+      "districtUrl": "/commercial-real-estate/CA/oakland/coliseum-industrial/",
+      "addressCheckedOn": "2026-10-17",
+      "precision": "CENSUS_ADDRESS_RANGE_INTERPOLATION",
+      "sources": [
+        "https://geocoding.geo.census.gov/geocoder/locations/addressbatch",
+        "https://www.oaklandca.gov/Planning-Building/General-Plan-Neighborhood-Plans/Neighborhood-and-Citywide-Plans/Coliseum-Area-Specific-Plan"
+      ]
+    },
+    "/commercial-real-estate/building/CA/oakland/610-85th-ave/": {
+      "disposition": "HOLD",
+      "reason": "Exact address position exists, but parent Coliseum Industrial scope/reference is unresolved. No district association inferred from municipal membership or distance.",
+      "point": {
+        "lon": -122.191039642064,
+        "lat": 37.744738167504
+      },
+      "districtUrl": "/commercial-real-estate/CA/oakland/coliseum-industrial/",
+      "addressCheckedOn": "2026-10-17",
+      "precision": "CENSUS_ADDRESS_RANGE_INTERPOLATION",
+      "sources": [
+        "https://geocoding.geo.census.gov/geocoder/locations/addressbatch",
+        "https://www.oaklandca.gov/Planning-Building/General-Plan-Neighborhood-Plans/Neighborhood-and-Citywide-Plans/Coliseum-Area-Specific-Plan"
+      ]
+    },
+    "/commercial-real-estate/building/CA/oakland/6195-coliseum-way/": {
+      "disposition": "HOLD",
+      "reason": "Exact address position exists, but parent Coliseum Industrial scope/reference is unresolved. No district association inferred from municipal membership or distance.",
+      "point": {
+        "lon": -122.208225611473,
+        "lat": 37.757881513987
+      },
+      "districtUrl": "/commercial-real-estate/CA/oakland/coliseum-industrial/",
+      "addressCheckedOn": "2026-10-17",
+      "precision": "CENSUS_ADDRESS_RANGE_INTERPOLATION",
+      "sources": [
+        "https://geocoding.geo.census.gov/geocoder/locations/addressbatch",
+        "https://www.oaklandca.gov/Planning-Building/General-Plan-Neighborhood-Plans/Neighborhood-and-Citywide-Plans/Coliseum-Area-Specific-Plan"
+      ]
+    },
+    "/commercial-real-estate/building/CA/oakland/675-hegenberger-rd/": {
+      "disposition": "READY",
+      "reason": "Exact named-road address; interpolated position checked against Hegenberger Road geometry. Road-corridor association only.",
+      "point": {
+        "lon": -122.196447200061,
+        "lat": 37.748247310832
+      },
+      "districtUrl": "/commercial-real-estate/CA/oakland/hegenberger-corridor/",
+      "addressCheckedOn": "2026-10-17",
+      "precision": "CENSUS_ADDRESS_RANGE_INTERPOLATION",
+      "sources": [
+        "https://geocoding.geo.census.gov/geocoder/locations/addressbatch",
+        "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/Transportation/MapServer"
+      ]
+    },
+    "/commercial-real-estate/building/CA/oakland/7001-san-leandro-st/": {
+      "disposition": "HOLD",
+      "reason": "Exact address position exists, but parent Coliseum Industrial scope/reference is unresolved. No district association inferred from municipal membership or distance.",
+      "point": {
+        "lon": -122.198929442155,
+        "lat": 37.755025111925
+      },
+      "districtUrl": "/commercial-real-estate/CA/oakland/coliseum-industrial/",
+      "addressCheckedOn": "2026-10-17",
+      "precision": "CENSUS_ADDRESS_RANGE_INTERPOLATION",
+      "sources": [
+        "https://geocoding.geo.census.gov/geocoder/locations/addressbatch",
+        "https://www.oaklandca.gov/Planning-Building/General-Plan-Neighborhood-Plans/Neighborhood-and-Citywide-Plans/Coliseum-Area-Specific-Plan"
+      ]
+    },
+    "/commercial-real-estate/building/CA/oakland/7303-edgewater-dr/": {
+      "disposition": "HOLD",
+      "reason": "Exact address position exists, but parent Coliseum Industrial scope/reference is unresolved. No district association inferred from municipal membership or distance.",
+      "point": {
+        "lon": -122.2071372173,
+        "lat": 37.74613531173
+      },
+      "districtUrl": "/commercial-real-estate/CA/oakland/coliseum-industrial/",
+      "addressCheckedOn": "2026-10-17",
+      "precision": "CENSUS_ADDRESS_RANGE_INTERPOLATION",
+      "sources": [
+        "https://geocoding.geo.census.gov/geocoder/locations/addressbatch",
+        "https://www.oaklandca.gov/Planning-Building/General-Plan-Neighborhood-Plans/Neighborhood-and-Citywide-Plans/Coliseum-Area-Specific-Plan"
+      ]
+    },
+    "/commercial-real-estate/building/CA/oakland/7307-edgewater-dr/": {
+      "disposition": "HOLD",
+      "reason": "Exact address position exists, but parent Coliseum Industrial scope/reference is unresolved. No district association inferred from municipal membership or distance.",
+      "point": {
+        "lon": -122.207081309801,
+        "lat": 37.746068839347
+      },
+      "districtUrl": "/commercial-real-estate/CA/oakland/coliseum-industrial/",
+      "addressCheckedOn": "2026-10-17",
+      "precision": "CENSUS_ADDRESS_RANGE_INTERPOLATION",
+      "sources": [
+        "https://geocoding.geo.census.gov/geocoder/locations/addressbatch",
+        "https://www.oaklandca.gov/Planning-Building/General-Plan-Neighborhood-Plans/Neighborhood-and-Citywide-Plans/Coliseum-Area-Specific-Plan"
+      ]
+    },
+    "/commercial-real-estate/building/CA/oakland/745-85th-ave/": {
+      "disposition": "HOLD",
+      "reason": "Exact address position exists, but parent Coliseum Industrial scope/reference is unresolved. No district association inferred from municipal membership or distance.",
+      "point": {
+        "lon": -122.188371844825,
+        "lat": 37.747568107112
+      },
+      "districtUrl": "/commercial-real-estate/CA/oakland/coliseum-industrial/",
+      "addressCheckedOn": "2026-10-17",
+      "precision": "CENSUS_ADDRESS_RANGE_INTERPOLATION",
+      "sources": [
+        "https://geocoding.geo.census.gov/geocoder/locations/addressbatch",
+        "https://www.oaklandca.gov/Planning-Building/General-Plan-Neighborhood-Plans/Neighborhood-and-Citywide-Plans/Coliseum-Area-Specific-Plan"
+      ]
+    },
+    "/commercial-real-estate/building/CA/oakland/7677-oakport-st/": {
+      "disposition": "HOLD",
+      "reason": "Exact address position exists, but parent Coliseum Industrial scope/reference is unresolved. No district association inferred from municipal membership or distance.",
+      "point": {
+        "lon": -122.202089026965,
+        "lat": 37.746267332841
+      },
+      "districtUrl": "/commercial-real-estate/CA/oakland/coliseum-industrial/",
+      "addressCheckedOn": "2026-10-17",
+      "precision": "CENSUS_ADDRESS_RANGE_INTERPOLATION",
+      "sources": [
+        "https://geocoding.geo.census.gov/geocoder/locations/addressbatch",
+        "https://www.oaklandca.gov/Planning-Building/General-Plan-Neighborhood-Plans/Neighborhood-and-Citywide-Plans/Coliseum-Area-Specific-Plan"
+      ]
+    },
+    "/commercial-real-estate/building/CA/oakland/8000-edgewater-dr/": {
+      "disposition": "HOLD",
+      "reason": "Edgewater address has no independent Hegenberger-corridor association/extent evidence. Nearby road and broader plan geography are insufficient.",
+      "point": {
+        "lon": -122.201957920256,
+        "lat": 37.740372048981
+      },
+      "districtUrl": "/commercial-real-estate/CA/oakland/hegenberger-corridor/",
+      "addressCheckedOn": "2026-10-17",
+      "precision": "CENSUS_ADDRESS_RANGE_INTERPOLATION",
+      "sources": [
+        "https://geocoding.geo.census.gov/geocoder/locations/addressbatch",
+        "https://www.oaklandca.gov/Planning-Building/General-Plan-Neighborhood-Plans/Neighborhood-and-Citywide-Plans/Coliseum-Area-Specific-Plan"
+      ]
+    },
+    "/commercial-real-estate/building/CA/oakland/8105-edgewater-dr/": {
+      "disposition": "HOLD",
+      "reason": "Exact address position exists, but parent Coliseum Industrial scope/reference is unresolved. No district association inferred from municipal membership or distance.",
+      "point": {
+        "lon": -122.201551851056,
+        "lat": 37.739711180079
+      },
+      "districtUrl": "/commercial-real-estate/CA/oakland/coliseum-industrial/",
+      "addressCheckedOn": "2026-10-17",
+      "precision": "CENSUS_ADDRESS_RANGE_INTERPOLATION",
+      "sources": [
+        "https://geocoding.geo.census.gov/geocoder/locations/addressbatch",
+        "https://www.oaklandca.gov/Planning-Building/General-Plan-Neighborhood-Plans/Neighborhood-and-Citywide-Plans/Coliseum-Area-Specific-Plan"
+      ]
+    },
+    "/commercial-real-estate/building/CA/oakland/8301-edgewater-dr/": {
+      "disposition": "HOLD",
+      "reason": "Edgewater address has no independent Hegenberger-corridor association/extent evidence. Nearby road and broader plan geography are insufficient.",
+      "point": {
+        "lon": -122.200208927995,
+        "lat": 37.738168660001
+      },
+      "districtUrl": "/commercial-real-estate/CA/oakland/hegenberger-corridor/",
+      "addressCheckedOn": "2026-10-17",
+      "precision": "CENSUS_ADDRESS_RANGE_INTERPOLATION",
+      "sources": [
+        "https://geocoding.geo.census.gov/geocoder/locations/addressbatch",
+        "https://www.oaklandca.gov/Planning-Building/General-Plan-Neighborhood-Plans/Neighborhood-and-Citywide-Plans/Coliseum-Area-Specific-Plan"
+      ]
+    },
+    "/commercial-real-estate/building/CA/oakland/8501-san-leandro-st/": {
+      "disposition": "HOLD",
+      "reason": "Exact address position exists, but parent Coliseum Industrial scope/reference is unresolved. No district association inferred from municipal membership or distance.",
+      "point": {
+        "lon": -122.189134342144,
+        "lat": 37.746877156563
+      },
+      "districtUrl": "/commercial-real-estate/CA/oakland/coliseum-industrial/",
+      "addressCheckedOn": "2026-10-17",
+      "precision": "CENSUS_ADDRESS_RANGE_INTERPOLATION",
+      "sources": [
+        "https://geocoding.geo.census.gov/geocoder/locations/addressbatch",
+        "https://www.oaklandca.gov/Planning-Building/General-Plan-Neighborhood-Plans/Neighborhood-and-Citywide-Plans/Coliseum-Area-Specific-Plan"
+      ]
+    }
+  },
+  "coordinateLineage": {
+    "file": "data/peter/research/commercial_area_entities_v1.json",
+    "sha256": "d2641db67b5d0786f9d6da1921e538e0a48c3dc2e0b0009097ad9836726976a8",
+    "pinnedBase": "1be53138a29bb569c940b86dc4591f1b5a87595e",
+    "derivation": "Existing authored commercial-area approximate_centroid -> _data/neighborhoodPages.js -> shared map point. No city coordinate fallback. Original surveyed/geocoder lineage and accuracy are undocumented; primary sources corroborate approximate context only."
+  }
+}

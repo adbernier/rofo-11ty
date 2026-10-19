@@ -47,7 +47,7 @@ The release inventory separates completed approximate-location maps from records
 
 ## SF/Sacramento-only release boundary
 
-`lib/maps/reviewed-geography.js` has an explicit two-city allowlist. Only SF/Sacramento source properties, Census batch rows, municipal review polygons, road snapshots and review dispositions are included. Source batch IDs were renumbered consistently when extracting the 106-property input/results subset; source results and acquisition date were not changed. Regenerating maps cannot expand coverage without a reviewed source change to the allowlist.
+The published first release used an explicit SF/Sacramento allowlist. The next local batch adds only Oakland, behind a completed per-record review gate; see `docs/oakland-map-batch-review.md`. Only SF/Sacramento source properties, Census batch rows, municipal review polygons, road snapshots and review dispositions are included. Source batch IDs were renumbered consistently when extracting the 106-property input/results subset; source results and acquisition date were not changed. Regenerating maps cannot expand coverage without a reviewed source change to the allowlist. The following counts describe the published first batch.
 
 This candidate contains 2 city, 20 district/reference and 83 property maps (210 SVG variants). SF has 14 plotted references and 15 unlocated records; Sacramento has 6 plotted references. 23 property records remain unplotted, including Sacramento 1329 N Market Boulevard. Existing pages retain their URLs and content. Unsupported cities receive no shared-map data or scripts; existing maps remain as before. The prior nationwide candidate is preserved separately and is not part of this release.
 
