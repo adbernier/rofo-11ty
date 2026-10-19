@@ -43,7 +43,7 @@ eleventyComputed:
 {% set publicCommercialGeographyExperience = sacramentoCommercialGeographyExperience if isSacramentoCommercialGeographyExperience else (indianapolisCommercialGeographyExperience if isIndianapolisCommercialGeographyExperience else (phoenixCommercialGeographyExperience if isPhoenixCommercialGeographyExperience else sfCommercialGeographyExperience)) %}
 {% set editorialDistrictMap = editorialDistrictMaps.byDistrictPath[neighborhood.canonical_neighborhood_path] %}
 {% set reviewedMap = reviewedMaps.byDistrictPath[neighborhood.canonical_neighborhood_path] %}
-{% set mapReview = reviewedMaps.byDistrictReviewPath[neighborhood.canonical_neighborhood_path] %}
+{% set mapReview = reviewedMaps.byDistrictReviewPath[neighborhood.canonical_neighborhood_path] %}{% set mapOmitted = reviewedMaps.byDistrictOmissionPath[neighborhood.canonical_neighborhood_path] %}
 {% set searchProfileLocationSuggestions = [] %}
 {% if neighborhood.commercial_location_model and neighborhood.commercial_location_model.compare_with and neighborhood.commercial_location_model.compare_with.length %}
   {% for comparison in neighborhood.commercial_location_model.compare_with.slice(0, 6) %}
@@ -91,7 +91,7 @@ eleventyComputed:
 
     <div class="neighborhood-layout neighborhood-layout--primary-rail">
       <div class="neighborhood-main">
-        <div class="city-hero{% if hasMapHero and not editorialDistrictMap and not reviewedMap and not mapReview %} city-hero--map-card{% endif %}{% if hasIdentityLocatorMap and not editorialDistrictMap and not reviewedMap and not mapReview %} city-hero--district-identity{% endif %}{% if editorialDistrictMap and not reviewedMap and not mapReview %} city-hero--editorial-district-map{% endif %}">
+        <div class="city-hero{% if hasMapHero and not editorialDistrictMap and not reviewedMap and not mapReview and not mapOmitted %} city-hero--map-card{% endif %}{% if hasIdentityLocatorMap and not editorialDistrictMap and not reviewedMap and not mapReview and not mapOmitted %} city-hero--district-identity{% endif %}{% if editorialDistrictMap and not reviewedMap and not mapReview and not mapOmitted %} city-hero--editorial-district-map{% endif %}">
           <div class="city-card city-hero__intro-card">
             <div class="city-hero-copy">
               <div class="eyebrow">{{ districtIdentity.eyebrow or (areaTermDisplay + " Guide") }}</div>
@@ -117,7 +117,7 @@ eleventyComputed:
 
           {% if editorialDistrictMap %}
             {% set editorialDistrictMapVariant = "hero" %}
-            {% if not reviewedMap and not mapReview %}{% include "partials/shared/editorial-district-map.njk" %}{% endif %}
+            {% if not reviewedMap and not mapReview and not mapOmitted %}{% include "partials/shared/editorial-district-map.njk" %}{% endif %}
             {% set editorialDistrictMapVariant = "" %}
             {% set hasGlanceBestFit = neighborhood.commercial_location_model and neighborhood.commercial_location_model.best_fit_businesses and neighborhood.commercial_location_model.best_fit_businesses.length %}
             {% set hasGlanceNearby = (neighborhood.commercial_location_model and neighborhood.commercial_location_model.compare_with and neighborhood.commercial_location_model.compare_with.length) or hasNearby %}
@@ -165,9 +165,9 @@ eleventyComputed:
                 </div>
               </section>
             {% endif %}
-          {% elif hasMapHero and not reviewedMap and not mapReview %}
+          {% elif hasMapHero and not reviewedMap and not mapReview and not mapOmitted %}
             {% include "partials/neighborhood/map-hero.njk" %}
-          {% elif not hasIdentityLocatorMap and not reviewedMap and not mapReview %}
+          {% elif not hasIdentityLocatorMap and not reviewedMap and not mapReview and not mapOmitted %}
             <div class="city-sidecard neighborhood-review-note">
               <div class="eyebrow">{{ areaTermDisplay }} Guide</div>
               <h2>Explore {{ neighborhoodDisplayNameWithArticle }}</h2>
@@ -184,7 +184,7 @@ eleventyComputed:
         {% set fieldPhotoPlacement = "district" %}
         {% include "partials/shared/editorial-photo-slot.njk" %}
 
-        {% if hasIdentityLocatorMap and not editorialDistrictMap and not reviewedMap and not mapReview %}
+        {% if hasIdentityLocatorMap and not editorialDistrictMap and not reviewedMap and not mapReview and not mapOmitted %}
           {% include "partials/neighborhood/district-locator-map.njk" %}
         {% endif %}
 
@@ -200,7 +200,7 @@ eleventyComputed:
           </figure>
         {% endif %}
 
-        {% if not hasIdentityLocatorMap and not editorialDistrictMap and not reviewedMap and not mapReview %}
+        {% if not hasIdentityLocatorMap and not editorialDistrictMap and not reviewedMap and not mapReview and not mapOmitted %}
           {% include "partials/neighborhood/district-locator-map.njk" %}
         {% endif %}
 

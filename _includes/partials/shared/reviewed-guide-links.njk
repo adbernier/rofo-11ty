@@ -1,0 +1,4 @@
+<div class="city-card city-neighborhoods-card" data-reviewed-guide-navigation>
+  <h3>Explore {{ reviewedGuideNavigation.cityName | escape }} guides</h3>
+  <div class="city-neighborhood-link-list">{% for item in reviewedGuideNavigation.items %}<a href="{{ item.url | escape }}">{{ item.name | escape }}</a>{% endfor %}</div>
+</div>

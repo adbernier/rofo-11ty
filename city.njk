@@ -173,7 +173,7 @@ eleventyComputed:
   {% endfor %}
 {% endif %}
 {% set editorialDistrictMap = editorialDistrictMaps.byCityPath[page.url] %}
-{% set reviewedMap = reviewedMaps.byCityPath[page.url] %}
+{% set reviewedMap = reviewedMaps.byCityPath[page.url] %}{% set reviewedGuideNavigation = reviewedMaps.byGuideNavigationPath[page.url] %}
 {% set hasAreaChapter = editorialDistrictMap or cityNeighborhoods.length or cityLocationComparisons.length or cityComparisonPages.length or (city.nearby_cities and city.nearby_cities.length) %}
 {% set hasEducationChapter = true %}
 {% set hasRepresentativeBuildingChapter = editorialRepresentativeBuildings.length %}
@@ -306,10 +306,10 @@ eleventyComputed:
           {% endif %}
 
           {% if hasAreaChapter %}
-            {% if reviewedMap %}{% include "partials/shared/reviewed-map.njk" %}{% else %}{% include "partials/shared/editorial-district-map.njk" %}{% endif %}
+            {% if reviewedMap %}{% include "partials/shared/reviewed-map.njk" %}{% elif reviewedGuideNavigation %}{% include "partials/shared/reviewed-guide-links.njk" %}{% else %}{% include "partials/shared/editorial-district-map.njk" %}{% endif %}
           {% endif %}
 
-          {% if cityNeighborhoods.length and not editorialDistrictMap and not reviewedMap and not isSanFranciscoDecisionJourney %}
+          {% if cityNeighborhoods.length and not editorialDistrictMap and not reviewedMap and not reviewedGuideNavigation and not isSanFranciscoDecisionJourney %}
             <div class="city-card city-neighborhoods-card">
               <div class="eyebrow">Commercial areas</div>
               <h2>Compare {{ city.city }} districts and commercial areas</h2>
