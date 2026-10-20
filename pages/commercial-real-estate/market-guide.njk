@@ -12,6 +12,8 @@ eleventyComputed:
   canonical: "{{ metadata.siteUrl }}{{ guide.url }}"
 ---
 
+{% set isAlisoBudgetGuide = guide.city_slug == "aliso-viejo" and guide.state_abbr == "CA" %}
+
 {% set crumbs = [
   { "label": "Markets", "url": "/markets/" },
   { "label": guide.city + ", " + guide.state_abbr, "url": guide.city_url },
@@ -22,7 +24,7 @@ eleventyComputed:
 {% set marketSnapshot = guide.market_snapshot or {} %}
 {% set snapshotTitle = marketSnapshot.snapshot_title or "Market Snapshot" %}
 {% set guideSnapshotItems = [] %}
-{% if marketSnapshot.average_rent %}
+{% if marketSnapshot.average_rent and not (guide.city_slug == "aliso-viejo" and guide.state_abbr == "CA") %}
   {% set guideSnapshotItems = (guideSnapshotItems.push({ "label": "Average Rent", "value": marketSnapshot.average_rent, "note": marketSnapshot.average_rent_label, "direction": marketSnapshot.average_rent_direction }), guideSnapshotItems) %}
 {% endif %}
 {% if marketSnapshot.availability_rate %}
@@ -60,6 +62,9 @@ eleventyComputed:
   {% set guideSearchProfileHeadlineType = (guide.space_type_label_lower or guide.space_type_label or "") | replace(" space", "") %}
   {% set guideSearchProfileHeadline = "Get a personalized " + guide.city + " " + guideSearchProfileHeadlineType + " shortlist" %}
   {% set guideSearchProfileSpaceContextLabel = "Searching for: " + guide.space_type_label %}
+{% endif %}
+{% if isAlisoBudgetGuide %}
+  {% set guideSearchProfileHeadline = "Define your space requirements" %}
 {% endif %}
 {% set searchProfileContext = {
   "layout": "inline",
@@ -149,7 +154,7 @@ eleventyComputed:
                 {% endif %}
               </div>
               <div class="button-row">
-                <a class="btn-primary" href="#search-profile">Get a personalized shortlist</a>
+                <a class="btn-primary" href="{% if isAlisoBudgetGuide %}/best-fit-locations/?city=Aliso%20Viejo&amp;state=CA&amp;source=market_guide&amp;sourcePath=%2Fcommercial-real-estate%2FCA%2Faliso-viejo%2Fmarket-guide%2F{% else %}#search-profile{% endif %}">{% if isAlisoBudgetGuide %}Define my space requirements{% else %}Get a personalized shortlist{% endif %}</a>
                 <a class="btn-secondary" href="{{ guide.city_url }}">Explore {{ guide.city }}</a>
                 {% if guide.guide_kind == "space-type" %}
                   <a class="btn-secondary" href="{{ guide.city_market_guide_url }}">Read the {{ guide.city }} market guide</a>
@@ -522,8 +527,8 @@ eleventyComputed:
 
         <div class="guide-lead-card guide-lead-card--form form-card">
           <div class="eyebrow">GET HELP</div>
-          <h2>Find the right space for your business</h2>
-          <p>Enter the requirements that should guide the search.</p>
+          <h2>{% if isAlisoBudgetGuide %}Request research for your space search{% else %}Find the right space for your business{% endif %}</h2>
+          <p>{% if isAlisoBudgetGuide %}Tell us what you need. Rofo reviews your request and may refer it to OfficeFinder. This form does not return available spaces or guarantee a broker response.{% else %}Enter the requirements that should guide the search.{% endif %}</p>
 
           <form action="/api/leads/submit" method="POST">
             <input type="hidden" name="source" value="rofo-market-guide">
@@ -599,10 +604,10 @@ eleventyComputed:
               </label>
 
               <div class="form-note">
-                No spam. Just helpful options to get you started.
+                {% if isAlisoBudgetGuide %}Your requirements help guide the review.{% else %}No spam. Just helpful options to get you started.{% endif %}
               </div>
 
-              <button class="btn-primary" type="submit">See Available Spaces</button>
+              <button class="btn-primary" type="submit">{% if isAlisoBudgetGuide %}Request research{% else %}See Available Spaces{% endif %}</button>
             </div>
           </form>
         </div>
@@ -615,8 +620,16 @@ eleventyComputed:
           <div class="guide-grid">
             {% for item in guide.faqs %}
               <div class="guide-mini-card">
-                <h3>{{ item.question }}</h3>
-                <p>{{ item.answer }}</p>
+                {% if isAlisoBudgetGuide and loop.index == 1 %}
+                  <h3>{{ item.question }}</h3>
+                  <p>Define your space type, size, location and timing. You can then request research or a possible OfficeFinder referral; current availability needs confirmation.</p>
+                {% elseif isAlisoBudgetGuide and loop.index == 2 %}
+                  <h3>What types of space does this guide cover?</h3>
+                  <p>This guide covers office space. Building examples and advertised rents do not confirm current availability.</p>
+                {% else %}
+                  <h3>{{ item.question }}</h3>
+                  <p>{{ item.answer }}</p>
+                {% endif %}
               </div>
             {% endfor %}
           </div>

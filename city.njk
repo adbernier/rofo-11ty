@@ -437,11 +437,22 @@ eleventyComputed:
             </div>
           {% endif %}
 
+          {% if city.slug == "aliso-viejo" and city.state_abbr == "CA" %}
+<section class="city-card city-support-module" aria-labelledby="aliso-office-budget-heading">
+  <h2 id="aliso-office-budget-heading">One Aliso Viejo office-budget example</h2>
+  <p>Checked October 19, 2026: <a href="https://www.commercialcafe.com/commercial-property/us/ca/aliso-viejo/vantis-120-vantis/">120 Vantis, suite 145</a> advertised 2,541 square feet at $3.30 per square foot per month. The listing was updated October 7. This is one asking price, not typical Aliso Viejo rent or confirmed availability.</p>
+  <p><strong>2,541 × $3.30 = $8,385.30 per month.</strong></p>
+  <p>The listing says “full service” but does not spell out what is included. Confirm utilities, cleaning, parking and any extra building charges before setting your budget.</p>
+  <p><a class="btn-primary" href="/best-fit-locations/?city=Aliso%20Viejo&amp;state=CA&amp;spaceType=Office&amp;source=city&amp;sourcePath=%2Fcommercial-real-estate%2FCA%2Faliso-viejo%2F&amp;journey=new">Start my office search</a></p>
+</section>
+          {% endif %}
+
           {% if snapshotItems.length >= 2 %}
             <div class="city-card city-market-snapshot city-support-module">
               <div class="eyebrow">{{ snapshotTitle }}</div>
               <div class="city-market-snapshot__grid">
                 {% for item in snapshotItems %}
+                  {% if not (city.slug == "aliso-viejo" and city.state_abbr == "CA" and item.label == "Average Rent") %}
                   <div class="city-market-snapshot__item">
                     <div class="stat-label">{{ item.label }}</div>
                     {% if item.areas and item.areas.length %}
@@ -466,6 +477,7 @@ eleventyComputed:
                       <p class="stat-note">{{ item.note }}</p>
                     {% endif %}
                   </div>
+                  {% endif %}
                 {% endfor %}
               </div>
               {% if city.market_snapshot_note %}
