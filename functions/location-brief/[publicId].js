@@ -224,6 +224,7 @@ export function renderLocationBriefPage(brief) {
           ["Growth", escapeHtml(snapshot.growth)],
           ["Operating / Work Pattern", escapeHtml((snapshot.operationalUse || []).join(", "))],
           ["Search approach", escapeHtml(locationIntentLabel(intent))],
+          ...(locations.some(item => item.city === "Chicago" && item.commercialAreaId) ? [["Areas you’re considering", escapeHtml(locations.filter(item => item.type === "district").map(item => item.label).join(" / "))]] : []),
           ["Feedback", escapeHtml(brief.feedback || "")],
         ])}
       </section>

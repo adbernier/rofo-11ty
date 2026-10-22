@@ -206,7 +206,15 @@
     const sourcePath = String(params.get("sourcePath") || "").trim();
     const city = cleanLocationLabel(params.get("city") || "");
     const state = String(params.get("state") || "").trim();
-    const district = cleanLocationLabel(params.get("district") || "");
+    let chicagoMapEntry = null;
+    const chicagoMapRequest = params.get("chicagoMap") === "1" && city === "Chicago" && state === "IL" && source === "city" && sourcePath === "/commercial-real-estate/IL/chicago/";
+    if (chicagoMapRequest) {
+      try {
+        const records = JSON.parse(document.querySelector("[data-chicago-map-context]")?.textContent || "[]");
+        chicagoMapEntry = records.find(item => item.canonicalId === params.get("districtId") && item.name === params.get("district")) || null;
+      } catch (_) { /* Invalid map context safely returns to the city. */ }
+    }
+    const district = chicagoMapRequest ? chicagoMapEntry?.name || "" : cleanLocationLabel(params.get("district") || "");
     const location = cleanLocationLabel(params.get("location") || "");
     const locationA = cleanLocationLabel(params.get("locationA") || "");
     const locationB = cleanLocationLabel(params.get("locationB") || "");
@@ -217,8 +225,9 @@
     const entryDistrict = String(params.get("entryDistrict") || "").trim();
     const businessArchetype = String(params.get("businessArchetype") || "").trim();
     const locations = [];
+    if (chicagoMapEntry) locations.push({label:chicagoMapEntry.name,type:"district",city,state,slug:chicagoMapEntry.slug,path:chicagoMapEntry.url,commercialAreaId:chicagoMapEntry.canonicalId});
 
-    if (locationA) {
+    if (!locations.length && locationA) {
       locations.push({ label: locationA, type: "district", city, state, slug: "", path: "" });
     }
     if (locationB) {
@@ -239,6 +248,7 @@
       hasContext: Boolean(cleanLocations.length || spaceType || source || sourcePath),
       source,
       sourcePath,
+      chicagoMapEntry,
       locationBrief,
       entrySource, entrySourcePath, entryDistrict, businessArchetype,
       locations: cleanLocations,
@@ -354,6 +364,15 @@
   function locationItemFromSuggestion(item) {
     const label = cleanLocationLabel(item && item.label);
     if (!label) return null;
+    let chicagoIdentity = null;
+    let chicagoMapProfile = new URLSearchParams(window.location.search || "").get("chicagoMap") === "1" || Boolean(item.commercialAreaId);
+    try { chicagoMapProfile = chicagoMapProfile || Boolean(JSON.parse(window.localStorage.getItem(STORAGE_KEY) || "{}").sourceContext?.chicagoMapEntryId); } catch (_) { /* Storage may be unavailable. */ }
+    if (chicagoMapProfile && item.city === "Chicago" && item.state === "IL" && item.type === "district") {
+      try {
+        const records = JSON.parse(document.querySelector("[data-chicago-map-context]")?.textContent || "[]");
+        chicagoIdentity = records.find(record => record.url === item.path && record.name === label);
+      } catch (_) { /* Keep the existing location picker usable. */ }
+    }
     return {
       label,
       type: item.type || "location",
@@ -361,6 +380,7 @@
       state: item.state || contextState || "",
       slug: item.slug || "",
       path: item.path || "",
+      ...(chicagoIdentity ? {commercialAreaId:chicagoIdentity.canonicalId} : {}),
     };
   }
 
@@ -851,6 +871,7 @@
       ...targetProfile,
       sourceContext: {
         ...(targetProfile.sourceContext || {}),
+        ...(recommendationEntryContext.chicagoMapEntry ? {chicagoMapEntryId:recommendationEntryContext.chicagoMapEntry.canonicalId} : {}),
         recommendationEntrySource: recommendationEntryContext.source || "",
         recommendationEntrySourcePath: recommendationEntryContext.sourcePath || "",
         locationBriefV2PublicId: recommendationEntryContext.locationBrief || "",
@@ -861,7 +882,8 @@
       },
     };
 
-    if (locations.length) {
+    const sameChicagoEntry = recommendationEntryContext.chicagoMapEntry && targetProfile.sourceContext?.chicagoMapEntryId === recommendationEntryContext.chicagoMapEntry.canonicalId;
+    if (locations.length && !sameChicagoEntry) {
       nextProfile.locationSelections = uniqueLabels(labels);
       nextProfile.selectedLocations = normalizeSelectedLocations(locations, nextProfile.locationSelections);
       nextProfile.location = locationFromRecommendationEntry(recommendationEntryContext);
@@ -1377,6 +1399,7 @@
         state: item.state || "",
         slug: item.slug || "",
         path: item.path || "",
+        ...(item.commercialAreaId ? {commercialAreaId:item.commercialAreaId} : {}),
       })),
       spaceType: summary.spaceType || "",
       size: summary.sizeOrPeople || "",

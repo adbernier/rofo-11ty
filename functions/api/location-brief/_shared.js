@@ -50,6 +50,7 @@ function normalizeLocation(location) {
     state: clean(location.state, 20),
     slug: clean(location.slug, 180),
     path: clean(location.path, 500),
+    ...(location.city === "Chicago" && location.state === "IL" && /^chi-/.test(location.commercialAreaId || "") ? { commercialAreaId: clean(location.commercialAreaId, 180) } : {}),
   };
 }
 

@@ -1,7 +1,8 @@
 {% if reviewedMap %}
-<link rel="stylesheet" href="/assets/reviewed-map.css">
-<section class="rofo-map" data-rofo-map data-desktop="{{ reviewedMap.desktop | escape }}" data-mobile="{{ reviewedMap.mobile | escape }}" aria-label="{{ reviewedMap.title | escape }}">
-  <h2>{{ reviewedMap.title | escape }}</h2>
+<link rel="stylesheet" href="/assets/reviewed-map.css">{% if reviewedMap.searchPilot %}
+<link rel="stylesheet" href="/assets/chicago-map-search.css">{% endif %}
+<section class="rofo-map" data-rofo-map{% if reviewedMap.searchPilot %} data-map-search-pilot{% endif %} data-desktop="{{ reviewedMap.desktop | escape }}" data-mobile="{{ reviewedMap.mobile | escape }}" aria-label="{{ reviewedMap.title | escape }}">
+  {% if not reviewedMap.searchPilot %}<h2>{{ reviewedMap.title | escape }}</h2>{% endif %}
   {% if reviewedMap.type != 'city' and (reviewedMap.cityUrl or (reviewedMap.type == 'property' and reviewedMap.districtUrl)) %}<p class="rofo-map__parent">{% if reviewedMap.cityUrl %}<a href="{{ reviewedMap.cityUrl | escape }}">{{ reviewedMap.cityName | escape }} areas</a>{% endif %}{% if reviewedMap.type == 'property' and reviewedMap.districtUrl %} · <a href="{{ reviewedMap.districtUrl | escape }}">{{ reviewedMap.districtName | escape }}</a>{% endif %}</p>{% endif %}
   <div class="rofo-map__layout">
     <div>
@@ -9,7 +10,14 @@
         <noscript><picture><source media="(max-width: 760px)" srcset="{{ reviewedMap.mobile | escape }}"><img src="{{ reviewedMap.desktop | escape }}" alt="{{ reviewedMap.title | escape }}. Numbered locations match the text list; shading marks approximate reference locations." width="800" height="560" loading="lazy" decoding="async"></picture></noscript>
         <p class="rofo-map__note" data-map-loading hidden>Loading map… The text list is available below.</p>
       </div>
-      <div class="rofo-map__pages" data-map-pages hidden><button type="button" data-map-previous>{% if reviewedMap.type == 'city' %}Previous areas{% else %}Previous locations{% endif %}</button><span data-map-page-status></span><button type="button" data-map-next>{% if reviewedMap.type == 'city' %}More areas{% else %}More locations{% endif %} →</button></div>
+{% if reviewedMap.searchPilot %}      <p class="rofo-map__note rofo-map__key-label">Numbers on the map</p>
+      <ol class="rofo-map__current-list" data-map-current-list aria-label="Areas numbered on the map">
+          {% for item in reviewedMap.items %}<li data-map-item data-kind="{{ item.kind | escape }}" data-scope="{{ item.scope | escape }}" data-status="{{ item.status | escape }}" data-description="{{ item.description | escape }}"{% if reviewedMap.searchPilot %} data-area-slug="{{ item.slug | escape }}" data-search-url="{{ item.searchUrl | escape }}"{% endif %}>
+            <button type="button" data-map-select="{{ loop.index0 | escape }}" aria-pressed="{% if loop.first %}true{% else %}false{% endif %}" hidden>{{ loop.index | escape }} · <span>{{ item.name | escape }}</span></button>
+            <a href="{{ item.url | escape }}" data-map-link>{{ item.name | escape }} →</a>{% if reviewedMap.searchPilot %}<a href="{{ item.searchUrl | escape }}">Start a search in {{ item.name | escape }}</a>{% endif %}
+          </li>{% endfor %}
+      </ol>
+{% endif %}      <div class="rofo-map__pages" data-map-pages hidden><button type="button" data-map-previous>{% if reviewedMap.type == 'city' %}Previous areas{% else %}Previous locations{% endif %}</button><span data-map-page-status{% if reviewedMap.searchPilot %} aria-live="polite"{% endif %}></span><button type="button" data-map-next>{% if reviewedMap.type == 'city' %}More areas{% else %}More locations{% endif %} →</button></div>
       {% if reviewedMap.items.length > 12 %}<noscript><p class="rofo-map__note">The static map shows the first 12 areas. All areas are linked in the text list.</p></noscript>{% endif %}
       <p class="rofo-map__note">{% if reviewedMap.type == 'property' %}Dot shows an approximate address position.{% else %}Shading shows approximate locations, not district boundaries.{% endif %}</p>
     </div>
@@ -17,16 +25,16 @@
       <div class="rofo-map__selected" data-map-summary aria-live="polite" aria-atomic="true">
         <h3>{{ reviewedMap.items[0].name | escape }}</h3>
         <p>{{ reviewedMap.items[0].description | escape }}</p>
-        <p class="rofo-map__note">{{ reviewedMap.items[0].status | escape }}</p>
-        {% if reviewedMap.items[0].url != page.url %}<a class="rofo-map__action" href="{{ reviewedMap.items[0].url | escape }}">{% if reviewedMap.items[0].kind == 'property' %}Explore this property{% elif reviewedMap.items[0].scope == 'citywide' %}Read this city guide{% else %}Explore this area{% endif %} →</a>{% endif %}
+        {% if not reviewedMap.searchPilot or reviewedMap.items[0].status %}<p class="rofo-map__note">{{ reviewedMap.items[0].status | escape }}</p>{% endif %}
+        {% if reviewedMap.searchPilot %}<a class="rofo-map__action" href="{{ reviewedMap.items[0].searchUrl | escape }}">Start a search in {{ reviewedMap.items[0].name | escape }}</a><p><a href="{{ reviewedMap.items[0].url | escape }}">Read the area guide</a></p><p class="rofo-map__note">We’ll carry this area into your Business Profile. You can change it or compare other areas.</p>{% elif reviewedMap.items[0].url != page.url %}<a class="rofo-map__action" href="{{ reviewedMap.items[0].url | escape }}">{% if reviewedMap.items[0].kind == 'property' %}Explore this property{% elif reviewedMap.items[0].scope == 'citywide' %}Read this city guide{% else %}Explore this area{% endif %} →</a>{% endif %}
       </div>
-      <details class="rofo-map__list"{% if reviewedMap.items.length == 1 and not reviewedMap.unmapped.length %} hidden{% endif %}><summary>Choose from the list ({{ (reviewedMap.items.length + reviewedMap.unmapped.length) | escape }})</summary>
+      <details class="rofo-map__list"{% if reviewedMap.items.length == 1 and not reviewedMap.unmapped.length %} hidden{% endif %}><summary>{% if reviewedMap.searchPilot %}Other area guides ({{ reviewedMap.unmapped.length }}){% else %}Choose from the list ({{ (reviewedMap.items.length + reviewedMap.unmapped.length) | escape }}){% endif %}</summary>
         <ol>
-          {% for item in reviewedMap.items %}<li data-map-item data-kind="{{ item.kind | escape }}" data-scope="{{ item.scope | escape }}" data-status="{{ item.status | escape }}" data-description="{{ item.description | escape }}">
+{% if not reviewedMap.searchPilot %}          {% for item in reviewedMap.items %}<li data-map-item data-kind="{{ item.kind | escape }}" data-scope="{{ item.scope | escape }}" data-status="{{ item.status | escape }}" data-description="{{ item.description | escape }}"{% if reviewedMap.searchPilot %} data-area-slug="{{ item.slug | escape }}" data-search-url="{{ item.searchUrl | escape }}"{% endif %}>
             <button type="button" data-map-select="{{ loop.index0 | escape }}" aria-pressed="{% if loop.first %}true{% else %}false{% endif %}" hidden>{{ loop.index | escape }} · <span>{{ item.name | escape }}</span></button>
-            <a href="{{ item.url | escape }}" data-map-link>{{ item.name | escape }} →</a>
+            <a href="{{ item.url | escape }}" data-map-link>{{ item.name | escape }} →</a>{% if reviewedMap.searchPilot %}<a href="{{ item.searchUrl | escape }}">Start a search in {{ item.name | escape }}</a>{% endif %}
           </li>{% endfor %}
-          {% for item in reviewedMap.unmapped %}<li class="rofo-map__unplotted"><a href="{{ item.url | escape }}">{{ item.name | escape }} →</a><p class="rofo-map__note">Not plotted: {{ item.reason | escape }}</p></li>{% endfor %}
+{% endif %}          {% for item in reviewedMap.unmapped %}<li class="rofo-map__unplotted"><a href="{{ item.url | escape }}">{{ item.name | escape }} →</a>{% if reviewedMap.searchPilot %}<p class="rofo-map__note">Not shown on this map. Read the area guide.</p><a href="{{ item.searchUrl | escape }}">Start a search in {{ item.name | escape }}</a>{% else %}<p class="rofo-map__note">Not plotted: {{ item.reason | escape }}</p>{% endif %}</li>{% endfor %}
         </ol>
       </details>
     </div>
@@ -39,7 +47,7 @@
     {% if reviewedMap.unmapped.length %}<h3>Not plotted: geographic review needed</h3><ul>{% for item in reviewedMap.unmapped %}<li><a href="{{ item.url | escape }}">{{ item.name | escape }}</a> — {{ item.reason | escape }}</li>{% endfor %}</ul>{% endif %}
   </details>
 </section>
-<script src="/js/reviewed-map.js" defer></script>
+{% if reviewedMap.searchPilot %}<script src="/js/chicago-map-search.js" defer></script>{% else %}<script src="/js/reviewed-map.js" defer></script>{% endif %}
 {% elif mapReview %}
-<section class="city-card rofo-map-review" aria-label="Map review status"><h2>Map position needs review</h2><p>This guide remains available, but we have not plotted an uncertain location.</p><details><summary>Why this area is not plotted</summary><p>{{ mapReview.reason | escape }}</p></details>{% if mapReview.cityUrl %}<p><a href="{{ mapReview.cityUrl | escape }}">Explore {{ mapReview.cityName | escape }} areas →</a></p>{% endif %}</section>
+<section class="city-card rofo-map-review" aria-label="Map review status">{% if mapReview.cityUrl == "/commercial-real-estate/IL/chicago/" %}<h2>Explore this area</h2><p>This area isn’t shown on the map yet. You can still use this guide to explore it.</p>{% else %}<h2>Map position needs review</h2><p>This guide remains available, but we have not plotted an uncertain location.</p>{% endif %}<details><summary>{% if mapReview.cityUrl == "/commercial-real-estate/IL/chicago/" %}Map sources and coverage{% else %}Why this area is not plotted{% endif %}</summary><p>{{ mapReview.reason | escape }}</p></details>{% if mapReview.cityUrl %}<p><a href="{{ mapReview.cityUrl | escape }}">Explore {{ mapReview.cityName | escape }} areas →</a></p>{% endif %}</section>
 {% endif %}

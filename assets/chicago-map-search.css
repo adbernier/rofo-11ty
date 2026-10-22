@@ -1,0 +1,36 @@
+/* Reuse the existing map rows and selection buttons as the visible number key. */
+[data-map-search-pilot] .rofo-map__key-label { margin: 16px 0 6px; }
+[data-map-search-pilot] .rofo-map__current-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 4px 8px;
+  padding: 0;
+  margin: 0 0 12px;
+  list-style: none;
+}
+[data-map-search-pilot] .rofo-map__current-list li { min-width: 0; }
+[data-map-search-pilot] .rofo-map__current-list button {
+  width: 100%;
+  min-height: 44px;
+  padding: 7px 8px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  background: transparent;
+  color: #285643;
+  font: inherit;
+  font-size: 13px;
+  line-height: 1.4;
+  text-align: left;
+  cursor: pointer;
+}
+[data-map-search-pilot] .rofo-map__current-list button[aria-pressed="true"] {
+  border-color: #17634d;
+  background: #e8eee7;
+  font-weight: 600;
+}
+[data-map-search-pilot].rofo-map--ready .rofo-map__current-list a { display: none; }
+@media (min-width: 1100px) {
+  [data-map-search-pilot] .rofo-map__current-list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+[data-map-search-pilot]:not(.rofo-map--ready) .rofo-map__current-list { list-style: decimal; padding-left: 24px; }
+[data-map-search-pilot]:not(.rofo-map--ready) .rofo-map__current-list a { display: block; margin: 4px 0; font-size: 13px; }

@@ -173,7 +173,7 @@ eleventyComputed:
   {% endfor %}
 {% endif %}
 {% set editorialDistrictMap = editorialDistrictMaps.byCityPath[page.url] %}
-{% set reviewedMap = reviewedMaps.byCityPath[page.url] %}{% set reviewedGuideNavigation = reviewedMaps.byGuideNavigationPath[page.url] %}
+{% set reviewedMap = reviewedMaps.byCityPath[page.url] %}{% if page.url == "/commercial-real-estate/IL/chicago/" %}{% set reviewedMap = chicagoMapSearch %}{% endif %}{% set reviewedGuideNavigation = reviewedMaps.byGuideNavigationPath[page.url] %}
 {% set hasAreaChapter = editorialDistrictMap or cityNeighborhoods.length or cityLocationComparisons.length or cityComparisonPages.length or (city.nearby_cities and city.nearby_cities.length) %}
 {% set hasEducationChapter = true %}
 {% set hasRepresentativeBuildingChapter = editorialRepresentativeBuildings.length %}
@@ -297,12 +297,16 @@ eleventyComputed:
 
           {% if hasAreaChapter %}
             <section class="city-decision-section city-decision-section--explore" aria-labelledby="city-commercial-areas-heading">
-              <div class="city-decision-section__header">
+{% if reviewedMap.searchPilot %}              <div class="city-decision-section__header">
+                <h2 id="city-commercial-areas-heading">Explore Chicago's business areas</h2>
+                <p>Different areas suit different businesses. Compare access, surroundings, and the kind of space you need before choosing where to look.</p>
+              </div>
+{% else %}              <div class="city-decision-section__header">
                 <div class="eyebrow">Where should I look?</div>
                 <h2 id="city-commercial-areas-heading">Start with the Right {{ city.city }} Commercial Area</h2>
                 <p>The district often shapes the decision before the building does. Start by comparing which areas fit the business model, customer access, employee commute patterns, budget, and next stage of growth.</p>
               </div>
-              <div class="city-decision-flow city-decision-flow--commercial-areas">
+{% endif %}              <div class="city-decision-flow city-decision-flow--commercial-areas">
           {% endif %}
 
           {% if hasAreaChapter %}

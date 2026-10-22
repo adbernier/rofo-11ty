@@ -136,6 +136,7 @@
       state: String(location.state || "").trim(),
       slug: String(location.slug || "").trim(),
       path: String(location.path || "").trim(),
+      ...(location.city === "Chicago" && location.state === "IL" && /^chi-/.test(location.commercialAreaId || "") ? {commercialAreaId:String(location.commercialAreaId)} : {}),
     };
   }
 
