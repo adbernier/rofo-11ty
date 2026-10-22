@@ -7,39 +7,45 @@ description: Find the right place to locate your business with a personalized Lo
 <section class="page-hero homepage-hero homepage-hero--recommendation">
   <div class="container homepage-hero__inner">
     <div class="homepage-hero-copy">
-      <div class="eyebrow">Commercial Location Recommendations</div>
-      <h1>Find the right place to locate your business.</h1>
-      <p class="lead">
-        Rofo will help you define what you're looking for and create a Location Brief for your search.
-      </p>
+      <h1>Find the right space for your business.</h1>
+      <p class="lead">Not sure where to start? Rofo helps you explore locations, figure out what matters, and narrow down your search.</p>
       <div class="hero-actions">
-        <a class="btn btn-primary" href="/best-fit-locations/?source=homepage&amp;sourcePath=%2F">Start My Search</a>
+        <a class="btn btn-primary" href="/best-fit-locations/?source=homepage&amp;sourcePath=%2F">Start my search</a>
+        <a class="btn btn-secondary" href="/markets/">Explore locations</a>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="homepage-process-visual" aria-label="Rofo recommendation process">
-      <ol>
-        <li>
-          <span>01</span>
-          <strong>Business Profile</strong>
-          <p>Share the basics.</p>
-        </li>
-        <li>
-          <span>02</span>
-          <strong>Location Recommendation</strong>
-          <p>See where to begin.</p>
-        </li>
-        <li>
-          <span>03</span>
-          <strong>Location Brief</strong>
-          <p>Understand why.</p>
-        </li>
-        <li>
-          <span>04</span>
-          <strong>Broker Partnership</strong>
-          <p>Execute with context.</p>
-        </li>
-      </ol>
+<section class="section">
+  <div class="container">
+    <h2>Explore locations</h2>
+    <p>See how different areas compare, what makes them attractive to businesses, and what to consider before choosing where to look.</p>
+    <a class="homepage-example-brief__link" href="/markets/">Explore locations</a>
+  </div>
+</section>
+
+<section class="section homepage-proof">
+  <div class="container">
+    <div class="section-head">
+      <h2>Turn a broad search into a clearer next step.</h2>
+    </div>
+    <div class="grid-3">
+      <article class="feature">
+        <div class="num" aria-hidden="true">1</div>
+        <h3>Tell us about your business.</h3>
+        <p>What do you do, where are you looking, and what do you need from the space?</p>
+      </article>
+      <article class="feature">
+        <div class="num" aria-hidden="true">2</div>
+        <h3>Explore your options.</h3>
+        <p>Understand different areas, practical tradeoffs, and places worth considering.</p>
+      </article>
+      <article class="feature">
+        <div class="num" aria-hidden="true">3</div>
+        <h3>Get your Location Brief.</h3>
+        <p>Bring your needs, possible locations, and important questions together.</p>
+      </article>
     </div>
   </div>
 </section>
@@ -48,51 +54,12 @@ description: Find the right place to locate your business with a personalized Lo
   <div class="container">
     <div class="homepage-example-brief__layout">
       <div class="homepage-example-brief__copy">
-        <div class="kicker">Example Location Brief</div>
-        <h2>Preview the advisory product Rofo creates.</h2>
-        <p>
-          The Location Brief turns a short business profile into a clear recommendation. It shows where to begin, why each location fits, what to compare, and which questions should be validated next.
-        </p>
-        <p>
-          It is designed to be useful before availability searches, tours, or broker outreach.
-        </p>
+        <h2>See what your Location Brief brings together.</h2>
+        <p>Your Location Brief brings your search together—what you need, where to look, and what to check before making a decision.</p>
       </div>
-
-{% include "partials/shared/location-brief-preview.njk" %}
-    </div>
-  </div>
-</section>
-
-<section class="section homepage-proof">
-  <div class="container">
-    <div class="section-head">
-      <div>
-        <div class="kicker">Why the recommendation is useful</div>
-        <h2>The brief gives you a starting point, the reasoning, and what to validate next.</h2>
-      </div>
-      <p>
-        Recommendation first. Availability second.
-      </p>
-    </div>
-
-    <div class="grid-3">
-      <article class="feature">
-        <div class="num">1</div>
-        <h3>Where to begin</h3>
-        <p>Markets, districts, and nearby alternatives that fit your business needs.</p>
-      </article>
-
-      <article class="feature">
-        <div class="num">2</div>
-        <h3>Why it fits</h3>
-        <p>Plain-language reasoning, tradeoffs, and comparison context.</p>
-      </article>
-
-      <article class="feature">
-        <div class="num">3</div>
-        <h3>What to validate</h3>
-        <p>Representative buildings and questions to check before touring.</p>
-      </article>
+      {% set locationBriefPreviewExampleOnly = true %}
+      {% set homepageMessagingV2 = true %}
+      {% include "partials/shared/location-brief-preview.njk" %}
     </div>
   </div>
 </section>
@@ -100,12 +67,9 @@ description: Find the right place to locate your business with a personalized Lo
 <section class="section homepage-final-cta">
   <div class="container">
     <div class="homepage-final-cta__panel">
-      <div class="kicker">Start with a recommendation</div>
-      <h2>Find out where your business should search first.</h2>
-      <p>
-        Share the basics and Rofo will prepare an initial recommendation path you can review, compare, and use for live market follow-up.
-      </p>
-      <a class="btn btn-primary" href="/best-fit-locations/?source=homepage&amp;sourcePath=%2F">Start My Search</a>
+      <h2>Start with what you know.</h2>
+      <p>You don't need every answer. Start with a location you're considering, then work through what matters to your business.</p>
+      <a class="btn btn-primary" href="/best-fit-locations/?source=homepage&amp;sourcePath=%2F">Start my search</a>
     </div>
   </div>
 </section>

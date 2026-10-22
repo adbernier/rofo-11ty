@@ -1,6 +1,6 @@
       <article class="homepage-brief-preview" aria-label="Condensed example Location Brief">
         <header class="homepage-brief-preview__header">
-          <span>Sample Location Brief</span>
+          <span>{% if homepageMessagingV2 %}Illustrative San Francisco Location Brief{% else %}Sample Location Brief{% endif %}</span>
           <strong>Pacific Analytics</strong>
         </header>
 
@@ -46,6 +46,6 @@
 
         <div class="homepage-brief-preview__actions">
 {% if not locationBriefPreviewExampleOnly %}          <a class="btn btn-primary" href="/best-fit-locations/?source=homepage&amp;sourcePath=%2F">Start My Search</a>
-{% endif %}          <a class="homepage-example-brief__link" href="/example-location-brief/">View full example</a>
+{% endif %}          <a class="homepage-example-brief__link" href="/example-location-brief/">{% if homepageMessagingV2 %}See example Briefs{% else %}View full example{% endif %}</a>
         </div>
       </article>
