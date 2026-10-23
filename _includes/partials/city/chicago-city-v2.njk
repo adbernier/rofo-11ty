@@ -1,0 +1,76 @@
+<link rel="stylesheet" href="/assets/css/chicago-city-v2.css">
+<section class="city-page chicago-city-v2">
+  <div class="city-shell">
+    {% include "partials/breadcrumbs.njk" %}
+    <header class="chicago-v2-hero">
+      <h1>Find commercial space in Chicago</h1>
+      <p>Get to know Chicago's business areas and narrow your search around what your business needs.</p>
+      <div class="chicago-v2-actions">
+        <a class="chicago-v2-primary" href="#city-commercial-areas-heading">Explore areas</a>
+        {% set recommendationPromptContext = {"context_type":"city","city":"Chicago","state":"IL","context_label":"Chicago","page_url":page.url,"market_id":"chicago","journey":"new","intelligence_state":"universal_with_local_context"} %}
+        {% include "partials/shared/recommendation-prompt-card.njk" %}
+        {% set recommendationPromptContext = null %}
+      </div>
+    </header>
+
+    <section class="chicago-v2-section" aria-labelledby="city-commercial-areas-heading">
+      <h2 id="city-commercial-areas-heading">Explore Chicago's business areas</h2>
+      <p>Different areas suit different businesses. Compare access, surroundings, and the kind of space you need before choosing where to look.</p>
+      {% set reviewedMap = chicagoMapSearch %}
+      {% include "partials/shared/reviewed-map.njk" %}
+    </section>
+
+    <section class="chicago-v2-section" aria-labelledby="chicago-compare-heading">
+      <h2 id="chicago-compare-heading">What changes from one area to another?</h2>
+      <p>Start with the differences that matter to your customers, team, or day-to-day work.</p>
+      <div class="chicago-v2-comparisons">
+        <a href="/commercial-real-estate/IL/chicago/loop-vs-river-north/"><h3>The Loop or River North?</h3><p>The Loop has traditional downtown offices and transit access. River North mixes offices, restaurants, hotels, and design businesses.</p></a>
+        <a href="/commercial-real-estate/IL/chicago/magnificent-mile-vs-river-north/"><h3>Magnificent Mile or River North?</h3><p>Compare Michigan Avenue's shops and visitors with River North's mix of offices and services.</p></a>
+        <a href="/commercial-real-estate/IL/chicago/ohare-industrial-vs-elk-grove-village/"><h3>O'Hare Industrial or Elk Grove Village?</h3><p>Compare O'Hare's airport-side freight setting with Elk Grove Village's broader industrial parks, manufacturing, and mixed office and industrial space.</p></a>
+      </div>
+      <details class="chicago-v2-details"><summary>More area comparisons</summary>
+        <ul>
+          <li><a href="/commercial-real-estate/IL/chicago/west-loop-vs-fulton-market/">West Loop or Fulton Market?</a> Compare access for office commuters with converted buildings and a creative business setting.</li>
+          <li><a href="/commercial-real-estate/IL/chicago/loop-vs-fulton-market/">The Loop or Fulton Market?</a> Compare traditional downtown offices with converted and creative office settings.</li>
+          <li><a href="/commercial-real-estate/IL/chicago/fulton-market-vs-river-north/">Fulton Market or River North?</a> Compare creative office settings with a mix of client-facing services, design businesses, and hotels.</li>
+          <li><a href="/commercial-real-estate/IL/chicago/river-north-vs-streeterville/">River North or Streeterville?</a> Compare a broad mix of offices and services with proximity to medical institutions and hotels.</li>
+          <li><a href="/commercial-real-estate/IL/chicago/illinois-medical-district-vs-fulton-market/">Illinois Medical District or Fulton Market?</a> Compare proximity to healthcare and research institutions with creative office surroundings.</li>
+        </ul>
+      </details>
+    </section>
+
+    <section class="chicago-v2-section" aria-labelledby="city-what-to-expect-heading">
+      <h2 id="city-what-to-expect-heading">Know what to check before choosing a space</h2>
+      <p>The area is a starting point. The building, lease, and cost still need to work for your business.</p>
+      <dl class="chicago-v2-needs">
+        <div><dt>Office</dt><dd>Check how your team and clients will get there, how the layout works, and the full monthly cost.</dd></div>
+        <div><dt>Retail</dt><dd>Check who passes the space, how visible the entrance is, and whether the location suits your customers.</dd></div>
+        <div><dt>Industrial</dt><dd>Check deliveries, loading, power, and whether your work is allowed in the building.</dd></div>
+        <div><dt>Flex</dt><dd>Flex combines office with warehouse or work space. Check that both parts fit how you operate.</dd></div>
+      </dl>
+      <details class="chicago-v2-details"><summary>Chicago space guides and leasing questions</summary>
+        <ul>
+          {% for item in availableSpaceTypes %}<li><a href="/commercial-real-estate/IL/chicago/{{ item.slug }}/">{{ item.search }}</a></li>{% endfor %}
+          {% for guide in cityMarketGuides %}<li><a href="{{ guide.url }}">{{ guide.space_type_label }} guide</a></li>{% endfor %}
+          {% if cityMarketGuide %}<li><a href="{{ cityMarketGuide.url }}">Chicago market guide</a></li>{% endif %}
+          <li><a href="/commercial-real-estate/lease-guide/choosing-the-right-commercial-location/">Choosing the right commercial location</a></li>
+          <li><a href="/commercial-real-estate/lease-guide/how-to-compare-commercial-spaces/">How to compare commercial spaces</a></li>
+          <li><a href="/commercial-real-estate/lease-guide/commercial-leasing-timeline/">Commercial leasing timeline</a></li>
+          <li><a href="/commercial-real-estate/lease-guide/how-commercial-brokers-help/">How commercial brokers help</a></li>
+          {% for brief in cityBusinessBriefs %}<li><a href="{{ brief.url }}">{{ brief.archetype.pluralLabel }}</a></li>{% endfor %}
+        </ul>
+      </details>
+      <details class="chicago-v2-details"><summary>Looking beyond Chicago?</summary>
+        <p>If your search can include nearby cities, compare the routes your team, customers, and deliveries would take.</p>
+        <ul class="chicago-v2-nearby">{% for nearby in city.nearby_cities %}<li><a href="{{ nearby.path }}">{{ nearby.city }}, {{ nearby.state_abbr }}</a></li>{% endfor %}</ul>
+      </details>
+    </section>
+
+    <section class="chicago-v2-section chicago-v2-help" aria-labelledby="city-local-help-heading">
+      <h2 id="city-local-help-heading">Ready to narrow your search?</h2>
+      <p>Tell us what you're looking for. We'll help you organize your needs, explore areas worth considering, and create a Location Brief you can use as you move forward.</p>
+      <p><a class="chicago-v2-primary" href="/best-fit-locations/?city=Chicago&amp;state=IL&amp;source=city&amp;sourcePath=%2Fcommercial-real-estate%2FIL%2Fchicago%2F&amp;marketId=chicago&amp;journey=new">Start my search</a></p>
+      <p>Want research or a possible referral? Rofo reviews requests before any referral. <a href="/find-locations/?city=Chicago&amp;state=IL&amp;source=city_broker">Define my requirements →</a></p>
+    </section>
+  </div>
+</section>

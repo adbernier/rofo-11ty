@@ -179,7 +179,7 @@ eleventyComputed:
 {% set hasRepresentativeBuildingChapter = editorialRepresentativeBuildings.length %}
 {% set hasLocalHelpChapter = true %}
 
-<section class="city-page">
+{% if city.slug == "chicago" and city.state_abbr == "IL" %}{% include "partials/city/chicago-city-v2.njk" %}{% else %}<section class="city-page">
   <div class="city-shell">
     {% include "partials/breadcrumbs.njk" %}
 
@@ -750,3 +750,4 @@ eleventyComputed:
     </div>
   </div>
 </section>
+{% endif %}

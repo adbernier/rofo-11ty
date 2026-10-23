@@ -1,0 +1,58 @@
+/* Chicago-only presentation; shared map assets, state, and routing stay intact. */
+.chicago-city-v2 { color: var(--rofo-text); }
+.chicago-city-v2 .city-shell { max-width: 1120px; }
+.chicago-v2-hero { padding: 52px 0 36px; max-width: 850px; }
+.chicago-v2-hero h1 { font-size: var(--type-display-lg); line-height: 1.06; letter-spacing: -.035em; margin: 0 0 22px; }
+.chicago-v2-hero > p { font-size: var(--type-body-lg); max-width: 700px; line-height: 1.6; color: var(--rofo-muted); }
+.chicago-v2-actions { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; margin-top: 26px; }
+.chicago-v2-primary { display: inline-block; padding: 13px 22px; background: var(--rofo-blue); color: white!important; border-radius: 8px; font-weight: 600; text-decoration: none; min-height: 44px; }
+.chicago-v2-actions .recommendation-prompt-card { display: block; padding: 0; margin: 0; border: 0; background: none; box-shadow: none; }
+.chicago-v2-actions .recommendation-prompt-card__content,
+.chicago-v2-actions .recommendation-prompt-card__example { display: none; }
+.chicago-v2-actions .recommendation-prompt-card__button { background: none; border: 0; color: var(--rofo-blue); padding: 12px 0; box-shadow: none; }
+.chicago-v2-section { padding: 38px 0; border-top: 1px solid var(--rofo-border); }
+.chicago-v2-section > h2 { font-size: var(--type-heading-xl); line-height: 1.2; margin: 0 0 14px; letter-spacing: -.025em; }
+.chicago-v2-section > p { max-width: 760px; color: var(--rofo-muted); line-height: 1.65; }
+.chicago-v2-comparisons { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 26px; margin: 26px 0 10px; }
+.chicago-v2-comparisons > a { color: inherit; text-decoration: none; padding: 8px 0; }
+.chicago-v2-comparisons h3 { color: var(--rofo-blue); font-size: 20px; line-height: 1.35; margin: 0 0 10px; }
+.chicago-v2-comparisons p { color: var(--rofo-muted); font-size: 16px; line-height: 1.65; margin: 0; }
+.chicago-v2-details { margin-top: 18px; }
+.chicago-v2-details summary { cursor: pointer; padding: 12px 0; min-height: 44px; color: var(--rofo-blue); font-weight: 600; }
+.chicago-v2-details li { margin: 10px 0; line-height: 1.65; }
+.chicago-v2-needs { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 22px 36px; margin: 26px 0; }
+.chicago-v2-needs dt { font-weight: 700; margin-bottom: 6px; }
+.chicago-v2-needs dd { color: var(--rofo-muted); margin: 0; line-height: 1.65; }
+.chicago-v2-nearby { columns: 2; }
+.chicago-v2-help { padding-bottom: 48px; }
+.chicago-city-v2 :focus-visible { outline: 3px solid var(--rofo-blue); outline-offset: 4px; }
+.chicago-city-v2 .rofo-map { background: #f8fafc; color: var(--rofo-text); border-color: var(--rofo-border); }
+.chicago-city-v2 .rofo-map__canvas { border-color: var(--rofo-border); background: var(--rofo-bg); }
+.chicago-city-v2 .rofo-map :focus-visible { outline-color: var(--rofo-blue); }
+.chicago-city-v2 .rofo-map__canvas svg > rect { fill: var(--rofo-bg); }
+.chicago-city-v2 .rofo-map__selected { background: var(--rofo-blue-light); }
+.chicago-city-v2 .rofo-map a { color: var(--rofo-blue); }
+.chicago-city-v2 .rofo-map a.rofo-map__action { background: var(--rofo-blue); color: white; }
+.chicago-city-v2 .rofo-map__note { color: var(--rofo-muted); }
+.chicago-city-v2 .rofo-map__pages button { background: var(--rofo-blue-light); color: var(--rofo-blue); }
+.chicago-city-v2 [data-map-search-pilot] .rofo-map__current-list button { color: var(--rofo-text); }
+.chicago-city-v2 [data-map-search-pilot] .rofo-map__current-list button[aria-pressed=true] { background: var(--rofo-blue-light); border-color: var(--rofo-blue); }
+.chicago-city-v2 .rm-halo { fill: #cbd9f5; }
+.chicago-city-v2 .rm-anchor { fill: var(--rofo-blue); }
+.chicago-city-v2 .rm-leader { stroke: #94a3b8; }
+.chicago-city-v2 .rm-road { stroke: #d9e1ea; }
+.chicago-city-v2 .rm-road--2 { stroke: #aab7c8; }
+.chicago-city-v2 .rm-marker rect { fill: white; stroke: #94a3b8; }
+.chicago-city-v2 .rm-marker text { fill: #1f2937; }
+.chicago-city-v2 .rm-marker[aria-pressed=true] rect { fill: var(--rofo-blue); }
+.chicago-city-v2 .rm-marker[aria-pressed=true] text { fill: white; }
+.chicago-city-v2 .rm-marker:focus rect { stroke: #0f172a; }
+.chicago-city-v2 .rm-road-label { fill: var(--rofo-muted); stroke: var(--rofo-bg); }
+@media(max-width:760px) {
+  .chicago-v2-hero { padding: 32px 0; }
+  .chicago-v2-hero h1 { font-size: 38px; }
+  .chicago-v2-section { padding: 30px 0; }
+  .chicago-v2-section > h2 { font-size: 28px; }
+  .chicago-v2-comparisons,.chicago-v2-needs { grid-template-columns: 1fr; gap: 20px; }
+  .chicago-v2-actions { gap: 18px; }
+}
