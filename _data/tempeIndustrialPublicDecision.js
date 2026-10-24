@@ -5,63 +5,63 @@ module.exports = {
   seoTitle: "Tempe Industrial Space and I-10 Warehouse Location Guide | Rofo",
   seoDescription: "Find the right Tempe industrial space for your operation. Compare I-10 locations and build a Location Brief around your space and business needs.",
   h1: "Industrial and Warehouse Space in Tempe, AZ",
-  heroLead: "Tempe Industrial searches should begin with loading, vehicle movement, storage, production, employee and customer geography, and office/warehouse mix. Reviewed I-10 context helps orient the search without ranking Tempe against other Phoenix-area markets.",
+  heroLead: "Looking for industrial space in Tempe? Start with where your trucks, staff, and customers need to go. Then check the space you need, how deliveries will work, and whether your use is allowed at the property.",
   introduction:
-    "Start with how the operation needs to work. Tempe can suit businesses that need practical industrial or flex space with I-10 and central/east Valley access, while airport-oriented logistics or more specialized industrial requirements may point elsewhere.",
+    "Tempe may be worth exploring when your business needs a central or East Valley location. I-10 is a useful point of reference, but a nearby freeway does not tell you whether a truck can reach the loading area or whether the building fits your operation.",
   entries: [
     {
       id: "tempe-i-10-industrial",
-      label: "Central access + practical operations",
+      label: "Start with your daily routes",
       name: "Tempe I-10 Industrial",
       path: "/commercial-real-estate/AZ/tempe/tempe-i-10-industrial/",
       summary:
-        "A starting point for service-industrial, office/warehouse, and smaller or mid-format operating requirements where Tempe geography and I-10 access matter. Loading, circulation, yard, and permitted use still depend on the property.",
+        "Explore this area if Tempe is close to the people and places your business serves. Check the actual delivery route, loading arrangement, and space size at each property.",
     },
     {
       id: "phoenix-airport-sky-harbor-area",
-      label: "Airport access + regional reach",
+      label: "When the airport matters",
       name: "Phoenix Airport / Sky Harbor Area",
       path: "/commercial-real-estate/AZ/phoenix/phoenix-airport-sky-harbor-area/",
       summary:
-        "Compare this area when airport proximity, logistics support, and broader regional access matter more than a Tempe-centered customer or employee geography.",
+        "Explore this guide if airport-related work is central to your business. Compare the routes and operating needs that matter to you before choosing between Phoenix and Tempe.",
     },
     {
       id: "mesa-gateway-east-mesa",
-      label: "Specialized East Valley operations",
+      label: "When your search reaches farther east",
       name: "Mesa Gateway / East Mesa",
       path: "/commercial-real-estate/AZ/mesa/mesa-gateway-east-mesa/",
       summary:
-        "Compare Mesa Gateway when aerospace, advanced manufacturing, industrial/flex, logistics, or a more specialized East Valley operating environment leads the requirement.",
+        "Explore this guide if your customers, suppliers, or work are based in the East Valley. Manufacturing and other specialized uses still need property-level checks.",
     },
   ],
   representativeEnvironment: {
-    label: "Representative environment",
+    label: "Representative building example",
     name: "6840 S Harl Ave",
     path: "/commercial-real-estate/building/AZ/tempe/6840-s-harl-ave/",
     summary:
-      "One concrete Tempe I-10 office/warehouse reference—not evidence of current availability or a verified match for loading, power, yard, or permitted-use needs.",
+      "Building 1 at Sight Logistics Park is an approximately 156,000 SF logistics building completed in 2023, according to JLL’s April 2025 sale announcement. Use it to understand larger building scale; this is not a confirmed available listing or the size of an available suite. The profile links to the source and explains what still needs checking.",
   },
   relatedGuides: [
     {
       name: "Tempe Flex Space",
       path: "/commercial-real-estate/AZ/tempe/flex-space/",
-      explanation: "Use the Flex path when office, showroom, technical, maker, or customer-facing space is a meaningful part of the requirement rather than treating Flex as a weaker warehouse category.",
+      explanation: "Explore Flex if your work combines office, showroom, technical, or production space. Check how much of each you need.",
     },
     {
       name: "Phoenix Industrial Space",
       path: "/commercial-real-estate/AZ/phoenix/industrial-space/",
-      explanation: "Use broader Phoenix Industrial discovery to understand additional metro operating contexts; this link is orientation, not a claim that one market ranks above another.",
+      explanation: "Explore the broader Phoenix guide if Tempe is only one option for your operation.",
     },
   ],
   validation: [
-    "Loading configuration, truck access, circulation, and parking",
-    "Power, yard or outdoor storage, and permitted use",
-    "Office-to-warehouse ratio and the building format the operation requires",
-    "Whether customer and employee geography favors Tempe or another Valley location",
+    "Access: can your delivery vehicles reach the property and maneuver safely at the loading area?",
+    "Loading: do the door type, delivery hours, and shared loading arrangements work for your operation?",
+    "Scale: how much warehouse, production, and office space do you need, and what suite sizes are actually available?",
+    "Use: confirm zoning, approvals, power, parking, and any yard or outdoor-storage rights for your specific activity.",
   ],
   recommendation: {
-    prompt: "Not sure whether Tempe or another Phoenix-area industrial location fits your operation?",
+    prompt: "Want to organize your Tempe industrial search?",
     label: "Start My Search",
-    path: "/best-fit-locations/?city=Tempe&state=AZ&spaceType=Industrial%20%2F%20Warehouse%20%2F%20Flex&source=space_type&sourcePath=%2Fcommercial-real-estate%2FAZ%2Ftempe%2Findustrial-space%2F&journey=new",
+    path: "/best-fit-locations/?city=Tempe&state=AZ&marketId=tempe&spaceType=Industrial%20%2F%20Warehouse&source=space_type&sourcePath=%2Fcommercial-real-estate%2FAZ%2Ftempe%2Findustrial-space%2F&journey=new",
   },
 };

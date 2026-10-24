@@ -30,12 +30,12 @@ eleventyComputed:
 {% set stateName = stateNames[building.state_abbr] or building.state_abbr %}
 {% set semanticEnvironment = semanticBuildingPreview[building.semantic_source_building_id] %}
 {% set isRepresentativeBuilding = building.editorial_representative %}
-{% set buildingBrief = building.building_brief %}
+{% set isTempeIndustrialExample = page.url == "/commercial-real-estate/building/AZ/tempe/6840-s-harl-ave/" %}{% set buildingBrief = building.building_brief %}
 {% set buildingBriefName = building.commercial_building_intelligence.identity.name if building.commercial_building_intelligence and building.commercial_building_intelligence.identity and building.commercial_building_intelligence.identity.name else building.display_name or building.name or building.address %}
 {% set buildingBriefArea = building.commercial_building_intelligence.identity.canonicalDistrict if buildingBrief and building.commercial_building_intelligence and building.commercial_building_intelligence.identity and building.commercial_building_intelligence.identity.canonicalDistrict else building.commercial_area %}
 {% set relatedHandbookTopics = building.related_handbook_topics or [] %}
 {% set relatedComparisonPaths = commercialBuildingComparisons.relationshipGraph.bySubjectPath[building.building_path] or [] %}
-{% set buildingStartSearchUrl = "/find-locations/?city=" + (building.city | urlencode) + "&state=" + building.state_abbr %}
+{% set buildingStartSearchUrl = "/best-fit-locations/?city=Tempe&state=AZ&marketId=tempe&spaceType=Industrial%20%2F%20Warehouse&source=building&sourcePath=%2Fcommercial-real-estate%2Fbuilding%2FAZ%2Ftempe%2F6840-s-harl-ave%2F&journey=new" if isTempeIndustrialExample else "/find-locations/?city=" + (building.city | urlencode) + "&state=" + building.state_abbr %}
 {% if building.semantic_source_building_id %}
   {% set fieldPhotoSubjectId = building.semantic_source_building_id %}
 {% elseif building.commercial_building_intelligence and building.commercial_building_intelligence.id %}
@@ -60,7 +60,7 @@ eleventyComputed:
         <h1>{{ buildingBriefName }}</h1>
         {% if buildingBrief %}
           <p class="building-hero-address">{{ building.address }} · {% if buildingBriefArea %}<a href="{{ buildingBriefArea.path }}">{{ buildingBriefArea.name }}</a>, {% endif %}{{ building.city }}, {{ building.state_abbr }}</p>
-          <p class="lead">{{ buildingBrief.summary }}</p>
+          <p class="lead">{% if isTempeIndustrialExample %}6840 S Harl Ave is Building 1 at Sight Logistics Park: an approximately 156,000 SF logistics building completed in 2023. Use this representative example to understand larger industrial building scale in Tempe. It is not a confirmed available listing.{% else %}{{ buildingBrief.summary }}{% endif %}</p>
         {% elseif building.building_description %}
           <p class="lead">{{ building.building_description }}</p>
         {% else %}
@@ -73,7 +73,7 @@ eleventyComputed:
         {% endif %}
 
         <div class="pill-row">
-          <span class="pill">{{ building.type }}</span>
+          <span class="pill">{% if isTempeIndustrialExample %}Representative logistics building{% else %}{{ building.type }}{% endif %}</span>
           {% if building.primary_space_type and building.primary_space_type != building.type %}
             <span class="pill">{{ building.primary_space_type }}</span>
           {% endif %}
@@ -124,7 +124,7 @@ eleventyComputed:
     {% include "partials/shared/reviewed-map.njk" %}
     {% if isRepresentativeBuilding %}
       {% if buildingBrief %}
-        {% include "partials/building/brief-journey.njk" %}
+        {% if isTempeIndustrialExample %}{% include "partials/building/tempe-industrial-profile.njk" %}{% else %}{% include "partials/building/brief-journey.njk" %}{% endif %}
       {% else %}
       <div class="representative-building-journey">
         <section class="representative-building-section representative-building-section--opening building-decision-card--opening">

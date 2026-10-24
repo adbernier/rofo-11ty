@@ -50,7 +50,7 @@
     </div>
 
     <div class="actions">
-      <a class="btn btn-primary" href="/best-fit-locations/?source=header&amp;sourcePath={{ page.url | default('/') | queryEncode }}">Start My Search</a>
+      <a class="btn btn-primary" href="/best-fit-locations/?source=header&amp;sourcePath={{ page.url | default('/') | queryEncode }}{% if page.url == "/commercial-real-estate/AZ/tempe/industrial-space/" or page.url == "/commercial-real-estate/building/AZ/tempe/6840-s-harl-ave/" %}&amp;city=Tempe&amp;state=AZ&amp;marketId=tempe&amp;spaceType=Industrial%20%2F%20Warehouse{% endif %}">Start My Search</a>
     </div>
   </div>
 

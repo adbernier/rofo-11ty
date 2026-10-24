@@ -18,8 +18,8 @@
   </div>
 
   <div class="city-stat">
-    <div class="stat-label">Buildings</div>
+    <div class="stat-label">{% if isTempeIndustrialLanding %}Building examples{% else %}Buildings{% endif %}</div>
     <div class="stat-value">{{ representativeBuildings.length or 0 }}</div>
-    <p class="stat-note">Example listings shown</p>
+    <p class="stat-note">{% if isTempeIndustrialLanding %}Representative example, not available inventory{% else %}Example listings shown{% endif %}</p>
   </div>
 </div>
