@@ -122,17 +122,9 @@ eleventyComputed:
   "spatialCoverage": {
     "@type": "Place",
     "name": {{ (guide.city + ", " + guide.state_abbr) | dump | safe }}
-  },
-  "temporalCoverage": {{ guide.market_date | dump | safe }}{% if guide.sources and guide.sources.length %},
-  "citation": [
-    {% for source in guide.sources %}
-    {
-      "@type": "CreativeWork",
-      "name": {{ source.name | dump | safe }},
-      "url": {{ source.url | dump | safe }}
-    }{% if not loop.last %},{% endif %}
-    {% endfor %}
-  ]{% endif %}
+  }{% if guide.temporal_coverage %},
+  "temporalCoverage": {{ guide.temporal_coverage | dump | safe }}{% endif %}{% if guide.verified_sources and guide.verified_sources.length %},
+  "citation": {{ guide.verified_sources | dump | safe }}{% endif %}
 }
     </script>
 
@@ -287,16 +279,17 @@ eleventyComputed:
           <div class="guide-grid">
             {% if guide.average_rent %}
               <div class="guide-mini-card">
-                <div class="stat-label">Average Rent</div>
+                <div class="stat-label">Reported Asking Rent</div>
                 <div class="stat-value">{{ guide.average_rent }}</div>
                 {% if guide.rent_basis %}<p class="stat-note">{{ guide.rent_basis }}</p>{% endif %}
+                {% for source in guide.verified_sources %}<a href="{{ source.url }}">Read the {{ guide.market_date }} report</a>{% endfor %}
               </div>
             {% endif %}
             {% if guide.market_date %}
               <div class="guide-mini-card">
                 <div class="stat-label">Market Date</div>
                 <div class="stat-value">{{ guide.market_date }}</div>
-                <p class="stat-note">Snapshot for current market context</p>
+                <p class="stat-note">Historical market observation period</p>
               </div>
             {% endif %}
           </div>
@@ -305,8 +298,8 @@ eleventyComputed:
 
       {% if guide.trends and guide.trends.length %}
         <div class="city-card city-card--full">
-          <div class="eyebrow">Current Trends</div>
-          <h2>What tenants are seeing now</h2>
+          <div class="eyebrow">Market Observations</div>
+          <h2>Reported market observations</h2>
           <ul class="guide-list">
             {% for trend in guide.trends %}
               <li>{{ trend }}</li>
@@ -639,7 +632,7 @@ eleventyComputed:
       {% if guide.sources and guide.sources.length %}
         <div class="city-card city-card--full">
           <div class="eyebrow">Sources</div>
-          <h2>Market data sources</h2>
+          <h2>Research references</h2>
           <ul class="guide-list">
             {% for source in guide.sources %}
               <li>

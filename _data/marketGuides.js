@@ -5,7 +5,7 @@ const cities = require("./cities.generated.json");
 const buildingPages = require("./buildingPages.js");
 const spaceTypePages = require("./spaceTypePages.js");
 const marketGuideEnrichment = require("./marketGuideEnrichment.json");
-const marketSnapshots = require("./marketSnapshots.js");
+const { applyGuideEvidencePolicy } = require("../lib/market-guide-evidence.js");
 const { getRoutingCandidates } = require("./leadRouting.js");
 
 const spaceTypeLabels = {
@@ -62,10 +62,6 @@ function formatNumber(value) {
 
 function getCityStateSlug(citySlug, stateAbbr) {
   return `${String(citySlug || "").toLowerCase()}-${String(stateAbbr || "").toLowerCase()}`;
-}
-
-function getMarketSnapshotKey(stateAbbr, citySlug) {
-  return `${String(stateAbbr || "").toUpperCase()}/${String(citySlug || "").toLowerCase()}`;
 }
 
 const cityLookup = new Map(
@@ -143,7 +139,6 @@ function normalizeSpaceTypeGuide(guide) {
     const spaceTypeLabel = guide.space_type_label || spaceTypeLabels[guide.space_type] || guide.space_type;
     const spaceTypeNoun = guide.space_type_noun || spaceTypeNouns[guide.space_type] || String(spaceTypeLabel || "").toLowerCase();
     const cityStateSlug = guide.city_state_slug || getCityStateSlug(citySlug, state);
-    const marketSnapshot = marketSnapshots[getMarketSnapshotKey(state, citySlug)] || null;
     const city = cityLookup.get(cityStateSlug) || {};
     const enrichment = marketGuideEnrichment[cityStateSlug] || {};
     const county = guide.county || enrichment.county || city.county_name || city.county || "";
@@ -177,7 +172,7 @@ function normalizeSpaceTypeGuide(guide) {
       guide_kind: "space-type",
       city_state_slug: cityStateSlug,
       state_abbr: state,
-      market_snapshot: marketSnapshot,
+      market_snapshot: null,
       county,
       population: guide.population || enrichment.population || city.population || "",
       population_label: formatNumber(guide.population || enrichment.population || city.population),
@@ -234,7 +229,6 @@ function buildCityGuide(city) {
   const citySlug = String(city.slug || "").toLowerCase();
   const state = String(city.state_abbr || "").toUpperCase();
   const cityStateSlug = city.city_state_slug || getCityStateSlug(citySlug, state);
-  const marketSnapshot = marketSnapshots[getMarketSnapshotKey(state, citySlug)] || null;
   const enrichment = marketGuideEnrichment[cityStateSlug] || {};
   const county = enrichment.county || city.county_name || city.county || "";
   const countySlug = countyStateSlug(county, state);
@@ -267,7 +261,7 @@ function buildCityGuide(city) {
     city: city.city,
     state_abbr: state,
     state,
-    market_snapshot: marketSnapshot,
+    market_snapshot: null,
     county,
     city_slug: citySlug,
     city_state_slug: cityStateSlug,
@@ -275,7 +269,7 @@ function buildCityGuide(city) {
     meta_description: `Understand commercial real estate in ${city.city}, ${state}. Compare market context, space types, nearby areas, and representative buildings before narrowing the search.`,
     summary: `Use this guide to compare commercial real estate options in ${city.city}, ${state}, including space types, nearby markets, and example buildings where Rofo has inventory data.`,
     summary_short: `Commercial real estate guide for ${city.city}, ${state}.`,
-    market_date: "Current",
+    market_date: "",
     population: enrichment.population || city.population || "",
     population_label: formatNumber(enrichment.population || city.population),
     employment_count: enrichment.employment_count || "",
@@ -388,5 +382,5 @@ module.exports = function () {
     })
     .map(buildCityGuide);
 
-  return addNearbyGuideLinks([...rawSpaceTypeGuides, ...rawCityGuides]);
+  return addNearbyGuideLinks([...rawSpaceTypeGuides, ...rawCityGuides].map(applyGuideEvidencePolicy));
 };
