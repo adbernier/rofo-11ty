@@ -115,13 +115,13 @@ function buildFaqs(guide) {
   return [
     {
       question: `How do I find commercial space in ${guide.city}?`,
-      answer: `Start by defining the type of space, approximate size, preferred location, and timing. Rofo can help compare available options in ${guide.city} and nearby markets.`,
+      answer: `Start by defining the type of space, approximate size, preferred location, and timing. Use Rofo’s market guides and representative buildings to compare ${guide.city} and nearby markets. Confirm current availability separately.`,
     },
     {
-      question: `What types of commercial space are available in ${guide.city}?`,
+      question: `What types of commercial space does Rofo cover in ${guide.city}?`,
       answer: guide.available_space_types.length
-        ? `${guide.city} has guide or inventory coverage for ${guide.available_space_types.map((type) => type.label.toLowerCase()).join(", ")}. Availability varies by property and timing.`
-        : `${guide.city} may include office, retail, industrial, flex, or coworking options depending on current market availability.`,
+        ? `${guide.city} has market guide or representative building coverage for ${guide.available_space_types.map((type) => type.label.toLowerCase()).join(", ")}. Coverage does not confirm current availability.`
+        : `Use the ${guide.city} market guide to explore local context and nearby markets. Confirm space types and current availability with individual properties.`,
     },
     {
       question: "Can Rofo help me compare nearby markets?",
@@ -130,8 +130,8 @@ function buildFaqs(guide) {
         : "Yes. Rofo can help compare nearby markets when location flexibility is part of the search.",
     },
     {
-      question: "How does Rofo connect me with local options?",
-      answer: "Share what kind of space you need, your target market, and approximate size. Rofo reviews the request and helps identify relevant next steps.",
+      question: "How can I request research for my search?",
+      answer: "Share your space type, target market, approximate size, and timing using the research form. Rofo will review your request and may connect you with someone who can help. A response is not guaranteed.",
     },
   ];
 }

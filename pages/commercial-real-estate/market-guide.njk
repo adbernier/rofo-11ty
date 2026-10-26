@@ -154,7 +154,7 @@ eleventyComputed:
                 {% endif %}
               </div>
               <div class="button-row">
-                <a class="btn-primary" href="{% if isAlisoBudgetGuide %}/best-fit-locations/?city=Aliso%20Viejo&amp;state=CA&amp;source=market_guide&amp;sourcePath=%2Fcommercial-real-estate%2FCA%2Faliso-viejo%2Fmarket-guide%2F{% else %}#search-profile{% endif %}">{% if isAlisoBudgetGuide %}Define my space requirements{% else %}Get a personalized shortlist{% endif %}</a>
+                <a class="btn-primary" href="{% if isAlisoBudgetGuide %}/best-fit-locations/?city=Aliso%20Viejo&amp;state=CA&amp;source=market_guide&amp;sourcePath=%2Fcommercial-real-estate%2FCA%2Faliso-viejo%2Fmarket-guide%2F{% else %}#search-profile{% endif %}">Define my space requirements</a>
                 <a class="btn-secondary" href="{{ guide.city_url }}">Explore {{ guide.city }}</a>
                 {% if guide.guide_kind == "space-type" %}
                   <a class="btn-secondary" href="{{ guide.city_market_guide_url }}">Read the {{ guide.city }} market guide</a>
@@ -383,7 +383,7 @@ eleventyComputed:
           <h2>{% if guide.guide_kind == "space-type" %}{% if not guide.has_inventory %}Start with nearby {{ guide.space_type_label_lower }} markets{% else %}Nearby {{ guide.space_type_label_lower }} markets to consider{% endif %}{% else %}Nearby commercial real estate guides{% endif %}</h2>
           <p>
             {% if guide.guide_kind == "space-type" and not guide.has_inventory %}
-              This guide covers {{ guide.city }} market context, but nearby markets may have more active {{ guide.space_type_label_lower }} options to compare.
+              This guide covers {{ guide.city }} market context. Nearby guides can help you compare {{ guide.space_type_label_lower }} markets; confirm current availability separately.
             {% elseif guide.guide_kind == "space-type" %}
               Compare nearby {{ guide.space_type_noun }} markets if you are flexible on location, commute, pricing, or building type.
             {% else %}
@@ -449,7 +449,7 @@ eleventyComputed:
           <div class="eyebrow">Finding Space</div>
           <h2>How to find space in {{ guide.city }}</h2>
           <p>
-            Some markets have useful rent and neighborhood context before Rofo has active {{ guide.space_type_label_lower }} inventory to browse. Enter your requirements to identify options, compare nearby markets, or connect with local market support.
+            Use market context and representative buildings to plan your search. Define your requirements in the Location Brief interview or request research below. Building examples do not confirm current availability.
           </p>
         </div>
       {% endif %}
@@ -471,7 +471,7 @@ eleventyComputed:
         {% if guide.guide_kind == "space-type" and guide.has_inventory %}
           <h2>Compare {{ guide.space_type_label_lower }} in {{ guide.city }}</h2>
           <p>
-            Use Rofo to compare current {{ guide.space_type_label_lower }} options in {{ guide.city }} or step back to the broader city market.
+            Use Rofo to explore {{ guide.space_type_label_lower }} market coverage and representative buildings in {{ guide.city }} or step back to the broader city market. Confirm current availability separately.
           </p>
           <div class="button-row">
             <a class="btn-primary" href="{{ guide.space_type_url }}">View {{ guide.space_type_label_lower }} in {{ guide.city }}</a>
@@ -527,8 +527,8 @@ eleventyComputed:
 
         <div class="guide-lead-card guide-lead-card--form form-card">
           <div class="eyebrow">GET HELP</div>
-          <h2>{% if isAlisoBudgetGuide %}Request research for your space search{% else %}Find the right space for your business{% endif %}</h2>
-          <p>{% if isAlisoBudgetGuide %}Tell us what you need. Rofo reviews your request and may refer it to OfficeFinder. This form does not return available spaces or guarantee a broker response.{% else %}Enter the requirements that should guide the search.{% endif %}</p>
+          <h2>Request research for your space search</h2>
+          <p>Tell us what you're looking for. Rofo will review your request and may connect you with someone who can help. This form doesn't show available spaces or guarantee a response.</p>
 
           <form action="/api/leads/submit" method="POST">
             <input type="hidden" name="source" value="rofo-market-guide">
@@ -604,10 +604,10 @@ eleventyComputed:
               </label>
 
               <div class="form-note">
-                {% if isAlisoBudgetGuide %}Your requirements help guide the review.{% else %}No spam. Just helpful options to get you started.{% endif %}
+                Your requirements help guide the review.
               </div>
 
-              <button class="btn-primary" type="submit">{% if isAlisoBudgetGuide %}Request research{% else %}See Available Spaces{% endif %}</button>
+              <button class="btn-primary" type="submit">Request research</button>
             </div>
           </form>
         </div>
@@ -652,7 +652,7 @@ eleventyComputed:
         </div>
       </div>
 
-      <aside class="market-guide-search-profile">
+      <aside id="search-profile" class="market-guide-search-profile" tabindex="-1">
         {% include "partials/shared/recommendation-prompt-card.njk" %}
       </aside>
     </div>
