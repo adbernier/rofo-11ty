@@ -69,7 +69,7 @@ eleventyComputed:
           </p>
         {% endif %}
         {% if building.has_availability and not isRepresentativeBuilding %}
-          <p class="lead">This building currently appears to have available space based on recent market data.</p>
+          <p class="lead">Historical listing records are associated with this building. Current availability has not been verified for this page.</p>
         {% endif %}
 
         <div class="pill-row">
@@ -87,7 +87,7 @@ eleventyComputed:
             <span class="pill">{{ building.size_label }}</span>
           {% endif %}
           {% if building.has_availability and not isRepresentativeBuilding %}
-            <span class="pill">Availability signal</span>
+            <span class="pill">Availability unverified</span>
           {% endif %}
           {% if buildingBriefArea %}
             <a class="pill" href="{{ buildingBriefArea.path }}">Located in {{ buildingBriefArea.name }}</a>
