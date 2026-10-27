@@ -75,9 +75,14 @@ const representativeBuildingCards = require("./representativeBuildingCards.js");
 const sfRepresentativeContent = require("./sfRepresentativeContent.js");
 const commercialMarketEvidence = require("./commercialMarketEvidence.js");
 const sfPublicDecisionSurfaces = require("./sfPublicDecisionSurfaces.js");
-const commercialMarketEvidenceByDistrict = new Map(
-  (commercialMarketEvidence.collections || []).map((collection) => [collection.district?.districtId, collection])
-);
+const { createEvidenceIdentity } = require("../lib/geography/commercial-market-evidence-identity");
+const commercialMarketEvidenceIdentity = createEvidenceIdentity({
+  collections: commercialMarketEvidence.collections || [],
+  districts: require("./locationKnowledgeGraph"),
+});
+if (commercialMarketEvidenceIdentity.diagnostics.length) {
+  console.warn("Commercial Market Evidence identity diagnostics:", commercialMarketEvidenceIdentity.diagnostics);
+}
 const buildingByPath = new Map(buildingPages.map((building) => [building.building_path, building]));
 const curatedDistrictMediaBySlug = curatedDistrictMediaForPublicUse(curatedDistrictMediaExport);
 const allowlistByPath = new Map(
@@ -7694,7 +7699,7 @@ for (const page of allPages) {
     commercialDistrictPublicIntegrations.byPath[page.canonical_neighborhood_path] || null;
   page.commercial_location_model =
     commercialLocationModel.byPath[page.canonical_neighborhood_path] || null;
-  page.commercial_market_evidence = commercialMarketEvidenceByDistrict.get(page.slug) || null;
+  page.commercial_market_evidence = commercialMarketEvidenceIdentity.resolve(page).collection;
   if (page.commercial_market_evidence && page.public_market_evidence_record_ids?.length) {
     const publicRecordIds = new Set(page.public_market_evidence_record_ids);
     page.commercial_market_evidence = {
