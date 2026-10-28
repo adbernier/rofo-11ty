@@ -52,7 +52,7 @@ eleventyComputed:
 </section>
 
 <script type="application/json" data-chicago-map-context>{{ chicagoMapSearch.locations | dump | safe }}</script>
-<script src="/js/search-profile.js" defer></script>
+{% if buildingResearchEntry.enabled %}{% include "partials/building-research-entry.njk" %}{% endif %}<script src="/js/search-profile.js" defer></script>
 <script>
   (() => {
     const endpoint = "/api/analytics/search-profile";

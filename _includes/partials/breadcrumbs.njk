@@ -24,8 +24,8 @@
     {
       "@type": "ListItem",
       "position": {{ loop.index }},
-      "name": {{ crumb.label | dump | safe }},
-      "item": {{ absoluteUrl | dump | safe }}
+      "name": {{ crumb.label | dump | safe }}{% if crumb.url %},
+      "item": {{ absoluteUrl | dump | safe }}{% endif %}
     }{% if not loop.last %},{% endif %}
     {% endfor %}
   ]

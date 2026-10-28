@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{{ title }}</title><meta name="description" content="{{ description }}">
+<meta name="robots" content="{% if publicMetadata %}index,follow{% else %}noindex,nofollow{% endif %}">
+{% if canonical %}<link rel="canonical" href="{{ canonical }}">{% endif %}
+<script type="application/ld+json">{{ schemaJSON | safe }}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/assets/css/system.css"><link rel="stylesheet" href="/assets/css/building-research.css">
+</head><body>
+{% include "header.njk" %}
+{% if not publicMetadata %}<div class="research-preview">Local design candidate · Canonical review: {{ disposition }} · Publication not authorized</div>{% endif %}
+<main class="building-research">{{ crumbsHTML | safe }}{{ content | safe }}</main>
+<footer class="research-footer container">Rofo Building Research</footer>
+<script src="/js/market-search.js" defer></script>
+</body></html>

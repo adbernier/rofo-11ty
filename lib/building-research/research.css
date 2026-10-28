@@ -1,0 +1,38 @@
+/* Scoped Building Research layout. Brand/header/type tokens come from Rofo styles.css/system.css. */
+.building-research{max-width:var(--max,1180px);margin:auto;padding:24px 28px 56px;color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.building-research a{color:var(--blue);text-decoration:underline;text-underline-offset:3px}
+.building-research .btn-primary{color:var(--surface);text-decoration:none;background:var(--blue)}
+.building-research a:focus-visible,.building-research summary:focus-visible{outline:3px solid var(--blue);outline-offset:4px}
+.building-research .breadcrumbs{font-size:13px;color:var(--muted)}
+.building-research .breadcrumbs ol{display:flex;flex-wrap:wrap;gap:6px 12px;list-style:none;padding:0;margin:0}
+.building-research .breadcrumbs li{margin:0;overflow-wrap:anywhere}
+.building-research .breadcrumbs__sep{margin-left:12px;color:var(--muted)}
+.building-research .research-hero{display:grid;grid-template-columns:1.08fr 1fr;gap:40px;align-items:start;margin:28px 0 32px}
+.building-research .eyebrow{font-size:12px;font-weight:700;letter-spacing:.04em;color:var(--blue);margin:0 0 14px}
+.building-research h1{font-size:44px;line-height:1.12;letter-spacing:-1.5px;margin:0 0 18px;max-width:none}
+.building-research h2{font-size:26px;line-height:1.25;letter-spacing:-.5px;margin:0 0 14px}
+.building-research p{font-size:16px;line-height:1.65;margin:12px 0;max-width:75ch}
+.building-research .meta{font-size:13px;color:var(--muted);line-height:1.6}
+.building-research .research-availability{border-left:3px solid var(--blue);background:var(--rofo-blue-light,#e9eefb);padding:10px 14px;margin:18px 0}
+.building-research .research-location{border-left:1px solid var(--line);padding-left:26px}
+.building-research .research-location h2{font-size:23px}
+.building-research figure{margin:16px 0;background:var(--surface-2);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.building-research figure img{display:block;width:100%;height:auto}
+.building-research figcaption{padding:10px 14px;font-size:12px;color:var(--muted);line-height:1.5}
+.building-research .research-detail-grid{display:grid;grid-template-columns:1.08fr 1fr;gap:40px}
+.building-research .panel{background:transparent;border:0;border-top:1px solid var(--line);border-radius:0;box-shadow:none;padding:24px 0;margin-bottom:12px}
+.building-research ul{padding-left:20px}.building-research li{margin:16px 0}
+.building-research li p{margin:5px 0}.building-research details{overflow-wrap:anywhere}
+.building-research summary{cursor:pointer;color:var(--blue);font-size:14px}
+.research-preview{text-align:center;background:var(--rofo-blue-light,#e9eefb);color:var(--muted);padding:8px 18px;font-size:12px}
+.research-footer{border-top:1px solid var(--line);padding-top:20px;padding-bottom:24px;color:var(--muted);font-size:13px}
+@media(max-width:700px){.building-research{padding:20px 18px 40px}.building-research .research-hero,.building-research .research-detail-grid{grid-template-columns:1fr;gap:24px;margin-top:22px}.building-research h1{font-size:35px;letter-spacing:-1px}.building-research h2{font-size:24px}.building-research .research-location{border-left:0;border-top:1px solid var(--line);padding:22px 0 0}.building-research .panel{padding:22px 0}.building-research .btn{white-space:normal}.building-research .breadcrumbs{line-height:1.6}}
+
+.building-research figure svg{display:block;width:100%;height:auto}.building-research .research-map-mobile{display:none}@media(max-width:700px){.building-research .research-map-mobile{display:block}.building-research .research-map-desktop{display:none}}
+
+.building-research .research-map-key{padding:4px 14px 14px}.building-research .research-map-key ol{columns:2;column-gap:26px;padding-left:24px;margin:8px 0}.building-research .research-map-key li{break-inside:avoid;font-size:13px;line-height:1.5;margin:6px 0}.building-research .research-map-key .meta{margin:8px 0}
+/* Compact editorial facts use the same source-qualified values as the research receipts. */
+.building-research .research-compact-facts{margin:20px 0}.building-research .research-compact-facts h2{font-size:19px;letter-spacing:0}
+.building-research .research-facts{display:flex;flex-wrap:wrap;gap:16px 26px;margin:12px 0}.building-research .research-facts>div{min-width:110px}
+.building-research .research-facts dt{font-size:13px;color:var(--muted);margin-bottom:4px}.building-research .research-facts dd{font-size:20px;font-weight:600;margin:0;line-height:1.5}
+.building-research .research-receipt{font-size:13px;color:var(--muted);overflow-wrap:anywhere}.building-research .research-receipt dt{font-weight:600;margin-top:10px}.building-research .research-receipt dd{margin:2px 0 12px}.building-research .research-year-conflict{font-size:14px;border-left:3px solid var(--blue);padding-left:12px}

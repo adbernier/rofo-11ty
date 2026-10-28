@@ -224,6 +224,22 @@ function buildingProfileText(value) {
 }
 
 module.exports = function(eleventyConfig) {
+  if (process.env.BUILDING_RESEARCH_MODE && !process.env.BUILDING_RESEARCH_PUBLICATION_MANIFEST) throw new Error("An explicit Building Research mode requires a frozen publication wave");
+  if (process.env.BUILDING_RESEARCH_ENTRY_MANIFEST || process.env.BUILDING_RESEARCH_PUBLICATION_MANIFEST) {
+    eleventyConfig.on("eleventy.before", ({directories}) => {
+      const path = require("path"), fs = require("fs"), output = path.resolve(directories.output);
+      const release = process.env.BUILDING_RESEARCH_PUBLICATION_MANIFEST ? require("./lib/building-research/release-policy").policy(require("./lib/building-research/release-policy").readScope(process.env.BUILDING_RESEARCH_PUBLICATION_MANIFEST)) : {publicationAuthorized:false};
+      if (output === __dirname || (output.startsWith(__dirname + path.sep) && !(release.publicationAuthorized && output === path.join(__dirname,"_site")))) throw new Error("Building Research rehearsal requires an isolated output; production _site requires exact publication authorization");
+      if (fs.existsSync(output) && fs.readdirSync(output).length) throw new Error("Building Research rehearsal requires a clean empty output directory; never reuse stale published paths");
+    });
+    eleventyConfig.on("eleventy.after", ({directories,outputMode}) => {
+      if(outputMode!=="fs" || !process.env.BUILDING_RESEARCH_PUBLICATION_MANIFEST)return;
+      const tools=require("./lib/building-research/release-policy"),scope=tools.readScope(process.env.BUILDING_RESEARCH_PUBLICATION_MANIFEST),release=tools.policy(scope);
+      if(release.publicationAuthorized && tools.outputDigest(directories.output)!==release.authorization.approvedPublicOutputDigest)throw new Error("Authorized output differs from exact reviewed public release digest");
+    });
+    if (process.env.BUILDING_RESEARCH_PUBLICATION_MANIFEST) eleventyConfig.addPassthroughCopy({"lib/building-research/research.css":"assets/css/building-research.css"});
+    if (process.env.BUILDING_RESEARCH_ENTRY_MANIFEST) eleventyConfig.addPassthroughCopy({"lib/building-research/entry-runtime.mjs":"assets/building-research/entry-runtime.mjs"});
+  }
   eleventyConfig.addPassthroughCopy("styles.css");
   eleventyConfig.addPassthroughCopy("js");
   eleventyConfig.addPassthroughCopy({
@@ -232,7 +248,8 @@ module.exports = function(eleventyConfig) {
     "lib/requirements/requirement-domain-v1.mjs": "js/requirements/requirement-domain-v1.mjs",
     "lib/requirements/requirement-interview-v1.mjs": "js/requirements/requirement-interview-v1.mjs",
     "lib/requirements/requirement-input-controls-v1.mjs": "js/requirements/requirement-input-controls-v1.mjs",
-    "lib/requirements/requirement-entry-context-bootstrap.mjs": "js/requirements/requirement-entry-context-bootstrap.mjs",
+    "lib/requirements/requirement-entry-context-bootstrap.mjs": process.env.BUILDING_RESEARCH_ENTRY_MANIFEST ? "js/requirements/requirement-entry-context-base.mjs" : "js/requirements/requirement-entry-context-bootstrap.mjs",
+    ...(process.env.BUILDING_RESEARCH_ENTRY_MANIFEST ? {"lib/building-research/entry-context-bootstrap.mjs":"js/requirements/requirement-entry-context-bootstrap.mjs"} : {}),
     "lib/requirements/requirement-to-sf-office-recommendation.js": "js/requirements/requirement-to-sf-office-recommendation.js",
     "lib/requirements/requirement-location-intelligence-preview.js": "js/requirements/requirement-location-intelligence-preview.js",
     "lib/access/access-intelligence-schema.js": "js/access/access-intelligence-schema.js",

@@ -134,4 +134,5 @@ eleventyExcludeFromCollections: true
   </url>
   {% endfor %}
 
-</urlset>
+{% if buildingResearchPublication.publicMetadata %}{% for profile in buildingResearchPublication.newSitemapProfiles %}<url><loc>{{ siteUrl }}{{ profile.canonicalPath }}</loc></url>
+{% endfor %}{% endif %}</urlset>

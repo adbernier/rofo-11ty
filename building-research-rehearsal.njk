@@ -1,0 +1,9 @@
+---
+pagination:
+  data: buildingResearchPublication.profiles
+  size: 1
+  alias: profile
+permalink: "{{ profile.canonicalPath }}"
+eleventyExcludeFromCollections: true
+---
+{{ profile.html | safe }}
