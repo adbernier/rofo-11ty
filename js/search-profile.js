@@ -1299,8 +1299,8 @@
       commuteOrientation: "Use a broad commute pattern only; exact routes can wait.",
       expectedGrowth: "Growth helps Rofo think about flexibility before buildings.",
       institutionProximity: "Only include this if it materially changes the location decision.",
-      size: `Rofo will keep this as execution context for ${space.toLowerCase()} options.`,
-      people: `Rofo will keep this as execution context for ${space.toLowerCase()} options.`,
+      size: "Estimate how much space your business needs.",
+      people: "Estimate how many people the space needs to support.",
       features: "Add only the operational details that matter at this stage.",
     };
     return prompts[step] || "Answer the next question to continue building the profile.";
