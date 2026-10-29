@@ -12885,3 +12885,44 @@ section.market-page--space-type .market-links a {
     grid-template-columns: 64px minmax(0, 1fr);
   }
 }
+
+/* Find-locations interview: compact orientation, one current question.
+   Embedded cards and contact/final summaries retain their existing presentation. */
+.search-profile-page .search-profile-shell--page .search-profile-card__body {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 18px;
+}
+.search-profile-page .business-profile-card-intro { order: 0; }
+.search-profile-page .business-profile-card-intro h1 { margin: 0; }
+.search-profile-page .search-profile-search-context {
+  order: 1;
+  grid-column: 1;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--rofo-border);
+  font-size: var(--type-caption);
+  color: var(--rofo-muted);
+  overflow-wrap: anywhere;
+}
+.search-profile-search-context p { margin: 0; }
+.search-profile-search-context__label { font-weight: 700; margin-right: 8px; }
+.search-profile-building-reference { display: flex; flex-wrap: wrap; align-items: center; gap: 0 12px; margin-top: 4px; }
+.search-profile-building-reference strong { font-weight: 500; }
+.search-profile-building-reference a,
+.search-profile-building-reference button { display: inline-flex; align-items: center; min-height: 44px; color: var(--rofo-blue); font: inherit; }
+.search-profile-building-reference button { background: none; border: 0; padding: 0; text-decoration: underline; cursor: pointer; }
+.search-profile-building-reference p { flex-basis: 100%; font-size: 12px; }
+.search-profile-page .search-profile-step-meter { order: 2; font-size: 0.72rem; font-weight: 500; letter-spacing: 0; text-transform: none; }
+.search-profile-page .search-profile-progress { order: 3; }
+.search-profile-page .search-profile-form { order: 4; min-height: 220px; }
+.search-profile-page .search-profile-fieldset legend { font-size: clamp(1.65rem, 3vw, 2.35rem); font-weight: 800; }
+.search-profile-page .search-profile-actions { order: 5; }
+.search-profile-page .search-profile-preview,
+.search-profile-page .search-profile-readiness-note { display: none; }
+@media (max-width: 760px) {
+  .search-profile-page .search-profile-actions { position: static; margin: 0; padding: 0; border-top: 0; background: none; }
+  .search-profile-page .search-profile-actions .btn-primary { flex: 0 0 auto; min-height: 44px; }
+}
+
+@media (min-width: 761px) {
+  .search-profile-page .search-profile-form { min-height: 0; }
+}

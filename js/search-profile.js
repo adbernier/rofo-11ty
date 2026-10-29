@@ -1482,7 +1482,7 @@
       summary.commuteOrientation.length ? `Employee commute orientation: ${selectedOptionLabels(commuteOrientationOptions, summary.commuteOrientation).join(" • ")}` : "",
       summary.expectedGrowth ? `Growth expectations: ${optionLabel(growthExpectationOptions, summary.expectedGrowth)}` : "",
       summary.institutionProximity && summary.institutionProximity !== "not_applicable" ? `Institution proximity: ${optionLabel(institutionProximityOptions, summary.institutionProximity)}` : "",
-      summary.sizeOrPeople ? `Execution-stage size context: ${summary.sizeOrPeople}` : "",
+      summary.sizeOrPeople ? `${detailField() === "people" ? "People" : "Approximate space needed"}: ${summary.sizeOrPeople}` : "",
       summary.timing ? `Move-in timing: ${summary.timing}` : "",
       features.length ? `Features: ${features.join(" • ")}` : "",
       summary.featureOther ? `Other feature detail: ${summary.featureOther}` : "",
@@ -1952,7 +1952,16 @@
       fieldset.hidden = key !== step;
     });
 
-    stepCount.textContent = readiness.ready ? "Business Profile ready" : "Business Profile";
+    stepCount.textContent = profileLayout === "page"
+      ? `Question ${activeStepIndex + 1} of ${steps.length}`
+      : readiness.ready ? "Business Profile ready" : "Business Profile";
+    const searchContextValues = root.querySelector("[data-profile-search-context-values]");
+    if (searchContextValues) {
+      searchContextValues.textContent = [profile.location.display, profile.spaceType].filter(Boolean).join(" · ");
+      searchContextValues.dataset.profileSearchCity = profile.location.city || "";
+      searchContextValues.dataset.profileSearchLocation = profile.location.display || "";
+      document.dispatchEvent(new CustomEvent("rofo:profile-context-rendered"));
+    }
     root.classList.toggle("is-first-step", activeStepIndex === 0);
     prevButton.hidden = activeStepIndex === 0;
     resetButton.hidden = completedCount() === 0;
@@ -1963,6 +1972,25 @@
     progressBar.style.width = `${Math.round((readiness.completed / Math.max(1, readiness.total)) * 100)}%`;
     if (stepError) stepError.textContent = stepErrorMessage();
     if (conversationPromptNode) conversationPromptNode.textContent = conversationPrompt();
+    if (profileLayout === "page") {
+      const guidance = {
+        targetArea: "A city, district, neighborhood, or street is enough.",
+        locationIntent: "",
+        businessType: "",
+        operationalUse: "Choose all that apply.",
+        officeEnvironment: "",
+        commuteOrientation: "A broad pattern is enough; exact routes can wait.",
+        expectedGrowth: "",
+        institutionProximity: "For healthcare or life-science-adjacent businesses, proximity to UCSF-related activity can affect district fit.",
+        features: "Choose all that apply.",
+      };
+      root.querySelectorAll("[data-profile-step]").forEach((fieldset) => {
+        const helper = fieldset.querySelector(".search-profile-fieldset__helper");
+        if (!helper || !(fieldset.dataset.profileStep in guidance)) return;
+        helper.textContent = guidance[fieldset.dataset.profileStep];
+        helper.hidden = !helper.textContent;
+      });
+    }
     if (readinessNote) {
       readinessNote.textContent = readiness.ready
         ? "Rofo has enough business context to create your Location Brief."
