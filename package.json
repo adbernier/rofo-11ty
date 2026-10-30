@@ -106,7 +106,9 @@
     "draft:market-snapshots:all": "node scripts/draft-market-snapshot-rows.js --all",
     "promote:market-snapshots": "node scripts/promote-market-snapshot-drafts.js",
     "publisher:report": "node scripts/publisher-report.js",
-    "publisher:snapshot": "node scripts/publisher-snapshot.js"
+    "publisher:snapshot": "node scripts/publisher-snapshot.js",
+    "build:sf-pilot-assets": "node scripts/build-sf-pilot-assets.cjs",
+    "qa:sf-tenant-pilot": "node scripts/qa-sf-tenant-pilot.cjs && node scripts/qa-sf-pilot-concurrency.cjs && node scripts/qa-sf-pilot-boundaries.cjs && node scripts/qa-sf-pilot-catalog.mjs && node scripts/qa-sf-pilot-referral-isolation.mjs && node scripts/qa-sf-pilot-mail.cjs"
   },
   "keywords": [],
   "author": "",

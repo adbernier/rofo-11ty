@@ -9,6 +9,41 @@ import {
   projectSnapshotTextLines,
 } from "../../_shared/project-snapshot.js";
 
+// Pilot research never inherits legacy referral authority, including after its flag is disabled.
+export function isSfPilotMarker(lead = {}) {
+  const context = lead.location_brief_v2_context || {};
+  return Boolean(lead.sf_pilot_search_id || lead.pilot_kind === "sf-office-research"
+    || lead.source === "rofo-sf-pilot" || lead.page_type === "sf_pilot_research"
+    || context.sf_pilot_search_id || context.pilot_kind === "sf-office-research");
+}
+
+export async function legacyReferralBlocked(env, lead = {}) {
+  if (isSfPilotMarker(lead)) return true;
+  const publicId = String(lead.location_brief_v2_public_id || "").trim();
+  const internalId = String(lead.originating_brief_id || lead.location_brief_v2_context?.briefId || "").trim();
+  if (!/^LB2-[A-F0-9]{24}$/i.test(publicId) && !internalId) return false;
+  const database = env.LOCATION_BRIEFS_DB || env.LEADS_DB;
+  if (!database) return false; // Legacy KV-only deployments have no pilot D1 enrollment.
+  try {
+    const row = await database.prepare(`select p.brief_id from sf_pilot_searches p
+      join location_briefs_v2 b on b.id = p.brief_id
+      where b.public_id = ? or p.brief_id = ? limit 1`).bind(publicId, internalId).first();
+    return Boolean(row);
+  } catch (error) {
+    // Additive pilot migration has not been applied on existing deployments.
+    if (/no such table: sf_pilot_searches\b/i.test(String(error?.message || error))) return false;
+    throw new Error("Referral eligibility could not be verified; no information was shared.");
+  }
+}
+
+export async function assertLegacyReferralAllowed(env, lead = {}) {
+  if (await legacyReferralBlocked(env, lead)) {
+    const error = new Error("This SF pilot search is research-only. Use its separate permission-based inquiry flow.");
+    error.status = 409;
+    throw error;
+  }
+}
+
 export const OFFICEFINDER_TEST_ENDPOINT = "https://www.officefinder.com/scripts/_importLeadTest.cfm";
 export const OFFICEFINDER_PRODUCTION_ENDPOINT = "https://www.officefinder.com/scripts/_importLead.cfm";
 const OFFICEFINDER_LOCATION_PROFILE_PLACEHOLDER_PHONE = "555-555-5555";
@@ -562,6 +597,7 @@ export function resolveLeadRoute(lead) {
 }
 
 export function buildOfficeFinderPayload(lead, env) {
+  if (isSfPilotMarker(lead)) throw new Error("SF pilot research cannot be serialized for OfficeFinder.");
   const spaceType = lead.requested_space_type || lead.space_type;
   const sqFt = normalizeSqFtForOfficeFinder(lead.space_needed);
   const normalizedPhone = normalizePhoneForOfficeFinder(lead.phone);
@@ -1270,6 +1306,9 @@ export async function approveLead(env, id, routeParam = "recommended", options =
   if (!record) {
     return { ok: false, status: 404, title: "Lead not found", message: "No matching lead exists." };
   }
+
+  try { await assertLegacyReferralAllowed(env, record.lead); }
+  catch (error) { return { ok: false, status: error.status || 503, title: "Research remains private", message: error.message }; }
 
   if (["approved_sent", "broker_sent", "both_sent", "partial_sent"].includes(record.status)) {
     return { ok: true, status: 200, title: "Lead already approved and sent", message: "No duplicate submission was made." };
@@ -2019,6 +2058,8 @@ export async function sendApprovalEmail(env, request, record, token) {
 }
 
 export async function sendBrokerLeadEmail(env, record) {
+  try { await assertLegacyReferralAllowed(env, record.lead); }
+  catch (error) { return { sent: false, reason: error.message }; }
   const route = record.lead.route_recommendation || {};
   if (!route.broker_email) {
     return { sent: false, reason: "No broker email is available for this route" };
@@ -2110,6 +2151,8 @@ export async function sendBrokerLeadEmail(env, record) {
 }
 
 export async function logLeadToGoogleSheets(env, record) {
+  try { await assertLegacyReferralAllowed(env, record.lead); }
+  catch (error) { return { sent: false, reason: error.message }; }
   if (!env.GOOGLE_LEADS_WEBHOOK_URL) return { sent: false, reason: "GOOGLE_LEADS_WEBHOOK_URL is not configured" };
 
   const lead = record.lead;
@@ -2156,6 +2199,7 @@ export async function logLeadToGoogleSheets(env, record) {
 }
 
 export async function submitToOfficeFinder(env, payload) {
+  if (isSfPilotMarker(payload)) return { ok: false, status: 409, body: "", error: "SF pilot research cannot be sent to OfficeFinder." };
   const endpoint = normalizeField(env.OFFICEFINDER_API_URL) || OFFICEFINDER_PRODUCTION_ENDPOINT;
   const form = new URLSearchParams();
   Object.entries(payload).forEach(([key, value]) => form.set(key, value || ""));

@@ -1,3 +1,5 @@
+import { enabled as sfPilotEnabled, redirect as pilotRedirect } from "../_sf-pilot/security.mjs";
+import { pilotContinuation, pilotOwnsBrief } from "../_sf-pilot/brief-access.mjs";
 import { commercialContextForBundle, completeCommercialRequest, getBriefBundle, getCommercialRequest, getPropertyRequirementDraft, ownsBrief, privateHtml, releaseCommercialRequest, reserveCommercialRequest, sameOriginMutation, savePropertyRequirementDraft, sha256 } from "../api/location-brief-v2/_shared.js";
 import { renderSearchSummary } from "../api/location-brief-v2/_search-summary.js";
 import { buildLeadPayload, buildOfficeFinderPayload, detectLeadSpam, getMissingSubmitFields, logLeadToGoogleSheets, randomHex, resolveLeadRoute, saveLead, sendApprovalEmail, sendTenantConfirmationEmail, sha256 as leadSha256, updateLeadStatus } from "../api/leads/_shared.js";
@@ -139,9 +141,10 @@ function propertyPage(body, status = 200) { return privateHtml(body, status, { "
 async function loadOwned(request, env, publicId) {
   if (!/^LB2-[A-F0-9]{24}$/i.test(publicId || "")) return { response: privateHtml("Location Brief not found.", 404) };
   const bundle = await getBriefBundle(env, publicId, false); if (!bundle) return { response: privateHtml("Location Brief not found.", 404) };
-  if (!await ownsBrief(request, bundle.brief)) return { response: privateHtml("Open this page from the browser that owns the Location Brief.", 403) };
+  if (!await ownsBrief(request, bundle.brief) && !await pilotOwnsBrief(request, env, bundle.brief)) return { response: privateHtml("Open this page from the browser that owns the Location Brief.", 403) };
   const requirement = bundle.currentRevision.requirement; const marketId = requirement.locationLogic?.marketAnchor?.marketId || requirement.locationLogic?.marketAnchor?.geographyId;
   if (requirement.propertyTypes?.length !== 1 || requirement.propertyTypes[0] !== "office" || marketId !== "san-francisco") return { response: privateHtml("This property-stage continuation is currently available for San Francisco Office searches.", 409) };
+  if (sfPilotEnabled(env)) return { response: pilotRedirect(await pilotContinuation(request,env,bundle.brief)) };
   return { bundle };
 }
 

@@ -15,6 +15,9 @@ import { seedTrustedEntryContext } from "/js/requirements/requirement-entry-cont
 const root = document.querySelector("[data-requirement-prototype]");
 if (root) {
   const SESSION_KEY = "rofoRequirementAdaptiveInterviewV1";
+  const sfPilotDraftEnabled = Boolean(document.querySelector('meta[name="rofo-sf-pilot"][content="enabled"]'));
+  const sfDraftKey = 'rofoSfPilotDraftV1:' + location.search;
+  const sfDraft = (() => { if (!sfPilotDraftEnabled) return null; try { const value = JSON.parse(sessionStorage.getItem(sfDraftKey) || 'null'); return value && value.expiresAt > Date.now() ? value : null; } catch { return null; } })();
   const SESSION_STATE_VERSION = "requirement-prototype-session:v2";
   const ACQUISITION_KEY = "rofoOriginalAcquisitionV1";
   const query = new URLSearchParams(location.search);
@@ -107,10 +110,11 @@ if (root) {
   if (locationBriefV2Mode) clearPrototypePersistence();
   const restoredState = locationBriefV2Mode ? initialState() : restore();
   if(phoenixJourney && locationBriefV2Intent === "new" && phoenixDraft?.state) Object.assign(restoredState,phoenixDraft.state,{interview:hydrateInterviewState(phoenixDraft.state.interview)});
-  let state = { ...restoredState, interview: phoenixJourney && locationBriefV2Intent === "new" && phoenixDraft?.state ? restoredState.interview : seedTrustedEntryContext(restoredState.interview, { ...publicEntryContext, intent: publicExperience ? locationBriefV2Intent : "" }, districtGeography) };
+  if (sfDraft?.state && locationBriefV2Intent === "new") Object.assign(restoredState, sfDraft.state, { interview: hydrateInterviewState(sfDraft.state.interview) });
+  let state = { ...restoredState, interview: (sfPilotDraftEnabled && locationBriefV2Intent === "new" && sfDraft?.state) || (phoenixJourney && locationBriefV2Intent === "new" && phoenixDraft?.state) ? restoredState.interview : seedTrustedEntryContext(restoredState.interview, { ...publicEntryContext, intent: publicExperience ? locationBriefV2Intent : "" }, districtGeography) };
   if (phoenixJourney && !state.interview.seedRequirement) state.interview.seedRequirement = JSON.parse(JSON.stringify(state.interview.requirement));
   let locationBriefV2Context = { intent: locationBriefV2Intent, publicId: locationBriefV2PublicId, revisionNumber: null };
-  const creationRequestId = phoenixDraft?.creationRequestId || (publicExperience && locationBriefV2Intent === "new" && window.crypto?.randomUUID ? window.crypto.randomUUID() : "");
+  const creationRequestId = sfDraft?.creationRequestId || phoenixDraft?.creationRequestId || (publicExperience && locationBriefV2Intent === "new" && window.crypto?.randomUUID ? window.crypto.randomUUID() : "");
 
   function trackVNext(eventName, extra = {}) {
     if (!publicExperience) return;
@@ -118,6 +122,7 @@ if (root) {
   }
 
   function persist() {
+    if (sfPilotDraftEnabled && locationBriefV2Intent === "new") { try { sessionStorage.setItem(sfDraftKey, JSON.stringify({ state, creationRequestId, expiresAt: Date.now() + 24 * 3600000 })); } catch { /* Optional draft recovery never blocks the interview. */ } }
     if (phoenixJourney) {
       try { sessionStorage.setItem(phoenixDraftStorageKey,JSON.stringify({signature:phoenixSignature,state,creationRequestId,revisionNumber:locationBriefV2Context.revisionNumber})); } catch { /* Optional draft recovery. */ }
     }
@@ -140,6 +145,7 @@ if (root) {
     trackVNext("vnext_brief_created", { readiness: result.readiness || "" });
     clearPrototypePersistence();
     if(phoenixJourney) sessionStorage.removeItem(phoenixDraftStorageKey);
+    if (sfPilotDraftEnabled) { try { sessionStorage.removeItem(sfDraftKey); } catch {} }
     location.href = result.briefUrl || (publicExperience ? `/location-brief/${encodeURIComponent(result.publicId)}` : `/operator/location-brief-v2/${encodeURIComponent(result.publicId)}`);
   }
 

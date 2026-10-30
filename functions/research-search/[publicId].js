@@ -1,3 +1,5 @@
+import { enabled as sfPilotEnabled, redirect as pilotRedirect } from "../_sf-pilot/security.mjs";
+import { pilotContinuation, pilotOwnsBrief } from "../_sf-pilot/brief-access.mjs";
 import { commercialContextForBundle, getBriefBundle, ownsBrief, privateHtml, isPhoenixIndustrialFlexRequirement } from "../api/location-brief-v2/_shared.js";
 import universalIntelligence from "../../lib/intelligence/universal-space-type-intelligence.js";
 
@@ -42,6 +44,7 @@ export async function onRequestGet({ request, env, params }) {
   if (!/^LB2-[A-F0-9]{24}$/i.test(params.publicId || "")) return privateHtml("Location Brief not found.", 404);
   const bundle = await getBriefBundle(env, params.publicId, false);
   if (!bundle) return privateHtml("Location Brief not found.", 404);
-  if (!await ownsBrief(request, bundle.brief)) return privateHtml("Open this page from the browser that owns the Location Brief.", 403);
+  if (!await ownsBrief(request, bundle.brief) && !await pilotOwnsBrief(request,env,bundle.brief)) return privateHtml("Open this page from the browser that owns the Location Brief.", 403);
+  if (sfPilotEnabled(env) && bundle.currentRevision.requirement.propertyTypes?.[0] === "office" && bundle.currentRevision.requirement.locationLogic?.marketAnchor?.marketId === "san-francisco") return pilotRedirect(await pilotContinuation(request,env,bundle.brief));
   return privateHtml(render(bundle), 200, { "referrer-policy": "same-origin" });
 }

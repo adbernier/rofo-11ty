@@ -1,4 +1,4 @@
-import { escapeHtml, getLocationRequirementSummary } from "../api/leads/_shared.js";
+import { assertLegacyReferralAllowed, escapeHtml, getLocationRequirementSummary } from "../api/leads/_shared.js";
 import { BROKER_READINESS, assessBrokerReadiness, buildProjectSnapshotFromLead, projectSnapshotTextLines } from "../_shared/project-snapshot.js";
 
 export const REFERRAL_STATUSES = ["draft", "sent", "viewed", "accepted", "declined", "expired", "completed", "cancelled"];
@@ -299,9 +299,10 @@ export function buildReferralSummary(lead) {
 }
 
 export async function createReferral(env, request, { leadId, brokerPartnerId, createdBy = "admin", notes = "" }) {
-  await ensureReferralTable(env);
   const leadRow = await getLeadRow(env, leadId);
   if (!leadRow) throw new Error("Lead not found.");
+  await assertLegacyReferralAllowed(env, leadRow.lead);
+  await ensureReferralTable(env);
   const broker = await getBrokerPartner(env, brokerPartnerId);
   if (!broker) throw new Error("Broker partner not found.");
   if (broker.status !== "active") throw new Error("Broker partner must be active before receiving referrals.");
@@ -408,6 +409,8 @@ export function buildReferralEmail({ request, referral, leadRow, broker, token }
 }
 
 export async function sendReferralEmail(env, request, referral, leadRow, broker, token) {
+  try { await assertLegacyReferralAllowed(env, leadRow.lead); }
+  catch (error) { return { sent: false, reason: error.message }; }
   if (!env.RESEND_API_KEY) {
     return { sent: false, reason: "RESEND_API_KEY is not configured" };
   }
@@ -453,6 +456,7 @@ export async function markReferralSendFailed(env, referralId, reason) {
 export async function createAndSendReferral(env, request, options) {
   const leadRow = await getLeadRow(env, options.leadId);
   if (!leadRow) throw new Error("Lead not found.");
+  await assertLegacyReferralAllowed(env, leadRow.lead);
   const readiness = assessBrokerReadiness(leadRow.lead);
   if (readiness.status !== BROKER_READINESS.READY && options.readinessOverride !== true) {
     throw new Error(`${readiness.label}: ${readiness.summary}`);

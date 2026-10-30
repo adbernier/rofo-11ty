@@ -1,3 +1,5 @@
+const isPilotOffice = bundle => bundle.currentRevision.requirement.propertyTypes?.length === 1 && bundle.currentRevision.requirement.propertyTypes[0] === "office" && (bundle.currentRevision.requirement.locationLogic?.marketAnchor?.marketId || bundle.currentRevision.requirement.locationLogic?.marketAnchor?.geographyId) === "san-francisco";
+import { pilotOwnsBrief, pilotContinuation } from "../_sf-pilot/brief-access.mjs";
 import {
   escapeHtml,
   getLocationBrief,
@@ -287,8 +289,11 @@ export async function onRequestGet({ request, params, env }) {
     try { bundle = await getLocationBriefV2Bundle(env, publicId, false); }
     catch { return privateHtml("Your Location Brief is temporarily unavailable. Please try again.", 503); }
     if (!bundle) return privateHtml("Location Brief not found.", 404);
-    const owner = await ownsLocationBriefV2(request, bundle.brief);
-    return privateHtml(renderLocationBriefV2Page(bundle, owner, false, { publicExperience: true }));
+    const owner = await ownsLocationBriefV2(request, bundle.brief) || await pilotOwnsBrief(request, env, bundle.brief);
+    const pilotPath = owner && isPilotOffice(bundle) ? await pilotContinuation(request,env,bundle.brief) : "";
+    if (pilotPath) { bundle = { ...bundle, currentSnapshot: { ...bundle.currentSnapshot, shortlist: (bundle.currentSnapshot.shortlist || []).map(item => ({ ...item, presentation: { ...item.presentation, districtPath: `/commercial-real-estate/CA/san-francisco/${item.canonicalDistrictId || item.districtId}/` } })) } }; }
+
+    return privateHtml(renderLocationBriefV2Page(bundle, owner, false, { publicExperience: true, pilotPath }));
   }
   if (!/^LB-[A-Z0-9]{6,12}$/.test(publicId)) {
     return htmlResponse("Location Brief not found.", 404);

@@ -1,5 +1,6 @@
 import {
   buildLeadPayload,
+  assertLegacyReferralAllowed,
   buildOfficeFinderPayload,
   detectLeadSpam,
   getMissingSubmitFields,
@@ -27,6 +28,8 @@ export async function onRequestPost({ request, env }) {
     return jsonResponse({ error: "Unable to parse submitted lead" }, 400);
   }
 
+  try { await assertLegacyReferralAllowed(env, fields); }
+  catch (error) { return jsonResponse({ error: error.message }, error.status || 503); }
   const lead = buildLeadPayload(fields, request);
   if (/^LB2-[A-F0-9]{24}$/i.test(lead.location_brief_v2_public_id || "")) {
     try {

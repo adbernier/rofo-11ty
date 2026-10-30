@@ -1,0 +1,12 @@
+const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),assert=require('node:assert/strict'),cp=require('node:child_process');
+const root=path.resolve(__dirname,'../..'),out=path.resolve(root,'../implementation-output');
+const sha=b=>crypto.createHash('sha256').update(b).digest('hex');
+function manifest(dir){const files=[];function walk(p){for(const e of fs.readdirSync(p,{withFileTypes:true}).sort((a,b)=>a.name<b.name?-1:a.name>b.name?1:0)){const target=path.join(p,e.name);if(e.isDirectory())walk(target);else{const bytes=fs.readFileSync(target);files.push({path:path.relative(dir,target),sha256:sha(bytes),bytes:bytes.length});}}}walk(dir);return files;}
+const a=manifest(path.join(out,'build-final-a')),b=manifest(path.join(out,'build-final-b'));assert.deepEqual(a,b,'Two complete isolated rehearsals must match');
+const digest=rows=>sha(JSON.stringify(rows.map(({path,sha256})=>({path,sha256}))));
+const baseline=manifest('/Users/alanbernier/Documents/Codex/2026-10-27/task/interview-asset-version-release-staging/_site');assert.equal(digest(baseline),'3748f1e71babe62522abb00ef4469a7aa5dc8477e7a64bab3fce8c7df8d8f9ae');
+const previous=new Map(baseline.map(x=>[x.path,x]));const added=a.filter(x=>!previous.has(x.path)).map(x=>x.path),changed=a.filter(x=>previous.has(x.path)&&previous.get(x.path).sha256!==x.sha256).map(x=>x.path),removed=baseline.filter(x=>!a.some(y=>y.path===x.path)).map(x=>x.path);
+const protectedFiles=['.eleventy.js','wrangler.jsonc','lib/building-research/release-policy.js','lib/building-research/publication-v3/publication-authorization.json','lib/building-research/publication-v3/wave-manifest.json'];
+for(const file of protectedFiles)assert.deepEqual(fs.readFileSync(path.join(root,file)),cp.execFileSync('git',['show','d053e0208a9db18e93839cef8bfea593ad072128:'+file],{cwd:root}));
+const report={baselineCommit:'d053e0208a9db18e93839cef8bfea593ad072128',baselineDigest:digest(baseline),mode:'existing public-rehearsal; frozen accepted generated inputs; no production authorization changed',buildADigest:digest(a),buildBDigest:digest(b),identical:true,files:a.length,added,changed,removed,unchanged:a.length-added.length-changed.length,protectedGuardsUnchanged:true,productionBuild:'correctly rejected changed output against old approved digest; guard retained'};
+fs.writeFileSync(path.join(out,'build-verification.json'),JSON.stringify(report,null,2)+'\n');fs.writeFileSync(path.join(out,'build-output-manifest.json'),JSON.stringify(a,null,2)+'\n');console.log(JSON.stringify(report,null,2));
