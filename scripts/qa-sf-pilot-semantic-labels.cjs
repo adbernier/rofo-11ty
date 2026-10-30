@@ -1,0 +1,32 @@
+// Local synthetic semantic regression checks. No transport or live data is used.
+const assert=require('node:assert/strict'),fs=require('node:fs'),os=require('node:os'),path=require('node:path'),cp=require('node:child_process');
+const {loadRuntime,requirement,root}=require('./sf-pilot/test-runtime.cjs');
+const {service,foundation}=loadRuntime();
+const dir=fs.mkdtempSync(path.join(os.tmpdir(),'sf-pilot-semantic-'));
+const results=[];const check=(name,fn)=>{fn();results.push(name);};
+(async()=>{try{
+ cp.execFileSync(path.join(root,'node_modules/.bin/esbuild'),[path.join(root,'functions/_sf-pilot/views.mjs'),'--bundle','--platform=node','--format=cjs',`--outfile=${dir}/views.cjs`],{stdio:'pipe'});
+ const views=require(path.join(dir,'views.cjs'));
+ const {catalog,selectOptions,evaluateOption}=await import('../functions/_sf-pilot/catalog.mjs');
+ const before=JSON.stringify(catalog),req=requirement(20);req.locationLogic.specificPreference={hasPreference:true,candidateDistrictIds:['design-district','showplace-square'],candidateDistrictNames:['Design District','Showplace Square']};
+ const bundle={currentRevision:{requirement:req},currentSnapshot:foundation.calculateSnapshot(req)};
+ check('Current recommendation snapshot supplies canonical presentation membership',()=>assert(bundle.currentSnapshot.plausibleUniverse.some(x=>x.districtId==='showplace-square'&&x.memberDistrictIds.includes('design-district'))));
+ check('Explicit grouped candidate IDs normalize and deduplicate without changing the Requirement',()=>{const input=JSON.stringify(bundle),d=service.canonicalDefaults(bundle);assert.deepEqual(d.districts,['showplace-square']);assert(!d.districtChoices.some(x=>x.id==='design-district'));assert.equal(d.districtChoices.filter(x=>x.id==='showplace-square').length,1);assert.equal(JSON.stringify(bundle),input);});
+ const ext=service.extensionFor(bundle,{people:20,peak:8,privacy:'private',commitment:'compare',meetings:'large',days:12});
+ check('Canonical explicit scope retains its reviewed traditional reference, without widening',()=>{const selected=selectOptions(ext,ext.districts);assert.equal(selected.length,1);assert.equal(selected[0].id,'hooper');assert(selected.every(x=>x.district==='showplace-square'));});
+ check('Assessment sourceDistrictIds also normalize when shortlist/universe are absent',()=>{const b=structuredClone(bundle);b.currentSnapshot={shortlist:[],candidateAssessments:[{districtId:'showplace-square',districtName:'Showplace Square',sourceDistrictIds:['design-district','showplace-square']}]};assert.deepEqual(service.canonicalDefaults(b).districts,['showplace-square']);});
+ check('Unknown candidate scope is never silently mapped to a different district',()=>{const b=structuredClone(bundle);b.currentRevision.requirement.locationLogic.specificPreference={hasPreference:true,candidateDistrictIds:['unreviewed-custom-area'],candidateDistrictNames:['Custom area']};const d=service.canonicalDefaults(b);assert.deepEqual(d.districts,['unreviewed-custom-area']);assert.deepEqual(selectOptions(ext,d.districts),[]);});
+ check('All unchecked canonical areas remain empty rather than widening the scope',()=>assert.deepEqual(service.extensionFor(bundle,{...ext,districtsPresent:'yes',districts:[]}).districts,[]));
+ const base={people:2,peak:2,privacy:'open',budget:500,budgetBasis:'team-month',commitment:'flexible',days:12,meetings:'occasional'};
+ const day=selectOptions(base)[0],membership=evaluateOption(catalog.find(x=>x.id==='ww44--shared'),base);
+ const render=(item,{saved=false,dismissed=false,index=0}={})=>{const items=index?[{...item,id:'synthetic-prior-option',budgetStatus:'unpriced',qualifications:[]},item]:[item];return views.tenantView({search:{public_id:'SF-SYNTHETIC',status:'ready'},shortlist:{version:1,items},feedback:saved?[{item_id:item.id,action:'save'}]:dismissed?[{item_id:item.id,action:'dismiss'}]:[],extension:base});};
+ const label=(html,item)=>html.split(`id="option-${item.id}"`)[1].split('<span class="tag">')[1].split('</span>')[0];
+ check('Over-budget first card is labeled as a higher-budget alternative, not a fit claim',()=>{assert.equal(day.budgetStatus,'higher-budget-alternative');assert.equal(day.monthlyIllustration,720);assert.equal(label(render(day),day),'Higher budget');});
+ check('Longer-term network plan has a visible commitment tradeoff label',()=>{const item=evaluateOption(catalog.find(x=>x.id==='ww44--shared'),{...base,budget:1000});assert.equal(label(render(item),item),'Longer commitment');});
+ check('Both tradeoffs remain visible when budget and commitment differ',()=>assert.equal(label(render(membership),membership),'Higher budget · Longer commitment'));
+ check('Saving does not conceal either tradeoff',()=>assert.equal(label(render(membership,{saved:true}),membership),'Saved · Higher budget · Longer commitment'));
+ check('Ordinary starting-point labels remain unchanged for compatible comparison bases',()=>{const item=evaluateOption(catalog.find(x=>x.id==='pac315--shared'),{...base,budget:2000,commitment:'compare'});assert.equal(label(render(item),item),'A good starting point');assert.equal(label(render(item,{index:1}),item),'Worth exploring');});
+ check('Dismissed state remains explicit',()=>assert.equal(label(render(day,{dismissed:true}),day),'Dismissed'));
+ check('Rendering and canonical normalization leave source facts/prices unchanged',()=>assert.equal(JSON.stringify(catalog),before));
+ console.log(JSON.stringify({suite:'sf-pilot-canonical-scope-and-visible-tradeoffs',passed:results.length,checks:results},null,2));
+}finally{fs.rmSync(dir,{recursive:true,force:true});}})().catch(e=>{console.error(e);process.exitCode=1;});

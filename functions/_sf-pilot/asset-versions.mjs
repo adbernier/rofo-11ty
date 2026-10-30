@@ -2,5 +2,5 @@
 export const ASSET_VERSIONS = {
   "css": "f7afa531f1019e5b4d7cd9e3d2aaae6e75ddcc30ea818bd980b633e1ab96ef6b",
   "js": "22928465a596642453cd3e838bbecad6318bf39bb2babaa6bab70c63cb0959c0",
-  "interview": "2e809106ef28d87b80f03a2a1cc93cb4f2955870df60e1eac41ab2dd8b646c2c"
+  "interview": "97e776f21de830a0a3cfc69d7de2db64f8574299a6cb26e59e85d3c2b68b80f0"
 };

@@ -112,6 +112,8 @@ if (root) {
   if(phoenixJourney && locationBriefV2Intent === "new" && phoenixDraft?.state) Object.assign(restoredState,phoenixDraft.state,{interview:hydrateInterviewState(phoenixDraft.state.interview)});
   if (sfDraft?.state && locationBriefV2Intent === "new") Object.assign(restoredState, sfDraft.state, { interview: hydrateInterviewState(sfDraft.state.interview) });
   let state = { ...restoredState, interview: (sfPilotDraftEnabled && locationBriefV2Intent === "new" && sfDraft?.state) || (phoenixJourney && locationBriefV2Intent === "new" && phoenixDraft?.state) ? restoredState.interview : seedTrustedEntryContext(restoredState.interview, { ...publicEntryContext, intent: publicExperience ? locationBriefV2Intent : "" }, districtGeography) };
+  // Back rebuilds from the trusted entry seed; preserve it for SF draft recovery.
+  if (sfPilotDraftEnabled && locationBriefV2Intent === "new" && !state.interview.seedRequirement) state.interview.seedRequirement = JSON.parse(JSON.stringify(seedTrustedEntryContext(initialState().interview, { ...publicEntryContext, intent: publicExperience ? locationBriefV2Intent : "" }, districtGeography).requirement));
   if (phoenixJourney && !state.interview.seedRequirement) state.interview.seedRequirement = JSON.parse(JSON.stringify(state.interview.requirement));
   let locationBriefV2Context = { intent: locationBriefV2Intent, publicId: locationBriefV2PublicId, revisionNumber: null };
   const creationRequestId = sfDraft?.creationRequestId || phoenixDraft?.creationRequestId || (publicExperience && locationBriefV2Intent === "new" && window.crypto?.randomUUID ? window.crypto.randomUUID() : "");

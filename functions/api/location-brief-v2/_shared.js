@@ -482,10 +482,10 @@ function gapRows(brief, revision, snapshot, requirement) {
     blockingStatus: clean(gap.blockStatus || gap.blockingStatus, 80), reason: clean(gap.reason, 500), observedAt: snapshot.createdAt,
   })).filter((gap) => gap.districtId && gap.intelligenceDimension);
 }
-function gapStatements(database, brief, revision, snapshot, requirement) {
-  return gapRows(brief, revision, snapshot, requirement).map((gap) => database.prepare(`insert into location_brief_v2_intelligence_gaps values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`).bind(
+function gapStatements(database, brief, revision, snapshot, requirement, requireRevision = false) {
+  return gapRows(brief, revision, snapshot, requirement).map((gap) => database.prepare(`insert into location_brief_v2_intelligence_gaps ${requireRevision ? 'select ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? where exists(select 1 from location_brief_v2_requirement_revisions where id=?)' : 'values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'}`).bind(
     gap.id, gap.briefId, gap.requirementRevisionId, gap.recommendationSnapshotId, gap.marketId, gap.propertyType, gap.districtId,
-    gap.intelligenceDimension, gap.requirementSignal, gap.materiality, gap.blockingStatus, gap.reason, gap.observedAt,
+    gap.intelligenceDimension, gap.requirementSignal, gap.materiality, gap.blockingStatus, gap.reason, gap.observedAt, ...(requireRevision ? [revision.id] : []),
   ));
 }
 
@@ -745,7 +745,7 @@ export async function savePropertyRequirementDraft(env, bundle, answers, expecte
   return draft;
 }
 
-export async function reviseBrief(env, bundle, rawRequirement, expectedRevision, changedBy = "anonymous_operator") {
+export async function reviseBrief(env, bundle, rawRequirement, expectedRevision, changedBy = "anonymous_operator", pilotEditAccess = null) {
   if (Number(expectedRevision) !== Number(bundle.currentRevision.revisionNumber)) { const error = new Error("The Brief changed in another session. Refresh before saving."); error.status = 409; throw error; }
   // The original area remains acquisition context; an explicit Phoenix edit may remove it.
   const phoenixJourney = bundle.entryContext?.marketId === "phoenix" && bundle.entryContext?.propertyType === "industrial_flex" && bundle.entryContext?.sourceEntityId === "phoenix-industrial-journey:v1";
@@ -753,6 +753,20 @@ export async function reviseBrief(env, bundle, rawRequirement, expectedRevision,
   const now = new Date().toISOString(); const requirement = canonicalRequirement(rawRequirement, revisionContext); const revision = { id: crypto.randomUUID(), briefId: bundle.brief.id, schemaVersion: REQUIREMENT_REVISION_VERSION, revisionNumber: bundle.currentRevision.revisionNumber + 1, requirement, changedBy, createdAt: now };
   const snapshot = { id: crypto.randomUUID(), briefId: bundle.brief.id, requirementRevisionId: revision.id, ...calculateSnapshot(requirement, await snapshotEnvironment(env, requirement)), createdAt: now };
   const lifecycleStage = snapshot.readiness === "INVESTIGATE" ? "LOCATION_INVESTIGATE" : "LOCATIONS_RECOMMENDED";
+  if (pilotEditAccess) {
+    // Only email-restored pilot edits use this transaction guard. Ordinary legacy ownership is unchanged.
+    if (storageKind(env) !== "d1" || db(env) !== env.LEADS_DB) { const error = new Error("Pilot edit storage is not configured."); error.status = 503; throw error; }
+    const database = db(env), access = pilotEditAccess;
+    const guard = `exists(select 1 from sf_pilot_searches s join sf_pilot_access a on a.search_id=s.id join location_briefs_v2 b on b.id=s.brief_id where s.id=? and a.id=? and a.token_hash=? and a.role='tenant' and a.revoked_at is null and a.expires_at>? and a.generation=s.generation and s.generation=? and s.status<>'archived' and s.brief_id=? and b.current_requirement_revision_id=?)`;
+    const result = await database.batch([
+      database.prepare(`insert into location_brief_v2_requirement_revisions select ?, ?, ?, ?, ?, ? where ${guard}`).bind(revision.id, revision.briefId, revision.revisionNumber, JSON.stringify(requirement), revision.changedBy, now, access.searchId, access.accessId, access.tokenHash, Date.now(), access.generation, bundle.brief.id, bundle.currentRevision.id),
+      database.prepare(`insert into location_brief_v2_recommendation_snapshots select ?, ?, ?, ?, ?, ?, ? where exists(select 1 from location_brief_v2_requirement_revisions where id=?)`).bind(snapshot.id, snapshot.briefId, revision.id, snapshot.readiness, JSON.stringify(snapshot), snapshot.engineVersion, now, revision.id),
+      database.prepare(`update location_briefs_v2 set lifecycle_stage=?,current_requirement_revision_id=?,current_recommendation_snapshot_id=?,updated_at=? where id=? and current_requirement_revision_id=? and exists(select 1 from location_brief_v2_requirement_revisions where id=?)`).bind(lifecycleStage, revision.id, snapshot.id, now, bundle.brief.id, bundle.currentRevision.id, revision.id),
+      ...gapStatements(database, bundle.brief, revision, snapshot, requirement, true),
+    ]);
+    if (!result[0].meta.changes || !result[2].meta.changes) { const error = new Error("Your private access or Location Brief changed. Reopen your search before saving."); error.status = 409; throw error; }
+    return { revision, snapshot };
+  }
   if (storageKind(env) === "d1") {
     const database = db(env); await database.batch([
       database.prepare(`insert into location_brief_v2_requirement_revisions values (?, ?, ?, ?, ?, ?)`).bind(revision.id, revision.briefId, revision.revisionNumber, JSON.stringify(requirement), revision.changedBy, now),

@@ -24,10 +24,14 @@ export function canonicalDefaults(bundle){
  const count=sizeText.match(/(?:^|\b)([1-9][0-9]{0,2})\s+(?:people|employees|team members)\b/i)||sizeText.match(/\bteam of ([1-9][0-9]{0,2})\b/i);
  const people=count?Number(count[1]):null;
  const peakValue=criterion(r,'office.occupancy.peak_attendance'),peak=Number(peakValue)||null;
- const preferences=r.locationLogic?.specificPreference||{};const rows=bundle.currentSnapshot.shortlist||[];
- const districtChoices=rows.map(x=>({id:x.canonicalDistrictId||x.districtId,name:x.districtName||x.name||x.districtId,why:(x.strengths||[]).slice(0,2).join(' · ').replace('Strong supported access for employees coming from ','A useful area for employees coming from ').replace(" is supported by this district's reviewed business-environment pattern."," may fit this area's business setting."),path:`/commercial-real-estate/CA/san-francisco/${x.canonicalDistrictId||x.districtId}/`})).filter(x=>x.id);
- for(const [i,id] of (preferences.candidateDistrictIds||[]).entries())if(!districtChoices.some(x=>x.id===id))districtChoices.push({id,name:preferences.candidateDistrictNames?.[i]||id,why:'An area you asked Rofo to compare.',path:''});
- const districts=preferences.hasPreference===true&&(preferences.candidateDistrictIds||[]).length?preferences.candidateDistrictIds:districtChoices.map(x=>x.id);
+ const preferences=r.locationLogic?.specificPreference||{},snapshot=bundle.currentSnapshot||{},rows=snapshot.shortlist||[];
+ // Use the current engine's reviewed presentation groups, not a second geography map.
+ const groups=[...(snapshot.plausibleUniverse||[]),...(snapshot.candidateAssessments||[]),...rows],aliases=new Map();
+ for(const group of groups){const canonical=group.canonicalDistrictId||group.districtId;if(canonical)for(const source of [canonical,...(group.sourceDistrictIds||[]),...(group.memberDistrictIds||[])])aliases.set(source,canonical);}
+ const normalize=id=>aliases.get(id)||id;
+ const districtChoices=rows.map(x=>({id:normalize(x.canonicalDistrictId||x.districtId),name:x.districtName||x.name||x.districtId,why:(x.strengths||[]).slice(0,2).join(' · ').replace('Strong supported access for employees coming from ','A useful area for employees coming from ').replace(" is supported by this district's reviewed business-environment pattern."," may fit this area's business setting."),path:`/commercial-real-estate/CA/san-francisco/${normalize(x.canonicalDistrictId||x.districtId)}/`})).filter((x,i,all)=>x.id&&all.findIndex(other=>other.id===x.id)===i);
+ for(const [i,sourceId] of (preferences.candidateDistrictIds||[]).entries()){const id=normalize(sourceId);if(!districtChoices.some(x=>x.id===id)){const group=groups.find(x=>(x.canonicalDistrictId||x.districtId)===id);districtChoices.push({id,name:group?.districtName||preferences.candidateDistrictNames?.[i]||id,why:'An area you asked Rofo to compare.',path:''});}}
+ const districts=preferences.hasPreference===true&&(preferences.candidateDistrictIds||[]).length?[...new Set(preferences.candidateDistrictIds.map(normalize))]:districtChoices.map(x=>x.id);
  return {people,peak,timing:r.timing?.summary||'',districtChoices,districts,districtScopeSet:true,lockedFields:[...(people?['people']:[]),...(peak?['peak']:[]),...(r.timing?.summary?['timing']:[])]};
 }
 export function extensionFor(bundle,input={}){
@@ -71,10 +75,10 @@ export async function prepare(env,search,excludedIds=[]){const bundle=await bund
 export async function publish(env,search,form){
  if(form.review!=='yes')fail('Review the sources, fit, price basis and qualifications before publishing.');
  const version=Number(form.expectedVersion||form.version),draft=await one(env,"select * from sf_pilot_shortlists where search_id=? and version=? and status='draft'",search.id,version),bundle=await bundleFor(env,search);
- if(!draft||draft.revision!==search.revision||draft.requirement_revision_id!==bundle.currentRevision.id||search.requirement_revision_id!==bundle.currentRevision.id||Number(form.revision)!==search.revision)fail('This draft is out of date. Prepare and review it again.',409);
+ if(!draft||draft.revision!==search.revision||draft.requirement_revision_id!==bundle.currentRevision.id||search.requirement_revision_id!==bundle.currentRevision.id||Number(form.revision)!==search.revision||form.reviewHash!==await hash(draft.items_json))fail('This draft is out of date. Prepare and review it again.',409);
  const t=now(),result=await env.LEADS_DB.batch([
-  env.LEADS_DB.prepare(`update sf_pilot_shortlists set status='superseded' where search_id=? and status='published' and exists(select 1 from sf_pilot_shortlists where id=? and status='draft' and revision=? and requirement_revision_id=?) and ${searchStateSql}`).bind(search.id,draft.id,search.revision,search.requirement_revision_id,...stateArgs(search)),
-  env.LEADS_DB.prepare(`update sf_pilot_shortlists set status='published',reviewer=?,reviewed_at=? where id=? and status='draft' and revision=? and requirement_revision_id=? and ${searchStateSql}`).bind(text(env.SF_PILOT_REVIEWER_LABEL||'Rofo reviewer',120),t,draft.id,search.revision,search.requirement_revision_id,...stateArgs(search)),
+  env.LEADS_DB.prepare(`update sf_pilot_shortlists set status='superseded' where search_id=? and status='published' and exists(select 1 from sf_pilot_shortlists where id=? and status='draft' and revision=? and requirement_revision_id=? and items_json=?) and ${searchStateSql}`).bind(search.id,draft.id,search.revision,search.requirement_revision_id,draft.items_json,...stateArgs(search)),
+  env.LEADS_DB.prepare(`update sf_pilot_shortlists set status='published',reviewer=?,reviewed_at=? where id=? and status='draft' and revision=? and requirement_revision_id=? and items_json=? and ${searchStateSql}`).bind(text(env.SF_PILOT_REVIEWER_LABEL||'Rofo reviewer',120),t,draft.id,search.revision,search.requirement_revision_id,draft.items_json,...stateArgs(search)),
   env.LEADS_DB.prepare(`update sf_pilot_searches set status='ready',updated_at=? where id=? and exists(select 1 from sf_pilot_shortlists where id=? and status='published') and ${searchStateSql}`).bind(t,search.id,draft.id,...stateArgs(search)),
   env.LEADS_DB.prepare("update sf_pilot_inquiries set status='held',updated_at=? where search_id=? and version<>? and status in ('awaiting-recipient','awaiting-consent','permitted') and exists(select 1 from sf_pilot_shortlists where id=? and status='published')").bind(t,search.id,version,draft.id)
  ]);

@@ -291,7 +291,7 @@ export async function onRequestGet({ request, params, env }) {
     if (!bundle) return privateHtml("Location Brief not found.", 404);
     const owner = await ownsLocationBriefV2(request, bundle.brief) || await pilotOwnsBrief(request, env, bundle.brief);
     const pilotPath = owner && isPilotOffice(bundle) ? await pilotContinuation(request,env,bundle.brief) : "";
-    if (pilotPath) { bundle = { ...bundle, currentSnapshot: { ...bundle.currentSnapshot, shortlist: (bundle.currentSnapshot.shortlist || []).map(item => ({ ...item, presentation: { ...item.presentation, districtPath: `/commercial-real-estate/CA/san-francisco/${item.canonicalDistrictId || item.districtId}/` } })) } }; }
+    if (pilotPath) { bundle = { ...bundle, currentSnapshot: { ...bundle.currentSnapshot, shortlist: (bundle.currentSnapshot.shortlist || []).map(item => ({ ...item, presentation: { ...item.presentation, districtPath: `/commercial-real-estate/CA/san-francisco/${item.canonicalDistrictId || item.districtId}/` } })), candidateAssessments: (bundle.currentSnapshot.candidateAssessments || []).map(item => ({ ...item, presentation: { ...item.presentation, districtPath: `/commercial-real-estate/CA/san-francisco/${item.canonicalDistrictId || item.districtId}/` } })) } }; }
 
     return privateHtml(renderLocationBriefV2Page(bundle, owner, false, { publicExperience: true, pilotPath }));
   }
