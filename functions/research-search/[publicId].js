@@ -1,5 +1,5 @@
 import { enabled as sfPilotEnabled, redirect as pilotRedirect } from "../_sf-pilot/security.mjs";
-import { pilotContinuation, pilotOwnsBrief } from "../_sf-pilot/brief-access.mjs";
+import { pilotContinuation, pilotOwnsBrief, pilotEnrolled } from "../_sf-pilot/brief-access.mjs";
 import { commercialContextForBundle, getBriefBundle, ownsBrief, privateHtml, isPhoenixIndustrialFlexRequirement } from "../api/location-brief-v2/_shared.js";
 import universalIntelligence from "../../lib/intelligence/universal-space-type-intelligence.js";
 
@@ -45,6 +45,7 @@ export async function onRequestGet({ request, env, params }) {
   const bundle = await getBriefBundle(env, params.publicId, false);
   if (!bundle) return privateHtml("Location Brief not found.", 404);
   if (!await ownsBrief(request, bundle.brief) && !await pilotOwnsBrief(request,env,bundle.brief)) return privateHtml("Open this page from the browser that owns the Location Brief.", 403);
-  if (sfPilotEnabled(env) && bundle.currentRevision.requirement.propertyTypes?.[0] === "office" && bundle.currentRevision.requirement.locationLogic?.marketAnchor?.marketId === "san-francisco") return pilotRedirect(await pilotContinuation(request,env,bundle.brief));
+  if(await pilotEnrolled(env,bundle.brief)&&!sfPilotEnabled(env)) return privateHtml('Your Rofo pilot search is temporarily paused. No referral was made.',503);
+  if (sfPilotEnabled(env) && bundle.currentRevision.requirement.propertyTypes?.[0] === "office" && bundle.currentRevision.requirement.locationLogic?.marketAnchor?.marketId === "san-francisco") { const path=await pilotContinuation(request,env,bundle.brief); if(path) return pilotRedirect(path); }
   return privateHtml(render(bundle), 200, { "referrer-policy": "same-origin" });
 }

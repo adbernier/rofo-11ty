@@ -1,0 +1,67 @@
+SF pilot final release candidate — production actions NOT authorized by this file
+
+Baseline5f98ade. This candidate excludes31ad111 and its Access dependency. No new
+infrastructure, provider credentials, account onboarding or automated inquiry sender.
+See OPERATIONS.txt for invitation identity/delivery, human review and recovery.
+
+Release order after exact user approval
+1. Recheck GitHub/Pages current head and targetrofo-11ty; no push/main merge before
+   approval because production automatic deployment is enabled. Preserve accepted
+   d053/deployment0eaa5317-6272-4208-8e4d-4c71aa5a99bf as historical baseline.
+2. Bind approval to FINAL commit, source/static/Functions/SQL hashes. Use existing
+   exact-output publication workflow and actual approval reference. Old authorization
+   binds production digest3748f1e..., while reviewed static digest is207025ef...;
+   do not weaken guards, relabel public-rehearsal as publication or fabricate receipt.
+   Record approval metadata and recheck hashes if anything changes before deployment.
+3. Verify existing D1 targetrofo-leads/LEADS_DB and canonical Brief use samebinding;
+   read migration ledger.0001–0008 dependencies must exist. Apply reviewed0009 then
+   0010 only if pending, using standard migration ledger ONCE. Unexpected pending SQL
+   or target mismatch stops release. Record recovery bookmark/backup capability first.
+   No customer data copy, destructive SQL or reverse migration.0010 adds1table,
+   1explicitindex and2nullablecolumns. Existing unbound searches are ineligible.
+4. Darkdeploy exact reviewed code/assets to existingproject with pilot=false,
+   real-send=false, mailmode=disabled. Leave existing OfficeFinder/public-entry/R2/
+   routes/unrelatedsettings intact. Verify ordinarySF/non-SF behavior and pilot404.
+   Record deploymentID and artifact hashes. No live tenant operations in this step.
+5. Provision TWO separately approved production appsecrets (access/staff), never
+   synthetic fixture keys. Configure approved HTTPS SF_PILOT_ORIGIN (proposed
+   https://www.rofo.com), reviewerlabel and existing approved sender/reply handling.
+   No keys in chat/args/artifacts; no abandoned Access token or Keychain workflow.
+6. Enablepilot for controlled synthetic verification, with NO real invitations yet;
+   app admission defaultsdeny absent verified explicit invitation. Stafflogin uses
+   separate appkey. Create only approved synthetic testBrief/invitation and verify
+   deployed one-use claim, recovery, revocation, research-only isolation, feedback,
+   consent/context races and desktop/mobile/keyboard. Localtest proof is not deployed
+   proof. Private pilot data must never appear in publicBrief/staticJSON/analytics.
+7. Approve exact testrecipient+sender and real-send test. Verify authenticatedsender,
+   replymailbox, no private-link rewriting/tracking, actualreceipt and recovery.
+   Required live transport settings: SF_PILOT_MAIL_MODE=resend,
+   SF_PILOT_EMAIL_SEND_ENABLED=true, SF_PILOT_ORIGIN exactrequestHTTPSorigin plus
+   approved existing RESEND_API_KEY/RESEND_FROM_EMAIL. Provideracceptance != delivery.
+   Unknown outcomes require reconciliation, not automatic blind retry. If fail, turn
+   real-send off. No outside inquiry or tourbooking occurs in any test.
+8. Only after explicit cohortactivation/tenantemail approval, staff invites named
+   participants via OPERATIONS.txt. Manual invitation delivery is separately approved
+   communication; preparingpreview never sendsit. Existing Brief interview first,
+   verified personal invitation next, missing-details intake last. No new public CTA.
+   Assign owner/backup/retention and internal cadence before the first participant.
+
+Rollback
+Turn real-send off, stop new invitation delivery and setpilot=false. Preserve tables,
+invitation/grant/mail/consent history and enrolled-record referral guards. Use THIS
+invitation-aware candidate in darkmode as fallback; do not enablebaseline5f98ade
+(which lacks cohort admission) or blindly reverttod053 afterenrollment (lacks pilot
+referral guards). Existing active invitations stay recorded but routes are off; no
+bulk deletion or database rewind. Any incident restore of sharedD1 requires separate
+approval and coordination to avoid losing unrelated laterwrites. Revocation cannot
+recall mail/information already accepted outside Rofo, but invalidates its links.
+
+Validation limits
+Two legacy hashchecks fail identically on acceptedd053 and unchanged source:
+qa-requirement-business-identity-location-stage.js and
+qa-sf-recommendation-presentation-identity.js; _data/neighborhoodPages.js unchanged.
+Keep failures explicit; no guard edits to hide them.
+Two static rehearsals must bebyteidentical. Wrangler mayvary generated helper/module
+labels in Functions builds; pin exact reviewed artifact and record narrow normalized
+comparison separately, never claim rawbyte determinism iffalse.
+No production migration/deployment/email/activation is authorized until user approves.

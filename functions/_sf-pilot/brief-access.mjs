@@ -1,5 +1,7 @@
-import { enabled,session } from './security.mjs';
+import { enabled,session,invitationSession } from './security.mjs';
 // Scoped bridge only for an enrolled Brief; no new global owner capability.
 export async function pilotBriefEditAccess(request,env,brief){if(!enabled(env))return null;const search=await env.LEADS_DB.prepare("select * from sf_pilot_searches where brief_id=? and status<>'archived'").bind(brief.id).first();if(!search)return null;const access=await session(env,request,search);return access?.role==='tenant'?{searchId:search.id,accessId:access.id,tokenHash:access.token_hash,generation:search.generation}:null;}
 export async function pilotOwnsBrief(request,env,brief){return Boolean(await pilotBriefEditAccess(request,env,brief));}
-export async function pilotContinuation(request,env,brief){if(!enabled(env))return '';const search=await env.LEADS_DB.prepare('select public_id from sf_pilot_searches where brief_id=?').bind(brief.id).first();return search?`/sf-pilot/${search.public_id}`:`/sf-pilot/start/${brief.publicId}`;}
+export async function pilotContinuation(request,env,brief){if(!enabled(env))return '';const search=await env.LEADS_DB.prepare('select * from sf_pilot_searches where brief_id=?').bind(brief.id).first();if(search)return await session(env,request,search)?`/sf-pilot/${search.public_id}`:'/sf-pilot/access?recover=1';return await invitationSession(env,request,brief.publicId)?`/sf-pilot/start/${brief.publicId}`:'';}
+
+export async function pilotEnrolled(env,brief){if(!env.LEADS_DB)return false;try{return Boolean(await env.LEADS_DB.prepare('select id from sf_pilot_searches where brief_id=?').bind(brief.id).first());}catch(error){if(/\bno such table:\s*(?:main\.)?sf_pilot_searches\b/i.test(String(error?.message||'')))return false;throw error;}}

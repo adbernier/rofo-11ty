@@ -98,3 +98,12 @@ Release / rollback
 - Human reviewer/inquiry owner, retention/contact-correction policy and staged email
   acceptance are operational prerequisites. AI assistance is safe source-based draft
   preparation here; no provider calls or personal-data transfer were introduced.
+
+Final invited-cohort release
+Read OPERATIONS.txt and RELEASE.txt. Apply additive0010 after0009 locally; staff
+issues a Brief/mailbox-bound personal invitation and manually delivers its one-use
+link only through approved email. Owning an ordinary Brief/typing an email is not
+admission. Revoking invitation stops related private capabilities; sign-out also
+ends the browser invitation session. Uninvited SF searches retain ordinaryRofo.
+The invitation-aware suite is included in npm run qa:sf-tenant-pilot. Local browser
+harness supports SF_PILOT_REVIEW_PORT/SF_PILOT_REVIEW_OUTPUT for isolated candidates.

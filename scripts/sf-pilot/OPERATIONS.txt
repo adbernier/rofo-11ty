@@ -1,0 +1,119 @@
+Rofo SF tenant pilot — controlled cohort operations
+
+Purpose
+Here are the buildings we'd explore first. Keep a few meaningfully different,
+source-backed options and the approved tenant voice. Shared memberships, serviced
+private offices, managed offices and traditional leases remain distinct. Fewer than
+three supported options is preferable to invented matches. No vacancy, quote,
+photography, tour confirmation or comprehensive landlord coverage is required.
+
+Before real use (separate release approval)
+- Deploy reviewed code to existing Rofo Pages; apply0009 then0010 once using the
+  existing D1 migration ledger.0010 adds one invitations table/index and two nullable
+  binding columns. Pre-existing searches without invitation bindings stay ineligible.
+- Keep SF_TENANT_PILOT_ENABLED=false and real-send=false until dark checks pass.
+- Provision approved separate application access/staff secrets; never use local
+  fixture keys in production. Existing server-side staff login is shared-key access,
+  not named-staff MFA. Restrict the secret to the explicitly assigned small team.
+- Approve sender/reply mailbox and an actual test mailbox; pin HTTPS canonical origin,
+  disable private-link tracking/rewriting appropriately and verify real delivery and
+  recovery separately. Do not change legacy sender settings without their approval.
+- Assign one daily queue owner and backup. Agree an INTERNAL response target and
+  review cadence before inviting anyone. Do not promise an unapproved tenant SLA.
+- Agree retention/contact-correction handling for new pilot data. This small pilot
+  can use a documented manual process; do not introduce another platform.
+
+Explicit invitation and identity
+1. The participant completes the EXISTING SF office interview and shares their
+   Location Brief reference with the authorized Rofo staff member. This first,
+   not-yet-invited interview retains ordinary Rofo behavior, including its current
+   draft behavior. No new questionnaire or brokerage referral is required to invite.
+2. Staff verifies the intended participant and exact delivery mailbox through the
+   approved business communication channel. In the authenticated staff workspace,
+   enter that SF office Brief reference/email and explicitly check the invitation
+   review box. The server binds invitation to that Brief and mailbox.
+3. "Prepare personal invitation" creates a staff-only invitation preview; it sends
+   NOTHING. Deliver its private one-use link ONLY to the bound mailbox using the
+   separately approved manual email process. Do not post links in chat, logs, shared
+   spreadsheets or research tools. Do not click a real participant's invitation in
+   staff preview: it would consume their personal capability. Local synthetic review
+   may deliberately open its own fixture link.
+4. The participant deliberately opens the mailbox link. GET/scanners do not consume
+   it; the confirmation POST verifies the one-use24h capability and creates a
+   scoped browser invitation session. Typing an invited email or owning the ordinary
+   Brief alone never admits anyone. Intake pre-fills the verified mailbox read-only;
+   server rejects a different email. Invite is bound to one Brief, not every search
+   made by that mailbox or browser. Participant can then provide missing workspace
+   details and separate research/email permission.
+5. Pilot identity is possession of a private link delivered to the invited mailbox,
+   not a full account or proof of legal business identity. Trusted staff controls
+   delivery; do not forward or share invitation links. Invitation eligibility lasts
+   until explicit revocation; individual links expire24h and sessions30days. A new
+   device needs another invitation link before intake, or a shortlist/recovery link
+   after enrollment. Invited-browser SF drafts preserve back/reload context.
+6. Reissue via the same staff form with the SAME Brief/mailbox; pending older invite
+   links are revoked. Already enrolled searches cannot be transferred to another
+   participant/mailbox. For a genuinely different participant use a new Brief.
+7. "Revoke this pilot invitation" immediately denies invitation/intake, private
+   access, new recovery, feedback/research and consent. It revokes related grants,
+   holds pending inquiry permissions, suppresses pending/failed mail and increments
+   search generation. It does not recall information or email already handed off.
+   Sign-out revokes that browser's invitation session as well as its search session.
+
+Research and shortlist review
+- Queue owner checks new research, updates, feedback and recovery daily at the
+  agreed internal cadence. Research stays inside Rofo. It never enrolls a lead in
+  OfficeFinder or authorizes an external introduction.
+- Use the canonical Brief and scoped workspace extension. Ask only for missing
+  information. Do not recreate or silently widen district/space-type requirements.
+- Prepare assembles an UNPUBLISHED draft from reviewed operator evidence. Human
+  review must check source/date/address, product type, roster vs onsite count,
+  privacy, capacity/eligibility, price unit/term/fees and tenant-specific reasons.
+  AI assistance here means draft organization from approved attributable evidence;
+  no personal details are sent to a new AI provider. New landlord/broker research
+  is separate enrichment and is not a release requirement.
+- Exclude poor options; never pad to3–5. Publish only after checking the exact
+  rendered version. The content hash/revision binds that review. Requirement edits
+  hide stale cards and hold old permissions until fresh review/publication.
+- Prepare shortlist email then preview it. Deliver only current reviewed messages
+  through the approved configured transport. Provider acceptance is not inbox
+  delivery. Mock mode sends nothing; disabled mode sends nothing. Keep the private
+  claim link out of analytics and third-party click tracking.
+
+Recovery and delivery problems
+- Recovery responses are identical for matching/missing/revoked searches. Only an
+  active invitation with matching reference/mailbox queues a job. It does not send
+  automatically. Staff reviews the saved recipient and prepares/delivers a fresh
+  current link. Delivery/timing are not guaranteed. Disabled-send wording says so.
+- Before enrollment or if the invitation link expires, confirm the SAME intended
+  mailbox through the approved channel and prepare another invitation. Never infer
+  identity from a new typed email or transfer another participant's saved search.
+- Check the daily mail queue for pending/failed/unknown/sending jobs. Failed BEFORE
+  provider acceptance may be retried. An unknown/sending outcome must be reconciled
+  against actual provider evidence first; record receipt/outcome, do not blindly
+  retry an old message. Do not equate provider acceptance with delivery/read.
+- Expired/consumed/revoked links cannot render again. Prepare a new current recovery
+  job when appropriate. Report suspected disclosure; revoke access/invitation and
+  preserve the incident/send history. Never put credentials in a support report.
+
+Interest and external inquiries
+- I'm interested offers suitable-space availability, pricing/details or exploring a
+  tour. This creates an internal request, not a booking or outside message.
+- Staff identifies the actual appropriate recipient and explicitly reviews their
+  address. Tenant then sees exact recipient, purpose and fields and gives fresh,
+  unchecked permission. Research permission and staff review are NOT inquiry consent.
+- Share only the current authorized payload through an independently approved manual
+  outreach process. This application has no outbound operator/broker adapter. Record
+  actual outcome/receipt or mark unknown. Do not claim availability/tour confirmation.
+- Withdrawals stop pending handling. New recipient, purpose, payload, requirement or
+  shortlist version requires fresh permission. Revocation cannot undo information
+  already shared; notify the owner and handle that separately.
+
+Stop/rollback
+Stop real-send, then close admissions by pausing the pilot flag. Preserve records,
+mail outcomes and permanent enrolled-record referral guards. NoDROP/reverse migration.
+Do not blindly revert to pre-pilot d053 after enrollment; it lacks those guards.
+Use this reviewed invitation-aware candidate with pilot off as the rollback version.
+Do not re-enable5f98ade without invitations; it has no cohort enforcement. Whole shared
+D1 restoration is a separate incident decision, not ordinary pilot rollback.
+No production action, real email or cohort activation is authorized by this file.
