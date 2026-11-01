@@ -6,13 +6,25 @@ export async function renderEmail(env,request,job){const search=await one(env,'s
 export async function dispatch(env,request,jobId,transport){const job=await one(env,'select * from sf_pilot_delivery where id=?',jobId);if(!job)fail('Email not found.',404);if(job.status==='accepted')return job;if(job.status!=='pending'&&job.status!=='failed')fail('This sending outcome needs reconciliation before another attempt.',409);const message=await renderEmail(env,request,job);const r=await run(env,`update sf_pilot_delivery set status='sending',attempts=attempts+1,updated_at=? where id=? and status in ('pending','failed') and exists(select 1 from sf_pilot_access a join sf_pilot_searches s on s.id=a.search_id join location_briefs_v2 b on b.id=s.brief_id where a.id=sf_pilot_delivery.grant_id and a.generation=s.generation and a.revoked_at is null and a.used_at is null and a.expires_at>? and a.invitation_id=s.invitation_id and ${eligibilitySql()} and s.status<>'archived' and (sf_pilot_delivery.kind<>'shortlist' or exists(select 1 from sf_pilot_shortlists l where l.search_id=s.id and l.version=sf_pilot_delivery.version and l.status='published' and l.revision=s.revision and l.requirement_revision_id=b.current_requirement_revision_id)))`,now(),job.id,now());if(!r.meta.changes)fail('This email is already being handled.',409);try{const response=await transport(message,{idempotencyKey:job.operation_key});if(!response?.id)throw new Error('uncertain');await run(env,"update sf_pilot_delivery set status='accepted',provider_id=?,error=null,updated_at=? where id=? and status='sending'",text(response.id,180),now(),job.id);}catch(error){const status=error.definitelyNotSent===true?'failed':'unknown';await run(env,'update sf_pilot_delivery set status=?,error=?,updated_at=? where id=?',status,status==='failed'?'Transport rejected before acceptance':'Sending outcome needs reconciliation',now(),job.id);}return one(env,'select * from sf_pilot_delivery where id=?',job.id);}
 export async function localDispatch(env,request,jobId){if(!loopback(request)||env.SF_PILOT_MAIL_MODE!=='mock')return dispatch(env,request,jobId,resendTransport(env,request));return dispatch(env,request,jobId,async()=>({id:`mock-${crypto.randomUUID()}`}));}
 
+// Synthetic production validation only. Removing/widening this exact recipient
+// restriction requires a separately reviewed change before inviting businesses.
+const SYNTHETIC_RECIPIENT = 'alan@rofo.com';
+function outboundRecipient(message){
+ if(!message||typeof message!=='object'||Array.isArray(message)||message.to!==SYNTHETIC_RECIPIENT||'cc' in message||'bcc' in message){
+  const error=new Error('SF pilot test delivery is restricted to the approved internal mailbox.');
+  error.status=403;error.definitelyNotSent=true;throw error;
+ }
+ // Use the checked constant in the provider payload, never a second mutable read.
+ return SYNTHETIC_RECIPIENT;
+}
 // Disabled unless a separately approved environment explicitly opts into real delivery.
 // No credentials are provisioned by this implementation. Tests inject a mock fetch.
 export function resendTransport(env,request,fetchImpl=fetch){
  const origin=new URL(request.url).origin;
  if(env.SF_PILOT_EMAIL_SEND_ENABLED!=='true'||env.SF_PILOT_MAIL_MODE!=='resend'||!env.RESEND_API_KEY||!env.RESEND_FROM_EMAIL||env.SF_PILOT_ORIGIN!==origin||!origin.startsWith('https://'))fail('Real email delivery is disabled or its approved origin is missing.',403);
  return async(message,{idempotencyKey})=>{
-  const response=await fetchImpl('https://api.resend.com/emails',{method:'POST',headers:{authorization:`Bearer ${env.RESEND_API_KEY}`,'content-type':'application/json','Idempotency-Key':idempotencyKey},body:JSON.stringify({from:env.RESEND_FROM_EMAIL,to:[message.to],subject:message.subject,html:message.html,text:message.text}),signal:AbortSignal.timeout(10000)});
+  const recipient=outboundRecipient(message);
+  const response=await fetchImpl('https://api.resend.com/emails',{method:'POST',headers:{authorization:`Bearer ${env.RESEND_API_KEY}`,'content-type':'application/json','Idempotency-Key':idempotencyKey},body:JSON.stringify({from:env.RESEND_FROM_EMAIL,to:[recipient],subject:message.subject,html:message.html,text:message.text}),signal:AbortSignal.timeout(10000)});
   if(!response.ok){const error=new Error('Email provider did not confirm acceptance');error.definitelyNotSent=response.status>=400&&response.status<500&&![408,409,429].includes(response.status);throw error;}
   const body=await response.json();if(!body?.id)throw new Error('Email acceptance was not confirmed');return {id:body.id};
  };

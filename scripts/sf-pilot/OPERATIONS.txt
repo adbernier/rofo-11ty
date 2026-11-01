@@ -7,6 +7,16 @@ private offices, managed offices and traditional leases remain distinct. Fewer t
 three supported options is preferable to invented matches. No vacancy, quote,
 photography, tour confirmation or comprehensive landlord coverage is required.
 
+Synthetic production recipient restriction
+- SF pilot outbound transport now permits ONLY the exact mailbox alan@rofo.com.
+  Missing/other/multiple recipients and CC/BCC are rejected before any provider call,
+  regardless of which invitation/job staff selects. Nonpilot mail is unchanged.
+- All existing send/origin/eligibility/reconciliation gates still apply. This is not
+  activation authority. Send only the approved shortlist and recovery jobs; leave
+  receipt unsent and suppress it during cleanup. All local tests use mocked transport.
+- Inviting actual businesses requires separately reviewing/removing or replacing
+  this synthetic-only restriction. Do not widen it via a runtime override.
+
 Before real use (separate release approval)
 - Deploy reviewed code to existing Rofo Pages; apply0009 then0010 once using the
   existing D1 migration ledger.0010 adds one invitations table/index and two nullable

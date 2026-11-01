@@ -1,4 +1,4 @@
-const assert=require('node:assert/strict');const {loadRuntime,environment}=require('./sf-pilot/test-runtime.cjs');const {email}=loadRuntime();const env=environment();let calls=0;const request=new Request('https://pilot.example.test/sf-pilot/staff');const message={to:'tenant@example.invalid',subject:'Your Rofo shortlist is ready',html:'<p>Private fixture</p>',text:'Private fixture\nSecond line'};
+const assert=require('node:assert/strict');const {loadRuntime,environment}=require('./sf-pilot/test-runtime.cjs');const {email}=loadRuntime();const env=environment();let calls=0;const request=new Request('https://pilot.example.test/sf-pilot/staff');const message={to:'alan@rofo.com',subject:'Your Rofo shortlist is ready',html:'<p>Private fixture</p>',text:'Private fixture\nSecond line'};
 (async()=>{try{
  assert.throws(()=>email.resendTransport(env,request,async()=>{calls++;}),e=>e.status===403);
  const configured={...env,SF_PILOT_EMAIL_SEND_ENABLED:'true',SF_PILOT_MAIL_MODE:'resend',SF_PILOT_ORIGIN:'https://pilot.example.test',RESEND_API_KEY:'synthetic-not-a-real-key',RESEND_FROM_EMAIL:'Rofo <no-reply@example.invalid>'};
