@@ -7,15 +7,30 @@ private offices, managed offices and traditional leases remain distinct. Fewer t
 three supported options is preferable to invented matches. No vacancy, quote,
 photography, tour confirmation or comprehensive landlord coverage is required.
 
-Synthetic production recipient restriction
-- SF pilot outbound transport now permits ONLY the exact mailbox alan@rofo.com.
-  Missing/other/multiple recipients and CC/BCC are rejected before any provider call,
-  regardless of which invitation/job staff selects. Nonpilot mail is unchanged.
-- All existing send/origin/eligibility/reconciliation gates still apply. This is not
-  activation authority. Send only the approved shortlist and recovery jobs; leave
-  receipt unsent and suppress it during cleanup. All local tests use mocked transport.
-- Inviting actual businesses requires separately reviewing/removing or replacing
-  this synthetic-only restriction. Do not widen it via a runtime override.
+Public SF office research admission
+- Both SF_TENANT_PILOT_ENABLED=true and SF_PILOT_PUBLIC_RESEARCH_ENABLED=true
+  are required. The owner of an existing SF Office Brief can request research
+  without an invitation. Only the missing workspace details, name, reply address
+  and separate research/email permission are collected.
+- Submission atomically saves an awaiting-verification search/research record and
+  an unverified mailbox binding. It issues NO private grant, queues NO email and
+  triggers NO referral. Search existence immediately activates permanent legacy
+  referral protection, including while unverified, admission-paused or pilot-off.
+- A typed email is NOT verified. Staff reviews the request and intended recipient,
+  prepares the existing one-use personal invitation and delivers it only to that
+  mailbox through the approved manual Rofo communication process. Never click a
+  real participant's capability from staff preview; that would consume it yourself.
+  Deliberate claim POST establishes possession of the staff-delivered capability,
+  not proof of legal business identity. Existing private/staff safeguards remain.
+- After claim, the participant continues the already saved search; do not repeat
+  the interview/intake. Human review then prepares and publishes useful options.
+- Outbound SF email is bound at the FINAL transport boundary to the current sending
+  job, operation key, verified invitation/search mailbox and live grant. Message
+  overrides, other/multiple recipients and CC/BCC fail before the provider call.
+  Provider content is reconstructed from current server records. No Alan-only
+  constant remains; initial live tests are nevertheless ONLY shortlist+recovery to
+  alan@rofo.com. Receipt stays unsent. No real fulfillment until inbox tests pass
+  and an explicitly named responsible queue owner is ready.
 
 Before real use (separate release approval)
 - Deploy reviewed code to existing Rofo Pages; apply0009 then0010 once using the
@@ -28,13 +43,15 @@ Before real use (separate release approval)
 - Approve sender/reply mailbox and an actual test mailbox; pin HTTPS canonical origin,
   disable private-link tracking/rewriting appropriately and verify real delivery and
   recovery separately. Do not change legacy sender settings without their approval.
-- Assign one daily queue owner and backup. Agree an INTERNAL response target and
+- Assign one daily queue owner; a backup is recommended. Agree an INTERNAL response target and
   review cadence before inviting anyone. Do not promise an unapproved tenant SLA.
 - Agree retention/contact-correction handling for new pilot data. This small pilot
   can use a documented manual process; do not introduce another platform.
 
 Explicit invitation and identity
-1. The participant completes the EXISTING SF office interview and shares their
+1. A public participant requests research from their owned SF Office Brief using
+   the public path above. Staff may also invite a participant directly.
+   The participant completes the EXISTING SF office interview and shares their
    Location Brief reference with the authorized Rofo staff member. This first,
    not-yet-invited interview retains ordinary Rofo behavior, including its current
    draft behavior. No new questionnaire or brokerage referral is required to invite.
@@ -120,7 +137,11 @@ Interest and external inquiries
   already shared; notify the owner and handle that separately.
 
 Stop/rollback
-Stop real-send, then close admissions by pausing the pilot flag. Preserve records,
+Stop staff dispatch immediately. Pages configuration changes require a new
+configuration-only deployment of the same approved artifact: set send=false,
+mailmode=disabled, public research=false and pilot=false. This is not an instant
+runtime toggle. The independent public-research flag can pause new requests while
+keeping existing private access on. Preserve records,
 mail outcomes and permanent enrolled-record referral guards. NoDROP/reverse migration.
 Do not blindly revert to pre-pilot d053 after enrollment; it lacks those guards.
 Use this reviewed invitation-aware candidate with pilot off as the rollback version.

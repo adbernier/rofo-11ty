@@ -6,6 +6,7 @@ export async function hash(value){return Array.from(new Uint8Array(await crypto.
 export async function equal(a,b){return timingSafeEqual(new TextEncoder().encode(await hash(String(a||''))),new TextEncoder().encode(await hash(String(b||''))));}
 export async function mac(env,value){const key=await crypto.subtle.importKey('raw',new TextEncoder().encode(env.SF_PILOT_ACCESS_KEY),{name:'HMAC',hash:'SHA-256'},false,['sign']);return Array.from(new Uint8Array(await crypto.subtle.sign('HMAC',key,new TextEncoder().encode(value))),x=>x.toString(16).padStart(2,'0')).join('');}
 export function enabled(env){return env.SF_TENANT_PILOT_ENABLED==='true'&&Boolean(env.LEADS_DB)&&String(env.SF_PILOT_ACCESS_KEY||'').length>=32;}
+export const publicIntakeEnabled=env=>enabled(env)&&env.SF_PILOT_PUBLIC_RESEARCH_ENABLED==='true';
 export const eligibilitySql=(s='s')=>`exists(select 1 from sf_pilot_invitations i where i.id=${s}.invitation_id and i.brief_id=${s}.brief_id and i.email=${s}.email and i.verified_at is not null and i.revoked_at is null)`;
 export async function eligibleSearch(env,search){if(!search?.invitation_id)return false;try{return Boolean(await env.LEADS_DB.prepare(`select 1 from sf_pilot_searches s where s.id=? and s.invitation_id=? and ${eligibilitySql()}`).bind(search.id,search.invitation_id).first());}catch{return false;}}
 export const invitationCookie=id=>'sf_pilot_invite_'+id.replace(/[^a-zA-Z0-9]/g,'');

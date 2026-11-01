@@ -7,11 +7,13 @@
   "d1_databases": [{"binding":"LEADS_DB","database_name":"sf-pilot-synthetic-only","database_id":"00000000-0000-0000-0000-000000000008","migrations_dir":"migrations","remote":false}],
   "vars": {
     "SF_TENANT_PILOT_ENABLED":"true",
+    "SF_PILOT_PUBLIC_RESEARCH_ENABLED":"true",
     "SF_PILOT_ACCESS_KEY":"synthetic-local-access-key-not-for-production-2026",
     "SF_PILOT_STAFF_KEY":"synthetic-local-staff-key-not-for-production-2026",
     "SF_PILOT_MAIL_MODE":"mock",
     "SF_PILOT_REVIEWER_LABEL":"Local synthetic reviewer",
     "LOCATION_BRIEF_V2_OPERATOR_ENABLED":"true",
+    "LOCATION_BRIEF_V2_OPERATOR_KEY":"synthetic-local-operator-key-not-for-production",
     "LOCATION_BRIEF_V2_PUBLIC_ENTRY_ENABLED":"true",
     "LOCATION_BRIEF_V2_PUBLIC_SF_OFFICE_ENABLED":"true",
     "LOCATION_BRIEF_V2_PUBLIC_SF_OFFICE_SOURCES":"homepage,city,district,building"

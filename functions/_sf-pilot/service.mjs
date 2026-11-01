@@ -18,6 +18,23 @@ const holdStaleSql="update sf_pilot_inquiries set status='held',updated_at=? whe
 
 export function requestKey(value){if(!/^[a-zA-Z0-9_-]{8,100}$/.test(value||''))fail('Please reload this form before submitting.');return value;}
 export async function ownedBrief(env,request,id){const bundle=await getBriefBundle(env,id,false);if(!bundle||!isSfOfficeRequirement(bundle.currentRevision.requirement))fail('This pilot supports San Francisco office searches.',404);const invitationAccess=await invitationSession(env,request,bundle.brief.publicId);if(!invitationAccess||invitationAccess.brief_id!==bundle.brief.id)fail('Open your personal pilot invitation to continue.',403);return {...bundle,invitationAccess};}
+// Public admission saves research only; typed email is never a private capability.
+export async function publicBrief(env,request,id){const bundle=await getBriefBundle(env,id,false);if(!bundle||!isSfOfficeRequirement(bundle.currentRevision.requirement))fail('This research service supports San Francisco office searches.',404);if(!await ownsBrief(request,bundle.brief))fail('Open this request from the browser that owns your Location Brief.',403);return bundle;}
+export async function publicResearch(env,bundle,form){
+ requestKey(form.requestId);if(form.researchConsent!=='yes')fail('Confirm that you want Rofo to review your search.');
+ if(form.briefRevision!==bundle.currentRevision.id)fail('Your Location Brief changed. Reload before asking for research.',409);
+ const email=text(form.email,254).toLowerCase(),name=text(form.name,120);
+ if(!name||!/^\S+@\S+\.\S+$/.test(email)||/[<>,;\r\n]/.test(email))fail('Add your name and one valid reply email.');
+ const existing=await one(env,'select id from sf_pilot_searches where brief_id=?',bundle.brief.id);if(existing)return existing;
+ const ext=extensionFor(bundle,form),t=now(),invitationId=crypto.randomUUID(),id=crypto.randomUUID();
+ ext.researchPermission={version:'sf-public-research:v1',at:t,requirementRevision:bundle.currentRevision.id};
+ await env.LEADS_DB.batch([
+  env.LEADS_DB.prepare('insert into sf_pilot_invitations(id,brief_id,email,created_at) select ?,?,?,? where exists(select 1 from location_briefs_v2 where id=? and current_requirement_revision_id=?) on conflict do nothing').bind(invitationId,bundle.brief.id,email,t,bundle.brief.id,bundle.currentRevision.id),
+  env.LEADS_DB.prepare(`insert into sf_pilot_searches(id,public_id,brief_id,name,email,extension_json,requirement_revision_id,status,created_at,updated_at,invitation_id) select ?,?,?,?,?,?,?,'awaiting-verification',?,?,i.id from sf_pilot_invitations i join location_briefs_v2 b on b.id=i.brief_id where i.brief_id=? and i.email=? and i.revoked_at is null and i.verified_at is null and b.current_requirement_revision_id=? on conflict(brief_id) do nothing`).bind(id,`SF-${token(10).toUpperCase()}`,bundle.brief.id,name,email,JSON.stringify(ext),bundle.currentRevision.id,t,t,bundle.brief.id,email,bundle.currentRevision.id),
+  env.LEADS_DB.prepare(`insert into sf_pilot_research(id,search_id,revision,request_key,note,status,created_at) select ?,s.id,s.revision,?,'Public research request; reply address not yet verified','awaiting-verification',? from sf_pilot_searches s where s.id=? and s.brief_id=? and s.email=? on conflict(search_id,revision,request_key) do nothing`).bind(crypto.randomUUID(),form.requestId,t,id,bundle.brief.id,email)
+ ]);
+ const saved=await one(env,'select * from sf_pilot_searches where brief_id=?',bundle.brief.id);if(!saved)fail('Your request changed. Reload before trying again.',409);return saved;
+}
 function criterion(requirement,id){const c=(requirement.criteria||[]).find(x=>x.dimension===id);return c?.value?.number||c?.value?.text||c?.value?.list?.join(', ')||'';}
 export function canonicalDefaults(bundle){
  const r=bundle.currentRevision.requirement;const sizeText=r.sizeCapacity?.summary||String(criterion(r,'universal.capacity.size'));
