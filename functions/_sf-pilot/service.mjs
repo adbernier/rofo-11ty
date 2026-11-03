@@ -39,7 +39,7 @@ function criterion(requirement,id){const c=(requirement.criteria||[]).find(x=>x.
 export function canonicalDefaults(bundle){
  const r=bundle.currentRevision.requirement;const sizeText=r.sizeCapacity?.summary||String(criterion(r,'universal.capacity.size'));
  const count=sizeText.match(/(?:^|\b)([1-9][0-9]{0,2})\s+(?:people|employees|team members)\b/i)||sizeText.match(/\bteam of ([1-9][0-9]{0,2})\b/i);
- const people=count?Number(count[1]):null;
+ const people=r.initialSearch?.type==='office'?(typeof r.initialSearch.people==='number'?r.initialSearch.people:null):count?Number(count[1]):null;
  const peakValue=criterion(r,'office.occupancy.peak_attendance'),peak=Number(peakValue)||null;
  const preferences=r.locationLogic?.specificPreference||{},snapshot=bundle.currentSnapshot||{},rows=snapshot.shortlist||[];
  // Use the current engine's reviewed presentation groups, not a second geography map.

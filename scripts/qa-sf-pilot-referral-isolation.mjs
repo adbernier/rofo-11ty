@@ -46,6 +46,7 @@ try {
     statements.push(sql);
     return {bind(...args) {return {first:async()=> {
       if (/select \* from leads/.test(sql)) return {id:'synthetic-lead',status:'pending',lead_json:JSON.stringify(record),officefinder_json:'{}'};
+      if (/location_brief_v2_entry_contexts/.test(sql) && (!failure || /no such table: sf_pilot_searches/.test(failure))) return null;
       if (failure) throw Error(failure);
       if (/sf_pilot_searches/.test(sql)) return enrolled?{brief_id:'synthetic-brief'}:null;
       throw Error('Unexpected read in isolation test');

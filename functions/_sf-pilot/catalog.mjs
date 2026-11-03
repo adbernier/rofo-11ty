@@ -358,8 +358,8 @@ function searchContext(extension = {}) {
   const peak = positive(extension.peak);
   const days = positive(extension.days);
   return {
-    people, peak, days,
-    privacy: ['open', 'calls', 'private'].includes(extension.privacy) ? extension.privacy : 'private',
+    people, peak, days, initialGuidance: extension.initialGuidance === true,
+    privacy: ['open', 'calls', 'private', ...(extension.initialGuidance === true ? ['either'] : [])].includes(extension.privacy) ? extension.privacy : 'private',
     meetings: ['occasional', 'daily', 'large'].includes(extension.meetings) ? extension.meetings : 'unknown',
     commitment: ['flexible', 'month', 'compare', 'fixed'].includes(extension.commitment) ? extension.commitment : 'compare',
     budget: positive(extension.budget), budgetBasis: extension.budgetBasis,
@@ -376,7 +376,7 @@ function monthlyBudget(r) {
 function eligible(item, r) {
   if (item.type === 'traditional-lease') return true;
   const shared = item.type === 'shared-membership';
-  const privateNeed = r.privacy === 'private' || (r.people >= 8 && r.meetings !== 'occasional');
+  const privateNeed = r.privacy === 'private' || (!r.initialGuidance && r.people >= 8 && r.meetings !== 'occasional');
   if (privateNeed && shared) return false;
   // Calls in communal space are only an inquiry when occasional use is sufficient;
   // regular confidential calls require enclosed premises, not assumed booth rights.
@@ -440,7 +440,7 @@ function diverse(items) {
 export function selectOptions(extension = {}, preferredDistricts = []) {
   const r = searchContext(extension);
   const wanted = new Set((Array.isArray(preferredDistricts) ? preferredDistricts : []).map(id => districtAliases[id] || id));
-  const scoped = catalog.filter(item => (!wanted.size || wanted.has(item.district)) && eligible(item, r));
+  const scoped = catalog.filter(item => (!wanted.size || wanted.has(item.district)) && eligible(item, r) && (!extension.initialGuidance || !extension.workspacePreference || extension.workspacePreference==='either' || (extension.workspacePreference==='traditional'?item.type==='traditional-lease':extension.workspacePreference==='cowork'?item.type==='shared-membership':item.type==='private-serviced-office')));
   const cap = monthlyBudget(r);
   // The bounded v2.1 weights are product-comparison priorities, not new district scores.
   const score = item => {

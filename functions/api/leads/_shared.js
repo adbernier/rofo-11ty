@@ -24,6 +24,8 @@ export async function legacyReferralBlocked(env, lead = {}) {
   if (!/^LB2-[A-F0-9]{24}$/i.test(publicId) && !internalId) return false;
   const database = env.LOCATION_BRIEFS_DB || env.LEADS_DB;
   if (!database) return false; // Legacy KV-only deployments have no pilot D1 enrollment.
+  try { const universal = await database.prepare(`select e.context_json from location_brief_v2_entry_contexts e join location_briefs_v2 b on b.id=e.brief_id where b.public_id=? or b.id=? limit 1`).bind(publicId,internalId).first(); if(universal&&JSON.parse(universal.context_json).businessArchetypeId==='universal-tenant:v1')return true; }
+  catch(error){if(!/no such table: (?:location_brief_v2_entry_contexts|location_briefs_v2)\b/i.test(String(error?.message||error)))throw new Error('Referral eligibility could not be verified; no information was shared.');}
   try {
     const row = await database.prepare(`select p.brief_id from sf_pilot_searches p
       join location_briefs_v2 b on b.id = p.brief_id

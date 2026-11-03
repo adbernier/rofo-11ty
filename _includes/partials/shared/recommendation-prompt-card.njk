@@ -70,6 +70,7 @@
 {% if promptJourney %}{% set promptParams = (promptParams.push("journey=" + (promptJourney | queryEncode)), promptParams) %}{% endif %}
 {% set promptBase = "/best-fit-locations/" %}
 {% set promptHref = promptBase + ("?" + (promptParams | join("&")) if promptParams.length else "") %}
+{% if universalTenant.enabled %}{% set promptHref = "/location-requirement/" + ("?" + (promptParams | join("&")) if promptParams.length else "") %}{% endif %}
 
 <section
   class="recommendation-prompt-card"

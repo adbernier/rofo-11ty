@@ -1,0 +1,3 @@
+-- Additive, private Rofo-only follow-up queue. No referral or delivery job is created.
+create table if not exists universal_tenant_inquiries(id text primary key,brief_id text not null,requirement_revision_id text not null,kind text not null,purpose text not null,item_id text not null,payload_json text not null,recipient_json text,consent_json text,operations_json text,status text not null,version integer not null default 1,request_key text not null,created_at integer not null,updated_at integer not null,unique(brief_id,request_key));
+create index if not exists universal_tenant_inquiries_queue on universal_tenant_inquiries(status,updated_at);

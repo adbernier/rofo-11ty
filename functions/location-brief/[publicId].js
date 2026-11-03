@@ -1,3 +1,5 @@
+import { enabled as universalEnabled,isUniversal } from '../_universal-tenant/service.mjs';
+import { universalPage } from '../_universal-tenant/page.mjs';
 const isPilotOffice = bundle => bundle.currentRevision.requirement.propertyTypes?.length === 1 && bundle.currentRevision.requirement.propertyTypes[0] === "office" && (bundle.currentRevision.requirement.locationLogic?.marketAnchor?.marketId || bundle.currentRevision.requirement.locationLogic?.marketAnchor?.geographyId) === "san-francisco";
 import { pilotOwnsBrief, pilotContinuation } from "../_sf-pilot/brief-access.mjs";
 import {
@@ -289,6 +291,7 @@ export async function onRequestGet({ request, params, env }) {
     try { bundle = await getLocationBriefV2Bundle(env, publicId, false); }
     catch { return privateHtml("Your Location Brief is temporarily unavailable. Please try again.", 503); }
     if (!bundle) return privateHtml("Location Brief not found.", 404);
+    if(isUniversal(bundle)){if(!universalEnabled(env))return privateHtml('Not found.',404);if(!await ownsLocationBriefV2(request,bundle.brief))return privateHtml('Open this Brief in the browser that created it.',403);return universalPage({publicId:bundle.brief.publicId,revision:bundle.currentRevision.revisionNumber,requirement:bundle.currentRevision.requirement,originalEntry:bundle.currentRevision.requirement.initialOrigin||{}});}
     const owner = await ownsLocationBriefV2(request, bundle.brief) || await pilotOwnsBrief(request, env, bundle.brief);
     const pilotPath = owner && isPilotOffice(bundle) ? await pilotContinuation(request,env,bundle.brief) : "";
     if (pilotPath) { bundle = { ...bundle, currentSnapshot: { ...bundle.currentSnapshot, shortlist: (bundle.currentSnapshot.shortlist || []).map(item => ({ ...item, presentation: { ...item.presentation, districtPath: `/commercial-real-estate/CA/san-francisco/${item.canonicalDistrictId || item.districtId}/` } })), candidateAssessments: (bundle.currentSnapshot.candidateAssessments || []).map(item => ({ ...item, presentation: { ...item.presentation, districtPath: `/commercial-real-estate/CA/san-francisco/${item.canonicalDistrictId || item.districtId}/` } })) } }; }

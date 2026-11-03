@@ -1,3 +1,5 @@
+import { enabled as universalEnabled } from '../_universal-tenant/service.mjs';
+import { universalPage } from '../_universal-tenant/page.mjs';
 import { ASSET_VERSIONS } from "../_sf-pilot/asset-versions.mjs";
 import { enabled as sfPilotEnabled, invitationSession } from "../_sf-pilot/security.mjs";
 import { publicEntryContextEligibleAtRuntime, publicSourceAllowed } from "../api/location-brief-v2/_shared.js";
@@ -10,6 +12,7 @@ function fallback(request) {
 }
 
 export async function onRequest(context) {
+  if(universalEnabled(context.env)) return universalPage();
   const url = new URL(context.request.url);
   const propertyInput = url.searchParams.get("propertyType") || url.searchParams.get("spaceType") || "";
   const propertyType = /industrial|warehouse|flex/i.test(propertyInput) ? "industrial_flex" : /retail|service/i.test(propertyInput) ? "retail_service" : /office/i.test(propertyInput) ? "office" : "";

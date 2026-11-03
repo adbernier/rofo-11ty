@@ -1,9 +1,11 @@
+import {isUniversal,enabled as universalEnabled} from '../../_universal-tenant/service.mjs';
 import { pilotOwnsBrief, pilotBriefEditAccess } from "../../_sf-pilot/brief-access.mjs";
 import { getBriefBundle, operatorAllowed, ownsBrief, privateJson, reviseBrief, sameOriginMutation } from "./_shared.js";
 
 export async function onRequestGet({ request, env, params }) {
   const operator = operatorAllowed(request, env);
   const bundle = await getBriefBundle(env, params.publicId, operator && new URL(request.url).searchParams.get("debug") === "1");
+  if(isUniversal(bundle)&&!universalEnabled(env))return privateJson({error:"Not found."},404);
   if (!bundle) return privateJson({ ok: false, error: "Location Brief v2 not found." }, 404);
   const owner = await ownsBrief(request, bundle.brief) || await pilotOwnsBrief(request, env, bundle.brief);
   if (!operator && !owner) return privateJson({ ok: false, error: "Edit capability required." }, 403);
@@ -14,6 +16,7 @@ export async function onRequestPut({ request, env, params }) {
   const operator = operatorAllowed(request, env);
   if (!operator && !sameOriginMutation(request)) return privateJson({ ok: false, error: "Invalid request origin." }, 403);
   const bundle = await getBriefBundle(env, params.publicId, true); if (!bundle) return privateJson({ ok: false, error: "Location Brief v2 not found." }, 404);
+  if(isUniversal(bundle))return privateJson({error:'Use the current Location Brief to edit this search.'},409);
   const legacyOwner = await ownsBrief(request, bundle.brief);
   const pilotEditAccess = legacyOwner ? null : await pilotBriefEditAccess(request, env, bundle.brief);
   if (!legacyOwner && !pilotEditAccess) return privateJson({ ok: false, error: "Edit capability required." }, 403);

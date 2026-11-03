@@ -1,3 +1,4 @@
+import { initialSnapshot } from '../../../lib/recommendations/universal-initial-v1.mjs';
 import readinessEngine from "../../../lib/recommendations/private-recommendation-readiness.js";
 import accessFoundation from "../../../_data/sfAccessFoundationV0.js";
 import compositionFoundation from "../../../_data/sfOfficeCompositionFoundation.js";
@@ -307,12 +308,12 @@ export function canonicalRequirement(input = {}, entryContext = {}) {
   value.propertyTypes = cleanArray(value.propertyTypes, 6);
   value.locationLogic = value.locationLogic && typeof value.locationLogic === "object" ? value.locationLogic : {};
   value.locationLogic.marketAnchor = value.locationLogic.marketAnchor && typeof value.locationLogic.marketAnchor === "object" ? value.locationLogic.marketAnchor : {};
-  if (!value.locationLogic.marketAnchor.marketId && entryContext.marketId) value.locationLogic.marketAnchor.marketId = entryContext.marketId;
-  if (!value.locationLogic.marketAnchor.geographyId && entryContext.marketId) value.locationLogic.marketAnchor.geographyId = entryContext.marketId;
+  if (!value.initialSearch && !value.locationLogic.marketAnchor.marketId && entryContext.marketId) value.locationLogic.marketAnchor.marketId = entryContext.marketId;
+  if (!value.initialSearch && !value.locationLogic.marketAnchor.geographyId && entryContext.marketId) value.locationLogic.marketAnchor.geographyId = entryContext.marketId;
   if (!value.propertyTypes.length && entryContext.propertyType) value.propertyTypes = [entryContext.propertyType];
   value.locationLogic.specificPreference = value.locationLogic.specificPreference && typeof value.locationLogic.specificPreference === "object" ? value.locationLogic.specificPreference : {};
   const requirementCandidates = cleanArray(value.locationLogic.specificPreference.candidateDistrictIds);
-  value.locationLogic.specificPreference.candidateDistrictIds = cleanArray([...requirementCandidates, ...cleanArray(entryContext.candidateDistrictIds)]);
+  value.locationLogic.specificPreference.candidateDistrictIds = cleanArray([...requirementCandidates, ...(value.initialSearch ? [] : cleanArray(entryContext.candidateDistrictIds))]);
   value.updatedAt = new Date().toISOString();
   return value;
 }
@@ -411,6 +412,7 @@ function comparisonAlternatives(requirement, result, assessments) {
 }
 
 export function calculateSnapshot(requirement, env = {}) {
+  if(env.__universalInitial === true && requirement.initialSearch) return initialSnapshot(requirement.initialSearch);
   const result = readinessEngine.evaluateRecommendationReadiness(requirement, { ...dependencies, sanDiegoIndustrialFlexEnabled: sanDiegoIndustrialFlexEnabled(env), northOrangeCountyIndustrialFlexEnabled: env?.__northOrangeCountyIndustrialFlexEnabled === true, phoenixIndustrialFlexEnabled: env?.__phoenixIndustrialFlexEnabled === true, indianapolisIndustrialFlexEnabled: env?.__indianapolisIndustrialFlexEnabled === true, sacramentoIndustrialFlexEnabled: env?.__sacramentoIndustrialFlexEnabled === true });
   const assessments = candidateAssessments(requirement, result);
   return {
@@ -492,8 +494,10 @@ function gapStatements(database, brief, revision, snapshot, requirement, require
 function ownerCookie(publicId, token) { return `${OWNER_COOKIE}=${encodeURIComponent(`${publicId}.${token}`)}; Path=/; HttpOnly; Secure; SameSite=Strict; Max-Age=2592000`; }
 function parseCookies(request) { return Object.fromEntries(String(request.headers.get("cookie") || "").split(";").map((part) => part.trim().split(/=(.*)/s)).filter(([key]) => key).map(([key, value]) => [key, decodeURIComponent(value || "")])); }
 export async function ownsBrief(request, brief) {
-  const [publicId, token] = String(parseCookies(request)[OWNER_COOKIE] || "").split(".");
-  return Boolean(publicId === brief.publicId && token && await sha256(token) === brief.ownerCapabilityHash);
+  const cookies=parseCookies(request);
+  const ownerHash=String(brief.ownerCapabilityHash||"");const expiry=ownerHash.match(/^ut1:(\d+):([a-f0-9]{64})$/);if(ownerHash.startsWith("ut1:")&&(!expiry||Number(expiry[1])<=Date.now()))return false;const expectedOwnerHash=expiry?expiry[2]:ownerHash;
+  for(const value of [cookies[OWNER_COOKIE],cookies[`rofo_ut_${brief.publicId}`]]) { const [publicId,token]=String(value||"").split("."); if(publicId===brief.publicId&&token&&await sha256(token)===expectedOwnerHash)return true; }
+  return false;
 }
 export function commercialContextForBundle(bundle) {
   const requirement = bundle?.currentRevision?.requirement || {};

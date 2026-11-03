@@ -1,8 +1,11 @@
+import {enabled as universalEnabled} from './_universal-tenant/service.mjs';
 import { publicEntryContextEligibleAtRuntime, publicSourceAllowed } from "./api/location-brief-v2/_shared.js";
 
 const propertyType = (value) => /retail|service/i.test(value || "") ? "retail_service" : /industrial|warehouse|flex/i.test(value || "") ? "industrial_flex" : /office/i.test(value || "") ? "office" : "";
 
 export async function controlledEntryDecision(env, url) {
+  const initialType=url.searchParams.get('propertyType')||url.searchParams.get('spaceType')||'';
+  if(universalEnabled(env)&&(!initialType||propertyType(initialType)))return {eligible:true,reasonCode:'UNIVERSAL_INITIAL_GUIDANCE'};
   const source = url.searchParams.get("source") || "homepage";
   const marketId = url.searchParams.get("marketId") || (/^san francisco$/i.test(url.searchParams.get("city") || "") ? "san-francisco" : "");
   const type = propertyType(url.searchParams.get("propertyType") || url.searchParams.get("spaceType"));
