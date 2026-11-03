@@ -53,6 +53,14 @@ eleventyExcludeFromCollections: true
     <loc>{{ siteUrl }}/about/</loc>
   </url>
 
+  {# Blog dates are intentionally omitted until a reviewed substantive modification date exists. #}
+  <url><loc>{{ siteUrl }}/blog/</loc></url>
+  {% for post in collections.blog %}
+  {% if post.url and not post.data.draft and not post.data.noindex and not post.data.canonical and "noindex" not in (post.data.robots or "") %}
+  <url><loc>{{ siteUrl }}{{ post.url }}</loc></url>
+  {% endif %}
+  {% endfor %}
+
   {% for city in cities %}
   <url>
     <loc>{{ siteUrl }}{{ city.path }}</loc>
