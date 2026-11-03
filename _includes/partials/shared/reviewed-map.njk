@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="/assets/reviewed-map.css">{% if reviewedMap.searchPilot %}
 <link rel="stylesheet" href="/assets/chicago-map-search.css">{% endif %}
 <section class="rofo-map" data-rofo-map{% if reviewedMap.searchPilot %} data-map-search-pilot{% endif %} data-desktop="{{ reviewedMap.desktop | escape }}" data-mobile="{{ reviewedMap.mobile | escape }}" aria-label="{{ reviewedMap.title | escape }}">
-  {% if not reviewedMap.searchPilot %}<h2>{{ reviewedMap.title | escape }}</h2>{% endif %}
+  {% if not reviewedMap.searchPilot and not reviewedMapSuppressHeading %}<h2>{{ reviewedMap.title | escape }}</h2>{% endif %}
   {% if reviewedMap.type != 'city' and (reviewedMap.cityUrl or (reviewedMap.type == 'property' and reviewedMap.districtUrl)) %}<p class="rofo-map__parent">{% if reviewedMap.cityUrl %}<a href="{{ reviewedMap.cityUrl | escape }}">{{ reviewedMap.cityName | escape }} areas</a>{% endif %}{% if reviewedMap.type == 'property' and reviewedMap.districtUrl %} · <a href="{{ reviewedMap.districtUrl | escape }}">{{ reviewedMap.districtName | escape }}</a>{% endif %}</p>{% endif %}
   <div class="rofo-map__layout">
     <div>
@@ -29,7 +29,7 @@
         {% if reviewedMap.searchPilot %}<a class="rofo-map__action" href="{{ reviewedMap.items[0].searchUrl | escape }}">Start a search in {{ reviewedMap.items[0].name | escape }}</a><p><a href="{{ reviewedMap.items[0].url | escape }}">Read the area guide</a></p><p class="rofo-map__note">We’ll carry this area into your Business Profile. You can change it or compare other areas.</p>{% elif reviewedMap.items[0].url != page.url %}<a class="rofo-map__action" href="{{ reviewedMap.items[0].url | escape }}">{% if reviewedMap.items[0].kind == 'property' %}Explore this property{% elif reviewedMap.items[0].scope == 'citywide' %}Read this city guide{% else %}Explore this area{% endif %} →</a>{% endif %}
       </div>
       <details class="rofo-map__list"{% if reviewedMap.items.length == 1 and not reviewedMap.unmapped.length %} hidden{% endif %}><summary>{% if reviewedMap.searchPilot %}Other area guides ({{ reviewedMap.unmapped.length }}){% else %}Choose from the list ({{ (reviewedMap.items.length + reviewedMap.unmapped.length) | escape }}){% endif %}</summary>
-        <ol>
+        <ol{% if reviewedMapListId %} id="{{ reviewedMapListId }}"{% endif %}>
 {% if not reviewedMap.searchPilot %}          {% for item in reviewedMap.items %}<li data-map-item data-kind="{{ item.kind | escape }}" data-scope="{{ item.scope | escape }}" data-status="{{ item.status | escape }}" data-description="{{ item.description | escape }}"{% if reviewedMap.searchPilot %} data-area-slug="{{ item.slug | escape }}" data-search-url="{{ item.searchUrl | escape }}"{% endif %}>
             <button type="button" data-map-select="{{ loop.index0 | escape }}" aria-pressed="{% if loop.first %}true{% else %}false{% endif %}" hidden>{{ loop.index | escape }} · <span>{{ item.name | escape }}</span></button>
             <a href="{{ item.url | escape }}" data-map-link>{{ item.name | escape }} →</a>{% if reviewedMap.searchPilot %}<a href="{{ item.searchUrl | escape }}">Start a search in {{ item.name | escape }}</a>{% endif %}

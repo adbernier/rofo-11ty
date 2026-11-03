@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{% set useFinancialDistrictReference = financialDistrictReference.enabled and page.url == "/commercial-real-estate/CA/san-francisco/financial-district/" %}<!DOCTYPE html>
 <html lang="en">
 <head>
   <!-- Google tag (gtag.js) -->
@@ -57,8 +57,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css">
-  <link rel="stylesheet" href="/assets/css/system.css{% if page.url == "/find-locations/" %}?v={{ interviewAssets.stylesheetVersion }}{% endif %}">
+{% if useFinancialDistrictReference %}  <link rel="stylesheet" href="/assets/financial-district-reference.css">{% else %}  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/assets/css/system.css{% if page.url == "/find-locations/" %}?v={{ interviewAssets.stylesheetVersion }}{% endif %}">{% endif %}
 
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -68,15 +68,15 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://www.rofo.com/#organization","name":"Rofo","url":"https://www.rofo.com/"},{"@type":"WebSite","@id":"https://www.rofo.com/#website","name":"Rofo","url":"https://www.rofo.com/","publisher":{"@id":"https://www.rofo.com/#organization"}}]}</script>
   {% endif %}
 </head>
-<body>
+<body{% if useFinancialDistrictReference %} class="financial-district-reference"{% endif %}>
 
-  {% include "header.njk" %}
+  {% if useFinancialDistrictReference %}{% include "partials/neighborhood/financial-district-reference-header.njk" %}{% else %}{% include "header.njk" %}{% endif %}
 
   <main>
     {{ content | safe }}
   </main>
 
-  <footer class="footer">
+{% if useFinancialDistrictReference %}  {% include "partials/neighborhood/financial-district-reference-footer.njk" %}{% else %}  <footer class="footer">
     <div class="container footer-grid">
       <div>
         <p class="note">Helping businesses find commercial space since 2008.</p>
@@ -103,7 +103,7 @@
         </div>
       </div>
     </div>
-  </footer>
+  </footer>{% endif %}
 
   <script src="/js/market-search.js" defer></script>
   <script src="/js/commercial-geography-experience.js" defer></script>

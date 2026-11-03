@@ -1,0 +1,9 @@
+---
+pagination:
+  data: millsReviewedProfile.profiles
+  size: 1
+  alias: profile
+permalink: "{{ profile.canonicalPath }}"
+eleventyExcludeFromCollections: true
+---
+{{ profile.html | safe }}
