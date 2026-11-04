@@ -12,7 +12,7 @@ eleventyComputed:
   canonical: "{{ metadata.siteUrl }}{{ neighborhood.canonical_neighborhood_path }}"
   robots: "{% if neighborhood.noindex %}noindex,follow{% endif %}"
 ---
-{% if financialDistrictReference.enabled and neighborhood.canonical_neighborhood_path == "/commercial-real-estate/CA/san-francisco/financial-district/" %}{% include "partials/neighborhood/financial-district-reference.njk" %}{% else %}
+{% if financialDistrictReference.enabled and sfDistrictEditorials.byPath[neighborhood.canonical_neighborhood_path] %}{% set districtEditorial = sfDistrictEditorials.byPath[neighborhood.canonical_neighborhood_path] %}{% include "partials/neighborhood/district-editorial.njk" %}{% elseif financialDistrictReference.enabled and neighborhood.canonical_neighborhood_path == "/commercial-real-estate/CA/san-francisco/financial-district/" %}{% include "partials/neighborhood/financial-district-reference.njk" %}{% else %}
 {% set crumbs = [
   { "label": "Markets", "url": "/markets/" },
   { "label": neighborhood.city + ", " + neighborhood.state_abbr, "url": "/commercial-real-estate/" + neighborhood.state_abbr + "/" + neighborhood.city_slug + "/" },
