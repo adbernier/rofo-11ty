@@ -1,0 +1,7 @@
+{%- set approvedDistrictPhoto = districtPhotography.byPath[page.url] -%}
+{%- if approvedDistrictPhoto and approvedDistrictPhoto.approved and approvedDistrictPhoto.src and approvedDistrictPhoto.alt -%}
+<link rel="stylesheet" href="/assets/css/district-photograph.css">
+<div class="district-photograph">
+{% set fieldPhotoApproved = approvedDistrictPhoto %}{% include "partials/shared/editorial-photo-slot.njk" %}{% set fieldPhotoApproved = null %}
+</div>
+{%- endif -%}

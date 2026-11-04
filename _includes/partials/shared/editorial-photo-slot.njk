@@ -1,3 +1,9 @@
+{%- if fieldPhotoApproved and fieldPhotoApproved.approved and fieldPhotoApproved.src and fieldPhotoApproved.alt -%}
+<figure class="editorial-photo__figure" data-approved-photo-id="{{ fieldPhotoApproved.id | escape }}">
+<div class="district-photograph__media"><img src="{{ fieldPhotoApproved.src | escape }}"{% if fieldPhotoApproved.srcset %} srcset="{{ fieldPhotoApproved.srcset | escape }}" sizes="(max-width: 780px) calc(100vw - 40px), (max-width: 1120px) calc(100vw - 60px), 1060px"{% endif %} width="{{ fieldPhotoApproved.width }}" height="{{ fieldPhotoApproved.height }}" alt="{{ fieldPhotoApproved.alt | escape }}" loading="lazy" decoding="async" style="object-position:{{ fieldPhotoApproved.focalPosition or '50% 50%' }}"></div>
+{% if fieldPhotoApproved.caption or fieldPhotoApproved.attribution %}<figcaption>{% if fieldPhotoApproved.caption %}<span>{{ fieldPhotoApproved.caption | escape }}</span>{% endif %}{% if fieldPhotoApproved.attribution %}<small>{{ fieldPhotoApproved.attribution | escape }}</small>{% endif %}</figcaption>{% endif %}
+</figure>
+{%- else -%}
 <div
   class="editorial-photo"
   data-photo-subject-type="{{ fieldPhotoSubjectType }}"
@@ -5,3 +11,4 @@
   data-photo-placement="{{ fieldPhotoPlacement or 'inline' }}"
   hidden
 ></div>
+{%- endif -%}

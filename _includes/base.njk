@@ -70,7 +70,7 @@
 </head>
 <body{% if useFinancialDistrictReference %} class="financial-district-reference"{% endif %}>
 
-  {% if useFinancialDistrictReference %}{% include "partials/neighborhood/financial-district-reference-header.njk" %}{% else %}{% include "header.njk" %}{% endif %}
+  {% if useFinancialDistrictReference %}{% set headerSearchHref = "/location-requirement/?city=" + (neighborhood.city | queryEncode) + "&state=" + (neighborhood.state_abbr | queryEncode) + "&district=" + (neighborhood.name | queryEncode) + "&source=district&sourcePath=" + (page.url | queryEncode) + "&marketId=" + (neighborhood.city_slug | queryEncode) + "&districtId=" + (neighborhood.slug | queryEncode) %}{% endif %}{% include "header.njk" %}
 
   <main>
     {{ content | safe }}
