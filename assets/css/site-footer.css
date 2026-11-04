@@ -1,0 +1,9 @@
+/* Shared production footer rules, scoped for district pages using the editorial stylesheet. */
+.footer{margin-top:30px;padding:36px 0 60px;background:#0b1730;color:#dbe8ff;font:16px system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Inter",sans-serif;line-height:normal}
+.footer .container{width:min(calc(100% - 40px),1180px);margin:0 auto}
+.footer .footer-grid{display:grid;grid-template-columns:1.3fr .7fr .7fr .8fr;gap:24px}
+.footer a{display:block;color:#d7e3f5;margin:10px 0;text-decoration:none}
+.footer a:hover{text-decoration:underline}
+.footer h4{margin:0 0 12px;color:#fff;font-size:1em;font-weight:bold;line-height:normal}
+.footer .note{font-size:13px;color:#70839a;margin:1em 0}
+@media(max-width:1040px){.footer .footer-grid{grid-template-columns:1fr}}

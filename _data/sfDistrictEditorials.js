@@ -26,4 +26,6 @@ const entries={
  sources:[{title:'SF Planning · Showplace Square/Potrero Area Plan',url:'https://generalplan.sfplanning.org/Showplace_Square_Potrero.htm',basis:'District history, showroom development and wider planning-area scope.'},{title:'SF Planning · 2 Henry Adams Landmark Case Report (2014)',url:'https://commissions.sfplanning.org/hpcpackets/2013.1593L.pdf',basis:'Building identity, 1915 construction and warehouse history. Historical report, not a current use authorization.'},{title:'San Francisco Design Center · About',url:'https://sfdesigncenter.com/about/',basis:'First-party account of Showplace and Galleria and the overlapping district names.'},{title:'San Francisco Design Center · Galleria address',url:'https://sfdesigncenter.com/venue/galleria-376/',basis:'First-party identification of 101 Henry Adams Street.'}]
  }
 };
+// South Beach remains on hold: no reviewed district-map location is available.
+Object.assign(entries,Object.fromEntries(Object.entries(require('./sfDistrictEditorialBatch2.json')).filter(([slug])=>slug!=='south-beach')));
 module.exports={byPath:Object.fromEntries(Object.entries(entries).map(([slug,item])=>[base+slug+'/',{...item,reviewed:'4 November 2026'}]))};
