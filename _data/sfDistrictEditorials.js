@@ -28,4 +28,5 @@ const entries={
 };
 // South Beach remains on hold: no reviewed district-map location is available.
 Object.assign(entries,Object.fromEntries(Object.entries(require('./sfDistrictEditorialBatch2.json')).filter(([slug])=>slug!=='south-beach')));
+Object.assign(entries,require('./sfDistrictEditorialBatch3.json'));
 module.exports={byPath:Object.fromEntries(Object.entries(entries).map(([slug,item])=>[base+slug+'/',{...item,reviewed:'4 November 2026'}]))};

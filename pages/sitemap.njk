@@ -96,7 +96,7 @@ eleventyExcludeFromCollections: true
   {% endfor %}
 
   {% for neighborhood in neighborhoodPages %}
-  {% if neighborhood.canonical_neighborhood_path and not neighborhood.noindex %}
+  {% if neighborhood.canonical_neighborhood_path and not neighborhood.noindex and not (financialDistrictReference.enabled and neighborhood.canonical_neighborhood_path == "/commercial-real-estate/CA/san-francisco/mission/") %}
   <url>
     <loc>{{ siteUrl }}{{ neighborhood.canonical_neighborhood_path }}</loc>
   </url>
