@@ -179,7 +179,7 @@ eleventyComputed:
 {% set hasRepresentativeBuildingChapter = editorialRepresentativeBuildings.length %}
 {% set hasLocalHelpChapter = true %}
 
-{% if city.slug == "chicago" and city.state_abbr == "IL" %}{% include "partials/city/chicago-city-v2.njk" %}{% else %}<section class="city-page">
+{% if cityDiscovery.enabled and city.slug == "san-francisco" and city.state_abbr == "CA" %}{% include "partials/city/discovery-hub.njk" %}{% elseif city.slug == "chicago" and city.state_abbr == "IL" %}{% include "partials/city/chicago-city-v2.njk" %}{% else %}<section class="city-page">
   <div class="city-shell">
     {% include "partials/breadcrumbs.njk" %}
 

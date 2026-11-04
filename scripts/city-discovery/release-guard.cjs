@@ -1,0 +1,5 @@
+'use strict';
+const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
+function releaseIssues(config,root){const issues=[];if(!config.enabled)issues.push('City discovery build flag is not enabled.');if(config.photoRightsConfirmed!==true||!String(config.photoRightsEvidence||'').trim())issues.push('Exact existing city photograph reuse rights are not confirmed.');if(config.photo?.src!=='/assets/images/cities/san-francisco-ca.webp')issues.push('Unexpected hero photograph.');else{const file=path.join(root,config.photo.src);if(!fs.existsSync(file)||crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex')!==config.photo.originalSHA256)issues.push('Original city photograph bytes differ from reviewed asset.');}return issues;}
+module.exports={releaseIssues};
+if(require.main===module){const root=path.resolve(__dirname,'../..');const issues=releaseIssues(require(path.join(root,'_data/cityDiscovery.js')),root);console.log(JSON.stringify({releaseReady:issues.length===0,issues},null,2));if(issues.length)process.exitCode=2;}
